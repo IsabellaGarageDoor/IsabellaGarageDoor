@@ -1,0 +1,74 @@
+<div class="search">
+  <input
+    type="search"
+    placeholder="Search articles (springs, rollers, openers...)"
+    aria-label="Search articles"
+  />
+
+  <ul class="results"></ul>
+</div>
+
+<script>
+  const input = document.querySelector('input');
+  const results = document.querySelector('.results');
+
+  let articles = [];
+
+  fetch('/search.json')
+    .then(res => res.json())
+    .then(data => {
+      articles = data;
+    });
+
+  input.addEventListener('input', () => {
+    const query = input.value.toLowerCase().trim();
+    results.innerHTML = '';
+
+    if (!query) return;
+
+    const matches = articles
+  .map(article => {
+    let score = 0;
+
+    const title = article.title.toLowerCase();
+    const description = article.description.toLowerCase();
+    const content = article.content.toLowerCase();
+
+    if (title.includes(query)) score += 100;
+    if (description.includes(query)) score += 40;
+    if (content.includes(query)) score += 10;
+
+    return { ...article, score };
+  })
+  .filter(article => article.score > 0)
+  .sort((a, b) => b.score - a.score);
+
+
+    if (matches.length === 0) {
+      results.innerHTML = '<li>No results found</li>';
+      return;
+    }
+
+    for (const article of matches) {
+      const li = document.createElement('li');
+      li.innerHTML = `
+  <a href="/blog/${article.slug}" class="result-item">
+    ${article.thumbnail ? `
+      <img
+        src="${article.thumbnail}"
+        alt="${article.title || 'Article thumbnail'}"
+        loading="lazy"
+      />
+    ` : ''}
+
+    <div class="result-text">
+      <strong>${article.title || 'Untitled Article'}</strong>
+      <small>${article.description || ''}</small>
+    </div>
+  </a>
+`;
+
+      results.appendChild(li);
+    }
+  });
+</script>

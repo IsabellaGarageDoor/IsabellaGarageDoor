@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+
+// How many cards to show
+const COUNT = 3;
+
+const posts = await getCollection('blog');
+
+// Shuffle + select
+const featuredPosts = [...posts]
+  .sort(() => 0.5 - Math.random())
+  .slice(0, COUNT);
+---
+
+<section class="blog-background">
+  <h2 class="sub-heading">Garage Door Tips & Learning Center</h2>
+
+  <div class="blog-cards">
+    {featuredPosts.map(post => (
+      <article class="blog-card reveal-on-scroll">
+        {post.data.thumbnail && (
+          <img
+            src={post.data.thumbnail}
+            alt={post.data.title || 'Garage door article'}
+            loading="lazy"
+          />
+        )}
+
+        <div class="blog-content">
+          <h3>
+            <a href={`/blog/${post.slug}`}>
+              {post.data.title}
+            </a>
+          </h3>
+
+          {post.data.description && (
+            <p>{post.data.description}</p>
+          )}
+
+          <a class="read-more" href={`/blog/${post.slug}`}>
+            Read More →
+          </a>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

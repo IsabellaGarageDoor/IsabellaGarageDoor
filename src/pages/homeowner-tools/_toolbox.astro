@@ -1,0 +1,180 @@
+---
+title: "Homeowner Toolbox - Isabella Garage Door"
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro'
+
+const title = 'Homeowner Toolbox | Isabella Garage Door';
+const description = 'Tools built specifically for homeowners';
+---
+
+<BaseLayout {title} {description}>   
+
+<link rel="stylesheet" href="/styles/tools.css" />
+
+
+    <!-- HERO -->
+    <section>
+      <span class="badge">🧰 Homeowner’s Toolbox — 4 smart tools, one place</span>
+      <div class="hero-grid">
+        <div>
+          <h2>Faster answers. Smarter maintenance. Less downtime.</h2>
+          <p>
+            Meet your <strong>Homeowner’s Toolbox</strong>: a suite of tools we built to make garage door care simple and stress‑free.
+            Get accurate estimates, diagnose issues, check spring health, and ask questions — all before we even arrive.
+          </p>
+          <ul class="checklist">
+            <li>Transparent, no‑surprise pricing</li>
+            <li>DIY checks that don’t void safety</li>
+            <li>Faster scheduling & fewer callbacks</li>
+            <li>Built for Central Michigan homeowners</li>
+          </ul>
+          <div class="cta-row">
+            <a class="btn" href="#tools">Explore the Tools</a>
+            <a class="btn ghost" href="#why">How it helps</a>
+          </div>
+          <div class="tool-strip">
+            <div class="tool-pill"><strong>EasyEstimate™</strong><a href="/tools/easy-estimate">Open →</a></div>
+            <div class="tool-pill"><strong>DoorDiagnosis™</strong><a href="/tools/door-diagnosis">Open →</a></div>
+            <div class="tool-pill"><strong>SpringStatus™</strong><a href="/tools/spring-status">Open →</a></div>
+            <div class="tool-pill"><strong>AskAbel™</strong><a href="/tools/ask-abel">Open →</a></div>
+          </div>
+        </div>
+        <aside class="card hero-card">
+          <h3>What’s inside</h3>
+          <ul>
+            <li><strong>EasyEstimate™</strong> — instant ballparks for common repairs & installs.</li>
+            <li><strong>DoorDiagnosis™</strong> — guided checks to pinpoint issues safely.</li>
+            <li><strong>SpringStatus™</strong> — track spring age, cycles & risk indicators.</li>
+            <li><strong>AskAbel™</strong> — quick answers from your virtual garage expert.</li>
+          </ul>
+          <p class="muted">Use one tool or all four — they work independently and together.</p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- WHY / VALUE -->
+    <section class="section container" id="why">
+      <h3>Why homeowners love the toolbox</h3>
+      <p class="muted">Fewer surprises. Safer checks. Smoother service. Built by a local, owner‑operated team that treats your home like our own.</p>
+      <div class="grid">
+        <div class="card">
+          <span class="eyebrow">Clarity before the visit</span>
+          <h4>No more mystery quotes</h4>
+          <p class="muted">See real‑world price ranges and what affects them — so you can decide with confidence.</p>
+        </div>
+        <div class="card">
+          <span class="eyebrow">Safety‑first guidance</span>
+          <h4>DIY where it’s safe, help when it’s not</h4>
+          <p class="muted">Our checks flag when to stop and call us — protecting you and your door from damage.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLS DETAIL -->
+    <section class="section container" id="tools">
+      <h3>The tools</h3>
+      <div class="grid">
+        <article class="card">
+          <span class="eyebrow">Estimator</span>
+          <h4>EasyEstimate™</h4>
+          <p class="muted">Quick, honest ballpark for repairs and installs.</p>
+          <div class="features">
+            <div class="feature">Repair & install ranges with notes</div>
+            <div class="feature">Add photos to speed scheduling</div>
+            <div class="feature">Request service right from result</div>
+            <div class="feature">Mobile‑friendly</div>
+          </div>
+          <div class="cta-row">
+            <a class="btn" href="/tools/easy-estimate">Open EasyEstimate</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="eyebrow">Troubleshooter</span>
+          <h4>DoorDiagnosis™</h4>
+          <p class="muted">Step‑by‑step guide to identify common issues.</p>
+          <div class="features">
+            <div class="feature">Branching questions lead to likely causes</div>
+            <div class="feature">Safety interlocks</div>
+            <div class="feature">Easy handoff to schedule service</div>
+            <div class="feature">Saves your answers for our tech</div>
+          </div>
+          <div class="cta-row">
+            <a class="btn" href="/tools/door-diagnosis">Open DoorDiagnosis</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="eyebrow">Preventive</span>
+          <h4>SpringStatus™</h4>
+          <p class="muted">Track your springs’ likely cycle life and risk.</p>
+          <div class="features">
+            <div class="feature">Cycle estimates with risk bands</div>
+            <div class="feature">Maintenance reminders</div>
+            <div class="feature">Upgrade suggestions</div>
+            <div class="feature">Export for your home binder</div>
+          </div>
+          <div class="cta-row">
+            <a class="btn" href="/tools/spring-status">Open SpringStatus</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="eyebrow">Answers</span>
+          <h4>AskAbel™</h4>
+          <p class="muted">Have a quick question? Ask our virtual garage expert.</p>
+          <div class="features">
+            <div class="feature">Quick answers 24/7</div>
+            <div class="feature">Links you to the right tool</div>
+            <div class="feature">Knows local brands</div>
+            <div class="feature">Saves time for both of us</div>
+          </div>
+          <div class="cta-row">
+            <a class="btn" href="/tools/ask-abel">Open AskAbel</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section >
+      <div class="card center">
+        <h3>Ready when you are</h3>
+        <p class="muted">Jump into any tool now — or message us and we’ll point you to the right one.</p>
+        <div class="cta-row">
+          <a class="btn" href="/tools/easy-estimate">Start with EasyEstimate</a>
+          <a class="btn ghost" href="/contact">Message Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section>
+      <h3>FAQ</h3>
+      <div class="faq">
+        <details>
+          <summary>Will I get an exact price from EasyEstimate™?</summary>
+          <p class="muted">You’ll see a realistic range. Final pricing happens after inspection.</p>
+        </details>
+        <details>
+          <summary>Is it safe to follow DoorDiagnosis™ steps?</summary>
+          <p class="muted">Yes — the guide includes clear safety stop points.</p>
+        </details>
+        <details>
+          <summary>How accurate is SpringStatus™?</summary>
+          <p class="muted">It provides cycle‑based estimates and risk bands.</p>
+        </details>
+        <details>
+          <summary>What can I ask in AskAbel™?</summary>
+          <p class="muted">Anything garage‑door related — noises, quotes, opener brands, keypad issues, maintenance tips, and more.</p>
+        </details>
+      </div>
+    </section>
+ 
+
+
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</BaseLayout>

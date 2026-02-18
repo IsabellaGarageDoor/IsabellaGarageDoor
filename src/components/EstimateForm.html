@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Garage Door Estimate - Professional Service</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #faf3eb;
+            min-height: 100vh;
+            padding: 1rem;
+            color: #1a334f;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #faf3eb;
+            border-radius: .75rem;
+            overflow: hidden;
+            animation: slideUp 0.6s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: #faf3eb;
+            color: #1a334f;
+            padding: 1rem;
+            border-radius: .75rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            pointer-events: none;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .form-content {
+            padding: 1rem;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            margin-bottom: 30px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4299e1, #3182ce);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #2d3748;
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        select, input, textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: .094rem solid #b27d57;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #fff;
+            font-family: inherit;
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, .1);
+        }
+
+        select:focus, input:focus, textarea:focus {
+            outline: none;
+            border-color: #b27d57;
+            box-shadow: 0 0 0 3px rgba(185, 150, 25, 0.1);
+            transform: translateY(-1px);
+        }
+
+        select:hover, input:hover, textarea:hover {
+            border-color: #b27d57;
+        }
+
+        select {
+            cursor: pointer;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" fill="%23718096" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 16px;
+            padding-right: 40px;
+            appearance: none;
+        }
+
+        .price-display {
+            background: #ffffff;
+            border: .094rem solid #b27d57;
+            border-radius: .75rem;
+            padding: 25px;
+            margin: 25px 0;
+            text-align: center;
+            animation: priceSlide 0.5s ease-out;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.45);
+        }
+
+        @keyframes priceSlide {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .price-label {
+            font-size: 1.1rem;
+            color: #1a334f;
+            margin-bottom: 8px;
+        }
+
+        .price-range {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #1a334f;
+            margin-bottom: 15px;
+        }
+
+        .contact-section {
+            background: #ffffff;
+            border: .094rem solid #b27d57;
+            border-radius: .75rem;
+            padding: 30px;
+            margin-top: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.45);
+        }
+
+        .contact-section h2 {
+            color: #1a334f;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .submit-btn {
+            background: #1a334f;
+            color: white;
+            border: .094rem solid #b27d57;
+            padding: .75rem 2rem;
+            border-radius: .75rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.45);
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.45);
+        }
+
+        .submit-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .info-card {
+            background: #ffffff;
+            border: .094rem solid #b27d57;
+            border-radius: 12px;
+            padding: 1rem;
+            margin: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.45);
+        }
+
+        .info-card h3 {
+            color: #1a334f;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .info-card p {
+            color: #1a334f;
+            line-height: 1.5;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: .75rem;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .form-content {
+                padding: 30px 20px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .price-range {
+                font-size: 1.5rem;
+            }
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Garage Door Repair</h1>
+            <p>Get an instant estimate for your garage door service</p>
+        </div>
+        
+        <div class="form-content">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            
+            <form action="https://formsubmit.co/Isabellagaragedoor@gmail.com" method="POST" id="garageForm">
+                <!-- FormSubmit Configuration -->
+                <input type="hidden" name="_subject" value="New Garage Door Service Request">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_next" value="https://www.google.com">
+                
+                <!-- Hidden fields for service details -->
+                <input type="hidden" name="Service Type" id="serviceTypeHidden">
+                <input type="hidden" name="Spring Type" id="springTypeHidden">
+                <input type="hidden" name="Spring Count" id="springCountHidden">
+                <input type="hidden" name="Opener Problem" id="openerProblemHidden">
+                <input type="hidden" name="Roller Problem" id="rollerProblemHidden">
+                <input type="hidden" name="Roller Count" id="rollerCountHidden">
+                <input type="hidden" name="Cable Problem" id="cableProblemHidden">
+                <input type="hidden" name="Track Problem" id="trackProblemHidden">
+                <input type="hidden" name="Estimated Cost" id="estimatedCostHidden">
+                
+                <div class="form-group">
+                    <label for="serviceType">What type of service do you need? *</label>
+                    <select id="serviceType" name="serviceType" required>
+                        <option value="">Choose your service type</option>
+                        <option value="Broken Spring Repair">Broken Spring Repair</option>
+                        <option value="Opener Repair/Replacement">Opener Repair/Replacement</option>
+                        <option value="Roller Replacement">Roller Replacement</option>
+                        <option value="Cable Off/Replacement">Cable Off/Replacement</option>
+                        <option value="Track Repair">Track Repair</option>
+                        <option value="Maintenance/Inspection">Maintenance/Inspection</option>
+                    </select>
+                </div>
+
+                <div id="infoCard" class="info-card hidden">
+                    <h3>💡 Did you know?</h3>
+                    <p id="infoText"></p>
+                </div>
+
+                <!-- Spring Repair Section -->
+                <div id="springSection" class="hidden">
+                    <div class="form-group">
+                        <label for="springType">What type of spring system do you have?</label>
+                        <select id="springType" name="springType">
+                            <option value="">Select spring type</option>
+                            <option value="Torsion Springs (above door)">Torsion Springs (above door)</option>
+                            <option value="Extension Springs (sides)">Extension Springs (sides)</option>
+                            <option value="Not sure / Other">Not sure / Other</option>
+                        </select>
+                    </div>
+
+                    <div id="springCountSection" class="form-group hidden">
+                        <label for="springCount">How many springs need replacement?</label>
+                        <select id="springCount" name="springCount">
+                            <option value="">Select quantity</option>
+                            <option value="1 spring">1 spring</option>
+                            <option value="2 springs (recommended)">2 springs (recommended)</option>
+                            <option value="4 springs">4 springs</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Opener Repair Section -->
+                <div id="openerSection" class="form-group hidden">
+                    <label for="openerProblem">What's happening with your opener?</label>
+                    <select id="openerProblem" name="openerProblem">
+                        <option value="">Describe the problem</option>
+                        <option value="Wall button or remote not working">Wall button or remote not working</option>
+                        <option value="Motor runs but won't move door">Motor runs but won't move door</option>
+                        <option value="Door won't open or close">Door won't open or close</option>
+                        <option value="Opener light flashing/blinking">Opener light flashing/blinking</option>
+                        <option value="Need complete opener replacement">Need complete opener replacement</option>
+                    </select>
+                </div>
+
+                <!-- Roller Replacement Section -->
+                <div id="rollerSection" class="hidden">
+                    <div class="form-group">
+                        <label for="rollerProblem">What's wrong with your rollers?</label>
+                        <select id="rollerProblem" name="rollerProblem">
+                            <option value="">Select the issue</option>
+                            <option value="Loud or squeaky operation">Loud or squeaky operation</option>
+                            <option value="Door moves jerky/uneven">Door moves jerky/uneven</option>
+                            <option value="Visible wear or damage">Visible wear or damage</option>
+                            <option value="Rollers came off track">Rollers came off track</option>
+                        </select>
+                    </div>
+
+                    <div id="rollerCountSection" class="form-group hidden">
+                        <label for="rollerCount">How many rollers does your door have?</label>
+                        <select id="rollerCount" name="rollerCount">
+                            <option value="">Select quantity</option>
+                            <option value="1-2 rollers">1-2 rollers</option>
+                            <option value="10 rollers (standard single)">10 rollers (standard single)</option>
+                            <option value="12 rollers (standard double)">12 rollers (standard double)</option>
+                            <option value="Other/Not sure">Other/Not sure</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Cable Replacement Section -->
+                <div id="cableSection" class="form-group hidden">
+                    <label for="cableProblem">What's the cable issue?</label>
+                    <select id="cableProblem" name="cableProblem">
+                        <option value="">Describe the problem</option>
+                        <option value="Frayed or broken cable">Frayed or broken cable</option>
+                        <option value="Rusty or corroded cable">Rusty or corroded cable</option>
+                        <option value="Cable came off the drum">Cable came off the drum</option>
+                        <option value="Door is uneven/crooked">Door is uneven/crooked</option>
+                    </select>
+                </div>
+
+                <!-- Track Repair Section -->
+                <div id="trackSection" class="form-group hidden">
+                    <label for="trackProblem">What's wrong with the track?</label>
+                    <select id="trackProblem" name="trackProblem">
+                        <option value="">Select track issue</option>
+                        <option value="Bent or damaged track">Bent or damaged track</option>
+                        <option value="Door is rubbing against track">Door is rubbing against track</option>
+                        <option value="Door is completely off track">Door is completely off track</option>
+                    </select>
+                </div>
+
+                <!-- Price Display -->
+                <div id="priceDisplay" class="price-display hidden">
+                    <div class="price-label">💰 Estimated Service Cost</div>
+                    <div class="price-range" id="priceRange"></div>
+                </div>
+
+                <!-- Contact Information -->
+                <div id="contactSection" class="contact-section hidden">
+                    <h2>Contact Information</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Service Address *</label>
+                        <input type="text" id="address" name="address" placeholder="123 Main St, City, State 12345" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="details">Additional Details</label>
+                        <textarea id="details" name="details" rows="4" placeholder="Any additional information about your garage door issue..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submitBtn">🚀 Submit Service Request</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Price mapping
+        const prices = {
+            'Broken Spring Repair': {
+                'Torsion Springs (above door)': {
+                    '1 spring': '$150 - $250',
+                    '2 springs (recommended)': '$250 - $400',
+                    '4 springs': 'Call for estimate'
+                },
+                'Extension Springs (sides)': {
+                    '1 spring': '$100 - $200',
+                    '2 springs (recommended)': '$200 - $300',
+                    '4 springs': 'Call for estimate'
+                }
+            },
+            'Opener Repair/Replacement': {
+                'Wall button or remote not working': '$75 - $150',
+                'Motor runs but won\'t move door': '$150 - $300',
+                'Door won\'t open or close': '$100 - $250',
+                'Opener light flashing/blinking': '$80 - $160',
+                'Need complete opener replacement': '$200 - $500'
+            },
+            'Roller Replacement': {
+                'Loud or squeaky operation': {
+                    '1-2 rollers': '$50 - $100',
+                    '10 rollers (standard single)': '$150 - $300',
+                    '12 rollers (standard double)': '$180 - $360'
+                },
+                'Door moves jerky/uneven': '$80 - $200',
+                'Visible wear or damage': '$60 - $150',
+                'Rollers came off track': '$100 - $250'
+            },
+            'Cable Off/Replacement': {
+                'Frayed or broken cable': '$80 - $200',
+                'Rusty or corroded cable': '$70 - $180',
+                'Cable came off the drum': '$100 - $250',
+                'Door is uneven/crooked': '$120 - $300'
+            },
+            'Track Repair': {
+                'Bent or damaged track': '$100 - $250',
+                'Door is rubbing against track': '$90 - $220',
+                'Door is completely off track': '$150 - $350'
+            },
+            'Maintenance/Inspection': '$75 - $150'
+        };
+
+        const infoTexts = {
+            'Broken Spring Repair': "Spring repairs are our most common service. We recommend replacing both springs even if only one is broken to prevent future issues.",
+            'Opener Repair/Replacement': "Most opener issues can be diagnosed remotely. Our technicians carry parts for all major brands.",
+            'Roller Replacement': "Quality rollers can extend your garage door's life by years and reduce noise significantly.",
+            'Cable Off/Replacement': "Cable problems should be addressed immediately as they can cause serious safety hazards.",
+            'Track Repair': "Track issues often indicate underlying problems with your door's balance or hardware.",
+            'Maintenance/Inspection': "Regular maintenance can prevent 80% of garage door emergencies and extend your door's lifespan."
+        };
+
+        let currentPrice = '';
+
+        function updateProgress() {
+            const serviceType = document.getElementById('serviceType').value;
+            const contactVisible = !document.getElementById('contactSection').classList.contains('hidden');
+            const priceVisible = !document.getElementById('priceDisplay').classList.contains('hidden');
+            
+            let progress = 0;
+            if (serviceType) progress += 33;
+            if (priceVisible) progress += 33;
+            if (contactVisible) progress += 34;
+            
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+
+        function hideAllSections() {
+            document.getElementById('springSection').classList.add('hidden');
+            document.getElementById('openerSection').classList.add('hidden');
+            document.getElementById('rollerSection').classList.add('hidden');
+            document.getElementById('cableSection').classList.add('hidden');
+            document.getElementById('trackSection').classList.add('hidden');
+            document.getElementById('springCountSection').classList.add('hidden');
+            document.getElementById('rollerCountSection').classList.add('hidden');
+            document.getElementById('priceDisplay').classList.add('hidden');
+            document.getElementById('contactSection').classList.add('hidden');
+        }
+
+        function showInfoCard(serviceType) {
+            const infoCard = document.getElementById('infoCard');
+            const infoText = document.getElementById('infoText');
+            
+            if (infoTexts[serviceType]) {
+                infoText.textContent = infoTexts[serviceType];
+                infoCard.classList.remove('hidden');
+            } else {
+                infoCard.classList.add('hidden');
+            }
+        }
+
+        function calculatePrice(serviceType, subType, count = null) {
+            if (serviceType === 'Maintenance/Inspection') {
+                return prices[serviceType];
+            }
+            
+            if (!prices[serviceType]) return '';
+            
+            if (count && prices[serviceType][subType] && typeof prices[serviceType][subType] === 'object') {
+                return prices[serviceType][subType][count] || 'Call for estimate';
+            }
+            
+            if (typeof prices[serviceType][subType] === 'string') {
+                return prices[serviceType][subType];
+            }
+            
+            return '';
+        }
+
+        function showPrice(price) {
+            if (price) {
+                currentPrice = price;
+                document.getElementById('priceRange').textContent = price;
+                document.getElementById('priceDisplay').classList.remove('hidden');
+                document.getElementById('contactSection').classList.remove('hidden');
+                updateProgress();
+            }
+        }
+
+        function updateHiddenFields() {
+            const serviceType = document.getElementById('serviceType').value;
+            const springType = document.getElementById('springType').value;
+            const springCount = document.getElementById('springCount').value;
+            const openerProblem = document.getElementById('openerProblem').value;
+            const rollerProblem = document.getElementById('rollerProblem').value;
+            const rollerCount = document.getElementById('rollerCount').value;
+            const cableProblem = document.getElementById('cableProblem').value;
+            const trackProblem = document.getElementById('trackProblem').value;
+
+            document.getElementById('serviceTypeHidden').value = serviceType;
+            document.getElementById('springTypeHidden').value = springType;
+            document.getElementById('springCountHidden').value = springCount;
+            document.getElementById('openerProblemHidden').value = openerProblem;
+            document.getElementById('rollerProblemHidden').value = rollerProblem;
+            document.getElementById('rollerCountHidden').value = rollerCount;
+            document.getElementById('cableProblemHidden').value = cableProblem;
+            document.getElementById('trackProblemHidden').value = trackProblem;
+            document.getElementById('estimatedCostHidden').value = currentPrice;
+        }
+
+        // Event listeners
+        document.getElementById('serviceType').addEventListener('change', function() {
+            const serviceType = this.value;
+            hideAllSections();
+            showInfoCard(serviceType);
+            
+            if (serviceType === 'Broken Spring Repair') {
+                document.getElementById('springSection').classList.remove('hidden');
+            } else if (serviceType === 'Opener Repair/Replacement') {
+                document.getElementById('openerSection').classList.remove('hidden');
+            } else if (serviceType === 'Roller Replacement') {
+                document.getElementById('rollerSection').classList.remove('hidden');
+            } else if (serviceType === 'Cable Off/Replacement') {
+                document.getElementById('cableSection').classList.remove('hidden');
+            } else if (serviceType === 'Track Repair') {
+                document.getElementById('trackSection').classList.remove('hidden');
+            } else if (serviceType === 'Maintenance/Inspection') {
+                const price = calculatePrice(serviceType);
+                showPrice(price);
+            }
+            
+            updateProgress();
+        });
+
+        document.getElementById('springType').addEventListener('change', function() {
+            const springType = this.value;
+            if (springType) {
+                document.getElementById('springCountSection').classList.remove('hidden');
+            } else {
+                document.getElementById('springCountSection').classList.add('hidden');
+            }
+        });
+
+        document.getElementById('springCount').addEventListener('change', function() {
+            const serviceType = document.getElementById('serviceType').value;
+            const springType = document.getElementById('springType').value;
+            const springCount = this.value;
+            
+            if (serviceType && springType && springCount) {
+                const price = calculatePrice(serviceType, springType, springCount);
+                showPrice(price);
+            }
+        });
+
+        document.getElementById('openerProblem').addEventListener('change', function() {
+            const serviceType = document.getElementById('serviceType').value;
+            const problem = this.value;
+            
+            if (problem) {
+                const price = calculatePrice(serviceType, problem);
+                showPrice(price);
+            }
+        });
+
+        document.getElementById('rollerProblem').addEventListener('change', function() {
+            const serviceType = document.getElementById('serviceType').value;
+            const problem = this.value;
+            
+            if (problem === 'Loud or squeaky operation') {
+                document.getElementById('rollerCountSection').classList.remove('hidden');
+            } else {
+                document.getElementById('rollerCountSection').classList.add('hidden');
+                if (problem) {
+                    const price = calculatePrice(serviceType, problem);
+                    showPrice(price);
+                }
+            }
+        });
+
+        document.getElementById('rollerCount').addEventListener('change', function() {
+            const serviceType = document.getElementById('serviceType').value;
+            const rollerProblem = document.getElementById('rollerProblem').value;
+            const rollerCount = this.value;
+            
+            if (serviceType && rollerProblem && rollerCount) {
+                const price = calculatePrice(serviceType, rollerProblem, rollerCount);
+                showPrice(price);
+            }
+        });
+
+        document.getElementById('cableProblem').addEventListener('change', function() {
+            const serviceType = document.getElementById('serviceType').value;
+            const problem = this.value;
+            
+            if (problem) {
+                const price = calculatePrice(serviceType, problem);
+                showPrice(price);
+            }
+        });
+
+        document.getElementById('trackProblem').addEventListener('change', function() {
+            const serviceType = document.getElementById('serviceType').value;
+            const problem = this.value;
+            
+            if (problem) {
+                const price = calculatePrice(serviceType, problem);
+                showPrice(price);
+            }
+        });
+
+        document.getElementById('garageForm').addEventListener('submit', function(e) {
+            updateHiddenFields();
+            document.getElementById('submitBtn').disabled = true;
+            document.getElementById('submitBtn').innerHTML = '📤 Submitting... <span class="loading"></span>';
+        });
+
+        // Initialize progress
+        updateProgress();
+    </script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro'
+
+const title = 'Why Choose Us | Isabella Garage Door';
+const description = 'Learn why homeowners in Mt. Pleasant, Clare, Alma and across Central Michigan trust Isabella Garage Door for honest, high-quality garage door service.';
+---
+
+<BaseLayout {title} {description}>
+
+  <img src="/src/photos/garage-door-why-choose-us.webp" alt="New garage door intallation in Central Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
+
+  
+    <section class="hero-section">
+      <h1 class="page-title">Why Choose Isabella Garage Door?</h1>
+      <p>Choosing a garage door company is more than comparing prices — it's about who you’re inviting into your home and whether they’ll treat it with care, respect, and honesty. Here’s what sets us apart in Central Michigan.</p>
+    </section>
+
+    <section class="differentiators">
+      <h2 class="sub-heading">We're Local. We're Personal. We Care.</h2>
+      <ul class="bullet-list">
+        <li><strong>Locally Owned & Operated:</strong> We're not a franchise. We're a family-run business rooted right here in Isabella County. This isn't just our work — it's our community.</li>
+        <li><strong>No Pushy Sales Tactics:</strong> We don’t believe in scare tactics, bloated estimates, or selling you things you don’t need. Just honest advice and quality service.</li>
+        <li><strong>Upfront Pricing:</strong> With our <a href="/estimate-tool">online estimate tool</a> and clear service agreements, you’ll know what to expect — no surprises.</li>
+        <li><strong>Clean, Professional Work:</strong> We show up on time, respect your home, and leave things better than we found them.</li>
+        <li><strong>Fully Insured & Detail-Oriented:</strong> We do it right the first time — and we stand behind our work.</li>
+      </ul>
+    </section>
+
+
+
+
+<section class="graph-section" style="max-width: 1000px; margin: 3rem auto; padding: 1rem;">
+  <h2 class="sub-heading">Where We Stand Out</h2>
+
+  <div style="margin-bottom: 1rem;">
+    <span style="display: block; font-weight: 600;">Responsiveness</span>
+    <div style="background: #e0e0e0; height: 12px; border-radius: 6px; overflow: hidden;">
+      <div class="progress-bar" data-width="90%" data-delay="0.1s" style="width: 0%; height: 100%; background: #b27d57;"></div>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 1rem;">
+    <span style="display: block; font-weight: 600;">Transparency</span>
+    <div style="background: #e0e0e0; height: 12px; border-radius: 6px; overflow: hidden;">
+      <div class="progress-bar" data-width="95%" data-delay="0.3s" style="width: 0%; height: 100%; background: #b27d57;"></div>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 1rem;">
+    <span style="display: block; font-weight: 600;">Modern Tools</span>
+    <div style="background: #e0e0e0; height: 12px; border-radius: 6px; overflow: hidden;">
+      <div class="progress-bar" data-width="93%" data-delay="0.5s" style="width: 0%; height: 100%; background: #b27d57;"></div>
+    </div>
+  </div>
+
+  <div>
+    <span style="display: block; font-weight: 600;">Local Connection</span>
+    <div style="background: #e0e0e0; height: 12px; border-radius: 6px; overflow: hidden;">
+      <div class="progress-bar" data-width="98%" data-delay="0.7s" style="width: 0%; height: 100%; background: #b27d57;"></div>
+    </div>
+  </div>
+</section>
+
+
+
+    <section class="comparison">
+      <h2 class="sub-heading">What You Can Expect</h2>
+      <p>When you choose Isabella Garage Door, you're not just hiring a service provider - you're partnering with a team that's committed to making the entire experience as smooth and stress-free as possible. Here's what that looks like in practice:</p>
+      <ul class="bullet-list">
+        <li><strong>Clear Communication:</strong> From your first call to project completion, you'll always know what's next.</li>
+        <li><strong>Flexible Solutions:</strong> Whether you need a quick repair or a complete upgrade, we tailor our approach to your needs and budget.</li>
+        <li><strong>Follow-Through:</strong> We don't disappear after the job - we're here for questions, adjustments, and future needs.</li>
+        <li><strong>Continuous Improvement:</strong> We're always learning new techniques and investing in better tools to serve you better.</li>
+      </ul>
+    </section>
+
+    <!-- Testimonial 
+<section>
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
+  <TestimonialCard 
+    quote="After months of dealing with a noisy, jerky garage door, we finally decided to call Isabella Garage Door. The tech replaced the old worn out rollers. What a difference! The door is so quiet now. We really appreciate them fixing our door. Highly recommend!"
+    author="Elizabeth A."
+  />
+</a>
+</section>
+-->
+
+
+
+    <section class="values-section">
+      <h2 class="sub-heading">We’re Not Just Raising Garage Doors — We’re Raising Standards.</h2>
+      <p>Our slogan isn’t just words. It’s how we operate, day in and day out. Whether it’s a simple repair 
+or a stuck door
+<!-- spring repair 
+or a full garage door installation -->, we approach every job with pride, craftsmanship, and care.</p>
+      <p>We're the garage door company people feel good about recommending to family and friends — because we focus on the things that matter: quality, honesty, and treating every home like our own.</p>
+    </section>
+
+    <!-- Highlight Section -->
+    <div class="highlight-section">
+        <p>
+    Every bolt we tighten, every door we balance—it’s a reflection of <strong>who we are</strong> and the life we’re building here. We’re not just repairing doors; we’re showing our children what <strong>honest work looks like</strong>.
+  </p>
+    </div>
+
+    <section class="call-to-action">
+      <h2 class="sub-heading">Still Deciding?</h2>
+      <p>We don’t expect to earn your trust with words alone. Check out our <a href="/testimonials">customer reviews</a>, try our <a href="/estimate-tool">free estimate tool</a>, or reach out directly to talk through your needs.</p>
+      <div class="cta-wrapper" style="margin-top: 3rem;">
+        <a href="/homeowner-tools/easy-estimate#estimate-form" class="testimonials-cta-button"><i class="fa-solid fa-wrench"></i> Try Estimate Tool</a>
+        <a href="/contact" class="cta-button"><i class="fa-solid fa-envelope-open-text"></i> Contact Us</a>
+      </div>
+    </section>
+  
+<section>
+  <h2 class="sub-heading">Isabella Garage Door</h2>
+  <p style="font-size: .9rem; text-align: center;">
+    Trusted, local, and owner-operated—experience the difference of service done right.
+  </p>
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+    <em>Raising Performance. Elevating Standards</em>
+  </p>
+</section>
+
+
+<style>
+ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+li {
+  margin: 0.6rem 0 0.6rem;
+  list-style-type: disc;
+  font-size: 1rem;
+}
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const bar = entry.target;
+          const delay = bar.dataset.delay || "0s";
+          bar.style.transition = `width 1s ease-out ${delay}`;
+          bar.style.width = bar.dataset.width;
+          observer.unobserve(bar);
+        }
+      });
+    },
+    { threshold: 0.3 }
+  );
+
+  document.querySelectorAll('.progress-bar').forEach(bar => {
+    observer.observe(bar);
+  });
+</script>
+
+<script>
+  if (typeof window !== 'undefined') {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('slide-up-in');
+          observer.unobserve(entry.target); // Animate only once
+        }
+      });
+    }, {
+      threshold: 0.6,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const section = document.querySelector('.highlight-section');
+      if (section) {
+        observer.observe(section);
+      }
+    });
+  }
+</script>
+
+</BaseLayout>

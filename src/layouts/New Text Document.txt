@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isabella Garage Door</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+<!-- ✅ Google Fonts Import -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles/global.css" />
+  <script src="/scripts/menu.js" defer></script>
+
+   
+    <style>
+        /* Basic Reset & Body Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Just for visual separation */
+            padding-top: 100px; /* Space for the sticky header */
+            overflow-x: hidden; /* Prevent horizontal scrollbar caused by off-canvas menu */
+            position: relative; /* For proper positioning of content overlay */
+        }
+
+        /* Prevent body scroll when menu is open */
+        body.menu-open {
+            overflow: hidden; /* Prevent main page scroll when menu is active */
+            position: fixed; /* Fixes the body position to prevent scroll jump on iOS/some browsers */
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Header Styles - Refined for responsiveness */
+        .header {
+            background-color: #1a334f; /* Your specified color */
+            color: white;
+            padding: 15px 20px; /* Default desktop padding */
+            display: flex;
+            align-items: center; /* Vertically centers items */
+            justify-content: space-between; /* Distributes items: left, center-ish, right */
+            position: fixed; /* Makes it sticky */
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Ensures it stays on top */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease-in-out;
+            box-sizing: border-box; /* Include padding in the element's total width */
+            flex-wrap: nowrap; /* Prevent wrapping on desktop as well to be safe */
+         margin-bottom: 0;
+        }
+
+        /* Phone Icon Button */
+        .phone-button {
+            background-color: transparent;
+            border: none;
+            color: #ff6600; /* Orange color for the phone icon */
+            font-size: 24px; /* Default desktop size */
+            cursor: pointer;
+            padding: 0 10px; /* Space around the icon */
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .phone-button:hover {
+            color: #cc5200; /* Darker orange on hover */
+        }
+
+        /* Logo Area - Centered */
+        .header-logo {
+            font-size: 28px; /* Default desktop size */
+            font-weight: bold;
+            flex-grow: 1; /* Allows the logo to take up available space in the center */
+            text-align: center; /* Center the logo text/image within its flex-grown space */
+            white-space: nowrap; /* Prevent text from wrapping by default */
+            overflow: hidden; /* Hide overflow if text is too long */
+            text-overflow: ellipsis; /* Add ellipsis if text is cut off */
+            min-width: 0; /* Allows the logo to shrink below its content size */
+        }
+
+        .logo-img {
+             height: 70px; /* Adjust as needed */
+             width: auto; /* Maintains aspect ratio */
+             max-height: 100%; /* Prevents overflow */
+             display: block;
+             margin: 0 auto; /* Center the image within its container */
+        }
+
+        /* Navigation Menu (Desktop) */
+        .desktop-nav {
+            /* This element is the flex item for the desktop navigation */
+            display: flex; /* Make the nav a flex container for its ul */
+            align-items: center;
+        }
+
+        .nav-menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex; /* Always display flex for desktop nav */
+            gap: 25px; /* Space between links */
+        }
+
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu li a:hover {
+            color: #ddd; /* Lighter shade on hover */
+        }
+
+        /* Hamburger Menu (Mobile) */
+        .hamburger {
+            display: none; /* Hidden on desktop */
+            font-size: 30px;
+            cursor: pointer;
+            padding: 0 10px;
+            flex-shrink: 0; /* Prevent it from shrinking too much */
+        }
+
+        /* Mobile Slide-Out Menu Styles (from left, using transform) */
+        .mobile-nav-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 50vw;
+            max-width: 300px;
+            height: 100%;
+            background-color: #1a334f;
+            padding: 80px 20px 20px 20px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+            z-index: 9999;
+            overflow-y: auto;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-nav-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-nav-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mobile-nav-menu li {
+            margin-bottom: 10px;
+        }
+
+        .mobile-nav-menu li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: block;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: background-color 0.2s ease;
+        }
+
+        .mobile-nav-menu li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-nav-menu li:last-child a {
+            border-bottom: none;
+        }
+
+        /* Overlay to darken content when menu is open */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9998;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Pushing the main content and header when menu is open */
+        body.menu-open .header,
+        body.menu-open .main-content {
+            transform: translateX(min(50vw, 300px));
+        }
+
+        .main-content {
+            transition: transform 0.3s ease-in-out;
+        }
+
+.nav-menu a.active,
+.mobile-nav-menu a.active {
+  color: #ff6600 !important; /* Orange highlight for active page */
+  font-weight: 700;
+  border-bottom: 2px solid #ff6600; /* Underline active link */
+}
+
+
+
+
+        /* Responsive Design for smaller screens */
+        @media (max-width: 768px) {
+            .desktop-nav {
+                display: none; /* Hide desktop nav on smaller screens */
+            }
+
+            .hamburger {
+                display: block; /* Show hamburger on smaller screens */
+                order: 1; /* Place hamburger on the left */
+            }
+
+            .header-logo {
+                font-size: 22px; /* Smaller logo text on mobile */
+                padding: 0 5px; /* Added padding to logo on mobile */
+                white-space: nowrap; /* Keep text on one line */
+                overflow: hidden; /* Hide overflow text */
+                text-overflow: ellipsis; /* Show ellipsis for truncated text */
+                flex-shrink: 1; /* Allow logo to shrink if necessary */
+                flex-basis: auto; /* Allow content to determine its basic size */
+                flex-grow: 1; /* Allow it to grow, but not consume all space */
+                order: 2; /* Place logo in the middle */
+            }
+
+            .phone-button {
+                font-size: 20px; /* Smaller icon on mobile */
+                padding: 0 5px; /* Reduced padding on mobile */
+                flex-shrink: 0; /* Prevent the phone button from shrinking */
+                order: 3; /* Place phone button on the right */
+            }
+
+             .logo-img {
+                  height: 70px; /* Smaller logo image on mobile */
+                  width: auto;
+             }
+
+            .header {
+                padding: 10px 10px; /* Reduced overall padding on mobile */
+                display: flex; /* Ensure flex behavior */
+                flex-direction: row; /* Ensure horizontal layout */
+                flex-wrap: nowrap; /* Crucial: Prevent items from wrapping to the next line */
+                justify-content: space-between; /* Ensures even spacing between items */
+                align-items: center; /* Vertically centers items */
+            }
+        }
+
+        /* Further reduce font sizes for very small screens (e.g., iPhone 5/SE) */
+        @media (max-width: 360px) {
+            .header-logo {
+                font-size: 18px; /* Even smaller logo text on very small screens */
+                padding: 0 3px;
+            }
+            .phone-button {
+                font-size: 18px; /* Even smaller phone icon */
+                padding: 0 3px;
+            }
+            .hamburger {
+                font-size: 26px; /* Adjust hamburger size as well */
+                padding: 0 3px;
+            }
+            .header {
+                padding: 10px 5px; /* Minimal padding */
+            }
+        }
+
+@keyframes ring {
+  0% { transform: rotate(0); }
+  10% { transform: rotate(18deg); }
+  20% { transform: rotate(-12deg); }
+  30% { transform: rotate(7deg); }
+  40% { transform: rotate(-7deg); }
+  50% { transform: rotate(4deg); }
+  60% { transform: rotate(-2deg); }
+  70% { transform: rotate(1deg); }
+  100% { transform: rotate(0); }
+}
+
+.phone-button i.ringing {
+  animation: ring 0.6s ease-in-out;
+}
+
+
+
+    </style>
+</head>
+<body>
+
+    <header class="header" id="mainHeader">
+        <div class="hamburger">&#9776;</div>
+
+        <div class="header-logo">
+          <a href="/" aria-label="Go to Home Page">
+            <img src="/src/assets/images/Isabella GD White Logo.webp" alt="Isabella Garage Door Logo" class="logo-img" />
+          </a>
+        </div>
+
+        <nav class="desktop-nav">
+           <ul class="nav-menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/garage-estimate">Estimate</a></li>
+                <li><a href="/testimonials">Testimonials</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <a href="tel:9895720303" class="phone-button" aria-label="Call Now">
+            <i class="fas fa-phone"></i>
+        </a>
+    </header>
+
+    <nav class="mobile-nav-menu" id="mobileNav">
+        <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/garage-estimate">Estimate</a></li>
+                <li><a href="/testimonials">Testimonials</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="overlay" id="menuOverlay"></div>
+
+
+<main class="main-content fade-in-up;">
+    <slot>
+
+
+
+
+
+
+
+    </slot>
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.querySelector('.hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const body = document.body;
+
+    // Handle menu toggle
+    function toggleMenu() {
+      const isOpen = body.classList.toggle('menu-open');
+      mobileNav.classList.toggle('active', isOpen);
+      menuOverlay.classList.toggle('active', isOpen);
+
+      if (isOpen) {
+        const scrollY = window.scrollY;
+        body.dataset.scrollY = scrollY;
+        body.style.position = 'fixed';
+        body.style.top = `-${scrollY}px`;
+        body.style.left = '0';
+        body.style.right = '0';
+      } else {
+        const scrollY = body.dataset.scrollY || '0';
+        body.style.position = '';
+        body.style.top = '';
+        body.style.left = '';
+        body.style.right = '';
+        window.scrollTo(0, parseInt(scrollY));
+      }
+    }
+
+    if (hamburger && mobileNav && menuOverlay) {
+      hamburger.addEventListener('click', toggleMenu);
+      menuOverlay.addEventListener('click', toggleMenu);
+
+      const navLinks = mobileNav.querySelectorAll('a');
+      navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+          if (mobileNav.classList.contains('active')) {
+            toggleMenu();
+          }
+        });
+      });
+    }
+
+    // ✅ Phone icon vibration every 5 seconds
+    const phoneIcon = document.querySelector('.phone-button i');
+    if (phoneIcon) {
+      setInterval(() => {
+        phoneIcon.classList.add('ringing');
+        setTimeout(() => {
+          phoneIcon.classList.remove('ringing');
+        }, 600);
+      }, 30000); // change to 30000 for 30s in production 45000 for 45 seconds
+    }
+  });
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const normalize = (path) => path.replace(/\/$/, '') || '/';
+  const currentPath = normalize(window.location.pathname);
+  console.log("Highlighting current page:", currentPath);
+  console.log("Highlight script running on:", window.location.pathname);
+
+
+  document.querySelectorAll('.nav-menu a, .mobile-nav-menu a').forEach(link => {
+    const linkPath = normalize(new URL(link.getAttribute('href'), window.location.origin).pathname);
+    if (linkPath === currentPath) {
+      link.classList.add('active');
+    }
+  });
+});
+</script>
+
+
+
+
+
+   <footer style="text-align: center; padding: 2rem 1rem; background-color: #1A334F; color: white; font-size: 0.9rem;">
+      <nav style="margin-bottom: 1rem;">
+        <a href="/" style="color: #fff; margin: 0 0.5rem;">Home</a> |
+        <a href="/services" style="color: #fff; margin: 0 0.5rem;">Services</a> |
+        <a href="/garage-estimate" style="color: #fff; margin: 0 0.5rem;">Estimate</a> |
+        <a href="/testimonials" style="color: #fff; margin: 0 0.5rem;">Testimonials</a> |
+        <a href="/about" style="color: #fff; margin: 0 0.5rem;">About</a> |
+        <a href="/blog" style="color: #fff; margin: 0 0.5rem;">Resources</a> |
+        <a href="/contact" style="color: #fff; margin: 0 0.5rem;">Contact</a>
+      </nav>
+      <p>Email: <a href="mailto:isabellagaragedoor@gmail.com" style="color: #fff;">IsabellaGarageDoor@gmail.com</a></p>
+      <p>Serving Isabella County and the Surrounding Central Michigan Area</p>
+      <p>&copy; 2025 Isabella Garage Door. All rights reserved.</p>
+        <div style="margin-top: 0rem; font-size: 0.8rem; opacity: 0.9;">
+    <a href="/privacy-policy" style="color: #fff; text-decoration: underline; margin: 0 0.3rem;">Privacy Policy</a> |
+    <a href="/terms-of-service" style="color: #fff; text-decoration: underline; margin: 0 0.3rem;">Terms of Service</a>
+        </div>
+      <p style="opacity: 0.8;">A division of <strong>Schwab & Co. Holdings LLC</strong></p>
+    </footer>
+
+
+  </body>
+</html>

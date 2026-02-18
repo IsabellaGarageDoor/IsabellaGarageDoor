@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ShareButtons from '../components/ShareButtons.astro';
+import ConvertKitForm from '../components/ConvertKitForm.astro';
+const { title, description, pubDate, thumbnail, post, url } = Astro.props;
+---
+<BaseLayout>
+
+<main class="main-content fade-in" style="padding: 0rem; max-width: 1000px; margin: 0 auto;">
+  <article>
+    {thumbnail && (
+  <img
+    src={thumbnail}
+    alt={title}
+    style="width: 100%; max-height: auto; object-fit: cover; border-radius: 0.75rem; margin-bottom: 1rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);"
+  />
+)}
+    
+    <p><em>{pubDate}</em></p>
+    <slot />
+  </article>
+
+<section>
+<div>
+  <h3 style="text-align:center; font-weight:600; margin-top:2rem;">Share this page</h3>
+  <div class="share-buttons">
+    <ShareButtons url={url.pathname} />
+  </div>
+</div>
+</section>
+
+
+<section>
+ <h3 class="sub-sub-heading">Get Our Free Guide</h3>
+<div class="form-wrapper-ebook">
+
+     <div class="form-image">
+    <img src="/src/photos/EbookCover3.webp" alt="Garage Door Tips From a Professional" />
+  </div>
+  <div class="form-text">
+     <p>
+      Keep your garage door running smoothly, avoid costly repairs, and extend its lifespan with these must-know tips—straight from a local pro.
+    </p>
+  </div>
+</div>
+<ConvertKitForm />
+<p class="form-note">We’ll send your Free Garage Door Guide instantly and only email you with helpful tips and reminders —no spam, ever.
+</p>
+</section>
+
+</main>
+
+</BaseLayout>

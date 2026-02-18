@@ -1,0 +1,425 @@
+---
+const {
+  title = 'Isabella Garage Door | Raising Performance. Elevating Standards.',
+  description = 'Local, honest, and professional garage door repair and installation in Central Michigan.',
+  image = '/images/og-default.jpg', // Use your real OG image path
+  url = 'https://www.isabellagaragedoor.com',
+  fullUrl = 'https://www.isabellagaragedoor.com/your-page-slug',
+  type = 'website' // or "article" if it's a blog post
+} = Astro.props;
+
+const baseSchema = {
+  "@context": "https://schema.org",
+  "@type": "GarageDoorService",
+  "@id": "https://isabellagaragedoor.com/#business",
+  "name": "Isabella Garage Door",
+  "url": "https://isabellagaragedoor.com",
+  "logo": "https://isabellagaragedoor.com/logo.png",
+  "telephone": "+1-989-572-0303",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2088 North Lincoln Road",
+    "addressLocality": "Rosebush",
+    "addressRegion": "MI",
+    "postalCode": "48878",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.7001,
+    "longitude": -84.7674
+  }
+};
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1A334F" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content={type} />
+  <meta property="og:image" content={url + image} />
+  <meta property="og:url" content={fullUrl} />
+  <meta property="og:site_name" content="Isabella Garage Door" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={url + image} />
+
+  <link 
+    rel="preload" 
+    as="image" 
+    href="/photos/blue-isabella-garage-door-logo.png" 
+    type="image/png" 
+    fetchpriority="high" 
+  />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/global.css" />
+  <script src="/scripts/menu.js" defer></script>
+
+<script type="application/ld+json" set:html={JSON.stringify(baseSchema)} />
+  
+  <slot name="head" />
+
+</head>
+
+<body lang="en">
+
+    <header class="header" id="mainHeader">
+
+<div class="hamburger">
+  <div class="hamburger__stack">
+    <svg class="hamburger__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+    </svg>
+    <span class="hamburger__label">Menu</span>
+  </div>
+</div>
+
+
+        <div class="header-logo">
+          <a href="/" aria-label="Go to Home Page">
+            <img src="/src/assets/images/white-tag-isabella-garage-door-logo.svg" alt="Isabella Garage Door Logo" class="logo-img" />
+          </a>
+        </div>
+
+        <nav class="desktop-nav">
+           <ul class="nav-menu">
+        <li><a href="/">Home</a></li>
+
+        <li class="has-submenu">
+            <a href="/services">Services <i class="fas fa-chevron-down"></i></a>
+            <ul class="submenu">
+                <li><a href="/services/broken-springs">Broken Springs</a></li>
+                <li><a href="/services/door-repair">Door Repair</a></li>
+              <!--  <li><a href="/services/new-door-installation">New Door Installation</a></li>  -->
+                <li><a href="/services/opener-repair">Opener Repair</a></li>
+                <li><a href="/services/new-opener-installation">New Opener Installation</a></li>
+                <li><a href="/services/maintenance">Maintenance</a></li>
+          <!--  <li><a href="/services/performance-membership">Performance Membership</a></li>   -->
+            </ul>
+        </li>
+
+        <li class="has-submenu">
+            <a href="/homeownertools">Homeowner Tools <i class="fas fa-chevron-down"></i></a>
+            <ul class="submenu">
+                 <li><a href="/homeowner-tools/easy-estimate">EasyEstimate™</a></li>
+                <li><a href="/homeowner-tools/door-diagnosis">DoorDiagnosis™</a></li>
+                <li><a href="/homeowner-tools/spring-status">SpringStatus™</a></li>
+       <!--     <li><a href="/homeowner-tools/ask-abel-ai-assistant">AskAbel™</a></li>    -->
+            </ul>
+
+        <li class="has-submenu">
+            <a href="/about">About <i class="fas fa-chevron-down"></i></a>
+            <ul class="submenu">
+                <li><a href="/about/why-choose-isabella-garage-door">Why Choose Us</a></li>
+                <li><a href="/about/our-story">Our Story</a></li>
+                <li><a href="/about/testimonials">Testimonials</a></li>
+                <li><a href="/about/gallery-isabella-garage-door">Gallery</a></li>
+            </ul>
+        </li>
+
+        <li class="has-submenu">
+            <a href="/resources">Resources <i class="fas fa-chevron-down"></i></a>
+            <ul class="submenu">
+                <li><a href="/resources/learning-center">Learning Center</a></li>
+                <li><a href="/resources/faq">FAQs</a></li>
+         <!--    <li><a href="/resources/pricing">How We Do Pricing</a></li>   -->
+         <!--    <li><a href="/resources/warranty">Warranty</a></li>           -->
+            </ul>
+        </li>
+
+        <li><a href="/contact">Request Service</a></li>
+    </ul>
+</nav>
+
+
+<a href="tel:9895720303" class="phone-button" aria-label="Call Now">
+  <svg class="phone-button__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path d="M391.1 351.1c-22.4 0-44.1-3.5-64.8-10.4-10.8-3.6-22.8-.7-30.9 7.4l-46.7 35.3c-55.1-29.1-99.8-73.8-128.9-128.9l35.3-46.7c8.1-8.1 11-20.1 7.4-30.9-6.9-20.7-10.4-42.4-10.4-64.8C153 93.1 137.9 80 120.4 80H56C38.3 80 24 94.3 24 112c0 207.6 168.4 376 376 376 17.7 0 32-14.3 32-32v-64.4c0-17.5-13.1-32.6-30.9-32.6z" fill="currentColor"/>
+  </svg>
+  <span class="phone-button__label">Call</span>
+</a>
+
+    </header>
+
+<nav class="mobile-nav-menu" id="mobileNav">
+  <img src="/src/assets/images/white-tag-isabella-garage-door-logo.svg" alt="Isabella Garage Door Logo" class="menu-img" />
+    <ul>
+        <li><a href="/">Home</a></li>
+
+        <li class="has-submenu">
+            <a href="/services">Services <i class="fas fa-chevron-down"></i></a>
+            <ul class="submenu">
+                <li><a href="/services/broken-springs">Broken Springs</a></li>
+                <li><a href="/services/door-repair">Door Repair</a></li>
+          <!--  <li><a href="/services/new-door-installation">New Door Installation</a></li>  -->
+                <li><a href="/services/opener-repair">Opener Repair</a></li>
+                <li><a href="/services/new-opener-installation">New Opener Installation</a></li>
+                <li><a href="/services/maintenance">Maintenance</a></li>
+        <!--    <li><a href="/services/performance-membership">Performance Membership</a></li>   -->
+            </ul>
+        </li>
+
+        <li class="has-submenu">
+            <a href="/homeownertools">Homeowner Tools <i class="fas fa-chevron-down"></i></a>
+            <ul class="submenu">
+                 <li><a href="/homeowner-tools/easy-estimate">EasyEstimate™</a></li>
+                <li><a href="/homeowner-tools/door-diagnosis">DoorDiagnosis™</a></li>
+                <li><a href="/homeowner-tools/spring-status">SpringStatus™</a></li>
+       <!--     <li><a href="/homeowner-tools/ask-abel-ai-assistant">AskAbel™</a></li>    -->
+            </ul>
+        </li>
+
+        <li class="has-submenu">
+            <a href="/about">About <i class="fas fa-chevron-down"></i></a>
+            <ul class="submenu">
+                <li><a href="/about/why-choose-isabella-garage-door">Why Choose Us</a></li>
+                <li><a href="/about/our-story">Our Story</a></li>
+                <li><a href="/about/testimonials">Testimonials</a></li>
+                <li><a href="/about/gallery-isabella-garage-door">Gallery</a></li>
+            </ul>
+        </li>
+
+        <li class="has-submenu">
+            <a href="/resources">Resources <i class="fas fa-chevron-down"></i></a>
+            <ul class="submenu">
+                <li><a href="/resources/learning-center">Learning Center</a></li>
+                <li><a href="/resources/faq">FAQs</a></li>
+     <!--       <li><a href="/resources/pricing">How We Do Pricing</a></li>    -->
+     <!--       <li><a href="/resources/warranty">Warranty</a></li>            -->
+            </ul>
+        </li>
+
+        <li><a href="/contact">Request Service</a></li>
+    </ul>
+</nav>
+
+    <div class="overlay" id="menuOverlay"></div>
+
+<main class="main-content fade-in-up">
+    <slot>
+
+    </slot>
+
+</main>
+
+    <!-- Sticky Mobile Footer (Scoped as floating-footer) -->
+    <div class="floating-footer">
+      <a href="tel:19895720303" class="floating-footer__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+          <path d="M6.62 10.79a15.054 15.054 0 0 0 6.59 6.59l2.2-2.2a1.004 1.004 0 0 1 1.05-.24 
+                   11.72 11.72 0 0 0 3.69.59 1 1 0 0 1 1 1V20a1 1 0 0 1-1 
+                   1C9.39 21 3 14.61 3 6a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 
+                   1c0 1.28.2 2.52.59 3.69a1 1 0 0 1-.24 1.05l-2.23 2.05z"/>
+        </svg>
+        <span>Call</span>
+      </a>
+
+      <a href="sms:19895720303?&body=Hi%2C%20I%20need%20some%20help%20with%20my%20garage%20door." class="floating-footer__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+          <path d="M20 2H4C2.9 2 2 2.9 2 4v16l4-4h14c1.1 0 2-.9 
+                   2-2V4c0-1.1-.9-2-2-2zm-2 9H6V9h12v2zm0-3H6V6h12v2z"/>
+        </svg>
+        <span>Text</span>
+      </a>
+
+      <a href="mailto:isabellagaragedoor@gmail.com" class="floating-footer__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+          <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 
+                   2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+        </svg>
+        <span>Email</span>
+      </a>
+
+      <a href="/homeowner-tools/easy-estimate#estimate-form" class="floating-footer__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+          <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 
+                   1s-2.4.84-2.82 2H5c-1.1 0-2 
+                   .9-2 2v16a2 2 0 0 0 2 2h14c1.1 
+                   0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 
+                   0c.55 0 1 .45 1 1h-2c0-.55.45-1 
+                   1-1zm7 18H5V5h2v2h10V5h2v16z"/>
+          <text x="9.4" y="17.2" font-size="9" fill="#b27d57" font-family="Arial, san-serif" font-weight="bold">$</text>
+        </svg>
+        <span>Estimate</span>
+      </a>
+    </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const hamburger = document.querySelector('.hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const body = document.body;
+
+    let scrollY = 0;
+
+    // 🧠 Capture scrollY *immediately* on mousedown
+    if (hamburger) {
+      hamburger.addEventListener('mousedown', () => {
+        scrollY = window.scrollY;
+        console.log('[SCROLL-CAPTURE] Pre-click scrollY:', scrollY);
+      });
+
+      // Delay style-lock until click to allow scrollY to register
+      hamburger.addEventListener('click', () => {
+        body.classList.toggle('menu-open');
+        const isOpen = mobileNav.classList.toggle('active');
+        menuOverlay.classList.toggle('active', isOpen);
+
+        if (isOpen) {
+          body.dataset.scrollY = scrollY;
+          body.style.position = 'fixed';
+          body.style.top = `-${scrollY}px`;
+          body.style.left = '0';
+          body.style.right = '0';
+        } else {
+          const savedY = parseInt(body.dataset.scrollY || '0');
+          body.style.position = '';
+          body.style.top = '';
+          body.style.left = '';
+          body.style.right = '';
+          window.scrollTo(0, savedY);
+          document.querySelectorAll('.has-submenu.active').forEach(item => item.classList.remove('active'));
+        }
+      });
+    }
+
+    if (menuOverlay) {
+      menuOverlay.addEventListener('click', () => {
+        mobileNav.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        body.classList.remove('menu-open');
+        const savedY = parseInt(body.dataset.scrollY || '0');
+        body.style.position = '';
+        body.style.top = '';
+        body.style.left = '';
+        body.style.right = '';
+        window.scrollTo(0, savedY);
+        document.querySelectorAll('.has-submenu.active').forEach(item => item.classList.remove('active'));
+      });
+    }
+
+    // Mobile submenu toggle
+    document.querySelectorAll('.has-submenu > a').forEach(link => {
+      link.addEventListener('click', function (event) {
+        const parent = this.parentNode;
+        const isDesktop = window.innerWidth > 768;
+
+        if (isDesktop) {
+          event.preventDefault();
+          document.querySelectorAll('.desktop-nav .has-submenu').forEach(other => {
+            if (other !== parent) other.classList.remove('active');
+          });
+          parent.classList.toggle('active');
+          event.stopPropagation();
+        } else {
+          if (parent.classList.contains('has-submenu')) {
+            event.preventDefault();
+            parent.classList.toggle('active');
+            event.stopPropagation();
+          }
+        }
+      });
+    });
+
+    // Close mobile menu on final link click
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function () {
+        const parentLi = this.closest('.has-submenu');
+        const isToggle = parentLi && parentLi.querySelector(':scope > a') === this;
+
+        if (window.innerWidth <= 768 && !isToggle && mobileNav.classList.contains('active')) {
+          mobileNav.classList.remove('active');
+          menuOverlay.classList.remove('active');
+          body.classList.remove('menu-open');
+          const savedY = parseInt(body.dataset.scrollY || '0');
+          body.style.position = '';
+          body.style.top = '';
+          body.style.left = '';
+          body.style.right = '';
+          window.scrollTo(0, savedY);
+        }
+      });
+    });
+
+    // Close desktop submenu if clicking outside
+    document.addEventListener('click', function (event) {
+      if (window.innerWidth > 768 && !event.target.closest('.has-submenu')) {
+        document.querySelectorAll('.desktop-nav .has-submenu.active').forEach(item => {
+          item.classList.remove('active');
+        });
+      }
+    });
+
+    // Phone icon ring animation
+    const phoneIcon = document.querySelector('.phone-button i');
+    if (phoneIcon) {
+      setInterval(() => {
+        phoneIcon.classList.add('ringing');
+        setTimeout(() => phoneIcon.classList.remove('ringing'), 600);
+      }, 30000);
+    }
+  });
+</script>
+
+
+<script>
+  // Active link highlighting
+  document.addEventListener('DOMContentLoaded', () => {
+    const normalize = (path) => path.replace(/\/$/, '') || '/';
+    const currentPath = normalize(window.location.pathname);
+    console.log("Highlighting current page:", currentPath);
+
+    document.querySelectorAll('.nav-menu a, .mobile-nav-menu a').forEach(link => {
+      const linkPath = normalize(new URL(link.getAttribute('href'), window.location.origin).pathname);
+      if (linkPath === currentPath) {
+        link.classList.add('active');
+        const parentSubmenu = link.closest('.has-submenu');
+        if (parentSubmenu) {
+          parentSubmenu.querySelector('a').classList.add('active');
+        }
+      }
+    });
+  });
+</script>
+
+
+
+   <footer style="border-top: 1.5px solid #b27d57; text-align: center; padding: 2rem 1rem; background-color: #1A334F; color: white; font-size: 0.9rem;">
+      <nav style="margin: 0 auto 0.5rem;">
+        <a href="/" style="color: #ffffff; margin: 0 0.5rem;">Home</a> | 
+        <a href="/services/services" style="color: #ffffff; margin: 0 0.5rem;">Services</a> |
+        <a href="/homeowner-tools/easy-estimate" style="color: #ffffff; margin: 0 0.5rem;">Estimate</a> | 
+        <a href="/about/testimonials" style="color: #ffffff; margin: 0 0.5rem;">Testimonials</a> |
+        <a href="/about/our-story" style="color: #ffffff; margin: 0 0.5rem;">About</a> | 
+        <a href="/resources/learning-center" style="color: #ffffff; margin: 0 0.5rem;">Learning Center</a> |
+        <a href="/contact" style="color: #ffffff; margin: 0 0.5rem;">Contact</a>
+      </nav>
+      <p style="margin: 0 auto;">Email: <a href="mailto:isabellagaragedoor@gmail.com" style="color: #ffffff;">IsabellaGarageDoor@gmail.com</a></p>
+      <p style="margin: 0 auto;">Serving Isabella County and the Surrounding Central Michigan Area</p>
+      <p style="margin: 0 auto;">&copy;  2026 Isabella Garage Door. All rights reserved.</p>
+        <div style="margin: 0 auto; font-size: 0.8rem; opacity: 0.9;">
+    <a href="/legal/privacy-policy" style="color: #ffffff; text-decoration: underline; margin: 0 0.3rem;">Privacy Policy</a> | 
+    <a href="/legal/terms-of-service" style="color: #ffffff; text-decoration: underline; margin: 0 0.3rem;">Terms of Service</a>
+        </div>
+      <p style="opacity: 0.7; margin: 0 auto;";">A division of <strong>Schwab & Co. Holdings LLC</strong></p>
+    </footer>
+
+  </body>
+</html>

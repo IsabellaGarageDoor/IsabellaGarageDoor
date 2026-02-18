@@ -1,0 +1,181 @@
+---
+import SearchBar from '../../components/SearchBar.jsx'
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Learning Center | Isabella Garage Door';
+const description = 'Explore expert tips, how-tos, and helpful guides to keep your garage door running smoothly and safely.';
+
+// Get all blog posts
+const allPosts = await getCollection('blog');
+
+// Sort posts by date (newest first)
+const sortedPosts = allPosts.sort((a, b) => {
+  return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
+});
+
+// Pagination setup
+const postsPerPage = 5;
+const currentPage = +Astro.url.searchParams.get('page') || 1;
+const totalPages = Math.ceil(sortedPosts.length / postsPerPage);
+const startIndex = (currentPage - 1) * postsPerPage;
+const endIndex = startIndex + postsPerPage;
+const paginatedPosts = sortedPosts.slice(startIndex, endIndex);
+---
+
+<BaseLayout {title} {description}>
+
+<html>
+  <head>
+    <title>Resources | Isabella Garage Door</title>
+    <meta name="description" content="Insights, updates, and tips from Isabella Garage Door." />
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+
+  <body>
+
+  <img src="/src/photos/learning-center-garage-door.webp" alt="Beautiful garage door fixed and working again" loading="eager" fetchpriority="high" class="header-photo-interior" />
+
+    <h1 class="page-title">Learning Center</h1>
+
+  <p class="intro-paragraph">
+    Welcome to the Learning Center — your go-to garage door resource for expert tips, how-to guides, and helpful insights in Central Michigan. Whether you're troubleshooting a strange noise, planning a replacement, or just staying ahead on maintenance, you're in the right place.
+  </p>
+
+
+    <div class="blog-search-wrap">
+  <a href="/search" class="blog-search-button">
+    🔍 Search Articles
+  </a>
+  <span class="blog-search-hint">
+    Find answers about springs, rollers, openers, and more
+  </span>
+</div>
+    
+    <div style="width: 100%; text-align: center;">
+      <ul class="blog-list">
+  {paginatedPosts.map(post => (
+    <li class="blog-item">
+      <a href={`/blog/${post.slug}`}>
+        {post.data.thumbnail && (
+          <img 
+            src={post.data.thumbnail} 
+            alt={post.data.title} 
+            class="blog-thumbnail" 
+            loading="lazy"
+          />
+        )}
+        <h2>{post.data.title}</h2>
+      </a>
+      <p style="margin-top: 1rem;">{post.data.description}</p>
+      <p style="margin-bottom: 0;">
+        <em>
+          {new Date(post.data.pubDate).toLocaleDateString('en-US', {
+            year: 'numeric', month: 'long', day: 'numeric'
+          })}
+        </em>
+      </p>
+    </li>
+  ))}
+</ul>
+      
+      <!-- Pagination controls -->
+<div class="pagination-wrapper">
+  {currentPage > 1 && (
+    <a href={`?page=${currentPage - 1}`} class="pagination-button arrow">&larr;</a>
+  )}
+
+  {currentPage > 3 && (
+    <>
+      <a href={`?page=1`} class="pagination-button">1</a>
+      <span class="pagination-ellipsis">...</span>
+    </>
+  )}
+
+  {Array.from({ length: totalPages }, (_, i) => i + 1)
+    .filter(p => p >= currentPage - 2 && p <= currentPage + 2)
+    .map(p => (
+      <a
+        href={`?page=${p}`}
+        class={`pagination-button ${p === currentPage ? 'active' : ''}`}
+      >
+        {p}
+      </a>
+    ))}
+
+  {currentPage < totalPages - 2 && (
+    <>
+      <span class="pagination-ellipsis">...</span>
+      <a href={`?page=${totalPages}`} class="pagination-button">{totalPages}</a>
+    </>
+  )}
+
+  {currentPage < totalPages && (
+    <a href={`?page=${currentPage + 1}`} class="pagination-button arrow">&rarr;</a>
+  )}
+</div>
+
+
+  <section>
+  <h2 class="sub-heading">Isabella Garage Door</h2>
+  <p style="font-size: .9rem; text-align: center;">
+    Helpful tips, honest answers, and smart guidance — all from your local garage door experts.
+  </p>
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+    <em>Raising Performance. Elevating Standards</em>
+  </p>
+</section>
+  
+
+  </body>
+</html>
+
+
+
+<style>
+  .blog-list {
+    list-style-type: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+.blog-thumbnail {
+  width: 100%;
+  height: auto;
+  border-radius: .75rem;
+  margin-bottom: 0.75rem;
+  display: block;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+}
+
+  .blog-item {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1.5px solid #eaeaea;
+    text-align: left;
+  }
+
+.blog-item a h2 {
+  color: #1A334F; /* Your brand navy */
+  text-decoration: underline;
+  transition: color 0.3s;
+  font-weight: 700;
+  font-size: 1.3rem;
+  font-family: 'Lora', serif;
+}
+
+.blog-item a:hover h2 {
+  color: #2a4b6e; /* Slightly lighter on hover */
+}
+
+  
+  .blog-item:last-child {
+    border-bottom: none;
+  }
+  
+</style>
+
+
+
+</BaseLayout>

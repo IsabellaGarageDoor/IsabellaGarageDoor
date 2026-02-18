@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+const posts = await getCollection('blog');
+const postImports = import.meta.glob('../../posts/*.md');
+const posts = await Promise.all(
+  Object.entries(postImports).map(async ([path, resolver]) => {
+    const post = await resolver();
+    const slug = path.split('/').pop().replace('.md', '');
+    return {
+      ...post.frontmatter,
+      slug,
+    };
+  })
+);
+---
+
+<html lang="en">
+  <head>
+    <title>Blog</title>
+  </head>
+  <body>
+    <h1>Blog</h1>
+    <ul>
+      {posts.map(post => (
+        <li>
+          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+        </li>
+      ))}
+    </ul>
+  </body>
+</html>
+
+
+
+<html lang="en">
+  <head>
+    <title>Blog | Isabella Garage Door</title>
+  </head>
+  <body>
+    <h1>Our Blog</h1>
+    <ul>
+      {posts.map((post) => (
+        <li>
+          <h2><a href={`/blog/${post.slug}`}>{post.title}</a></h2>
+          <p>{post.date} — {post.description}</p>
+        </li>
+      ))}
+    </ul>
+  </body>
+</html>

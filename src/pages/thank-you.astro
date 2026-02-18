@@ -1,0 +1,76 @@
+---
+title: "Thank You - Isabella Garage Door"
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+  <section class="thank-you-container">
+    <div class="thank-you-box">
+      <h1>Thank You!</h1>
+      <p class="message">Your free copy of <strong>“7 Expert Garage Door Tips Every Michigan Homeowner Should Know”</strong> is on its way to your inbox.</p>
+      <p class="subtext">Be sure to check your spam or promotions folder just in case. If you have any questions, don’t hesitate to <a href="/contact">reach out</a>.</p>
+      <a href="/" class="home-button">Back to Homepage</a>
+    </div>
+  </section>
+
+  <style>
+    .thank-you-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 1rem;
+      min-height: 80vh;
+      background-color: #f9f9f9;
+    }
+
+    .thank-you-box {
+      background: white;
+      border: .094rem solid #b27d57;
+      padding: 3rem;
+      border-radius: 1rem;
+      max-width: 600px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    h1 {
+      color: #1A334F;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-family: 'Lora', serif;
+      font-weight: 600;
+    }
+
+    .message {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+
+    .subtext {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 2rem;
+    }
+
+    a {
+      color: #b27d57;
+      text-decoration: underline;
+    }
+
+    .home-button {
+      display: inline-block;
+      background: #1a334f;
+      color: white;
+      padding: 1rem 2rem;
+      border: .094rem solid #b27d57;
+      border-radius: 0.75rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+
+    .home-button:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</BaseLayout>

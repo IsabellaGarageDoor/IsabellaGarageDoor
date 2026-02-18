@@ -1,0 +1,296 @@
+---
+title: "Garage Door Protection Plans - Isabella Garage Door"
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro'
+
+const title = 'Garage Door Maintenance | Isabella Garage Door';
+const description = 'Keep your garage door running smoothly with our expert maintenance services in Mt. Pleasant and Central Michigan. Prevent costly repairs with regular inspections and tune-ups.';
+
+const maintenanceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Garage Door Maintenance",
+  "provider": {
+    "@id": "https://isabellagaragedoor.com/#business"
+  },
+  "description": "Comprehensive preventative maintenance for residential garage doors to ensure safe, quiet, and reliable operation.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Maintenance Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Hardware Inspection",
+          "description": "A thorough check of springs, cables, rollers, and sensors to identify wear before it leads to failure."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Lubrication & Adjustment",
+          "description": "Professional-grade lubrication of all moving parts and precision door balancing to reduce motor strain."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Opener Safety Test",
+          "description": "Testing the auto-reverse and photo-eye sensors to ensure your door meets modern safety standards."
+        }
+      }
+    ]
+  }
+};
+---
+
+<BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(maintenanceSchema)} />
+  </Fragment>
+
+  <img src="/src/photos/maintenance-on-a-garage-door-clare-michigan.webp" alt="Maintaining a garage door in Clare Michigan" 
+  loading="eager" fetchpriority="high" class="header-photo-interior" />
+
+  <!-- HERO -->
+  <section>
+    <h1 class="page-title">Is Your Garage Door in Need Of Maintenance?</h1>
+    <p>
+      Prevent breakdowns. Extend system life. Protect your investment.
+    </p>
+    <p style="margin-top: 1rem;">
+      Your garage door is the largest moving system in your home — and one of the most used.
+      Professional maintenance catches small issues before they become expensive failures
+      and keeps your system operating safely and reliably.
+    </p>
+        <a href="sms:9895720303?&body=Hi%2C%20I%20need%20maintenance%20on%20my%20garage%20door%20please." class="hero-contact-button" style="margin: 3rem auto -1rem;">
+          <i class="fas fa-comment-dots"></i> Text Us Now
+        </a>
+  </section>
+
+  <!-- WHY IT MATTERS -->
+  <section class="signs">
+    <h2 class="sub-heading">Why Garage Door Maintenance Matters</h2>
+    <p>
+      Most garage door failures don’t happen suddenly. They build over time from wear,
+      friction, and unnoticed part fatigue. Routine inspection and adjustment prevents
+      broken springs, snapped cables, door-off-track situations, and premature opener failure.
+    </p>
+
+    <ul>
+      <li>High-tension springs under extreme pressure</li>
+      <li>Cables carrying the full weight of the door</li>
+      <li>Rollers, hinges, and bearings that wear with every cycle</li>
+      <li>Safety systems that protect your family</li>
+      <li>An opener that depends on a properly balanced door</li>
+    </ul>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="signs additional-info">
+
+    <h2 class="sub-heading">What Our Maintenance Service Includes</h2>
+
+    <div class="columns">
+      <div>
+    <h3 class="sub-sub-heading">Full Mechanical Inspection</h3>
+    <ul>
+      <li>Springs checked for wear, stretch, and balance</li>
+      <li>Cables inspected for fraying, rust, and tension</li>
+      <li>Rollers checked for worn bearings</li>
+      <li>Hinges inspected for cracking or fatigue</li>
+      <li>Track alignment and fastener inspection</li>
+    </ul>
+      </div>
+
+      <div>
+    <h3 class="sub-sub-heading">Door Balance & Operation Test</h3>
+    <ul>
+      <li>Professional door balance test</li>
+      <li>Minor spring adjustment if needed</li>
+      <li>Manual operation test</li>
+      <li>Opener force and travel check</li>
+    </ul>
+      </div>
+
+      <div>
+    <h3 class="sub-sub-heading">Safety System Testing</h3>
+    <ul>
+      <li>Photo eye sensor alignment and test</li>
+      <li>Auto-reverse pressure test</li>
+      <li>Emergency release check</li>
+    </ul>
+      </div>
+
+      <div>
+    <h3 class="sub-sub-heading">Professional Lubrication</h3>
+    <p>
+      Proper lubrication at the correct points using professional-grade products
+      designed specifically for garage door systems.
+    </p>
+      </div>
+
+      <div>
+    <h3 class="sub-sub-heading">Condition Report</h3>
+    <p>
+      You receive a clear report of component condition:
+      <strong>Good / Fair / Poor</strong>, so you can make informed decisions
+      before failures occur.
+    </p>
+</div>
+  </section>
+
+  <!-- FREQUENCY -->
+  <section class="frequency">
+    <h2 class="sub-heading">How Often Should a Garage Door Be Maintained?</h2>
+    <p>
+      Most homes should have their garage door inspected at least once per year.
+      High-use or older systems benefit from twice-per-year inspections.
+    </p>
+  </section>
+
+
+
+  <!-- MEMBERSHIP FUNNEL 
+  <section class="membership">
+    <h2 class="sub-heading">One-Time Maintenance vs. Performance Membership</h2>
+    <p>
+      You can schedule maintenance as a one-time service. But many homeowners prefer
+      a smarter, long-term option.
+    </p>
+
+    <h3 class="sub-sub-heading" style="margin-top: 2rem;">The Smarter Option: Performance Membership</h3>
+
+  <img src="/src/photos/protection-garage-door-plans.webp" alt="Garage door maintenance and protection plans prevents emergency service" 
+  loading="lazy" class="header-photo-interior" />
+-->
+
+    <!-- Highlight Section 
+  <div class="highlight-section">
+    <p>
+      Our <strong>Performance Membership</strong> includes scheduled visits, priority service,
+      included parts, and long-term system protection. It’s designed for homeowners
+      who don’t want to think about their garage door at all.
+    </p>
+ </div>
+  
+      <a href="/services/performance-membership" class="cta-button"><i class="fa-solid fa-shield"></i>
+        Performance Membership
+      </a>
+  </section>
+-->
+
+
+  <!-- SIGNS -->
+  <section class="signs">
+    <h2 class="sub-heading">Signs Your Door Is Overdue for Maintenance</h2>
+    <ul>
+      <li>Door is louder than it used to be</li>
+      <li>Jerky or shaky movement</li>
+      <li>Opener struggling to lift the door</li>
+      <li>Rust on cables or springs</li>
+      <li>Door feels heavy when lifted manually</li>
+      <li>You can’t remember the last service</li>
+    </ul>
+  </section>
+
+  <!-- SERVICE AREA 
+  <section class="service-area">
+    <h2 class="sub-heading">Proudly Serving Central Michigan</h2>
+    <p>
+      Mt. Pleasant, Lake Isabella, Clare, Shepherd, Beal City, Rosebush,
+      Coleman, Farwell, and surrounding communities.
+    </p>
+  </section>
+-->
+
+  <!-- CTA -->
+<section>
+    <a href="/contact" class="cta-button"><i class="fa-solid fa-calendar-check fa-fw"></i> Schedule Maintenance Today</a>
+</section>
+
+<section>
+  <h2 class="sub-heading">Isabella Garage Door</h2>
+  <p style="font-size: .9rem; text-align: center;">
+    Prevent problems before they start—trusted garage door maintenance across Central Michigan.
+  </p>
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+    <em>Raising Performance. Elevating Standards</em>
+  </p>
+</section>
+
+<style>
+.signs ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.signs li {
+  margin-bottom: 0.6rem;
+  list-style-type: disc;
+  font-size: 0.95rem;
+}
+
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.columns > div {
+  flex: 1 1 250px;
+  background: #ffffff;
+  border: 0.094rem solid #b27d57;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+}
+
+    .columns > div:hover {
+      box-shadow: 0 0 0.9rem rgba(178, 125, 87, 0.85); /* Stronger glow */
+      border-color: #b27d57;
+      outline: none;
+      transform: translateY(-2px); /* Lift on hover */
+    }
+
+.columns h3 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: #b27d57;
+}
+
+
+</style>
+
+<script>
+  if (typeof window !== 'undefined') {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('slide-up-in');
+          observer.unobserve(entry.target); // Animate only once
+        }
+      });
+    }, {
+      threshold: 0.6,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const section = document.querySelector('.highlight-section');
+      if (section) {
+        observer.observe(section);
+      }
+    });
+  }
+</script>
+
+</BaseLayout>

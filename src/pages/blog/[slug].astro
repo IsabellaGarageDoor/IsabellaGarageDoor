@@ -1,0 +1,31 @@
+---
+// src/pages/blog/[slug].astro
+
+import { getEntry } from 'astro:content';
+import { Markdown } from 'astro/components';
+import BlogLayout from '../../layouts/BlogLayout.astro';
+import YouMayAlsoLike from '../../components/YouMayAlsoLike.astro';
+
+const { slug } = Astro.params;
+const post = await getEntry('blog', slug);
+const url = Astro.url; // ✅ Grab the full URL object
+
+if (!post) throw new Error(`Post not found: ${slug}`);
+const { Content } = await post.render();
+---
+
+
+
+<BlogLayout 
+  title={post.data.title} 
+  description={post.data.description} 
+  pubDate={post.data.pubDate}
+  thumbnail={post.data.thumbnail}
+  post={post} url={url}
+>
+
+  <Content />
+
+<YouMayAlsoLike currentSlug={slug} />
+
+</BlogLayout>

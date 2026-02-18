@@ -1,0 +1,159 @@
+---
+title: "Central Michigan Garage Door Services"
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro'
+
+const title = 'Central Michigan Garage Door Services | Isabella Garage Door';
+const description = 'Garage door repair, installation, and maintenance across Central Michigan by Isabella Garage Door. Locally owned, regionally trusted.'
+---
+
+<BaseLayout {title} {description}>
+
+<img src="/src/photos/new-garage-door-install-central-michigan.webp" alt="Request garage door service or intallation today in Central Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
+
+  <section>
+    <h1 class="page-title">Garage Door Repair & Installation in Central Michigan</h1>
+    <p class="slogan">Raising Performance. Elevating Standards.</p>
+    <p>
+      At <strong>Isabella Garage Door</strong>, we proudly serve the heart of Central Michigan—where dependable service meets small-town values. From rural homes to suburban garages, we help homeowners across the region keep things moving safely and smoothly.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="sub-heading">Locally Owned. Regionally Trusted.</h2>
+    <p>
+      We’re based right here in <strong>Isabella County</strong>, and we know what Central Michigan needs—harsh winters, wet spring thaws, and all. Whether you're in a quiet farming town or a growing neighborhood, you’ll get the same honest, high-quality service every time.
+    </p>
+  </section>
+
+  <section>
+    <h2 class="sub-heading">Areas We Serve</h2>
+<img src="/src/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" style="margin-bottom: 2rem;"/>
+    <ul>
+      <li>Mt. Pleasant</li>
+      <li>Clare</li>
+      <li>Lake Isabella</li>
+      <li>Beal City</li>
+      <li>Shepherd</li>
+      <li>Rosebush</li>
+      <li>Remus</li>
+      <li>Farwell</li>
+      <li>Coleman</li>
+      <li>St. Louis</li>
+      <li>Alma</li>
+      <li>Edmore</li>
+      <li>Winn</li>
+      <li>...and surrounding areas</li>
+    </ul>
+    <p style="margin-top: 0.5rem;">
+      👉 See our <a href="/contact#service-area" class="link">full service area</a><br>
+      👉 Receive an <a href="/homeowner-tools/easy-estimate#estimate-form" class="link">Online Estimate</a>
+    </p>
+  </section>
+
+  <section>
+    <h2 class="sub-heading">What We Offer</h2>
+    <ul>
+      <li><strong>Garage Door Repairs</strong> – Springs, rollers, cables, openers, and more</li>
+      <li><strong>New Door Installation</strong> – Residential upgrades with pro recommendations</li>
+      <li><strong>Opener Installation & Replacement</strong> – Trusted brands like LiftMaster® Chamberlain® and Genie®</li>
+      <li><strong>Preventive Maintenance Plans</strong> – So you don’t get stuck in the cold</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2 class="sub-heading">Why Central Michigan Homeowners Trust Us</h2>
+    <ul>
+      <li>👨‍🔧 Reliable—We keep our word, and your door moving </li>
+      <li>📅 Prompt scheduling—clear communication</li>
+      <li>✅ Honest recommendations—no upsells</li>
+      <li>📍 Deep local roots—never subcontracted</li>
+      <li>💬 5-star reviews from your neighbors</li>
+    </ul>
+  </section>
+
+    <!-- Testimonial 
+<section>
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
+  <TestimonialCard 
+    quote="We live out past Rosebush and still got fast help when our spring broke on a cold day. Wouldn’t call anyone else."
+    author="Carrie H."
+  />
+</a>
+</section>
+-->
+
+  <!-- Highlight Section -->
+  <div class="highlight-section">
+    <p>
+      When garage doors need attention anywhere in Central Michigan, locals turn to <strong>Isabella Garage Door</strong> for reliable repairs done right the first time.
+    </p>
+  </div>
+
+  <section>
+    <h2 class="sub-heading">Book Trusted Garage Door Service in Central Michigan</h2>
+    <p>
+      Your garage door keeps your life running. Let us help you keep it that way—with service rooted right here in Central Michigan.
+    </p>
+    <a href="/homeowner-tools/easy-estimate#estimate-form" class="testimonials-cta-button">Get an EasyEstimate™</a>
+    <a href="/contact" class="cta-button">Request Service</a>
+  </section>
+
+
+<section>
+  <h2 class="sub-heading">Isabella Garage Door</h2>
+  <p style="font-size: .9rem; text-align: center;">
+    Serving Central Michigan with all your garage door needs.
+  </p>
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+    <em>Raising Performance. Elevating Standards</em>
+  </p>
+</section>
+
+<style>
+  .slogan {
+    font-size: 1.2rem;
+    color: #b27d57;
+    margin: 1rem 0;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 2.5rem;
+  }
+
+.link {
+  color: #b27d57;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: #81583b;
+}
+</style>
+
+<script>
+  if (typeof window !== 'undefined') {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('slide-up-in');
+          observer.unobserve(entry.target); // Animate only once
+        }
+      });
+    }, {
+      threshold: 0.6,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const section = document.querySelector('.highlight-section');
+      if (section) {
+        observer.observe(section);
+      }
+    });
+  }
+</script>
+
+</BaseLayout>

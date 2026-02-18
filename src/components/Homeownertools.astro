@@ -1,0 +1,265 @@
+  <section class="value-icons-section">
+    <h2 class="sub-heading">How We Can Help</h2>
+
+    <div class="value-icons-wrapper">
+      <div class="value-icon-grid">
+        <a href="/services/door-repair" aria-label="Garage Door Repair Services" class="value-icon-card">
+         <div class="core-services-icon-circle">
+        <img src="/src/assets/images/garage-door-repair-icon.png" alt="Garage Door Repair Services" class="service-icon" />
+      </div>
+          <div class="value-card-body">
+            <h3>Door Repair</h3>
+            <p>Fixing broken springs, misaligned tracks, worn-out rollers, and more — fast, clean, and dependable.</p>
+          </div>
+        </a>
+
+        <a href="/services/opener-repair" aria-label="Garage Door Opener Repair and Installation in Isabella County" class="value-icon-card">
+         <div class="core-services-icon-circle">
+        <img src="/src/assets/images/garage-door-opener-icon.png" alt="Garage Door Opener Repair and Installation" class="opener-icon" />
+       </div>
+          <div class="value-card-body">
+            <h3>Opener Services</h3>
+            <p>Need a new opener? Troubleshooting a glitchy remote? We work with all major brands and smart systems.</p>
+          </div>
+        </a>
+
+        <a href="/services/new-door-installation" aria-label="New Garage Door installation in Mount Pleasant Michigan" class="value-icon-card">
+         <div class="core-services-icon-circle">
+        <img src="/src/assets/images/garage-door-installation-icon.png" alt="Garage Door Installation Service" class="service-icon" />
+      </div>
+          <div class="value-card-body">
+            <h3>New Installations</h3>
+            <p>We help you choose the right door and install it with craftsmanship and care — no mess left behind.</p>
+          </div>
+        </a>
+
+        <a href="/services/protection-plans" aria-label="Garage Door Maintenance and Protection in Central Michigan" class="value-icon-card">
+         <div class="core-services-icon-circle">
+        <img src="/src/assets/images/garage-door-maintenance-icon.png" alt="Garage Door Maintenance and Protection Plans" class="service-icon" />
+      </div>
+          <div class="value-card-body">
+            <h3>Maintenance</h3>
+            <p>Our Protection Plans help to catch problems early and extend the life of your door and your opener.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+
+<a href="/services/services"  class="cta-button margin-bottom-2rem" style="display: block; margin: 2rem auto 0rem;"><i class="fas fa-compass"></i> Explore Our Services</a>
+  </section>
+
+<style>
+    .value-icons-wrapper {
+      overflow: visible;
+    }
+
+    .value-icons-section {
+      max-width: 1000px;
+      margin-inline: auto;
+      overflow: visible;
+    }
+
+    .value-icon-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+      padding: 0rem;
+      width: 100%;
+      box-sizing: border-box;
+      overflow: visible;
+    }
+
+    @media (min-width: 900px) {
+      .value-icon-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    /* Animation initial state */
+    .value-icon-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #ffffff;
+      border: 0.094rem solid #b27d57;
+      border-radius: 0.75rem;
+      padding: .5rem;
+      width: 100%;
+      box-sizing: border-box;
+      max-width: 100%;
+      min-height: 220px;
+      box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+
+      background-image: url('/src/photos/white-garage-door-service-section.webp');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #ffffff; /* fallback if image fails */
+      z-index: 1;
+
+      opacity: 0;
+      transform: translateY(20px);
+      animation-fill-mode: forwards;
+    }
+
+    /* Light overlay */
+    .value-icon-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(255, 255, 255, 0.5);
+      z-index: 0;
+      border-radius: inherit;
+    }
+
+    .value-icon-card * {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Hover effects */
+    .value-icon-card:hover {
+      box-shadow: 0 0 1rem rgba(178, 125, 87, 0.85);
+      border-color: #b27d57;
+      outline: none;
+      transform: translateY(-5px) scale(1.03);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    /* Icon style */
+    .value-icon-card i {
+      font-size: 2.5rem;
+      color: #b27d57;
+      margin: 0.5rem 0 0.5rem;
+      transition: transform 0.3s ease;
+    }
+
+    /* Pulse animation on icon hover */
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.03);
+      }
+    }
+
+    .value-icon-card:hover i,
+    .value-icon-card:hover img {
+      animation: pulse 1.2s infinite;
+    }
+
+/* For images inside your value cards */
+.value-icon-img {
+  display: block;
+  max-width: 80px;   /* adjust to fit your design */
+  max-height: 80px;
+  margin: 0 auto; /* centers image */
+  transition: transform 0.3s ease;
+}
+
+/* Pulse effect on hover */
+.value-icon-card:hover .value-icon-img {
+  animation: pulse 1.2s infinite;
+}
+
+    .value-card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .value-icon-card h3 {
+      font-size: 1.25rem;
+      font-family: 'Lora', serif;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+      margin-top: 0.25rem;
+      color: #1A334F;
+      position: relative;
+      display: block;
+      text-align: center;
+    }
+
+    .value-icon-card h3::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.3rem;
+      width: 0%;
+      height: 0.15rem;
+      background-color: #b27d57;
+      transition: width 0.3s ease;
+    }
+
+    .value-icon-card:hover h3::after,
+    .value-icon-card:focus h3::after {
+      width: 100%;
+    }
+
+    .value-icon-card p {
+      font-size: 0.95rem;
+      line-height: 1.4;
+      color: #333;
+      text-align: left;
+      margin: .5rem;
+    }
+
+
+  </style>
+
+  <script>
+    if (typeof window !== 'undefined') {
+      // Animate highlight section (existing)
+      const highlightObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('slide-up-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.5,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      window.addEventListener('DOMContentLoaded', () => {
+        const highlightSection = document.querySelector('.highlight-section');
+        if (highlightSection) {
+          highlightObserver.observe(highlightSection);
+        }
+
+        // Animate value icon cards with staggered delay
+        const iconCards = document.querySelectorAll('.value-icon-card');
+        const iconObserver = new IntersectionObserver((entries, iconObs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Add animation with stagger delay based on index
+              const index = Array.from(iconCards).indexOf(entry.target);
+              entry.target.style.animation = `fadeSlideUp 0.6s ease forwards`;
+              entry.target.style.animationDelay = `${index * 150}ms`;
+              iconObs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+
+        iconCards.forEach(card => iconObserver.observe(card));
+      });
+    }
+  </script>
+
+  <style>
+    @keyframes fadeSlideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>

@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found | Fix-a-Problem Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 90vh;
+            color: white;
+            padding: 1rem;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            color: #e74c3c;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            opacity: 0.9;
+        }
+
+        .game-container {
+            background: #1a334f;
+            border-radius: 0.75rem;
+            border: 0.094rem solid #b27d57;
+            padding: 2rem 1rem;
+            box-shadow: 0 .25rem .75rem rgba(0,0,0,0.5);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            width: 100%;
+        }
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(to bottom, #f0f3f5, #a7b0b9);
+  border: 4px solid #7f8c8d; /* outer garage door frame */
+  border-radius: 0.5rem;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.game-board::before {
+  content: '';
+  position: absolute;
+  top: calc(33.33%);
+  left: 0rem;
+  right: 0rem;
+  height: 2px;
+  background-color: #7c8389;
+  opacity: 0.5;
+  z-index: 2;
+}
+
+/* Bottom horizontal seam between row 2 and 3 */
+.game-board::after {
+  content: '';
+  position: absolute;
+  top: calc(66.66% - 0.15rem);
+  left: 0rem;
+  right: 0rem;
+  height: 2px;
+  background-color: #7c8389;
+  opacity: 0.5;
+  z-index: 2;
+}
+
+.garage-door {
+  aspect-ratio: 1.2;
+  background: linear-gradient(to bottom, #e0e4e7, #c8d0d6);
+  border: 2px solid #a1a9ae;
+  border-radius: 2px;
+
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  overflow: hidden;
+  box-shadow:
+    inset -2px -2px 4px rgba(255, 255, 255, 2.7),  /* top-left bevel */
+    inset 2px 2px 4px rgba(0, 0, 0, 0.31);          /* bottom-right bevel */
+}
+
+
+.garage-door::before {
+  content: '';
+  position: absolute;
+  top: 6%;
+  left: 6%;
+  right: 6%;
+  bottom: 6%;
+  border: 1px solid rgba(130, 140, 150, 0.4);
+  border-radius: 2px;
+  box-shadow:
+    inset -1px -1px 2px rgba(255,255,255,0.6),
+    inset 1px 1px 2px rgba(0,0,0,0.08);
+  pointer-events: none;
+  z-index: 1;
+}
+
+
+        .garage-door:active {
+            transform: scale(0.95);
+        }
+
+        .problem {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            animation: popUp 0.3s ease-out;
+            z-index: 10;
+        }
+
+        .problem.spring {
+            color: #e74c3c;
+        }
+
+        .problem.remote {
+            color: #f39c12;
+        }
+
+        .problem.track {
+            color: #9b59b6;
+        }
+
+        .problem.sensor {
+            color: #1abc9c;
+        }
+
+        @keyframes popUp {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .fix-animation {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: #27ae60;
+            animation: fixPop 0.8s ease-out forwards;
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        .misclick-penalty {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: #e74c3c; /* Red color for penalty */
+            animation: fixPop 0.8s ease-out forwards; /* Reuse fixPop animation for fading out */
+            z-index: 20;
+            pointer-events: none;
+        }
+
+        @keyframes fixPop {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1) translateY(-30px);
+                opacity: 0;
+            }
+        }
+
+        .game-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .score, .lives, .level {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            font-weight: bold;
+            padding: 8px 12px;
+            border-radius: 5px;
+            background: rgba(0,0,0,0.3);
+        }
+
+        .score {
+            color: #f39c12;
+        }
+
+        .lives {
+            color: #e74c3c;
+        }
+
+        .level {
+            color: #9b59b6;
+        }
+
+        .instructions {
+            text-align: center;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            opacity: 0.8;
+            margin-bottom: 15px;
+        }
+
+        .home-button {
+            background: #e74c3c;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .home-button:hover {
+            background: #c0392b;
+        }
+
+        .game-over {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .game-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .control-btn {
+            background: #27ae60;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .control-btn:hover {
+            background: #229954;
+        }
+
+        .control-btn:disabled {
+            background: #7f8c8d;
+            cursor: not-allowed;
+        }
+
+        .control-btn.pause {
+            background: #f39c12;
+        }
+
+        .control-btn.pause:hover {
+            background: #e67e22;
+        }
+
+        .game-status {
+            text-align: center;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+
+        .game-over-content {
+            background: #34495e;
+            padding: 30px;
+            border: 0.094rem solid #b27d57;
+            border-radius: 0.75rem;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .game-over h3 {
+            color: #e74c3c;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            margin-bottom: 15px;
+        }
+
+        .game-over p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 20px;
+        }
+
+        .game-over-buttons { /* New container for buttons */
+            display: flex;
+            justify-content: center;
+            gap: 15px; /* Spacing between buttons */
+            margin-top: 20px;
+        }
+
+        .game-over-buttons button { /* Style for buttons inside this container */
+            background: #27ae60;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 0.75rem;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .game-over-buttons button:hover {
+            background: #229954;
+        }
+
+        .game-over-buttons button.close-btn { /* Specific style for the close button */
+            background: #3498db; /* A different color for distinction */
+        }
+
+        .game-over-buttons button.close-btn:hover {
+            background: #2980b9;
+        }
+
+        .problem-legend {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+        }
+
+        .legend-icon {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+        }
+
+        .leaderboard {
+            background: #34495e;
+            border-radius: 0.75rem;
+            border: 0.094rem solid #b27d57;
+            padding: 20px;
+            box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.5);
+            margin-bottom: 20px;
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .leaderboard h3 {
+            color: #f39c12;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+        }
+
+        .leaderboard-list {
+            list-style: none;
+        }
+
+        .leaderboard-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            margin: 5px 0;
+            background: rgba(0,0,0,0.3);
+            border-radius: 8px;
+            border-left: 4px solid #f39c12;
+        }
+
+        .leaderboard-item:nth-child(1) {
+            border-left-color: #f1c40f;
+        }
+
+        .leaderboard-item:nth-child(2) {
+            border-left-color: #95a5a6;
+        }
+
+        .leaderboard-item:nth-child(3) {
+            border-left-color: #d35400;
+        }
+
+        .leaderboard-rank {
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .leaderboard-name {
+            flex: 1;
+            text-align: left;
+            margin-left: 15px;
+        }
+
+        .leaderboard-score {
+            color: #f39c12;
+            font-weight: bold;
+        }
+
+        .leaderboard-level {
+            color: #9b59b6;
+            font-size: 0.9em;
+            margin-left: 10px;
+        }
+
+        .name-input {
+            background: rgba(0,0,0,0.3);
+            border: 0.094rem solid #3498db;
+            border-radius: 5px;
+            padding: 10px;
+            color: white;
+            font-size: 1rem;
+            margin: 10px 0;
+            width: 100%;
+            max-width: 200px;
+        }
+
+        .name-input::placeholder {
+            color: #bdc3c7;
+        }
+
+        .name-input:focus {
+            outline: none;
+            border-color: #f39c12;
+        }
+
+        .submit-score-btn {
+            background: #3498db;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 0.75rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-left: 10px;
+        }
+
+        .submit-score-btn:hover {
+            background: #2980b9;
+        }
+
+        .level-up-animation {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2rem;
+            color: #9b59b6;
+            background: rgba(0,0,0,0.8);
+            padding: 20px 40px;
+            border-radius: 15px;
+            z-index: 1000;
+            animation: levelUp 1s ease-out forwards;
+        }
+
+        @keyframes levelUp {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .game-board {
+                gap: 10px;
+            }
+            
+            .game-info {
+                justify-content: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>404</h1>
+        <p>Oops! This page needs some garage door repair...</p>
+    </div>
+
+    <div class="game-container">
+        <div class="problem-legend">
+            <div class="legend-item">
+                <span class="legend-icon" style="color: #e74c3c;">🔧</span>
+                <span>Broken Spring</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-icon" style="color: #f39c12;">📱</span>
+                <span>Dead Remote</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-icon" style="color: #9b59b6;">🛤️</span>
+                <span>Bent Track</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-icon" style="color: #1abc9c;">👁️</span>
+                <span>Sensor Issue</span>
+            </div>
+        </div>
+
+        <div class="game-controls">
+            <button class="control-btn" id="playBtn" onclick="startGame()">▶️ Play Game</button>
+            <button class="control-btn pause" id="pauseBtn" onclick="pauseGame()" disabled>⏸️ Pause</button>
+        </div>
+
+        <div class="game-status" id="gameStatus">Click "Play Game" to start fixing garage door problems!</div>
+
+        <div class="game-info">
+            <div class="score">Score: <span id="scoreValue">0</span></div>
+            <div class="level">Level: <span id="levelValue">1</span></div>
+            <div class="lives">Lives: <span id="livesValue">5</span></div>
+        </div>
+
+        <div class="game-board" id="gameBoard">
+            <div class="garage-door" data-door="0"></div>
+            <div class="garage-door" data-door="1"></div>
+            <div class="garage-door" data-door="2"></div>
+            <div class="garage-door" data-door="3"></div>
+            <div class="garage-door" data-door="4"></div>
+            <div class="garage-door" data-door="5"></div>
+            <div class="garage-door" data-door="6"></div>
+            <div class="garage-door" data-door="7"></div>
+            <div class="garage-door" data-door="8"></div>
+        </div>
+
+        <div class="instructions">
+            Tap the garage doors to fix the problems before they disappear!<br>
+            <strong>Level 1:</strong> Easy • <strong>Level 2:</strong> Medium • <strong>Level 3:</strong> Fast • <strong>Level 4:</strong> Crazy Fast
+        </div>
+    </div>
+
+    <div class="leaderboard">
+        <h3>🏆 Top Mechanics</h3>
+        <ul class="leaderboard-list" id="leaderboardList">
+            </ul>
+    </div>
+
+
+    <div class="game-over" id="gameOver" style="display: none;">
+        <div class="game-over-content">
+            <h3>Game Over!</h3>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <p>Level Reached: <span id="finalLevel">1</span></p>
+            <p>Problems Fixed: <span id="problemsFixed">0</span></p>
+            <div id="scoreSubmission" style="display: none;">
+                <p>🎉 New high score! Enter your name:</p>
+                <input type="text" class="name-input" id="playerName" placeholder="Your name" maxlength="20">
+                <button class="submit-score-btn" onclick="submitScore()">Submit</button>
+            </div>
+            <div class="game-over-buttons">
+                <button onclick="startGame()">Play Again</button>
+                <button class="close-btn" onclick="closeGameOver()">Close</button> </div>
+        </div>
+    </div>
+
+    <script>
+        const gameBoard = document.getElementById('gameBoard');
+        const doors = document.querySelectorAll('.garage-door');
+        const scoreElement = document.getElementById('scoreValue');
+        const livesElement = document.getElementById('livesValue');
+        const levelElement = document.getElementById('levelValue');
+        const gameOverElement = document.getElementById('gameOver');
+        const finalScoreElement = document.getElementById('finalScore');
+        const finalLevelElement = document.getElementById('finalLevel');
+        const problemsFixedElement = document.getElementById('problemsFixed');
+        const playBtn = document.getElementById('playBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        const gameStatus = document.getElementById('gameStatus');
+        const leaderboardList = document.getElementById('leaderboardList');
+        const scoreSubmission = document.getElementById('scoreSubmission');
+        const playerName = document.getElementById('playerName');
+
+        let gameRunning = false;
+        let gamePaused = false;
+        let gameStarted = false;
+        let score = 0;
+        let lives = 5;
+        let level = 1;
+        let problemsFixed = 0;
+        let activeProblems = new Set();
+        let problemTimer;
+
+        const problems = [
+            { icon: '🔧', type: 'spring', points: 10 },
+            { icon: '📱', type: 'remote', points: 15 },
+            { icon: '🛤️', type: 'track', points: 20 },
+            { icon: '👁️', type: 'sensor', points: 25 }
+        ];
+
+        // Level configurations
+        const levelConfig = {
+            1: { problemsToNextLevel: 12, problemInterval: 1200, problemLifetime: 2500, description: 'Easy' },
+            2: { problemsToNextLevel: 35, problemInterval: 800, problemLifetime: 2000, description: 'Medium' },
+            3: { problemsToNextLevel: 60, problemInterval: 500, problemLifetime: 1500, description: 'Fast' },
+            4: { problemsToNextLevel: Infinity, problemInterval: 350, problemLifetime: 1000, description: 'Crazy Fast' }
+        };
+
+        // Default leaderboard entries (updated with potential higher scores for new levels)
+        const defaultLeaderboard = [
+            { name: 'UltimateMechanic', score: 2895, level: 4, date: new Date().toISOString() },
+            { name: 'EliteFixer', score: 2765, level: 4, date: new Date().toISOString() },
+            { name: 'SuperWrench', score: 2580, level: 4, date: new Date().toISOString() },
+            { name: 'GearHeadGuru', score: 2375, level: 4, date: new Date().toISOString() },
+            { name: 'QuickFixer', score: 2145, level: 4, date: new Date().toISOString() }
+        ];
+
+        // Load leaderboard from localStorage, or use defaults
+        function loadLeaderboard() {
+            const saved = localStorage.getItem('garageGameLeaderboard');
+            let leaderboard = saved ? JSON.parse(saved) : [];
+
+            if (leaderboard.length === 0) {
+                // If no saved scores, use the default ones
+                leaderboard = [...defaultLeaderboard];
+            } else {
+                // If there are saved scores, ensure default scores are present if higher than existing
+                defaultLeaderboard.forEach(defaultEntry => {
+                    const exists = leaderboard.some(entry => entry.name === defaultEntry.name && entry.score === defaultEntry.score);
+                    if (!exists) {
+                        leaderboard.push(defaultEntry);
+                    }
+                });
+                leaderboard.sort((a, b) => b.score - a.score); // Re-sort after adding defaults
+                leaderboard.splice(5); // Keep only top 5 after merging and sorting
+            }
+            return leaderboard;
+        }
+
+        // Save leaderboard to localStorage
+        function saveLeaderboard(leaderboard) {
+            localStorage.setItem('garageGameLeaderboard', JSON.stringify(leaderboard));
+        }
+
+        // Display leaderboard
+        function displayLeaderboard() {
+            const leaderboard = loadLeaderboard();
+            leaderboardList.innerHTML = '';
+            
+            if (leaderboard.length === 0) {
+                leaderboardList.innerHTML = '<li style="text-align: center; color: #bdc3c7; font-style: italic;">No scores yet - be the first!</li>';
+                return;
+            }
+
+            leaderboard.forEach((entry, index) => {
+                const li = document.createElement('li');
+                li.className = 'leaderboard-item';
+                li.innerHTML = `
+                    <span class="leaderboard-rank">#${index + 1}</span>
+                    <span class="leaderboard-name">${entry.name}</span>
+                    <span class="leaderboard-score">${entry.score}</span>
+                    <span class="leaderboard-level">L${entry.level}</span>
+                `;
+                leaderboardList.appendChild(li);
+            });
+        }
+
+        // Check if score qualifies for leaderboard
+        function isHighScore(currentScore) {
+            const leaderboard = loadLeaderboard();
+            // Check if there are less than 5 entries, or if the current score is higher than the lowest score in top 5
+            return leaderboard.length < 5 || currentScore > leaderboard[leaderboard.length - 1].score;
+        }
+
+        // Submit score to leaderboard
+        function submitScore() {
+            const name = playerName.value.trim();
+            if (!name) {
+                alert('Please enter your name!');
+                return;
+            }
+
+            const leaderboard = loadLeaderboard();
+            leaderboard.push({
+                name: name,
+                score: score,
+                level: level,
+                date: new Date().toISOString()
+            });
+            // Sort by score (descending) and keep top 5
+            leaderboard.sort((a, b) => b.score - a.score);
+            leaderboard.splice(5);
+
+            saveLeaderboard(leaderboard);
+            displayLeaderboard();
+            
+            scoreSubmission.style.display = 'none';
+            playerName.value = '';
+        }
+
+        // Show level up animation
+        function showLevelUp() {
+            const levelUpDiv = document.createElement('div');
+            levelUpDiv.className = 'level-up-animation';
+            levelUpDiv.innerHTML = `🎉 LEVEL ${level} 🎉<br><span style="font-size: 1.2rem;">${levelConfig[level].description} Mode</span>`;
+            document.body.appendChild(levelUpDiv);
+            setTimeout(() => {
+                levelUpDiv.remove();
+            }, 2000);
+        }
+
+        // Check for level advancement
+        function checkLevelUp() {
+            // Check if problemsFixed reaches the threshold for the current level to advance
+            const nextLevel = level + 1;
+            if (nextLevel <= 4 && problemsFixed >= levelConfig[level].problemsToNextLevel) {
+                level = nextLevel;
+                levelElement.textContent = level;
+                
+                // Restart problem timer with new interval
+                clearInterval(problemTimer);
+                problemTimer = setInterval(createProblem, levelConfig[level].problemInterval);
+                
+                showLevelUp();
+            }
+        }
+
+        function createProblem() {
+            if (!gameRunning || gamePaused) return;
+            const availableDoors = Array.from(doors).filter(door => 
+                !door.querySelector('.problem')
+            );
+            if (availableDoors.length === 0) return;
+            
+            const randomDoor = availableDoors[Math.floor(Math.random() * availableDoors.length)];
+            const randomProblem = problems[Math.floor(Math.random() * problems.length)];
+            const problemElement = document.createElement('div');
+            problemElement.className = `problem ${randomProblem.type}`;
+            problemElement.textContent = randomProblem.icon;
+            problemElement.dataset.points = randomProblem.points;
+            
+            randomDoor.appendChild(problemElement);
+            activeProblems.add(randomDoor);
+            // Remove problem after level-specific lifetime
+            setTimeout(() => {
+                if (problemElement.parentNode && gameRunning && !gamePaused) {
+                    problemElement.remove();
+                    activeProblems.delete(randomDoor);
+                    loseLife();
+                }
+            }, levelConfig[level].problemLifetime);
+        }
+
+        function fixProblem(door) {
+            const problemElement = door.querySelector('.problem');
+            if (!problemElement) return;
+            
+            const points = parseInt(problemElement.dataset.points);
+            score += points;
+            problemsFixed++; // Increment problemsFixed
+            scoreElement.textContent = score;
+            // Create fix animation
+            const fixAnimation = document.createElement('div');
+            fixAnimation.className = 'fix-animation';
+            fixAnimation.textContent = `+${points} FIXED!`;
+            door.appendChild(fixAnimation);
+            
+            // Remove problem and animation
+            problemElement.remove();
+            activeProblems.delete(door);
+            
+            setTimeout(() => {
+                if (fixAnimation.parentNode) {
+                    fixAnimation.remove();
+                }
+            }, 800);
+            // Check for level up
+            checkLevelUp();
+        }
+
+        function loseLife() {
+            lives--;
+            livesElement.textContent = lives;
+            
+            if (lives <= 0) {
+                endGame();
+            }
+        }
+
+        function applyMisclickPenalty(targetElement) {
+            if (!gameRunning || gamePaused) return;
+
+            // Check if the click was on a door itself, but not on a problem within it
+            const isDoor = targetElement.classList.contains('garage-door');
+            const isProblemInside = targetElement.closest('.garage-door')?.querySelector('.problem');
+
+            // If it's a door, but no problem, or if it's the game board and not directly on a door with a problem
+            if ((isDoor && !isProblemInside) || (!isDoor && !targetElement.closest('.garage-door') && targetElement.id === 'gameBoard')) {
+                 // Create visual feedback
+                const penaltyAnimation = document.createElement('div');
+                penaltyAnimation.className = 'misclick-penalty';
+                penaltyAnimation.textContent = '-1 LIFE!';
+                
+                // Position the penalty animation at the click location or center of gameBoard
+                let appendTo = gameBoard;
+                // If it's a click directly on a door, append to that door for better visual context
+                if (isDoor) {
+                    appendTo = targetElement;
+                } else if (targetElement.closest('.game-container')) {
+                    appendTo = targetElement.closest('.game-container');
+                }
+
+                appendTo.appendChild(penaltyAnimation);
+
+                setTimeout(() => {
+                    if (penaltyAnimation.parentNode) {
+                        penaltyAnimation.remove();
+                    }
+                }, 800);
+
+                loseLife(); // Apply life penalty
+            }
+        }
+
+        function endGame() {
+            gameRunning = false;
+            gamePaused = false;
+            gameStarted = false;
+            clearInterval(problemTimer);
+            
+            finalScoreElement.textContent = score;
+            finalLevelElement.textContent = level;
+            problemsFixedElement.textContent = problemsFixed;
+            // Check if it's a high score
+            if (isHighScore(score)) {
+                scoreSubmission.style.display = 'block';
+                playerName.focus();
+            } else {
+                scoreSubmission.style.display = 'none';
+            }
+            
+            gameOverElement.style.display = 'flex';
+            // Clear all active problems
+            doors.forEach(door => {
+                const problem = door.querySelector('.problem');
+                if (problem) problem.remove();
+            });
+            activeProblems.clear();
+            
+            // Reset button states
+            playBtn.disabled = false;
+            pauseBtn.disabled = true;
+            playBtn.textContent = '▶️ Play Game';
+            gameStatus.textContent = 'Game Over! Click "Play Game" to try again.';
+        }
+
+        // New function to close the game over pop-up without restarting the game
+        function closeGameOver() {
+            gameOverElement.style.display = 'none';
+            gameStatus.textContent = 'Thanks for playing! Click "Play Game" to start a new game.';
+            // Ensure play button is enabled if they decide to play later
+            playBtn.disabled = false;
+            pauseBtn.disabled = true; // Ensure pause is disabled
+        }
+
+        function startGame() {
+            gameRunning = true;
+            gamePaused = false;
+            gameStarted = true;
+            score = 0;
+            lives = 5;
+            level = 1;
+            problemsFixed = 0; // Reset problemsFixed for new game
+            activeProblems.clear();
+            
+            scoreElement.textContent = score;
+            livesElement.textContent = lives;
+            levelElement.textContent = level;
+            gameOverElement.style.display = 'none';
+            // Update button states
+            playBtn.disabled = true;
+            pauseBtn.disabled = false;
+            gameStatus.textContent = 'Game in progress - tap the problems to fix them!';
+            // Clear any existing problems
+            doors.forEach(door => {
+                const problem = door.querySelector('.problem');
+                if (problem) problem.remove();
+            });
+            // Start timers
+            problemTimer = setInterval(createProblem, levelConfig[level].problemInterval);
+            
+            // Create initial problem
+            setTimeout(createProblem, 500);
+        }
+
+        function pauseGame() {
+            if (!gameStarted) return;
+            if (gamePaused) {
+                // Resume game
+                gamePaused = false;
+                pauseBtn.textContent = '⏸️ Pause';
+                gameStatus.textContent = 'Game resumed - tap the problems to fix them!';
+                // Restart timers
+                problemTimer = setInterval(createProblem, levelConfig[level].problemInterval);
+            } else {
+                // Pause game
+                gamePaused = true;
+                pauseBtn.textContent = '▶️ Resume';
+                gameStatus.textContent = 'Game paused - click resume to continue or go back to site.';
+                // Clear timers
+                clearInterval(problemTimer);
+            }
+        }
+
+        // Event listeners
+        doors.forEach(door => {
+            door.addEventListener('click', (event) => {
+                // Stop propagation for clicks on doors to prevent triggering the document-level misclick listener
+                event.stopPropagation(); 
+                if (gameRunning && !gamePaused && door.querySelector('.problem')) {
+                    fixProblem(door);
+                } else if (gameRunning && !gamePaused && !door.querySelector('.problem')) {
+                    // This handles misclicks directly on an empty door
+                    applyMisclickPenalty(door);
+                }
+            });
+            
+            // Touch events for mobile
+            door.addEventListener('touchstart', (e) => {
+                e.preventDefault(); // Prevent default touch behavior like scrolling
+                e.stopPropagation(); // Stop propagation for touchstarts on doors
+                if (gameRunning && !gamePaused && door.querySelector('.problem')) {
+                    fixProblem(door);
+                } else if (gameRunning && !gamePaused && !door.querySelector('.problem')) {
+                    applyMisclickPenalty(door);
+                }
+            });
+        });
+
+        // Add a general click/touchstart listener to the gameBoard or a containing element
+        // to catch misclicks outside of active problem areas.
+        // We attach to gameBoard to keep it within the game context.
+        gameBoard.addEventListener('click', (event) => {
+            if (gameRunning && !gamePaused) {
+                // Check if the click target is directly a problem or its parent door
+                const clickedOnProblem = event.target.classList.contains('problem');
+                const clickedOnDoorWithProblem = event.target.classList.contains('garage-door') && event.target.querySelector('.problem');
+                
+                // If the click was NOT directly on a problem or on a door that contains a problem
+                if (!clickedOnProblem && !clickedOnDoorWithProblem) {
+                    applyMisclickPenalty(event.target);
+                }
+            }
+        });
+
+        gameBoard.addEventListener('touchstart', (event) => {
+            event.preventDefault(); // Prevent default touch behavior
+            if (gameRunning && !gamePaused) {
+                const clickedOnProblem = event.target.classList.contains('problem');
+                const clickedOnDoorWithProblem = event.target.classList.contains('garage-door') && event.target.querySelector('.problem');
+                
+                if (!clickedOnProblem && !clickedOnDoorWithProblem) {
+                    applyMisclickPenalty(event.target);
+                }
+            }
+        });
+
+        // Enter key to submit score
+        playerName.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                submitScore();
+            }
+        });
+        
+        // Prevent scrolling on mobile when touching the game (already present, keep it)
+        gameBoard.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+        });
+
+        // Initialize game
+        scoreElement.textContent = '0';
+        livesElement.textContent = '5';
+        levelElement.textContent = '1';
+        displayLeaderboard();
+    </script>
+
+<script>
+  function sendHeight() {
+    const height = document.documentElement.scrollHeight;
+    window.parent.postMessage({ iframeHeight: height }, "*");
+  }
+
+  window.addEventListener("load", sendHeight);
+  window.addEventListener("resize", sendHeight);
+</script>
+
+</body>
+</html>

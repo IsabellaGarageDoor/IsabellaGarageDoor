@@ -1,0 +1,148 @@
+---
+interface Props {
+  quote: string;
+  author: string;
+  rating?: number; // Optional, defaults to 5
+}
+
+const { quote, author, rating = 5 } = Astro.props;
+---
+
+<div class="testimonial-card-white">
+  <div class="testimonial-gradient-overlay"></div>
+
+  <div class="testimonial-stars">
+    {Array.from({ length: 5 }).map((_, i) => (
+      <svg
+        viewBox="0 0 20 20"
+        class={`star ${i < rating ? 'filled' : 'empty'}`}
+        style={`transition-delay: ${i * 120}ms`}
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+      >
+        <polygon
+          points="10,1.5 12.6,7.4 18.9,7.4 13.9,11.4 15.7,17.5 10,13.8 4.3,17.5 6.1,11.4 1.1,7.4 7.4,7.4"
+        />
+      </svg>
+    ))}
+  </div>
+
+  <p class="testimonial-text" set:html={quote}></p>
+  <div class="testimonial-name">— {author}</div>
+  <div class="testimonial-tail"></div>
+</div>
+
+<style>
+  .testimonial-card-white {
+    max-width: 1000px;
+    width: 100%;
+    margin: 1rem auto;
+    background-color: #ffffff;
+    color: #1a334f;
+    border: 0.094rem solid #b27d57;
+    border-radius: 0.75rem;
+    padding: 1.5rem 1rem 1rem;
+    font-family: 'Playfair Display', serif;
+    position: relative;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    font-weight: 400;
+  }
+
+  .testimonial-gradient-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(0,0,0,0.01) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .testimonial-stars {
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .testimonial-stars .star {
+    opacity: 0.1;
+    transition: opacity 0.5s ease-out;
+  }
+
+  .testimonial-card-white.animate .testimonial-stars .star {
+    opacity: 1;
+  }
+
+  .testimonial-stars .star.filled polygon {
+    fill: #b27d57;
+  }
+
+  .testimonial-stars .star.empty polygon {
+    fill: #d8d8d8;
+  }
+
+  .testimonial-text {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  }
+
+  .testimonial-name {
+    font-family: 'Jost', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #b27d57;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    letter-spacing: 0.02em;
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  .testimonial-card-white.animate .testimonial-name {
+    animation: nameSlideBounce 0.75s ease-out 700ms forwards;
+  }
+
+  @keyframes nameSlideBounce {
+    0%   { opacity: 0; transform: translateX(-20px); }
+    60%  { opacity: 1; transform: translateX(5px); }
+    100% { opacity: 1; transform: translateX(0); }
+  }
+
+  .testimonial-tail {
+    position: absolute;
+    bottom: 0;
+    left: 12%;
+    width: 0;
+    height: 0;
+    border-left: 16px solid transparent;
+    border-right: 16px solid transparent;
+    border-top: 28px solid #ffffff;
+    transform: translateY(100%);
+  }
+</style>
+
+<script>
+  if (typeof window !== 'undefined') {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.6,
+      rootMargin: '0px 0px -80px 0px'
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.testimonial-card-white').forEach(card => {
+        observer.observe(card);
+      });
+    });
+  }
+</script>

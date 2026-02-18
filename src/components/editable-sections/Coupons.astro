@@ -1,0 +1,327 @@
+---
+const showFirstCoupon = true;
+const showSecondCoupon = false;
+const showThirdCoupon = false;
+const showFourthCoupon = false;
+const showFifthCoupon = false;
+const showSixthCoupon = false;
+---
+
+<div class="coupons-container">
+{showFirstCoupon && (
+<a href="/contact" class="coupon-bleed" aria-label="Go to contact page">
+  <div class="coupon">
+    <h2>Spring Special</h2>
+    <p class="offer">Receive a full garage door tune-up for just <span>$79</span></p>
+    <p class="details">Simply mention this coupon when booking</p>
+    <p class="expiration">Offer expires May 30th.</p>
+    <button type="button" class="print-coupon-btn">Print Coupon</button>
+  </div>
+</a>
+)}
+
+{showSecondCoupon && (
+<a href="/contact" class="coupon-bleed" aria-label="Go to contact page">
+  <div class="coupon">
+    <h2>Thanksgiving Special</h2>
+    <p class="offer">Save <span>$75</span> on a new garage door opener!</p>
+    <p class="details">Just mention the special when you book with us</p>
+    <p class="expiration">Opener install must be booked by November 25th.</p>
+    <button type="button" class="print-coupon-btn">Print Coupon</button>
+  </div>
+</a>
+)}
+
+{showThirdCoupon && (
+<a href="/contact" class="coupon-bleed" aria-label="Go to contact page">
+  <div class="coupon">
+    <h2>September Special</h2>
+    <p class="offer">Save <span>$75</span> on a new garage door opener!</p>
+    <p class="details">Just mention the special and agree to leave us a review.</p>
+    <p class="expiration">Offer expires October 30th.</p>
+    <button type="button" class="print-coupon-btn">Print Coupon</button>
+  </div>
+</a>
+)}
+
+{showFourthCoupon && (
+<a href="/contact" class="coupon-bleed" aria-label="Go to contact page">
+  <div class="coupon">
+    <h2>September Special</h2>
+    <p class="offer">Save <span>$75</span> on a new garage door opener!</p>
+    <p class="details">Just mention the special and agree to leave us a review.</p>
+    <p class="expiration">Offer expires October 30th.</p>
+    <button type="button" class="print-coupon-btn">Print Coupon</button>
+  </div>
+</a>
+)}
+
+{showFifthCoupon && (
+<a href="/contact" class="coupon-bleed" aria-label="Go to contact page">
+  <div class="coupon">
+    <h2>September Special</h2>
+    <p class="offer">Save <span>$75</span> on a new garage door opener!</p>
+    <p class="details">Just mention the special and agree to leave us a review.</p>
+    <p class="expiration">Offer expires October 30th.</p>
+    <button type="button" class="print-coupon-btn">Print Coupon</button>
+  </div>
+</a>
+)}
+
+{showSixthCoupon && (
+<a href="/contact" class="coupon-bleed" aria-label="Go to contact page">
+  <div class="coupon">
+    <h2>September Special</h2>
+    <p class="offer">Save <span>$75</span> on a new garage door opener!</p>
+    <p class="details">Just mention the special and agree to leave us a review.</p>
+    <p class="expiration">Offer expires October 30th.</p>
+    <button type="button" class="print-coupon-btn">Print Coupon</button>
+  </div>
+</a>
+)}
+</div>
+
+<style>
+.coupons-container {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 column by default (mobile) */
+  gap: 1rem;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0rem;
+}
+
+/* Desktop (min-width 768px): dynamic columns set by JS */
+@media (min-width: 768px) {
+  .coupons-container {
+    /* We'll override grid-template-columns dynamically with JS */
+  }
+}
+
+.coupon-bleed {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 8px; /* this is the "bleed" space around the coupon */
+  background: #1a334f;
+  border-radius: 16px;
+  box-shadow: 0 0 10px 2px rgba(178, 125, 87, 0.3);
+  display: block;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.coupon {
+  background: #1a334f;
+  border: 4px dashed #b27d57;
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  box-sizing: border-box;
+  /* Fill container minus the bleed padding */
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: inset 0 0 12px rgba(178, 125, 87, 0.15);
+}
+
+
+  .coupon h2 {
+    font-size: 2rem;
+    margin-bottom: 14px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Lora', serif;
+  }
+
+  .offer {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.3;
+  }
+
+  .offer span {
+    color: #b27d57;
+    font-weight: 900;
+    font-size: 1.8rem;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .details {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #ffffff;
+    letter-spacing: 0.03em;
+    line-height: 1.4;
+  }
+
+.expiration {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #b27d57; /* your bronze color */
+  margin-top: 8px;
+  letter-spacing: 0.05em;
+}
+
+  /* Style the print button */
+  .print-coupon-btn {
+    margin-top: auto;
+    background-color: #b27d57;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: 700;
+    color: #1a334f;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .print-coupon-btn:hover {
+    background-color: #a46e4a;
+  }
+</style>
+
+<script>
+function updateGridColumns() {
+  const container = document.querySelector('.coupons-container');
+  if (!container) return;
+
+  const count = container.children.length;
+  const isDesktop = window.innerWidth >= 768;
+
+  if (!isDesktop) {
+    // Mobile: always 1 column
+    container.style.gridTemplateColumns = '1fr';
+    return;
+  }
+
+  // Desktop: dynamic balanced columns
+  if (count === 4) {
+    container.style.gridTemplateColumns = 'repeat(2, 1fr)';
+  } else if (count <= 3) {
+    container.style.gridTemplateColumns = `repeat(${count}, 1fr)`;
+  } else {
+    container.style.gridTemplateColumns = 'repeat(3, 1fr)';
+  }
+}
+
+// Run on load
+updateGridColumns();
+
+// Update on resize (debounced)
+let resizeTimeout;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(updateGridColumns, 200);
+});
+
+</script>
+
+<script>
+document.querySelectorAll('.print-coupon-btn').forEach((btn) => {
+  btn.addEventListener('click', (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    const coupon = btn.closest('.coupon-bleed');
+    if (!coupon) return;
+
+    const printWindow = window.open('', '', 'width=600,height=400');
+    if (!printWindow) {
+      alert('Popup blocked! Please allow popups for this site to print coupons.');
+      return;
+    }
+
+    // Build the HTML for printing
+    const htmlContent = `
+      <html>
+      <head>
+        <title>Print Coupon</title>
+        <style>
+          body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: white;
+          }
+          .coupon-bleed {
+            max-width: 336px;
+            margin: 20px auto;
+            padding: 8px;
+            background: #1a334f;
+            border-radius: 16px;
+            box-shadow: 0 0 10px 2px rgba(178, 125, 87, 0.3);
+          }
+          .coupon {
+            background: #1a334f;
+            border: 4px dashed #b27d57;
+            border-radius: 12px;
+            padding: 24px 20px;
+            text-align: center;
+            color: #ffffff;
+            box-shadow: inset 0 0 12px rgba(178, 125, 87, 0.15);
+          }
+          .coupon h2 {
+            font-size: 2rem;
+            margin-bottom: 14px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+          }
+          .offer {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.3;
+          }
+          .offer span {
+            color: #b27d57;
+            font-weight: 900;
+            font-size: 1.8rem;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+          }
+          .details {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #ffffff;
+            letter-spacing: 0.03em;
+            line-height: 1.4;
+          }
+          .expiration {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #b27d57;
+            margin-top: 8px;
+            letter-spacing: 0.05em;
+          }
+          @media print {
+            .print-coupon-btn {
+              display: none;
+            }
+          }
+        </style>
+      </head>
+      <body>
+        ${coupon.querySelector('.coupon').outerHTML}
+      </body>
+      </html>
+    `;
+
+    printWindow.document.open();
+    printWindow.document.write(htmlContent);
+    printWindow.document.close();
+
+    printWindow.focus();
+    printWindow.print();
+    // Optionally close after print dialog:
+    // printWindow.close();
+  });
+});
+
+</script>

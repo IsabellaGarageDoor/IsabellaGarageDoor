@@ -1,0 +1,105 @@
+---
+import '@splidejs/splide/css'; /*  */
+import TestimonialCardWhite from './TestimonialCardWhite.astro'; // Import your new component
+// No need for onMount if script is in <script type="module">
+
+// Combined review data from both your Astro and JSX carousel files
+const reviews = [
+  {
+    quote: `Incredible service! Highly recommend.`, /*  */
+    author: 'Jane D.' /*  */
+  },
+  {
+    quote: `Fixed our garage door the same day. Excellent!`, /*  */
+    author: 'Mark T.' /*  */
+  },
+  {
+    quote: `Very professional and honest.`, /*  */
+    author: 'Lisa R.' /*  */
+  },
+  {
+    quote: `Excellent service and quick turnaround.`, /*  */
+    author: 'L. Moore' /*  */
+  },
+  {
+    quote: `We were having issues with our garage door not closing all the way, and it started getting worse. We called Isabella Garage Door and they showed up the next day, right on time. They inspected everything, explained the problem and made the repairs. The door works great now and it’s so much quieter. Very impressed!`, /*  */
+    author: 'Tracey S.' /*  */
+  },
+  {
+    quote: `Our garage door opener stopped working out of nowhere and we were stuck parking outside. Isabella Garage Door came out and diagnosed the issue and had a new opener installed that same day. Super friendly and professional. Everything works perfectly now. Couldn't be happier with the service!`, /*  */
+    author: 'Taylor W.' /*  */
+  },
+  {
+    quote: `Our experience with Isabella Garage Door was exceptional. They provided high quality service and made us feel valued as customers. If you're in Mount Pleasant and need garage door services, I wholeheartedly recommend giving them a call. You won't be disappointed!`, /*  */
+    author: 'Micheal S.' /*  */
+  },
+  {
+    quote: `After months of dealing with a noisy, jerky garage door, we finally decided to call Isabella Garage Door. The techn replaced the old worn out rollers. What a difference! The door is so quiet now. We really appreciate them fixing our door. Highly recommend!`, /*  */
+    author: 'Elizabeth A.' /*  */
+  }
+];
+---
+
+<div id="reviews-carousel" class="splide">
+  <div class="splide__track">
+    <ul class="splide__list">
+      {reviews.map((review) => (
+        <li class="splide__slide">
+          <TestimonialCardWhite
+            quote={review.quote}
+            author={review.author}
+          />
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
+
+<script type="module">
+  import Splide from '@splidejs/splide'; /*  */
+
+  document.addEventListener('DOMContentLoaded', () => {
+    new Splide('#reviews-carousel', {
+      type: 'loop',
+      perPage: 1, /*  */
+      autoplay: true,
+      interval: 5000, /*  */
+      arrows: false,
+      pagination: true, /*  */
+      gap: '2rem', // Added for spacing between cards
+      padding: { left: '1rem', right: '1rem' }, // Optional: padding for the slides themselves
+
+      // Responsive options for different screen sizes (adjust as needed)
+      breakpoints: {
+        768: {
+          perPage: 1,
+          gap: '1.5rem',
+        },
+        1024: {
+          perPage: 1,
+        },
+      }
+    }).mount();
+  }); /*  */
+</script>
+
+<style>
+  /* Remove all testimonial-card-white specific CSS from here. */
+  /* It is now in src/components/TestimonialCardWhite.astro */
+
+  /* Optional: Basic styling for the carousel structure itself */
+  .splide__slide {
+    display: flex;
+    justify-content: center; /* Center the card horizontally within the slide */
+    align-items: center; /* Center the card vertically */
+    padding: 1rem; /* Ensure some internal padding within the slide if needed */
+  }
+
+  /* Adjust Splide's default pagination/arrow colors to match your brand if desired */
+  .splide__pagination__page.is-active {
+    background: #b27d57; /* Your gold accent color */
+  }
+  .splide__pagination__page {
+    background: rgba(178, 125, 87, 0.4); /* Lighter gold for inactive dots */
+  }
+</style>
