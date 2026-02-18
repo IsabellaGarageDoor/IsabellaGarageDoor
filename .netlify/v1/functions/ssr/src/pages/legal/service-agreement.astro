@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceAgreementForm from '../../components/ServiceAgreementForm.jsx';
+import ServiceAgreementContent from '../../components/service-agreement-component.md';
+
+const title = "Service Agreement - Isabella Garage Door";
+---
+
+
+<BaseLayout>
+
+<main class="agreement-page">
+  <section class="agreement-text">
+    <ServiceAgreementContent />
+  </section>
+
+<section>
+  <ServiceAgreementForm client:visible />
+</section>
+
+</BaseLayout>

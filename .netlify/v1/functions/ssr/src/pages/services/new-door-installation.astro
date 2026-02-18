@@ -1,0 +1,133 @@
+---
+title: "New Garage Door Installation - Isabella Garage Door"
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro'
+
+const title = 'New Garage Door Installation | Isabella Garage Door';
+const description = 'Upgrade your home with professional new garage door installation in Mt. Pleasant and Central Michigan. Quality products and expert craftsmanship guaranteed.';
+
+const installationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Garage Door Installation",
+  "provider": {
+    "@id": "https://isabellagaragedoor.com/#business"
+  },
+  "description": "Full-service residential garage door replacement and new construction installation. Includes track setup, spring calibration, and opener integration.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Installation Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Residential Garage Door Replacement",
+          "description": "Removing old doors and installing modern, energy-efficient sectional garage doors."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Custom Door Consultations",
+          "description": "Professional measuring and style matching to find the perfect door for your home's architecture."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Insulated Door Upgrades",
+          "description": "Installation of R-value rated doors to improve home energy efficiency and garage climate control."
+        }
+      }
+    ]
+  }
+};
+---
+
+<BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(installationSchema)} />
+  </Fragment>
+
+  <img src="/src/photos/newly-installed-garage-door.webp" alt="A Newly Installed Garage Door in Alma Michigan" 
+  loading="eager" fetchpriority="high" class="header-photo-interior" />
+
+  <section>
+      <h1 class="page-title">Beautiful, Reliable New Garage Doors</h1>
+      <p class="hero-description">
+        Whether you’re upgrading curb appeal or replacing a failing door, we make the process simple — with expert guidance, professional installation, and zero mess left behind.
+      </p>
+      <div class="hero-buttons">
+        <a href="sms:9895720303?&body=Hi%2C%20I'm%20looking%20to%20replace%20my%20garage%20door." class="hero-contact-button">
+          <i class="fas fa-comment-dots"></i> Text About an Install
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="no-card">
+    <h2 class="sub-heading">A Door That Works — and Looks Great</h2>
+    <p class="p-home">
+      We install quality doors from brands you can trust — with a range of styles, colors, and insulation options to fit your home and budget. Every install includes removal of the old door, proper balancing, and clean, precise workmanship.
+    </p>
+    <img src="/src/photos/fresh-garage-door-installation.webp" alt="New garage door installation in Mt. Pleasant Michigan" class="homepg-about-photo" />
+  </section>
+
+  <section class="no-card">
+    <h2 class="sub-heading">Our Installation Process</h2>
+    <ul class="p-home" style="list-style: disc; padding-left: 1.5rem;">
+      <li>Personalized help choosing your new door</li>
+      <li>On-site measurement and consultation</li>
+      <li>Old door removal and haul-away included</li>
+      <li>Expert installation and spring balancing</li>
+      <li>Full system test and safety inspection</li>
+    </ul>
+  </section>
+
+  <section class="no-card">
+    <h2 class="sub-heading">Upgrade with Confidence</h2>
+    <p class="p-home">
+      We’ll walk you through options that suit your needs — whether you want a classic look, better insulation, windows for light, or a dramatic curb appeal upgrade. No sales pressure. Just honest advice from someone who cares.
+    </p>
+    <a href="/contact" class="cta-button" style="margin: 2rem auto 3rem;"><i class="fa-solid fa-door-open fa-fw"></i> Start My Door Quote</a>
+  </section>
+
+
+
+
+    <!-- Testimonial -->
+<section>
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
+  <TestimonialCard 
+    quote="Our experience with Isabella Garage Door was exceptional. They provided high quality service and made us feel valued as customers. If you're in Mount Pleasant and need garage door services, I wholeheartedly recommend giving them a call. You won't be disappointed!"
+    author="Michael S."
+  />
+</a>
+</section>
+
+<section>
+  <h2 class="sub-heading">Start Your New Door Quote</h2>
+  <p class="estimate-intro-paragraph">
+    Once you’ve got a style in mind, we’ll take care of the rest — measurements, haul-away, expert install, and a system that runs smoothly from day one. We’re always happy to walk you through your options without any pressure.
+  </p>
+  <a href="/contact" class="cta-button">
+    <i class="fa-solid fa-clipboard-list fa-fw"></i> Request a New Door Quote
+  </a>
+</section>
+
+
+<section>
+  <h2 class="sub-heading">Isabella Garage Door</h2>
+  <p style="font-size: .9rem; text-align: center;">
+    Stylish, durable, professionally installed garage doors for homes across Central Michigan.
+  </p>
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+    <em>Raising Performance. Elevating Standards</em>
+  </p>
+</section>
+
+</BaseLayout>

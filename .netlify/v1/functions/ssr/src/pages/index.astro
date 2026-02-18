@@ -1,0 +1,823 @@
+---
+title: "Home - Isabella Garage Door"
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SplideSlider from '../components/SplideSlider.jsx'
+import TestimonialCardWhite from '../components/TestimonialCardWhite.astro';
+import AvailabilityBanner from '../components/editable-sections/AvailabilityBanner.astro';
+import BlogCards from '../components/BlogCards.astro';
+import Coupons from '../components/editable-sections/Coupons.astro';
+import Homeownertools from '../components/Homeownertools.astro';
+
+
+const title = 'Home | Isabella Garage Door';
+const description = 'Professional garage door repair and replacement in Central Michigan. Honest service, fast response, and precision you can trust.';
+
+// YOUR SCHEMA HERE
+const homeSchema = {
+  "@context": "https://schema.org",
+  "@type": "GarageDoorService",
+  "@id": "https://isabellagaragedoor.com/#business",
+  "name": "Isabella Garage Door",
+  "url": "https://isabellagaragedoor.com",
+  "logo": "https://isabellagaragedoor.com/logo.png",
+  "image": "https://isabellagaragedoor.com/images/hero-image.jpg",
+  "description": "Professional garage door repair, broken spring replacement, opener installation, and door maintenance serving Mt. Pleasant, Rosebush, and Central Michigan.",
+  "telephone": "+1-989-572-0303",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2088 North Lincoln Road",
+    "addressLocality": "Rosebush",
+    "addressRegion": "MI",
+    "postalCode": "48878",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.7001,
+    "longitude": -84.7674
+  },
+  "areaServed": [
+    { "@type": "AdministrativeArea", "name": "Central Michigan" },
+    { "@type": "AdministrativeArea", "name": "Isabella County" },
+    { "@type": "City", "name": "Mount Pleasant, MI" },
+    { "@type": "City", "name": "Alma, MI" },
+    { "@type": "City", "name": "Clare, MI" },
+    { "@type": "City", "name": "Rosebush, MI" },
+    { "@type": "City", "name": "Coleman, MI" },
+    { "@type": "City", "name": "Lake Isabella, MI" },
+    { "@type": "City", "name": "Beal City, MI" },
+    { "@type": "City", "name": "Farwell, MI" },
+    { "@type": "City", "name": "Remus, MI" },
+    { "@type": "City", "name": "St. Louis, MI" },
+    { "@type": "City", "name": "Shepherd, MI" }
+  ],
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "16:00"
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Isabella Garage Door Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Broken Spring Replacement",
+          "serviceType": "Torsion Spring Repair",
+          "description": "Safe and professional replacement of high-tension garage door springs."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Garage Door Opener Repair & Replacement",
+          "serviceType": "Opener Service",
+          "description": "Diagnostics and repair for all major brands, plus new smart opener installations."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Garage Door Cable Off",
+          "serviceType": "Cable Repair & Replacement Service",
+          "description": "Broken garage door cable fix and replacement."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "General Garage Door Repair",
+          "serviceType": "Hardware Repair",
+          "description": "Fixing off-track doors, snapped cables, worn rollers, and bent tracks."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Garage Door Maintenance & Tune-Up",
+          "serviceType": "Preventative Maintenance",
+          "description": "Complete 20-point safety inspection, lubrication, and door balancing."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "New Garage Door Installation",
+          "serviceType": "Door Installation",
+          "description": "Professional installation of high-quality, insulated residential garage doors."
+        }
+      }
+    ]
+  },
+  "sameAs": [
+    "https://www.facebook.com/isabellagaragedoor"
+  ]
+};
+---
+
+<BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(homeSchema)} />
+  </Fragment>
+
+<link rel="stylesheet" href="/styles/global.css" />
+
+<section class="hero">
+  <div class="hero-content reveal-on-scroll">
+    <h1>Don't Let a Broken Door Ruin Your Day</h1>
+    <p class="hero-description">We make it easy — with dependable service, quality craftsmanship, and clear communication to get your day back on track, with less stress and more peace of mind.
+</p>
+  <div class="hero-buttons reveal-on-scroll">
+    <a href="/homeowner-tools/easy-estimate#estimate-form" button class="hero-estimate-button"><i class="fa-solid fa-calculator fa-fw "></i> Get a Free Estimate</a>
+    <a href="sms:9895720303?&body=Hi%2C%20I%20need%20some%20help%20with%20my%20garage%20door."
+button class="hero-contact-button"><i class="fas fa-comment-dots "></i> Text Us</a>
+   </div>
+  </div>
+</section>
+
+
+
+<AvailabilityBanner />
+
+<!-- COPY OF AVAILIBILITY BANNER
+<a href="#service-area" aria-label="Isabella Garage Door Service Area">
+<h3 class="sub-sub-heading" style="color: #b27d57;">Proudly Serving Central Michigan</h3>
+</a>
+
+<section class="availability-banner reveal-on-scroll">
+  <div class="availability-content">
+    <p class="availability-text">
+      📅 <strong>Now Booking:</strong> Limited appointments available for <span class="highlighted">early May</span>.
+Don’t wait — secure your spot today.
+    </p>
+    <a href="/contact" class="availability-btn">Request Service</a>
+  </div>
+</section>
+-->
+
+
+<section style="margin-bottom: 1rem;">
+<img src="/src/photos/elevating-garage-door-section.webp" alt="The-best-garage-door-installation-Mount-Pleasant-Michigan" class="homepg-about-photo reveal-on-scroll" />
+<h2 class="sub-heading" style="margin-top: 2rem;">Elevating the Standard</h2>
+  <p class="p-home">At Isabella Garage Door, we know your time, your home, and your peace of mind matter.
+When something breaks, you shouldn’t have to deal with delays, confusion, or half-done repairs.
+That’s why we focus on doing things the right way — with clear communication, quality craftsmanship, and a personal touch you can count on.
+We take pride in showing up when we say we will, respecting your space, and making sure every job is done right.
+It’s not just about fixing the door — it’s about making your day a little easier and your home feel taken care of.
+</p>
+
+<div class="trust-badges"> 
+<div class="trust-badge reveal-on-scroll"> 
+<img src="/src/photos/trust-badge-shield.png" alt="Fully Insured"> 
+<p>Fully<br>Insured</p> 
+</div> 
+
+<div class="trust-badge reveal-on-scroll"> 
+<img src="/src/photos/trust-badge-tools.png" alt="Expert Technicians"> 
+<p>Expert<br>Technicians</p> 
+</div> 
+<div class="trust-badge reveal-on-scroll"> 
+<img src="/src/photos/trust-badge-gears.png" alt="Premium Parts"> 
+<p>Premium<br>Parts</p> 
+</div> 
+<div class="trust-badge reveal-on-scroll"> 
+<img src="/src/photos/trust-badge-michigan.png" alt="Local-Family Owned"> 
+<p>Local-Family<br>Owned</p> 
+</div> 
+<div class="trust-badge reveal-on-scroll"> 
+<img src="/src/photos/trust-badge-banner.png" alt="Warranty Guarantee"> 
+<p>Warranty<br>Guarantee</p> 
+</div> 
+<div class="trust-badge reveal-on-scroll"> 
+<img src="/src/photos/trust-badge-stars.png" alt="5 Star Rated"> 
+<p>5 Star<br>Rated</p> 
+</div> 
+</div>
+
+</section>
+
+
+ <section class="core-services-section">
+<h2 class="sub-heading">How We Can Help</h2>
+   <p class="core-services-intro">
+ <!-- From simple repairs to full installations, --> We're here to keep your garage door working reliably and looking great.
+    Explore our core services below.
+</p>
+
+  <div class="core-services-grid">
+    <a href="/services/door-repair" class="core-services-card repair">
+      <div class="core-services-icon-circle">
+        <img src="/src/assets/images/garage-door-repair-icon.png" alt="Garage Door Repair Icon" class="service-icon" />
+      </div>
+      <h3>Door Repair</h3>
+      <p>Fixing broken springs, misaligned tracks, worn-out rollers, and more — fast, clean, and dependable</p> 
+    </a>
+
+    <a href="/services/opener-repair" class="core-services-card opener">
+      <div class="core-services-icon-circle">
+        <img src="/src/assets/images/garage-door-opener-icon.png" alt="Garage Door Opener Icon" class="opener-icon" />
+       </div>
+      <h3>Opener Services</h3>
+      <p>Need a new opener? Troubleshooting a glitchy remote? We work with all major brands and smart systems.</p>
+    </a>
+
+<!-- UN-HIDE THIS WHEN LICENSED
+    <a href="/services/new-door-installation" class="core-services-card installation">
+      <div class="core-services-icon-circle">
+        <img src="/src/assets/images/garage-door-installation-icon.png" alt="Garage Door Installation Icon" class="service-icon" />
+      </div>
+      <h3>New Installations</h3>
+      <p>We help you choose the right door and install it with craftsmanship and care — no mess left behind.</p>
+    </a>
+-->
+
+    <a href="/services/maintenance" class="core-services-card maintenance">
+       <div class="core-services-icon-circle">
+        <img src="/src/assets/images/garage-door-maintenance-icon.png" alt="Garage Door Maintenance Icon" class="service-icon" />
+      </div>
+      <h3>Maintenance</h3>
+      <p>Our Protection Plans help to catch problems early and extend the life of your door and your opener.</p>
+    </a>
+  </div>
+
+  <a href="/services/services" class="cta-button margin-top-3rem"><i class="fas fa-compass"></i> Explore Our Services</a>
+
+</section>
+
+
+
+<section class="no-card">
+<div class="why-choose-us-section">
+    <div class="why-choose-us-container">
+        <h2 class="sub-heading">Why Choose Isabella Garage Door?</h2>
+           <p class="testimonial-intro-paragraph" >We believe great service starts with trust. That’s why we do things the right way — with pride, care, and real respect for your home.
+              </p> 
+
+
+        <div class="accordion-group reveal-on-scroll">
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Personal Service from a Local Family Business
+                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                 <div class="accordion-content">
+                    <div class="accordion-text">
+                        We’re a family-run company that lives and works right here in Central Michigan.
+No call centers. No subcontractors. Just real people who care about doing the job right and treating you with respect.
+</div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Workmanship That Lasts
+                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                     <div class="accordion-text">
+                        Our <!-- repairs and installations --> are built to stand the test of time.
+With premium parts and attention to detail, we don’t just get it done — we get it done right the first time.
+</div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Trusted by Homeowners Across Central Michigan
+                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                     <div class="accordion-text">
+                        We’ve earned the trust of your neighbors by showing up on time, communicating clearly, and standing behind our work.
+You can count on us to be honest, respectful, and reliable.
+</div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Lasting Peace of Mind
+                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                     <div class="accordion-text">
+                        We focus on providing lasting solutions <!-- and expert installations --> that save you time, money, and headaches down the road.
+Our commitment to quality materials and meticulous workmanship ensures your garage door operates reliably for years to come, giving you genuine peace of mind.
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="/about/why-choose-isabella-garage-door" class="cta-button margin-bottom-2rem"><i class="fas fa-magnifying-glass"></i> Learn More About Us</a>
+</section>
+
+
+<!-- SHOW ONCE YOU GET REVEIWS
+<div class="testimonial-outer">
+  <section>
+    <h2 class="sub-heading">Real Feedback.<br>Real Trust.</h2>
+       <p class="testimonial-intro-paragraph">Here’s what Michigan homeowners are saying about Isabella Garage Door:
+         </p> 
+
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;" class="reveal-on-scroll">
+      <SplideSlider client:load />
+-->
+
+<!--  I THINK THIS MUST BE IN REVIEW COMPONENT, KEEP COMMENTED OUT INCASE LOST
+   <p class="testimonial-feature-heading"><i class="fas fa-check icon-bronze"></i> <strong>Locally Owned & Family Operated</strong></p>
+    <p class="p-testimonials">Personal service from people who live and work in your community.</p>
+  <p class="testimonial-feature-heading"><i class="fas fa-check icon-bronze"></i> <strong>Satisfaction Backed by Craftsmanship</strong></p>
+    <p class="p-testimonials">We do it right — or we make it right. Every time.</p>
+  <p class="testimonial-feature-heading"><i class="fas fa-check icon-bronze"></i> <strong>Trusted by Michigan Homeowners</strong></p>
+    <p class="p-testimonials padding-bottom-2rem">Known for honest recommendations and dependable work throughout Central Michigan.</p>
+  -->
+<a href="/about/testimonials" class="cta-button"><i class="fa-solid fa-star fa-fw"></i> Read Customer Reviews</a>
+</a>
+</section>
+
+<section>
+<div class="reveal-on-scroll">
+   <p class="testimonial-feature-heading" style="margin-top: 3rem;"><i class="fas fa-check icon-bronze"></i> <strong>Locally Owned & Family Operated</strong></p>
+    <p class="p-testimonials">Personal service from people who live and work in your community.</p>
+  <p class="testimonial-feature-heading"><i class="fas fa-check icon-bronze"></i> <strong>Satisfaction Backed by Craftsmanship</strong></p>
+    <p class="p-testimonials">We do it right — or we make it right. Every time.</p>
+  <p class="testimonial-feature-heading"><i class="fas fa-check icon-bronze"></i> <strong>Trusted by Michigan Homeowners</strong></p>
+    <p class="p-testimonials">Known for honest recommendations and dependable work throughout Central Michigan.</p>
+  </div>
+  </section>
+</div>
+
+
+
+
+<!-- Homeowner toolbox -->
+<section class="core-services-section">
+  <div class="homeowner-toolbox-section">
+    <h2 class="sub-heading">Homeowner Toolbox</h2>
+     <p style="text-align: left;">Fast answers. Instant estimates. Easy diagnostics. Built for you.</p>
+
+    <div class="homeowner-toolbox-wrapper">
+      <div class="homeowner-toolbox-grid">
+
+        <a href="/homeowner-tools/easy-estimate#estimate-form" aria-label="Receive a Free Estimate from Isabella Garage Door" class="homeowner-toolbox-card">
+          <img src="/src/photos/easyestimate-logo.webp" alt="EasyEstimate" class="homeowner-toolbox-img">
+          <div class="homeowner-toolbox-body">
+            <h3>EasyEstimate™</h3>
+            <p>Curious about costs? EasyEstimate™ gives fast estimates in seconds.</p>
+        <p class="read-more" style="color: #b27d57;">Get Estimate →</p>
+          </div>
+        </a>
+
+        <a href="/homeowner-tools/door-diagnosis#troubleshooting" aria-label="Diagnose Your Garage Door with DoorDiagnosis Tool" class="homeowner-toolbox-card">
+          <img src="/src/photos/doordiagnosis-logo.webp" alt="DoorDiagnosis" class="homeowner-toolbox-img">
+          <div class="homeowner-toolbox-body">
+            <h3>DoorDiagnosis™</h3>
+            <p>Door problems? DoorDiagnosis™ pinpoints the problem in less than a minute.</p>
+        <p class="read-more" style="color: #b27d57;">Find Problem →</p>
+          </div>
+        </a>
+
+        <a href="/homeowner-tools/spring-status#springstatus" aria-label="Check Your Garage Door Springs with SpringStatus Tool" class="homeowner-toolbox-card">
+          <img src="/src/photos/springstatus-logo.webp" alt="SpringStatus" class="homeowner-toolbox-img">
+          <div class="homeowner-toolbox-body">
+            <h3>SpringStatus™</h3>
+            <p>Worried your springs might fail? SpringStatus™ calculates their lifespan instantly—so you know when to replace them.</p>
+        <p class="read-more" style="color: #b27d57;">Check Springs →</p>
+          </div>
+        </a>
+
+   <!--     <a href="/homeowner-tools/ask-abel-ai-assistant#askabel" aria-label="AI Garage Door Chat Bot" class="homeowner-toolbox-card">
+          <img src="/src/photos/askabel-logo.webp" alt="AI Garage Door Assistant" class="homeowner-toolbox-img">
+          <div class="homeowner-toolbox-body">
+            <h3>AskAbel™</h3>
+            <p>Got a garage door question? AskAbel™ gives you instant answers—anytime, day or night</p>
+        <p class="read-more" style="color: #b27d57;">Ask Abel →</p>
+          </div>
+        </a>
+   -->
+
+      </div>
+    </div>
+
+<!--
+    <a href="/homeowner-tools/toolbox" class="cta-button margin-bottom-2rem" style="display: block; margin: 2rem auto 0;">
+      <i class="fa-solid fa-toolbox"></i> Use Homeowner Tools
+    </a>
+-->
+  </div>
+</section>
+
+
+
+<section class="faq-area">
+<section id="faq">
+<div class="faq-head">
+<a href="/resources/faq" style="text-decoration: none; color: inherit; display: block;">
+  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions</h2>
+</a>
+</div>
+
+<div class=" reveal-on-scroll">
+  <div class="faq-item"><div class="faq-question"><span>Can you work on older garage doors?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer">
+<p>Definitely. We repair and maintain a wide range of door types—even older models.
+If something isn’t available, we’ll help find a good solution.</p></div></div>
+
+  <div class="faq-item"><div class="faq-question"><span>Will you explain what's wrong before starting work?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer">
+<p>Yes. Every visit starts with a thorough inspection and diagnostic test. We’ll explain the issue, go over your options, and get your approval before any repairs begin.
+</p></div></div>
+
+    <div class="faq-item"><div class="faq-question"><span>Are your repairs guaranteed?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Absolutely.
+We stand behind our work with an outstanding 1 year warranty and a commitment to getting it done right the first time.</p></div></div>
+
+    <div class="faq-item"><div class="faq-question"><span>Can I book online?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer">
+<p>Yes. You can fill out our online form to request service, and we’ll contact you promptly by email, text, or phone to schedule your repair at a convenient time.</p></div></div>
+
+  <div class="faq-item">
+  <div class="faq-question">
+    <span>Still have questions?</span>
+    <span class="faq-arrow">&#9654;</span>
+  </div>
+  <div class="faq-answer">
+    <p>We’ve got a full FAQ page covering everything from opener issues to smart garage setups.</p>
+    <a href="/resources/faq" class="faq-button" style="margin-bottom: 0.5rem;"><i class="fa-solid fa-book-open fa-fw"></i> Browse All FAQs</a>
+  </div>
+</div>
+</div>
+ </section>
+</section>
+
+
+
+ <img src="/src/photos/Brand-new-garage-door-installation-Mt-Pleasant-Michigan.webp" alt="New garage door installed in Mt. Pleasant Michigan by Isabella Garage Door" class="about-image" />
+
+
+ <section class="no-card">
+     <h2 class="sub-heading">About Isabella Garage Door</h2>
+<div class="reveal-on-scroll">
+    <p class="about-main-paragraph">
+          <span class="about-highlight-span">At Isabella Garage Door</span>, we bring premium craftsmanship, honest service, and personal attention to every project.
+We proudly serve Central Michigan communities with expert garage door repair <!--, installation, --> and maintenance.
+</p>
+      <p class="about-paragraph-with-padding">
+        <span class="about-highlight-span">Our commitment is simple:</span> <em>Raising Performance.
+Elevating Standards.</em>
+        From the first phone call to the final inspection, we prioritize clear communication, dependable workmanship, and a respectful experience.
+We don't just work in the community - we're proud to serve our neighbors with integrity and care.
+</p>
+      <p class="about-last-paragraph">
+       <span class="about-highlight-span">Thank You!</span>
+        for considering Isabella Garage Door.
+We look forward to serving you.</p>
+</div>
+
+    <a href="/about/our-story" class="cta-button" style="margin-bottom: 2rem"><i class="fa-solid fa-users fa-fw"></i> Learn More About Us</a>
+  </section>
+
+
+<BlogCards />
+
+
+<!--
+<section class="blog-background">
+  <h2 class="sub-heading">Garage Door Tips & Learning Center</h2>
+   <div class="blog-cards">
+
+    <article class="blog-card reveal-on-scroll">
+      <img src="/photos/thumbnails/myq-thumbnail.webp" alt="MyQ Garage Door Installation">
+      <div class="blog-content">
+         <h3><a href="/blog/why-myq-smart-garage-openers-are-a-smart-investment-for-michigan-homeowners">Why MyQ Smart Garage Openers Are a Smart Investment for Michigan Homeowners?</a></h3>
+        <p>Why MyQ may be a smart investment for you!</p>
+        <a class="read-more" href="/blog/why-myq-smart-garage-openers-are-a-smart-investment-for-michigan-homeowners">Read More →</a>
+      </div>
+    </article>
+
+    <article class="blog-card reveal-on-scroll">
+      <img src="/photos/thumbnails/5-tips-thumbnail.webp" alt="Garage Door Tips for the Michigan Homeowner">
+      <div class="blog-content">
+        <h3><a href="/blog/5-signs-your-door-needs-attention">5 Signs Your Door May Need Attention</a></h3>
+         <p>Your garage door is likely the largest moving object in your home.
+It's used multiple times daily but often goes unnoticed until...</p>
+        <a class="read-more" href="/blog/5-signs-your-door-needs-attention">Read More →</a>
+      </div>
+    </article>
+
+    <article class="blog-card reveal-on-scroll">
+      <img src="/photos/thumbnails/noisy-door-thumbnail.webp" alt="How to Fix Noisy Garage Door">
+      <div class="blog-content">
+        <h3><a href="/blog/the-strange-noises-your-garage-door-makes">Common Noises Your Garage Door Makes and What They Mean</a></h3>
+        <p>Ever wonder why your garage is making unusual noises?
+Here's what causes them</p>
+        <a class="read-more" href="/blog/the-strange-noises-your-garage-door-makes">Read More →</a>
+      </div>
+    </article>
+
+    </div>
+</section>
+-->
+
+
+ <section class="service-area-section">
+<div id="service-area" style="position: relative; top: -80px;"></div>
+   <h2 class="sub-heading">Service Area</h2>
+<img src="/src/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" />
+   <section class="area-description">
+  <div class="centered-content">
+    <p class="p-home area-description-intro">
+      Looking for garage door
+services near you? Isabella Garage Door proudly serves homeowners in:</p>
+<p class="area-description-list">
+Mount Pleasant • Lake Isabella • Clare • Farwell • Coleman • Shepherd • Alma • Remus • Rosebush • Beal City • St. Louis
+and surrounding Central Michigan communities.</p>
+
+<a href="/contact" class="cta-button" style="margin-top: 2rem;"><i class="fa-solid fa-location-dot fa-fw"></i> Need Local Help?</a>
+       </div> </section>
+</section>
+
+<section class="core-services-section reveal-on-scroll">
+<Coupons /> 
+</section>
+
+<section>
+  <a href="/" aria-label="Go to homepage">
+  <img src="/src/photos/blue-tag-isabella-garage-door-logo.svg" alt="Isabella Garage Door" class="responsive-image reveal-on-scroll" />
+ </a>
+  <p style="font-size: .9rem; text-align: center;">
+    Serving Central Michigan with honest, high-quality garage door service.
+  </p>
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+    <em>Raising Performance. Elevating Standards</em>
+  </p>
+</section>
+
+<style>
+.homeowner-toolbox-section {
+  text-align: center;
+}
+
+.homeowner-toolbox-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.homeowner-toolbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.homeowner-toolbox-card {
+  background: #fff;
+  border: 0.094rem solid #b27d57;
+  border-radius: 0.75rem;
+  padding: 1rem 1rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+  position: relative;
+  background-image: url('/src/photos/white-garage-door-service-section.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #ffffff; /* fallback if image fails */
+z-index: 1;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.homeowner-toolbox-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.homeowner-toolbox-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.5); /* Light overlay */
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.homeowner-toolbox-card * {
+  position: relative;
+  z-index: 2;
+}
+
+.homeowner-toolbox-card:hover,
+.homeowner-toolbox-card:focus {
+  transform: translateY(-5px);
+  box-shadow: 0 0 0.75rem rgba(178, 125, 87, 0.5);
+  outline: none;
+}
+
+.homeowner-toolbox-img {
+  width: auto;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: .75rem;
+   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+}
+
+.homeowner-toolbox-body h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1a334f;
+  font-family: 'Lora', serif;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  line-height: 2.1rem;
+}
+
+.homeowner-toolbox-body p {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #333;
+  text-align: left;
+  padding: 0 1rem;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".homeowner-toolbox-card, .core-services-card, .reveal-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // reveal once
+          }
+        });
+      },
+      {
+        threshold: 0.2, // trigger when 20% of card is visible
+      }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>
+
+<script is:inline>
+document.querySelectorAll('.faq-item').forEach(item => {
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+
+  question.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+       answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+<script is:script>
+  const icons = document.querySelectorAll('.core-services-icon-circle');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+icons.forEach(icon => observer.observe(icon));
+</script>
+
+
+
+<script>
+// Function to toggle accordion visibility and arrow rotation
+function toggleAccordion(button) {
+    const item = button.parentElement;
+    const clickedContent = button.nextElementSibling;
+    const clickedArrow = button.querySelector('.accordion-arrow');
+
+    // Close all other open accordions
+    document.querySelectorAll('.accordion-content').forEach(content => {
+        const parentItem = content.parentElement;
+        const arrow = parentItem.querySelector('.accordion-arrow');
+
+        if (content !== clickedContent && content.style.maxHeight !== '0px' && content.style.maxHeight !== '') {
+            content.style.maxHeight = '0px';
+            if (arrow) arrow.style.transform = 'rotate(0deg)';
+            parentItem.classList.remove('active');
+        }
+    });
+
+    // Toggle the clicked accordion
+    if (clickedContent.style.maxHeight === '0px' || clickedContent.style.maxHeight === '') {
+        clickedContent.style.maxHeight = clickedContent.scrollHeight + 'px';
+        clickedArrow.style.transform = 'rotate(180deg)';
+        item.classList.add('active');
+    } else {
+        clickedContent.style.maxHeight = '0px';
+        clickedArrow.style.transform = 'rotate(0deg)';
+        item.classList.remove('active');
+    }
+}
+
+// Function to initialize accordions (set them to closed on load)
+function initializeAccordions() {
+    document.querySelectorAll('.accordion-content').forEach(content => {
+        content.style.maxHeight = '0px';
+        content.parentElement.classList.remove('active');
+        const arrow = content.previousElementSibling.querySelector('.accordion-arrow');
+        if (arrow) arrow.style.transform = 'rotate(0deg)';
+    });
+}
+
+// Make toggleAccordion available globally (used by HTML onclick)
+window.toggleAccordion = toggleAccordion;
+
+// Run initialization on first page load
+document.addEventListener('DOMContentLoaded', initializeAccordions);
+
+// Reinitialize after soft navigation (Astro)
+document.addEventListener('astro:after-swap', initializeAccordions);
+</script>
+
+  <script>
+    if (typeof window !== 'undefined') {
+      // Animate highlight section (existing)
+      const highlightObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('slide-up-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.5,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      window.addEventListener('DOMContentLoaded', () => {
+        const highlightSection = document.querySelector('.highlight-section');
+        if (highlightSection) {
+          highlightObserver.observe(highlightSection);
+        }
+
+        // Animate value icon cards with staggered delay
+        const iconCards = document.querySelectorAll('.value-icon-card');
+        const iconObserver = new IntersectionObserver((entries, iconObs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Add animation with stagger delay based on index
+              const index = Array.from(iconCards).indexOf(entry.target);
+              entry.target.style.animation = `fadeSlideUp 0.6s ease forwards`;
+              entry.target.style.animationDelay = `${index * 150}ms`;
+              iconObs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+
+        iconCards.forEach(card => iconObserver.observe(card));
+      });
+    }
+  </script>
+
+</BaseLayout>

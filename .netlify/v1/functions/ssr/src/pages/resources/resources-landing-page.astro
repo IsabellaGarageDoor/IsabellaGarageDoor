@@ -1,0 +1,76 @@
+---
+title: "Resources - Isabella Garage Door"
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout>
+<link rel="stylesheet" href="/styles/global.css" />
+
+<section class="container">
+  <h1 class="page-title">Resources</h1>
+  <p class="intro-paragraph">
+    Explore expert insight, seasonal advice, and practical tips from our team — plus answers to the most common questions homeowners ask us every week.
+  </p>
+
+  <div class="resources-grid">
+    <a href="/blog" class="resource-card fade-in-up">
+      <h2 class="sub-heading">Learning Center</h2>
+      <p>
+        Articles to help you understand, maintain, and make smart decisions about your garage door system — from seasonal maintenance to long-term upgrades.
+      </p>
+      <div class="cta-orange" style="display:inline-block; margin-top:1rem;">Explore Articles →</div>
+    </a>
+
+    <a href="/faq" class="resource-card fade-in-up">
+      <h2 class="sub-heading">Frequently Asked Questions</h2>
+      <p>
+        Quick, clear answers to our most asked questions — from repair expectations to safety advice and service details.
+      </p>
+      <div class="cta-orange" style="display:inline-block; margin-top:1rem;">View FAQs →</div>
+    </a>
+  </div>
+</section>
+
+<style>
+  .resources-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  @media screen and (min-width: 768px) {
+    .resources-grid {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  .resource-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    max-width: 400px;
+    flex: 1;
+    border-left: 5px solid #1A334F;
+    transition: box-shadow 0.3s ease;
+  }
+
+  .resource-card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  }
+
+  .resource-card h2 {
+    margin-top: 0;
+  }
+
+  .resource-card p {
+    margin-top: 0.75rem;
+    color: #444;
+    font-size: 1.05rem;
+  }
+</style>
+
+</BaseLayout>

@@ -1,0 +1,130 @@
+---
+title: "Garage Door Repair in Alma, MI | Isabella Garage Door"
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+
+const title = "Garage Door Repair in Alma, MI | Isabella Garage Door";
+const description =
+  "Trusted garage door repair in Alma, MI by a locally owned, owner-operated company. Isabella Garage Door delivers fast, reliable service with clear communication and quality workmanship.";
+---
+
+<BaseLayout {title} {description}>
+
+<img
+  src="/src/photos/Alma-Michigan.webp"
+  alt="Welcome to Alma Michigan. Scottland USA"
+  loading="eager"
+  fetchpriority="high"
+  class="header-photo-interior"
+/>
+
+<section>
+  <h1 class="page-title">Garage Door Repair in Alma, MI</h1>
+  <p class="slogan">Raising Performance. Elevating Standards.</p>
+  <p class="hero-subtext">
+    Local, honest, precise service. Get your garage door back on track quickly and reliably.
+  </p>
+  <a href="/contact" class="cta-button">Request Service</a>
+</section>
+
+<section>
+  <h2 class="sub-heading">Serving Alma Homeowners with Trusted Repairs</h2>
+  <p>
+    If your garage door is stuck, loud, or refusing to open, we’re here to help. Isabella Garage Door
+    specializes in fast, professional repairs for Alma residents and nearby communities.
+    Whether it’s a broken spring, frayed cables, or a malfunctioning opener, we’ll get it fixed safely
+    and efficiently.
+  </p>
+</section>
+
+<section>
+  <h2 class="sub-heading">Common Garage Door Problems We Fix</h2>
+  <ul class="service-list">
+    <li>✔️ Broken torsion or extension springs</li>
+    <li>✔️ Garage door opener and remote issues</li>
+    <li>✔️ Frayed or loose cables</li>
+    <li>✔️ Rollers that squeal or pop</li>
+    <li>✔️ Bent or misaligned panels</li>
+    <li>✔️ Weather seal replacement</li>
+    <li>✔️ Preventative maintenance checks</li>
+  </ul>
+</section>
+
+<section>
+  <h2 class="sub-heading">Why Alma Homeowners Choose Isabella Garage Door</h2>
+  <ul class="service-list">
+    <li>📍 Fast local response — we’re nearby and flexible</li>
+    <li>👨‍🔧 Owner-operated — personal, hands-on service</li>
+    <li>💬 Honest recommendations and transparent pricing</li>
+    <li>🔧 Quality parts and repairs that last</li>
+  </ul>
+</section>
+
+<!-- Optional Testimonial 
+<section>
+  <h2 class="sub-heading">What Your Neighbors Are Saying</h2>
+  <a
+    href="/about/testimonials"
+    aria-label="Read more customer testimonials"
+    style="text-decoration: none; color: inherit; display: block;"
+  >
+    <TestimonialCard
+      quote="Fast, professional, and reliable. The technician was knowledgeable and got our garage door working perfectly."
+      author="Homeowner, Alma, MI"
+    />
+  </a>
+</section>
+-->
+
+<!-- Highlight Section --> 
+ <div class="highlight-section"> 
+  <p> 
+    Homeowners in Alma rely on <strong>Isabella Garage Door</strong> for honest repairs and dependable service. 
+  </p> 
+ </div>
+
+<section class="cta-block">
+  <h2 class="sub-heading">Get Your Garage Door Fixed Today</h2>
+  <p>
+    From downtown Alma to surrounding neighborhoods, we provide prompt, reliable garage door service.
+    Reach out today and we’ll get your door operating smoothly and safely again.
+  </p>
+  <a href="/contact" class="cta-button">
+    <i class="fa-solid fa-phone"></i> Request Service
+  </a>
+</section>
+
+<section class="brand-footer">
+  <h2 class="sub-heading">Isabella Garage Door</h2>
+  <p class="brand-text">
+    Proudly serving Alma and all of Gratiot County with trusted, professional garage door service.
+  </p>
+  <p class="brand-tagline">
+    <em>Raising Performance. Elevating Standards</em>
+  </p>
+</section>
+
+<script>
+  if (typeof window !== 'undefined') {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('slide-up-in');
+          observer.unobserve(entry.target); // Animate only once
+        }
+      });
+    }, {
+      threshold: 0.6,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const section = document.querySelector('.highlight-section');
+      if (section) {
+        observer.observe(section);
+      }
+    });
+  }
+</script>
+
+</BaseLayout>

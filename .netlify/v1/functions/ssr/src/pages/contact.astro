@@ -1,0 +1,62 @@
+---
+title: "Contact Us - Isabella Garage Door"
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.jsx';
+
+const title = 'Request Service | Isabella Garage Door';
+const description = 'Get in touch with Isabella Garage Door for fast, friendly, and reliable garage door repairs in Mt. Pleasant, MI.';
+---
+<link rel="stylesheet" href="/styles/global.css" />
+
+<BaseLayout {title} {description}>
+
+  <img src="/src/photos/request-service-garage-door-image.webp" alt="Request garage door service or intallation today in Central Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
+
+
+<h1 class="page-title">Request Service</h1>
+
+  <p class="left-content">Ready to schedule service, ask a question, or request a quote? We're here to help. Reach out using the form below, or contact us directly - whichever is easiest for you.
+</p>
+
+
+<section class="py-8 px-4 max-w-4xl mx-auto">
+  <ContactForm client:visible />
+</section>
+
+
+<h3 class="sub-sub-heading" style="margin-top: 1.5rem; font-family:'Lora', serif;">Prefer to talk to someone?</h3>
+  <div class="contact-block">
+<p>
+    <strong>📱 Text us:</strong> <a href="sms:9895720303" style="color: #0000EE; text-decoration: none;">(989) 572-0303</a><br />
+    <strong>📞 Call us:</strong> <a href="tel:9895720303" style="color: #0000EE; text-decoration: none;">(989) 572-0303</a><br />
+    <strong>✉️ Email:</strong> <a href="mailto:IsabellaGarageDoor@gmail.com" style="color: #0000EE; text-decoration: none;">IsabellaGarageDoor@gmail.com</a><br />
+    </p>
+</div>
+
+
+<div id="service-area" style="position: relative; top: -60px;"></div>
+   <h2 class="sub-heading" style="margin-top: 2rem;">Service Area</h2>
+<img src="/src/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" />
+   <section class="area-description">
+  <div class="centered-content">
+    <p class="p-home area-description-intro">
+      Looking for garage door
+services near you? Isabella Garage Door proudly serves homeowners in:</p>
+
+<p class="area-description-list">
+Mount Pleasant • Lake Isabella • Clare • Farwell • Coleman • Beal City • Shepherd • Alma • Remus • Edmore • Rosebush • St. Louis • Winn
+and surrounding Central Michigan communities.</p>
+</div> 
+</section>
+
+<section>
+  <h2 class="sub-heading">Isabella Garage Door</h2>
+  <p style="font-size: .9rem; text-align: center;">
+    Serving Central Michigan with honest, high-quality garage door service.
+  </p>
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+    <em>Raising Performance. Elevating Standards</em>
+  </p>
+</section>
+
+</BaseLayout>

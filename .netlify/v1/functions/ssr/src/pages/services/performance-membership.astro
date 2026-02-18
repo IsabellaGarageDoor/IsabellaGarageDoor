@@ -1,0 +1,359 @@
+---
+title: "Performance Membership - Isabella Garage Door"
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro'
+
+const title = 'Performance Membership | Isabella Garage Door';
+const description = 'The "Never Worry Again" Plan. Proactive care, priority service, and lifetime coverage for your garage door parts in Mid-Michigan.';
+
+const membershipSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Garage Door Performance Membership",
+  "provider": {
+    "@id": "https://isabellagaragedoor.com/#business"
+  },
+  "description": "A proactive residential garage door maintenance and protection program featuring annual inspections, priority response, and lifetime parts coverage.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Performance Membership Benefits",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Annual Proactive Maintenance",
+          "description": "Yearly 20-point safety inspections and system tune-ups to ensure long-term reliability."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Priority Service Access",
+          "description": "Members jump to the front of the line with guaranteed priority scheduling for all service calls."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Lifetime Parts Coverage",
+          "description": "Comprehensive protection and discounts on high-wear garage door components."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Multi-Door Protection",
+          "description": "Customized protection rates for homes with multiple garage door systems."
+        }
+      }
+    ]
+  }
+};
+---
+
+<BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(membershipSchema)} />
+  </Fragment>
+
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+
+ <div class="container">
+    <h1 class="coming-script">Coming Soon</h1>
+
+  <img src="/src/photos/protection-garage-door-plans.webp" alt="Performance Membership garage door maintenance" 
+  loading="eager" fetchpriority="high" class="header-photo-interior" />
+
+    <h2 class="sub-heading">Performance Membership</h2>
+
+    <p class="description">
+      We’re building something designed to completely change how homeowners care for their garage doors.
+      A smarter, proactive approach to reliability, safety, and long-term performance.
+    </p>
+
+    <p class="description">
+      This premium service is currently in development and will be available once our systems are fully in place
+      to deliver the level of service our customers expect.
+    </p>
+
+  </div>
+
+<section>
+  <h2 class="sub-heading">Isabella Garage Door</h2>
+  <p style="font-size: .9rem; text-align: center;">
+    Proactive care. Performance Membership - the smarter way to own a garage door in Central Michigan.
+  </p>
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+    <em>Raising Performance. Elevating Standards</em>
+  </p>
+</section>
+
+
+
+
+
+
+
+<!--
+  <img src="/src/photos/protection-garage-door-plans.webp" alt="Performance Membership garage door maintenance" 
+  loading="eager" fetchpriority="high" class="header-photo-interior" />
+
+  <section>
+    <div class="membership-hero">
+      <h1 class="page-title">Performance Membership</h1>
+      <p class="price-tag"><strong>$49</strong> / month</p>
+      <p class="tagline">The “Never Worry Again” Plan</p>
+      <p class="hero-intro">
+        This is not a discount plan. This is a long-term care program. Performance Members receive proactive care, priority service, and <strong>full coverage</strong> of parts that naturally wear out — all handled automatically.
+      </p>
+      <div class="hero-buttons">
+        <a href="sms:9895720303?&body=Hi%2C%20I'm%20interested%20in%20joining%20the%20Performance%20Membership." class="hero-contact-button">
+          <i class="fas fa-comment-dots"></i> Text Us to Join
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="promise-box">
+    <h2 class="sub-heading">The Promise</h2>
+    <p>
+      As long as your Performance Membership remains active and in good standing, you <strong>never pay for springs, rollers, cables, hinges, or bearings again.</strong> Ever. That’s what “Never Worry Again” means.
+    </p>
+  </section>
+
+  <section class="details-grid">
+    <article class="detail-card">
+      <h3>🛠️ Biannual Performance Tuning</h3>
+      <p>Two scheduled visits per year including a detailed inspection, safety tests, lubrication, and precision adjustments. Your door’s condition is documented at every visit.</p>
+    </article>
+
+    <article class="detail-card">
+      <h3>🔋 Batteries & Light Bulbs</h3>
+      <p>During your spring visit, we replace keypad batteries and opener light bulbs so your system stays ready to use without you thinking about it.</p>
+    </article>
+
+    <article class="detail-card">
+      <h3>🛡️ Lifetime Wear Coverage</h3>
+      <p>Parts and labor included for failed high-cycle springs, nylon rollers, hinges, bearings, lift cables, and bottom weather seals.</p>
+    </article>
+
+    <article class="detail-card">
+      <h3>🚀 VIP Priority Scheduling</h3>
+      <p>If something feels wrong, text us. Members receive front-of-the-line scheduling if an issue occurs between visits.</p>
+    </article>
+
+    <article class="detail-card">
+      <h3>🏠 Invisible Service</h3>
+      <p>Keypad or MyQ access allows us to complete maintenance while you’re at work. No need to stay home. Designed for busy households who don’t have time to schedule service appointments.</p>
+    </article>
+
+    <article class="detail-card">
+      <h3>📉 25% Member Discount</h3>
+      <p>Save 25% on non-wear items like new openers, electronics, remotes, and decorative hardware.</p>
+    </article>
+  </section>
+
+<section class="multiple-doors-section">
+ <p><i>Have multiple garage doors?</i> Ask about our Estate Discount for additional doors.
+</p>
+</section>
+
+  <section class="no-card">
+    <a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
+      <TestimonialCard 
+        quote="We never have to worry about surprise breakdowns or missed appointments. They're just always on it."
+        author="Mark & Julia R."
+      />
+    </a>
+  </section>
+
+  <section class="terms-section">
+    <h2 class="sub-heading">Membership Terms & Eligibility</h2>
+    <div class="terms-content">
+      <div class="terms-column">
+        <h4>The Essentials</h4>
+        <ul>
+          <li><strong>Certification:</strong> Door must pass an initial Performance Certification Inspection to qualify.</li>
+          <li><strong>Pre-Existing Conditions:</strong> Components identified as Poor or Failing during the initial Certification Inspection are not eligible for coverage until they are replaced.</li>
+          <li><strong>Commitment:</strong> Requires a 12-month minimum commitment. Early cancellation results in billing for provided parts/labor at retail rates.</li>
+          <li><strong>Exclusivity:</strong> Membership becomes void if any other party services the door system.</li>
+        </ul>
+      </div>
+      <div class="terms-column">
+        <h4>What's Not Covered</h4>
+        <ul>
+          <li>Damage caused by forced operation of the door, impact, obstruction in the door’s path, or other abuse.</li>
+          <li>Door sections/panels, tracks, and opener motor/rail assemblies.</li>
+          <li>Cosmetic issues, rust, or environmental corrosion.</li>
+          <li>Structural aging of the door system.</li>
+          <li>Membership applies per door.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="transfer-note"><strong>Selling your home?</strong> The membership is fully transferable, adding value for the next homeowner.</p>
+  </section>
+
+<section>
+  <p>Most homeowners never think about their garage door until it fails. Performance Members never experience that failure.
+   </p>
+</section>
+
+  <section>
+    <a href="/contact" class="cta-button"><i class="fa-solid fa-calendar-check fa-fw"></i> Get Certified for Membership</a>
+  </section>
+
+<section>
+  <h2 class="sub-heading">Isabella Garage Door</h2>
+  <p style="font-size: .9rem; text-align: center;">
+    Proactive care. Performance Membership - the smarter way to own a garage door in Central Michigan.
+  </p>
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+    <em>Raising Performance. Elevating Standards</em>
+  </p>
+</section>
+
+-->
+
+
+
+<style>
+  .membership-hero {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .price-tag {
+    font-size: 2.5rem;
+    color: #1a334f;
+    margin: 0.5rem 0;
+    text-align: center;
+  }
+  .tagline {
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #b27d57;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  .promise-box {
+    background-color: #1a334f;
+    color: white;
+    padding: 3rem 2rem;
+    text-align: center;
+    border: 0.094rem solid #b27d57;
+    border-radius: 0.75rem;
+    margin: 2rem auto;
+    max-width: 900px;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+  }
+  .promise-box h2 { color: #ffffff; }
+  
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem auto;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    max-width: 1100px;
+  }
+  .detail-card {
+    background: #ffffff;
+    border: 1px solid #b27d57;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+  }
+
+    .detail-card:hover,
+    .detail-card:focus {
+      box-shadow: 0 0 0.9rem rgba(178, 125, 87, 0.85); /* Stronger glow */
+      border-color: #b27d57;
+      outline: none;
+      transform: translateY(-2px); /* Lift on hover */
+    }
+
+  .detail-card h3 {
+    color: #1a334f;
+    font-size: 1.1rem;
+    margin: 0 0 1rem;
+    text-align: center;
+  }
+  .multiple-doors-section {
+    background: #f7faff;
+    padding: 1rem;
+    border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
+  }
+  .multiple-doors-section p {
+    color: #1a334f;
+  }
+  .terms-section {
+    background: #f7faff;
+    padding: 3rem 2rem;
+    border-radius: 0.75rem;
+    margin-top: 3rem;
+  }
+  .terms-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+  .terms-column { flex: 1 1 300px; }
+  .terms-column ul { padding-left: 1.2rem; }
+  .terms-column li { font-size: 0.9rem; margin-bottom: 0.5rem; }
+  .transfer-note {
+    text-align: center;
+    margin-top: 2rem;
+    font-style: italic;
+  }
+
+
+
+
+
+
+
+
+
+
+  .container {
+    max-width: 800px;
+    padding: 2rem;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+  }
+
+  .coming-script {
+    font-family: 'Lobster', cursive;
+    font-size: 4rem;
+    text-align: center;
+    color: #b27d57;
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+    text-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+    transform: rotate(-4deg);
+    display: inline-block;
+  }
+
+  .membership-title {
+    font-size: 2rem;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
+
+
+</style>
+
+</BaseLayout>

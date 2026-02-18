@@ -1,0 +1,145 @@
+---
+title: "Garage Door Repair in Isabella County, MI - Isabella Garage Door"
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro'
+
+const title = 'Garage Door Repair in Isabella County, MI | Isabella Garage Door';
+const description = 'Fast, reliable garage door repair and installation across Isabella County. Locally owned and operated. Book your appointment today.'
+---
+
+<BaseLayout {title} {description}>
+
+<img src="/src/photos/isabella-county-garage-door-repair.webp" alt="Receive garage door repair or installation in Isabella County Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
+
+<section>
+  <h1 class="page-title">Garage Door Repair in Isabella County, MI</h1>
+    <p class="slogan">Raising Performance. Elevating Standards.</p>
+  <p>We proudly serve every corner of Isabella County with dependable garage door repairs, precision installations, and annual maintenance. Whether you're near Mt. Pleasant, Lake Isabella, Shepherd, or out in the countryside, we'll come to you—on time, every time.
+</p>
+</section>
+
+<section>
+  <h2 class="sub-heading">Serving the Heart of Michigan</h2>
+  <p>Our team understands rural living and small-town values. That’s why homeowners and businesses throughout Isabella County count on us for:</p>
+  <ul>
+    <li>Broken spring and cable repair</li>
+    <li>New opener installation</li>
+    <li>Roller and track fixes</li>
+    <li>Preventative maintenance plans</li>
+  </ul>
+</section>
+
+<section>
+  <h2 class="sub-heading">Locally Owned. County-Wide Coverage.</h2>
+  <p>Isabella Garage Door is a family-run company based right here in the county. We know the roads. We know the weather. We know what it takes to keep your door running in every season. No out-of-town call centers. Just honest work done by your neighbors.</p>
+</section>
+
+<section>
+  <h2 class="sub-heading">Schedule Service in Isabella County</h2>
+  <p>We’re ready when you are. Book an appointment, request an estimate, or ask us a question. You’ll speak directly with the technician who will do the work.</p>
+  <a href="/contact" class="cta-button">Check Availability</a>
+</section>
+
+<img src="/src/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map" class="homepg-service-photo" style="margin-bottom: 2rem;"/>
+ 
+<section>
+  <h3 class="sub-sub-heading">Proudly Serving:</h3>
+  <ul>
+    <li>Mt. Pleasant</li>
+    <li>Lake Isabella</li>
+    <li>Shepherd</li>
+    <li>Rosebush</li>
+    <li>Beal City</li>
+    <li>Winn</li>
+    <li>Isabella Township</li>
+    <li>And more rural homes and farms throughout the county</li>
+  </ul>
+    <p style="margin-top: 0.5rem;">
+      👉 See our <a href="/contact#service-area" class="link">full service area</a>
+    </p>
+</section>
+
+    <!-- Testimonial 
+<section>
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
+  <TestimonialCard 
+    quote="The technician did an amazing job repairing our garage door. He showed up fast, explained everything, and left it better than it’s ever been. Highly recommend for anyone in Isabella County."
+    author="Colton B."
+  />
+</a>
+</section>
+-->
+
+  <!-- Highlight Section -->
+  <div class="highlight-section">
+    <p>
+      Homeowners throughout Isabella County rely on <strong>Isabella Garage Door</strong> for honest, reliable garage door repairs and expert workmanship.
+    </p>
+  </div>
+
+  <section>
+    <h2 class="sub-heading">Reliable Garage Door Help for Every Corner of Isabella County</h2>
+    <p>
+      From the neighborhoods of Mt. Pleasant to the back roads of Rosebush, your garage door is part of your daily routine. We’re here to keep it working smoothly—season after season—with service rooted in the community we call home.
+    </p>
+    <a href="/homeowner-tools/easy-estimate#estimate-form" class="testimonials-cta-button">Get an EasyEstimate™</a>
+    <a href="/contact" class="cta-button">Request Service</a>
+  </section>
+
+<section>
+  <h2 class="sub-heading">Isabella Garage Door</h2>
+  <p style="font-size: .9rem; text-align: center;">
+    Proudly repairing garage doors across Isabella County.
+  </p>
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+    <em>Raising Performance. Elevating Standards</em>
+  </p>
+</section>
+
+<style>
+  .slogan {
+    font-size: 1.2rem;
+    color: #b27d57;
+    margin: 1rem 0;
+  }
+
+  ul {
+    list-style: disc;
+    padding-left: 2.5rem;
+  }
+
+.link {
+  color: #b27d57;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.link:hover {
+  color: #81583b;
+}
+</style>
+
+<script>
+  if (typeof window !== 'undefined') {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('slide-up-in');
+          observer.unobserve(entry.target); // Animate only once
+        }
+      });
+    }, {
+      threshold: 0.6,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const section = document.querySelector('.highlight-section');
+      if (section) {
+        observer.observe(section);
+      }
+    });
+  }
+</script>
+
+</BaseLayout>

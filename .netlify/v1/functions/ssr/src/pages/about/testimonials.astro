@@ -1,0 +1,365 @@
+---
+title: "Testimonials - Isabella Garage Door"
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+
+const title = 'Testimonials | Isabella Garage Door';
+const description = 'Hear from our satisfied customers across Central Michigan and discover why Isabella Garage Door is the trusted choice for garage door service.';
+
+
+const reviews = [
+  {
+    quote: "Our garage door opener stopped working out of nowhere and we were stuck parking outside. Isabella Garage Door came out and diagnosed the issue and had a new opener installed that same day. Super friendly and professional. Everything works perfectly now. Couldn't be happier with the service!",
+    author: "Taylor W.",
+    date: "2025-05-26",
+    rating: 5
+  },
+  {
+    quote: "The tech explained the problem clearly and fixed it same day.",
+    author: "Paul R.",
+    date: "2024-06-30",
+    rating: 5
+  }, 
+  {
+    quote: "Our experience with Isabella Garage Door was exceptional. They provided high quality service and made us feel valued as customers. If you're in Mount Pleasant and need garage door services, I wholeheartedly recommend giving them a call. You won't be disappointed!",
+    author: "Micheal S.",
+    date: "2024-06-15",
+    rating: 5
+  },
+  {
+    quote: "After months of dealing with a noisy, jerky garage door, we finally decided to call Isabella Garage Door. The tech replaced the old worn out rollers. What a difference! The door is so quiet now. We really appreciate them fixing our door. Highly recommend!",
+    author: "Elizabeth A.",
+    date: "2024-06-30",
+    rating: 5
+  },
+  {
+    quote: "We were having issues with our garage door not closing all the way, and it started getting worse. We called Isabella Garage Door and they showed up the next day, right on time. They inspected everything, explained the problem and made the repairs. The door works great now and it’s so much quieter. Very impressed!",
+    author: "Tracey S.",
+    date: "2024-06-30",
+    rating: 5
+  },
+
+
+//  {
+//    quote: 
+//    author: 
+//    date: 
+//    rating:
+//   },
+
+  // Add more reviews here...
+];
+
+// Sort by newest first
+const sorted = reviews.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+// Pagination setup
+const page = Number(Astro.url.searchParams.get("page") || 1);
+const perPage = 4;
+const start = (page - 1) * perPage;
+const end = start + perPage;
+
+const totalPages = Math.ceil(sorted.length / perPage);
+const paginated = sorted.slice(start, end);
+---
+
+<BaseLayout {title} {description}>
+
+<link rel="stylesheet" href="/styles/global.css"/>
+
+
+<img src="/src/photos/happy-family-garage-door.webp" alt="The-best-garage-door-installation-Mount-Pleasant-Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
+
+
+<h1 class="page-title">What Our Customers Are Saying</h1>
+<p class="left-content">We don’t just fix garage doors — we build trust. Homeowners in Mt. Pleasant, Alma, Clare, Isabella County, and across Central Michigan say it best:
+</p>
+
+  <h2 class="sub-heading">Reviews Will Be Shown As We Recieve Them</h2>
+
+
+<!-- REMOVE COMMENT TAG TO SHOW REVIEWS AND DELETE THE ABOVE H2
+<div id="reviews"></div>
+  
+<section class="max-w-3xl mx-auto px-4 py-8">
+
+  <div class="space-y-6">
+    {paginated.map(review => (
+      <TestimonialCard quote={review.quote} author={review.author} rating={review.rating ?? 5} />
+    ))}
+  </div>
+
+<div class="pagination-wrapper">
+  {page > 1 && (
+    <a href={`?page=${page - 1}#reviews`} class="pagination-button arrow">&larr;</a>
+  )}
+
+  {/* Always show page 1 */}
+  {page > 3 && (
+    <>
+      <a href="?page=1" class="pagination-button">1</a>
+      <span class="pagination-ellipsis">...</span>
+    </>
+  )}
+
+  {/* Show 2 pages before, current, 2 pages after */}
+  {Array.from({ length: totalPages }, (_, i) => i + 1)
+    .filter(p => p >= page - 2 && p <= page + 2)
+    .map(p => (
+      <a
+        href={`?page=${p}#reviews`}
+        class={`pagination-button ${p === page ? 'active' : ''}`}
+      >
+        {p}
+      </a>
+    ))}
+
+  {/* Ellipsis and last page */}
+  {page < totalPages - 2 && (
+    <>
+      <span class="pagination-ellipsis">...</span>
+      <a href={`?page=${totalPages}`} class="pagination-button">{totalPages}</a>
+    </>
+  )}
+
+  {page < totalPages && (
+    <a href={`?page=${page + 1}#reviews`} class="pagination-button arrow">&rarr;</a>
+  )}
+</div>
+-->
+
+<section class="testimonial-form-section">
+  <h2 class="testimonial-form-heading">Want to share your experience?</h2>
+  <p class="testimonial-form-subtext">We'd love to hear how we did. Your feedback helps others know what to expect from our service.</p>
+
+  <form
+    action="https://formsubmit.co/isabellagaragedoor@gmail.com"
+    method="POST"
+    class="testimonial-form"
+  >
+    <input type="hidden" name="_subject" value="New Testimonial Submission" />
+    <input type="hidden" name="_template" value="table" />
+
+    <label for="name">Your Name</label>
+    <input type="text" id="name" name="name" placeholder="John D." required />
+
+
+    <label for="rating">Star Rating</label>
+    <select id="rating" name="rating" required>
+      <option value="">Select</option>
+      <option value="5">★★★★★ (5 - Excellent)</option>
+      <option value="4">★★★★☆ (4 - Very good)</option>
+      <option value="3">★★★☆☆ (3 - Average)</option>
+      <option value="2">★★☆☆☆ (2 - Needs work)</option>
+      <option value="1">★☆☆☆☆ (1 - Poor)</option>
+    </select>
+
+    <label for="quote">Your Review</label>
+    <textarea
+      id="quote"
+      name="quote"
+      rows="4"
+      required
+      placeholder="Tell us about your experience..."
+    ></textarea>
+
+  <input type="hidden" name="_next" value="http://isabellagaragedoor.com/thank-you-estimate">
+
+<div class="form-button-wrapper">
+  <button type="submit" class="cta-button">Send Review</button>
+</div>
+
+  </form>
+</section>
+
+
+</section>
+
+
+<p class="google-review-link">
+  Prefer to leave a review on Google?
+  <a href="https://www.google.com/search?q=Isabella+Garage+Door" target="_blank" rel="noopener">Click here</a>.
+</p>
+
+
+
+<a href="/contact" class="testimonials-cta-button" style="margin: 2rem auto 2rem;";"><i class="fa-regular fa-calendar-check fa-fw"></i> Schedule Service</a>
+
+<section>
+  <h2 class="sub-heading">Isabella Garage Door</h2>
+  <p style="font-size: .9rem; text-align: center;">
+    Real feedback from real customers—we're proud to serve Central Michigan with service people remember.
+  </p>
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+    <em>Raising Performance. Elevating Standards</em>
+  </p>
+</section>
+
+
+
+
+<style>
+.pagination-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 3rem auto 2rem;
+}
+
+.pagination-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-family: 'Lora', sans-serif;
+  font-size: 0.95rem;
+  border-radius: 0.75rem;
+  border: 0.065rem solid #b27d57;
+  color: #1a334f;
+  background-color: #f7f2ec;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.pagination-button:hover {
+  background-color: #ecdcc4;
+}
+
+.pagination-button.active {
+  background-color: #1a334f;
+  color: #ffffff;
+  box-shadow: 0 0 .5rem rgba(255, 255, 255, 0.5);
+  pointer-events: none;
+}
+
+.pagination-button.arrow {
+  font-weight: bold;
+  padding: 0.5rem 1.5rem;
+}
+
+.pagination-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  font-size: 1rem;
+  color: #999;
+}
+
+#reviews {
+  scroll-margin-top: 4rem; /* adjust to match your sticky header height */
+}
+
+.testimonial-form-section {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem 1rem;
+  background-color: #fdfaf7;
+  border: 0.094rem solid #b27d57;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+  font-family: 'Lora', serif;
+  color: #1a334f;
+}
+
+.testimonial-form-heading {
+  font-family: 'Lora', serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: #1a334f;
+}
+
+.testimonial-form-subtext {
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #4a4a4a;
+}
+
+.testimonial-form label {
+  display: block;
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+.testimonial-form input,
+.testimonial-form select,
+.testimonial-form textarea {
+  width: 100%;
+  margin-top: 0.25rem;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 1rem;
+  color: #1a334f;
+  background-color: #fff;
+}
+
+.testimonial-form textarea {
+  resize: vertical;
+}
+
+.testimonial-form .cta-button {
+      background-color: #1a334f;
+      color: #ffffff;
+      padding: 0.85rem 2.25rem; /* Adjusted padding */
+      font-size: 1.1rem;
+      border: 0.094rem solid #b27d57;
+      border-radius: 0.75rem;
+      margin: 1.5rem auto 1rem; /* Adjusted margin */
+      font-family: 'Lora', serif;
+      font-weight: 500;
+      box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+      width: 100%;
+      max-width: 25rem;
+      text-align: center;
+      white-space: nowrap;
+      cursor: pointer;
+}
+
+.testimonial-form .cta-button:hover {
+  background-color: #b27d57;
+}
+
+.form-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+
+
+.google-review-link {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  font-family: 'Lora', serif;
+  color: #1a334f;
+}
+
+.google-review-link a {
+  color: #b27d57;
+  text-decoration: underline;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.google-review-link a:hover {
+  color: #81583b;
+}
+
+
+</style>
+
+
+
+
+
+
+
+
+
+</BaseLayout>

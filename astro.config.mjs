@@ -3,11 +3,12 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import alpinejs from '@astrojs/alpinejs';
-
+import netlify from '@astrojs/netlify';
 
 export default defineConfig({
   site: 'http://localhost:4321',
   output: 'server', // Keep this for development
+  adapter: netlify(), 
   integrations: [tailwind(), sitemap(), react(), alpinejs()],
   markdown: {
     shikiConfig: {
