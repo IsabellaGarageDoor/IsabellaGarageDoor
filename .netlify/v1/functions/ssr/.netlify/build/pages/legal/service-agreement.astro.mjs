@@ -1,7 +1,7 @@
 /* empty css                                                                   */
 import { a as createComponent, m as maybeRenderHead, u as unescapeHTML, r as renderTemplate, g as renderComponent } from '../../chunks/astro/server_xoD-kxEp.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from '../../chunks/BaseLayout_BTkoY-F8.mjs';
+import { $ as $$BaseLayout } from '../../chunks/BaseLayout_B24roKEI.mjs';
 import { jsxs, jsx } from 'react/jsx-runtime';
 import { useRef, useState } from 'react';
 import 'clsx';

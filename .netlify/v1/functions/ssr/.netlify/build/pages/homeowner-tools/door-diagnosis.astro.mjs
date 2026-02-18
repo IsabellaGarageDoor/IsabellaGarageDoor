@@ -1,7 +1,7 @@
 /* empty css                                                                   */
 import { a as createComponent, g as renderComponent, r as renderTemplate, F as Fragment, u as unescapeHTML, b as renderScript, m as maybeRenderHead } from '../../chunks/astro/server_xoD-kxEp.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from '../../chunks/BaseLayout_BTkoY-F8.mjs';
+import { $ as $$BaseLayout } from '../../chunks/BaseLayout_B24roKEI.mjs';
 export { renderers } from '../../renderers.mjs';
 
 var __freeze = Object.freeze;
@@ -35,11 +35,11 @@ const $$DoorDiagnosis = createComponent(($$result, $$props, $$slots) => {
       }
     ]
   };
-  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate(_a || (_a = __template(['  <link rel="stylesheet" href="/styles/tools.css"> <link rel="stylesheet" href="/styles/tools.css">  ', `<section> <img src="/src/photos/Troubleshooting-garage-door-problems (1).webp" alt="Frustrated man trying to fix his garage door" loading="eager" fetchpriority="high" class="header-photo-interior"> </section>  <section> <h1 class="page-title">DoorDiagnosis\u2122</h1> <h2 class="sub-heading">Something\u2019s off? Let\u2019s figure it out \u2014 fast.</h2> <p>
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate(_a || (_a = __template(['  <link rel="stylesheet" href="/styles/tools.css"> <link rel="stylesheet" href="/styles/tools.css">  ', `<section> <img src="/photos/Troubleshooting-garage-door-problems (1).webp" alt="Frustrated man trying to fix his garage door" loading="eager" fetchpriority="high" class="header-photo-interior"> </section>  <section> <h1 class="page-title">DoorDiagnosis\u2122</h1> <h2 class="sub-heading">Something\u2019s off? Let\u2019s figure it out \u2014 fast.</h2> <p>
 Before you call for help, try DoorDiagnosis\u2122. This free interactive tool helps you pinpoint what\u2019s wrong with your garage door \u2014 and whether it\u2019s something you can safely fix yourself.
 </p> <div style="margin-left: 1rem; margin-top: 1rem;"> <ul class="bullet-list"> <li><i class="fas fa-check icon-bronze"></i><strong> Step-by-step guidance</strong></li> <li><i class="fas fa-check icon-bronze"></i><strong> See the most likely cause</strong></li> <li><i class="fas fa-check icon-bronze"></i><strong> Know when it\u2019s time to call in a pro</strong></li> </ul> </div> </section>  <div class="highlight-section"> <p>
 A garage door problem can feel like a full stop in your day. DoorDiagnosis\u2122 helps turn that moment into a clear next step \u2014 no guessing, no pressure.
-</p> </div> <section> <p>Choose the symptoms of your garage door problem and we\u2019ll guide you through a few quick questions to generate an accurate diagnosis:</p> </section>  <section> <div id="troubleshooting" style="position: relative; top: -80px;"></div></section>  <div id="estimate-app-container"> <!-- Splash Screen (initially visible) --> <div id="estimate-splash" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 250px; gap: 1rem;"> <img src="/src/photos/blue-isabella-garage-door-logo.png" alt="Isabella Garage Door Logo" style="max-width: 280px; opacity: 0.8;"> <div class="lds-ring"><div></div><div></div><div></div><div></div></div> </div> <!-- Your Actual App --> <div id="app" style="display: none;"></div> </div>  <section> <div class="footer-text">
+</p> </div> <section> <p>Choose the symptoms of your garage door problem and we\u2019ll guide you through a few quick questions to generate an accurate diagnosis:</p> </section>  <section> <div id="troubleshooting" style="position: relative; top: -80px;"></div></section>  <div id="estimate-app-container"> <!-- Splash Screen (initially visible) --> <div id="estimate-splash" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 250px; gap: 1rem;"> <img src="/photos/blue-isabella-garage-door-logo.png" alt="Isabella Garage Door Logo" style="max-width: 280px; opacity: 0.8;"> <div class="lds-ring"><div></div><div></div><div></div><div></div></div> </div> <!-- Your Actual App --> <div id="app" style="display: none;"></div> </div>  <section> <div class="footer-text">
 Need immediate help? Call us at
 <a href="tel:9895720303" style="color: #b27d57; font-weight: bold; text-decoration: none;">
 (989) 572-0303
@@ -356,7 +356,7 @@ EasyEstimate\u2122
 
             document.getElementById('app').innerHTML = \`
                 <div class="solution-card \${solution.severity}">
-<img src="/src/photos/doordiagnosis-logo.webp" alt="Garage door troubleshooting tool" loading="lazy" class="badge-img" />
+<img src="/photos/doordiagnosis-logo.webp" alt="Garage door troubleshooting tool" loading="lazy" class="badge-img" />
                     <div class="solution-header">
                         \${iconHtml}
                         <h2 class="solution-title">\${solution.title}</h2>
@@ -405,7 +405,7 @@ EasyEstimate\u2122
 
             document.getElementById('app').innerHTML = \`
                 <div class="card">
-<img src="/src/photos/doordiagnosis-logo.webp" alt="Garage door troubleshooting tool" loading="lazy" class="badge-img" />
+<img src="/photos/doordiagnosis-logo.webp" alt="Garage door troubleshooting tool" loading="lazy" class="badge-img" />
                     <div style="margin-bottom: 24px;">
                         <h2 class="question-title">\${currentQuestion.question}</h2>
                         
@@ -450,11 +450,11 @@ function resetAndScroll() {
 
         // Initialize the app
         renderQuestion();
-    <\/script> `], ['  <link rel="stylesheet" href="/styles/tools.css"> <link rel="stylesheet" href="/styles/tools.css">  ', `<section> <img src="/src/photos/Troubleshooting-garage-door-problems (1).webp" alt="Frustrated man trying to fix his garage door" loading="eager" fetchpriority="high" class="header-photo-interior"> </section>  <section> <h1 class="page-title">DoorDiagnosis\u2122</h1> <h2 class="sub-heading">Something\u2019s off? Let\u2019s figure it out \u2014 fast.</h2> <p>
+    <\/script> `], ['  <link rel="stylesheet" href="/styles/tools.css"> <link rel="stylesheet" href="/styles/tools.css">  ', `<section> <img src="/photos/Troubleshooting-garage-door-problems (1).webp" alt="Frustrated man trying to fix his garage door" loading="eager" fetchpriority="high" class="header-photo-interior"> </section>  <section> <h1 class="page-title">DoorDiagnosis\u2122</h1> <h2 class="sub-heading">Something\u2019s off? Let\u2019s figure it out \u2014 fast.</h2> <p>
 Before you call for help, try DoorDiagnosis\u2122. This free interactive tool helps you pinpoint what\u2019s wrong with your garage door \u2014 and whether it\u2019s something you can safely fix yourself.
 </p> <div style="margin-left: 1rem; margin-top: 1rem;"> <ul class="bullet-list"> <li><i class="fas fa-check icon-bronze"></i><strong> Step-by-step guidance</strong></li> <li><i class="fas fa-check icon-bronze"></i><strong> See the most likely cause</strong></li> <li><i class="fas fa-check icon-bronze"></i><strong> Know when it\u2019s time to call in a pro</strong></li> </ul> </div> </section>  <div class="highlight-section"> <p>
 A garage door problem can feel like a full stop in your day. DoorDiagnosis\u2122 helps turn that moment into a clear next step \u2014 no guessing, no pressure.
-</p> </div> <section> <p>Choose the symptoms of your garage door problem and we\u2019ll guide you through a few quick questions to generate an accurate diagnosis:</p> </section>  <section> <div id="troubleshooting" style="position: relative; top: -80px;"></div></section>  <div id="estimate-app-container"> <!-- Splash Screen (initially visible) --> <div id="estimate-splash" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 250px; gap: 1rem;"> <img src="/src/photos/blue-isabella-garage-door-logo.png" alt="Isabella Garage Door Logo" style="max-width: 280px; opacity: 0.8;"> <div class="lds-ring"><div></div><div></div><div></div><div></div></div> </div> <!-- Your Actual App --> <div id="app" style="display: none;"></div> </div>  <section> <div class="footer-text">
+</p> </div> <section> <p>Choose the symptoms of your garage door problem and we\u2019ll guide you through a few quick questions to generate an accurate diagnosis:</p> </section>  <section> <div id="troubleshooting" style="position: relative; top: -80px;"></div></section>  <div id="estimate-app-container"> <!-- Splash Screen (initially visible) --> <div id="estimate-splash" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 250px; gap: 1rem;"> <img src="/photos/blue-isabella-garage-door-logo.png" alt="Isabella Garage Door Logo" style="max-width: 280px; opacity: 0.8;"> <div class="lds-ring"><div></div><div></div><div></div><div></div></div> </div> <!-- Your Actual App --> <div id="app" style="display: none;"></div> </div>  <section> <div class="footer-text">
 Need immediate help? Call us at
 <a href="tel:9895720303" style="color: #b27d57; font-weight: bold; text-decoration: none;">
 (989) 572-0303
@@ -771,7 +771,7 @@ EasyEstimate\u2122
 
             document.getElementById('app').innerHTML = \\\`
                 <div class="solution-card \\\${solution.severity}">
-<img src="/src/photos/doordiagnosis-logo.webp" alt="Garage door troubleshooting tool" loading="lazy" class="badge-img" />
+<img src="/photos/doordiagnosis-logo.webp" alt="Garage door troubleshooting tool" loading="lazy" class="badge-img" />
                     <div class="solution-header">
                         \\\${iconHtml}
                         <h2 class="solution-title">\\\${solution.title}</h2>
@@ -820,7 +820,7 @@ EasyEstimate\u2122
 
             document.getElementById('app').innerHTML = \\\`
                 <div class="card">
-<img src="/src/photos/doordiagnosis-logo.webp" alt="Garage door troubleshooting tool" loading="lazy" class="badge-img" />
+<img src="/photos/doordiagnosis-logo.webp" alt="Garage door troubleshooting tool" loading="lazy" class="badge-img" />
                     <div style="margin-bottom: 24px;">
                         <h2 class="question-title">\\\${currentQuestion.question}</h2>
                         

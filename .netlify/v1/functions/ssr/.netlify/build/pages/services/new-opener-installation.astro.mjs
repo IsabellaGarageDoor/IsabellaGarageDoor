@@ -1,7 +1,7 @@
 /* empty css                                                                   */
 import { a as createComponent, g as renderComponent, r as renderTemplate, F as Fragment, u as unescapeHTML, m as maybeRenderHead } from '../../chunks/astro/server_xoD-kxEp.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from '../../chunks/BaseLayout_BTkoY-F8.mjs';
+import { $ as $$BaseLayout } from '../../chunks/BaseLayout_B24roKEI.mjs';
 export { renderers } from '../../renderers.mjs';
 
 var __freeze = Object.freeze;
@@ -66,12 +66,12 @@ const $$NewOpenerInstallation = createComponent(($$result, $$props, $$slots) => 
       ]
     }
   };
-  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate`  ${maybeRenderHead()}<img src="/src/photos/opener-installation-central-michigan.webp" alt="A newly installed garage door opener in Central Michigan" loading="eager" fetchpriority="high" class="header-photo-interior"> <section> <h1 class="page-title">Upgrade Your Opener with Confidence</h1> <p class="hero-description">
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate`  ${maybeRenderHead()}<img src="/photos/opener-installation-central-michigan.webp" alt="A newly installed garage door opener in Central Michigan" loading="eager" fetchpriority="high" class="header-photo-interior"> <section> <h1 class="page-title">Upgrade Your Opener with Confidence</h1> <p class="hero-description">
 Whether your opener finally gave out — or it’s just time for something quieter, smarter, and more reliable — we make upgrading easy.
 </p> <div class="hero-buttons"> <a href="sms:9895720303?&body=Hi%2C%20I'm%20looking%20to%20replace%20my%20garage%20door%20opener." class="hero-contact-button"> <i class="fas fa-comment-dots"></i> Text About an Upgrade
 </a> </div> </section> <section class="no-card"> <h2 class="sub-heading">Smart, Quiet, and Built to Last</h2> <p class="p-home">
 We install top-rated openers from LiftMaster, Chamberlain, and Genie — including belt drive models for ultra-quiet performance and MyQ-enabled units for smart home control. All installed with precision, care, and no mess left behind.
-</p> <img src="/src/photos/Opener-install.webp" alt="New garage door opener installation in Mount Pleasant Michigan" class="homepg-about-photo"> </section> <section class="no-card"> <h2 class="sub-heading">Our Installation Includes</h2> <ul class="p-home" style="list-style: disc; padding-left: 1.5rem;"> <li>New opener with safety sensors and wall button</li> <li>Remote programming and smartphone setup</li> <li>Removal of old unit</li> <li>Full safety check and system test</li> <li>Lifetime support from a local expert</li> </ul> </section> <section class="no-card"> <h2 class="sub-heading">Not Sure What You Need?</h2> <p class="p-home">
+</p> <img src="/photos/Opener-install.webp" alt="New garage door opener installation in Mount Pleasant Michigan" class="homepg-about-photo"> </section> <section class="no-card"> <h2 class="sub-heading">Our Installation Includes</h2> <ul class="p-home" style="list-style: disc; padding-left: 1.5rem;"> <li>New opener with safety sensors and wall button</li> <li>Remote programming and smartphone setup</li> <li>Removal of old unit</li> <li>Full safety check and system test</li> <li>Lifetime support from a local expert</li> </ul> </section> <section class="no-card"> <h2 class="sub-heading">Not Sure What You Need?</h2> <p class="p-home">
 Chain drive, belt drive, wall mount, or Wi-Fi enabled — we’ll walk you through the options that make sense for your budget, home, and goals. No pressure. Just honest recommendations.
 </p> <a href="/contact" class="cta-button" style="margin: 2rem auto 3rem;"><i class="fa-solid fa-magnifying-glass fa-fw"></i> Ask Us Now</a> </section>  <section> <h2 class="sub-heading">Fast, Friendly Quotes Available</h2> <p class="estimate-intro-paragraph">
 Our free online estimate tool can help you price out your upgrade in under a minute. It’s quick, simple, and 100% pressure-free.

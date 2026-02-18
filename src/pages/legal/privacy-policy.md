@@ -85,6 +85,6 @@ We may update this Privacy Policy from time to time. Any changes will be posted 
 
 <section>
   <a href="/" aria-label="Go to homepage">
-  <img src="/src/photos/blue-tag-isabella-garage-door-logo.svg" alt="Isabella Garage Door" class="responsive-image" />
+  <img src="/photos/blue-tag-isabella-garage-door-logo.svg" alt="Isabella Garage Door" class="responsive-image" />
  </a>
 </section>

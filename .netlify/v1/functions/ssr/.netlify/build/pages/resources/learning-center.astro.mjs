@@ -2,7 +2,7 @@
 import { c as createAstro, a as createComponent, g as renderComponent, r as renderTemplate, m as maybeRenderHead, f as addAttribute, F as Fragment } from '../../chunks/astro/server_xoD-kxEp.mjs';
 import 'kleur/colors';
 import { g as getCollection } from '../../chunks/_astro_content_Bvnd_znt.mjs';
-import { $ as $$BaseLayout } from '../../chunks/BaseLayout_BTkoY-F8.mjs';
+import { $ as $$BaseLayout } from '../../chunks/BaseLayout_B24roKEI.mjs';
 /* empty css                                              */
 export { renderers } from '../../renderers.mjs';
 
@@ -22,7 +22,7 @@ const $$LearningCenter = createComponent(async ($$result, $$props, $$slots) => {
   const startIndex = (currentPage - 1) * postsPerPage;
   const endIndex = startIndex + postsPerPage;
   const paginatedPosts = sortedPosts.slice(startIndex, endIndex);
-  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description, "data-astro-cid-llrvbvmf": true }, { "default": async ($$result2) => renderTemplate` <title>Resources | Isabella Garage Door</title> <meta name="description" content="Insights, updates, and tips from Isabella Garage Door."> <link rel="stylesheet" href="/styles/global.css"> ${maybeRenderHead()}<img src="/src/photos/learning-center-garage-door.webp" alt="Beautiful garage door fixed and working again" loading="eager" fetchpriority="high" class="header-photo-interior" data-astro-cid-llrvbvmf> <h1 class="page-title" data-astro-cid-llrvbvmf>Learning Center</h1> <p class="intro-paragraph" data-astro-cid-llrvbvmf>
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description, "data-astro-cid-llrvbvmf": true }, { "default": async ($$result2) => renderTemplate` <title>Resources | Isabella Garage Door</title> <meta name="description" content="Insights, updates, and tips from Isabella Garage Door."> <link rel="stylesheet" href="/styles/global.css"> ${maybeRenderHead()}<img src="/photos/learning-center-garage-door.webp" alt="Beautiful garage door fixed and working again" loading="eager" fetchpriority="high" class="header-photo-interior" data-astro-cid-llrvbvmf> <h1 class="page-title" data-astro-cid-llrvbvmf>Learning Center</h1> <p class="intro-paragraph" data-astro-cid-llrvbvmf>
 Welcome to the Learning Center — your go-to garage door resource for expert tips, how-to guides, and helpful insights in Central Michigan. Whether you're troubleshooting a strange noise, planning a replacement, or just staying ahead on maintenance, you're in the right place.
 </p> <div class="blog-search-wrap" data-astro-cid-llrvbvmf> <a href="/search" class="blog-search-button" data-astro-cid-llrvbvmf>
 🔍 Search Articles

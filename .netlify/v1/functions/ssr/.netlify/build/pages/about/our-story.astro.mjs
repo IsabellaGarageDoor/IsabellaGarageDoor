@@ -1,14 +1,14 @@
 /* empty css                                                                   */
 import { a as createComponent, g as renderComponent, r as renderTemplate, m as maybeRenderHead, b as renderScript } from '../../chunks/astro/server_xoD-kxEp.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from '../../chunks/BaseLayout_BTkoY-F8.mjs';
+import { $ as $$BaseLayout } from '../../chunks/BaseLayout_B24roKEI.mjs';
 /* empty css                                        */
 export { renderers } from '../../renderers.mjs';
 
 const $$OurStory = createComponent(($$result, $$props, $$slots) => {
   const title = "Our Story | Isabella Garage Door";
   const description = "Learn how our family-run garage door company in Mt. Pleasant is raising service standards in Central Michigan.";
-  return renderTemplate`<link rel="stylesheet" href="/styles/global.css">${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description, "data-astro-cid-hrmi4n6x": true }, { "default": ($$result2) => renderTemplate`${maybeRenderHead()}<img src="/src/photos/michigan-neighborhood-garages.webp" alt="A quiet Central Michigan neighborhood with attached garages on residential homes" loading="eager" fetchpriority="high" class="header-photo-interior" data-astro-cid-hrmi4n6x><h1 class="page-title" data-astro-cid-hrmi4n6x>Service You Can Trust</h1><section data-astro-cid-hrmi4n6x><p data-astro-cid-hrmi4n6x>
+  return renderTemplate`<link rel="stylesheet" href="/styles/global.css">${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description, "data-astro-cid-hrmi4n6x": true }, { "default": ($$result2) => renderTemplate`${maybeRenderHead()}<img src="/photos/michigan-neighborhood-garages.webp" alt="A quiet Central Michigan neighborhood with attached garages on residential homes" loading="eager" fetchpriority="high" class="header-photo-interior" data-astro-cid-hrmi4n6x><h1 class="page-title" data-astro-cid-hrmi4n6x>Service You Can Trust</h1><section data-astro-cid-hrmi4n6x><p data-astro-cid-hrmi4n6x>
 At Isabella Garage Door, we believe exceptional service means more than just getting the job
       done—it’s about building lasting relationships through quality workmanship, honest communication,
       and genuine care for our community.

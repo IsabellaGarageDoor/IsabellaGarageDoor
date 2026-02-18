@@ -1,7 +1,7 @@
 /* empty css                                                                   */
 import { a as createComponent, g as renderComponent, r as renderTemplate, F as Fragment, u as unescapeHTML, m as maybeRenderHead } from '../../chunks/astro/server_xoD-kxEp.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from '../../chunks/BaseLayout_BTkoY-F8.mjs';
+import { $ as $$BaseLayout } from '../../chunks/BaseLayout_B24roKEI.mjs';
 /* empty css                                                     */
 export { renderers } from '../../renderers.mjs';
 
@@ -59,7 +59,7 @@ const $$PerformanceMembership = createComponent(($$result, $$props, $$slots) => 
       ]
     }
   };
-  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description, "data-astro-cid-nzablbf4": true }, { "default": ($$result2) => renderTemplate`  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> ${maybeRenderHead()}<div class="container" data-astro-cid-nzablbf4> <h1 class="coming-script" data-astro-cid-nzablbf4>Coming Soon</h1> <img src="/src/photos/protection-garage-door-plans.webp" alt="Performance Membership garage door maintenance" loading="eager" fetchpriority="high" class="header-photo-interior" data-astro-cid-nzablbf4> <h2 class="sub-heading" data-astro-cid-nzablbf4>Performance Membership</h2> <p class="description" data-astro-cid-nzablbf4>
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description, "data-astro-cid-nzablbf4": true }, { "default": ($$result2) => renderTemplate`  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet"> ${maybeRenderHead()}<div class="container" data-astro-cid-nzablbf4> <h1 class="coming-script" data-astro-cid-nzablbf4>Coming Soon</h1> <img src="/photos/protection-garage-door-plans.webp" alt="Performance Membership garage door maintenance" loading="eager" fetchpriority="high" class="header-photo-interior" data-astro-cid-nzablbf4> <h2 class="sub-heading" data-astro-cid-nzablbf4>Performance Membership</h2> <p class="description" data-astro-cid-nzablbf4>
 We’re building something designed to completely change how homeowners care for their garage doors.
       A smarter, proactive approach to reliability, safety, and long-term performance.
 </p> <p class="description" data-astro-cid-nzablbf4>

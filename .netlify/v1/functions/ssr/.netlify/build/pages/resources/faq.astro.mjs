@@ -1,7 +1,7 @@
 /* empty css                                                                   */
 import { a as createComponent, g as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../../chunks/astro/server_xoD-kxEp.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from '../../chunks/BaseLayout_BTkoY-F8.mjs';
+import { $ as $$BaseLayout } from '../../chunks/BaseLayout_B24roKEI.mjs';
 /* empty css                                  */
 export { renderers } from '../../renderers.mjs';
 
@@ -12,7 +12,7 @@ var _a;
 const $$Faq = createComponent(($$result, $$props, $$slots) => {
   const title = "FAQs | Isabella Garage Door";
   const description = "Find answers to common questions about garage door repair, installation, maintenance, and more from our experienced team.";
-  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description, "data-astro-cid-cec54yzl": true }, { "default": ($$result2) => renderTemplate(_a || (_a = __template(["  ", `<img src="/src/photos/tools-in-front-of-a-garage-door.webp" alt="Beginning work on installing a new garage door in Alma" loading="eager" fetchpriority="high" class="header-photo-interior" data-astro-cid-cec54yzl> <section class="faq-page" data-astro-cid-cec54yzl> <section class="faq-intro" data-astro-cid-cec54yzl> <h1 class="page-title" data-astro-cid-cec54yzl>Frequently Asked Questions</h1> <p data-astro-cid-cec54yzl>
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description, "data-astro-cid-cec54yzl": true }, { "default": ($$result2) => renderTemplate(_a || (_a = __template(["  ", `<img src="/photos/tools-in-front-of-a-garage-door.webp" alt="Beginning work on installing a new garage door in Alma" loading="eager" fetchpriority="high" class="header-photo-interior" data-astro-cid-cec54yzl> <section class="faq-page" data-astro-cid-cec54yzl> <section class="faq-intro" data-astro-cid-cec54yzl> <h1 class="page-title" data-astro-cid-cec54yzl>Frequently Asked Questions</h1> <p data-astro-cid-cec54yzl>
 Got questions about your garage door? We\u2019ve compiled answers to the most common issues, concerns, and curiosities. Whether you're troubleshooting a noisy opener or wondering how often to schedule maintenance, you're in the right place.
 </p> <p data-astro-cid-cec54yzl>
 Still unsure? Our interactive <a href="/homeowner-tools/ask-abel-ai-assistant#askabel" class="faq-link" data-astro-cid-cec54yzl>Garage Door Assistant</a> can help guide you.

@@ -1,7 +1,7 @@
 /* empty css                                                                   */
 import { a as createComponent, g as renderComponent, r as renderTemplate, F as Fragment, u as unescapeHTML, b as renderScript, m as maybeRenderHead } from '../../chunks/astro/server_xoD-kxEp.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from '../../chunks/BaseLayout_BTkoY-F8.mjs';
+import { $ as $$BaseLayout } from '../../chunks/BaseLayout_B24roKEI.mjs';
 export { renderers } from '../../renderers.mjs';
 
 var __freeze = Object.freeze;
@@ -45,10 +45,10 @@ const $$EasyEstimate = createComponent(($$result, $$props, $$slots) => {
       }
     ]
   };
-  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate(_a || (_a = __template(['  <link rel="stylesheet" href="/styles/global.css"> <link rel="stylesheet" href="/styles/tools.css"> ', `<img src="/src/photos/new-estimate-image.webp" alt="New garage door intallation in Central Michigan" loading="eager" fetchpriority="high" class="header-photo-interior"> <section> <h1 class="page-title">EasyEstimate\u2122</h1> <h2 class="sub-heading">Fast. Transparent. No Pressure.</h2> <p>Need garage door service but unsure what it\u2019ll cost? With EasyEstimate\u2122, you can get a quick, ballpark quote in under a minute \u2014 no phone call, no hassle.
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate(_a || (_a = __template(['  <link rel="stylesheet" href="/styles/global.css"> <link rel="stylesheet" href="/styles/tools.css"> ', `<img src="/photos/new-estimate-image.webp" alt="New garage door intallation in Central Michigan" loading="eager" fetchpriority="high" class="header-photo-interior"> <section> <h1 class="page-title">EasyEstimate\u2122</h1> <h2 class="sub-heading">Fast. Transparent. No Pressure.</h2> <p>Need garage door service but unsure what it\u2019ll cost? With EasyEstimate\u2122, you can get a quick, ballpark quote in under a minute \u2014 no phone call, no hassle.
 </p> <div style="margin-left: 1rem;"> <ul class="bullet-list"> <li><i class="fas fa-check icon-bronze"></i><strong> Simple step-by-step tool</strong></li> <li><i class="fas fa-check icon-bronze"></i><strong> Real pricing based on your issue</strong></li> <li><i class="fas fa-check icon-bronze"></i><strong> No commitment required</strong></li> </ul> </div> </section>  <div class="highlight-section"> <p>
 When your garage door doesn\u2019t open, your whole day stops. We built EasyEstimate\u2122 to make sure your fix starts quickly \u2014 without wasting time, guessing prices, or getting sold something you don\u2019t need.
-</p> </div> <section> <p>Choose your concern and we\u2019ll guide you through a few quick questions to generate an accurate estimate:</p> </section>   <div id="estimate-form" style="position: relative; top: -80px;"></div>  <div id="estimate-app-container"> <!-- Splash Screen (initially visible) --> <div id="estimate-splash" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 250px; gap: 1rem;"> <img src="/src/photos/blue-isabella-garage-door-logo.png" alt="Isabella Garage Door Logo" style="max-width: 280px; opacity: 0.8;"> <div class="lds-ring"><div></div><div></div><div></div><div></div></div> </div> <!-- Your Actual App --> <div id="app" style="display: none;"></div> </div>  <section> <div class="footer-text">
+</p> </div> <section> <p>Choose your concern and we\u2019ll guide you through a few quick questions to generate an accurate estimate:</p> </section>   <div id="estimate-form" style="position: relative; top: -80px;"></div>  <div id="estimate-app-container"> <!-- Splash Screen (initially visible) --> <div id="estimate-splash" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 250px; gap: 1rem;"> <img src="/photos/blue-isabella-garage-door-logo.png" alt="Isabella Garage Door Logo" style="max-width: 280px; opacity: 0.8;"> <div class="lds-ring"><div></div><div></div><div></div><div></div></div> </div> <!-- Your Actual App --> <div id="app" style="display: none;"></div> </div>  <section> <div class="footer-text">
 Need immediate help? Call us at
 <a href="tel:9895720303" style="color: #b27d57; font-weight: bold; text-decoration: none;">
 (989) 572-0303
@@ -215,7 +215,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
 
             document.getElementById('app').innerHTML = \`
                 <div class="solution-card-estimate">
-<img src="/src/photos/easyestimate-logo.webp" alt="Instant online garage door repair quote" loading="lazy" class="badge-img" />
+<img src="/photos/easyestimate-logo.webp" alt="Instant online garage door repair quote" loading="lazy" class="badge-img" />
 <div style="background: transparent; height: 1rem;"></div>
                     <div class="solution-header">
                         \${getSvgIcon('dollar-sign')}
@@ -293,7 +293,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
         function renderContactOnly() {
             document.getElementById('app').innerHTML = \`
                 <div class="solution-card-estimate">
-<img src="/src/photos/easyestimate-logo.webp" alt="instant online garage door repair quote" loading="lazy" class="badge-img" />
+<img src="/photos/easyestimate-logo.webp" alt="instant online garage door repair quote" loading="lazy" class="badge-img" />
 <div style="background: transparent; height: 1rem;"></div>
                     <div class="solution-header">
                         \${getSvgIcon('dollar-sign')}
@@ -377,7 +377,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
 
             document.getElementById('app').innerHTML = \`
                 <div class="card">
-<img src="/src/photos/easyestimate-logo.webp" alt="Instant online garage door repair quote" loading="lazy" class="badge-img" />
+<img src="/photos/easyestimate-logo.webp" alt="Instant online garage door repair quote" loading="lazy" class="badge-img" />
 
                     <div style="margin-bottom: 24px;">
                         <h2 class="question-title">\${currentQuestion.question}</h2>
@@ -475,10 +475,10 @@ function submitEstimate() {
 
         // Initialize the app
         renderQuestion();
-    <\/script> `], ['  <link rel="stylesheet" href="/styles/global.css"> <link rel="stylesheet" href="/styles/tools.css"> ', `<img src="/src/photos/new-estimate-image.webp" alt="New garage door intallation in Central Michigan" loading="eager" fetchpriority="high" class="header-photo-interior"> <section> <h1 class="page-title">EasyEstimate\u2122</h1> <h2 class="sub-heading">Fast. Transparent. No Pressure.</h2> <p>Need garage door service but unsure what it\u2019ll cost? With EasyEstimate\u2122, you can get a quick, ballpark quote in under a minute \u2014 no phone call, no hassle.
+    <\/script> `], ['  <link rel="stylesheet" href="/styles/global.css"> <link rel="stylesheet" href="/styles/tools.css"> ', `<img src="/photos/new-estimate-image.webp" alt="New garage door intallation in Central Michigan" loading="eager" fetchpriority="high" class="header-photo-interior"> <section> <h1 class="page-title">EasyEstimate\u2122</h1> <h2 class="sub-heading">Fast. Transparent. No Pressure.</h2> <p>Need garage door service but unsure what it\u2019ll cost? With EasyEstimate\u2122, you can get a quick, ballpark quote in under a minute \u2014 no phone call, no hassle.
 </p> <div style="margin-left: 1rem;"> <ul class="bullet-list"> <li><i class="fas fa-check icon-bronze"></i><strong> Simple step-by-step tool</strong></li> <li><i class="fas fa-check icon-bronze"></i><strong> Real pricing based on your issue</strong></li> <li><i class="fas fa-check icon-bronze"></i><strong> No commitment required</strong></li> </ul> </div> </section>  <div class="highlight-section"> <p>
 When your garage door doesn\u2019t open, your whole day stops. We built EasyEstimate\u2122 to make sure your fix starts quickly \u2014 without wasting time, guessing prices, or getting sold something you don\u2019t need.
-</p> </div> <section> <p>Choose your concern and we\u2019ll guide you through a few quick questions to generate an accurate estimate:</p> </section>   <div id="estimate-form" style="position: relative; top: -80px;"></div>  <div id="estimate-app-container"> <!-- Splash Screen (initially visible) --> <div id="estimate-splash" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 250px; gap: 1rem;"> <img src="/src/photos/blue-isabella-garage-door-logo.png" alt="Isabella Garage Door Logo" style="max-width: 280px; opacity: 0.8;"> <div class="lds-ring"><div></div><div></div><div></div><div></div></div> </div> <!-- Your Actual App --> <div id="app" style="display: none;"></div> </div>  <section> <div class="footer-text">
+</p> </div> <section> <p>Choose your concern and we\u2019ll guide you through a few quick questions to generate an accurate estimate:</p> </section>   <div id="estimate-form" style="position: relative; top: -80px;"></div>  <div id="estimate-app-container"> <!-- Splash Screen (initially visible) --> <div id="estimate-splash" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 250px; gap: 1rem;"> <img src="/photos/blue-isabella-garage-door-logo.png" alt="Isabella Garage Door Logo" style="max-width: 280px; opacity: 0.8;"> <div class="lds-ring"><div></div><div></div><div></div><div></div></div> </div> <!-- Your Actual App --> <div id="app" style="display: none;"></div> </div>  <section> <div class="footer-text">
 Need immediate help? Call us at
 <a href="tel:9895720303" style="color: #b27d57; font-weight: bold; text-decoration: none;">
 (989) 572-0303
@@ -645,7 +645,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
 
             document.getElementById('app').innerHTML = \\\`
                 <div class="solution-card-estimate">
-<img src="/src/photos/easyestimate-logo.webp" alt="Instant online garage door repair quote" loading="lazy" class="badge-img" />
+<img src="/photos/easyestimate-logo.webp" alt="Instant online garage door repair quote" loading="lazy" class="badge-img" />
 <div style="background: transparent; height: 1rem;"></div>
                     <div class="solution-header">
                         \\\${getSvgIcon('dollar-sign')}
@@ -723,7 +723,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
         function renderContactOnly() {
             document.getElementById('app').innerHTML = \\\`
                 <div class="solution-card-estimate">
-<img src="/src/photos/easyestimate-logo.webp" alt="instant online garage door repair quote" loading="lazy" class="badge-img" />
+<img src="/photos/easyestimate-logo.webp" alt="instant online garage door repair quote" loading="lazy" class="badge-img" />
 <div style="background: transparent; height: 1rem;"></div>
                     <div class="solution-header">
                         \\\${getSvgIcon('dollar-sign')}
@@ -807,7 +807,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
 
             document.getElementById('app').innerHTML = \\\`
                 <div class="card">
-<img src="/src/photos/easyestimate-logo.webp" alt="Instant online garage door repair quote" loading="lazy" class="badge-img" />
+<img src="/photos/easyestimate-logo.webp" alt="Instant online garage door repair quote" loading="lazy" class="badge-img" />
 
                     <div style="margin-bottom: 24px;">
                         <h2 class="question-title">\\\${currentQuestion.question}</h2>

@@ -1,14 +1,14 @@
 /* empty css                                                                   */
 import { a as createComponent, g as renderComponent, r as renderTemplate, m as maybeRenderHead } from '../../chunks/astro/server_xoD-kxEp.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from '../../chunks/BaseLayout_BTkoY-F8.mjs';
+import { $ as $$BaseLayout } from '../../chunks/BaseLayout_B24roKEI.mjs';
 /* empty css                                       */
 export { renderers } from '../../renderers.mjs';
 
 const $$Warranty = createComponent(($$result, $$props, $$slots) => {
   const title = "Warranty | Isabella Garage Door";
   const description = "Isabella Garage Door provides a clear, one-year warranty on all workmanship and contractor-supplied parts. Customers also receive the full benefit of any manufacturer warranties. Our warranty ensures professional repairs, safety, and peace of mind for your garage door system.";
-  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description, "data-astro-cid-xtqw3mkg": true }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<img src="/src/photos/warranty.webp" alt="Performance Membership garage door maintenance" loading="eager" fetchpriority="high" class="header-photo-interior" data-astro-cid-xtqw3mkg>  <section data-astro-cid-xtqw3mkg> <h1 class="page-title" data-astro-cid-xtqw3mkg>Our 1-Year Warranty</h1> <p class="slogan" data-astro-cid-xtqw3mkg>
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description, "data-astro-cid-xtqw3mkg": true }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<img src="/photos/warranty.webp" alt="Performance Membership garage door maintenance" loading="eager" fetchpriority="high" class="header-photo-interior" data-astro-cid-xtqw3mkg>  <section data-astro-cid-xtqw3mkg> <h1 class="page-title" data-astro-cid-xtqw3mkg>Our 1-Year Warranty</h1> <p class="slogan" data-astro-cid-xtqw3mkg>
 Clear. Simple. Professional protection for the work we perform and the parts we install.
 </p> </section>  <section data-astro-cid-xtqw3mkg> <h2 class="sub-heading" data-astro-cid-xtqw3mkg>What Our Warranty Covers</h2> <p data-astro-cid-xtqw3mkg>
 Isabella Garage Door stands behind the quality of our work. We provide a

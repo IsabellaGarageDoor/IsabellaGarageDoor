@@ -1,13 +1,13 @@
 /* empty css                                                                   */
 import { a as createComponent, g as renderComponent, r as renderTemplate, m as maybeRenderHead, b as renderScript } from '../../chunks/astro/server_xoD-kxEp.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from '../../chunks/BaseLayout_BTkoY-F8.mjs';
+import { $ as $$BaseLayout } from '../../chunks/BaseLayout_B24roKEI.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$LakeIsabella = createComponent(($$result, $$props, $$slots) => {
   const title = "Garage Door Repair in Lake Isabella, MI | Isabella Garage Door";
   const description = "Reliable garage door repair and installation in Lake Isabella, MI. Locally owned and owner-operated, Isabella Garage Door provides prompt service, honest pricing, and expert workmanship.";
-  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<img src="/src/photos/Lake-Isabella-Michigan.webp" alt="A view of Lake Isabella in Michigan" loading="eager" fetchpriority="high" class="header-photo-interior"> <section> <h1 class="page-title">Garage Door Repair in Lake Isabella, MI</h1> <p class="slogan">Raising Performance. Elevating Standards.</p> <p class="hero-subtext">
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<img src="/photos/Lake-Isabella-Michigan.webp" alt="A view of Lake Isabella in Michigan" loading="eager" fetchpriority="high" class="header-photo-interior"> <section> <h1 class="page-title">Garage Door Repair in Lake Isabella, MI</h1> <p class="slogan">Raising Performance. Elevating Standards.</p> <p class="hero-subtext">
 Local, reliable, and professional garage door repair and installation for Lake Isabella homes.
     We fix it right — the first time.
 </p> <a href="/contact" class="cta-button">Request Service</a> </section> <section> <h2 class="sub-heading">Trusted Garage Door Services in Lake Isabella</h2> <ul class="service-list"> <li>✔️ <strong>Garage Door Repair:</strong> Broken springs, rollers, cables, off-track doors, and noisy systems fixed efficiently</li> <li>✔️ <strong>Opener Repair & Installation:</strong> Smooth operation or upgrade to a quiet, smart opener</li> <li>✔️ <strong>New Garage Doors:</strong> Stylish, durable doors installed to fit your home</li> <li>✔️ <strong>Maintenance Plans:</strong> Routine inspections and tune-ups to prevent breakdowns and extend door life</li> </ul> </section> <section> <h2 class="sub-heading">Locally Focused, Lake Isabella Ready</h2> <p>

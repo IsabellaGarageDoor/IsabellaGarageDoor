@@ -1,7 +1,7 @@
 /* empty css                                                                   */
 import { a as createComponent, g as renderComponent, r as renderTemplate, F as Fragment, u as unescapeHTML, b as renderScript, m as maybeRenderHead } from '../../chunks/astro/server_xoD-kxEp.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from '../../chunks/BaseLayout_BTkoY-F8.mjs';
+import { $ as $$BaseLayout } from '../../chunks/BaseLayout_B24roKEI.mjs';
 export { renderers } from '../../renderers.mjs';
 
 var __freeze = Object.freeze;
@@ -35,10 +35,10 @@ const $$SpringStatus = createComponent(($$result, $$props, $$slots) => {
       }
     ]
   };
-  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate(_a || (_a = __template(['  <link rel="stylesheet" href="/styles/tools.css">  ', `<section> <img src="/src/photos/Broken-spring.webp" alt="A clearly worn spring with an unknown amount of life left" loading="eager" fetchpriority="high" class="header-photo-interior"> </section>  <section> <h1 class="page-title">SpringStatus\u2122</h1> <h2 class="sub-heading">How long will your garage door springs last? Let\u2019s find out.</h2> <p>Your torsion springs do the heavy lifting every day \u2014 and when they break, everything stops. SpringStatus\u2122 helps you estimate how much life they\u2019ve got left, so you\u2019re not caught off guard.
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate(_a || (_a = __template(['  <link rel="stylesheet" href="/styles/tools.css">  ', `<section> <img src="/photos/Broken-spring.webp" alt="A clearly worn spring with an unknown amount of life left" loading="eager" fetchpriority="high" class="header-photo-interior"> </section>  <section> <h1 class="page-title">SpringStatus\u2122</h1> <h2 class="sub-heading">How long will your garage door springs last? Let\u2019s find out.</h2> <p>Your torsion springs do the heavy lifting every day \u2014 and when they break, everything stops. SpringStatus\u2122 helps you estimate how much life they\u2019ve got left, so you\u2019re not caught off guard.
 </p> <div style="margin: 1rem;"> <ul class="bullet-list"> <li><i class="fas fa-check icon-bronze"></i><strong> Fast, free online tool</strong></li> <li><i class="fas fa-check icon-bronze"></i><strong> No tech required</strong></li> <li><i class="fas fa-check icon-bronze"></i><strong> Know before they snap</strong></li> </ul> </div> </section>  <div class="highlight-section"> <p>
 A broken spring doesn\u2019t give you a heads-up \u2014 until now.
-</p> </div> <section> <p>Take a minute to answer a few quick questions and get an accurate estimate of how much life is left in your springs:</p> </section> <section id="springstatus" style="position: relative; top: -80px;"></section>  <div id="estimate-app-container"> <!-- Splash Screen (initially visible) --> <div id="estimate-splash" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 250px; gap: 1rem;"> <img src="/src/photos/blue-isabella-garage-door-logo.png" alt="Isabella Garage Door Logo" style="max-width: 280px; opacity: 0.8;"> <div class="lds-ring"><div></div><div></div><div></div><div></div></div> </div> <!-- Your Actual App --> <div id="app" style="display: none;"></div> </div>  <section> <div class="footer-text">
+</p> </div> <section> <p>Take a minute to answer a few quick questions and get an accurate estimate of how much life is left in your springs:</p> </section> <section id="springstatus" style="position: relative; top: -80px;"></section>  <div id="estimate-app-container"> <!-- Splash Screen (initially visible) --> <div id="estimate-splash" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 250px; gap: 1rem;"> <img src="/photos/blue-isabella-garage-door-logo.png" alt="Isabella Garage Door Logo" style="max-width: 280px; opacity: 0.8;"> <div class="lds-ring"><div></div><div></div><div></div><div></div></div> </div> <!-- Your Actual App --> <div id="app" style="display: none;"></div> </div>  <section> <div class="footer-text">
 Need immediate help? Call us at
 <a href="tel:9895720303" style="color: #b27d57; font-weight: bold; text-decoration: none;">
 (989) 572-0303
@@ -227,7 +227,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
 
             document.getElementById('app').innerHTML = \`
                 <div class="solution-card \${severity}">
-<img src="/src/photos/springstatus-logo.webp" alt="Check the estimated life expectancy of your garage door springs" loading="lazy" class="badge-img" />
+<img src="/photos/springstatus-logo.webp" alt="Check the estimated life expectancy of your garage door springs" loading="lazy" class="badge-img" />
                     <div class="solution-header">
                         \${iconHtml}
                         <h2 class="solution-title">Spring Status Report</h2>
@@ -304,7 +304,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
 
             document.getElementById('app').innerHTML = \`
                 <div class="card">
-<img src="/src/photos/springstatus-logo.webp" alt="Check the estimated life expectancy of your garage door springs" loading="lazy" class="badge-img" />
+<img src="/photos/springstatus-logo.webp" alt="Check the estimated life expectancy of your garage door springs" loading="lazy" class="badge-img" />
                     <div style="margin-bottom: 24px;">
                         <h2 class="question-title">\${currentQuestion.question}</h2>
                         \${questionContent}
@@ -383,10 +383,10 @@ function resetAndScroll() {
 
         // Initialize the app
         renderQuestion();
-    <\/script> `], ['  <link rel="stylesheet" href="/styles/tools.css">  ', `<section> <img src="/src/photos/Broken-spring.webp" alt="A clearly worn spring with an unknown amount of life left" loading="eager" fetchpriority="high" class="header-photo-interior"> </section>  <section> <h1 class="page-title">SpringStatus\u2122</h1> <h2 class="sub-heading">How long will your garage door springs last? Let\u2019s find out.</h2> <p>Your torsion springs do the heavy lifting every day \u2014 and when they break, everything stops. SpringStatus\u2122 helps you estimate how much life they\u2019ve got left, so you\u2019re not caught off guard.
+    <\/script> `], ['  <link rel="stylesheet" href="/styles/tools.css">  ', `<section> <img src="/photos/Broken-spring.webp" alt="A clearly worn spring with an unknown amount of life left" loading="eager" fetchpriority="high" class="header-photo-interior"> </section>  <section> <h1 class="page-title">SpringStatus\u2122</h1> <h2 class="sub-heading">How long will your garage door springs last? Let\u2019s find out.</h2> <p>Your torsion springs do the heavy lifting every day \u2014 and when they break, everything stops. SpringStatus\u2122 helps you estimate how much life they\u2019ve got left, so you\u2019re not caught off guard.
 </p> <div style="margin: 1rem;"> <ul class="bullet-list"> <li><i class="fas fa-check icon-bronze"></i><strong> Fast, free online tool</strong></li> <li><i class="fas fa-check icon-bronze"></i><strong> No tech required</strong></li> <li><i class="fas fa-check icon-bronze"></i><strong> Know before they snap</strong></li> </ul> </div> </section>  <div class="highlight-section"> <p>
 A broken spring doesn\u2019t give you a heads-up \u2014 until now.
-</p> </div> <section> <p>Take a minute to answer a few quick questions and get an accurate estimate of how much life is left in your springs:</p> </section> <section id="springstatus" style="position: relative; top: -80px;"></section>  <div id="estimate-app-container"> <!-- Splash Screen (initially visible) --> <div id="estimate-splash" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 250px; gap: 1rem;"> <img src="/src/photos/blue-isabella-garage-door-logo.png" alt="Isabella Garage Door Logo" style="max-width: 280px; opacity: 0.8;"> <div class="lds-ring"><div></div><div></div><div></div><div></div></div> </div> <!-- Your Actual App --> <div id="app" style="display: none;"></div> </div>  <section> <div class="footer-text">
+</p> </div> <section> <p>Take a minute to answer a few quick questions and get an accurate estimate of how much life is left in your springs:</p> </section> <section id="springstatus" style="position: relative; top: -80px;"></section>  <div id="estimate-app-container"> <!-- Splash Screen (initially visible) --> <div id="estimate-splash" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 250px; gap: 1rem;"> <img src="/photos/blue-isabella-garage-door-logo.png" alt="Isabella Garage Door Logo" style="max-width: 280px; opacity: 0.8;"> <div class="lds-ring"><div></div><div></div><div></div><div></div></div> </div> <!-- Your Actual App --> <div id="app" style="display: none;"></div> </div>  <section> <div class="footer-text">
 Need immediate help? Call us at
 <a href="tel:9895720303" style="color: #b27d57; font-weight: bold; text-decoration: none;">
 (989) 572-0303
@@ -575,7 +575,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
 
             document.getElementById('app').innerHTML = \\\`
                 <div class="solution-card \\\${severity}">
-<img src="/src/photos/springstatus-logo.webp" alt="Check the estimated life expectancy of your garage door springs" loading="lazy" class="badge-img" />
+<img src="/photos/springstatus-logo.webp" alt="Check the estimated life expectancy of your garage door springs" loading="lazy" class="badge-img" />
                     <div class="solution-header">
                         \\\${iconHtml}
                         <h2 class="solution-title">Spring Status Report</h2>
@@ -652,7 +652,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
 
             document.getElementById('app').innerHTML = \\\`
                 <div class="card">
-<img src="/src/photos/springstatus-logo.webp" alt="Check the estimated life expectancy of your garage door springs" loading="lazy" class="badge-img" />
+<img src="/photos/springstatus-logo.webp" alt="Check the estimated life expectancy of your garage door springs" loading="lazy" class="badge-img" />
                     <div style="margin-bottom: 24px;">
                         <h2 class="question-title">\\\${currentQuestion.question}</h2>
                         \\\${questionContent}

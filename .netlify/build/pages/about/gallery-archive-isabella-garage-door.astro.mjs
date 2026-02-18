@@ -1,7 +1,7 @@
 /* empty css                                                                   */
 import { c as createAstro, a as createComponent, g as renderComponent, r as renderTemplate, m as maybeRenderHead, b as renderScript, f as addAttribute, F as Fragment } from '../../chunks/astro/server_xoD-kxEp.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from '../../chunks/BaseLayout_BTkoY-F8.mjs';
+import { $ as $$BaseLayout } from '../../chunks/BaseLayout_B24roKEI.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Astro = createAstro("http://localhost:4321");
@@ -16,25 +16,25 @@ const $$GalleryArchiveIsabellaGarageDoor = createComponent(($$result, $$props, $
     // upload as webp
     // move older gallery posts here when gallery becomes bloated
     {
-      image: "/src/photos/unique-garage-door-opener.webp",
+      image: "/photos/unique-garage-door-opener.webp",
       alt: "Repaired garage door opener in Isabella Township",
       caption: "Worked on a very unique opener today in Rosebush. Never seen one like this before. Glad to get it running again for the customer.",
       date: "2025-07-05"
     },
     {
-      image: "/src/photos/double-torsion-spring-change.webp",
+      image: "/photos/double-torsion-spring-change.webp",
       alt: "Double garage door torsion spring change",
       caption: "Completed a double torsion spring change today. Balanced, tuned, and running smooth!",
       date: "2025-06-30"
     },
     {
-      image: "/src/photos/spring.jpg",
+      image: "/photos/spring.jpg",
       alt: "Spring replacement in Mt. Pleasant",
       caption: "Quick spring replacement in Mt. Pleasant this morning. Same-day fix before lunch.",
       date: "2025-06-25"
     },
     {
-      image: "/src/photos/photo-eye-replacement.webp",
+      image: "/photos/photo-eye-replacement.webp",
       alt: "Sensor replacement in Clare Michigan",
       caption: "This door wouldnt close unless you held the wall button. turned out to be a bad safety sensor. New photo eyes got their door working again.",
       date: "2025-06-20"
@@ -50,7 +50,7 @@ const $$GalleryArchiveIsabellaGarageDoor = createComponent(($$result, $$props, $
   const end = start + perPage;
   const totalPages = Math.ceil(sorted.length / perPage);
   const paginated = sorted.slice(start, end);
-  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<img src="/src/photos/gallery-archive-garage-door.webp" alt="Vintage garage interior with a restored car, evoking the history of garage craftsmanship" loading="eager" fetchpriority="high" class="header-photo-interior"> <h1 class="page-title">Garage Door Job Log Archive</h1> <p class="left-content">An archive of real garage door repairs, installs, and maintenance jobs from across Mt. Pleasant, Clare, Alma, and nearby areas. These posts document our earlier work—organized for reference, not forgotten.
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<img src="/photos/gallery-archive-garage-door.webp" alt="Vintage garage interior with a restored car, evoking the history of garage craftsmanship" loading="eager" fetchpriority="high" class="header-photo-interior"> <h1 class="page-title">Garage Door Job Log Archive</h1> <p class="left-content">An archive of real garage door repairs, installs, and maintenance jobs from across Mt. Pleasant, Clare, Alma, and nearby areas. These posts document our earlier work—organized for reference, not forgotten.
 </p> <div id="gallery"></div> <section class="max-width: 1000px; margin: 0 auto; padding: 2rem 1rem;"> <div class="gallery-grid"> ${paginated.map((post) => renderTemplate`<div class="gallery-card"> <img${addAttribute(post.image, "src")}${addAttribute(post.alt, "alt")} loading="lazy" decoding="async"> <p>${post.caption}</p> </div>`)} </div> <div class="pagination-wrapper"> ${page > 1 && renderTemplate`<a${addAttribute(`?page=${page - 1}#gallery`, "href")} class="pagination-button arrow">&larr;</a>`} ${page > 3 && renderTemplate`${renderComponent($$result2, "Fragment", Fragment, {}, { "default": ($$result3) => renderTemplate` <a href="?page=1" class="pagination-button">1</a> <span class="pagination-ellipsis">...</span> ` })}`} ${Array.from({ length: totalPages }, (_, i) => i + 1).filter((p) => p >= page - 2 && p <= page + 2).map((p) => renderTemplate`<a${addAttribute(`?page=${p}#gallery`, "href")}${addAttribute(`pagination-button ${p === page ? "active" : ""}`, "class")}> ${p} </a>`)} ${page < totalPages - 2 && renderTemplate`${renderComponent($$result2, "Fragment", Fragment, {}, { "default": ($$result3) => renderTemplate` <span class="pagination-ellipsis">...</span> <a${addAttribute(`?page=${totalPages}`, "href")} class="pagination-button">${totalPages}</a> ` })}`} ${page < totalPages && renderTemplate`<a${addAttribute(`?page=${page + 1}#gallery`, "href")} class="pagination-button arrow">&rarr;</a>`} </div> </section> <p class="left-content" style="margin-top: 1rem;">
 What you see here may be in the past, but the quality behind it still defines our work today.
 </p> <a href="/contact" class="cta-button" style="margin: 3rem auto 2rem;"><i class="fa-regular fa-calendar-check fa-fw"></i> Book a Service Visit</a> <section> <h2 class="sub-heading">Isabella Garage Door</h2> <p style="font-size: .9rem; text-align: center;">

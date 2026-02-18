@@ -1,7 +1,7 @@
 /* empty css                                                                   */
 import { a as createComponent, g as renderComponent, r as renderTemplate, F as Fragment, u as unescapeHTML, m as maybeRenderHead, b as renderScript } from '../../chunks/astro/server_xoD-kxEp.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from '../../chunks/BaseLayout_BTkoY-F8.mjs';
+import { $ as $$BaseLayout } from '../../chunks/BaseLayout_B24roKEI.mjs';
 /* empty css                                          */
 export { renderers } from '../../renderers.mjs';
 
@@ -51,7 +51,7 @@ const $$Maintenance = createComponent(($$result, $$props, $$slots) => {
       ]
     }
   };
-  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description, "data-astro-cid-ifpkbk4n": true }, { "default": ($$result2) => renderTemplate`  ${maybeRenderHead()}<img src="/src/photos/maintenance-on-a-garage-door-clare-michigan.webp" alt="Maintaining a garage door in Clare Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" data-astro-cid-ifpkbk4n>  <section data-astro-cid-ifpkbk4n> <h1 class="page-title" data-astro-cid-ifpkbk4n>Is Your Garage Door in Need Of Maintenance?</h1> <p data-astro-cid-ifpkbk4n>
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description, "data-astro-cid-ifpkbk4n": true }, { "default": ($$result2) => renderTemplate`  ${maybeRenderHead()}<img src="/photos/maintenance-on-a-garage-door-clare-michigan.webp" alt="Maintaining a garage door in Clare Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" data-astro-cid-ifpkbk4n>  <section data-astro-cid-ifpkbk4n> <h1 class="page-title" data-astro-cid-ifpkbk4n>Is Your Garage Door in Need Of Maintenance?</h1> <p data-astro-cid-ifpkbk4n>
 Prevent breakdowns. Extend system life. Protect your investment.
 </p> <p style="margin-top: 1rem;" data-astro-cid-ifpkbk4n>
 Your garage door is the largest moving system in your home — and one of the most used.

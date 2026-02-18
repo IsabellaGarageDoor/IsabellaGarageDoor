@@ -2,7 +2,7 @@
 import { c as createAstro, a as createComponent, r as renderTemplate, u as unescapeHTML, f as addAttribute, m as maybeRenderHead, b as renderScript, g as renderComponent, d as renderSlot } from '../../chunks/astro/server_xoD-kxEp.mjs';
 import 'kleur/colors';
 import { g as getCollection, a as getEntry } from '../../chunks/_astro_content_Bvnd_znt.mjs';
-import { $ as $$BaseLayout } from '../../chunks/BaseLayout_BTkoY-F8.mjs';
+import { $ as $$BaseLayout } from '../../chunks/BaseLayout_B24roKEI.mjs';
 import 'clsx';
 import * as icons from 'lucide-static';
 /* empty css                                     */

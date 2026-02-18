@@ -1,13 +1,13 @@
 /* empty css                                                                   */
 import { a as createComponent, g as renderComponent, r as renderTemplate, m as maybeRenderHead, b as renderScript } from '../../chunks/astro/server_xoD-kxEp.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from '../../chunks/BaseLayout_BTkoY-F8.mjs';
+import { $ as $$BaseLayout } from '../../chunks/BaseLayout_B24roKEI.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$Clare = createComponent(($$result, $$props, $$slots) => {
   const title = "Garage Door Repair in Clare, MI | Isabella Garage Door";
   const description = "Reliable garage door repair in Clare, MI by a locally owned, owner-operated company. Isabella Garage Door provides prompt service, honest pricing, and quality workmanship you can trust.";
-  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<img src="/src/photos/clare-michigan.webp" alt="Brick welcome sign for Clare, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior"> <section> <h1 class="page-title">Garage Door Repair in Clare, MI</h1> <p class="slogan">Raising Performance. Elevating Standards.</p> <p class="hero-subtext">
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<img src="/photos/clare-michigan.webp" alt="Brick welcome sign for Clare, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior"> <section> <h1 class="page-title">Garage Door Repair in Clare, MI</h1> <p class="slogan">Raising Performance. Elevating Standards.</p> <p class="hero-subtext">
 Trusted, professional garage door repair from a local technician who takes pride
     in doing the job right the first time.
 </p> <a href="/contact" class="cta-button">Request Service</a> </section> <section> <h2 class="sub-heading">Reliable Garage Door Service in Clare</h2> <p>

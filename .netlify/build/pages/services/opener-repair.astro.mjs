@@ -1,7 +1,7 @@
 /* empty css                                                                   */
 import { a as createComponent, g as renderComponent, r as renderTemplate, F as Fragment, u as unescapeHTML, m as maybeRenderHead } from '../../chunks/astro/server_xoD-kxEp.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from '../../chunks/BaseLayout_BTkoY-F8.mjs';
+import { $ as $$BaseLayout } from '../../chunks/BaseLayout_B24roKEI.mjs';
 export { renderers } from '../../renderers.mjs';
 
 var __freeze = Object.freeze;
@@ -50,13 +50,13 @@ const $$OpenerRepair = createComponent(($$result, $$props, $$slots) => {
       ]
     }
   };
-  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate`  ${maybeRenderHead()}<img src="/src/photos/opener-repair-central-michigan.webp" alt="A garage door opener being repaired by Isabella Garage Door" loading="eager" fetchpriority="high" class="header-photo-interior"> <section> <h1 class="page-title">Opener Acting Up? We Can Help</h1> <p class="hero-description">
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate`  ${maybeRenderHead()}<img src="/photos/opener-repair-central-michigan.webp" alt="A garage door opener being repaired by Isabella Garage Door" loading="eager" fetchpriority="high" class="header-photo-interior"> <section> <h1 class="page-title">Opener Acting Up? We Can Help</h1> <p class="hero-description">
 From unresponsive remotes to motors that just hum — we fix opener issues fast and get your garage back to working like it should.
 </p> <div class="hero-buttons"> <a href="sms:9895720303?&body=Hi%2C%20I%20need%20some%20help%20with%20my%20garage%20door%20opener." class="hero-contact-button"> <i class="fas fa-comment-dots"></i> Text Us Now
 </a> </div> </section> <section class="no-card"> <h2 class="sub-heading">Reliable Garage Door Opener Repair in Central Michigan</h2> <p class="p-home">
 Your opener should open and close your door quietly, consistently, and safely. If it’s stuttering, grinding, or simply not responding — we’ll diagnose the issue and get it resolved.
       We service all major brands and opener types, including chain, belt, screw-drive, and wall-mount systems.
-</p> <img src="/src/photos/unique-garage-door-opener.webp" alt="Garage Door Opener Repair in Mt. Pleasant Michigan" class="homepg-about-photo"> </section> <section class="no-card"> <h2 class="sub-heading">Common Opener Problems We Fix</h2> <ul class="p-home" style="list-style: disc; padding-left: 1.5rem;"> <li>Remotes, keypads, or MyQ apps not working</li> <li>Opener hums but doesn’t move the door</li> <li>Opener light blinks but won’t close the door</li> <li>Grinding, popping, or squealing sounds</li> <li>Intermittent or delayed response</li> </ul> </section> <section class="no-card"> <h2 class="sub-heading">Smart Upgrades Available</h2> <p class="p-home">
+</p> <img src="/photos/unique-garage-door-opener.webp" alt="Garage Door Opener Repair in Mt. Pleasant Michigan" class="homepg-about-photo"> </section> <section class="no-card"> <h2 class="sub-heading">Common Opener Problems We Fix</h2> <ul class="p-home" style="list-style: disc; padding-left: 1.5rem;"> <li>Remotes, keypads, or MyQ apps not working</li> <li>Opener hums but doesn’t move the door</li> <li>Opener light blinks but won’t close the door</li> <li>Grinding, popping, or squealing sounds</li> <li>Intermittent or delayed response</li> </ul> </section> <section class="no-card"> <h2 class="sub-heading">Smart Upgrades Available</h2> <p class="p-home">
 Ready for quieter operation or smartphone control? We also offer modern opener upgrades from trusted brands like LiftMaster and Chamberlain, including MyQ smart openers that let you monitor and control your door from anywhere.
 </p> <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto 3rem;"><i class="fas fa-tools"></i> Request Opener Estimate</a> </section>  <section> <h2 class="sub-heading">Not Sure If It’s the Opener?</h2> <p class="estimate-intro-paragraph">
 Our free DoorDiagnosis™ troubleshooting tool can help you narrow it down — fast. You’ll know whether it’s the opener, the spring, or something else, in under a minute.

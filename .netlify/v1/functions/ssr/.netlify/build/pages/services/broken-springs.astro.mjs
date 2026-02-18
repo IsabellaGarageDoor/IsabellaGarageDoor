@@ -1,7 +1,7 @@
 /* empty css                                                                   */
 import { a as createComponent, g as renderComponent, r as renderTemplate, F as Fragment, u as unescapeHTML, m as maybeRenderHead } from '../../chunks/astro/server_xoD-kxEp.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from '../../chunks/BaseLayout_BTkoY-F8.mjs';
+import { $ as $$BaseLayout } from '../../chunks/BaseLayout_B24roKEI.mjs';
 export { renderers } from '../../renderers.mjs';
 
 var __freeze = Object.freeze;
@@ -46,7 +46,7 @@ const $$BrokenSprings = createComponent(($$result, $$props, $$slots) => {
       ]
     }
   };
-  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate`  ${maybeRenderHead()}<img src="/src/photos/garage-door-spring-repair.webp" alt="A broken spring job in Shepherd" loading="eager" fetchpriority="high" class="header-photo-interior"> <section> <h1 class="page-title">Broken Spring? We’ve Got You Covered</h1> <p>
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate`  ${maybeRenderHead()}<img src="/photos/garage-door-spring-repair.webp" alt="A broken spring job in Shepherd" loading="eager" fetchpriority="high" class="header-photo-interior"> <section> <h1 class="page-title">Broken Spring? We’ve Got You Covered</h1> <p>
 Garage door springs wear out — but our repairs restore long-lasting performance you can count on. 
         We replace broken springs safely, efficiently, and with the kind of workmanship that keeps your door 
         running smoothly for years.
@@ -57,7 +57,7 @@ If your garage door won’t open — or slams shut — a broken spring may be th
 </p> <p class="p-home" style="margin-top: -1rem;">
 Every spring we install is carefully matched to your door for performance and longevity — and every repair 
       includes full system testing and balancing.
-</p> <img src="/src/photos/Broken-spring.webp" alt="Garage Door Spring Repair in Mt. Pleasant Michigan" loading="lazy" class="header-photo-interior"> </section> <section class="no-card"> <h2 class="sub-heading">Signs Your Spring May Be Broken</h2> <ul class="p-home" style="list-style: disc; padding-left: 1.5rem;"> <li>Loud bang from the garage — but nothing visible</li> <li>Garage door only lifts a few inches, or not at all</li> <li>Visible gap in the torsion spring above the door</li> <li>Door feels extremely heavy to lift manually</li> </ul> </section> <section class="no-card"> <h2 class="sub-heading">Why It’s Important to Act Quickly</h2> <p class="p-home">
+</p> <img src="/photos/Broken-spring.webp" alt="Garage Door Spring Repair in Mt. Pleasant Michigan" loading="lazy" class="header-photo-interior"> </section> <section class="no-card"> <h2 class="sub-heading">Signs Your Spring May Be Broken</h2> <ul class="p-home" style="list-style: disc; padding-left: 1.5rem;"> <li>Loud bang from the garage — but nothing visible</li> <li>Garage door only lifts a few inches, or not at all</li> <li>Visible gap in the torsion spring above the door</li> <li>Door feels extremely heavy to lift manually</li> </ul> </section> <section class="no-card"> <h2 class="sub-heading">Why It’s Important to Act Quickly</h2> <p class="p-home">
 Operating your door with a broken spring can strain your opener, damage your door, or cause injury. We recommend avoiding further use until a technician can safely make repairs.
       Our spring replacements include expert installation, full system tuning, and peace of mind that your door is safe to use again.
 </p> <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 3rem auto;"><i class="fas fa-wrench"></i> Estimate My Spring Repair</a> </section>  <section> <h2 class="sub-heading">Not Sure If It’s the Spring?</h2> <p class="estimate-intro-paragraph">

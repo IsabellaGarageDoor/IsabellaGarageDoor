@@ -1,13 +1,13 @@
 /* empty css                                                                   */
 import { a as createComponent, g as renderComponent, r as renderTemplate, m as maybeRenderHead, b as renderScript } from '../../chunks/astro/server_xoD-kxEp.mjs';
 import 'kleur/colors';
-import { $ as $$BaseLayout } from '../../chunks/BaseLayout_BTkoY-F8.mjs';
+import { $ as $$BaseLayout } from '../../chunks/BaseLayout_B24roKEI.mjs';
 export { renderers } from '../../renderers.mjs';
 
 const $$MtPleasant = createComponent(($$result, $$props, $$slots) => {
   const title = "Garage Door Repair in Mt. Pleasant, MI | Isabella Garage Door";
   const description = "Prompt, reliable garage door repair in Mt. Pleasant, MI. Locally owned and owner-operated, Isabella Garage Door provides expert service with clear communication and quality workmanship.";
-  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<img src="/src/photos/mt-pleasant-michigan.webp" alt="Welcome to Mt. Pleasant sign painted on a local bridge in Mt. Pleasant, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior"> <section> <h1 class="page-title">Garage Door Repair in Mt. Pleasant, MI</h1> <p class="slogan">Raising Performance. Elevating Standards.</p> <p class="hero-subtext">
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": title, "description": description }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<img src="/photos/mt-pleasant-michigan.webp" alt="Welcome to Mt. Pleasant sign painted on a local bridge in Mt. Pleasant, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior"> <section> <h1 class="page-title">Garage Door Repair in Mt. Pleasant, MI</h1> <p class="slogan">Raising Performance. Elevating Standards.</p> <p class="hero-subtext">
 Prompt, dependable garage door repair from a trusted local professional.
     Clear communication, quality workmanship, and service done right.
 </p> <a href="/contact" class="cta-button">Request Service</a> </section> <section> <h2 class="sub-heading">Expert Garage Door Repair in Mt. Pleasant</h2> <p>
