@@ -1786,7 +1786,7 @@ grid-template-columns: repeat(3, 1fr);
       overflow-x: visible;
       position: relative;
 
-      background-image: url('/src/photos/white-garage-door-service-section.webp');
+      background-image: url('/photos/white-garage-door-service-section.webp');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -1975,7 +1975,7 @@ grid-template-columns: repeat(3, 1fr);
       justify-content: flex-start; /* Align content to top */
       align-items: center;
 
-  background-image: url('/src/photos/white-garage-door-service-section.webp');
+  background-image: url('/photos/white-garage-door-service-section.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1993,19 +1993,19 @@ z-index: 1;
 }
 
 .core-services-card.repair {
-  background-image: url('/src/photos/core-services-door-repair.webp');
+  background-image: url('/photos/core-services-door-repair.webp');
 }
 
 .core-services-card.opener {
-  background-image: url('/src/photos/core-services-opener.webp');
+  background-image: url('/photos/core-services-opener.webp');
 }
 
 .core-services-card.installation {
-  background-image: url('/src/photos/core-services-new-installation.webp');
+  background-image: url('/photos/core-services-new-installation.webp');
 }
 
 .core-services-card.maintenance {
-  background-image: url('/src/photos/maintenance-plan-garage-door.webp');
+  background-image: url('/photos/maintenance-plan-garage-door.webp');
 }
 
 .core-services-card::before {
