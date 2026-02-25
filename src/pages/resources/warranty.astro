@@ -5,10 +5,36 @@ import TestimonialCard from '../../components/TestimonialCard.astro'
 
 const title = 'Warranty | Isabella Garage Door';
 const description = 'Isabella Garage Door provides a clear, one-year warranty on all workmanship and contractor-supplied parts. Customers also receive the full benefit of any manufacturer warranties. Our warranty ensures professional repairs, safety, and peace of mind for your garage door system.';
+
+const warrantySchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://isabellagaragedoor.com/warranty",
+      "url": "https://isabellagaragedoor.com/warranty",
+      "name": "Warranty Information",
+      "description": "Details regarding our 1-year parts and labor warranty for garage door services."
+    },
+    {
+      "@type": "Service",
+      "name": "Garage Door Repair & Installation",
+      "provider": { "@id": "https://isabellagaragedoor.com/#business" },
+      "hasWarranty": {
+        "@type": "WarrantyPromise",
+        "durationOfWarranty": "P1Y", // This is ISO 8601 for "Period of 1 Year"
+        "warrantyScope": "Covers all workmanship and contractor-supplied parts installed by Isabella Garage Door."
+      }
+    }
+  ]
+};
 ---
 
 <BaseLayout {title} {description}>
 
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(warrantySchema)} />
+  </Fragment>
 
   <img src="/photos/warranty.webp" alt="Performance Membership garage door maintenance" 
   loading="eager" fetchpriority="high" class="header-photo-interior" />

@@ -5,9 +5,49 @@ import TestimonialCard from '../../components/TestimonialCard.astro'
 
 const title = 'Central Michigan Garage Door Services | Isabella Garage Door';
 const description = 'Garage door repair, installation, and maintenance across Central Michigan by Isabella Garage Door. Locally owned, regionally trusted.'
+
+const serviceAreaSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://isabellagaragedoor.com/locations/central-michigan",
+      "url": "https://isabellagaragedoor.com/locations/central-michigan",
+      "name": "Central Michigan Garage Door Services",
+      "description": "Garage door repair, installation, and maintenance across Central Michigan by Isabella Garage Door. Locally owned, regionally trusted."
+    },
+    {
+      "@type": "Service",
+      "name": "Garage Door Repair & Installation",
+      "provider": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      },
+      "description": "Providing reliable garage door repair, new door installation, opener replacement, and maintenance plans.",
+      "areaServed": [
+        { "@type": "City", "name": "Mt. Pleasant" },
+        { "@type": "City", "name": "Clare" },
+        { "@type": "City", "name": "Lake Isabella" },
+        { "@type": "City", "name": "Beal City" },
+        { "@type": "City", "name": "Shepherd" },
+        { "@type": "City", "name": "Rosebush" },
+        { "@type": "City", "name": "Remus" },
+        { "@type": "City", "name": "Farwell" },
+        { "@type": "City", "name": "Coleman" },
+        { "@type": "City", "name": "St. Louis" },
+        { "@type": "City", "name": "Alma" },
+        { "@type": "City", "name": "Edmore" },
+        { "@type": "City", "name": "Winn" }
+      ]
+    }
+  ]
+};
 ---
 
 <BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(serviceAreaSchema)} />
+  </Fragment>
 
 <img src="/photos/new-garage-door-install-central-michigan.webp" alt="Request garage door service or intallation today in Central Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
 

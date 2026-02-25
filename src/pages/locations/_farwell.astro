@@ -1,8 +1,55 @@
 ---
-import Layout from '../layouts/BaseLayout.astro'
+import BaseLayout from '../layouts/BaseLayout.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+
+const title = "Garage Door Repair in Farwell, MI | Isabella Garage Door";
+const description = "Garage door repair in Farwell, MI by Isabella Garage Door. Fast, honest, and expert local service for all your garage door needs.";
+
+const farwellSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://isabellagaragedoor.com/locations/farwell",
+      "url": "https://isabellagaragedoor.com/locations/farwell",
+      "name": "Garage Door Repair & Installation in Farwell, MI",
+      "isPartOf": { "@id": "https://isabellagaragedoor.com/#website" },
+      "description": "Expert garage door repair services for homeowners in Farwell, Michigan and the surrounding Clare County area."
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Garage Door Repair",
+      "provider": { "@id": "https://isabellagaragedoor.com/#business" },
+      "areaServed": {
+        "@type": "City",
+        "name": "Farwell",
+        "sameAs": "https://www.wikidata.org/wiki/Q954203" 
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Farwell Service Menu",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Broken Spring Repair" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "New Garage Door Installation" }
+          }
+        ]
+      }
+    }
+  ]
+};
 ---
 
-<Layout title="Garage Door Repair Farwell, MI | Isabella Garage Door" description="Garage door repair in Farwell, MI by Isabella Garage Door. Fast, honest, and expert local service for all your garage door needs.">
+<BaseLayout {title} {description}>
+
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(farwellSchema)} />
+  </Fragment>
+
   <section>
     <h1>Garage Door Repair in Farwell, MI</h1>
     <p>Reliable, professional garage door service is just around the corner. Isabella Garage Door proudly serves Farwell homeowners with fast repairs, expert installations, and maintenance that keeps everything running smoothly year-round.</p>
@@ -35,4 +82,4 @@ import Layout from '../layouts/BaseLayout.astro'
     <p>Need service in Farwell? Let’s get you back on track. Call us directly or use our <a href="/easyestimate">EasyEstimate™</a> tool for a quick online quote.</p>
     <p><em>Raising Performance. Elevating Standards.</em></p>
   </section>
-</Layout>
+</BaseLayout>

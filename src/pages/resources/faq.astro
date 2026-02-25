@@ -4,9 +4,52 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const title = 'FAQs | Isabella Garage Door';
 const description = 'Find answers to common questions about garage door repair, installation, maintenance, and more from our experienced team.';
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does it cost to fix a broken garage door spring?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The cost varies depending on the size and weight of your door, but you can get a ballpark price in under 60 seconds using our EasyEstimate™ tool. We focus on value by using high-cycle springs that last twice as long as standard ones."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My door won't open. Should I try to fix it myself?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you hear a loud bang or see a gap in your spring, do not attempt to open the door. Garage door springs are under extreme tension and can be dangerous. It is best to keep the door closed and call a professional for a safe repair."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer emergency or same-day service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! We understand that a stuck garage door can be a major inconvenience or safety risk. We prioritize urgent repairs and often provide same-day service to the Isabella County and surrounding Mid-Michigan areas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should my garage door be serviced?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We recommend a professional 20-point tune-up once a year. This includes lubrication, safety sensor alignment, and hardware inspection to prevent costly repairs and extend the life of your opener."
+      }
+    }
+  ]
+};
 ---
 
 <BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
 
 <style>
 .faq-page {

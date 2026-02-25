@@ -1,8 +1,54 @@
 ---
-import Layout from '../layouts/BaseLayout.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+
+const title = "Garage Door Repair in Shepherd, MI | Isabella Garage Door";
+const description = "Fast, local garage door repair in Shepherd, MI. Call Isabella Garage Door for owner-operated service you can trust. Serving Shepherd and surrounding areas.";
+
+const shepherdSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://isabellagaragedoor.com/locations/shepherd",
+      "url": "https://isabellagaragedoor.com/locations/shepherd",
+      "name": "Garage Door Repair & Installation in Shepherd, MI",
+      "isPartOf": { "@id": "https://isabellagaragedoor.com/#website" },
+      "description": "Professional garage door repair services for residents of Shepherd, Michigan and the surrounding Coe Township area."
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Garage Door Repair",
+      "provider": { "@id": "https://isabellagaragedoor.com/#business" },
+      "areaServed": {
+        "@type": "City",
+        "name": "Shepherd",
+        "sameAs": "https://www.wikidata.org/wiki/Q954331" 
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Shepherd Service Offerings",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Broken Torsion Spring Repair" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Garage Door Opener Service" }
+          }
+        ]
+      }
+    }
+  ]
+};
 ---
 
-<Layout title="Garage Door Repair Shepherd, MI | Isabella Garage Door" description="Fast, local garage door repair in Shepherd, MI. Call Isabella Garage Door for owner-operated service you can trust. Serving Shepherd and surrounding areas.">
+<BaseLayout {title} {description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(shepherdSchema)} />
+  </Fragment>
+
   <section>
     <h1>Garage Door Repair in Shepherd, MI</h1>
     <p>When your garage door isn’t working right, it disrupts everything. At Isabella Garage Door, we provide dependable, owner-operated garage door repair services right here in Shepherd. No call centers. No guesswork. Just local service you can count on.</p>
@@ -35,4 +81,4 @@ import Layout from '../layouts/BaseLayout.astro'
     <p>We’re based in Isabella County and proud to serve Shepherd homeowners with reliable, high-quality garage door work. Use our <a href="/easyestimate">EasyEstimate™</a> tool or reach out directly to schedule service.</p>
     <p><em>Raising Performance. Elevating Standards.</em></p>
   </section>
-</Layout>
+</BaseLayout>

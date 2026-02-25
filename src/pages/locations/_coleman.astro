@@ -1,7 +1,54 @@
 ---
-title: "Garage Door Repair Coleman, MI | Isabella Garage Door"
-description: "Reliable garage door repair and installation in Coleman, MI. Fast, local, and professional service from Isabella Garage Door."
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+
+const title = "Garage Door Repair in Coleman, MI | Isabella Garage Door";
+const description = "Reliable garage door repair and installation in Coleman, MI. Fast, local, and professional service from the family-owned team at Isabella Garage Door.";
+
+const colemanSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://isabellagaragedoor.com/locations/coleman",
+      "url": "https://isabellagaragedoor.com/locations/coleman",
+      "name": "Garage Door Repair & Installation in Coleman, MI",
+      "isPartOf": { "@id": "https://isabellagaragedoor.com/#website" },
+      "description": "Professional garage door services for the Coleman community, including downtown and surrounding rural Midland County."
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Garage Door Repair",
+      "provider": { "@id": "https://isabellagaragedoor.com/#business" },
+      "areaServed": {
+        "@type": "City",
+        "name": "Coleman",
+        "sameAs": "https://www.wikidata.org/wiki/Q954109" 
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Coleman Service Menu",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Broken Spring Replacement" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "New Garage Door Installation" }
+          }
+        ]
+      }
+    }
+  ]
+};
 ---
+
+<BaseLayout {title} {description}>
+
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(colemanSchema)} />
+  </Fragment>
 
 <section class="hero">
   <h1>Garage Door Repair in Coleman, MI</h1>
@@ -38,3 +85,5 @@ description: "Reliable garage door repair and installation in Coleman, MI. Fast,
     <em>Raising Performance. Elevating Standards</em>
   </p>
 </section>
+
+</BaseLayout>

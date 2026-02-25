@@ -5,11 +5,38 @@ import TestimonialCard from '../../components/TestimonialCard.astro'
 
 const title = 'Our Story | Isabella Garage Door';
 const description = 'Learn how our family-run garage door company in Mt. Pleasant is raising service standards in Central Michigan.';
+
+const ourStorySchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://isabellagaragedoor.com/about/our-story",
+      "url": "https://isabellagaragedoor.com/about/our-story",
+      "name": "The Isabella Garage Door Story",
+      "description": "The history and core values of Isabella Garage Door, a family-owned repair and installation company serving Central Michigan.",
+      "mainEntity": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      },
+      "knowsAbout": [
+        "Garage Door Repair",
+        "Torsion Spring Replacement",
+        "Garage Door Installation",
+        "Preventative Maintenance"
+      ],
+      "specialty": "High-cycle spring upgrades and emergency garage door repair"
+    }
+  ]
+};
 ---
 
 <link rel="stylesheet" href="/styles/global.css" />
   
 <BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(ourStorySchema)} />
+  </Fragment>
 
   <img src="/photos/michigan-neighborhood-garages.webp" alt="A quiet Central Michigan neighborhood with attached garages on residential homes" 
   loading="eager" fetchpriority="high" class="header-photo-interior" />

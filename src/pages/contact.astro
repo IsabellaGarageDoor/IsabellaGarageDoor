@@ -5,10 +5,40 @@ import ContactForm from '../components/ContactForm.jsx';
 
 const title = 'Request Service | Isabella Garage Door';
 const description = 'Get in touch with Isabella Garage Door for fast, friendly, and reliable garage door repairs in Mt. Pleasant, MI.';
+
+const contactSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      "@id": "https://isabellagaragedoor.com/contact",
+      "url": "https://isabellagaragedoor.com/contact",
+      "name": "Contact Isabella Garage Door",
+      "description": "Request a service visit, ask a question, or get a quote for garage door services in Central Michigan.",
+      "mainEntity": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      }
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "+1-989-572-0303",
+      "contactType": "customer service",
+      "email": "IsabellaGarageDoor@gmail.com",
+      "areaServed": [
+        "Mount Pleasant", "Alma", "Clare", "Rosebush", "Shepherd", "Weidman", "Coleman", "Farwell"
+      ],
+      "availableLanguage": "en"
+    }
+  ]
+};
 ---
 <link rel="stylesheet" href="/styles/global.css" />
 
 <BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(contactSchema)} />
+  </Fragment>
 
   <img src="/photos/request-service-garage-door-image.webp" alt="Request garage door service or intallation today in Central Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
 

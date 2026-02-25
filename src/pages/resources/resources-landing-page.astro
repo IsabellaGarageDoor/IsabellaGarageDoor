@@ -1,9 +1,42 @@
 ---
 title: "Resources - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const resourcesSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://isabellagaragedoor.com/resources/resources-landing-page",
+      "url": "https://isabellagaragedoor.com/resources/resources-landing-page",
+      "name": "Isabella Garage Door Homeowner Resources",
+      "description": "A curated collection of guides, FAQs, and maintenance tips to help homeowners manage their garage door systems.",
+      "publisher": { "@id": "https://isabellagaragedoor.com/#business" },
+      "hasPart": [
+        {
+          "@type": "WebPage",
+          "name": "Learning Center",
+          "url": "https://isabellagaragedoor.com/resources/learning-center",
+          "description": "In-depth articles and guides on garage door maintenance and upgrades."
+        },
+        {
+          "@type": "WebPage",
+          "name": "Frequently Asked Questions",
+          "url": "https://isabellagaragedoor.com/faq",
+          "description": "Quick answers to common garage door repair and service questions."
+        }
+      ]
+    }
+  ]
+};
 ---
 
 <BaseLayout>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(resourcesSchema)} />
+  </Fragment>
+
 <link rel="stylesheet" href="/styles/global.css" />
 
 <section class="container">

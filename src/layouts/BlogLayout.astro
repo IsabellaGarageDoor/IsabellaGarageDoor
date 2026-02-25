@@ -2,20 +2,34 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import ConvertKitForm from '../components/ConvertKitForm.astro';
+
 const { title, description, pubDate, thumbnail, post, url } = Astro.props;
+
+// Build the full URL for this blog post
+const fullUrl = new URL(Astro.url.pathname, Astro.site || 'https://isabellagaragedoor.com').href;
+
+// Build the full image URL
+const imageUrl = thumbnail ? `https://isabellagaragedoor.com${thumbnail}` : 'https://isabellagaragedoor.com/images/og-default.jpg';
 ---
-<BaseLayout>
+
+<BaseLayout 
+  title={title}
+  description={description}
+  image={thumbnail}
+  fullUrl={fullUrl}
+  type="article"
+>
 
 <main class="main-content fade-in" style="padding: 0rem; max-width: 1000px; margin: 0 auto;">
   <article>
     {thumbnail && (
-  <img
-    src={thumbnail}
-    alt={title}
-    style="width: 100%; max-height: auto; object-fit: cover; border-radius: 0.75rem; margin-bottom: 1rem;
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);"
-  />
-)}
+      <img
+        src={thumbnail}
+        alt={title}
+        style="width: 100%; max-height: auto; object-fit: cover; border-radius: 0.75rem; margin-bottom: 1rem;
+      box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);"
+      />
+    )}
     
     <p><em>{pubDate}</em></p>
     <slot />
@@ -25,7 +39,7 @@ const { title, description, pubDate, thumbnail, post, url } = Astro.props;
 <div>
   <h3 style="text-align:center; font-weight:600; margin-top:2rem;">Share this page</h3>
   <div class="share-buttons">
-    <ShareButtons url={url.pathname} />
+    <ShareButtons url={Astro.url.pathname} />
   </div>
 </div>
 </section>

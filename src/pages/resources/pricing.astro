@@ -4,10 +4,45 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const title = 'Pricing | Isabella Garage Door';
 const description = 'Honest, local garage door repair in Central Michigan. Flat service call, clear pricing, and trusted professional service.';
+
+const pricingSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://isabellagaragedoor.com/pricing",
+      "url": "https://isabellagaragedoor.com/pricing",
+      "name": "Garage Door Service Pricing",
+      "description": "Transparent pricing for garage door repairs and maintenance in Mid-Michigan."
+    },
+    {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Garage Door Diagnostic & Service Visit",
+        "description": "A full safety inspection and professional diagnosis."
+      },
+      "price": "75.00",
+      "priceCurrency": "USD",
+      "description": "Flat rate service visit applied toward the cost of your repair.",
+      "areaServed": {
+        "@type": "State",
+        "name": "Michigan"
+      },
+      "seller": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      }
+    }
+  ]
+};
 ---
 
 
 <BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(pricingSchema)} />
+  </Fragment>
 
 <img src="/photos/estimate-image-garage-door-service.webp" alt="Isabella Garage Door Giving Estimate for Garage Door Repair" loading="eager" fetchpriority="high" class="header-photo-interior" />
 

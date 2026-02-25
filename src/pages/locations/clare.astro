@@ -6,9 +6,51 @@ import TestimonialCard from '../../components/TestimonialCard.astro';
 const title = "Garage Door Repair in Clare, MI | Isabella Garage Door";
 const description =
   "Reliable garage door repair in Clare, MI by a locally owned, owner-operated company. Isabella Garage Door provides prompt service, honest pricing, and quality workmanship you can trust.";
+
+const clareSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://isabellagaragedoor.com/locations/clare",
+      "url": "https://isabellagaragedoor.com/locations/clare",
+      "name": "Garage Door Repair & Installation in Clare, MI",
+      "isPartOf": { "@id": "https://isabellagaragedoor.com/#website" },
+      "description": "Expert garage door repair services for homeowners in Clare, Michigan and the surrounding 48617 area."
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Garage Door Repair",
+      "provider": { "@id": "https://isabellagaragedoor.com/#business" },
+      "areaServed": {
+        "@type": "City",
+        "name": "Clare",
+        "sameAs": "https://www.wikidata.org/wiki/Q954005" 
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Clare Service Offerings",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Residential Spring Repair" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Emergency Opener Service" }
+          }
+        ]
+      }
+    }
+  ]
+};
 ---
 
 <BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(clareSchema)} />
+  </Fragment>
 
 <img
   src="/photos/clare-michigan.webp"

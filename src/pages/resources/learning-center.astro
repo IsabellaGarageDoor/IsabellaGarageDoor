@@ -21,9 +21,39 @@ const totalPages = Math.ceil(sortedPosts.length / postsPerPage);
 const startIndex = (currentPage - 1) * postsPerPage;
 const endIndex = startIndex + postsPerPage;
 const paginatedPosts = sortedPosts.slice(startIndex, endIndex);
+
+const learningCenterSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://isabellagaragedoor.com/resources/learning-center",
+      "url": "https://isabellagaragedoor.com/resources/learning-center",
+      "name": "Isabella Garage Door Learning Center",
+      "description": "Expert tips, maintenance guides, and troubleshooting advice for Central Michigan homeowners.",
+      "publisher": { "@id": "https://isabellagaragedoor.com/#business" },
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Latest Garage Door Resources",
+        "numberOfItems": paginatedPosts.length,
+        "itemListElement": paginatedPosts.map((post, index) => ({
+          "@type": "ListItem",
+          "position": index + 1,
+          "url": `https://isabellagaragedoor.com/blog/${post.slug}`,
+          "name": post.data.title,
+          "description": post.data.description
+        }))
+      }
+    }
+  ]
+};
 ---
 
 <BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(learningCenterSchema)} />
+  </Fragment>
 
 <html>
   <head>

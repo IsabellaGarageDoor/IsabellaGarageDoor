@@ -6,9 +6,51 @@ import TestimonialCard from '../../components/TestimonialCard.astro';
 const title = "Garage Door Repair in Mt. Pleasant, MI | Isabella Garage Door";
 const description =
   "Prompt, reliable garage door repair in Mt. Pleasant, MI. Locally owned and owner-operated, Isabella Garage Door provides expert service with clear communication and quality workmanship.";
+
+const mtPleasantSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://isabellagaragedoor.com/locations/mt-pleasant",
+      "url": "https://isabellagaragedoor.com/locations/mt-pleasant",
+      "name": "Garage Door Repair & Installation in Mt. Pleasant, MI",
+      "isPartOf": { "@id": "https://isabellagaragedoor.com/#website" },
+      "description": "Professional garage door repair services specifically for residents of Mt. Pleasant, Michigan."
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Garage Door Repair",
+      "provider": { "@id": "https://isabellagaragedoor.com/#business" },
+      "areaServed": {
+        "@type": "City",
+        "name": "Mt. Pleasant",
+        "sameAs": "https://www.wikidata.org/wiki/Q954386" 
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Mt. Pleasant Service Menu",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Broken Spring Replacement" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Garage Door Opener Repair" }
+          }
+        ]
+      }
+    }
+  ]
+};
 ---
 
 <BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(mtPleasantSchema)} />
+  </Fragment>
 
 <img src="/photos/mt-pleasant-michigan.webp" alt="Welcome to Mt. Pleasant sign painted on a local bridge in Mt. Pleasant, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
 

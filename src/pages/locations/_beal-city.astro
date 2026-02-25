@@ -1,6 +1,53 @@
 ---
-import Layout from '../layouts/BaseLayout.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+
+const title = "Garage Door Repair in Beal City, MI | Isabella Garage Door";
+const description = "Need garage door repair in Beal City, MI? Trust Isabella Garage Door for fast, reliable, and local service. Owner-operated and proud to serve Beal City homes.";
+
+const bealCitySchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://isabellagaragedoor.com/locations/beal-city",
+      "url": "https://isabellagaragedoor.com/locations/beal-city",
+      "name": "Garage Door Repair & Installation in Beal City, MI",
+      "isPartOf": { "@id": "https://isabellagaragedoor.com/#website" },
+      "description": "Expert garage door repair services for homeowners in Beal City, Michigan and surrounding Nottawa Township."
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Garage Door Repair",
+      "provider": { "@id": "https://isabellagaragedoor.com/#business" },
+      "areaServed": {
+        "@type": "City",
+        "name": "Beal City",
+        "sameAs": "https://www.wikidata.org/wiki/Q4876101" 
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Beal City Service Offerings",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Broken Spring Replacement" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Garage Door Opener Repair" }
+          }
+        ]
+      }
+    }
+  ]
+};
 ---
+
+<BaseLayout {title} {description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(bealCitySchema)} />
+  </Fragment>
 
 <Layout title="Garage Door Repair Beal City, MI | Isabella Garage Door" description="Need garage door repair in Beal City, MI? Trust Isabella Garage Door for fast, reliable, and local service. Owner-operated and proud to serve Beal City homes.">
   <section>
@@ -35,4 +82,4 @@ import Layout from '../layouts/BaseLayout.astro'
     <p>We’re proud to serve Beal City with responsive, high-quality garage door repair. Use our <a href="/easyestimate">EasyEstimate™</a> tool or call today—we’ll get you back on track.</p>
     <p><em>Raising Performance. Elevating Standards.</em></p>
   </section>
-</Layout>
+</BaseLayout>

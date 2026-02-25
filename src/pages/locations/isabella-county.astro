@@ -5,9 +5,47 @@ import TestimonialCard from '../../components/TestimonialCard.astro'
 
 const title = 'Garage Door Repair in Isabella County, MI | Isabella Garage Door';
 const description = 'Fast, reliable garage door repair and installation across Isabella County. Locally owned and operated. Book your appointment today.'
+
+const countySchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://isabellagaragedoor.com/isabella-county",
+      "url": "https://isabellagaragedoor.com/isabella-county",
+      "name": "Garage Door Repair in Isabella County, MI",
+      "description": "Fast, reliable garage door repair and installation across Isabella County. Locally owned and operated."
+    },
+    {
+      "@type": "Service",
+      "name": "Garage Door Repair & Installation",
+      "provider": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      },
+      "description": "Dependable garage door repairs, precision installations, and annual maintenance throughout Isabella County, MI.",
+      "areaServed": [
+        { 
+          "@type": "AdministrativeArea", 
+          "name": "Isabella County" 
+        },
+        { "@type": "City", "name": "Mt. Pleasant" },
+        { "@type": "City", "name": "Lake Isabella" },
+        { "@type": "City", "name": "Shepherd" },
+        { "@type": "City", "name": "Rosebush" },
+        { "@type": "City", "name": "Beal City" },
+        { "@type": "City", "name": "Winn" },
+        { "@type": "City", "name": "Isabella Township" }
+      ]
+    }
+  ]
+};
 ---
 
 <BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(countySchema)} />
+  </Fragment>
 
 <img src="/photos/isabella-county-garage-door-repair.webp" alt="Receive garage door repair or installation in Isabella County Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
 

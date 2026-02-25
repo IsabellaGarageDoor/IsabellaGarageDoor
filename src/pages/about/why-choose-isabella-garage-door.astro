@@ -4,9 +4,79 @@ import TestimonialCard from '../../components/TestimonialCard.astro'
 
 const title = 'Why Choose Us | Isabella Garage Door';
 const description = 'Learn why homeowners in Mt. Pleasant, Clare, Alma and across Central Michigan trust Isabella Garage Door for honest, high-quality garage door service.';
+
+const whyChooseUsSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://isabellagaragedoor.com/about/why-choose-isabella-garage-door",
+      "url": "https://isabellagaragedoor.com/about/why-choose-isabella-garage-door",
+      "name": "Why Choose Isabella Garage Door",
+      "description": "An overview of our commitment to quality, high-cycle parts, and transparent customer service in Central Michigan.",
+      "mainEntity": {
+        "@type": "ItemList",
+        "name": "Our Core Advantages",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "1-Year Labor & Parts Warranty",
+            "description": "We stand behind every repair and installation with a full year of coverage."
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "High-Cycle Torsion Springs",
+            "description": "We install springs rated for 25,000+ cycles, doubling the lifespan of standard industry springs."
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Local & Family Owned",
+            "description": "Proudly serving our neighbors in Rosebush, Mt. Pleasant, and the surrounding counties."
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Does Isabella Garage Door provide a warranty?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, we provide a full 1-year warranty on both labor and all parts we install for your peace of mind."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What makes your springs better than standard ones?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We use high-cycle torsion springs rated for 25,000+ cycles. Standard industry springs often only last 10,000 cycles, meaning ours last more than twice as long."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What areas in Central Michigan do you serve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We proudly serve Isabella County and surrounding areas, including Mt. Pleasant, Alma, Clare, Rosebush, Shepherd, and Weidman."
+          }
+        }
+      ]
+    }
+  ]
+};
 ---
 
 <BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(whyChooseUsSchema)} />
+  </Fragment>
 
   <img src="/photos/garage-door-why-choose-us.webp" alt="New garage door intallation in Central Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
 

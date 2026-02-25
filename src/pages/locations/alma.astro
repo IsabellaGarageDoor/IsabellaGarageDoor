@@ -6,9 +6,51 @@ import TestimonialCard from '../../components/TestimonialCard.astro';
 const title = "Garage Door Repair in Alma, MI | Isabella Garage Door";
 const description =
   "Trusted garage door repair in Alma, MI by a locally owned, owner-operated company. Isabella Garage Door delivers fast, reliable service with clear communication and quality workmanship.";
+
+const almaSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://isabellagaragedoor.com/locations/alma",
+      "url": "https://isabellagaragedoor.com/locations/alma",
+      "name": "Garage Door Repair & Installation in Alma, MI",
+      "isPartOf": { "@id": "https://isabellagaragedoor.com/#website" },
+      "description": "Professional garage door repair services for residents of Alma, Michigan and the surrounding Gratiot County area."
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Garage Door Repair",
+      "provider": { "@id": "https://isabellagaragedoor.com/#business" },
+      "areaServed": {
+        "@type": "City",
+        "name": "Alma",
+        "sameAs": "https://www.wikidata.org/wiki/Q953835" 
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Alma Service Offerings",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Broken Spring Replacement" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Garage Door Opener Repair" }
+          }
+        ]
+      }
+    }
+  ]
+};
 ---
 
 <BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(almaSchema)} />
+  </Fragment>
 
 <img
   src="/photos/Alma-Michigan.webp"

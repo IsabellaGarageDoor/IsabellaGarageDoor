@@ -6,9 +6,51 @@ import TestimonialCard from '../../components/TestimonialCard.astro';
 const title = "Garage Door Repair in Lake Isabella, MI | Isabella Garage Door";
 const description =
   "Reliable garage door repair and installation in Lake Isabella, MI. Locally owned and owner-operated, Isabella Garage Door provides prompt service, honest pricing, and expert workmanship.";
+
+const lakeIsabellaSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://isabellagaragedoor.com/locations/lake-isabella",
+      "url": "https://isabellagaragedoor.com/locations/lake-isabella",
+      "name": "Garage Door Repair & Installation in Lake Isabella, MI",
+      "isPartOf": { "@id": "https://isabellagaragedoor.com/#website" },
+      "description": "Professional garage door repair services for residents of the Lake Isabella village and the surrounding Sherman Township area."
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Garage Door Repair",
+      "provider": { "@id": "https://isabellagaragedoor.com/#business" },
+      "areaServed": {
+        "@type": "City",
+        "name": "Lake Isabella",
+        "sameAs": "https://www.wikidata.org/wiki/Q2610214" 
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Lake Isabella Service Offerings",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Broken Spring Repair" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Garage Door Opener Installation" }
+          }
+        ]
+      }
+    }
+  ]
+};
 ---
 
 <BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(lakeIsabellaSchema)} />
+  </Fragment>
 
 <img
   src="/photos/Lake-Isabella-Michigan.webp"

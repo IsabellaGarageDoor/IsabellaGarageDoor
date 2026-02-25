@@ -1,8 +1,54 @@
 ---
-import Layout from '../layouts/BaseLayout.astro'
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+
+const title = "Garage Door Repair in Rosebush, MI | Isabella Garage Door";
+const description = "Need garage door repair in Rosebush, MI? Isabella Garage Door provides local, trustworthy service with expert workmanship and honest pricing right here in our hometown.";
+
+const rosebushSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://isabellagaragedoor.com/locations/rosebush",
+      "url": "https://isabellagaragedoor.com/locations/rosebush",
+      "name": "Garage Door Repair & Installation in Rosebush, MI",
+      "isPartOf": { "@id": "https://isabellagaragedoor.com/#website" },
+      "description": "Professional garage door repair services for residents of Rosebush, Michigan and the surrounding Isabella Township area."
+    },
+    {
+      "@type": "Service",
+      "serviceType": "Garage Door Repair",
+      "provider": { "@id": "https://isabellagaragedoor.com/#business" },
+      "areaServed": {
+        "@type": "City",
+        "name": "Rosebush",
+        "sameAs": "https://www.wikidata.org/wiki/Q7368140" 
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Rosebush Service Offerings",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Broken Spring Repair" }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": { "@type": "Service", "name": "Garage Door Opener Installation" }
+          }
+        ]
+      }
+    }
+  ]
+};
 ---
 
-<Layout title="Garage Door Repair Rosebush, MI | Isabella Garage Door" description="Need garage door repair in Rosebush, MI? Isabella Garage Door provides local, trustworthy service with expert workmanship and honest pricing.">
+<BaseLayout {title} {description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(rosebushSchema)} />
+  </Fragment>
+
   <section>
     <h1>Garage Door Repair in Rosebush, MI</h1>
     <p>From the heart of Isabella County, we proudly serve our hometown of Rosebush with dependable garage door service. Whether it’s a quick fix or a full replacement, we bring small-town reliability and big-time know-how to every job.</p>
@@ -35,4 +81,4 @@ import Layout from '../layouts/BaseLayout.astro'
     <p>We know how important a working garage door is—especially in a small town like ours. Call today, or try our <a href="/easyestimate">EasyEstimate™</a> tool to get a fast, free quote.</p>
     <p><em>Raising Performance. Elevating Standards.</em></p>
   </section>
-</Layout>
+</BaseLayout>
