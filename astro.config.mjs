@@ -6,7 +6,7 @@ import alpinejs from '@astrojs/alpinejs';
 import netlify from '@astrojs/netlify';
 
 export default defineConfig({
-  site: 'http://localhost:4321',
+  site: 'https://isabellagaragedoor.com',
   output: 'server', // Keep this for development
   adapter: netlify(), 
   integrations: [tailwind(), sitemap(), react(), alpinejs()],

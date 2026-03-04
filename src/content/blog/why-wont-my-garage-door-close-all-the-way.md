@@ -1,7 +1,7 @@
 ---
 title: "Why Won't My Garage Door Close All the Way?"
 description: "Few things are more frustrating than a garage door that just won't cooperate. You press the button, it starts to close, and then — nothing. It stops halfway, reverses back up, or just refuses to budge past a certain point. If this sounds familiar, you're not alone. It's one of the most common calls we get, and the good news is that most of the causes are straightforward to diagnose and fix. Here are the most likely reasons your garage door won't close all the way"
-pubDate: "2026-02-29"
+pubDate: "2026-03-01"
 slug: "why-wont-my-garage-door-close-all-the-way"
 author: "Isabella Garage Door"
 thumbnail: "/photos/thumbnails/why-wont-my-garage-door-close-all-the-way.webp"

@@ -521,6 +521,15 @@ html {
   opacity: 0.8;
 }
 
+footer .fa-facebook-f {
+  font-size: 14px;
+  color: #ffffff;
+margin: 0 0.5rem;
+  transition: 0.2s ease;
+}
+
+
+
 /* === Blog/Article Layout === */
 
 main article h1,
