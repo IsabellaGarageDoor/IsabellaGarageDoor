@@ -10,7 +10,13 @@ import Homeownertools from '../components/Homeownertools.astro';
 import { Image } from 'astro:assets';
 // Import the image from your new assets folder
 import heroBg from '../assets/images/herobg.webp';
-
+// Import your badge assets
+import shieldImg from '../assets/images/trust-badge-shield.png';
+import toolsImg from '../assets/images/trust-badge-tools.png';
+import gearsImg from '../assets/images/trust-badge-gears.png';
+import michiganImg from '../assets/images/trust-badge-michigan.png';
+import bannerImg from '../assets/images/trust-badge-banner.png';
+import starsImg from '../assets/images/trust-badge-stars.png';
 
 const title = 'Isabella Garage Door | Garage Door Service in Central Michigan';
 const description = 'Professional garage door repair and replacement in Central Michigan. Honest service, fast response, and quaility you can trust.';
@@ -197,31 +203,35 @@ It’s not just about fixing the door — it’s about making your day a little 
 </p>
 
 <div class="trust-badges"> 
-<div class="trust-badge reveal-on-scroll"> 
-<img src="/photos/trust-badge-shield.png" alt="Fully Insured"> 
-<p>Fully<br>Insured</p> 
-</div> 
+  <div class="trust-badge reveal-on-scroll"> 
+    <Image src={shieldImg} alt="Fully Insured" width={140} height={140} />
+    <p>Fully<br>Insured</p> 
+  </div> 
 
-<div class="trust-badge reveal-on-scroll"> 
-<img src="/photos/trust-badge-tools.png" alt="Expert Technicians"> 
-<p>Expert<br>Technicians</p> 
-</div> 
-<div class="trust-badge reveal-on-scroll"> 
-<img src="/photos/trust-badge-gears.png" alt="Premium Parts"> 
-<p>Premium<br>Parts</p> 
-</div> 
-<div class="trust-badge reveal-on-scroll"> 
-<img src="/photos/trust-badge-michigan.png" alt="Local-Family Owned"> 
-<p>Local-Family<br>Owned</p> 
-</div> 
-<div class="trust-badge reveal-on-scroll"> 
-<img src="/photos/trust-badge-banner.png" alt="Warranty Guarantee"> 
-<p>Warranty<br>Guarantee</p> 
-</div> 
-<div class="trust-badge reveal-on-scroll"> 
-<img src="/photos/trust-badge-stars.png" alt="5 Star Rated"> 
-<p>5 Star<br>Rated</p> 
-</div> 
+  <div class="trust-badge reveal-on-scroll"> 
+    <Image src={toolsImg} alt="Expert Technicians" width={140} height={140} />
+    <p>Expert<br>Technicians</p> 
+  </div> 
+
+  <div class="trust-badge reveal-on-scroll"> 
+    <Image src={gearsImg} alt="Premium Parts" width={140} height={140} />
+    <p>Premium<br>Parts</p> 
+  </div> 
+
+  <div class="trust-badge reveal-on-scroll"> 
+    <Image src={michiganImg} alt="Local-Family Owned" width={140} height={140} />
+    <p>Local-Family<br>Owned</p> 
+  </div> 
+
+  <div class="trust-badge reveal-on-scroll"> 
+    <Image src={bannerImg} alt="Warranty Guarantee" width={140} height={140} />
+    <p>Warranty<br>Guarantee</p> 
+  </div> 
+
+  <div class="trust-badge reveal-on-scroll"> 
+    <Image src={starsImg} alt="5 Star Rated" width={140} height={140} />
+    <p>5 Star<br>Rated</p> 
+  </div> 
 </div>
 
 </section>
@@ -260,7 +270,7 @@ It’s not just about fixing the door — it’s about making your day a little 
       <p>We help you choose the right door and install it with craftsmanship and care — no mess left behind.</p>
     </a>
 -->
-
+ 
     <a href="/services/maintenance" class="core-services-card maintenance">
        <div class="core-services-icon-circle">
         <img src="/photos/garage-door-maintenance-icon.png" alt="Garage Door Maintenance Icon" class="service-icon" />
@@ -619,7 +629,7 @@ and surrounding Central Michigan communities.</p>
   align-items: center;
    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
   position: relative;
-  background-image: url('/src/photos/white-garage-door-service-section.webp');
+  background-image: url('/photos/white-garage-door-service-section.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -657,11 +667,14 @@ z-index: 1;
 }
 
 .homeowner-toolbox-img {
-  width: auto;
-  height: auto;
+  display: block;           /* Prevents weird bottom spacing */
+  max-width: 100%;          /* Never wider than its container */
+  height: auto;             /* Maintains aspect ratio automatically */
+  margin-left: auto;        /* Center it if the container is wider */
+  margin-right: auto;       /* Center it */
   margin-bottom: 1rem;
   border-radius: .75rem;
-   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
 }
 
 .homeowner-toolbox-body h3 {
