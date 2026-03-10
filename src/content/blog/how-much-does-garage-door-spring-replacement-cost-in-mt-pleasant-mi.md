@@ -45,7 +45,7 @@ Here's what you can expect to pay for a standard spring replacement from Isabell
 
 **Torsion Conversion (upgrading from extension to torsion):** $595
 
-Most homeowners with a standard single-car door land toward the lower end of these ranges. The higher end applies to situations involving larger or heavier-duty springs — like a 2⅝" inside diameter spring, which costs significantly more in materials — or jobs with added complexity.
+Most homeowners with a standard single-car door land toward the lower end of these ranges. The higher end applies to situations involving larger or heavier-duty springs — which costs significantly more in materials — or jobs with added complexity.
 
 ---
 

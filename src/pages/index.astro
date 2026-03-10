@@ -7,6 +7,9 @@ import AvailabilityBanner from '../components/editable-sections/AvailabilityBann
 import BlogCards from '../components/BlogCards.astro';
 import Coupons from '../components/editable-sections/Coupons.astro';
 import Homeownertools from '../components/Homeownertools.astro';
+import { Image } from 'astro:assets';
+// Import the image from your new assets folder
+import heroBg from '../assets/images/herobg.webp';
 
 
 const title = 'Isabella Garage Door | Garage Door Service in Central Michigan';
@@ -135,15 +138,30 @@ const homeSchema = {
 <link rel="stylesheet" href="/styles/global.css" />
 
 <section class="hero">
+  <Image 
+    src={heroBg} 
+    alt="Garage door repair background" 
+    loading="eager" 
+    fetchpriority="high"
+    class="hero-bg-image"
+  />
+  
+  <div class="hero-overlay"></div>
+
   <div class="hero-content reveal-on-scroll">
     <h1>Don't Let a Broken Door Ruin Your Day</h1>
-    <p class="hero-description">We make it easy — with dependable service, quality craftsmanship, and clear communication to get your day back on track, with less stress and more peace of mind.
-</p>
-  <div class="hero-buttons reveal-on-scroll">
-    <a href="/homeowner-tools/easy-estimate#estimate-form" button class="hero-estimate-button"><i class="fa-solid fa-calculator fa-fw "></i> Get a Free Estimate</a>
-    <a href="sms:9895720303?&body=Hi%2C%20I%20need%20some%20help%20with%20my%20garage%20door."
-button class="hero-contact-button"><i class="fas fa-comment-dots "></i> Text Us</a>
-   </div>
+    <p class="hero-description">
+      We make it easy — with dependable service, quality craftsmanship, and clear communication to get your day back on track.
+    </p>
+    
+    <div class="hero-buttons reveal-on-scroll">
+      <a href="/homeowner-tools/easy-estimate#estimate-form" class="hero-estimate-button">
+        <i class="fa-solid fa-calculator fa-fw"></i> Get a Free Estimate
+      </a>
+      <a href="sms:9895720303?&body=Hi%2C%20I%20need%20some%20help%20with%20my%20garage%20door." class="hero-contact-button">
+        <i class="fas fa-comment-dots"></i> Text Us
+      </a>
+    </div>
   </div>
 </section>
 

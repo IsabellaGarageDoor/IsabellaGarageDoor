@@ -1037,33 +1037,51 @@ font-family: 'Lora', serif;
     }
 
     /* Hero Section */
-    .hero {
-      position: relative;
-      width: 100vw;
-      margin-top: -1.2rem;
-      margin-left: calc(-50vw + 50%);
-      background: url("/photos/herobg12.webp") center center / cover no-repeat;
-      color: white;
-      padding: 3rem 1rem; /* Increased padding */
-      text-align: center;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-      border-bottom: 0.5px solid #b27d57;
-    }
+.hero {
+  position: relative;
+  width: 100vw;
+  margin-top: -1.2rem;
+  margin-left: calc(-50vw + 50%);
+  color: white;
+  padding: 3rem 1rem;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  border-bottom: 0.5px solid #b27d57;
+  /* CHANGE: Remove background-color from here */
+  background-color: transparent; 
+}
 
-    /* Michigan overlay */
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
-      opacity: 0.9; /* Slightly more opaque */
-      z-index: 0;
-      pointer-events: none;
-    }
+.hero-bg-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2; /* This stays the same */
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* CHANGE: Put your Navy #1a334f HERE with the opacity */
+background: linear-gradient(
+    rgba(0, 0, 0, 0.3), 
+    rgba(0, 0, 0, 0.7)
+  );
+  z-index: -1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1; /* Content stays on top */
+}
+
+
 
     /* Content stays above Michigan */
     .hero .hero-content {
