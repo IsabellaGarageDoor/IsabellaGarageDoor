@@ -260,7 +260,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
         setTimeout(() => {
           document.getElementById('estimate-splash').style.display = 'none';
           document.getElementById('app').style.display = 'block';
-        }, 1200); // Adjust delay if needed
+        }, 600); // Adjust delay if needed
 
         observer.disconnect(); // Only run once
       }
@@ -329,7 +329,6 @@ document.querySelectorAll('.faq-item').forEach(item => {
             'spring-count-extension': {
                 question: "How many extension springs need replacement?",
                 options: [
-                    { id: 'extension-1', text: "1 spring", next: 'pricing-extension-1' },
                     { id: 'extension-2', text: "2 springs (recommended)", next: 'pricing-extension-2' },
                     { id: 'extension-4', text: "4 springs", next: 'contact-extension-4' }
                 ]
@@ -356,7 +355,6 @@ document.querySelectorAll('.faq-item').forEach(item => {
             'roller-count': {
                 question: "How many rollers does your door have?",
                 options: [
-                    { id: 'few-rollers', text: "1-2 rollers", next: 'pricing-few-rollers' },
                     { id: 'single-door', text: "10 rollers (standard 7ft door)", next: 'pricing-single-door' },
                     { id: 'double-door', text: "12 rollers (standard 8ft door)", next: 'pricing-double-door' },
                     { id: 'roller-other', text: "Other/Not sure", next: 'contact-roller-other' }
