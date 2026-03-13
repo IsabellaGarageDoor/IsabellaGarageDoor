@@ -1,0 +1,79 @@
+---
+const { currentPath } = Astro.props;
+
+const locations = [
+  { name: 'Central Michigan', href: '/locations/central-michigan' },
+  { name: 'Isabella County', href: '/locations/isabella-county' },
+  { name: 'Mt Pleasant', href: '/locations/mt-pleasant' },
+  { name: 'Lake Isabella', href: '/locations/lake-isabella' },
+  { name: 'Clare', href: '/locations/clare' },
+  { name: 'Alma', href: '/locations/alma' },
+  { name: 'Shepherd', href: null },
+  { name: 'Rosebush', href: null },
+  { name: 'Remus', href: null },
+  { name: 'Farwell', href: null },
+  { name: 'Coleman', href: null },
+  { name: 'Beal City', href: null }, 
+];
+
+const otherLocations = locations.filter(location => location.href !== currentPath);
+---
+
+<div slot="full-width-section" class="location-list-bg">
+  <div class="location-list-container">
+    <h3>Areas We Serve</h3>
+    <nav class="location-vertical-links">
+      {otherLocations.map(location => (
+        <a href={location.href} class="location-link">{location.name}</a>
+      ))}
+    </nav>
+  </div>
+</div>
+
+<style>
+  .location-list-bg {
+    background-color: #1a334f;
+    padding: 3rem 0;
+    width: 100%;
+  }
+
+  .location-list-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    text-align: left;
+  }
+
+  h3 {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Lora', serif;
+  }
+
+  .location-vertical-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .location-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: .9rem;
+    font-weight: 500;
+    transition: opacity 0.2s;
+    /* Reset to ensure no boxes appear */
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    width: fit-content;
+  }
+
+  .location-link:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+  }
+</style>

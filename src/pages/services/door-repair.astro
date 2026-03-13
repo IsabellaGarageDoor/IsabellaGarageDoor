@@ -2,6 +2,7 @@
 title: "Garage Door Repair - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro'
+import ServiceFooter from '../../components/ServiceFooter.astro';
 
 const title = 'Garage Door Repair | Isabella Garage Door';
 const description = 'Fast, reliable garage door repair in Mt. Pleasant, Clare, and Alma. From broken springs to noisy doors, we fix it all with honest service and expert care.';
@@ -138,6 +139,11 @@ const repairSchema = {
   <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
     <em>Raising Performance. Elevating Standards</em>
   </p>
+  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
+    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #c57b30; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
+  </p>
 </section>
+
+<ServiceFooter currentPath="/services/door-repair" slot="full-width-section"/>
 
 </BaseLayout>

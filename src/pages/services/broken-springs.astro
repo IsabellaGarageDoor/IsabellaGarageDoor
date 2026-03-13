@@ -2,6 +2,7 @@
 title: "Spring Repair - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro'
+import ServiceFooter from '../../components/ServiceFooter.astro';
 
 const title = 'Broken Garage Door Spring Repair | Isabella Garage Door';
 const description = 'Broken garage door spring in Mt. Pleasant? We provide same-day spring replacement throughout Central Michigan. Expert service, fair pricing, and safety guaranteed. Call 989-572-0303.';
@@ -85,7 +86,7 @@ const faqSchema = {
       "name": "How long does spring replacement take?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most spring replacements take 45 minutes to an hour. We can usually offer same-day or next-day service in Mt. Pleasant, Alma, Clare, and throughout Isabella County."
+        "text": "Most spring replacements take about an hour. We can usually offer same-day or next-day service, when available, in Mt. Pleasant, Alma, Clare, and throughout Isabella County."
       }
     },
   ]
@@ -167,27 +168,51 @@ const faqSchema = {
     <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto;"><i class="fas fa-calculator"></i> Get Instant Price Estimate</a>
   </section>
 
-  <section class="no-card">
+
+  <section class="signs additional-info">
+
     <h2 class="sub-heading">Restoring Your Door’s Performance</h2>
-    <div class="p-home">
-      <p><strong>🔧 We Replace Both Springs</strong><br>
-      Even if only one broke, we replace both. They're the same age and the second one will fail soon anyway. Matched springs = smooth operation.</p>
-      
-    <!--  <p style="margin-top: 1rem;"><strong>⚡ Same-Day Service Available</strong><br>
-      We know you need your garage. Most Mt. Pleasant area calls get same-day or next-day service.</p>
-     --> 
-      <p style="margin-top: 1rem;"><strong>🛡️ High-Quality Springs</strong><br>
-      We provide rugged, high-performance springs that deliver smooth, dependable operation for every residential door.</p>
-      
-      <p style="margin-top: 1rem;"><strong>✅ Full System Check Included</strong><br>
-      Every spring replacement includes door balancing, safety testing, and complete inspection at no extra charge.</p>
-      
-      <p style="margin-top: 1rem;"><strong>💯 Warranty on Parts and Labor</strong><br>
-      We stand behind our work. If there's an issue with the springs we install, we make it right.</p>
-    </div>
+
+    <div class="columns">
+      <div>
+    <h3 class="sub-sub-heading">Repairs Done Right the First Time</h3>
+    <p>
+      When a spring breaks, the other one is usually close behind. 
+      We install a properly matched set so your door runs smoothly and 
+      you’re not facing another failure weeks later.
+    </p>
+      </div>
+
+      <div>
+    <h3 class="sub-sub-heading">High-Quality Springs</h3>
+    <p>
+      We provide rugged, high-performance springs that deliver smooth, 
+      dependable operation for every residential door.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">Full System Check Included</h3>
+    <p>
+      Every spring replacement includes door balancing, safety testing, and complete inspection at no extra charge.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">Warranty on Parts and Labor</h3>
+    <p>
+      We stand behind our work. If there's an issue with the springs we install, we make it right—everytime.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">Same-Day Service</h3>
+    <p>
+      We know you need your garage. Most Mt. Pleasant area calls get same-day service when available.
+    </p>
+</div>
+</div>
   </section>
-
-
 
 <section class="faq-area">
 <section id="faq">
@@ -244,7 +269,7 @@ const faqSchema = {
       <span class="faq-arrow">&#9654;</span>
     </div>
     <div class="faq-answer">
-      <p>Most spring replacements take 45 minutes to an hour. We can usually offer same-day or next-day service in Mt. Pleasant, Alma, Clare, and throughout Isabella County. When you call us at <a href="tel:9895720303" style="color: #c57b30;">989-572-0303</a>, we'll give you a realistic time window and keep you updated if anything changes.</p>
+      <p>Most spring replacements take about an hour. We can usually offer same-day or next-day service, when available in Mt. Pleasant, Alma, Clare, and throughout Isabella County. When you call us at <a href="tel:9895720303" style="color: #c57b30;">989-572-0303</a>, we'll give you a realistic time window and keep you updated if anything changes.</p>
     </div>
   </div>
 
@@ -264,7 +289,8 @@ const faqSchema = {
    -->
 
     <section>
-      <h2 class="sub-heading">Curious How Much Life Your Springs Have Left?</h2>
+      <img src="/photos/springstatus-logo.webp" alt="SpringStatus torsion spring lifespan estimator"  loading="lazy" class="header-photo-interior" />
+      <h2 class="sub-heading" style="margin-top: 1rem;">Curious How Much Life Your Springs Have Left?</h2>
       <p class="estimate-intro-paragraph">
         Our free SpringStatus™ Tool helps you estimate the remaining lifespan of your garage door springs based on a few quick questions. 
         Find out if you're due for replacement soon—before you hear that loud bang.
@@ -273,29 +299,43 @@ const faqSchema = {
     </section>
 
 <section>
+  <h2 class="sub-heading">Still researching garage door springs?</h2>
+  <p>
+   We’ve written a detailed guide explaining the typical cost of spring replacement in the Mt. Pleasant area 
+   and what homeowners should expect during the repair process
+  </p>
    <div class="blog-cards">
     <article class="blog-card reveal-on-scroll">
       <img src="/photos/thumbnails/spring-cost-mt-pleasant-michigan.webp" alt="Garage door spring replacement cost guide for Mt. Pleasant">
       <div class="blog-content">
          <h3><a href="/blog/how-much-does-garage-door-spring-replacement-cost-in-mt-pleasant-mi">How Much Does Garage Door Spring Replacement Cost in Mt. Pleasant, MI?</a></h3>
         <p>The first question most people ask is: what is this going to cost? It's a fair question, and we're going to give you a straight answer with no sales pitch.</p>
-        <a class="read-more" href="/blog/how-much-does-garage-door-spring-replacement-cost-in-mt-pleasant-mi">Read Full Pricing Guide →</a>
+        <a class="read-more" href="/blog/how-much-does-garage-door-spring-replacement-cost-in-mt-pleasant-mi">Read The Full Guide →</a>
       </div>
     </article>
     </div>
 </section>
 
+  <!-- CTA -->
 <section>
-  <h2 class="sub-heading">Ready to Get Your Door Working Again?</h2>
-  <p style="font-size: 1rem; text-align: center; max-width: 600px; margin: 0 auto;">
-    Broken spring repair done right, the first time. Serving Mt. Pleasant, Alma, Clare, and all of Central Michigan 
+    <a href="/contact" class="cta-button"><i class="fa-solid fa-calendar-check fa-fw"></i> Schedule Spring Repair Now</a>
+</section>
+
+<section>
+  <h2 class="sub-heading">Isabella Garage Door</h2>
+  <p style="font-size: .9rem; text-align: center;">
+    Broken spring repair done right, the first time,  
     with expert, dependable service that gets your door moving safely again.
+  </p>
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+    <em>Raising Performance. Elevating Standards</em>
   </p>
   <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
     <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #c57b30; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
   </p>
-  <p style="font-size: .9rem; text-align: center; margin: 1rem auto 0;"><em>Raising Performance. Elevating Standards.</em></p>
 </section>
+
+<ServiceFooter currentPath="/services/broken-springs" slot="full-width-section"/>
 
 <script is:inline>
 document.querySelectorAll('.faq-item').forEach(item => {

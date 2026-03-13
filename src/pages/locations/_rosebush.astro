@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro';
+import LocationsFooter from '../../components/LocationsFooter.astro';
 
 const title = "Garage Door Repair in Rosebush, MI | Isabella Garage Door";
 const description = "Need garage door repair in Rosebush, MI? Isabella Garage Door provides local, trustworthy service with expert workmanship and honest pricing right here in our hometown.";
@@ -81,4 +82,7 @@ const rosebushSchema = {
     <p>We know how important a working garage door is—especially in a small town like ours. Call today, or try our <a href="/easyestimate">EasyEstimate™</a> tool to get a fast, free quote.</p>
     <p><em>Raising Performance. Elevating Standards.</em></p>
   </section>
+
+<LocationsFooter currentPath="" slot="full-width-section" />
+
 </BaseLayout>

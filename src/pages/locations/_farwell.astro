@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro';
+import LocationsFooter from '../../components/LocationsFooter.astro';
 
 const title = "Garage Door Repair in Farwell, MI | Isabella Garage Door";
 const description = "Garage door repair in Farwell, MI by Isabella Garage Door. Fast, honest, and expert local service for all your garage door needs.";
@@ -82,4 +83,7 @@ const farwellSchema = {
     <p>Need service in Farwell? Let’s get you back on track. Call us directly or use our <a href="/easyestimate">EasyEstimate™</a> tool for a quick online quote.</p>
     <p><em>Raising Performance. Elevating Standards.</em></p>
   </section>
+
+<LocationsFooter currentPath="" slot="full-width-section" />
+
 </BaseLayout>

@@ -2,6 +2,7 @@
 title: "Garage Door Repair in Isabella County, MI - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro'
+import LocationsFooter from '../../components/LocationsFooter.astro';
 
 const title = 'Garage Door Repair in Isabella County, MI | Isabella Garage Door';
 const description = 'Fast, reliable garage door repair and installation across Isabella County. Locally owned and operated. Book your appointment today.'
@@ -133,6 +134,8 @@ const countySchema = {
     <em>Raising Performance. Elevating Standards</em>
   </p>
 </section>
+
+<LocationsFooter currentPath="" slot="full-width-section" />
 
 <style>
   .slogan {

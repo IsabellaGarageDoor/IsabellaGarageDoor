@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro';
+import LocationsFooter from '../../components/LocationsFooter.astro';
 
 const title = "Garage Door Repair in Remus, MI | Isabella Garage Door";
 const description = "Need garage door repair in Remus, MI? Isabella Garage Door offers fast, local service with honest pricing and quality workmanship.";
@@ -81,4 +82,7 @@ const remusSchema = {
     <p>As a small business serving Central Michigan, we care about every job we take. Whether you’re in town or out on a back road, we’re just a call or click away. Try our <a href="/easyestimate">EasyEstimate™</a> tool to get started today.</p>
     <p><em>Raising Performance. Elevating Standards.</em></p>
   </section>
+
+<LocationsFooter currentPath="" slot="full-width-section" />
+
 </BaseLayout>

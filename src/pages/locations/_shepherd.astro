@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro';
+import LocationsFooter from '../../components/LocationsFooter.astro';
 
 const title = "Garage Door Repair in Shepherd, MI | Isabella Garage Door";
 const description = "Fast, local garage door repair in Shepherd, MI. Call Isabella Garage Door for owner-operated service you can trust. Serving Shepherd and surrounding areas.";
@@ -81,4 +82,7 @@ const shepherdSchema = {
     <p>We’re based in Isabella County and proud to serve Shepherd homeowners with reliable, high-quality garage door work. Use our <a href="/easyestimate">EasyEstimate™</a> tool or reach out directly to schedule service.</p>
     <p><em>Raising Performance. Elevating Standards.</em></p>
   </section>
+
+<LocationsFooter currentPath="" slot="full-width-section" />
+
 </BaseLayout>
