@@ -1355,34 +1355,6 @@ background: linear-gradient(
       }
     }
 
-.trust-badges { 
-max-width: 1000px; 
-margin: 0 auto; 
-display: grid; 
-grid-template-columns: repeat(6, 1fr); 
-gap: .05rem; text-align: center; 
-} 
-
-
-
-.trust-badge img { 
-width: 70px; 
-height: auto; 
-display: block; 
-margin: 0 auto; 
-object-fit: contain;
-} 
-
-.trust-badge p { 
-margin-top: 0.15rem; 
-font-size: 0.9rem; 
-font-weight: 500; 
-}
- /* Mobile: 3 columns, 2 rows */ 
-@media (max-width: 768px) { .trust-badges { 
-grid-template-columns: repeat(3, 1fr); 
-} 
-}
 
     .estimate-outer {
       background-color: #1a334f;

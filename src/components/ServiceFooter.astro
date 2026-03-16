@@ -16,7 +16,7 @@ const otherServices = services.filter(service => service.href !== currentPath);
 
 <div slot="full-width-section" class="special-footer-list-bg">
   <div class="special-footer-list-container">
-    <h3>Our Other Services</h3>
+    <h3>Our Services</h3>
     <nav class="special-footer-vertical-links">
       {otherServices.map(service => (
         <a href={service.href} class="special-footer-link">{service.name}</a>
@@ -30,6 +30,7 @@ const otherServices = services.filter(service => service.href !== currentPath);
     background-color: #1a334f;
     padding: 3rem 0;
     width: calc(100%);
+    border-top: 1.5px solid #b27d57;
   }
 
   .special-footer-list-container {

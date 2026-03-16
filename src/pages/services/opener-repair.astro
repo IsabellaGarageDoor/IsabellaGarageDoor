@@ -1,23 +1,31 @@
 ---
 title: "Opener Repair - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro'
 import ServiceFooter from '../../components/ServiceFooter.astro';
 
-const title = 'Garage Door Opener Repair | Isabella Garage Door';
-const description = 'Fast, reliable garage door opener repair services in Mt. Pleasant and Central Michigan. We fix all major brands to get your door working smoothly and safely again.';
+const title = 'Garage Door Opener Repair Mt. Pleasant MI | Isabella Garage Door';
+const description = 'Expert garage door opener repair in Mt. Pleasant, Alma, and Clare. From dead motors to sensor issues, we fix all brands fast. Same-day service available. Call 989-572-0303.';
 
 const openerSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "serviceType": "Garage Door Opener Service",
+  "serviceType": "Garage Door Opener Repair",
   "provider": {
     "@id": "https://isabellagaragedoor.com/#business"
   },
-  "description": "Professional diagnostics, motor repair, and new installation of residential garage door openers and smart entry systems.",
+  "areaServed": [
+    { "@type": "City", "name": "Mount Pleasant, MI" },
+    { "@type": "City", "name": "Alma, MI" },
+    { "@type": "City", "name": "Clare, MI" },
+    { "@type": "City", "name": "Shepherd, MI" },
+    { "@type": "City", "name": "Coleman, MI" }
+  ],
+  "description": "Professional diagnostics and repair of residential garage door openers including motor repair, gear replacement, sensor alignment, and circuit board replacement.",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Opener Services",
+    "name": "Opener Repair Services",
     "itemListElement": [
       {
         "@type": "Offer",
@@ -31,8 +39,24 @@ const openerSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Smart Opener Installation",
-          "description": "Installing modern Wi-Fi enabled openers with smartphone control and battery backup."
+          "name": "Gear & Sprocket Replacement",
+          "description": "Replacing worn or stripped gears that cause the motor to run but not move the door."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Circuit Board Repair",
+          "description": "Diagnosing and replacing faulty circuit boards causing intermittent operation."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Sensor Alignment & Replacement",
+          "description": "Fixing photo eye sensors that prevent door from closing or cause constant reversing."
         }
       },
       {
@@ -46,62 +70,304 @@ const openerSchema = {
     ]
   }
 };
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I know if my garage door opener needs repair?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common signs include the opener motor running but the door not moving, grinding or clicking noises from the motor, door reversing immediately after closing, remote or wall button not responding, or the opener working intermittently. If your opener is making unusual sounds or behaving unpredictably, it likely needs professional diagnosis and repair."
+      }
+    },,
+    {
+      "@type": "Question",
+      "name": "Why does my opener run but the door doesn't move?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This is usually caused by stripped gears inside the opener. The motor runs and you hear it humming or grinding, but the gear that connects the motor to the drive mechanism is broken or worn out. This is a common repair that is typically fixed by replacing the gear assembly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why won't my garage door close all the way?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If the opener light blinks and the door reverses when you try to close it, the photo eye sensors are likely misaligned or blocked. These sensors are mounted on either side of the door near the floor and must 'see' each other for the door to close. Check for obstructions, dirt on the sensor lens, or sensors that have been bumped out of alignment. If the sensors look clear and aligned, the issue might be a faulty sensor or wiring problem."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I repair or replace my garage door opener?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If your opener is less than 10 years old and the repair is relatively minor (gear replacement, sensor fix, remote programming), repair makes sense. If your opener is 10+ years old, has had multiple failures, or the motor itself is dead, replacement is usually the smarter choice. Older openers lack modern safety features and smart capabilities that newer models have."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you repair all brands of garage door openers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we service all major garage door opener brands including LiftMaster, Chamberlain, Genie, Craftsman, Sears, Linear, and Overhead Door. We work on chain-drive, belt-drive, screw-drive, and wall-mount (jackshaft) openers."
+      }
+    }
+  ]
+};
 ---
 
-<BaseLayout {title} {description}>
+<BaseLayout {title} {description}> 
 
 <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(openerSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
 
-  <img src="/photos/opener-repair-central-michigan.webp" alt="A garage door opener being repaired by Isabella Garage Door" 
+
+  <img src="/photos/opener-repair-central-michigan.webp" alt="Professional garage door opener repair in Mt. Pleasant, Michigan" 
   loading="eager" fetchpriority="high" class="header-photo-interior" />
 
   <section>
-      <h1 class="page-title">Opener Acting Up? We Can Help</h1>
-      <p class="hero-description">
-        From unresponsive remotes to motors that just hum — we fix opener issues fast and get your garage back to working like it should.
+      <h1 class="page-title">Garage Door Opener Repair in Central Michigan</h1>
+      <p>
+        Your garage door opener is acting up—maybe it hums but won't move the door, or the remote stopped working, or the door keeps reversing. 
+        Isabella Garage Door provides expert opener repair throughout Mt. Pleasant, Alma, Clare, and all of Central Michigan. 
+        Most repairs completed same-day.
       </p>
-      <div class="hero-buttons">
-        <a href="sms:9895720303?&body=Hi%2C%20I%20need%20some%20help%20with%20my%20garage%20door%20opener." class="hero-contact-button">
+      <p style="margin-top: 1rem; text-align: center;">
+        <strong>Opener completely dead and you're stuck?</strong> Call or text us now for emergency service.
+      </p>
+        <a href="tel:9895720303" class="hero-contact-button" style="margin: 2rem auto 0;">
+          <i class="fas fa-phone"></i> Call 989-572-0303
+        </a>
+        <a href="sms:9895720303?&body=Hi%2C%20I%20need%20help%20with%20my%20garage%20door%20opener." class="hero-contact-button" style="margin: 1rem auto 0; background: #1a334f; border: .094rem solid #b27d57;">
           <i class="fas fa-comment-dots"></i> Text Us Now
         </a>
-      </div>
-    </div>
+  </section>
+
+<section>
+  <TrustBadges />
+</section>
+
+  <section class="no-card">
+    <h2 class="sub-heading">Fast, Expert Opener Repair You Can Trust</h2>
+    <p class="p-home">
+      Most opener problems are fixable—and usually faster than you'd expect. Whether it's stripped gears, misaligned sensors, 
+      a dead circuit board, or just remote programming, we diagnose accurately and repair efficiently.
+    </p>
+    <p class="p-home" style="margin-top: 1rem;">
+      We service most major brands and all opener types. 
+      Every repair includes testing the entire system to make sure your door operates safely and reliably.
+    </p>
+
+    <img src="/photos/unique-garage-door-opener.webp" alt="Garage door opener motor being repaired" loading="lazy" class="header-photo-interior" />
   </section>
 
   <section class="no-card">
-    <h2 class="sub-heading">Reliable Garage Door Opener Repair in Central Michigan</h2>
-    <p class="p-home">
-      Your opener should open and close your door quietly, consistently, and safely. If it’s stuttering, grinding, or simply not responding — we’ll diagnose the issue and get it resolved.
-      We service all major brands and opener types, including chain, belt, screw-drive, and wall-mount systems.
+    <h2 class="sub-heading">Signs Your Opener Needs Repair</h2>
+    <ul class="p-home" style="list-style: disc; padding-left: 1.5rem;">
+      <li><strong>Motor runs but door doesn't move</strong> — you hear humming or grinding but the door stays put (stripped gears)</li>
+      <li><strong>Door reverses immediately when closing</strong> — opener light blinks, door won't close (sensor issue)</li>
+      <li><strong>Remote or wall button doesn't work</strong> — no response when you press the button (battery, wiring, or circuit board)</li>
+      <li><strong>Loud grinding, clicking, or popping sounds</strong> — motor is struggling or gears are worn (mechanical failure)</li>
+      <li><strong>Intermittent operation</strong> — works sometimes but not others (loose wiring, failing circuit board)</li>
+      <li><strong>Door only opens partway</strong> — starts moving then stops (limit switch or force setting issue)</li>
+      <li><strong>Opener runs continuously</strong> — motor doesn't stop running even when door is fully open/closed (limit switch problem)</li>
+      <li><strong>Slow or jerky movement</strong> — door moves sluggishly or in fits and starts (worn gears, capacitor failure)</li>
+    </ul>
+    <p class="p-home" style="margin-top: 1.5rem;">
+      <strong>Not sure what's wrong?</strong> Use our free <a href="/homeowner-tools/door-diagnosis#troubleshooting" style="color: #c57b30; text-decoration: underline;">DoorDiagnosis™ tool</a> 
+      to walk through common symptoms. It helps identify whether the issue is your opener, springs, sensors, or something else—in under 60 seconds.
     </p>
-    <img src="/photos/unique-garage-door-opener.webp" alt="Garage Door Opener Repair in Mt. Pleasant Michigan" class="homepg-about-photo" />
   </section>
 
   <section class="no-card">
     <h2 class="sub-heading">Common Opener Problems We Fix</h2>
-    <ul class="p-home" style="list-style: disc; padding-left: 1.5rem;">
-      <li>Remotes, keypads, or MyQ apps not working</li>
-      <li>Opener hums but doesn’t move the door</li>
-      <li>Opener light blinks but won’t close the door</li>
-      <li>Grinding, popping, or squealing sounds</li>
-      <li>Intermittent or delayed response</li>
-    </ul>
+    
+    <div class="p-home">
+      <p><strong>Stripped Gears (Most Common Repair)</strong><br>
+      The motor runs but the door doesn't move. You hear humming or grinding, and sometimes see white plastic dust under the opener. 
+      This happens when the main drive gear wears out—usually after 10-15 years of use. We replace the gear assembly, lubricate the system, 
+      and test everything to make sure it operates smoothly.</p>
+      
+      <p style="margin-top: 1rem;"><strong>Sensor Alignment Issues</strong><br>
+      The door won't close and the opener light blinks. Your photo eye sensors (the small units near the floor on each side of the door) 
+      need to "see" each other for the door to close. If they're misaligned, dirty, or have a loose wire, the door won't close for safety reasons. 
+      We realign, clean, or replace sensors as needed.</p>
+      
+      <p style="margin-top: 1rem;"><strong>Remote & Keypad Programming</strong><br>
+      Lost your remote, bought a new one, or need to program a keypad or car's HomeLink system? We program all types of remotes and access devices. 
+      Can also erase old remotes if you're concerned about security (previous owners, lost remotes, etc.).</p>
+      
+      <p style="margin-top: 1rem;"><strong>Circuit Board Failure</strong><br>
+      The opener works intermittently, doesn't respond to remotes, or has erratic behavior (opens on its own, stops randomly). 
+      The circuit board (logic board) controls all opener functions. When it fails, behavior becomes unpredictable. We replace the board 
+      and reprogram all remotes and settings.</p>
+
+      <p style="margin-top: 1rem;"><strong>Broken Trolley or Carriage</strong><br>
+      The trolley is the piece that connects the opener arm to the door. If it's broken or disconnected, the motor runs but nothing moves. 
+      Common on older units or after someone pulled the emergency release and forced the door. We replace the trolley assembly and reconnect everything properly.</p>
+
+      <p style="margin-top: 1rem;"><strong>Capacitor Failure</strong><br>
+      The motor hums but won't start, or starts very slowly and lacks power. The capacitor gives the motor the electrical "kick" it needs to start. 
+      When it fails, the motor struggles. We replace the capacitor and test motor performance.</p>
+
+      <p style="margin-top: 1rem;"><strong>Limit Switch Problems</strong><br>
+      The door only opens partway and stops, or it runs past the fully open/closed position. Limit switches tell the opener when to stop. 
+      If they're out of adjustment or faulty, the door won't open/close completely. We adjust or replace limit switches to restore proper travel.</p>
+
+      <p style="margin-top: 1rem;"><strong>Wiring & Connection Issues</strong><br>
+      Intermittent operation, remote works sometimes but not always, or wall button doesn't respond. Loose or damaged wires cause unpredictable behavior. 
+      We trace wiring, fix connections, and replace damaged wire runs as needed.</p>
+    </div>
   </section>
 
   <section class="no-card">
-    <h2 class="sub-heading">Smart Upgrades Available</h2>
+    <h2 class="sub-heading">When to Repair vs. Replace Your Opener</h2>
     <p class="p-home">
-      Ready for quieter operation or smartphone control? We also offer modern opener upgrades from trusted brands like LiftMaster and Chamberlain, including MyQ smart openers that let you monitor and control your door from anywhere.
+      Not every opener problem is worth repairing. Here's our honest assessment:
     </p>
-    <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto 3rem;"><i class="fas fa-tools"></i> Request Opener Estimate</a>
+    
+    <p class="p-home" style="margin-top: 1rem;">
+      <strong>Repair makes sense when:</strong>
+    </p>
+    <ul class="p-home" style="list-style: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+      <li>Opener is less than 10 years old</li>
+      <li>Problem is a single component (gear, sensor, circuit board)</li>
+      <li>Repair cost is under $300</li>
+    </ul>
+
+    <p class="p-home" style="margin-top: 1.5rem;">
+      <strong>Replacement makes more sense when:</strong>
+    </p>
+    <ul class="p-home" style="list-style: disc; padding-left: 1.5rem; margin-top: 0.5rem;">
+      <li>Opener is 10+ years old</li>
+      <li>Motor itself is failing or dead</li>
+      <li>You've had multiple repairs already</li>
+      <li>Opener lacks modern safety features (no photo eyes, no auto-reverse)</li>
+      <li>You want smart features (app control, notifications)</li>
+      <li>Opener is extremely loud and you want quiet operation</li>
+      <li>Repair cost approaches 50%+ of a new opener</li>
+    </ul>
+
+    <p class="p-home" style="margin-top: 1.5rem;">
+      <strong>We'll give you the honest recommendation.</strong> If your opener is on its last legs, we'll tell you. 
+      If a simple repair will give you another 5-10 years, we'll tell you that too. No upselling, no pressure—just the facts.
+    </p>
+    <a href="/services/new-opener-installation" class="cta-button" style="margin: 2rem auto;">Learn About New Opener Installation →</a>
+  </section>
+
+  <section class="signs additional-info">
+    <h2 class="sub-heading">What Makes Our Opener Repairs Different</h2>
+
+    <div class="columns">
+      <div>
+    <h3 class="sub-sub-heading">Accurate Diagnosis</h3>
+    <p>
+      We test systematically to find the actual problem before quoting repair costs. 
+      No unnecessary parts, no trial-and-error fixes. If we misdiagnose the issue, we will make it right.
+    </p>
+      </div>
+
+      <div>
+    <h3 class="sub-sub-heading">Quality Replacement Parts</h3>
+    <p>
+      We use OEM (original equipment manufacturer) or premium aftermarket parts—not the cheapest option that'll fail in six months.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">Experience with All Brands</h3>
+    <p>
+      LiftMaster, Chamberlain, Genie, Craftsman, Sears, Guardian—we've worked on them all.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">Complete System Testing</h3>
+    <p>
+      Every repair includes safety sensor testing, force adjustment, and full operational check. We make sure everything works before we leave.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">Honest Repair vs. Replace Advice</h3>
+    <p>
+      We treat your garage door like our own. We’ll give you the straight facts on whether a repair is a solid fix or if it’s time for a more reliable, modern upgrade.
+    </p>
+</div>
+</div>
   </section>
 
 
 
+<section class="faq-area">
+<section id="faq">
+<div class="faq-head">
+<a href="/resources/faq" style="text-decoration: none; color: inherit; display: block;">
+  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions</h2>
+</a>
+</div>
 
-    <!-- Testimonial 
+<div class="reveal-on-scroll">
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>How do I know if my garage door opener needs repair?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Common signs include the opener motor running but the door not moving, grinding or clicking noises from the motor, door reversing immediately after trying to close, remote or wall button not responding, or the opener working intermittently. If your opener is making unusual sounds or behaving unpredictably, it likely needs professional diagnosis and repair. Our free <a href="/homeowner-tools/door-diagnosis" style="color: #c57b30;">DoorDiagnosis™ tool</a> can help you identify the issue in under 60 seconds.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Why does my opener run but the door doesn't move?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>This is usually caused by stripped gears inside the opener. The motor runs and you hear it humming or grinding (sometimes with a white plastic dust appearing under the unit), but the gear that connects the motor to the drive mechanism is broken or worn out. This is one of the most common opener repairs and is typically fixed by replacing the gear assembly.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Why won't my garage door close all the way?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>If the opener light blinks and the door reverses when you try to close it, the photo eye sensors are likely misaligned or blocked. These sensors are mounted on either side of the door near the floor and must "see" each other for the door to close. Check for obstructions, dirt on the sensor lens, or sensors that have been bumped out of alignment. If the sensors look clear and aligned, the issue might be a faulty sensor, loose wiring, or a circuit board problem requiring professional repair.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Should I repair or replace my garage door opener?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>If your opener is less than 10 years old and the repair is relatively minor, repair makes sense. If your opener is 10+ years old, has had multiple failures, or the motor itself is dead, replacement is usually the smarter choice. Older openers lack modern safety features like automatic reversal and photo eye sensors, and they don't have smart capabilities like smartphone control. We'll give you an honest assessment and let you make the decision.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you repair all brands of garage door openers?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes, we service all major garage door opener brands including LiftMaster, Chamberlain, Genie, Craftsman, Sears, Linear, and Guardian. We work on chain-drive, belt-drive, screw-drive, and wall-mount (jackshaft) openers. We keep common repair parts in stock and can source specialty components for older or uncommon models.</p>
+    </div>
+  </div>
+
+ </section>
+</section>
+
+    <!--
+ Testimonial Placeholder Until I Get Real Reviews
 <section>
 <a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
   <TestimonialCard 
@@ -110,20 +376,50 @@ const openerSchema = {
   />
 </a>
 </section>
--->
+   -->
 
     <section>
-      <h2 class="sub-heading">Not Sure If It’s the Opener?</h2>
+      <!-- PLACEHOLDER: Add image for DoorDiagnosis tool here if you have one -->
+      <img src="/photos/doordiagnosis-logo.webp" alt="DoorDiagnosis garage door troubleshooting tool"  loading="lazy" class="header-photo-interior" /> 
+      <h2 class="sub-heading">Not Sure If It's Your Opener or Something Else?</h2>
       <p class="estimate-intro-paragraph">
-        Our free DoorDiagnosis™ troubleshooting tool can help you narrow it down — fast. You’ll know whether it’s the opener, the spring, or something else, in under a minute.
+        Our free DoorDiagnosis™ tool helps you identify whether the problem is your opener, springs, sensors, or another component. 
+        Answer a few quick questions and get a diagnosis in under 60 seconds.
       </p>
-      <a href="/homeowner-tools/door-diagnosis#troubleshooting" class="cta-button" style="display: inline-flex; align-items: center; justify-content: center;"><i class="fa-solid fa-magnifying-glass fa-fw"></i> Use the DoorDiagnosis™ Tool</a>
+      <a href="/homeowner-tools/door-diagnosis#troubleshooting" class="cta-button" style="align-items: center; justify-content: center;"><i class="fas fa-stethoscope"></i> Diagnose The Problem Now</a>
     </section>
+
+
+<section>
+  <h2 class="sub-heading">Want to troubleshoot yourself first?</h2>
+  <p>
+   We've written a comprehensive guide to the most common garage door opener problem, block safety sensors. 
+   If your garage door won't close, the article may solve your problem without the need for a service call.
+   
+  </p>
+   <div class="blog-cards">
+    <article class="blog-card reveal-on-scroll">
+      <img src="/photos/thumbnails/storing-items-near-garage-door.webp" alt="Garage door opener troubleshooting guide">
+      <div class="blog-content">
+         <h3><a href="/blog/why-your-garage-door-wont-close">Why Your Garage Door Won't Close</a></h3>
+        <p>You hit the button to close your garage door. It goes down halfway, stops, and reverses back up. You try again. Same thing. What's going on?</p>
+        <a class="read-more" href="/blog/why-your-garage-door-wont-close">Read The Full Guide →</a>
+      </div>
+    </article>
+    </div>
+</section>
+
+
+  <!-- CTA -->
+<section>
+    <a href="/contact" class="cta-button"><i class="fa-solid fa-calendar-check fa-fw"></i> Schedule Opener Repair Now</a>
+</section>
 
 <section>
   <h2 class="sub-heading">Isabella Garage Door</h2>
   <p style="font-size: .9rem; text-align: center;">
-    Reliable opener repairs to keep your garage door running smoothly—serving homes across Central Michigan.
+    Expert opener repair done right, the first time,  
+    with honest diagnosis and reliable service that gets your door working again.
   </p>
   <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
     <em>Raising Performance. Elevating Standards</em>
@@ -134,5 +430,50 @@ const openerSchema = {
 </section>
 
 <ServiceFooter currentPath="/services/opener-repair" slot="full-width-section"/>
+
+<script is:inline>
+document.querySelectorAll('.faq-item').forEach(item => {
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+
+  question.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+       answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".reveal-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // reveal once
+          }
+        });
+      },
+      {
+        threshold: 0.2, // trigger when 20% of card is visible
+      }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>
 
 </BaseLayout>

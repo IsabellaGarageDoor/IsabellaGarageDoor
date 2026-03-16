@@ -1,21 +1,23 @@
 ---
 title: "Garage Door Repair in Isabella County, MI - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import TestimonialCard from '../../components/TestimonialCard.astro'
+import TrustBadges from '../../components/TrustBadges.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import ServiceFooter from '../../components/ServiceFooter.astro';
 import LocationsFooter from '../../components/LocationsFooter.astro';
 
-const title = 'Garage Door Repair in Isabella County, MI | Isabella Garage Door';
-const description = 'Fast, reliable garage door repair and installation across Isabella County. Locally owned and operated. Book your appointment today.'
+const title = 'Garage Door Repair Isabella County MI | Isabella Garage Door';
+const description = 'Professional garage door repair and installation throughout Isabella County. Fast service in Mt. Pleasant, Shepherd, Rosebush, Lake Isabella. Same-day available. Call 989-572-0303.';
 
 const countySchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://isabellagaragedoor.com/isabella-county",
-      "url": "https://isabellagaragedoor.com/isabella-county",
-      "name": "Garage Door Repair in Isabella County, MI",
-      "description": "Fast, reliable garage door repair and installation across Isabella County. Locally owned and operated."
+      "@id": "https://isabellagaragedoor.com/service-areas/isabella-county",
+      "url": "https://isabellagaragedoor.com/service-areas/isabella-county",
+      "name": "Garage Door Repair in Isabella County, MI | Isabella Garage Door",
+      "description": "Professional garage door repair, broken spring replacement, opener installation, and new door installation throughout Isabella County, Michigan."
     },
     {
       "@type": "Service",
@@ -23,20 +25,110 @@ const countySchema = {
       "provider": {
         "@id": "https://isabellagaragedoor.com/#business"
       },
-      "description": "Dependable garage door repairs, precision installations, and annual maintenance throughout Isabella County, MI.",
+      "description": "Comprehensive garage door services including spring replacement, opener repair and installation, door repair, new door installation, and preventive maintenance throughout Isabella County.",
       "areaServed": [
         { 
           "@type": "AdministrativeArea", 
-          "name": "Isabella County" 
+          "name": "Isabella County, Michigan",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 43.6386,
+            "longitude": -84.8042
+          }
         },
-        { "@type": "City", "name": "Mt. Pleasant" },
-        { "@type": "City", "name": "Lake Isabella" },
-        { "@type": "City", "name": "Shepherd" },
-        { "@type": "City", "name": "Rosebush" },
-        { "@type": "City", "name": "Beal City" },
-        { "@type": "City", "name": "Winn" },
-        { "@type": "City", "name": "Isabella Township" }
-      ]
+        { "@type": "City", "name": "Mount Pleasant, MI" },
+        { "@type": "City", "name": "Lake Isabella, MI" },
+        { "@type": "City", "name": "Shepherd, MI" },
+        { "@type": "City", "name": "Rosebush, MI" },
+        { "@type": "City", "name": "Beal City, MI" },
+        { "@type": "City", "name": "Winn, MI" },
+        { "@type": "City", "name": "Isabella Township, MI" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Isabella County Garage Door Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Broken Spring Replacement",
+              "url": "https://isabellagaragedoor.com/services/broken-springs"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Garage Door Repair",
+              "url": "https://isabellagaragedoor.com/services/door-repair"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Opener Repair & Installation",
+              "url": "https://isabellagaragedoor.com/services/opener-repair"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "New Door Installation",
+              "url": "https://isabellagaragedoor.com/services/new-door-installation"
+            }
+          }
+        ]
+      }
+    }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you service all of Isabella County?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We proudly serve every corner of Isabella County including Mt. Pleasant, Shepherd, Rosebush, Lake Isabella, Beal City, Winn, Isabella Township, and all rural areas in between. Whether you're in town or on a country road, we'll come to you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can you get to Isabella County for garage door repairs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most Isabella County locations receive same-day or next-day service when available. We're based in Rosebush, so we're never far away. Emergency situations like broken springs or doors that won't close get priority scheduling."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What garage door services do you offer in Isabella County?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We provide complete garage door services throughout Isabella County including broken spring replacement, cable repair, opener repair and installation, off-track door repair, roller and hinge replacement, new door installation, and preventive maintenance. We handle both residential and agricultural garage doors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work on garage doors in rural Isabella County?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. We understand rural living and regularly service farms, pole barns, and country homes throughout Isabella County. We're familiar with the back roads, long driveways, and unique challenges of rural garage door systems."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are you actually local to Isabella County?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Isabella Garage Door is based in Rosebush, right here in Isabella County. We're not a franchise or out-of-town company. We live and work in the same community we serve, and our reputation is built on doing right by our neighbors."
+      }
     }
   ]
 };
@@ -46,119 +138,313 @@ const countySchema = {
 
 <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(countySchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
 
-<img src="/photos/isabella-county-garage-door-repair.webp" alt="Receive garage door repair or installation in Isabella County Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
+<img src="/photos/isabella-county-garage-door-repair.webp" alt="Professional garage door repair throughout Isabella County, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
 
 <section>
   <h1 class="page-title">Garage Door Repair in Isabella County, MI</h1>
-    <p class="slogan">Raising Performance. Elevating Standards.</p>
-  <p>We proudly serve every corner of Isabella County with dependable garage door repairs, precision installations, and annual maintenance. Whether you're near Mt. Pleasant, Lake Isabella, Shepherd, or out in the countryside, we'll come to you—on time, every time.
-</p>
+  <p>
+    Your garage door broke and you need it fixed—fast, and done right. Isabella Garage Door provides professional garage door repair, 
+    broken spring replacement, and new door installation throughout Isabella County. From Mt. Pleasant to Shepherd, Rosebush to Lake Isabella, 
+    and every rural road in between—we're local, we're fast, and we're reliable.
+  </p>
+  <p style="margin-top: 1rem; text-align: center;">
+    <strong>Need service today?</strong> Call or text us now. Same-day appointments often available.
+  </p>
+    <a href="tel:9895720303" class="hero-contact-button" style="margin: 2rem auto 0;">
+      <i class="fas fa-phone"></i> Call 989-572-0303
+    </a>
+    <a href="sms:9895720303?&body=Hi%2C%20I%20need%20garage%20door%20service%20in%20Isabella%20County." class="hero-contact-button" style="margin: 1rem auto 0; background: #1a334f; border: .094rem solid #b27d57;">
+      <i class="fas fa-comment-dots"></i> Text Us Now
+    </a>
 </section>
 
 <section>
-  <h2 class="sub-heading">Serving the Heart of Michigan</h2>
-  <p>Our team understands rural living and small-town values. That’s why homeowners and businesses throughout Isabella County count on us for:</p>
-  <ul>
-    <li>Broken spring and cable repair</li>
-    <li>New opener installation</li>
-    <li>Roller and track fixes</li>
-    <li>Preventative maintenance plans</li>
-  </ul>
+  <TrustBadges />
 </section>
 
-<section>
-  <h2 class="sub-heading">Locally Owned. County-Wide Coverage.</h2>
-  <p>Isabella Garage Door is a family-run company based right here in the county. We know the roads. We know the weather. We know what it takes to keep your door running in every season. No out-of-town call centers. Just honest work done by your neighbors.</p>
+<section class="no-card">
+  <h2 class="sub-heading">Local, Reliable Service Throughout Isabella County</h2>
+  <p class="p-home">
+    We're not a national franchise or out-of-town crew. Isabella Garage Door is based right here in Rosebush, Isabella County. 
+    We know these roads—from Highway 20 to Baseline, from Pickard to Shepherd Road. We understand Michigan winters, rural driveways, 
+    and what it means to be a good neighbor.
+  </p>
+  <p class="p-home" style="margin-top: 1rem;">
+    When you call us, you talk directly to the person who'll do the work. When we schedule a time, we actually show up. 
+    When we fix something, it stays fixed. That's how we do business in Isabella County.
+  </p>
 </section>
 
-<section>
-  <h2 class="sub-heading">Schedule Service in Isabella County</h2>
-  <p>We’re ready when you are. Book an appointment, request an estimate, or ask us a question. You’ll speak directly with the technician who will do the work.</p>
-  <a href="/contact" class="cta-button">Check Availability</a>
+<section class="no-card">
+  <h2 class="sub-heading">Complete Garage Door Services Across Isabella County</h2>
+  <p class="p-home">
+    Whether your spring snapped, your opener died, or your door is beyond repair—we handle it all. 
+    Here's what homeowners throughout Isabella County count on us for:
+  </p>
+  
+  <div class="p-home" style="margin-top: 1.5rem;">
+    <p><strong>Broken Spring Replacement</strong><br>
+    The most common garage door failure. Springs snap with a loud bang and leave your door stuck. We replace both springs 
+    (even if only one broke), balance your door, and test everything thoroughly. Most spring jobs completed same-day. 
+    <a href="/services/broken-springs" style="color: #c57b30; text-decoration: underline;">Learn more about spring repair</a></p>
+    
+    <p style="margin-top: 1rem;"><strong>General Door Repair</strong><br>
+    Off-track doors, broken cables, worn rollers, bent tracks, damaged panels—we fix it all. From minor adjustments to major repairs, 
+    we diagnose accurately and repair efficiently. 
+    <a href="/services/door-repair" style="color: #c57b30; text-decoration: underline;">See what we repair</a></p>
+    
+    <p style="margin-top: 1rem;"><strong>Opener Repair & Installation</strong><br>
+    Motor running but door won't move? Remote stopped working? Grinding noises from the opener? We repair all brands 
+    (LiftMaster, Chamberlain, Genie, Craftsman) or install new smart openers with app control. 
+    <a href="/services/opener-repair" style="color: #c57b30; text-decoration: underline;">Opener repair details</a></p>
+    
+    <p style="margin-top: 1rem;"><strong>New Door Installation</strong><br>
+    Ready to upgrade? We install quality residential garage doors in every style—traditional, carriage house, modern contemporary. 
+    Insulated or non-insulated, steel or wood. Professional installation, old door removal included. 
+    <a href="/services/new-door-installation" style="color: #c57b30; text-decoration: underline;">Explore door options</a></p>
+
+    <p style="margin-top: 1rem;"><strong>Preventive Maintenance</strong><br>
+    Annual tune-ups catch problems before they become emergencies. We inspect springs, cables, rollers, tracks, and safety systems. 
+    Proper maintenance extends the life of your door and prevents expensive breakdowns. 
+    <a href="/services/maintenance" style="color: #c57b30; text-decoration: underline;">Schedule maintenance</a></p>
+
+    <p style="margin-top: 1rem;"><strong>Agricultural & Pole Barn Doors</strong><br>
+    We work on more than just residential garages. Pole barns, shop doors, agricultural buildings—if it's a garage-style door in Isabella County, 
+    we service it. We understand the unique needs of rural properties.</p>
+  </div>
 </section>
 
-<img src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map" class="homepg-service-photo" style="margin-bottom: 2rem;"/>
- 
-<section>
-  <h3 class="sub-sub-heading">Proudly Serving:</h3>
-  <ul>
-    <li>Mt. Pleasant</li>
-    <li>Lake Isabella</li>
-    <li>Shepherd</li>
-    <li>Rosebush</li>
-    <li>Beal City</li>
-    <li>Winn</li>
-    <li>Isabella Township</li>
-    <li>And more rural homes and farms throughout the county</li>
-  </ul>
-    <p style="margin-top: 0.5rem;">
-      👉 See our <a href="/contact#service-area" class="link">full service area</a>
+<section class="no-card">
+  <h2 class="sub-heading">Serving Every Community in Isabella County</h2>
+  <p class="p-home">
+    No matter where you are in Isabella County, we'll come to you. Here are the communities we serve regularly:
+  </p>
+
+  <div class="p-home" style="margin-top: 1.5rem;">
+    <p><strong>🏘️ Mt. Pleasant</strong><br>
+    Downtown, campus area, residential neighborhoods, and new developments. Fast response times throughout the Mt. Pleasant area. 
+    <a href="/locations/mt-pleasant" style="color: #c57b30; text-decoration: underline;">Mt. Pleasant service page</a></p>
+    
+    <p style="margin-top: 1rem;"><strong>🏞️ Shepherd</strong><br>
+    Town and surrounding rural areas. We know Shepherd well—it's just down the road from our Rosebush location. 
+ <!-- <a href="/locations/shepherd" style="color: #c57b30; text-decoration: underline;">Shepherd service page</a></p> 
+ -->
+    
+    <p style="margin-top: 1rem;"><strong>🏡 Rosebush</strong><br>
+    Our home base. We're your neighbors. Fastest response time in Isabella County for Rosebush residents and surrounding areas.</p>
+    
+    <p style="margin-top: 1rem;"><strong>⛵ Lake Isabella</strong><br>
+    Lakefront homes, seasonal cottages, and year-round residences around the lake. We service the entire Lake Isabella community. 
+    <a href="/locationss/lake-isabella" style="color: #c57b30; text-decoration: underline;">Lake Isabella service page</a></p>
+
+    <p style="margin-top: 1rem;"><strong>🌾 Beal City, Winn, & Rural Areas</strong><br>
+    Farms, country homes, pole barns, and properties on the back roads. We're comfortable on gravel roads and long driveways. 
+    Rural Isabella County is where we live and work—we know the area.</p>
+
+    <p style="margin-top: 1rem;"><strong>🏘️ Isabella Township & Unincorporated Areas</strong><br>
+    Properties outside city limits throughout the county. No location too remote—if you're in Isabella County, we'll get to you.</p>
+  </div>
+
+  <p class="p-home" style="margin-top: 1.5rem;">
+    <strong>Not sure if we cover your area?</strong> Just call us at <a href="tel:9895720303" style="color: #c57b30; text-decoration: underline;">989-572-0303</a>. 
+    If you're in Isabella County, the answer is yes.
+  </p>
+</section>
+
+  <section class="signs additional-info">
+    <h2 class="sub-heading">Why Isabella County Homeowners Choose Us</h2>
+    <div class="columns">
+      <div>
+    <h3 class="sub-sub-heading">We're Local</h3>
+    <p>
+      Based in Rosebush, Isabella County. We're not dispatched from Lansing or Grand Rapids. We live here, work here, and care about our reputation in this community.
     </p>
+      </div>
+
+      <div>
+    <h3 class="sub-sub-heading">No Upselling</h3>
+    <p>
+      We tell you what's wrong, what it'll cost, and what your options are. No pressure, no bait-and-switch, no unnecessary repairs.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">We Fix It Right</h3>
+    <p>
+      Quality parts, proper installation, thorough testing. We don't cut corners or rush through jobs. Your door will work the way it should.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">We Understand Rural Properties</h3>
+    <p>
+      Farms, pole barns, long driveways, gravel roads—we're comfortable with it all. We work on agricultural buildings and understand the unique needs of country living.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">Your Neighbors Vouch for Us</h3>
+    <p>
+      Our reputation is built on doing right by Isabella County residents. When we do a job, we do it like it's our own home—because in a way, it is.
+    </p>
+</div>
+</div>
+  </section>
+
+<img src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" />
+
+<section class="faq-area">
+<section id="faq">
+<div class="faq-head">
+  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions</h2>
+</div>
+
+<div class="reveal-on-scroll">
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you service all of Isabella County?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes. We proudly serve every corner of Isabella County including Mt. Pleasant, Shepherd, Rosebush, Lake Isabella, Beal City, Winn, Isabella Township, and all rural areas in between. Whether you're in town or on a country road, we'll come to you. We're familiar with all the back roads and comfortable on long driveways.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>How quickly can you get to Isabella County for garage door repairs?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Most Isabella County locations receive same-day or next-day service when available. We're based in Rosebush, so we're never far away. Emergency situations like broken springs or doors that won't close get priority scheduling. Call us at <a href="tel:9895720303" style="color: #c57b30;">989-572-0303</a> and we'll give you a realistic time frame.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What garage door services do you offer in Isabella County?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>We provide complete garage door services throughout Isabella County including broken spring replacement, cable repair, opener repair and installation, off-track door repair, roller and hinge replacement, track alignment, new door installation, and preventive maintenance. We handle both residential garage doors and agricultural/pole barn doors.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you work on garage doors in rural Isabella County?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Absolutely. We understand rural living and regularly service farms, pole barns, and country homes throughout Isabella County. We're familiar with the back roads, long driveways, and unique challenges of rural garage door systems. Agricultural buildings, machine sheds, workshops—if it's a garage-style door in Isabella County, we service it.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Are you actually local to Isabella County?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes. Isabella Garage Door is based in Rosebush, right here in Isabella County. We're not a franchise or out-of-town company. We live and work in the same community we serve, and our reputation is built on doing right by our neighbors. When you call, you're talking to someone who knows Isabella County roads, weather, and people.</p>
+    </div>
+  </div>
+
+ </section>
 </section>
 
-    <!-- Testimonial 
+    <!--
+ Testimonial Placeholder Until I Get Real Reviews
 <section>
 <a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
   <TestimonialCard 
-    quote="The technician did an amazing job repairing our garage door. He showed up fast, explained everything, and left it better than it’s ever been. Highly recommend for anyone in Isabella County."
+    quote="The technician did an amazing job repairing our garage door. He showed up fast, explained everything, and left it better than it's ever been. Highly recommend for anyone in Isabella County."
     author="Colton B."
   />
 </a>
 </section>
--->
+   -->
 
   <!-- Highlight Section -->
-  <div class="highlight-section">
+  <div class="highlight-section reveal-on-scroll">
     <p>
-      Homeowners throughout Isabella County rely on <strong>Isabella Garage Door</strong> for honest, reliable garage door repairs and expert workmanship.
+      Homeowners and businesses throughout Isabella County trust <strong>Isabella Garage Door</strong> for honest, reliable garage door service and expert workmanship.
     </p>
   </div>
 
   <section>
-    <h2 class="sub-heading">Reliable Garage Door Help for Every Corner of Isabella County</h2>
-    <p>
-      From the neighborhoods of Mt. Pleasant to the back roads of Rosebush, your garage door is part of your daily routine. We’re here to keep it working smoothly—season after season—with service rooted in the community we call home.
+    <h2 class="sub-heading">Ready to Get Your Garage Door Fixed?</h2>
+    <p class="p-home">
+      Whether you need emergency spring replacement, routine maintenance, or a brand new door—we're here to help. 
+      Call us, text us, or request a quote online. We'll respond quickly and get your door working right.
     </p>
-    <a href="/homeowner-tools/easy-estimate#estimate-form" class="testimonials-cta-button">Get an EasyEstimate™</a>
-    <a href="/contact" class="cta-button">Request Service</a>
+    <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto 1rem;"><i class="fas fa-calculator"></i> Get Free Estimate</a>
+    <a href="/contact" class="cta-button"><i class="fas fa-calendar-check"></i> Schedule Service</a>
   </section>
 
 <section>
   <h2 class="sub-heading">Isabella Garage Door</h2>
   <p style="font-size: .9rem; text-align: center;">
-    Proudly repairing garage doors across Isabella County.
+    Professional garage door service throughout Isabella County—from downtown Mt. Pleasant to the back roads of Rosebush.
   </p>
   <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
     <em>Raising Performance. Elevating Standards</em>
   </p>
+  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
+    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #c57b30; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
+  </p>
 </section>
 
-<LocationsFooter currentPath="" slot="full-width-section" />
+<ServiceFooter currentPath="/services/broken-springs" slot="full-width-section"/>
+<LocationsFooter currentPath="/service-areas/isabella-county" slot="full-width-section" />
 
-<style>
-  .slogan {
-    font-size: 1.2rem;
-    color: #b27d57;
-    margin: 1rem 0;
-  }
+<script is:inline>
+document.querySelectorAll('.faq-item').forEach(item => {
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
 
-  ul {
-    list-style: disc;
-    padding-left: 2.5rem;
-  }
+  question.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
 
-.link {
-  color: #b27d57;
-  font-weight: bold;
-  text-decoration: underline;
-}
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+    });
 
-.link:hover {
-  color: #81583b;
-}
-</style>
+    if (!isOpen) {
+      item.classList.add('open');
+       answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".reveal-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // reveal once
+          }
+        });
+      },
+      {
+        threshold: 0.2, // trigger when 20% of card is visible
+      }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>
 
 <script>
   if (typeof window !== 'undefined') {
@@ -166,7 +452,7 @@ const countySchema = {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('slide-up-in');
-          observer.unobserve(entry.target); // Animate only once
+          observer.unobserve(entry.target);
         }
       });
     }, {

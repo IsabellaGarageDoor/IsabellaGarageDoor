@@ -1,23 +1,31 @@
 ---
 title: "Garage Door Repair - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro'
 import ServiceFooter from '../../components/ServiceFooter.astro';
 
-const title = 'Garage Door Repair | Isabella Garage Door';
-const description = 'Fast, reliable garage door repair in Mt. Pleasant, Clare, and Alma. From broken springs to noisy doors, we fix it all with honest service and expert care.';
+const title = 'Garage Door Repair Mt. Pleasant MI | Isabella Garage Door';
+const description = 'Expert garage door repair in Mt. Pleasant, Alma, and Clare. From broken springs to off-track doors, we fix it all with honest service and same-day availability. Call 989-572-0303.';
 
 const repairSchema = {
   "@context": "https://schema.org",
   "@type": "Service",
-  "serviceType": "General Garage Door Repair",
+  "serviceType": "Garage Door Repair",
   "provider": {
     "@id": "https://isabellagaragedoor.com/#business"
   },
-  "description": "Comprehensive repair services for residential garage doors, including hardware replacement and structural adjustments.",
+  "areaServed": [
+    { "@type": "City", "name": "Mount Pleasant, MI" },
+    { "@type": "City", "name": "Alma, MI" },
+    { "@type": "City", "name": "Clare, MI" },
+    { "@type": "City", "name": "Shepherd, MI" },
+    { "@type": "City", "name": "Coleman, MI" }
+  ],
+  "description": "Comprehensive repair services for residential garage doors, including hardware replacement, track alignment, cable repair, and structural adjustments.",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "General Repair Services",
+    "name": "Garage Door Repair Services",
     "itemListElement": [
       {
         "@type": "Offer",
@@ -31,7 +39,7 @@ const repairSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Garage Door Cable Replacement",
+          "name": "Cable Replacement",
           "description": "Replacing frayed or snapped lift cables to ensure safe door operation."
         }
       },
@@ -47,72 +55,277 @@ const repairSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Bent Track Repair",
+          "name": "Track Repair & Alignment",
           "description": "Straightening or replacing damaged vertical and horizontal tracks."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Panel Replacement",
+          "description": "Replacing damaged individual door panels without full door replacement."
         }
       }
     ]
   }
 };
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I know if my garage door needs repair?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common signs include the door getting stuck halfway, making grinding or squealing noises, hanging crooked, closing too fast or slamming down, not responding to the remote or wall button, or visible damage to panels, tracks, or hardware. If your door is behaving differently than normal, it's worth having it inspected."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you repair a garage door that's off track?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. An off-track door is a common repair. We carefully realign the door, inspect the rollers and tracks for damage, and test the entire system to make sure it operates safely. This typically takes 45 minutes to an hour depending on the severity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does garage door repair cost in Mt. Pleasant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Repair costs vary depending on the issue. Simple fixes like sensor alignment or roller replacement typically run $150-250, while more involved repairs like cable replacement or track repair range from $200-400. We always provide a clear estimate before starting any work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you offer same-day garage door repair?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, we offer same-day service when available throughout Mt. Pleasant, Alma, Clare, and Isabella County. We understand garage door issues are urgent, especially if your car is stuck inside. Call us and we'll do our best to get to you the same day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I repair or replace my garage door?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If your door is relatively new (less than 10-15 years old) and only one or two components are failing, repair is usually the best choice. If your door is older, has multiple issues, or has significant structural damage, replacement might make more financial sense. We'll give you an honest assessment and let you decide."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What causes a garage door to go off track?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Doors typically go off track due to broken or worn rollers, bent tracks from impact, loose hardware, or broken cables. Sometimes it's caused by forcing the door to close when something is blocking the sensors. Once off track, the door should not be operated until it's professionally repaired."
+      }
+    }
+  ]
+};
 ---
 
-<BaseLayout {title} {description}>
+<BaseLayout {title} {description}> 
 
 <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(repairSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
 
-  <img src="/photos/damaged-door-panel.webp" alt="Garage Door Repair in Mt. Pleasant Michigan" 
+
+  <img src="/photos/damaged-door-panel.webp" alt="Professional garage door repair service in Mt. Pleasant, Michigan" 
   loading="eager" fetchpriority="high" class="header-photo-interior" />
 
   <section>
-      <h1 class="page-title">Fast, Reliable Garage Door Repairs</h1>
+      <h1 class="page-title">Garage Door Repair in Mt. Pleasant & Central Michigan</h1>
       <p>
-        Whether it’s stuck halfway, hanging crooked, or making awful noises — we’ll get it fixed right, without the runaround.
+        Your garage door is stuck, making terrible noises, or won't close all the way. You need it fixed—fast, and done right. 
+        Isabella Garage Door provides expert repair service throughout Mt. Pleasant, Alma, Clare, and all of Central Michigan. 
+        Most repairs completed same-day.
       </p>
-      <div class="hero-buttons">
-        <a href="sms:9895720303?&body=Hi%2C%20I%20need%20some%20help%20with%20a%20garage%20door%20problem." class="hero-contact-button">
+      <p style="margin-top: 1rem; text-align: center;">
+        <strong>Door won't open and your car is stuck inside?</strong> Call or text us now for emergency service.
+      </p>
+        <a href="tel:9895720303" class="hero-contact-button" style="margin: 2rem auto 0;">
+          <i class="fas fa-phone"></i> Call 989-572-0303
+        </a>
+        <a href="sms:9895720303?&body=Hi%2C%20I%20need%20help%20with%20a%20garage%20door%20repair." class="hero-contact-button" style="margin: 1rem auto 0; background: #1a334f; border: .094rem solid #b27d57;">
           <i class="fas fa-comment-dots"></i> Text Us Now
         </a>
-      </div>
-    </div>
   </section>
 
+<section>
+  <TrustBadges />
+</section>
+
   <section class="no-card">
-    <h2 class="sub-heading">We Fix What Others Miss</h2>
+    <h2 class="sub-heading">Expert Repairs You Can Trust</h2>
     <p class="p-home">
-      From broken springs and off-track doors to worn rollers, frayed cables, or general weirdness — we’ve seen it all. Our repairs are clean, precise, and backed by premium parts and professional experience.
+      From broken springs and frayed cables to bent tracks and worn rollers, we've seen (and fixed) it all. 
+      Our repairs restore your door's safety, reliability, and smooth operation—without the runaround or upselling.
+    </p>
+    <p class="p-home" style="margin-top: 1rem;">
+      We diagnose the root cause, explain what's wrong in plain English, and fix it right the first time. 
+      Every repair includes full system testing and balancing before we leave.
     </p>
 
-    <img src="/photos/photo-eye-replacement.webp" alt="Garage Door Photo Eye Replacement Clare Michigan" class="homepg-about-photo" />
-
+    <img src="/photos/photo-eye-replacement.webp" alt="Garage door sensor repair and replacement" loading="lazy" class="header-photo-interior" />
   </section>
 
   <section class="no-card">
-    <h2 class="sub-heading">Common Issues We Handle</h2>
+    <h2 class="sub-heading">Common Garage Door Problems We Fix</h2>
     <ul class="p-home" style="list-style: disc; padding-left: 1.5rem;">
-      <li>Broken or stretched springs</li>
-      <li>Door won’t open or close fully</li>
-      <li>Off-track or misaligned doors</li>
-      <li>Frayed or snapped cables</li>
-      <li>Damaged rollers or hinges</li>
-      <li>Door slams down or jerks during movement</li>
+      <li><strong>Door won't open or close</strong> — stuck halfway, won't respond to remote, or opens but won't close</li>
+      <li><strong>Off-track or crooked door</strong> — door hanging at an angle, jammed, or completely off the tracks</li>
+      <li><strong>Loud noises</strong> — grinding, squealing, banging, or rattling sounds during operation</li>
+      <li><strong>Broken or frayed cables</strong> — visible cable damage, coiled up, or hanging loose</li>
+      <li><strong>Worn rollers or hinges</strong> — door moves rough, jerks during operation, or makes grinding noise</li>
+      <li><strong>Bent or damaged tracks</strong> — door sticks in spots, won't close fully, or jumps off track</li>
+      <li><strong>Door closes too fast or slams</strong> — sign of broken spring (dangerous—don't use it)</li>
+      <li><strong>Sensor issues</strong> — door reverses immediately, won't close at all, or sensor lights blinking</li>
+      <li><strong>Damaged panels</strong> — dented, cracked, or broken door sections affecting appearance or function</li>
     </ul>
+    <p class="p-home" style="margin-top: 1.5rem;">
+      <strong>Not sure what's wrong?</strong> From mystery squeaks to complete breakdowns, our technicians arrive to fix any issue.
+      <a href="/contact" style="color: #c57b30; text-decoration: underline;">Book Your Repair</a> now.
+    </p>
   </section>
 
   <section class="no-card">
-    <h2 class="sub-heading">Why Homeowners Trust Isabella</h2>
+    <h2 class="sub-heading">Why Act Quickly on Garage Door Repairs</h2>
     <p class="p-home">
-      We're not here to upsell or waste your time. Just straightforward repairs, clear pricing, and genuine respect for your home and schedule.
-      We’ll show up when we say we will, explain what’s going on, and get your door working again the right way.
+      We get it—garage door repairs aren't fun, and it's tempting to put them off. But ignoring problems leads to bigger (and more expensive) issues down the road:
     </p>
-    <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 3rem auto"><i class="fa-solid fa-screwdriver-wrench fa-fw"></i> Fix My Door</a>
+    <ul class="p-home" style="list-style: disc; padding-left: 1.5rem; margin-top: 1rem;">
+      <li><strong>Safety risk:</strong> A malfunctioning door can fall unexpectedly, causing injury or property damage</li>
+      <li><strong>Worse damage:</strong> Small problems (worn rollers, loose hardware) cause bigger failures (bent tracks, broken springs)</li>
+      <li><strong>Higher repair costs:</strong> Delaying a $150 roller replacement can lead to a $400 track repair</li>
+      <li><strong>Opener damage:</strong> Operating a door with broken parts strains your opener motor, shortening its lifespan</li>
+      <li><strong>Security risk:</strong> A door that won't close leaves your home and belongings vulnerable</li>
+    </ul>
+    <p class="p-home" style="margin-top: 1.5rem;">
+      <strong>Bottom line:</strong> If your door is acting up, get it checked. Early repairs are faster, cheaper, and safer.
+    </p>
+    <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto;"><i class="fas fa-calculator"></i> Get Instant Repair Estimate</a>
   </section>
 
+  <section class="signs additional-info">
+    <h2 class="sub-heading">What Makes Our Repairs Different</h2>
 
+    <div class="columns">
+      <div>
+    <h3 class="sub-sub-heading">We Fix the Root Cause, Not Just Symptoms</h3>
+    <p>
+      We diagnose the underlying issue so it doesn't break again next month.
+    </p>
+      </div>
 
+      <div>
+    <h3 class="sub-sub-heading">Quality Parts, Not Cheap Replacements</h3>
+    <p>
+      We use commercial-grade hardware designed to last—not the cheapest option that'll fail in six months.
+    </p>
+</div>
 
-    <!-- Testimonial 
+      <div>
+    <h3 class="sub-sub-heading">Transparent Pricing</h3>
+    <p>
+      We tell you exactly what's wrong and what it'll cost before starting work. No surprises, no hidden fees.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">We Respect Your Home</h3>
+    <p>
+      We show up on time, work clean, and treat your property like it's our own. Simple as that.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">Same-Day Service</h3>
+    <p>
+      We know you need your garage. Most Mt. Pleasant area calls get same-day service when available.
+    </p>
+</div>
+</div>
+  </section>
+
+<section class="faq-area">
+<section id="faq">
+<div class="faq-head">
+<a href="/resources/faq" style="text-decoration: none; color: inherit; display: block;">
+  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions</h2>
+</a>
+</div>
+
+<div class="reveal-on-scroll">
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>How do I know if my garage door needs repair?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Common signs include the door getting stuck halfway, making grinding or squealing noises, hanging crooked, closing too fast or slamming down, not responding to the remote or wall button, or visible damage to panels, tracks, or hardware. If your door is behaving differently than normal, it's worth having it inspected. Our free <a href="/homeowner-tools/door-diagnosis" style="color: #c57b30;">DoorDiagnosis™ tool</a> can help you identify the issue in under 60 seconds.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Can you repair a garage door that's off track?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes. An off-track door is one of the most common repairs we handle. We carefully realign the door, inspect the rollers and tracks for damage or wear, replace any broken components, and test the entire system to make sure it operates safely. Most off-track repairs take 45 minutes to an hour depending on the severity and whether any parts need replacement.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>How much does garage door repair cost in Mt. Pleasant?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Repair costs vary depending on the issue. Simple fixes like sensor alignment or roller replacement typically run $150-250, while more involved repairs like cable replacement or track repair range from $200-400. Spring replacement is usually $275-395. We always provide a clear estimate before starting any work—no surprises. Want a ballpark estimate? Try our <a href="/homeowner-tools/easy-estimate" style="color: #c57b30;">EasyEstimate™ tool</a> for instant pricing.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you offer same-day garage door repair?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes, we offer same-day service when available throughout Mt. Pleasant, Alma, Clare, and Isabella County. We understand garage door issues are urgent, especially if your car is stuck inside or you can't secure your home. Call us at <a href="tel:9895720303" style="color: #c57b30;">989-572-0303</a> and we'll do our best to get to you the same day.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Should I repair or replace my garage door?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>If your door is relatively new (less than 10-15 years old) and only one or two components are failing, repair is usually the best choice. If your door is older, has multiple issues, significant structural damage, or outdated safety features, replacement might make more financial sense. We'll give you an honest assessment of your door's condition and let you make the call—no pressure, no upselling.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What causes a garage door to go off track?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Doors typically go off track due to broken or worn rollers, bent tracks from impact (like backing into the door), loose hardware that allows the door to shift, broken cables that cause the door to hang crooked, or forcing the door to close when something is blocking the sensors. Once off track, the door should not be operated until it's professionally repaired—attempting to use it can cause serious damage or injury.</p>
+    </div>
+  </div>
+
+ </section>
+</section>
+
+    <!--
+ Testimonial Placeholder Until I Get Real Reviews
 <section>
 <a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
   <TestimonialCard 
@@ -121,29 +334,100 @@ const repairSchema = {
   />
 </a>
 </section>
--->
+   -->
 
     <section>
-      <h2 class="sub-heading">Not Sure What’s Wrong?</h2>
+       <img src="/photos/doordiagnosis-logo.webp" alt="DoorDiagnosis garage door troubleshooting tool"  loading="lazy" class="header-photo-interior" /> 
+      <h2 class="sub-heading">Not Sure What's Wrong With Your Door?</h2>
       <p class="estimate-intro-paragraph">
-        Use our free online tool to figure it out — no pressure, no phone call required. Just simple questions and helpful answers.
+        Our free DoorDiagnosis™ tool helps you identify common garage door problems in under 60 seconds. 
+        Answer a few quick questions and we'll tell you what's likely broken and whether you need a professional repair.
       </p>
-      <a href="/homeowner-tools/door-diagnosis#troubleshooting" class="cta-button"><i class="fa-solid fa-magnifying-glass fa-fw"></i> Start Troubleshooting</a>
+      <a href="/homeowner-tools/door-diagnosis#troubleshooting" class="cta-button" style="align-items: center; justify-content: center;"><i class="fas fa-stethoscope"></i> Diagnose My Door Now</a>
     </section>
 
-<section style="margin-top: 2rem;">
+<section>
+  <h2 class="sub-heading">Still researching garage door repairs?</h2>
+  <p>
+   We've written a detailed guide explaining common garage door noises and what causes them.
+  </p>
+   <div class="blog-cards">
+    <article class="blog-card reveal-on-scroll">
+      <img src="/photos/thumbnails/noisy-door-thumbnail.webp" alt="Strange garage door noises for Central Michigan homeowners to look out for">
+      <div class="blog-content">
+         <h3><a href="/blog/the-strange-noises-your-garage-door-makes">The Strange Noises Your Garage Door Makes</a></h3>
+        <p>Garage door suddenly sounding like a haunted house or a rusty roller coaster? Strange noises from your garage door might be more than just a nuisance—they’re often your door’s way of telling you something’s wrong. As a Michigan homeowner, especially with our extreme temperature swings, it’s important to listen up. Here’s what those sounds might mean—and when it’s time to call Isabella Garage Door for help.</p>
+        <a class="read-more" href="/blog/the-strange-noises-your-garage-door-makes">Read The Full Guide →</a>
+      </div>
+    </article>
+    </div>
+</section>
+
+
+  <!-- CTA -->
+<section>
+    <a href="/contact" class="cta-button"><i class="fa-solid fa-calendar-check fa-fw"></i> Schedule Repair Now</a>
+</section>
+
+<section>
   <h2 class="sub-heading">Isabella Garage Door</h2>
   <p style="font-size: .9rem; text-align: center;">
-    Fast, reliable garage door repair across Central Michigan.
+    Expert garage door repair done right, the first time,  
+    with honest service that gets your door working safely again.
   </p>
   <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
     <em>Raising Performance. Elevating Standards</em>
   </p>
   <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
-    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #c57b30; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
+    <strong>Call or text: </strong> <a href="tel:9895720303" style="color: #c57b30; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
   </p>
 </section>
 
 <ServiceFooter currentPath="/services/door-repair" slot="full-width-section"/>
+
+<script is:inline>
+document.querySelectorAll('.faq-item').forEach(item => {
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+
+  question.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+       answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".reveal-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // reveal once
+          }
+        });
+      },
+      {
+        threshold: 0.2, // trigger when 20% of card is visible
+      }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>
 
 </BaseLayout>

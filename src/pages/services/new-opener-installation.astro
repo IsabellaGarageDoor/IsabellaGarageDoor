@@ -1,11 +1,12 @@
 ---
 title: "New Opener Installation - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro'
 import ServiceFooter from '../../components/ServiceFooter.astro';
 
-const title = 'New Garage Door Opener Installation | Isabella Garage Door';
-const description = 'Professional installation of new garage door openers in Mt. Pleasant and Central Michigan. Choose from top brands and enjoy reliable, quiet operation backed by expert service.';
+const title = 'Garage Door Opener Installation Mt. Pleasant MI | Isabella Garage Door';
+const description = 'Professional garage door opener installation in Mt. Pleasant, Alma, and Clare. Expert installation of LiftMaster, Chamberlain, and Genie openers with smart features. Call 989-572-0303.';
 
 const openerInstallSchema = {
   "@context": "https://schema.org",
@@ -14,7 +15,14 @@ const openerInstallSchema = {
   "provider": {
     "@id": "https://isabellagaragedoor.com/#business"
   },
-  "description": "Professional installation of residential garage door openers. We specialize in belt-drive, chain-drive, and wall-mount smart motors.",
+  "areaServed": [
+    { "@type": "City", "name": "Mount Pleasant, MI" },
+    { "@type": "City", "name": "Alma, MI" },
+    { "@type": "City", "name": "Clare, MI" },
+    { "@type": "City", "name": "Shepherd, MI" },
+    { "@type": "City", "name": "Coleman, MI" }
+  ],
+  "description": "Professional installation of residential garage door openers. We specialize in belt-drive, chain-drive, and wall-mount smart motors from top brands like LiftMaster, Chamberlain, and Genie.",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Opener Installation Options",
@@ -39,16 +47,8 @@ const openerInstallSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Belt-Drive Opener Installation",
-          "description": "Quiet belt drive reduces noise."
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
           "name": "Smart Opener Installation",
-          "description": "Installation of smart garage door openers you can control from an app on your phone."
+          "description": "Installation of MyQ and Wi-Fi enabled openers you can control from your smartphone."
         }
       },
       {
@@ -62,60 +62,283 @@ const openerInstallSchema = {
     ]
   }
 };
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much does it cost to install a new garage door opener in Mt. Pleasant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Garage door opener installation in Central Michigan typically starts off at $495 and goes up from there depending on the opener type and features. This includes the opener unit, installation labor, programming remotes, safety sensor setup, and removal of your old opener."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between belt-drive and chain-drive openers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Belt-drive openers use a reinforced rubber belt and are extremely quiet, making them ideal for garages attached to living spaces or bedrooms. Chain-drive openers use a metal chain and are slightly louder but very durable and reliable. Chain-drive models are also slightly less expensive. Both are excellent choices—it just depends on whether quiet operation is a priority for you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does garage door opener installation take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most garage door opener installations take 2-3 hours. This includes removing your old opener, installing the new unit, programming remotes and keypads, setting up smart features if applicable, and testing the entire system for proper operation and safety."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I control my garage door opener from my phone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We install smart openers from brands like LiftMaster, Chamberlain, and Genie that connect to your home Wi-Fi. With smart openers, you can open and close your door remotely, receive alerts when the door is opened, and give temporary access to guests or delivery drivers. It's a great feature for security and convenience."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I repair my old opener or install a new one?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If your opener is less than 10 years old and just needs a simple repair, repair makes sense. If your opener is 15+ years old, lacks modern safety features like automatic reversal, or has had multiple issues, replacement is usually the better investment. Newer openers are quieter, safer, more reliable, and offer smart features that older units don't have."
+      }
+    },
+  ]
+};
 ---
 
-<BaseLayout {title} {description}>
+<BaseLayout {title} {description}> 
 
 <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(openerInstallSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
 
-  <img src="/photos/opener-installation-central-michigan.webp" alt="A newly installed garage door opener in Central Michigan" 
+
+  <img src="/photos/opener-installation-central-michigan.webp" alt="Professional garage door opener installation in Mt. Pleasant, Michigan" 
   loading="eager" fetchpriority="high" class="header-photo-interior" />
 
   <section>
-      <h1 class="page-title">Upgrade Your Opener with Confidence</h1>
-      <p class="hero-description">
-        Whether your opener finally gave out — or it’s just time for something quieter, smarter, and more reliable — we make upgrading easy.
+      <h1 class="page-title">New Garage Door Opener Installation in Mt. Pleasant</h1>
+      <p>
+        Your old garage door opener finally gave out—or maybe it still works but it's loud, slow, and lacks the features you want. 
+        Isabella Garage Door installs top-rated openers from LiftMaster, Chamberlain, and Genie throughout Mt. Pleasant, Alma, Clare, and all of Central Michigan. 
+        Quiet operation, smart features, and professional installation.
       </p>
-      <div class="hero-buttons">
-        <a href="sms:9895720303?&body=Hi%2C%20I'm%20looking%20to%20replace%20my%20garage%20door%20opener." class="hero-contact-button">
-          <i class="fas fa-comment-dots"></i> Text About an Upgrade
+      <p style="margin-top: 1rem; text-align: center;">
+        <strong>Ready to upgrade to a quieter, smarter opener?</strong> Call or text us for a free estimate.
+      </p>
+        <a href="tel:9895720303" class="hero-contact-button" style="margin: 2rem auto 0;">
+          <i class="fas fa-phone"></i> Call 989-572-0303
         </a>
-      </div>
+        <a href="sms:9895720303?&body=Hi%2C%20I'm%20interested%20in%20a%20new%20garage%20door%20opener." class="hero-contact-button" style="margin: 1rem auto 0; background: #1a334f; border: .094rem solid #b27d57;">
+          <i class="fas fa-comment-dots"></i> Text Us Now
+        </a>
+  </section>
+
+<section>
+  <TrustBadges />
+</section>
+
+  <section class="no-card">
+    <h2 class="sub-heading">Professional Installation You Can Trust</h2>
+    <p class="p-home">
+      We don't just bolt up an opener and call it a day. We make sure your new opener is properly mounted, programmed, and tested for safe operation. 
+      Every installation includes safety sensor setup, remote programming, smartphone app configuration (if applicable), and a full system check before we leave.
+    </p>
+    <p class="p-home" style="margin-top: 1rem;">
+      We install professional-grade openers built to last—not the cheapest consumer models that fail in a few years. 
+      You're investing in quiet, reliable operation and modern features like smartphone control, battery backup, and enhanced security.
+    </p>
+
+    <img src="/photos/Opener-install.webp" alt="New LiftMaster garage door opener being installed" loading="lazy" class="header-photo-interior" />
+  </section>
+
+  <section class="no-card">
+    <h2 class="sub-heading">Choosing the Right Opener for Your Home</h2>
+    <p class="p-home">
+      Not all garage door openers are created equal. The right choice depends on your door type, garage layout, noise tolerance, and budget. 
+      Here's what we install most often:
+    </p>
+    
+    <div class="p-home" style="margin-top: 1.5rem;">
+      <p><strong>Belt-Drive Openers (Most Popular)</strong><br>
+      Ultra-quiet operation makes these perfect for garages attached to bedrooms or living spaces. You'll barely hear it running. 
+      Ideal for homeowners who value peace and quiet. Slightly more expensive than chain-drive but worth it for noise reduction.</p>
+      
+      <p style="margin-top: 1rem;"><strong>Chain-Drive Openers</strong><br>
+      Durable, reliable, and cost-effective. Chain-drive openers are louder than belt-drive but extremely dependable and handle heavy doors with ease. 
+      Great for detached garages or situations where noise isn't a concern. Best value for the money.</p>
+      
+      <p style="margin-top: 1rem;"><strong>Smart Openers (MyQ & Wi-Fi Enabled)</strong><br>
+      Control your garage door from anywhere using your smartphone. Receive alerts when the door opens or closes, grant temporary access to guests or delivery drivers, 
+      and integrate with smart home systems like Amazon Alexa or Google Home. Available in both belt-drive and chain-drive models.</p>
+      
+      <p style="margin-top: 1rem;"><strong>Wall-Mount (Jackshaft) Openers</strong><br>
+      Mounts on the wall beside the door instead of the ceiling, freeing up overhead space for storage. Perfect for garages with high ceilings, low headroom, 
+      or cathedral ceilings. Quieter than chain-drive and extremely space-efficient.</p>
+
+      <p style="margin-top: 1rem;"><strong>Battery Backup Openers</strong><br>
+      Includes a backup battery that automatically kicks in during power outages, so you're never trapped in (or out of) your garage during a storm. 
+      Great peace of mind for Michigan winters when power outages are more common.</p>
     </div>
-  </section>
 
-  <section class="no-card">
-    <h2 class="sub-heading">Smart, Quiet, and Built to Last</h2>
-    <p class="p-home">
-      We install top-rated openers from LiftMaster, Chamberlain, and Genie — including belt drive models for ultra-quiet performance and MyQ-enabled units for smart home control. All installed with precision, care, and no mess left behind.
+    <p class="p-home" style="margin-top: 1.5rem;">
+      <strong>Not sure which opener is right for you?</strong> Call us at <a href="tel:9895720303" style="color: #c57b30; text-decoration: underline;">989-572-0303</a> 
+      and we'll walk you through the options based on your door, budget, and priorities. No pressure, no sales pitch—just honest recommendations.
     </p>
-    <img src="/photos/Opener-install.webp" alt="New garage door opener installation in Mount Pleasant Michigan" class="homepg-about-photo" />
   </section>
 
   <section class="no-card">
-    <h2 class="sub-heading">Our Installation Includes</h2>
+    <h2 class="sub-heading">What's Included in Our Installation</h2>
     <ul class="p-home" style="list-style: disc; padding-left: 1.5rem;">
-      <li>New opener with safety sensors and wall button</li>
-      <li>Remote programming and smartphone setup</li>
-      <li>Removal of old unit</li>
-      <li>Full safety check and system test</li>
-      <li>Lifetime support from a local expert</li>
+      <li><strong>Professional-grade opener unit</strong> from LiftMaster, Chamberlain, or Genie (your choice)</li>
+      <li><strong>Complete installation</strong> including mounting, wiring, and safety sensor setup</li>
+      <li><strong>Removal of your old opener</strong> and proper disposal</li>
+      <li><strong>Remote programming</strong> for up to 3 remotes (additional remotes available)</li>
+      <li><strong>Smartphone app setup</strong> if you choose a smart opener (MyQ or Wi-Fi enabled)</li>
+      <li><strong>Safety sensor alignment and testing</strong> to ensure proper auto-reverse function</li>
+      <li><strong>Full system check</strong> including door balance, travel limits, and force settings</li>
+      <li><strong>Instruction and walkthrough</strong> on how to use your new opener and its features</li>
+      <li><strong>Clean workspace</strong> and removal of all packaging and old equipment</li>
     </ul>
+    <p class="p-home" style="margin-top: 1.5rem;">
+      We don't cut corners or rush through installations. Your opener will be set up correctly, tested thoroughly, and ready to provide years of reliable service.
+    </p>
+    <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto;"><i class="fas fa-calculator"></i> Get Installation Estimate</a>
   </section>
 
   <section class="no-card">
-    <h2 class="sub-heading">Not Sure What You Need?</h2>
+    <h2 class="sub-heading">Signs It's Time for a New Opener</h2>
     <p class="p-home">
-      Chain drive, belt drive, wall mount, or Wi-Fi enabled — we’ll walk you through the options that make sense for your budget, home, and goals. No pressure. Just honest recommendations.
+      Garage door openers don't last forever. Most have a lifespan of 10-15 years depending on usage and maintenance. 
+      Here's when replacement makes more sense than repair:
     </p>
-    <a href="/contact" class="cta-button" style="margin: 2rem auto 3rem;"><i class="fa-solid fa-magnifying-glass fa-fw"></i> Ask Us Now</a>
+    <ul class="p-home" style="list-style: disc; padding-left: 1.5rem; margin-top: 1rem;">
+      <li><strong>Opener is 15+ years old</strong> — lacks modern safety features and smart technology</li>
+      <li><strong>Excessive noise</strong> — grinding, squealing, or loud rattling that doesn't improve with lubrication</li>
+      <li><strong>Slow or inconsistent operation</strong> — takes forever to open, stops partway, or operates erratically</li>
+      <li><strong>Frequent breakdowns</strong> — you've repaired it multiple times and it keeps failing</li>
+      <li><strong>Missing safety features</strong> — older openers lack automatic reversal or photo eye sensors (dangerous)</li>
+      <li><strong>You want smart features</strong> — remote access, app control, delivery notifications</li>
+      <li><strong>Moving parts are worn out</strong> — gears stripped, chain/belt frayed, motor struggling</li>
+      <li><strong>Remote range is terrible</strong> — you have to be right next to the garage for the remote to work</li>
+    </ul>
+    <p class="p-home" style="margin-top: 1.5rem;">
+      <strong>Bottom line:</strong> If repair costs are approaching 50% of a new opener's price, or your opener is old and unreliable, 
+      replacement is the smarter investment. New openers are quieter, safer, more convenient, and backed by warranties.
+    </p>
+  </section>
+
+  <section class="signs additional-info">
+    <h2 class="sub-heading">Why Homeowners Choose Us for Opener Installation</h2>
+    <div class="columns">
+      <div>
+    <h3 class="sub-sub-heading">Top Quaility Openers</h3>
+    <p>
+      We install top quaility brands such as LiftMaster, Chamberlain, and Genie. They're built better, last longer, and perform more reliably.
+    </p>
+      </div>
+
+      <div>
+    <h3 class="sub-sub-heading">Proper Installation the First Time</h3>
+    <p>
+      Many opener problems stem from poor installation. We mount securely, wire correctly, balance properly, and test thoroughly. No shortcuts.
+    </p>
+      </div>
+
+      <div>
+    <h3 class="sub-sub-heading">Expert Guidance on Selection</h3>
+    <p>
+      We help you choose the right opener for your door weight, garage configuration, and budget. No upselling, no pressure—just honest advice.
+    </p>
+      </div>
+
+      <div>
+    <h3 class="sub-sub-heading">Clean, Respectful Service</h3>
+    <p>
+      We protect your floors, clean up all debris, and leave your garage cleaner than we found it. Your home is respected like it's our own.
+    </p>
+      </div>
+
+      <div>
+    <h3 class="sub-sub-heading">Local Support When You Need It</h3>
+    <p>
+      If you ever have questions or issues with your opener, you call us—not a 1-800 number. We're local, we're responsive, and we stand behind our work.
+    </p>
+</div>
   </section>
 
 
 
-    <!-- Testimonial 
+<section class="faq-area">
+<section id="faq">
+<div class="faq-head">
+<a href="/resources/faq" style="text-decoration: none; color: inherit; display: block;">
+  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions</h2>
+</a>
+</div>
+
+<div class="reveal-on-scroll">
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>How much does it cost to install a new garage door opener in Mt. Pleasant?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Garage door opener installation in the Mt. Pleasant area typically ranges from $350-650 depending on the opener type and features. This includes the opener unit, installation labor, programming remotes, safety sensor setup, and removal of your old opener. Belt-drive and smart openers are on the higher end, while basic chain-drive models are more affordable. Use our <a href="/homeowner-tools/easy-estimate" style="color: #c57b30;">EasyEstimate™ tool</a> for specific pricing based on your needs.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What's the difference between belt-drive and chain-drive openers?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Belt-drive openers use a reinforced rubber belt and are extremely quiet, making them ideal for garages attached to living spaces or bedrooms. Chain-drive openers use a metal chain and are slightly louder but very durable and reliable. Chain-drive models are slightly less expensive. Both are excellent choices—it just depends on whether quiet operation is a priority for you.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>How long does garage door opener installation take?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Most garage door opener installations take 2-3 hours. This includes removing your old opener, installing the new unit, programming remotes and keypads, setting up smart features if applicable, and testing the entire system for proper operation and safety. We don't rush—we make sure everything is set up correctly before we leave.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Can I control my garage door opener from my phone?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes. We install smart openers from brands such as LiftMaster, Chamberlain, and Genie that connect to your home Wi-Fi. With smart openers, you can open and close your door remotely, receive alerts when the door is opened, and give temporary access to guests or delivery drivers. It's a great feature for security and convenience. We'll help you set up the app and show you how to use it during installation.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Should I repair my old opener or install a new one?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>If your opener is less than 10 years old and just needs a simple repair, repair makes sense. If your opener is 15+ years old, lacks modern safety features like automatic reversal, or has had multiple issues, replacement is usually the better investment. Newer openers are quieter, safer, more reliable, and offer smart features that older units don't have. We'll give you an honest assessment and let you decide what makes sense for your situation.</p>
+    </div>
+  </div>
+
+ </section>
+</section>
+
+    <!--
+ Testimonial Placeholder Until I Get Real Reviews
 <section>
 <a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
   <TestimonialCard 
@@ -124,20 +347,48 @@ const openerInstallSchema = {
   />
 </a>
 </section>
--->
+   -->
 
     <section>
-      <h2 class="sub-heading">Fast, Friendly Quotes Available</h2>
+      <!-- PLACEHOLDER: Add image for EasyEstimate tool here if you have one -->
+      <img src="/photos/easyestimate-logo.webp" alt="EasyEstimate garage door pricing tool"  loading="lazy" class="header-photo-interior" /> 
+      <h2 class="sub-heading">Get an Instant Price Estimate</h2>
       <p class="estimate-intro-paragraph">
-        Our free online estimate tool can help you price out your upgrade in under a minute. It’s quick, simple, and 100% pressure-free.
+        Our free EasyEstimate™ tool gives you instant pricing for opener installation based on your door type and preferences. 
+        No phone call required, no pressure—just honest pricing in under 60 seconds.
       </p>
-      <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button"><i class="fa-solid fa-bolt fa-fw"></i> Get My Installation Estimate</a>
+      <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="align-items: center; justify-content: center;"><i class="fas fa-bolt"></i> Get My Estimate Now</a>
     </section>
+
+
+<section>
+  <h2 class="sub-heading">Still researching garage door openers?</h2>
+  <p>
+   Read our guide below to help you choose the right garage door opener for your home.
+  </p>
+   <div class="blog-cards">
+    <article class="blog-card reveal-on-scroll">
+      <img src="/photos/thumbnails/opener-types-blog.webp" alt="Garage door opener types buying guide">
+      <div class="blog-content">
+         <h3><a href="/blog/garage-door-opener-types-chain-vs-belt-vs-side-mount-which-is-best">Garage Door Opener Types: Chain vs Belt vs Side Mount - Which Is Best</a></h3>
+        <p>Shopping for a new garage door opener can be confusing. Chain drive, belt drive, screw drive, side mount, wall mount, jackshaft... the options seem endless. But don't worry - once you understand the basics of how each type works, choosing the right opener for your Central Michigan home becomes much easier.</p>
+        <a class="read-more" href="/blog/garage-door-opener-buying-guide-mt-pleasant">Read The Full Guide →</a>
+      </div>
+    </article>
+    </div>
+</section>
+
+
+  <!-- CTA -->
+<section>
+    <a href="/contact" class="cta-button"><i class="fa-solid fa-calendar-check fa-fw"></i> Schedule Installation Now</a>
+</section>
 
 <section>
   <h2 class="sub-heading">Isabella Garage Door</h2>
   <p style="font-size: .9rem; text-align: center;">
-    Upgrade to a smoother, smarter garage door experience—expert opener installs throughout Central Michigan.
+    Professional opener installation done right, the first time,  
+    with expert service that gets your door operating quietly and reliably.
   </p>
   <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
     <em>Raising Performance. Elevating Standards</em>
@@ -148,5 +399,50 @@ const openerInstallSchema = {
 </section>
 
 <ServiceFooter currentPath="/services/new-opener-installation" slot="full-width-section"/>
+
+<script is:inline>
+document.querySelectorAll('.faq-item').forEach(item => {
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+
+  question.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+       answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".reveal-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // reveal once
+          }
+        });
+      },
+      {
+        threshold: 0.2, // trigger when 20% of card is visible
+      }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>
 
 </BaseLayout>

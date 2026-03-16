@@ -1,11 +1,12 @@
 ---
 title: "New Garage Door Installation - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro'
 import ServiceFooter from '../../components/ServiceFooter.astro';
 
-const title = 'New Garage Door Installation | Isabella Garage Door';
-const description = 'Upgrade your home with professional new garage door installation in Mt. Pleasant and Central Michigan. Quality products and expert craftsmanship guaranteed.';
+const title = 'New Garage Door Installation Mt. Pleasant MI | Isabella Garage Door';
+const description = 'Professional new garage door installation in Mt. Pleasant, Alma, and Clare. Expert guidance, quality doors, precise installation. Transform your home\'s curb appeal. Call 989-572-0303.';
 
 const installationSchema = {
   "@context": "https://schema.org",
@@ -14,7 +15,14 @@ const installationSchema = {
   "provider": {
     "@id": "https://isabellagaragedoor.com/#business"
   },
-  "description": "Full-service residential garage door replacement and new construction installation. Includes track setup, spring calibration, and opener integration.",
+  "areaServed": [
+    { "@type": "City", "name": "Mount Pleasant, MI" },
+    { "@type": "City", "name": "Alma, MI" },
+    { "@type": "City", "name": "Clare, MI" },
+    { "@type": "City", "name": "Shepherd, MI" },
+    { "@type": "City", "name": "Coleman, MI" }
+  ],
+  "description": "Full-service residential garage door replacement and new construction installation. Includes professional measuring, old door removal, track setup, spring calibration, and opener integration.",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
     "name": "Installation Services",
@@ -39,68 +47,330 @@ const installationSchema = {
         "@type": "Offer",
         "itemOffered": {
           "@type": "Service",
-          "name": "Insulated Door Upgrades",
+          "name": "Insulated Door Installation",
           "description": "Installation of R-value rated doors to improve home energy efficiency and garage climate control."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "New Construction Installation",
+          "description": "Complete garage door system installation for new home construction projects."
         }
       }
     ]
   }
 };
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How long does garage door installation take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most residential garage door installations take 4-6 hours for a single-car door and 6-8 hours for a double-car door. This includes removing your old door, installing the new door and hardware, balancing the springs, testing safety features, and cleaning up. We complete most installations in a single visit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What styles of garage doors do you install?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We install a wide range of residential garage door styles including traditional raised panel, carriage house, modern contemporary, and custom designs. Doors are available in steel, wood, wood composite, aluminum, and glass. We'll help you choose a style that matches your home's architecture and your aesthetic preferences."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I get an insulated garage door?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If your garage is attached to your home, shares a wall with living spaces, or if you use your garage as a workshop or storage for temperature-sensitive items, insulated doors are worth the investment. They improve energy efficiency, reduce noise, and make the garage more comfortable year-round. For detached garages used only for vehicle storage, basic non-insulated doors work fine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you remove and haul away my old garage door?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, removal and disposal of your old garage door is included in every installation. We carefully remove the old door, springs, tracks, and hardware, and haul everything away. You don't have to worry about cleanup or disposal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I install a new garage door but keep my old opener?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, in most cases. If your opener is less than 10 years old and working well, we can connect it to your new door. However, if your opener is older, struggling, or lacks modern safety features, we'll recommend upgrading to a new opener at the same time. It's more cost-effective to do both together than to replace the opener later."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between single-layer, double-layer, and triple-layer doors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Single-layer doors are basic steel without insulation—affordable but noisy and poor insulation. Double-layer doors have a layer of insulation bonded to steel—quieter and more energy-efficient. Triple-layer (sandwich construction) doors have insulation between two layers of steel—the quietest, strongest, and most energy-efficient option. Your choice depends on budget, garage use, and whether the garage is attached to your home."
+      }
+    }
+  ]
+};
 ---
 
-<BaseLayout {title} {description}>
+<BaseLayout {title} {description}> 
 
 <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(installationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
 
-  <img src="/photos/newly-installed-garage-door.webp" alt="A Newly Installed Garage Door in Alma Michigan" 
+
+  <img src="/photos/newly-installed-garage-door.webp" alt="Professional new garage door installation in Mt. Pleasant, Michigan" 
   loading="eager" fetchpriority="high" class="header-photo-interior" />
 
   <section>
-      <h1 class="page-title">Beautiful, Reliable New Garage Doors</h1>
-      <p class="hero-description">
-        Whether you’re upgrading curb appeal or replacing a failing door, we make the process simple — with expert guidance, professional installation, and zero mess left behind.
+      <h1 class="page-title">New Garage Door Installation in Mt. Pleasant & Central Michigan</h1>
+      <p>
+        Your garage door is failing, damaged beyond repair, or just outdated and ugly. Maybe you want to boost your home's curb appeal before selling, 
+        or you're tired of a noisy, drafty door. Isabella Garage Door provides professional installation of quality residential garage doors 
+        throughout Mt. Pleasant, Alma, Clare, and all of Central Michigan.
       </p>
-      <div class="hero-buttons">
-        <a href="sms:9895720303?&body=Hi%2C%20I'm%20looking%20to%20replace%20my%20garage%20door." class="hero-contact-button">
-          <i class="fas fa-comment-dots"></i> Text About an Install
+      <p style="margin-top: 1rem; text-align: center;">
+        <strong>Ready to transform your home's exterior?</strong> Call or text us for a free consultation and quote.
+      </p>
+        <a href="tel:9895720303" class="hero-contact-button" style="margin: 2rem auto 0;">
+          <i class="fas fa-phone"></i> Call 989-572-0303
         </a>
-      </div>
-    </div>
+        <a href="sms:9895720303?&body=Hi%2C%20I'm%20interested%20in%20a%20new%20garage%20door." class="hero-contact-button" style="margin: 1rem auto 0; background: #1a334f; border: .094rem solid #b27d57;">
+          <i class="fas fa-comment-dots"></i> Text Us Now
+        </a>
+  </section>
+
+<section>
+  <TrustBadges />
+</section>
+
+  <section class="no-card">
+    <h2 class="sub-heading">Professional Installation You Can Trust</h2>
+    <p class="p-home">
+      A new garage door is one of the best investments you can make in your home—it boosts curb appeal, improves energy efficiency, 
+      and increases home value. But the quality of installation matters just as much as the door itself.
+    </p>
+    <p class="p-home" style="margin-top: 1rem;">
+      We don't cut corners or rush through installations. Every door is precisely measured, expertly installed, properly balanced, and thoroughly tested 
+      before we leave. Your new door will operate smoothly, quietly, and safely for years to come.
+    </p>
+
+    <img src="/photos/fresh-garage-door-installation.webp" alt="New garage door being installed on home" loading="lazy" class="header-photo-interior" />
   </section>
 
   <section class="no-card">
-    <h2 class="sub-heading">A Door That Works — and Looks Great</h2>
-    <p class="p-home">
-      We install quality doors from brands you can trust — with a range of styles, colors, and insulation options to fit your home and budget. Every install includes removal of the old door, proper balancing, and clean, precise workmanship.
+    <h2 class="sub-heading">Signs It's Time for a New Garage Door</h2>
+    <ul class="p-home" style="list-style: disc; padding-left: 1.5rem;">
+      <li><strong>Door is severely damaged</strong> — dented panels, cracked sections, or structural damage beyond repair</li>
+      <li><strong>Constant repairs needed</strong> — you've fixed springs, cables, panels multiple times and it keeps breaking</li>
+      <li><strong>Door is 20+ years old</strong> — outdated safety features, poor energy efficiency, worn beyond reliable operation</li>
+      <li><strong>Rust and decay</strong> — visible rust holes, rotting wood, deteriorating bottom seal</li>
+      <li><strong>Poor energy efficiency</strong> — drafty garage, high heating/cooling costs, no insulation</li>
+      <li><strong>Safety concerns</strong> — lacks modern safety features like photo eye sensors or auto-reverse</li>
+      <li><strong>Curb appeal upgrade</strong> — outdated style, faded paint, doesn't match your home's aesthetic</li>
+      <li><strong>Preparing to sell</strong> — new garage door has one of the highest ROI of any home improvement (94% return)</li>
+      <li><strong>Excessive noise</strong> — loud grinding, scraping, or rattling that can't be fixed with maintenance</li>
+    </ul>
+    <p class="p-home" style="margin-top: 1.5rem;">
+      <strong>Bottom line:</strong> If your door is beyond reliable operation, makes your home look dated, or you're planning to sell—a new door is a smart investment.
     </p>
-    <img src="/photos/fresh-garage-door-installation.webp" alt="New garage door installation in Mt. Pleasant Michigan" class="homepg-about-photo" />
+  </section>
+
+  <section class="no-card">
+    <h2 class="sub-heading">Choosing the Right Garage Door for Your Home</h2>
+    <p class="p-home">
+      Garage doors aren't one-size-fits-all. The right choice depends on your home's architecture, budget, garage use, and aesthetic preferences. 
+      Here's what we help you consider:
+    </p>
+    
+    <div class="p-home" style="margin-top: 1.5rem;">
+      <p><strong>Style & Design</strong><br>
+      Your garage door should complement your home's architecture. Traditional raised panel doors suit classic homes, carriage house designs work for colonial 
+      or craftsman styles, and modern contemporary doors fit mid-century or modern homes. We'll help you choose a style that enhances (not clashes with) your home's exterior.</p>
+      
+      <p style="margin-top: 1rem;"><strong>Insulation Level</strong><br>
+      Single-layer (no insulation), double-layer (polystyrene insulation), or triple-layer (polyurethane sandwich construction). If your garage is attached to your home, 
+      shares a wall with living spaces, or you use it as a workshop, insulated doors save energy and reduce noise. Detached garages used only for storage can get by with basic doors.</p>
+      
+      <p style="margin-top: 1rem;"><strong>Material Options</strong><br>
+      Steel (most popular—durable, low-maintenance, affordable), wood (beautiful but requires maintenance), wood composite (wood look without the upkeep), 
+      aluminum with glass (modern, contemporary look), or full-view glass (commercial/modern aesthetic). Each has different durability, maintenance, and cost characteristics.</p>
+      
+      <p style="margin-top: 1rem;"><strong>Windows & Hardware</strong><br>
+      Do you want windows for natural light? Windows come in various styles (square, arched, decorative) and glass types (clear, frosted, tinted). 
+      Decorative hardware (handles, hinges, clavos) adds visual interest and can transform a basic door into a custom look without custom pricing.</p>
+
+      <p style="margin-top: 1rem;"><strong>Color & Finish</strong><br>
+      Match your home's trim, complement your siding, or make a bold statement. Most doors come in standard colors (white, almond, sandstone, brown) 
+      with custom colors available. Consider your home's overall color palette and neighborhood aesthetics.</p>
+
+      <p style="margin-top: 1rem;"><strong>Durability & Wind Rating</strong><br>
+      Steel thickness (gauge) affects durability and dent resistance. Thicker steel = stronger door. Wind rating matters if you're in an area 
+      with severe weather. We'll recommend appropriate specifications for Michigan's climate and your garage's exposure.</p>
+    </div>
+
+    <p class="p-home" style="margin-top: 1.5rem;">
+      <strong>Overwhelmed by options?</strong> That's normal. We'll walk you through choices step-by-step based on your priorities, budget, and home. 
+      No pressure, no upselling—just honest guidance to help you make the right decision.
+    </p>
+  </section>
+
+  <section class="no-card">
+    <h2 class="sub-heading">What's Included in Our Installation</h2>
+    <ul class="p-home" style="list-style: disc; padding-left: 1.5rem;">
+      <li><strong>Free on-site consultation and measuring</strong> — we come to your home, take precise measurements, and discuss your options</li>
+      <li><strong>Help choosing the right door</strong> — style, material, insulation, color, windows, hardware recommendations</li>
+      <li><strong>Complete removal of old door</strong> — old door, tracks, springs, hardware taken down and hauled away</li>
+      <li><strong>Professional installation</strong> — new door panels, tracks, rollers, hinges, bottom seal installed precisely</li>
+      <li><strong>Spring balancing and calibration</strong> — door properly balanced for smooth, easy operation and long spring life</li>
+      <li><strong>Safety sensor installation</strong> — photo eye sensors mounted and aligned for proper auto-reverse function</li>
+      <li><strong>Opener connection</strong> — existing opener reconnected to new door (or new opener installation if needed)</li>
+      <li><strong>Full system testing</strong> — door operation, safety features, weather seal, lock mechanism all tested</li>
+      <li><strong>Complete cleanup</strong> — all debris removed, work area swept clean, packaging hauled away</li>
+      <li><strong>Operation walkthrough</strong> — we show you how to use manual release, lock, and maintain your new door</li>
+    </ul>
+    <p class="p-home" style="margin-top: 1.5rem;">
+      We handle everything from start to finish. You don't lift a finger except to approve the door choice and write the check.
+    </p>
   </section>
 
   <section class="no-card">
     <h2 class="sub-heading">Our Installation Process</h2>
-    <ul class="p-home" style="list-style: disc; padding-left: 1.5rem;">
-      <li>Personalized help choosing your new door</li>
-      <li>On-site measurement and consultation</li>
-      <li>Old door removal and haul-away included</li>
-      <li>Expert installation and spring balancing</li>
-      <li>Full system test and safety inspection</li>
-    </ul>
+    <div class="p-home">
+      <p><strong>📐 Step 1: Free Consultation & Measuring</strong><br>
+      We come to your home at a time that works for you. We measure your garage opening, check the header room and side room, assess any structural considerations, 
+      and discuss your style preferences, budget, and priorities. No obligation, no pressure.</p>
+      
+      <p style="margin-top: 1rem;"><strong>📋 Step 2: Door Selection & Quote</strong><br>
+      Based on our discussion, we provide detailed recommendations and a written quote. We'll show you door samples, explain the differences between options, 
+      and help you make an informed decision. Take as much time as you need—we're not pushy.</p>
+      
+      <p style="margin-top: 1rem;"><strong>📅 Step 3: Scheduling Installation</strong><br>
+      Once you approve the quote, we order your door. Once the door arrives, we give you a specific installation date 
+      and time window, and we actually show up when we say we will.</p>
+      
+      <p style="margin-top: 1rem;"><strong>🔧 Step 4: Installation Day</strong><br>
+      We arrive on time with all necessary equipment and materials. We remove your old door, install your new door and test everything,
+      and clean up completely. Most installations are completed in one day.</p>
+
+      <p style="margin-top: 1rem;"><strong>✅ Step 5: Final Walkthrough</strong><br>
+      Before we leave, we walk you through your new door's operation, show you how to use the manual release and lock, provide maintenance tips, 
+      and answer any questions. We don't leave until you're completely satisfied.</p>
+    </div>
   </section>
 
-  <section class="no-card">
-    <h2 class="sub-heading">Upgrade with Confidence</h2>
-    <p class="p-home">
-      We’ll walk you through options that suit your needs — whether you want a classic look, better insulation, windows for light, or a dramatic curb appeal upgrade. No sales pressure. Just honest advice from someone who cares.
+  <section class="signs additional-info">
+    <h2 class="sub-heading">Why Homeowners Choose Us for Door Installation</h2>
+
+    <div class="columns">
+      <div>
+    <h3 class="sub-sub-heading">Honest, Pressure-Free Guidance</h3>
+    <p>
+      We help you select the door that fits your home’s style and your budget. Our goal is to provide the best value for your investment.
     </p>
-    <a href="/contact" class="cta-button" style="margin: 2rem auto 3rem;"><i class="fa-solid fa-door-open fa-fw"></i> Start My Door Quote</a>
+      </div>
+
+      <div>
+    <h3 class="sub-sub-heading">Precise Measurements = Perfect Fit</h3>
+    <p>
+      We measure carefully and account for all structural variables. Your door will fit properly, operate smoothly, and seal tightly.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">Expert Installation Matters</h3>
+    <p>
+      A great door installed poorly performs terribly. A good door installed expertly performs great. We install every door as if it were going on our own home— level, square, balanced, and built to last.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading"> Respect for Your Home</h3>
+    <p>
+      We clean up our debris and leave your garage cleaner than we found it. Your home is respected like it's our own.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">Local, Accountable Service</h3>
+    <p>
+      We're not a national franchise or subcontracted crew. We're local, we'll be here next year if you need us.
+    </p>
+</div>
+</div>
   </section>
 
+<section class="faq-area">
+<section id="faq">
+<div class="faq-head">
+<a href="/resources/faq" style="text-decoration: none; color: inherit; display: block;">
+  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions</h2>
+</a>
+</div>
 
+<div class="reveal-on-scroll">
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>How long does garage door installation take?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Most residential garage door installations take 4-6 hours for a single-car door and 6-8 hours for a double-car door. This includes removing your old door, installing the new door and hardware, balancing the springs, testing safety features, and cleaning up. We complete most installations in a single visit. If your garage needs structural repairs or new framing, it may take longer.</p>
+    </div>
+  </div>
 
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What styles of garage doors do you install?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>We install a wide range of residential garage door styles including traditional raised panel, carriage house (coach house), modern contemporary, and custom designs. Doors are available in steel, wood, wood composite, aluminum, and glass. We'll help you choose a style that matches your home's architecture and your aesthetic preferences—whether you want classic and understated or bold and eye-catching.</p>
+    </div>
+  </div>
 
-    <!-- Testimonial -->
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Should I get an insulated garage door?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>If your garage is attached to your home, shares a wall with living spaces, or if you use your garage as a workshop or storage for temperature-sensitive items, insulated doors are worth the investment. They improve energy efficiency, reduce noise significantly, and make the garage more comfortable year-round—especially important during Michigan winters. For detached garages used only for vehicle storage, basic non-insulated doors work fine and save you money.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you remove and haul away my old garage door?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes, removal and disposal of your old garage door is included in every installation. We carefully remove the old door, springs, tracks, and hardware, and haul everything away. You don't have to worry about cleanup or disposal—we handle it all.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What's the difference between single-layer, double-layer, and triple-layer doors?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Single-layer doors are basic steel without insulation—affordable but noisy and poor insulation. Double-layer doors have a layer of polystyrene insulation bonded to steel—quieter and more energy-efficient. Triple-layer (sandwich construction) doors have polyurethane insulation between two layers of steel—the quietest, strongest, and most energy-efficient option. Your choice depends on budget, garage use, and whether the garage is attached to your home. We'll help you decide which makes sense for your situation.</p>
+    </div>
+  </div>
+
+ </section>
+</section>
+
+<!--
 <section>
 <a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
   <TestimonialCard 
@@ -109,22 +379,47 @@ const installationSchema = {
   />
 </a>
 </section>
+   -->
+
+   
+ <section>
+   <!--   <img src="/photos/door-styles-showcase.webp" alt="Various garage door styles available"  loading="lazy" class="header-photo-interior" /> -->
+      <h2 class="sub-heading">Ready to Transform Your Home's Curb Appeal?</h2>
+      <p class="estimate-intro-paragraph">
+        Let's talk about your new garage door. We'll come to your home, take measurements, show you options, 
+        and provide a detailed quote—all at no cost and with zero pressure. Schedule your free consultation today.
+      </p>
+      <a href="/contact" class="cta-button" style="align-items: center; justify-content: center;"><i class="fas fa-calendar-check"></i> Schedule Free Consultation</a>
+    </section>
+
 
 <section>
-  <h2 class="sub-heading">Start Your New Door Quote</h2>
-  <p class="estimate-intro-paragraph">
-    Once you’ve got a style in mind, we’ll take care of the rest — measurements, haul-away, expert install, and a system that runs smoothly from day one. We’re always happy to walk you through your options without any pressure.
+  <h2 class="sub-heading">Still researching garage doors?</h2>
+  <p>
+   We've written a comprehensive guide explaining why replacing your garage door is one of the highest ROI's you can do for your home.
   </p>
-  <a href="/contact" class="cta-button">
-    <i class="fa-solid fa-clipboard-list fa-fw"></i> Request a New Door Quote
-  </a>
+   <div class="blog-cards">
+    <article class="blog-card reveal-on-scroll">
+      <img src="/photos/thumbnails/garage-door-replace-before-selling.webp" alt="Garage door buying guide">
+      <div class="blog-content">
+         <h3><a href="/blog/should-you-replace-your-garage-door-before-selling-your-home">Why replacing your door before you sell might make sense</a></h3>
+        <p>When preparing to sell your home, every improvement you make can impact buyer interest, curb appeal, and final sale price. One upgrade that often gets overlooked—but can deliver a surprising return—is replacing your garage door.</p>
+        <a class="read-more" href="/blog/should-you-replace-your-garage-door-before-selling-your-home">Read The Full Guide →</a>
+      </div>
+    </article>
+    </div>
 </section>
 
+  <!-- CTA -->
+<section>
+    <a href="/contact" class="cta-button"><i class="fa-solid fa-clipboard-list fa-fw"></i> Request Your Free Quote</a>
+</section>
 
 <section>
   <h2 class="sub-heading">Isabella Garage Door</h2>
   <p style="font-size: .9rem; text-align: center;">
-    Stylish, durable, professionally installed garage doors for homes across Central Michigan.
+    Professional garage door installation done right, the first time,  
+    with expert guidance and quality craftsmanship that transforms your home.
   </p>
   <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
     <em>Raising Performance. Elevating Standards</em>
@@ -135,5 +430,50 @@ const installationSchema = {
 </section>
 
 <ServiceFooter currentPath="/services/new-door-installation" slot="full-width-section"/>
+
+<script is:inline>
+document.querySelectorAll('.faq-item').forEach(item => {
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+
+  question.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+       answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".reveal-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // reveal once
+          }
+        });
+      },
+      {
+        threshold: 0.2, // trigger when 20% of card is visible
+      }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>
 
 </BaseLayout>

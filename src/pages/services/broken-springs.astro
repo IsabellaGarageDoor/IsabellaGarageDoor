@@ -1,6 +1,7 @@
 ---
 title: "Spring Repair - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro'
 import ServiceFooter from '../../components/ServiceFooter.astro';
 
@@ -105,11 +106,10 @@ const faqSchema = {
   loading="eager" fetchpriority="high" class="header-photo-interior" />
 
   <section>
-      <h1 class="page-title">Broken Garage Door Spring? Same-Day Repair Available</h1>
+      <h1 class="page-title">Broken Garage Door Spring?</h1>
       <p>
         Your garage door spring just snapped with a loud bang—and now your door won't open. We've been there dozens of times. 
         Isabella Garage Door provides fast, safe spring replacement throughout Mt. Pleasant, Alma, Clare, and all of Central Michigan. 
-        Most repairs completed same-day.
       </p>
       <p style="margin-top: 1rem;  text-align: center;">
         <strong>Car stuck in your garage and can't get out?</strong> Call or text us now.
@@ -121,6 +121,10 @@ const faqSchema = {
           <i class="fas fa-comment-dots"></i> Text Us Now
         </a>
   </section>
+
+<section>
+  <TrustBadges />
+</section>
 
   <section class="no-card">
     <h2 class="sub-heading">Fast, Safe Spring Repair You Can Trust</h2>
@@ -146,7 +150,7 @@ const faqSchema = {
       <li><strong>Opener motor runs but door doesn't move</strong> (motor can't lift the weight)</li>
     </ul>
     <p class="p-home" style="margin-top: 1.5rem;">
-      <strong>Not sure what's wrong?</strong> Use our free <a href="/homeowner-tools/door-diagnosis" style="color: #c57b30; text-decoration: underline;">DoorDiagnosis™ tool</a> 
+      <strong>Not sure what's wrong?</strong> Use our free <a href="/homeowner-tools/door-diagnosis#troubleshooting" style="color: #c57b30; text-decoration: underline;">DoorDiagnosis™ tool</a> 
       to walk through common issues step-by-step. It takes less than 60 seconds.
     </p>
   </section>
@@ -249,7 +253,7 @@ const faqSchema = {
       <span class="faq-arrow">&#9654;</span>
     </div>
     <div class="faq-answer">
-      <p>Torsion springs are mounted on a rod above the garage door opening and twist to lift the door. They're safer, last longer (10,000-20,000 cycles), and are standard on most modern garage doors. Extension springs run along the sides of the door and stretch to provide lift. They're more common on older doors, have a shorter lifespan (10,000 cycles), and are more dangerous when they break. If you have extension springs and they're breaking frequently, we can often upgrade you to torsion springs for better performance and safety.</p>
+      <p>Torsion springs are mounted on a rod above the garage door opening and twist to lift the door. They're safer, last longer, and are standard on most modern garage doors. Extension springs run along the sides of the door and stretch to provide lift. They're more common on older doors, have a shorter lifespan, and are more dangerous when they break. If you have extension springs and they're breaking frequently, we can often upgrade you to torsion springs for better performance and safety.</p>
     </div>
   </div>
 

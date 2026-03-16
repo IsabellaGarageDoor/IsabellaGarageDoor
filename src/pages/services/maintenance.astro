@@ -1,6 +1,7 @@
 ---
 title: "Garage Door Protection Plans - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro'
 import ServiceFooter from '../../components/ServiceFooter.astro';
 
@@ -46,12 +47,60 @@ const maintenanceSchema = {
     ]
   }
 };
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How often should I have my garage door professionally serviced?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most residential garage doors should be professionally serviced at least once per year. If you use your door heavily (multiple times per day), have an older system (15+ years), or notice any unusual sounds or behavior, twice-per-year maintenance is recommended. Annual maintenance catches wear before it leads to expensive breakdowns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What does garage door maintenance include?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our maintenance service includes a full mechanical inspection of springs, cables, rollers, hinges, and tracks; professional lubrication of all moving parts; door balance testing and adjustment; safety system testing (photo eyes and auto-reverse); opener force and travel checks; and a written condition report identifying any components that need attention. The goal is to catch small issues before they become failures."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I do garage door maintenance myself?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can handle basic maintenance like cleaning tracks, checking for obstructions, and visual inspections. However, spring tension testing, cable inspection, door balancing, and safety system calibration require professional tools and expertise. Springs are under extreme tension and can cause serious injury if handled improperly. We recommend DIY for basic cleaning and visual checks, but professional service annually for thorough inspection and adjustment."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are signs my garage door needs maintenance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common signs include the door being louder than usual, jerky or shaky movement, the opener struggling to lift the door, visible rust on cables or springs, the door feeling heavy when lifted manually, squeaking or grinding noises, or if you simply can't remember the last time it was serviced. Any change in how your door operates is worth having professionally inspected."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will maintenance prevent my garage door from breaking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "While maintenance can't prevent all failures (garage door springs have a finite lifespan measured in cycles), it dramatically reduces unexpected breakdowns. Regular maintenance catches worn components before they fail, keeps the system properly balanced to reduce strain, and ensures safety features are working correctly. Most emergency service calls we receive are from doors that haven't been maintained in years."
+      }
+    }
+  ]
+};
 ---
 
 <BaseLayout {title} {description}>
 
 <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(maintenanceSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
 
   <img src="/photos/maintenance-on-a-garage-door-clare-michigan.webp" alt="Maintaining a garage door in Clare Michigan" 
@@ -68,10 +117,20 @@ const maintenanceSchema = {
       Professional maintenance catches small issues before they become expensive failures
       and keeps your system operating safely and reliably.
     </p>
-        <a href="sms:9895720303?&body=Hi%2C%20I%20need%20maintenance%20on%20my%20garage%20door%20please." class="hero-contact-button" style="margin: 3rem auto -1rem;">
+       <p style="margin-top: 1rem; text-align: center;">
+        <strong>In need of garage door maintenance?</strong> Call or text us today.
+      </p>
+           <a href="tel:9895720303" class="hero-contact-button" style="margin: 2rem auto 0;">
+          <i class="fas fa-phone"></i> Call 989-572-0303
+        </a>
+        <a href="sms:9895720303?&body=Hi%2C%20I'm%20interested%20in%20a%20new%20garage%20door." class="hero-contact-button" style="margin: 1rem auto 0; background: #1a334f; border: .094rem solid #b27d57;">
           <i class="fas fa-comment-dots"></i> Text Us Now
         </a>
   </section>
+
+<section>
+  <TrustBadges />
+</section>
 
   <!-- WHY IT MATTERS -->
   <section class="signs">
@@ -199,6 +258,68 @@ const maintenanceSchema = {
     </ul>
   </section>
 
+<section class="faq-area">
+<section id="faq">
+<div class="faq-head">
+<a href="/resources/faq" style="text-decoration: none; color: inherit; display: block;">
+  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions</h2>
+</a>
+</div>
+ 
+<div class="reveal-on-scroll">
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>How often should I have my garage door professionally serviced?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Most residential garage doors should be professionally serviced at least once per year. If you use your door heavily (multiple times per day), have an older system (15+ years), or notice any unusual sounds or behavior, twice-per-year maintenance is recommended. Annual maintenance catches wear before it leads to expensive breakdowns.</p>
+    </div>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What does garage door maintenance include?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Our maintenance service includes a full mechanical inspection of springs, cables, rollers, hinges, and tracks; professional lubrication of all moving parts; door balance testing and adjustment; safety system testing (photo eyes and auto-reverse); opener force and travel checks; and a written condition report identifying any components that need attention. The goal is to catch small issues before they become failures.</p>
+    </div>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Can I do garage door maintenance myself?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>You can handle basic maintenance like cleaning tracks, checking for obstructions, and visual inspections. However, spring tension testing, cable inspection, door balancing, and safety system calibration require professional tools and expertise. Springs are under extreme tension and can cause serious injury if handled improperly. We recommend DIY for basic cleaning and visual checks, but professional service annually for thorough inspection and adjustment. Check out our <a href="/blog/diy-garage-door-maintenance-tips" style="color: #c57b30;">DIY maintenance guide</a> for what you can safely do yourself.</p>
+    </div>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What are signs my garage door needs maintenance?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Common signs include the door being louder than usual, jerky or shaky movement, the opener struggling to lift the door, visible rust on cables or springs, the door feeling heavy when lifted manually, squeaking or grinding noises, or if you simply can't remember the last time it was serviced. Any change in how your door operates is worth having professionally inspected.</p>
+    </div>
+  </div>
+ 
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Will maintenance prevent my garage door from breaking?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>While maintenance can't prevent all failures (garage door springs have a finite lifespan measured in cycles), it dramatically reduces unexpected breakdowns. Regular maintenance catches worn components before they fail, keeps the system properly balanced to reduce strain, and ensures safety features are working correctly. Most emergency service calls we receive are from doors that haven't been maintained in years.</p>
+    </div>
+  </div>
+ 
+ </section>
+</section>
+
   <!-- SERVICE AREA 
   <section class="service-area">
     <h2 class="sub-heading">Proudly Serving Central Michigan</h2>
@@ -208,6 +329,23 @@ const maintenanceSchema = {
     </p>
   </section>
 -->
+
+<section>
+  <h2 class="sub-heading">Want to learn more about maintaining your garage door?</h2>
+  <p>
+   We’ve written a brief article on maintenance you can do yourself and why its important to your garage doors function and lifespan.
+  </p>
+   <div class="blog-cards">
+    <article class="blog-card reveal-on-scroll">
+      <img src="/photos/thumbnails/garage-door-5.webp" alt="Garage door Maintenance tips for Isabella County Homeowners">
+      <div class="blog-content">
+         <h3><a href="/blog/diy-garage-door-maintenance-tips">5 Simple DIY Garage Door Maintenance Tips</a></h3>
+        <p>Your garage door is the largest moving part of your home-and one of the hardest working. With regular use, it's easy to overlook small issues that can turn into big problems. But with just a little attention a few times a year, you can keep your door running smoothly and avoid unnecessary repairs.</p>
+        <a class="read-more" href="/blog/diy-garage-door-maintenance-tips">Read The Full Guide →</a>
+      </div>
+    </article>
+    </div>
+</section>
 
   <!-- CTA -->
 <section>
@@ -297,6 +435,27 @@ const maintenanceSchema = {
       }
     });
   }
+</script>
+
+<script is:inline>
+document.querySelectorAll('.faq-item').forEach(item => {
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+
+  question.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+       answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
 </script>
 
 </BaseLayout>

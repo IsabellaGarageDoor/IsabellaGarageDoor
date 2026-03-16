@@ -1,6 +1,7 @@
 ---
 title: "Home - Isabella Garage Door"
 import BaseLayout from '../layouts/BaseLayout.astro';
+import TrustBadges from '../components/TrustBadges.astro';
 import SplideSlider from '../components/SplideSlider.jsx'
 import TestimonialCardWhite from '../components/TestimonialCardWhite.astro';
 import AvailabilityBanner from '../components/editable-sections/AvailabilityBanner.astro';
@@ -10,13 +11,6 @@ import Homeownertools from '../components/Homeownertools.astro';
 import { Image } from 'astro:assets';
 // Import the image from your new assets folder
 import heroBg from '../assets/images/herobg.webp';
-// Import your badge assets
-import shieldImg from '../assets/images/trust-badge-shield.png';
-import toolsImg from '../assets/images/trust-badge-tools.png';
-import gearsImg from '../assets/images/trust-badge-gears.png';
-import michiganImg from '../assets/images/trust-badge-michigan.png';
-import bannerImg from '../assets/images/trust-badge-banner.png';
-import starsImg from '../assets/images/trust-badge-stars.png';
 
 const title = 'Isabella Garage Door | Garage Door Service in Central Michigan';
 const description = 'Professional garage door repair and replacement in Central Michigan. Honest service, fast response, and quaility you can trust.';
@@ -193,7 +187,7 @@ Don’t wait — secure your spot today.
 
 
 <section style="margin-bottom: 1rem;">
-<img src="/photos/elevating-garage-door-section.webp" alt="The-best-garage-door-installation-Mount-Pleasant-Michigan" class="homepg-about-photo reveal-on-scroll" />
+<img src="/photos/garage-door-technician-with-customer.webp" alt="The-best-garage-door-installation-Mount-Pleasant-Michigan" class="homepg-about-photo reveal-on-scroll" />
 <h2 class="sub-heading" style="margin-top: 2rem;">Elevating the Standard</h2>
   <p class="p-home">At Isabella Garage Door, we know your time, your home, and your peace of mind matter.
 When something breaks, you shouldn’t have to deal with delays, confusion, or half-done repairs.
@@ -202,6 +196,11 @@ We take pride in showing up when we say we will, respecting your space, and maki
 It’s not just about fixing the door — it’s about making your day a little easier and your home feel taken care of.
 </p>
 
+<section>
+  <TrustBadges />
+</section>
+
+<!-- Copy Of Trust Badges
 <div class="trust-badges"> 
   <div class="trust-badge reveal-on-scroll"> 
     <Image src={shieldImg} alt="Fully Insured" width={140} height={140} />
@@ -233,9 +232,8 @@ It’s not just about fixing the door — it’s about making your day a little 
     <p>5 Star<br>Rated</p> 
   </div> 
 </div>
-
 </section>
-
+-->
 
  <section class="core-services-section">
 <h2 class="sub-heading">How We Can Help</h2>
