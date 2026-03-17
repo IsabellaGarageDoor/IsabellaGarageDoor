@@ -1,46 +1,129 @@
 ---
-title: "Garage Door Repair in Mt. Pleasant, MI | Isabella Garage Door"
+title: "Garage Door Repair in Mt. Pleasant, MI - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro';
+import ServiceFooter from '../../components/ServiceFooter.astro';
 import LocationsFooter from '../../components/LocationsFooter.astro';
 
-const title = "Garage Door Repair in Mt. Pleasant, MI | Isabella Garage Door";
-const description =
-  "Prompt, reliable garage door repair in Mt. Pleasant, MI. Locally owned and owner-operated, Isabella Garage Door provides expert service with clear communication and quality workmanship.";
+const title = 'Garage Door Repair Mt. Pleasant MI | Isabella Garage Door';
+const description = 'Professional garage door repair and installation in Mt. Pleasant, Michigan. Fast, reliable service for broken springs, openers, and new doors. Same-day available. Call 989-572-0303.';
 
 const mtPleasantSchema = {
   "@context": "https://schema.org",
-  "@graph": [
+  "@type": "LocalBusiness",
+  "name": "Isabella Garage Door - Mt. Pleasant",
+  "image": "https://isabellagaragedoor.com/photos/mt-pleasant-garage-door-repair.webp",
+  "@id": "https://isabellagaragedoor.com/service-areas/mt-pleasant",
+  "url": "https://isabellagaragedoor.com/service-areas/mt-pleasant",
+  "telephone": "+1-989-572-0303",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Mount Pleasant",
+    "addressRegion": "MI",
+    "postalCode": "48858",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.5978,
+    "longitude": -84.7675
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Mount Pleasant",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Mount Pleasant",
+      "addressRegion": "MI",
+      "addressCountry": "US"
+    }
+  },
+  "description": "Professional garage door repair, broken spring replacement, opener installation, and new door installation serving Mt. Pleasant, Michigan and surrounding Isabella County.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Mt. Pleasant Garage Door Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Broken Spring Replacement in Mt. Pleasant",
+          "url": "https://isabellagaragedoor.com/services/broken-springs"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Garage Door Repair in Mt. Pleasant",
+          "url": "https://isabellagaragedoor.com/services/door-repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Opener Repair & Installation in Mt. Pleasant",
+          "url": "https://isabellagaragedoor.com/services/opener-repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "New Door Installation in Mt. Pleasant",
+          "url": "https://isabellagaragedoor.com/services/new-door-installation"
+        }
+      }
+    ]
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
     {
-      "@type": "WebPage",
-      "@id": "https://isabellagaragedoor.com/locations/mt-pleasant",
-      "url": "https://isabellagaragedoor.com/locations/mt-pleasant",
-      "name": "Garage Door Repair & Installation in Mt. Pleasant, MI",
-      "isPartOf": { "@id": "https://isabellagaragedoor.com/#website" },
-      "description": "Professional garage door repair services specifically for residents of Mt. Pleasant, Michigan."
+      "@type": "Question",
+      "name": "Do you provide garage door service in Mt. Pleasant, Michigan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Mt. Pleasant is our home base area and one of our most frequently served cities. Whether you're near CMU's campus, in the established neighborhoods off Pickard, in a newer subdivision on the south side, or anywhere in between—we'll come to you with fast, professional service."
+      }
     },
     {
-      "@type": "Service",
-      "serviceType": "Garage Door Repair",
-      "provider": { "@id": "https://isabellagaragedoor.com/#business" },
-      "areaServed": {
-        "@type": "City",
-        "name": "Mt. Pleasant",
-        "sameAs": "https://www.wikidata.org/wiki/Q954386" 
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Mt. Pleasant Service Menu",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "Broken Spring Replacement" }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "Garage Door Opener Repair" }
-          }
-        ]
+      "@type": "Question",
+      "name": "How quickly can you get to Mt. Pleasant for garage door repairs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mt. Pleasant is just minutes from our Rosebush location, making it one of our fastest response areas. We typically offer same-day service to Mt. Pleasant residents. Emergency situations like broken springs or doors that won't close get priority scheduling. Most Mt. Pleasant service calls are completed the same day you call."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What neighborhoods in Mt. Pleasant do you serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We serve all of Mt. Pleasant including the CMU campus area, downtown, Pickard Street corridor, Mission Street, south side subdivisions, Broomfield Road neighborhoods, Island Park area, and all rural properties surrounding the city. If you're in Mt. Pleasant or Isabella County, we serve you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What garage door services do you offer in Mt. Pleasant?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We provide complete garage door services in Mt. Pleasant including broken spring replacement, cable repair, opener repair and installation, off-track door repair, roller and hinge replacement, track alignment, sensor repair, new door installation, and preventive maintenance for residential garage doors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are you insured to work in Mt. Pleasant, Michigan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Isabella Garage Door is fully insured and operates throughout Central Michigan including Mt. Pleasant and all of Isabella County. We're a local, professional garage door company—not a franchise or out-of-area contractor. Your property is protected when we work on your garage door."
       }
     }
   ]
@@ -51,107 +134,335 @@ const mtPleasantSchema = {
 
 <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(mtPleasantSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
 
-<img src="/photos/mt-pleasant-michigan.webp" alt="Welcome to Mt. Pleasant sign painted on a local bridge in Mt. Pleasant, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
+<img src="/photos/mt-pleasant-michigan.webp" alt="Professional garage door repair service in Mt. Pleasant, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
 
 <section>
-  <h1 class="page-title">Garage Door Repair in Mt. Pleasant, MI</h1>
-    <p class="slogan">Raising Performance. Elevating Standards.</p>
-  <p class="hero-subtext">
-    Prompt, dependable garage door repair from a trusted local professional.
-    Clear communication, quality workmanship, and service done right.
-  </p>
-  <a href="/contact" class="cta-button">Request Service</a>
-</section>
-
-<section>
-  <h2 class="sub-heading">Expert Garage Door Repair in Mt. Pleasant</h2>
+  <h1 class="page-title">Garage Door Service in Mt. Pleasant, MI</h1>
   <p>
-    If your garage door won’t open, sounds unusual, or isn’t operating the way it should,
-    we’re nearby and ready to help. Isabella Garage Door proudly serves Mt. Pleasant and
-    surrounding Central Michigan communities with reliable, professional garage door service.
+    Your garage door broke and you need it fixed—fast, and done right. Isabella Garage Door provides professional garage door repair, 
+    broken spring replacement, and new opener installation throughout Mt. Pleasant. From the CMU campus area to Pickard Street neighborhoods, 
+    Mission Street corridor to the south side subdivisions—we're right around the corner, we're fast, and we're reliable.
   </p>
-
-  <ul class="service-list">
-    <li>✔️ <a href="/services/broken-spring">Broken springs</a>, rollers, or cables</li>
-    <li>✔️ Doors off track or binding</li>
-    <li>✔️ Loud, slow, or uneven operation</li>
-    <li>✔️ <a href="/services/opener-repair">Garage door opener and remote issues</a></li>
-    <li>✔️ Complete system safety inspections</li>
-  </ul>
+  <p style="margin-top: 1rem; text-align: center;">
+    <strong>Mt. Pleasant residents:</strong> Call or text us now. Same-day appointments often available.
+  </p>
+    <a href="tel:9895720303" class="hero-contact-button" style="margin: 2rem auto 0;">
+      <i class="fas fa-phone"></i> Call 989-572-0303
+    </a>
+    <a href="sms:9895720303?&body=Hi%2C%20I%20need%20garage%20door%20service%20in%20Mt.%20Pleasant." class="hero-contact-button" style="margin: 1rem auto 0; background: #1a334f; border: .094rem solid #b27d57;">
+      <i class="fas fa-comment-dots"></i> Text Us Now
+    </a>
 </section>
 
 <section>
-  <h2 class="sub-heading">Why Mt. Pleasant Homeowners Choose Isabella Garage Door</h2>
-  <p>
-    We’re a locally owned, owner-operated garage door company focused on doing the job
-    correctly the first time. When you call, you work directly with the technician
-    performing the repair—ensuring clear communication, accountability, and consistent
-    quality from start to finish.
-  </p>
-
-  <ul class="service-list">
-    <li>📍 Locally based for fast, responsive service in Mt. Pleasant</li>
-    <li>👨‍🔧 Owner-operated — personal, hands-on workmanship</li>
-    <li>🔧 Precision repairs using dependable, high-quality parts</li>
-    <li>💬 Transparent recommendations and straightforward pricing</li>
-  </ul>
+  <TrustBadges />
 </section>
 
-<!-- Testimonial 
 <section>
-  <h2 class="sub-heading">What Your Neighbors Are Saying</h2>
+  <h2 class="sub-heading">Local, Fast Service for Mt. Pleasant & Isabella County</h2>
+  <p class="p-home">
+    Isabella Garage Door is a local company based just just north of Mount Pleasant—just minutes away. 
+    Mt. Pleasant is our backyard—we know the streets from Mission to Pickard, from Bellows to Broomfield, and all the neighborhoods in between.
+  </p>
+  <p class="p-home" style="margin-top: 1rem;">
+    When you call us, you get a real person who lives and works right here in Isabella County—not a call center. When we schedule a time, we show up when we say we will. 
+    When we fix your garage door, it stays fixed. That's how we do business in Mt. Pleasant.
+  </p>
+</section>
 
-  <a
-    href="/about/testimonials"
-    aria-label="Read more customer testimonials"
-    style="text-decoration: none; color: inherit; display: block;"
-  >
-    <TestimonialCard
-      quote="Our experience with Isabella Garage Door was exceptional. Fast, professional, and incredibly kind. We called in a pinch, and they had our door working again the same day."
-      author="Sarah M., Mt. Pleasant"
-    />
+ <section class="core-services-section">
+<h2 class="sub-heading">Complete Garage Door Services in Mt. Pleasant, Michigan</h2>
+   <p class="core-services-intro">
+ Whether your spring snapped, your opener died, or your door is beyond repair—we handle it all. 
+ Here's what Mt. Pleasant homeowners and businesses count on us for:
+</p>
+
+<div class="core-services-grid">
+
+  <a href="/services/broken-springs" class="core-services-card spring reveal-on-scroll">
+    <h3>Broken Spring Replacement</h3>
+    <p>The most common garage door failure in Mt. Pleasant. Springs snap with a loud bang and leave your door stuck. We replace your springs, balance your door, and test everything thoroughly. Most Mt. Pleasant spring jobs completed same-day.</p>
   </a>
-</section>
+
+  <a href="/services/door-repair" class="core-services-card repair">
+    <h3>General Door Repair</h3>
+    <p>Off-track doors, broken cables, worn rollers, bent tracks, damaged panels—we fix it all. From minor adjustments to major repairs, we diagnose accurately and repair efficiently so Mt. Pleasant residents get their garages working again fast.</p>
+  </a>
+
+  <a href="/services/opener-repair" class="core-services-card opener">
+    <h3>Opener Repair & Installation</h3>
+    <p>Motor running but door won't move? Remote stopped working? Grinding noises? We repair all major brands (LiftMaster, Chamberlain, Genie) or install new smart openers with smartphone control for Mt. Pleasant homes.</p>
+  </a>
+<!--
+  <a href="/services/new-door-installation" class="core-services-card installation">
+    <h3>New Door Installation</h3>
+    <p>Ready to upgrade your Mt. Pleasant home's curb appeal? We install quality residential garage doors in every style—traditional, carriage house, modern contemporary. Insulated or non-insulated, steel or wood. Professional installation, old door removal included.</p>
+  </a>
+
+  <div class="core-services-card core-services-card agricultural">
+    <h3>Agricultural & Pole Barns</h3>
+    <p>We work on more than just residential garages in the Mt. Pleasant area. Pole barns, shop doors, agricultural facilities—if it's a garage-style door in Isabella County, we service it. We understand the unique needs of farms and rural properties.</p>
+  </div>
 -->
+  <a href="/services/maintenance" class="core-services-card maintenance">
+    <h3>Preventive Maintenance</h3>
+    <p>Annual tune-ups catch problems before they become emergencies. We inspect springs, cables, rollers, tracks, and safety systems. Proper maintenance extends the life of your Mt. Pleasant home's garage door and prevents expensive breakdowns.</p>
+  </a>
+
+</div>
+</section>
+
+<section style="margin-top: 2rem;">
+  <h2 class="sub-heading">Serving All of Mt. Pleasant & Surrounding Areas</h2>
+  <p class="p-home">
+    No matter where you are in the Mt. Pleasant area, we'll come to you with fast, professional service:
+  </p>
+
+  <div class="p-home" style="margin-top: 1.5rem;">
+    <p><strong>🎓 CMU Campus Area</strong><br>
+    Central Michigan University neighborhoods, campus-adjacent housing, and the residential streets surrounding CMU. Fast response for homeowners and property managers in the university district.</p>
+    
+    <p style="margin-top: 1rem;"><strong>🏙️ Downtown Mt. Pleasant</strong><br>
+    Broadway Street, Mission Street, and the heart of downtown. We're experienced with Mt. Pleasant's older homes and mixed-use properties—many with unique garage setups that call for experienced hands.</p>
+    
+    <p style="margin-top: 1rem;"><strong>🛣️ Pickard Street Corridor</strong><br>
+    Established neighborhoods and residential streets along Pickard. One of Mt. Pleasant's most active residential areas—we're in and out of this part of town regularly.</p>
+    
+    <p style="margin-top: 1rem;"><strong>🏘️ South Side Subdivisions</strong><br>
+    Newer developments and growing neighborhoods on the south side of town. Modern homes with updated garage systems—we handle new hardware just as well as old.</p>
+
+    <p style="margin-top: 1rem;"><strong>🌿 Broomfield & Outlying Areas</strong><br>
+    Rural properties, country homes, and acreages surrounding Mt. Pleasant. We're comfortable on long driveways and rural roads throughout Isabella County.</p>
+
+  <p class="p-home" style="margin-top: 1.5rem;">
+    <strong>Not sure if we cover your Mt. Pleasant neighborhood?</strong> Just call us at <a href="tel:9895720303" style="color: #c57b30; text-decoration: underline;">989-572-0303</a>. 
+    If you're in Mt. Pleasant or Isabella County, the answer is yes.
+  </p>
+</section>
+
+  <section class="signs additional-info">
+    <h2 class="sub-heading">Why Mt. Pleasant Homeowners Choose Us</h2>
+    <div class="columns">
+      <div>
+    <h3 class="sub-sub-heading">Right Around the Corner</h3>
+    <p>
+      We're just minutes from Mt. Pleasant. We're not coming from Lansing or Grand Rapids—we're your neighbors and we treat you like it.
+    </p>
+      </div>
+
+      <div>
+    <h3 class="sub-sub-heading">We Know Mt. Pleasant Homes</h3>
+    <p>
+      From older craftsman-style homes near downtown to newer subdivisions on the south side, Mt. Pleasant has a wide variety of garage door styles and hardware. We're experienced with all of it.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">Fair, Upfront Pricing</h3>
+    <p>
+      We tell you what's wrong, what it'll cost, and what your options are—before we start. No pressure and no unnecessary upselling to Mt. Pleasant customers.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">Quality Work That Lasts</h3>
+    <p>
+      We use professional-grade parts and proper installation techniques. We don't cut corners or rush through jobs just to move on to the next appointment.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">Real Local Service</h3>
+    <p>
+      We live and work in the same community. When you call Isabella Garage Door, you're calling a neighbor—and our reputation in this town matters to us.
+    </p>
+</div>
+</div>
+  </section>
+
+<section>
+<img src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" />
+    <p class="p-home area-description-intro">
+      Isabella Garage Door proudly serves homeowners in:
+    </p>
+<p class="area-description-list">
+      <a href="/locations/mt-pleasant">Mount Pleasant</a> • 
+      <a href="/locations/lake-isabella">Lake Isabella</a> • 
+      <a href="/locations/clare">Clare</a> • 
+      <a href="/locations/alma">Alma</a> • 
+ <!-- <a href="/locations/farwell">Farwell</a> • 
+      <a href="/locations/coleman">Coleman</a> • 
+      <a href="/locations/shepherd">Shepherd</a> • 
+      <a href="/locations/remus">Remus</a> • 
+      <a href="/locations/rosebush">Rosebush</a> • 
+      <a href="/locations/beal-city">Beal City</a> • 
+      <a href="/locations/st-louis">St. Louis</a>
+-->
+      Farwell • 
+      Coleman • 
+      Shepherd • 
+      Remus • 
+      Rosebush • 
+      Beal City • 
+      St. Louis
+      and surrounding 
+      <a href="/locations/central-michigan">Central Michigan</a> 
+      communities.
+    </p>
+</section>
+
+<section class="faq-area">
+<section id="faq">
+<div class="faq-head">
+  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions - Mt. Pleasant, MI</h2>
+</div>
+
+<div class="reveal-on-scroll">
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you provide garage door service in Mt. Pleasant, Michigan?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes. Mt. Pleasant is one of our most frequently served cities—it's practically in our backyard. Whether you're near the CMU campus, in the Pickard Street neighborhoods, on the south side, or anywhere else in town, we'll come to you with fast, reliable service.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>How quickly can you get to Mt. Pleasant for garage door repairs?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Mt. Pleasant is just minutes from our location, making it one of our fastest response areas. We typically offer same-day service to Mt. Pleasant residents. Emergency situations like broken springs or doors that won't close get priority scheduling. Call or text us at <a href="tel:9895720303" style="color: #c57b30;">989-572-0303</a> for today's availability.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What neighborhoods in Mt. Pleasant do you serve?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>We serve all of Mt. Pleasant including the CMU campus area, downtown, Pickard Street corridor, Mission Street, south side subdivisions, Broomfield Road neighborhoods, Island Park area, and all rural properties surrounding the city. Whether you're in an older downtown home, a newer south-side subdivision, or on a rural property outside city limits—if you're in Mt. Pleasant or Isabella County, we serve you.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What garage door services do you offer in Mt. Pleasant?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>We provide complete garage door services in Mt. Pleasant including broken spring replacement, cable repair, opener repair and installation, off-track door repair, roller and hinge replacement, track alignment, sensor repair<!-- , new door installation -->, and preventive maintenance for residential garage doors.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Are you insured to work in Mt. Pleasant, Michigan?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes. Isabella Garage Door is fully insured and operates throughout Central Michigan including Mt. Pleasant and all of Isabella County. We're a local, professional garage door company. You can trust that your Mt. Pleasant property is protected when we work on your garage door.</p>
+    </div>
+  </div>
+
+ </section>
+</section>
+
+    <!--
+ Testimonial Placeholder Until I Get Real Reviews
+<section>
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
+  <TestimonialCard 
+    quote="Quick response, honest pricing, and great work. Our spring broke on a Monday morning and they had it fixed before lunch. Would absolutely recommend to anyone in Mt. Pleasant."
+    author="Sarah K., Mt. Pleasant"
+  />
+</a>
+</section>
+   -->
 
   <!-- Highlight Section -->
-  <div class="highlight-section">
+  <div class="highlight-section reveal-on-scroll">
     <p>
-      Homeowners in Mt. Pleasant rely on <strong>Isabella Garage Door</strong> for fast, professional repairs and dependable service.
+      Mt. Pleasant homeowners, businesses, and property managers trust <strong>Isabella Garage Door</strong> for honest, reliable garage door service and expert workmanship.
     </p>
   </div>
 
+  <section>
+    <h2 class="sub-heading">Ready to Get Your Mt. Pleasant Garage Door Fixed?</h2>
+    <p class="p-home">
+      Whether you need emergency spring replacement, routine maintenance, or a brand new door for your Mt. Pleasant home—we're here to help. 
+      Call us, text us, or request a quote online. We respond quickly and get your door working right.
+    </p>
+    <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto 1rem;"><i class="fas fa-calculator"></i> Get Free Estimate</a>
+    <a href="/contact" class="cta-button"><i class="fas fa-calendar-check"></i> Schedule Service</a>
+  </section>
+
 <section>
-  <h2 class="sub-heading">Schedule Your Garage Door Repair</h2>
-  <p>
-    We proudly serve Mt. Pleasant and nearby communities with dependable garage door repair.
-    Reach out today, and we’ll help get your door operating smoothly and safely again.
-  </p>
-
-  
-    <a href="/contact" class="cta-button">
-      <i class="fa-solid fa-phone"></i> Request Service
-    </a>
-    <a href="/homeowner-tools/easy-estimate" class="cta-button secondary">
-      <i class="fa-solid fa-calculator"></i> Try Our Estimate Tool
-    </a>
-  
-</section>
-
-<section class="brand-footer">
   <h2 class="sub-heading">Isabella Garage Door</h2>
-  <p class="brand-text">
-    Proudly serving Mt. Pleasant and all of Isabella County with trusted garage door
-    repair and installation services.
+  <p style="font-size: .9rem; text-align: center;">
+    Professional garage door service throughout Mt. Pleasant, Michigan—from downtown to the CMU campus to south side subdivisions.
   </p>
-  <p class="brand-tagline">
-    <em>Raising Performance. Elevating Standards.</em>
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+    <em>Raising Performance. Elevating Standards</em>
+  </p>
+  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
+    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #c57b30; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
   </p>
 </section>
 
-<LocationsFooter currentPath="" slot="full-width-section" />
+<ServiceFooter currentPath="null" slot="full-width-section"/>
+<LocationsFooter currentPath="/locations/mt-pleasant" slot="full-width-section" />
+
+<script is:inline>
+document.querySelectorAll('.faq-item').forEach(item => {
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+
+  question.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+       answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(" .core-services-card, .reveal-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // reveal once
+          }
+        });
+      },
+      {
+        threshold: 0.2, // trigger when 20% of card is visible
+      }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>
 
 <script>
   if (typeof window !== 'undefined') {
@@ -159,7 +470,7 @@ const mtPleasantSchema = {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('slide-up-in');
-          observer.unobserve(entry.target); // Animate only once
+          observer.unobserve(entry.target);
         }
       });
     }, {
@@ -174,6 +485,23 @@ const mtPleasantSchema = {
       }
     });
   }
+</script>
+
+<script is:script>
+  const icons = document.querySelectorAll('.core-services-icon-circle');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+icons.forEach(icon => observer.observe(icon));
 </script>
 
 </BaseLayout>

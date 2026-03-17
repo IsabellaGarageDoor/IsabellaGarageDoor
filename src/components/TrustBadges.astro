@@ -9,64 +9,60 @@ import michiganImg from '../assets/images/trust-badge-michigan.png';
 import bannerImg from '../assets/images/trust-badge-banner.png';
 import starsImg from '../assets/images/trust-badge-stars.png';
 
-const badges = [
-  { src: shieldImg, alt: "Fully Insured", text: "Fully<br>Insured" },
-  { src: toolsImg, alt: "Expert Technicians", text: "Expert<br>Technicians" },
-  { src: gearsImg, alt: "Premium Parts", text: "Premium<br>Parts" },
-  { src: michiganImg, alt: "Local-Family Owned", text: "Local-Family<br>Owned" },
-  { src: bannerImg, alt: "Warranty Guarantee", text: "Warranty<br>Guarantee" },
-  { src: starsImg, alt: "5 Star Rated", text: "5 Star<br>Rated" },
-];
 ---
+<!-- I THINK THIS IS PROPERLY WORKING AFTER GEMINI SCREWED IT UP -->
 
-<div class="trust-badges">
-  {badges.map((badge) => (
-    <div class="trust-badge reveal-on-scroll">
-      <Image src={badge.src} alt={badge.alt} width={140} height={140} />
-      <p set:html={badge.text}></p>
-    </div>
-  ))}
+<div class="trust-badges"> 
+  <div class="trust-badge reveal-on-scroll"> 
+    <Image src={shieldImg} alt="Fully Insured" width={140} height={140} />
+    <p>Fully<br>Insured</p> 
+  </div> 
+
+  <div class="trust-badge reveal-on-scroll"> 
+    <Image src={toolsImg} alt="Expert Technicians" width={140} height={140} />
+    <p>Expert<br>Technicians</p> 
+  </div> 
+
+  <div class="trust-badge reveal-on-scroll"> 
+    <Image src={gearsImg} alt="Premium Parts" width={140} height={140} />
+    <p>Premium<br>Parts</p> 
+  </div> 
+
+  <div class="trust-badge reveal-on-scroll"> 
+    <Image src={michiganImg} alt="Local-Family Owned" width={140} height={140} />
+    <p>Local-Family<br>Owned</p> 
+  </div> 
+
+  <div class="trust-badge reveal-on-scroll"> 
+    <Image src={bannerImg} alt="Warranty Guarantee" width={140} height={140} />
+    <p>Warranty<br>Guarantee</p> 
+  </div> 
+
+  <div class="trust-badge reveal-on-scroll"> 
+    <Image src={starsImg} alt="5 Star Rated" width={140} height={140} />
+    <p>5 Star<br>Rated</p> 
+  </div> 
 </div>
+</section>
 
 <style>
-/*
-  .trust-badges {
-    max-width: 1000px;
-    margin: 1rem auto;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1rem;
-    text-align: center;
-    padding: 0 1rem;
-  }
+ .trust-badges { 
 
-  .trust-badge img {
-    width: 70px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    object-fit: contain;
-  }
+max-width: 1000px; 
 
-  .trust-badge p {
-    margin-top: 0.75rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-    line-height: 1.2;
-    color: #333; /* Feel free to adjust to your brand color */
-  }
+margin: 0 auto; 
 
-  @media (max-width: 768px) {
-    .trust-badges {
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem 0.5rem;
-    }
-    
-    .trust-badge img {
-      width: 60px;
-    }
-  }
-*/
+display: grid; 
+
+grid-template-columns: repeat(6, 1fr); 
+
+gap: .05rem; text-align: center; 
+
+} 
+
+
+
+
 
 
 
@@ -83,6 +79,8 @@ margin: 0 auto;
 object-fit: contain;
 
 } 
+
+
 
 .trust-badge p { 
 

@@ -144,7 +144,7 @@ const faqSchema = {
 <img src="/photos/isabella-county-garage-door-repair.webp" alt="Professional garage door repair throughout Isabella County, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
 
 <section>
-  <h1 class="page-title">Garage Door Repair in Isabella County, MI</h1>
+  <h1 class="page-title">Garage Door Service in Isabella County, MI</h1>
   <p>
     Your garage door broke and you need it fixed—fast, and done right. Isabella Garage Door provides professional garage door repair, 
     broken spring replacement, and new door installation throughout Isabella County. From Mt. Pleasant to Shepherd, Rosebush to Lake Isabella, 
@@ -165,7 +165,7 @@ const faqSchema = {
   <TrustBadges />
 </section>
 
-<section class="no-card">
+<section>
   <h2 class="sub-heading">Local, Reliable Service Throughout Isabella County</h2>
   <p class="p-home">
     We're not a national franchise or out-of-town crew. Isabella Garage Door is based right here in Rosebush, Isabella County. 
@@ -178,43 +178,66 @@ const faqSchema = {
   </p>
 </section>
 
-<section class="no-card">
-  <h2 class="sub-heading">Complete Garage Door Services Across Isabella County</h2>
-  <p class="p-home">
-    Whether your spring snapped, your opener died, or your door is beyond repair—we handle it all. 
-    Here's what homeowners throughout Isabella County count on us for:
-  </p>
+ <section class="core-services-section">
+<h2 class="sub-heading">Complete Garage Door Services Across Isabella County</h2>
+   <p class="core-services-intro">
+ Whether your spring snapped, your opener died, or your door is beyond repair—we handle it all. 
+ Here's what homeowners throughout Isabella County count on us for:
+</p>
+
+  <div class="core-services-grid">
+    <a href="/services/broken-springs" class="core-services-card spring">
+      <h3>Broken Spring Replacement</h3>
+      <p>
+         The most common garage door failure. Springs snap with a loud bang and leave your door stuck. 
+         We replace both springs (even if only one broke), balance your door, and test everything thoroughly.
+      </p>
+    </a>
+
+    <a href="/services/door-repair" class="core-services-card repair">
+      <h3>General Door Repair</h3>
+      <p>
+        Off-track doors, broken cables, worn rollers, bent tracks, damaged panels—we fix it all. 
+        From minor adjustments to major repairs, we diagnose accurately and repair efficiently.
+      </p> 
+    </a>
+
+    <a href="/services/opener-repair" class="core-services-card opener">
+      <h3>Opener Repair & Installation</h3>
+      <p>
+         Motor running but door won't move? Remote stopped working? Grinding noises from the opener? 
+         We repair all brands (LiftMaster, Chamberlain, Genie, Craftsman) or install new smart openers with app control.
+      </p>
+    </a>
+
+<!-- UN-HIDE THIS WHEN LICENSED 
+    <a href="/services/new-door-installation" class="core-services-card installation">
+      <h3>New Door Installation</h3>
+      <p>
+        Ready to upgrade? We install quality residential garage doors in every style—traditional, carriage house, 
+        modern contemporary. Insulated or non-insulated, steel or wood. Professional installation, old door removal included.
+      </p>
+    </a>
   
-  <div class="p-home" style="margin-top: 1.5rem;">
-    <p><strong>Broken Spring Replacement</strong><br>
-    The most common garage door failure. Springs snap with a loud bang and leave your door stuck. We replace both springs 
-    (even if only one broke), balance your door, and test everything thoroughly. Most spring jobs completed same-day. 
-    <a href="/services/broken-springs" style="color: #c57b30; text-decoration: underline;">Learn more about spring repair</a></p>
-    
-    <p style="margin-top: 1rem;"><strong>General Door Repair</strong><br>
-    Off-track doors, broken cables, worn rollers, bent tracks, damaged panels—we fix it all. From minor adjustments to major repairs, 
-    we diagnose accurately and repair efficiently. 
-    <a href="/services/door-repair" style="color: #c57b30; text-decoration: underline;">See what we repair</a></p>
-    
-    <p style="margin-top: 1rem;"><strong>Opener Repair & Installation</strong><br>
-    Motor running but door won't move? Remote stopped working? Grinding noises from the opener? We repair all brands 
-    (LiftMaster, Chamberlain, Genie, Craftsman) or install new smart openers with app control. 
-    <a href="/services/opener-repair" style="color: #c57b30; text-decoration: underline;">Opener repair details</a></p>
-    
-    <p style="margin-top: 1rem;"><strong>New Door Installation</strong><br>
-    Ready to upgrade? We install quality residential garage doors in every style—traditional, carriage house, modern contemporary. 
-    Insulated or non-insulated, steel or wood. Professional installation, old door removal included. 
-    <a href="/services/new-door-installation" style="color: #c57b30; text-decoration: underline;">Explore door options</a></p>
+    <a href="/services/door-repair" class="core-services-card agricultural">
+      <h3>Agricultural & Pole Barn Doors</h3>
+      <p>
+       We work on more than just residential garages. Pole barns, shop doors, agricultural buildings—if it's a 
+       garage-style door in Isabella County, we service it. We understand the unique needs of rural properties.
+      </p>
+    </a>
+-->
+    <a href="/services/maintenance" class="core-services-card maintenance">
+      <h3>Preventive Maintenance</h3>
+      <p>
+        Annual tune-ups catch problems before they become emergencies. We inspect springs, cables, rollers, tracks, 
+        and safety systems. Proper maintenance extends the life of your door and prevents expensive breakdowns.
+      </p>
+    </a>
 
-    <p style="margin-top: 1rem;"><strong>Preventive Maintenance</strong><br>
-    Annual tune-ups catch problems before they become emergencies. We inspect springs, cables, rollers, tracks, and safety systems. 
-    Proper maintenance extends the life of your door and prevents expensive breakdowns. 
-    <a href="/services/maintenance" style="color: #c57b30; text-decoration: underline;">Schedule maintenance</a></p>
-
-    <p style="margin-top: 1rem;"><strong>Agricultural & Pole Barn Doors</strong><br>
-    We work on more than just residential garages. Pole barns, shop doors, agricultural buildings—if it's a garage-style door in Isabella County, 
-    we service it. We understand the unique needs of rural properties.</p>
   </div>
+
+  <a href="/services/services" class="cta-button margin-top-3rem"><i class="fas fa-compass"></i> Explore Our Services</a>
 </section>
 
 <section class="no-card">
@@ -224,21 +247,27 @@ const faqSchema = {
   </p>
 
   <div class="p-home" style="margin-top: 1.5rem;">
-    <p><strong>🏘️ Mt. Pleasant</strong><br>
-    Downtown, campus area, residential neighborhoods, and new developments. Fast response times throughout the Mt. Pleasant area. 
-    <a href="/locations/mt-pleasant" style="color: #c57b30; text-decoration: underline;">Mt. Pleasant service page</a></p>
+    <a href="/locations/mt-pleasant">
+    <p><strong>🏘️ Mt. Pleasant</strong><br></a>
+    Downtown, campus area, residential neighborhoods, and new developments. Fast response times throughout the Mt. Pleasant area.
+    </p>
     
     <p style="margin-top: 1rem;"><strong>🏞️ Shepherd</strong><br>
     Town and surrounding rural areas. We know Shepherd well—it's just down the road from our Rosebush location. 
- <!-- <a href="/locations/shepherd" style="color: #c57b30; text-decoration: underline;">Shepherd service page</a></p> 
+    </p>
+ <!-- <a href="/locations/shepherd">Shepherd service page</a> 
  -->
     
     <p style="margin-top: 1rem;"><strong>🏡 Rosebush</strong><br>
     Our home base. We're your neighbors. Fastest response time in Isabella County for Rosebush residents and surrounding areas.</p>
-    
+     <!-- <a href="/locations/rosebush"></a> 
+ -->
+
+    <a href="/locations/lake-isabella">
     <p style="margin-top: 1rem;"><strong>⛵ Lake Isabella</strong><br>
     Lakefront homes, seasonal cottages, and year-round residences around the lake. We service the entire Lake Isabella community. 
-    <a href="/locationss/lake-isabella" style="color: #c57b30; text-decoration: underline;">Lake Isabella service page</a></p>
+    </p>
+    </a>
 
     <p style="margin-top: 1rem;"><strong>🌾 Beal City, Winn, & Rural Areas</strong><br>
     Farms, country homes, pole barns, and properties on the back roads. We're comfortable on gravel roads and long driveways. 
@@ -294,7 +323,36 @@ const faqSchema = {
 </div>
   </section>
 
+<section>
 <img src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" />
+    <p class="p-home area-description-intro">
+      Isabella Garage Door proudly serves homeowners in:
+    </p>
+<p class="area-description-list">
+      <a href="/locations/mt-pleasant">Mount Pleasant</a> • 
+      <a href="/locations/lake-isabella">Lake Isabella</a> • 
+      <a href="/locations/clare">Clare</a> • 
+      <a href="/locations/alma">Alma</a> • 
+ <!-- <a href="/locations/farwell">Farwell</a> • 
+      <a href="/locations/coleman">Coleman</a> • 
+      <a href="/locations/shepherd">Shepherd</a> • 
+      <a href="/locations/remus">Remus</a> • 
+      <a href="/locations/rosebush">Rosebush</a> • 
+      <a href="/locations/beal-city">Beal City</a> • 
+      <a href="/locations/st-louis">St. Louis</a>
+-->
+      Farwell • 
+      Coleman • 
+      Shepherd • 
+      Remus • 
+      Rosebush • 
+      Beal City • 
+      St. Louis
+      and surrounding 
+      <a href="/locations/central-michigan">Central Michigan</a> 
+      communities.
+    </p>
+</section>
 
 <section class="faq-area">
 <section id="faq">
@@ -398,8 +456,8 @@ const faqSchema = {
   </p>
 </section>
 
-<ServiceFooter currentPath="/services/broken-springs" slot="full-width-section"/>
-<LocationsFooter currentPath="/service-areas/isabella-county" slot="full-width-section" />
+<ServiceFooter currentPath="null" slot="full-width-section"/>
+<LocationsFooter currentPath="/locations/isabella-county" slot="full-width-section" />
 
 <script is:inline>
 document.querySelectorAll('.faq-item').forEach(item => {
@@ -424,7 +482,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(".reveal-on-scroll");
+    const cards = document.querySelectorAll(" .core-services-card, .reveal-on-scroll");
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -467,6 +525,23 @@ document.querySelectorAll('.faq-item').forEach(item => {
       }
     });
   }
+</script>
+
+<script is:script>
+  const icons = document.querySelectorAll('.core-services-icon-circle');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+icons.forEach(icon => observer.observe(icon));
 </script>
 
 </BaseLayout>

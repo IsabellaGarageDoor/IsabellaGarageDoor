@@ -1,46 +1,129 @@
 ---
-title: "Garage Door Repair in Lake Isabella, MI | Isabella Garage Door"
+title: "Garage Door Repair in Lake Isabella, MI - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro';
+import ServiceFooter from '../../components/ServiceFooter.astro';
 import LocationsFooter from '../../components/LocationsFooter.astro';
 
-const title = "Garage Door Repair in Lake Isabella, MI | Isabella Garage Door";
-const description =
-  "Reliable garage door repair and installation in Lake Isabella, MI. Locally owned and owner-operated, Isabella Garage Door provides prompt service, honest pricing, and expert workmanship.";
+const title = 'Garage Door Repair Lake Isabella MI | Isabella Garage Door';
+const description = 'Professional garage door repair and installation in Lake Isabella, Michigan. Fast, reliable service for broken springs, openers, and new doors. Same-day available. Call 989-572-0303.';
 
 const lakeIsabellaSchema = {
   "@context": "https://schema.org",
-  "@graph": [
+  "@type": "LocalBusiness",
+  "name": "Isabella Garage Door - Lake Isabella",
+  "image": "https://isabellagaragedoor.com/photos/lake-isabella-garage-door-repair.webp",
+  "@id": "https://isabellagaragedoor.com/service-areas/lake-isabella",
+  "url": "https://isabellagaragedoor.com/service-areas/lake-isabella",
+  "telephone": "+1-989-572-0303",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Lake Isabella",
+    "addressRegion": "MI",
+    "postalCode": "48893",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.6453,
+    "longitude": -85.0108
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Lake Isabella",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lake Isabella",
+      "addressRegion": "MI",
+      "addressCountry": "US"
+    }
+  },
+  "description": "Professional garage door repair, broken spring replacement, opener installation, and new door installation serving Lake Isabella, Michigan and surrounding Isabella County.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Lake Isabella Garage Door Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Broken Spring Replacement in Lake Isabella",
+          "url": "https://isabellagaragedoor.com/services/broken-springs"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Garage Door Repair in Lake Isabella",
+          "url": "https://isabellagaragedoor.com/services/door-repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Opener Repair & Installation in Lake Isabella",
+          "url": "https://isabellagaragedoor.com/services/opener-repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "New Door Installation in Lake Isabella",
+          "url": "https://isabellagaragedoor.com/services/new-door-installation"
+        }
+      }
+    ]
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
     {
-      "@type": "WebPage",
-      "@id": "https://isabellagaragedoor.com/locations/lake-isabella",
-      "url": "https://isabellagaragedoor.com/locations/lake-isabella",
-      "name": "Garage Door Repair & Installation in Lake Isabella, MI",
-      "isPartOf": { "@id": "https://isabellagaragedoor.com/#website" },
-      "description": "Professional garage door repair services for residents of the Lake Isabella village and the surrounding Sherman Township area."
+      "@type": "Question",
+      "name": "Do you provide garage door service in Lake Isabella, Michigan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Lake Isabella is one of the communities we serve regularly. Whether you're in a lakefront home on the water, a year-round residence in the surrounding neighborhoods, or a seasonal property in the area, we'll come to you with fast, professional service."
+      }
     },
     {
-      "@type": "Service",
-      "serviceType": "Garage Door Repair",
-      "provider": { "@id": "https://isabellagaragedoor.com/#business" },
-      "areaServed": {
-        "@type": "City",
-        "name": "Lake Isabella",
-        "sameAs": "https://www.wikidata.org/wiki/Q2610214" 
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Lake Isabella Service Offerings",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "Broken Spring Repair" }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "Garage Door Opener Installation" }
-          }
-        ]
+      "@type": "Question",
+      "name": "How quickly can you get to Lake Isabella for garage door repairs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lake Isabella is a short drive from our Rosebush location. We typically offer same-day or next-day service to Lake Isabella residents. Emergency situations like broken springs or doors that won't close get priority scheduling. Call us at 989-572-0303 and we'll give you a realistic time frame."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you service seasonal and lakefront homes in Lake Isabella?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. Lake Isabella has a mix of year-round homes and seasonal properties, and we service both. Whether you're opening up the cabin for the season and the garage door won't cooperate, or you're a full-time resident dealing with a broken spring, we'll get to you quickly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What garage door services do you offer in Lake Isabella?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We provide complete garage door services in Lake Isabella including broken spring replacement, cable repair, opener repair and installation, off-track door repair, roller and hinge replacement, track alignment, sensor repair, new door installation, and preventive maintenance for residential garage doors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are you insured to work in Lake Isabella, Michigan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Isabella Garage Door is fully insured and operates throughout Central Michigan including Lake Isabella and all of Isabella County. We're a local, professional garage door company—not a franchise or out-of-area contractor. Your property is protected when we work on your garage door."
       }
     }
   ]
@@ -51,92 +134,332 @@ const lakeIsabellaSchema = {
 
 <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(lakeIsabellaSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
 
-<img
-  src="/photos/Lake-Isabella-Michigan.webp"
-  alt="A view of Lake Isabella in Michigan"
-  loading="eager"
-  fetchpriority="high"
-  class="header-photo-interior"
-/>
+<img src="/photos/Lake-Isabella-Michigan.webp" alt="Professional garage door repair service in Lake Isabella, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
 
 <section>
-  <h1 class="page-title">Garage Door Repair in Lake Isabella, MI</h1>
-  <p class="slogan">Raising Performance. Elevating Standards.</p>
-  <p class="hero-subtext">
-    Local, reliable, and professional garage door repair and installation for Lake Isabella homes.
-    We fix it right — the first time.
-  </p>
-  <a href="/contact" class="cta-button">Request Service</a>
-</section>
-
-<section>
-  <h2 class="sub-heading">Trusted Garage Door Services in Lake Isabella</h2>
-  <ul class="service-list">
-    <li>✔️ <strong>Garage Door Repair:</strong> Broken springs, rollers, cables, off-track doors, and noisy systems fixed efficiently</li>
-    <li>✔️ <strong>Opener Repair & Installation:</strong> Smooth operation or upgrade to a quiet, smart opener</li>
-    <li>✔️ <strong>New Garage Doors:</strong> Stylish, durable doors installed to fit your home</li>
-    <li>✔️ <strong>Maintenance Plans:</strong> Routine inspections and tune-ups to prevent breakdowns and extend door life</li>
-  </ul>
-</section>
-
-<section>
-  <h2 class="sub-heading">Locally Focused, Lake Isabella Ready</h2>
+  <h1 class="page-title">Garage Door Service in Lake Isabella, MI</h1>
   <p>
-    From lakeside neighborhoods to rural roads nearby, we understand the unique needs of Lake Isabella homes.
-    Homeowners in Lake Isabella trust <strong>Isabella Garage Door</strong> for honest, precise repairs and dependable service.
+    Your garage door broke and you need it fixed—fast, and done right. Isabella Garage Door provides professional garage door repair, 
+    broken spring replacement, and new door installation throughout Lake Isabella. Whether you're in a lakefront home on the water, 
+    a year-round residence in the community, or a seasonal property just opening up for the season—we're close by, we're fast, and we're reliable.
+  </p>
+  <p style="margin-top: 1rem; text-align: center;">
+    <strong>Lake Isabella residents:</strong> Call or text us now. Same-day appointments often available.
+  </p>
+    <a href="tel:9895720303" class="hero-contact-button" style="margin: 2rem auto 0;">
+      <i class="fas fa-phone"></i> Call 989-572-0303
+    </a>
+    <a href="sms:9895720303?&body=Hi%2C%20I%20need%20garage%20door%20service%20in%20Lake%20Isabella." class="hero-contact-button" style="margin: 1rem auto 0; background: #1a334f; border: .094rem solid #b27d57;">
+      <i class="fas fa-comment-dots"></i> Text Us Now
+    </a>
+</section>
+
+<section>
+  <TrustBadges />
+</section>
+
+<section>
+  <h2 class="sub-heading">Local, Reliable Service for Lake Isabella</h2>
+  <p class="p-home">
+    Isabella Garage Door is a local company based right here in Isabella County. 
+    We know the Lake Isabella area well—the lakefront roads, the seasonal communities, and the year-round neighborhoods that make this one of Isabella County's most unique areas.
+  </p>
+  <p class="p-home" style="margin-top: 1rem;">
+    When you call us, you get a real person who lives and works right here in Isabella County. When we schedule a time, we show up at the time we scheduled. 
+    When we fix your garage door, it stays fixed. That's how we do business with Lake Isabella homeowners.
   </p>
 </section>
 
-<!-- Optional Testimonial 
-<section>
-  <h2 class="sub-heading">What Your Neighbors Are Saying</h2>
-  <a
-    href="/about/testimonials"
-    aria-label="Read more customer testimonials"
-    style="text-decoration: none; color: inherit; display: block;"
-  >
-    <TestimonialCard
-      quote="Fast, friendly, and professional. Our Lake Isabella garage door has never worked better!"
-      author="Homeowner, Lake Isabella, MI"
-    />
+ <section class="core-services-section">
+<h2 class="sub-heading">Complete Garage Door Services in Lake Isabella, Michigan</h2>
+   <p class="core-services-intro">
+ Whether your spring snapped, your opener died, or your door is beyond repair—we handle it all. 
+ Here's what Lake Isabella homeowners count on us for:
+</p>
+
+<div class="core-services-grid">
+
+  <a href="/services/broken-springs" class="core-services-card spring reveal-on-scroll">
+    <h3>Broken Spring Replacement</h3>
+    <p>The most common garage door failure. Springs snap with a loud bang and leave your door stuck. We replace your springs, balance your door, and test everything thoroughly. Most Lake Isabella spring jobs completed same-day.</p>
   </a>
-</section>
+
+  <a href="/services/door-repair" class="core-services-card repair">
+    <h3>General Door Repair</h3>
+    <p>Off-track doors, broken cables, worn rollers, bent tracks, damaged panels—we fix it all. From minor adjustments to major repairs, we diagnose accurately and repair efficiently so Lake Isabella residents get their garages working again fast.</p>
+  </a>
+
+  <a href="/services/opener-repair" class="core-services-card opener">
+    <h3>Opener Repair & Installation</h3>
+    <p>Motor running but door won't move? Remote stopped working? Grinding noises? We repair all major brands (LiftMaster, Chamberlain, Genie) or install new smart openers with smartphone control for Lake Isabella homes.</p>
+  </a>
+<!--
+  <a href="/services/new-door-installation" class="core-services-card installation">
+    <h3>New Door Installation</h3>
+    <p>Ready to upgrade your Lake Isabella home's curb appeal? We install quality residential garage doors in every style—traditional, carriage house, modern contemporary. Insulated or non-insulated, steel or wood. Professional installation, old door removal included.</p>
+  </a>
 -->
-
-<!-- Highlight Section --> 
- <div class="highlight-section"> 
-  <p> 
-    Homeowners in Lake Isabella rely on <strong>Isabella Garage Door</strong> for reliable service and dependable repairs. 
-  </p> 
- </div>
-
-<section class="cta-block">
-  <h2 class="sub-heading">Get Your Garage Door Fixed Today</h2>
-  <p>
-    Whether it’s repairs, new installation, or maintenance, we’re proud to serve Lake Isabella and surrounding areas.
-    Reach out today and we’ll get your door operating safely and smoothly.
-  </p>
-  <a href="/contact" class="cta-button">
-    <i class="fa-solid fa-phone"></i> Request Service
+  <a href="/services/maintenance" class="core-services-card maintenance">
+    <h3>Preventive Maintenance</h3>
+    <p>Annual tune-ups catch problems before they become emergencies—especially important for seasonal properties that sit unused through the winter. We inspect springs, cables, rollers, tracks, and safety systems to keep your door running reliably year after year.</p>
   </a>
-  <a href="/homeowner-tools/easy-estimate" class="cta-button secondary">
-    <i class="fa-solid fa-calculator"></i> Try Our Estimate Tool
-  </a>
+
+  <div class="core-services-card core-services-card agricultural">
+    <h3>Seasonal & Vacation Properties</h3>
+    <p>Reopening a seasonal home and the garage door won't cooperate? We understand the needs of Lake Isabella's seasonal community. We'll get your property ready to use quickly and make sure everything is working right before we leave.</p>
+  </div>
+
+</div>
 </section>
 
-<section class="brand-footer">
-  <h2 class="sub-heading">Isabella Garage Door</h2>
-  <p class="brand-text">
-    Proudly serving Lake Isabella and surrounding communities with trusted, professional garage door service.
+<section style="margin-top: 2rem;">
+  <h2 class="sub-heading">Serving All of Lake Isabella & Surrounding Areas</h2>
+  <p class="p-home">
+    No matter where you are in the Lake Isabella area, we'll come to you with fast, professional service:
   </p>
-  <p class="brand-tagline">
+
+  <div class="p-home" style="margin-top: 1.5rem;">
+    <p><strong>🌊 Lakefront Properties</strong><br>
+    Homes right on the water with lake views and lakefront access. We're experienced working on properties in tight waterfront settings and know how to handle the unique access situations that come with lakeside homes.</p>
+    
+    <p style="margin-top: 1rem;"><strong>🏡 Year-Round Neighborhoods</strong><br>
+    The full-time residential community surrounding the lake. We treat Lake Isabella year-rounders as the regulars they are—fast response, reliable work, and fair pricing every time.</p>
+    
+    <p style="margin-top: 1rem;"><strong>🏕️ Seasonal & Vacation Homes</strong><br>
+    Lake Isabella has a strong seasonal community, and garage door issues don't wait for convenient timing. Whether you're opening up for Memorial Day weekend or closing down in the fall, we'll work around your schedule.</p>
+    
+    <p style="margin-top: 1rem;"><strong>🌾 Rural Isabella County Properties</strong><br>
+    Farms, country homes, and acreages surrounding Lake Isabella. We're comfortable on gravel roads and long driveways throughout the area.</p>
+
+  <p class="p-home" style="margin-top: 1.5rem;">
+    <strong>Not sure if we cover your area?</strong> Just call us at <a href="tel:9895720303" style="color: #c57b30; text-decoration: underline;">989-572-0303</a>. 
+    If you're in the Lake Isabella area or Isabella County, the answer is yes.
+  </p>
+</section>
+
+  <section class="signs additional-info">
+    <h2 class="sub-heading">Why Lake Isabella Homeowners Choose Us</h2>
+    <div class="columns">
+      <div>
+    <h3 class="sub-sub-heading">Close By & Fast</h3>
+    <p>
+      We're based in Rosebush, just a short drive from Lake Isabella. We're not coming from Lansing or Grand Rapids—we're your neighbors and we respond like it.
+    </p>
+      </div>
+
+      <div>
+    <h3 class="sub-sub-heading">We Understand Lakefront Living</h3>
+    <p>
+      Waterfront properties have unique access challenges, and seasonal homes have their own set of garage door needs. We've been there before and know what to expect.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">Fair, Upfront Pricing</h3>
+    <p>
+      We tell you what's wrong, what it'll cost, and what your options are—before we start. No pressure and no unnecessary upselling to Lake Isabella customers.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">Quality Work That Lasts</h3>
+    <p>
+      We use professional-grade parts and proper installation techniques. Whether it's your primary home or a vacation property, we do the job right the first time.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">Real Local Service</h3>
+    <p>
+      We live and work in the same community. When you call Isabella Garage Door, you're calling a neighbor—and our reputation in Isabella County matters to us.
+    </p>
+</div>
+</div>
+  </section>
+
+<section>
+<img src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" />
+    <p class="p-home area-description-intro">
+      Isabella Garage Door proudly serves homeowners in:
+    </p>
+<p class="area-description-list">
+      <a href="/locations/mt-pleasant">Mount Pleasant</a> • 
+      <a href="/locations/lake-isabella">Lake Isabella</a> • 
+      <a href="/locations/clare">Clare</a> • 
+      <a href="/locations/alma">Alma</a> • 
+ <!-- <a href="/locations/farwell">Farwell</a> • 
+      <a href="/locations/coleman">Coleman</a> • 
+      <a href="/locations/shepherd">Shepherd</a> • 
+      <a href="/locations/remus">Remus</a> • 
+      <a href="/locations/rosebush">Rosebush</a> • 
+      <a href="/locations/beal-city">Beal City</a> • 
+      <a href="/locations/st-louis">St. Louis</a>
+-->
+      Farwell • 
+      Coleman • 
+      Shepherd • 
+      Remus • 
+      Rosebush • 
+      Beal City • 
+      St. Louis
+      and surrounding 
+      <a href="/locations/central-michigan">Central Michigan</a> 
+      communities.
+    </p>
+</section>
+
+<section class="faq-area">
+<section id="faq">
+<div class="faq-head">
+  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions - Lake Isabella, MI</h2>
+</div>
+
+<div class="reveal-on-scroll">
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you provide garage door service in Lake Isabella, Michigan?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes. Lake Isabella is one of the communities we serve regularly. Whether you're in a lakefront home on the water, a year-round residence in the surrounding neighborhoods, or a seasonal property in the area, we'll come to you with fast, reliable service. We're just a short drive away.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>How quickly can you get to Lake Isabella for garage door repairs?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Lake Isabella is a short drive from our location. We typically offer same-day or next-day service to Lake Isabella residents. Emergency situations like broken springs or doors that won't close get priority scheduling. Call us at <a href="tel:9895720303" style="color: #c57b30;">989-572-0303</a> for today's availability.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you service seasonal and lakefront homes in Lake Isabella?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Absolutely. Lake Isabella has a mix of year-round homes and seasonal properties, and we service both. Whether you're opening up the cabin for the season and the garage door won't cooperate, or you're a full-time resident dealing with a broken spring, we'll get to you quickly and get it sorted out.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What garage door services do you offer in Lake Isabella?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>We provide complete garage door services in Lake Isabella including broken spring replacement, cable repair, opener repair and installation, off-track door repair, roller and hinge replacement, track alignment, sensor repair<!-- , new door installation -->, and preventive maintenance for residential garage doors.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Are you insured to work in Lake Isabella, Michigan?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes. Isabella Garage Door is fully insured and operates throughout Central Michigan including Lake Isabella and all of Isabella County. We're a local, professional garage door company. You can trust that your Lake Isabella property is protected when we work on your garage door.</p>
+    </div>
+  </div>
+
+ </section>
+</section>
+
+    <!--
+ Testimonial Placeholder Until I Get Real Reviews
+<section>
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
+  <TestimonialCard 
+    quote="We were opening up the cottage for the summer and the garage door wouldn't budge. They came out the same day and had it fixed in no time. Great service, great price."
+    author="Tom & Linda R., Lake Isabella"
+  />
+</a>
+</section>
+   -->
+
+  <!-- Highlight Section -->
+  <div class="highlight-section reveal-on-scroll">
+    <p>
+      Lake Isabella homeowners, seasonal residents, and property owners trust <strong>Isabella Garage Door</strong> for honest, reliable garage door service and expert workmanship.
+    </p>
+  </div>
+
+  <section>
+    <h2 class="sub-heading">Ready to Get Your Lake Isabella Garage Door Fixed?</h2>
+    <p class="p-home">
+      Whether you need emergency spring replacement, a tune-up before the season, or a brand new door for your Lake Isabella home—we're here to help. 
+      Call us, text us, or request a quote online. We respond quickly and get your door working right.
+    </p>
+    <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto 1rem;"><i class="fas fa-calculator"></i> Get Free Estimate</a>
+    <a href="/contact" class="cta-button"><i class="fas fa-calendar-check"></i> Schedule Service</a>
+  </section>
+
+<section>
+  <h2 class="sub-heading">Isabella Garage Door</h2>
+  <p style="font-size: .9rem; text-align: center;">
+    Professional garage door service throughout Lake Isabella, Michigan—lakefront homes, year-round residences, and seasonal properties.
+  </p>
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
     <em>Raising Performance. Elevating Standards</em>
   </p>
+  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
+    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #c57b30; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
+  </p>
 </section>
 
-<LocationsFooter currentPath="" slot="full-width-section" />
+<ServiceFooter currentPath="null" slot="full-width-section"/>
+<LocationsFooter currentPath="/locations/lake-isabella" slot="full-width-section" />
+
+<script is:inline>
+document.querySelectorAll('.faq-item').forEach(item => {
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+
+  question.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+       answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(" .core-services-card, .reveal-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // reveal once
+          }
+        });
+      },
+      {
+        threshold: 0.2, // trigger when 20% of card is visible
+      }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>
 
 <script>
   if (typeof window !== 'undefined') {
@@ -144,7 +467,7 @@ const lakeIsabellaSchema = {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('slide-up-in');
-          observer.unobserve(entry.target); // Animate only once
+          observer.unobserve(entry.target);
         }
       });
     }, {
@@ -159,6 +482,23 @@ const lakeIsabellaSchema = {
       }
     });
   }
+</script>
+
+<script is:script>
+  const icons = document.querySelectorAll('.core-services-icon-circle');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+icons.forEach(icon => observer.observe(icon));
 </script>
 
 </BaseLayout>

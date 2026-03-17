@@ -1,46 +1,129 @@
 ---
-title: "Garage Door Repair in Clare, MI | Isabella Garage Door"
+title: "Garage Door Repair in Clare, MI - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro';
+import ServiceFooter from '../../components/ServiceFooter.astro';
 import LocationsFooter from '../../components/LocationsFooter.astro';
 
-const title = "Garage Door Repair in Clare, MI | Isabella Garage Door";
-const description =
-  "Reliable garage door repair in Clare, MI by a locally owned, owner-operated company. Isabella Garage Door provides prompt service, honest pricing, and quality workmanship you can trust.";
+const title = 'Garage Door Repair Clare MI | Isabella Garage Door';
+const description = 'Professional garage door repair and installation in Clare, Michigan. Fast, reliable service for broken springs, openers, and new doors. Same-day available. Call 989-572-0303.';
 
 const clareSchema = {
   "@context": "https://schema.org",
-  "@graph": [
+  "@type": "LocalBusiness",
+  "name": "Isabella Garage Door - Clare",
+  "image": "https://isabellagaragedoor.com/photos/clare-garage-door-repair.webp",
+  "@id": "https://isabellagaragedoor.com/service-areas/clare",
+  "url": "https://isabellagaragedoor.com/service-areas/clare",
+  "telephone": "+1-989-572-0303",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Clare",
+    "addressRegion": "MI",
+    "postalCode": "48617",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.8192,
+    "longitude": -84.7688
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Clare",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Clare",
+      "addressRegion": "MI",
+      "addressCountry": "US"
+    }
+  },
+  "description": "Professional garage door repair, broken spring replacement, opener installation, and new door installation serving Clare, Michigan and surrounding Clare County.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Clare Garage Door Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Broken Spring Replacement in Clare",
+          "url": "https://isabellagaragedoor.com/services/broken-springs"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Garage Door Repair in Clare",
+          "url": "https://isabellagaragedoor.com/services/door-repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Opener Repair & Installation in Clare",
+          "url": "https://isabellagaragedoor.com/services/opener-repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "New Door Installation in Clare",
+          "url": "https://isabellagaragedoor.com/services/new-door-installation"
+        }
+      }
+    ]
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
     {
-      "@type": "WebPage",
-      "@id": "https://isabellagaragedoor.com/locations/clare",
-      "url": "https://isabellagaragedoor.com/locations/clare",
-      "name": "Garage Door Repair & Installation in Clare, MI",
-      "isPartOf": { "@id": "https://isabellagaragedoor.com/#website" },
-      "description": "Expert garage door repair services for homeowners in Clare, Michigan and the surrounding 48617 area."
+      "@type": "Question",
+      "name": "Do you provide garage door service in Clare, Michigan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We regularly serve Clare and Clare County. Whether you're in downtown Clare, in the residential neighborhoods off McEwan Street, on a rural property outside city limits, or anywhere in the surrounding area—we'll come to you with fast, professional service."
+      }
     },
     {
-      "@type": "Service",
-      "serviceType": "Garage Door Repair",
-      "provider": { "@id": "https://isabellagaragedoor.com/#business" },
-      "areaServed": {
-        "@type": "City",
-        "name": "Clare",
-        "sameAs": "https://www.wikidata.org/wiki/Q954005" 
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Clare Service Offerings",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "Residential Spring Repair" }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": { "@type": "Service", "name": "Emergency Opener Service" }
-          }
-        ]
+      "@type": "Question",
+      "name": "How quickly can you get to Clare for garage door repairs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Clare is about 20–25 minutes from our Rosebush location, so we typically offer same-day or next-day service to Clare residents. Emergency situations like broken springs or doors that won't close get priority scheduling. Most Clare service calls are completed within 24 hours of your call."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What neighborhoods in Clare do you serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We serve all of Clare including downtown, McEwan Street corridor, residential neighborhoods throughout the city, and rural properties surrounding Clare. If you're in Clare or Clare County, we'll get to you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What garage door services do you offer in Clare?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We provide complete garage door services in Clare including broken spring replacement, cable repair, opener repair and installation, off-track door repair, roller and hinge replacement, track alignment, sensor repair, new door installation, and preventive maintenance for residential garage doors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are you insured to work in Clare, Michigan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Isabella Garage Door is fully insured and operates throughout Central Michigan including Clare and Clare County. We're a local, professional garage door company—not a franchise or out-of-area contractor. Your property is protected when we work on your garage door."
       }
     }
   ]
@@ -51,93 +134,336 @@ const clareSchema = {
 
 <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(clareSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
 
-<img
-  src="/photos/clare-michigan.webp"
-  alt="Brick welcome sign for Clare, Michigan"
-  loading="eager"
-  fetchpriority="high"
-  class="header-photo-interior"
-/>
+<img src="/photos/clare-michigan.webp" alt="Professional garage door repair service in Clare, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
 
 <section>
-  <h1 class="page-title">Garage Door Repair in Clare, MI</h1>
-  <p class="slogan">Raising Performance. Elevating Standards.</p>
-  <p class="hero-subtext">
-    Trusted, professional garage door repair from a local technician who takes pride
-    in doing the job right the first time.
-  </p>
-  <a href="/contact" class="cta-button">Request Service</a>
-</section>
-
-<section>
-  <h2 class="sub-heading">Reliable Garage Door Service in Clare</h2>
+  <h1 class="page-title">Garage Door Service in Clare, MI</h1>
   <p>
-    When your garage door stops working, it can disrupt your entire day. Isabella Garage Door
-    proudly serves Clare, Michigan with prompt, dependable repairs—whether you’re dealing with
-    a broken spring, opener trouble, or a door that’s stuck or off track.
+    Your garage door broke and you need it fixed—fast, and done right. Isabella Garage Door provides professional garage door repair, 
+    broken spring replacement, and new door installation throughout Clare and Clare County. From downtown along McEwan Street 
+    to the residential neighborhoods throughout the city and the rural properties surrounding town—we're close by, we're fast, and we're reliable.
   </p>
-  <p>
-    As a locally owned, owner-operated business, we focus on clear communication, careful
-    workmanship, and long-term reliability. You’ll work directly with the technician
-    performing the repair, ensuring consistent quality from start to finish.
+  <p style="margin-top: 1rem; text-align: center;">
+    <strong>Clare residents:</strong> Call or text us now. Same-day appointments often available.
   </p>
+    <a href="tel:9895720303" class="hero-contact-button" style="margin: 2rem auto 0;">
+      <i class="fas fa-phone"></i> Call 989-572-0303
+    </a>
+    <a href="sms:9895720303?&body=Hi%2C%20I%20need%20garage%20door%20service%20in%20Clare." class="hero-contact-button" style="margin: 1rem auto 0; background: #1a334f; border: .094rem solid #b27d57;">
+      <i class="fas fa-comment-dots"></i> Text Us Now
+    </a>
 </section>
 
 <section>
-  <h2 class="sub-heading">Common Garage Door Repairs We Handle</h2>
-  <ul class="service-list">
-    <li>✔️ <a href="/services/broken-spring">Broken garage door springs</a></li>
-    <li>✔️ <a href="/services/opener-repair">Garage door opener issues</a></li>
-    <li>✔️ Snapped cables or worn rollers</li>
-    <li>✔️ Doors off track or operating noisily</li>
-    <li>✔️ Weather seal replacement</li>
-    <li>✔️ Complete system inspections and maintenance</li>
-  </ul>
+  <TrustBadges />
 </section>
 
 <section>
-  <h2 class="sub-heading">Why Clare Homeowners Choose Isabella Garage Door</h2>
-  <ul class="service-list">
-    <li>📍 Locally based for responsive service in Clare</li>
-    <li>👨‍🔧 Owner-operated — direct, personal attention</li>
-    <li>💬 Straightforward recommendations and honest pricing</li>
-    <li>🔧 Quality parts and repairs built to last</li>
-  </ul>
-</section>
-
-<!-- Highlight Section --> 
- <div class="highlight-section"> 
-  <p> 
-    Residents of Clare count on <strong>Isabella Garage Door</strong> for honest, precise garage door repairs and dependable service. 
-  </p> 
- </div>
-
-<section>
-  <h2 class="sub-heading">Schedule Your Garage Door Repair</h2>
-  <p>
-    We’re proud to serve Clare and surrounding communities with reliable garage door repair.
-    Whether your issue is urgent or preventative, we’re here to help keep your door operating
-    safely and smoothly.
+  <h2 class="sub-heading">Fast, Local Service for Clare & Clare County</h2>
+  <p class="p-home">
+    Isabella Garage Door is a local company based just 20 minutes away between Clare and Mt. Pleasant. 
+    Clare is well within our regular service area—we know the roads, the neighborhoods, and what it takes to keep up with Michigan winters up here near the I-127 corridor.
   </p>
-  <a href="/contact" class="cta-button">
-    <i class="fa-solid fa-phone"></i> Request Service
+  <p class="p-home" style="margin-top: 1rem;">
+    When you call us, you get a real person who lives and works in Central Michigan. When we schedule a time, we show up when we say we will. 
+    When we fix your garage door, it stays fixed. That's how we do business in Clare.
+  </p>
+</section>
+
+ <section class="core-services-section">
+<h2 class="sub-heading">Complete Garage Door Services in Clare, Michigan</h2>
+   <p class="core-services-intro">
+ Whether your spring snapped, your opener died, or your door is beyond repair—we handle it all. 
+ Here's what Clare homeowners and businesses count on us for:
+</p>
+
+<div class="core-services-grid">
+
+  <a href="/services/broken-springs" class="core-services-card spring reveal-on-scroll">
+    <h3>Broken Spring Replacement</h3>
+    <p>The most common garage door failure in Clare. Springs snap with a loud bang and leave your door stuck. We replace you springs, balance your door, and test everything thoroughly. Most Clare spring jobs completed same-day.</p>
   </a>
+
+  <a href="/services/door-repair" class="core-services-card repair">
+    <h3>General Door Repair</h3>
+    <p>Off-track doors, broken cables, worn rollers, bent tracks, damaged panels—we fix it all. From minor adjustments to major repairs, we diagnose accurately and repair efficiently so Clare residents get their garages working again fast.</p>
+  </a>
+
+  <a href="/services/opener-repair" class="core-services-card opener">
+    <h3>Opener Repair & Installation</h3>
+    <p>Motor running but door won't move? Remote stopped working? Grinding noises? We repair all major brands (LiftMaster, Chamberlain, Genie) or install new smart openers with smartphone control for Clare homes.</p>
+  </a>
+
+<!--
+  <a href="/services/new-door-installation" class="core-services-card installation">
+    <h3>New Door Installation</h3>
+    <p>Ready to upgrade your Clare home's curb appeal? We install quality residential garage doors in every style—traditional, carriage house, modern contemporary. Insulated or non-insulated, steel or wood. Professional installation, old door removal included.</p>
+  </a>
+
+  <div class="core-services-card core-services-card agricultural">
+    <h3>Agricultural & Pole Barns</h3>
+    <p>We work on more than just residential garages in the Clare area. Pole barns, shop doors, agricultural facilities—if it's a garage-style door in Clare County, we service it. We understand the unique needs of farms and rural properties in this part of Michigan.</p>
+  </div>
+-->
+
+  <a href="/services/maintenance" class="core-services-card maintenance">
+    <h3>Preventive Maintenance</h3>
+    <p>Annual tune-ups catch problems before they become emergencies. We inspect springs, cables, rollers, tracks, and safety systems. Proper maintenance extends the life of your Clare home's garage door and prevents expensive breakdowns.</p>
+  </a>
+
+</div>
 </section>
 
-<section class="brand-footer">
+<section style="margin-top: 2rem;">
+  <h2 class="sub-heading">Serving All of Clare & Surrounding Areas</h2>
+  <p class="p-home">
+    No matter where you are in the Clare area, we'll come to you with fast, professional service:
+  </p>
+
+  <div class="p-home" style="margin-top: 1.5rem;">
+    <p><strong>🏙️ Downtown Clare</strong><br>
+    McEwan Street and the heart of Clare's downtown. We're familiar with older homes in the city core—many have unique garage configurations that benefit from experienced, careful service.</p>
+    
+    <p style="margin-top: 1rem;"><strong>🏘️ Clare Residential Neighborhoods</strong><br>
+    Established neighborhoods and subdivisions throughout Clare. Whether your home is decades old or newly built, we've seen the hardware and know how to work on it right.</p>
+    
+    <p style="margin-top: 1rem;"><strong>🛣️ US-10 & I-127 Corridor</strong><br>
+    Properties along Clare's main travel corridors. Clare sits at a major crossroads in Central Michigan, and we're one of the closest and fastest garage door companies serving this area.</p>
+    
+    <p style="margin-top: 1rem;"><strong>🌾 Rural Clare County</strong><br>
+    Farms, country homes, and properties outside Clare city limits. We're comfortable on gravel roads and long driveways throughout Clare County and the surrounding townships.</p>
+
+    <p style="margin-top: 1rem;"><strong>📍 Farwell & Surrounding Towns</strong><br>
+    We also serve Farwell and other communities in Clare County. If you're in the area, give us a call—we're likely closer than you think.</p>
+
+  <p class="p-home" style="margin-top: 1.5rem;">
+    <strong>Not sure if we cover your Clare area location?</strong> Just call us at <a href="tel:9895720303" style="color: #c57b30; text-decoration: underline;">989-572-0303</a>. 
+  </p>
+</section>
+
+  <section class="signs additional-info">
+    <h2 class="sub-heading">Why Clare Homeowners Choose Us</h2>
+    <div class="columns">
+      <div>
+    <h3 class="sub-sub-heading">Close By & Fast</h3>
+    <p>
+      Just 20 minutes from Clare. We're not coming from Lansing or Midland—we're your Central Michigan neighbors and we show up like it.
+    </p>
+      </div>
+
+      <div>
+    <h3 class="sub-sub-heading">We Know Clare's Homes</h3>
+    <p>
+      Clare has a mix of historic homes, mid-century properties, and newer construction—each with different garage door hardware and quirks. We're experienced with all of it and know how to handle each situation properly.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">Fair, Upfront Pricing</h3>
+    <p>
+      We tell you what's wrong, what it'll cost, and what your options are—before we start. No pressure and no unnecessary upselling to Clare customers.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">Quality Work That Lasts</h3>
+    <p>
+      We use professional-grade parts and proper installation techniques. We don't cut corners or rush through jobs just to get to the next appointment.
+    </p>
+</div>
+
+      <div>
+    <h3 class="sub-sub-heading">Real Local Service</h3>
+    <p>
+      We live and work in Central Michigan. When you call Isabella Garage Door, you're talking to a neighbor—and our reputation in this region matters to us.
+    </p>
+</div>
+</div>
+  </section>
+
+<section>
+<img src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" />
+    <p class="p-home area-description-intro">
+      Isabella Garage Door proudly serves homeowners in:
+    </p>
+<p class="area-description-list">
+      <a href="/locations/mt-pleasant">Mount Pleasant</a> • 
+      <a href="/locations/lake-isabella">Lake Isabella</a> • 
+      <a href="/locations/clare">Clare</a> • 
+      <a href="/locations/alma">Alma</a> • 
+ <!-- <a href="/locations/farwell">Farwell</a> • 
+      <a href="/locations/coleman">Coleman</a> • 
+      <a href="/locations/shepherd">Shepherd</a> • 
+      <a href="/locations/remus">Remus</a> • 
+      <a href="/locations/rosebush">Rosebush</a> • 
+      <a href="/locations/beal-city">Beal City</a> • 
+      <a href="/locations/st-louis">St. Louis</a>
+-->
+      Farwell • 
+      Coleman • 
+      Shepherd • 
+      Remus • 
+      Rosebush • 
+      Beal City • 
+      St. Louis
+      and surrounding 
+      <a href="/locations/central-michigan">Central Michigan</a> 
+      communities.
+    </p>
+</section>
+
+<section class="faq-area">
+<section id="faq">
+<div class="faq-head">
+  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions - Clare, MI</h2>
+</div>
+
+<div class="reveal-on-scroll">
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you provide garage door service in Clare, Michigan?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes. We regularly serve Clare and Clare County. Whether you're in downtown Clare, in the residential neighborhoods throughout the city, or on a rural property outside city limits, we'll come to you with fast, reliable service. Clare is about 20 minutes from us.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>How quickly can you get to Clare for garage door repairs?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Clare is about 20 minutes from our location, so we typically offer same-day or next-day service to Clare residents. Emergency situations like broken springs or doors that won't close get priority scheduling. Most Clare service calls are completed within 24 hours of your call. Call us at <a href="tel:9895720303" style="color: #c57b30;">989-572-0303</a> for today's availability.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What areas of Clare do you serve?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>We serve all of Clare including downtown, the McEwan Street corridor, residential neighborhoods throughout the city, the US-10 and I-127 area, and rural properties surrounding Clare. We also serve Farwell and other Clare County communities. If you're in Clare or Clare County, we serve you.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What garage door services do you offer in Clare?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>We provide complete garage door services in Clare including broken spring replacement, cable repair, opener repair and installation, off-track door repair, roller and hinge replacement, track alignment, sensor repair<!-- , new door installation -->, and preventive maintenance for residential garage doors.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Are you insured to work in Clare, Michigan?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes. Isabella Garage Door is fully insured and operates throughout Central Michigan including Clare and Clare County. We're a local, professional garage door company. You can trust that your Clare property is protected when we work on your garage door.</p>
+    </div>
+  </div>
+
+ </section>
+</section>
+
+    <!--
+ Testimonial Placeholder Until I Get Real Reviews
+<section>
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
+  <TestimonialCard 
+    quote="Called in the morning with a broken spring and they were out to Clare by early afternoon. Honest, efficient, and priced fairly. Highly recommend."
+    author="Mike T., Clare"
+  />
+</a>
+</section>
+   -->
+
+  <!-- Highlight Section -->
+  <div class="highlight-section reveal-on-scroll">
+    <p>
+      Clare homeowners, businesses, and property managers trust <strong>Isabella Garage Door</strong> for honest, reliable garage door service and expert workmanship.
+    </p>
+  </div>
+
+  <section>
+    <h2 class="sub-heading">Ready to Get Your Clare Garage Door Fixed?</h2>
+    <p class="p-home">
+      Whether you need emergency spring replacement, routine maintenance, or a brand new door for your Clare home—we're here to help. 
+      Call us, text us, or request a quote online. We respond quickly and get your door working right.
+    </p>
+    <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto 1rem;"><i class="fas fa-calculator"></i> Get Free Estimate</a>
+    <a href="/contact" class="cta-button"><i class="fas fa-calendar-check"></i> Schedule Service</a>
+  </section>
+
+<section>
   <h2 class="sub-heading">Isabella Garage Door</h2>
-  <p class="brand-text">
-    Proudly serving Clare and nearby Central Michigan communities with trusted garage door
-    repair and installation services.
+  <p style="font-size: .9rem; text-align: center;">
+    Professional garage door service throughout Clare, Michigan—from downtown McEwan Street to the rural roads of Clare County.
   </p>
-  <p class="brand-tagline">
-    <em>Raising Performance. Elevating Standards.</em>
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+    <em>Raising Performance. Elevating Standards</em>
+  </p>
+  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
+    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #c57b30; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
   </p>
 </section>
 
-<LocationsFooter currentPath="" slot="full-width-section" />
+<ServiceFooter currentPath="null" slot="full-width-section"/>
+<LocationsFooter currentPath="/locations/clare" slot="full-width-section" />
+
+<script is:inline>
+document.querySelectorAll('.faq-item').forEach(item => {
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+
+  question.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+       answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(" .core-services-card, .reveal-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // reveal once
+          }
+        });
+      },
+      {
+        threshold: 0.2, // trigger when 20% of card is visible
+      }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>
 
 <script>
   if (typeof window !== 'undefined') {
@@ -145,7 +471,7 @@ const clareSchema = {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('slide-up-in');
-          observer.unobserve(entry.target); // Animate only once
+          observer.unobserve(entry.target);
         }
       });
     }, {
@@ -160,6 +486,23 @@ const clareSchema = {
       }
     });
   }
+</script>
+
+<script is:script>
+  const icons = document.querySelectorAll('.core-services-icon-circle');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+icons.forEach(icon => observer.observe(icon));
 </script>
 
 </BaseLayout>
