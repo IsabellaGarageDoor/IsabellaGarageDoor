@@ -1,0 +1,515 @@
+---
+title: "Garage Door Repair in St. Louis, MI - Isabella Garage Door"
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
+import HomeownerToolbox from '../../components/HomeownerToolbox.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import ServiceFooter from '../../components/ServiceFooter.astro';
+import LocationsFooter from '../../components/LocationsFooter.astro';
+
+const title = 'Garage Door Repair St. Louis MI | Isabella Garage Door';
+const description = 'Professional garage door repair and installation in St. Louis, Michigan. Broken springs, opener repair, and new doors. Local service for St. Louis and Gratiot County. Call 989-572-0303.';
+
+const stLouisSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Isabella Garage Door - St. Louis",
+  "image": "https://isabellagaragedoor.com/photos/st-louis-michigan-garage-door-repair.webp",
+  "@id": "https://isabellagaragedoor.com/service-areas/st-louis",
+  "url": "https://isabellagaragedoor.com/service-areas/st-louis",
+  "telephone": "+1-989-572-0303",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "St. Louis",
+    "addressRegion": "MI",
+    "postalCode": "48880",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.4081,
+    "longitude": -84.6038
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "St. Louis",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "St. Louis",
+        "addressRegion": "MI",
+        "addressCountry": "US"
+      }
+    },
+    { "@type": "Place", "name": "Arcada Township, MI" },
+    { "@type": "Place", "name": "Bethany Township, MI" },
+    { "@type": "Place", "name": "Gratiot County, MI" }
+  ],
+  "description": "Professional garage door repair, broken spring replacement, opener installation, and new door installation serving St. Louis, Michigan, Arcada Township, and surrounding Gratiot County.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "St. Louis Garage Door Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Broken Spring Replacement in St. Louis",
+          "url": "https://isabellagaragedoor.com/services/broken-springs"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Garage Door Repair in St. Louis",
+          "url": "https://isabellagaragedoor.com/services/door-repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Opener Repair & Installation in St. Louis",
+          "url": "https://isabellagaragedoor.com/services/opener-repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "New Door Installation in St. Louis",
+          "url": "https://isabellagaragedoor.com/services/new-door-installation"
+        }
+      }
+    ]
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you repair garage doors in St. Louis, Michigan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. St. Louis is one of our regularly served communities. We're based in Rosebush, about 25 minutes north on US-127, and we cover all of St. Louis including both sides of the Pine River, the historic neighborhoods, and rural properties in Arcada and Bethany Township. Same-day service is often available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can you get to St. Louis for garage door repairs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "St. Louis is about 25 minutes from our Rosebush location down US-127. For broken springs, stuck doors, or anything urgent, we prioritize same-day scheduling. Call 989-572-0303 and we'll give you an honest arrival window. US-127 is one of our main corridors and we travel it regularly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you service St. Louis separately from Alma, or do you treat them as one area?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We service St. Louis as its own community. Yes, St. Louis and Alma sit on opposite banks of the Pine River and share some services as the Gratiot County seat area—but they're distinct cities with distinct neighborhoods and distinct residents. When you call for service in St. Louis, we schedule it as a St. Louis job, not an Alma add-on."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What garage door services do you offer in St. Louis, Michigan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair, new door installation, and annual preventive maintenance for residential garage doors in St. Louis and Gratiot County."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work on older homes in St. Louis's historic neighborhoods?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. St. Louis has well-preserved historic neighborhoods—particularly along the Pine River corridor and the streets surrounding downtown—with older homes that often have original or non-standard garage configurations. We're experienced working with older hardware and unusual setups, and we don't charge extra for the added complexity."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(stLouisSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+<img src="/photos/st-louis-michigan.webp" alt="Professional garage door repair service in St. Louis, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
+
+<section>
+  <h1 class="page-title">Garage Door Service in St. Louis, MI</h1>
+  <p>
+    St. Louis carries a distinction that locals cite with quiet pride: it sits at the geographic center of Michigan's Lower 
+    Peninsula. Smack in the middle of the mitten. The Pine River runs through the heart of it, the Sharks have their own 
+    loyal following, and the city has a working-class resilience that comes from a long industrial history and a community 
+    that has always found ways to keep going. St. Louis and Alma sit on opposite banks of the Pine River and share a lot 
+    of Gratiot County services—but ask anyone from St. Louis and they'll tell you the two are their own distinct places. 
+    When your garage door breaks in St. Louis, Isabella Garage Door is about 25 minutes north on US-127 in Rosebush. 
+    We treat St. Louis as its own community, we show up when we say we will, and we fix it right.
+  </p>
+  <p style="margin-top: 1rem; text-align: center;">
+    <strong>St. Louis residents:</strong> Call or text us now. Same-day appointments often available.
+  </p>
+    <a href="tel:9895720303" class="hero-contact-button" style="margin: 2rem auto 0;">
+      <i class="fas fa-phone"></i> Call 989-572-0303
+    </a>
+    <a href="sms:9895720303?&body=Hi%2C%20I%20need%20garage%20door%20service%20in%20St.%20Louis." class="hero-contact-button" style="margin: 1rem auto 0; background: #1a334f; border: .094rem solid #b27d57;">
+      <i class="fas fa-comment-dots"></i> Text Us Now
+    </a>
+</section>
+
+<section>
+  <TrustBadges />
+</section>
+
+<section>
+  <h2 class="sub-heading">St. Louis Gets Its Own Service—Not Alma's Overflow</h2>
+  <p class="p-home">
+    Because St. Louis and Alma are so close together, some companies service the whole area as a single market—scheduling 
+    St. Louis calls as Alma add-ons when it's convenient. St. Louis residents notice that. It shows up in longer wait times, 
+    in technicians who don't know which side of the river they're on, and in companies that can't tell you the difference 
+    between a State Street address and a Michigan Avenue one. We don't operate that way.
+  </p>
+  <p class="p-home" style="margin-top: 1rem;">
+    Isabella Garage Door is based in Rosebush, 25 minutes north on US-127—and we service St. Louis as a destination, not 
+    a detour. We know the city's neighborhoods, the Pine River corridor, the older homes near downtown, and the residential 
+    streets on both sides of the water. When you call us for a St. Louis job, that's what you get: a technician who knows 
+    where he's going, shows up when we say he will, and does the work right the first time.
+  </p>
+</section>
+
+<section class="core-services-section">
+  <h2 class="sub-heading">Complete Garage Door Services in St. Louis, Michigan</h2>
+  <p class="core-services-intro">
+    From the Pine River neighborhoods to the residential streets of Arcada Township—here's what St. Louis homeowners count on us for:
+  </p>
+
+  <div class="core-services-grid">
+
+    <a href="/services/broken-springs" class="core-services-card spring reveal-on-scroll">
+      <h3>Broken Spring Replacement</h3>
+      <p>A broken spring brings your door to a complete stop—there's no manual workaround that changes that safely. We carry high-cycle replacement springs for residential applications, replace both at once so you're not back in the same situation in a few months, and balance the door before we leave. St. Louis is 25 minutes from Rosebush on US-127 and same-day service is very often possible when you call in the morning.</p>
+    </a>
+
+    <a href="/services/door-repair" class="core-services-card repair">
+      <h3>General Door Repair</h3>
+      <p>Off-track panels, snapped cables, worn rollers, bent tracks, damaged sections—we find the real problem and fix it, not just what's visibly wrong. St. Louis has a strong stock of older homes—particularly in the historic neighborhoods near downtown and the Pine River—with hardware that takes experience to properly service. We've worked on older configurations throughout Gratiot County and know what we're doing when we encounter them.</p>
+    </a>
+
+    <a href="/services/opener-repair" class="core-services-card opener">
+      <h3>Opener Repair & Installation</h3>
+      <p>Grinding, reversing without reason, running but not moving the door, or just completely unresponsive—opener failures have a lot of different root causes and we track them down efficiently. We service all major brands and install new smart openers with Wi-Fi and smartphone control when it's time to upgrade. A remote-access opener is a practical addition for any St. Louis home where convenience and security matter.</p>
+    </a>
+<!--
+    <a href="/services/new-door-installation" class="core-services-card installation">
+      <h3>New Door Installation</h3>
+      <p>A new garage door is one of the highest-return investments you can make in St. Louis's housing market. We install quality residential doors in every style—traditional raised panel, carriage house, modern flush—in steel, wood, or composite. We handle measurement, removal and disposal of your old door, full installation, and final balancing. We leave it working right and looking right.</p>
+    </a>
+-->
+    <a href="/services/maintenance" class="core-services-card maintenance">
+      <h3>Preventive Maintenance</h3>
+      <p>Central Michigan winters come for everyone—and St. Louis, sitting right in the middle of the Lower Peninsula, gets its full share. Cold that tightens springs, moisture that works into hardware, freeze-thaw cycles that accelerate wear on every moving part. An annual tune-up before the season turns hard keeps your system running reliably and catches problems while they're still small and cheap to fix.</p>
+    </a>
+
+    <div class="core-services-card core-services-card agricultural">
+      <h3>Rural & Outlying Properties</h3>
+      <p>Arcada Township and the rural properties surrounding St. Louis extend our coverage well beyond the city limits. Country homes, properties on the outskirts, and rural addresses that carry a St. Louis mailing address—we service them all. No extra charges for being outside the city, no hesitation about the drive.</p>
+    </div>
+
+  </div>
+</section>
+
+<section style="margin-top: 2rem;">
+  <h2 class="sub-heading">We Know St. Louis—Both Sides of the River</h2>
+  <p class="p-home">
+    St. Louis has distinct character from one neighborhood to the next. Here's how we think about the community we serve:
+  </p>
+
+  <div class="p-home" style="margin-top: 1.5rem;">
+    <p><strong>🏛️ Historic Downtown & Michigan Avenue</strong><br>
+    The heart of St. Louis—Michigan Avenue, the downtown blocks, and the neighborhoods that grew up around the city's industrial era. This part of town has some of Gratiot County's most character-filled homes, many with original hardware and garage configurations that reflect their age. We know how to work with older setups without forcing modern solutions onto them.</p>
+
+    <p style="margin-top: 1rem;"><strong>🌊 Pine River Corridor</strong><br>
+    The Pine River runs through St. Louis and the properties along it have their own appeal—riverside character, mature landscaping, and homes that have been here long enough to develop personality. We've serviced garages throughout the Pine River corridor in both St. Louis and Alma and know the terrain well on both banks.</p>
+
+    <p style="margin-top: 1rem;"><strong>🏘️ Residential Neighborhoods & Subdivisions</strong><br>
+    The established residential streets and newer subdivisions that fill in the broader St. Louis area. A mix of post-war homes, mid-century builds, and newer construction—we work on hardware from every era without missing a beat. Whatever your home was built with, we know how to service it.</p>
+
+    <p style="margin-top: 1rem;"><strong>🛣️ US-127 Corridor</strong><br>
+    US-127 connects St. Louis directly to Rosebush, Mt. Pleasant, and the broader Isabella County area to the north. Properties along and near the US-127 corridor in the St. Louis area are right on our regular route. Fast response, no detours, no complications.</p>
+
+    <p style="margin-top: 1rem;"><strong>🌾 Arcada & Bethany Township</strong><br>
+    The townships surrounding St. Louis extend into rural Gratiot County with farms, country properties, and rural addresses that still consider St. Louis their community. We service Arcada and Bethany Township completely—no gap in coverage for addresses outside the city limits. If you're in the St. Louis area, you're in our service area.</p>
+
+  </div>
+  <p class="p-home" style="margin-top: 1.5rem;">
+    <strong>In St. Louis or the surrounding Gratiot County area?</strong> Call us at <a href="tel:9895720303" style="color: #c57b30; text-decoration: underline;">989-572-0303</a>. 
+    We're 25 minutes north on US-127 and we'll be there.
+  </p>
+</section>
+
+<section class="signs additional-info">
+  <h2 class="sub-heading">Why St. Louis Homeowners Choose Us</h2>
+  <div class="columns">
+    <div>
+      <h3 class="sub-sub-heading">St. Louis Is a Destination, Not a Detour</h3>
+      <p>
+        We don't schedule St. Louis calls as overflow from an Alma route. St. Louis is its own stop on its own schedule, and the homeowners there get the same priority, the same response time, and the same quality of work as anywhere else we serve.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">We Know Older St. Louis Homes</h3>
+      <p>
+        St. Louis has a rich stock of older homes, particularly near downtown and the Pine River, and we're experienced with the hardware that comes with them. Non-standard openings, original track systems, vintage openers—we handle it without the guesswork.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">25 Minutes on US-127</h3>
+      <p>
+        Rosebush to St. Louis is a straight shot south on US-127—one of our most-traveled routes. Fast response, no inflated trip charges, and a technician who knows the corridor.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">Center of the Mitten, Center of Our Range</h3>
+      <p>
+        St. Louis likes to point out it's the geographic center of Michigan's Lower Peninsula. From our Rosebush base, it's squarely in the center of our service area too. You're not on the edge of anything—you're well within our regular coverage.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">Honest All the Way Through</h3>
+      <p>
+        We quote before we start and stand behind every number. No surprises after the work is done, no pressure to replace components that have life left in them. St. Louis homeowners get straight talk and fair pricing every time.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <img src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" />
+  <p class="p-home area-description-intro">
+    Isabella Garage Door proudly serves homeowners in:
+  </p>
+<p class="area-description-list">
+      <a href="/locations/mt-pleasant">Mount Pleasant</a> • 
+      <a href="/locations/lake-isabella">Lake Isabella</a> • 
+      <a href="/locations/clare">Clare</a> • 
+      <a href="/locations/alma">Alma</a> • 
+      <a href="/locations/farwell">Farwell</a> • 
+      <a href="/locations/coleman">Coleman</a> • 
+      <a href="/locations/shepherd">Shepherd</a> • 
+      <a href="/locations/remus">Remus</a> • 
+      <a href="/locations/rosebush">Rosebush</a> • 
+      <a href="/locations/beal-city">Beal City</a> • 
+      <a href="/locations/st-louis">St. Louis</a>
+      and surrounding 
+      <a href="/locations/central-michigan">Central Michigan</a> 
+      communities.
+    </p>
+</section>
+
+  <HomeownerToolbox />
+
+<section class="faq-area">
+<section id="faq">
+<div class="faq-head">
+  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions - St. Louis, MI</h2>
+</div>
+
+<div class="reveal-on-scroll">
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you repair garage doors in St. Louis, Michigan?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes. St. Louis is one of our regularly served communities. We're based in Rosebush, about 25 minutes north on US-127, and we cover all of St. Louis including both sides of the Pine River, the historic neighborhoods, and rural properties in Arcada and Bethany Township. Same-day service is often available.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>How quickly can you get to St. Louis for garage door repairs?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>About 25 minutes from our Rosebush location down US-127. For broken springs, stuck doors, or anything urgent, we prioritize same-day scheduling. Call us at <a href="tel:9895720303" style="color: #c57b30;">989-572-0303</a> and we'll give you an honest arrival window. US-127 is one of our main travel corridors and we know the route well.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you service St. Louis separately from Alma, or do you treat them as one area?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>We service St. Louis as its own community. Yes, they share the Pine River and a lot of Gratiot County services—but they're distinct cities with distinct neighborhoods. When you call for service in St. Louis, we schedule it as a St. Louis job, not an Alma add-on. You get a technician who knows which side of the river he's heading to.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you work on older homes in St. Louis's historic neighborhoods?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Absolutely. St. Louis has well-preserved historic neighborhoods—particularly near downtown and the Pine River—with older homes that often have original or non-standard garage configurations. We're experienced working with older hardware and unusual setups throughout Gratiot County, and we don't charge extra for the added complexity.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What garage door services do you offer in St. Louis?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair<!-- , new door installation -->, and annual preventive maintenance for residential garage doors in St. Louis and Gratiot County.</p>
+    </div>
+  </div>
+
+</section>
+</section>
+
+    <!--
+ Testimonial Placeholder Until I Get Real Reviews
+<section>
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
+  <TestimonialCard 
+    quote="Called on a Tuesday morning, they were here by early afternoon. Replaced the spring, balanced the door, and explained everything clearly. Fair price and no attempt to sell me things I didn't need. Will use them again."
+    author="Linda H., St. Louis"
+  />
+</a>
+</section>
+   -->
+
+  <!-- Highlight Section -->
+  <div class="highlight-section reveal-on-scroll">
+    <p>
+      St. Louis homeowners and Gratiot County residents trust <strong>Isabella Garage Door</strong> for fast response, honest pricing, and garage door work done right—right in the center of the mitten, right in the center of our service area.
+    </p>
+  </div>
+
+  <section>
+    <h2 class="sub-heading">Ready to Get Your St. Louis Garage Door Fixed?</h2>
+    <p class="p-home">
+      We're 25 minutes north on US-127 and we respond fast. Whether it's an emergency repair or you're finally 
+      getting around to that tune-up—call us, text us, or use EasyEstimate™ to get a ballpark online. We'll take it from there.
+    </p>
+    <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto 1rem;"><i class="fas fa-calculator"></i> Get Free Estimate</a>
+    <a href="/contact" class="cta-button"><i class="fas fa-calendar-check"></i> Schedule Service</a>
+  </section>
+
+<section>
+  <h2 class="sub-heading">Isabella Garage Door</h2>
+  <p style="font-size: .9rem; text-align: center;">
+    Serving St. Louis, Gratiot County, and all of Central Michigan—right from the center of the mitten.
+  </p>
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+    <em>Raising Performance. Elevating Standards</em>
+  </p>
+  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
+    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #c57b30; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
+  </p>
+</section>
+
+<ServiceFooter currentPath="null" slot="full-width-section"/>
+<LocationsFooter currentPath="/locations/st-louis" slot="full-width-section" />
+
+<script is:inline>
+document.querySelectorAll('.faq-item').forEach(item => {
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+
+  question.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+       answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(" .core-services-card, .reveal-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>
+
+<script>
+  if (typeof window !== 'undefined') {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('slide-up-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.6,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const section = document.querySelector('.highlight-section');
+      if (section) {
+        observer.observe(section);
+      }
+    });
+  }
+</script>
+
+<script is:script>
+  const icons = document.querySelectorAll('.core-services-icon-circle');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+icons.forEach(icon => observer.observe(icon));
+</script>
+
+</BaseLayout>

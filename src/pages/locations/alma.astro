@@ -2,12 +2,13 @@
 title: "Garage Door Repair in Alma, MI - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadges from '../../components/TrustBadges.astro';
+import HomeownerToolbox from '../../components/HomeownerToolbox.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro';
 import ServiceFooter from '../../components/ServiceFooter.astro';
 import LocationsFooter from '../../components/LocationsFooter.astro';
 
 const title = 'Garage Door Repair Alma MI | Isabella Garage Door';
-const description = 'Professional garage door repair and installation in Alma, Michigan. Fast, reliable service for broken springs, openers, and new doors. Same-day available. Call 989-572-0303.';
+const description = 'Professional garage door repair and installation in Alma, Michigan. Broken springs, opener repair, new doors. Fast local service from your Central Michigan neighbor. Call 989-572-0303.';
 
 const almaSchema = {
   "@context": "https://schema.org",
@@ -91,7 +92,7 @@ const faqSchema = {
       "name": "Do you provide garage door service in Alma, Michigan?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. We proudly serve Alma and all of Gratiot County. Whether you're downtown near the Alma College campus, in the residential neighborhoods off Wright Avenue, or on a rural property outside city limits, we'll come to you with fast, reliable service."
+        "text": "Yes. We serve Alma and all of Gratiot County. Whether you're near the Alma College campus, in one of the historic neighborhoods off Superior Street, along the Pine River, or on a rural property outside city limits, we'll come to you with fast, reliable service."
       }
     },
     {
@@ -99,15 +100,15 @@ const faqSchema = {
       "name": "How quickly can you get to Alma for garage door repairs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Alma is about 20 minutes from our Rosebush location, so we typically offer same-day or next-day service to Alma residents. Emergency situations like broken springs or doors that won't close get priority scheduling. Most Alma service calls are completed within 24 hours of your call."
+        "text": "Alma is about 20 minutes from our Rosebush location, so we typically offer same-day or next-day service. Emergency situations like broken springs or doors that won't close get priority scheduling. Most Alma service calls are completed within 24 hours of your call."
       }
     },
     {
       "@type": "Question",
-      "name": "What neighborhoods in Alma do you serve?",
+      "name": "Do you work on older homes in Alma's historic neighborhoods?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We serve all of Alma including downtown, the Alma College campus area, Pine River neighborhoods, Wright Avenue corridor, Superior Street area, residential subdivisions, and rural properties surrounding Alma. If you're in Alma or Gratiot County, we'll get to you."
+        "text": "Absolutely. Alma has some beautiful older homes—particularly in the neighborhoods surrounding downtown and Alma College—many with original or non-standard garage configurations. We're experienced working on older hardware and unusual setups, and we don't charge extra for the added complexity."
       }
     },
     {
@@ -115,15 +116,15 @@ const faqSchema = {
       "name": "What garage door services do you offer in Alma?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We provide complete garage door services in Alma including broken spring replacement, cable repair, opener repair and installation, off-track door repair, roller and hinge replacement, track alignment, sensor repair, new door installation, and preventive maintenance for both residential and commercial garage doors."
+        "text": "We provide complete garage door services in Alma including broken spring replacement, cable repair, opener repair and installation, off-track door repair, roller and hinge replacement, track alignment, sensor repair, new door installation, and preventive maintenance for both residential garage doors and agricultural buildings."
       }
     },
     {
       "@type": "Question",
-      "name": "Are you licensed and insured to work in Alma, Michigan?",
+      "name": "Are you insured to work in Alma, Michigan?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Isabella Garage Door is fully insured and operates throughout Central Michigan including Alma and Gratiot County. We're a local, professional company—not a franchise or unlicensed handyman service."
+        "text": "Yes. Isabella Garage Door is fully insured and operates throughout Central Michigan including Alma and Gratiot County. We're a local, professional garage door company—not a franchise or unlicensed handyman service. Your Alma property is protected when we work on your garage door."
       }
     }
   ]
@@ -137,14 +138,15 @@ const faqSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
 
-<img src="/photos/Alma-Michigan.webp" alt="Professional garage door repair service in Alma, Michigan, Scottland USA" loading="eager" fetchpriority="high" class="header-photo-interior" />
+<img src="/photos/Alma-Michigan.webp" alt="Professional garage door repair service in Alma, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
 
 <section>
   <h1 class="page-title">Garage Door Service in Alma, MI</h1>
   <p>
-    Your garage door broke and you need it fixed—fast, and done right. Isabella Garage Door provides professional garage door repair, 
-    broken spring replacement, and new door installation throughout Alma and Gratiot County. From downtown near the Alma College campus 
-    to the neighborhoods along Wright Avenue and the rural properties surrounding town—we're close by, we're fast, and we're reliable.
+    Alma is the kind of town that takes quiet pride in doing things right. It's the Gratiot County seat, home to Alma College, 
+    and host to one of the largest Scottish festivals in North America every Memorial Day weekend—bagpipes, kilts, and all. 
+    It's a city that punches above its weight, and the people who live here tend to expect the same from the businesses they call. 
+    When your garage door breaks, we're the call that lives up to that standard—professional, fast, and honest about what it'll cost.
   </p>
   <p style="margin-top: 1rem; text-align: center;">
     <strong>Alma residents:</strong> Call or text us now. Same-day appointments often available.
@@ -162,157 +164,155 @@ const faqSchema = {
 </section>
 
 <section>
-  <h2 class="sub-heading">Fast, Local Service for Alma & Gratiot County</h2>
+  <h2 class="sub-heading">Alma Deserves Better Than a Generic Service Company</h2>
   <p class="p-home">
-    We're not a big-box store contractor or out-of-state franchise. Isabella Garage Door is a local, family-owned company based just 20 minutes away in Rosebush. 
-    We know Alma well—from downtown Superior Street to the Alma College area, from Wright Avenue neighborhoods to the farmland surrounding town.
+    A lot of garage door companies will take a call from Alma, send whoever is available, and move on. That's not how we operate. 
+    Isabella Garage Door is a Central Michigan company based in Rosebush—we know Alma's streets, its older housing stock, its 
+    College-area neighborhoods, and the rural properties spread across Gratiot County. We've worked on single-car garages attached 
+    to century-old homes and large agricultural doors on working farms outside town. We're prepared for what we find when we get there.
   </p>
   <p class="p-home" style="margin-top: 1rem;">
-    When you call us, you get a real person who lives and works in Central Michigan—not a call center. When we schedule a time, we actually show up. 
-    When we fix your garage door, it stays fixed. That's how we do business in Alma.
+    When you call us, you reach a real person—not a call center. We tell you what's wrong, what it'll cost, and what your options are 
+    before any work starts. When we schedule a time, we show up. And when the job is done, it's done right. Alma homeowners shouldn't 
+    have to settle for less than that.
   </p>
 </section>
 
- <section class="core-services-section">
-<h2 class="sub-heading">Complete Garage Door Services in Alma, Michigan</h2>
-   <p class="core-services-intro">
- Whether your spring snapped, your opener died, or your door is beyond repair—we handle it all. 
- Here's what Alma homeowners and businesses count on us for:
-</p>
+<section class="core-services-section">
+  <h2 class="sub-heading">Complete Garage Door Services in Alma, Michigan</h2>
+  <p class="core-services-intro">
+    Whether your spring snapped, your opener quit, or your door is finally beyond saving—here's what Alma homeowners and property owners count on us for:
+  </p>
 
-<div class="core-services-grid">
+  <div class="core-services-grid">
 
-  <a href="/services/broken-springs" class="core-services-card spring reveal-on-scroll">
-    <h3>Broken Spring Replacement</h3>
-    <p>The most common garage door failure in Alma. Springs snap with a loud bang and leave your door stuck. We replace both springs (even if only one broke), balance your door, and test everything thoroughly. Most Alma spring jobs completed same-day.</p>
-  </a>
+    <a href="/services/broken-springs" class="core-services-card spring reveal-on-scroll">
+      <h3>Broken Spring Replacement</h3>
+      <p>The most common garage door failure—and one that leaves your door completely stuck. Springs tend to go without warning, often on the coldest morning of the year. We carry high-cycle replacement springs, replace both at once so you're not back in this situation in a few months, and balance the door before we leave. Most Alma spring jobs are completed same-day.</p>
+    </a>
 
-  <a href="/services/door-repair" class="core-services-card repair">
-    <h3>General Door Repair</h3>
-    <p>Off-track doors, broken cables, worn rollers, bent tracks, damaged panels—we fix it all. From minor adjustments to major repairs, we diagnose accurately and repair efficiently so Alma residents get their garages working again fast.</p>
-  </a>
+    <a href="/services/door-repair" class="core-services-card repair">
+      <h3>General Door Repair</h3>
+      <p>Off-track doors, snapped cables, worn rollers, bent tracks, damaged panels—we diagnose the real problem and fix it, not just the symptom. Alma has a mix of older homes with original hardware and newer builds with modern systems. We're comfortable with both and don't get thrown off by what we find.</p>
+    </a>
 
-  <a href="/services/opener-repair" class="core-services-card opener">
-    <h3>Opener Repair & Installation</h3>
-    <p>Motor running but door won't move? Remote stopped working? Grinding noises? We repair all brands (LiftMaster, Chamberlain, Genie) or install new smart openers with smartphone control for Alma homes.</p>
-  </a>
+    <a href="/services/opener-repair" class="core-services-card opener">
+      <h3>Opener Repair & Installation</h3>
+      <p>Grinding, humming, reversing on its own, or just completely dead—opener problems have a lot of different causes and we'll find yours fast. We service all major brands including LiftMaster, Chamberlain, and Genie, and can install a new smart opener with Wi-Fi and smartphone control when it's time to upgrade.</p>
+    </a>
 <!--
-  <a href="/services/new-door-installation" class="core-services-card installation">
-    <h3>New Door Installation</h3>
-    <p>Ready to upgrade your Alma home's curb appeal? We install quality residential garage doors in every style—traditional, carriage house, modern contemporary. Insulated or non-insulated, steel or wood. Professional installation, old door removal included.</p>
-  </a>
-
-  <div class="core-services-card core-services-card agricultural">
-    <h3>Agricultural</h3>
-    <p>We work on more than just residential garages in Alma. Pole barns, shop doors, agricultural facilities—if it's a garage-style door in Gratiot County, we service it. We understand the unique needs of farms and businesses.</p>
-  </div>
+    <a href="/services/new-door-installation" class="core-services-card installation">
+      <h3>New Door Installation</h3>
+      <p>A new garage door is one of the best investments you can make in Alma's housing market. We install quality residential doors in every style—traditional raised panel, carriage house, modern flush—in steel, wood, or composite. We handle measurement, removal of your old door, installation, and final balancing.</p>
+    </a>
 -->
-  <a href="/services/maintenance" class="core-services-card maintenance">
-    <h3>Preventive Maintenance</h3>
-    <p>Annual tune-ups catch problems before they become emergencies. We inspect springs, cables, rollers, tracks, and safety systems. Proper maintenance extends the life of your Alma home's garage door and prevents expensive breakdowns.</p>
-  </a>
+    <a href="/services/maintenance" class="core-services-card maintenance">
+      <h3>Preventive Maintenance</h3>
+      <p>Central Michigan winters are tough on garage door hardware. An annual tune-up—lubrication, adjustment, and a full inspection of springs, cables, rollers, tracks, and the opener—keeps your system running reliably and catches small problems before they turn into expensive emergencies. A smart investment for any Alma homeowner.</p>
+    </a>
 
-</div>
+    <div class="core-services-card core-services-card agricultural">
+      <h3>Agricultural & Rural Doors</h3>
+      <p>Gratiot County has a strong agricultural heritage and we service the doors that come with it. Pole barns, machine sheds, shop doors, and large agricultural openings—we work on them regularly and understand what rural properties need. If it's a garage-style door in Gratiot County, we'll take care of it.</p>
+    </div>
+
+  </div>
 </section>
 
 <section style="margin-top: 2rem;">
-  <h2 class="sub-heading">Serving All of Alma & Surrounding Areas</h2>
+  <h2 class="sub-heading">We Know Alma's Neighborhoods</h2>
   <p class="p-home">
-    No matter where you are in the Alma area, we'll come to you with fast, professional service:
+    Alma is a compact city with a lot of distinct character from one block to the next. Here's how we think about the community we serve:
   </p>
 
   <div class="p-home" style="margin-top: 1.5rem;">
-    <p><strong>🏛️ Downtown Alma</strong><br>
-    Superior Street, State Street, and the historic downtown core. We know Alma's older homes and historic buildings—many with unique garage configurations that require experienced service.</p>
-    
-    <p style="margin-top: 1rem;"><strong>🎓 Alma College Area</strong><br>
-    Campus neighborhoods, student housing, and residential streets around the college. Fast response for rental properties and homeowners near the Alma College district.</p>
-    
+    <p><strong>🏛️ Downtown & Superior Street</strong><br>
+    The historic core of Alma—Superior Street, State Street, and the blocks surrounding city hall and the Gratiot County courthouse. This part of town has some of Alma's oldest and most well-maintained homes. Older homes often mean original hardware, non-standard openings, and garage configurations that require experience to properly service. We handle them without guesswork.</p>
+
+    <p style="margin-top: 1rem;"><strong>🎓 Alma College Campus Area</strong><br>
+    The neighborhoods surrounding Alma College have a mix of faculty and staff homeowners, long-term residents, and rental properties. The Highland Festival draws thousands to campus every Memorial Day weekend—but the rest of the year, these are quiet residential streets with hardworking homeowners who need reliable service when something breaks.</p>
+
     <p style="margin-top: 1rem;"><strong>🏘️ Wright Avenue Corridor</strong><br>
-    The main commercial and residential corridor through Alma. We service homes and businesses all along Wright Avenue and the surrounding neighborhoods.</p>
-    
-    <p style="margin-top: 1rem;"><strong>🏡 Pine River Neighborhoods</strong><br>
-    Residential areas along and near the Pine River. Newer subdivisions, established neighborhoods, and riverfront properties throughout the Pine River area.</p>
+    Wright Avenue is Alma's main commercial and residential spine. The neighborhoods branching off it represent a good cross-section of the city—established homes, working families, and properties that have been well cared for over the years. We're in this part of town regularly.</p>
+
+    <p style="margin-top: 1rem;"><strong>🌊 Pine River Area</strong><br>
+    The Pine River runs through Alma and the neighborhoods near it have their own character—riverside properties, mature trees, and homes that have a real sense of place. We've serviced garages throughout the Pine River corridor and know the area well.</p>
 
     <p style="margin-top: 1rem;"><strong>🌾 Rural Gratiot County</strong><br>
-    Farms, country homes, and properties outside Alma city limits. We're comfortable on gravel roads, long driveways, and rural properties throughout Gratiot County.</p>
+    Farms, country properties, and agricultural operations spread across Gratiot County. We cover it all—gravel roads, long driveways, pole barns, and working farms. Gratiot County's agricultural roots run deep and we respect that. No extra charges for rural addresses.</p>
 
+  </div>
   <p class="p-home" style="margin-top: 1.5rem;">
-    <strong>Not sure if we cover your Alma neighborhood?</strong> Just call us at <a href="tel:9895720303" style="color: #c57b30; text-decoration: underline;">989-572-0303</a>. 
+    <strong>Not sure if we cover your Alma neighborhood?</strong> Call us at <a href="tel:9895720303" style="color: #c57b30; text-decoration: underline;">989-572-0303</a>. 
     If you're in Alma or Gratiot County, the answer is yes.
   </p>
 </section>
 
-  <section class="signs additional-info">
-    <h2 class="sub-heading">Why Alma Homeowners Choose Us</h2>
-    <div class="columns">
-      <div>
-    <h3 class="sub-sub-heading">Close By & Fast</h3>
-    <p>
-      Just 20 minutes from Alma in Rosebush. We're not coming from Lansing or Grand Rapids—we're your neighbors.
-    </p>
-      </div>
+<section class="signs additional-info">
+  <h2 class="sub-heading">Why Alma Homeowners Choose Us</h2>
+  <div class="columns">
+    <div>
+      <h3 class="sub-sub-heading">We Know Alma's Older Homes</h3>
+      <p>
+        Alma has a rich stock of older homes—many with original garage hardware, narrow openings, or configurations that a less experienced tech would fumble through. We know what we're looking at when we pull into a driveway on Superior Street.
+      </p>
+    </div>
 
-      <div>
-    <h3 class="sub-sub-heading">We Know Alma's Older Homes</h3>
-    <p>
-      Alma has beautiful historic homes, many with unique garage doors and older hardware. We're experienced with older garage systems and know how to work with Alma's historic properties respectfully.
-    </p>
-</div>
+    <div>
+      <h3 class="sub-sub-heading">Gratiot County Know-How</h3>
+      <p>
+        We service rural Gratiot County regularly. Agricultural doors, pole barns, machine sheds—we come prepared for large openings and farm-specific hardware. You don't need a specialist; you just need someone who's done it before.
+      </p>
+    </div>
 
-      <div>
-    <h3 class="sub-sub-heading">Fair Pricing</h3>
-    <p>
-      We tell you what's wrong, what it'll cost, and what your options are. No pressure and no unnecessary upselling to Alma customers.
-    </p>
-</div>
+    <div>
+      <h3 class="sub-sub-heading">Honest, Upfront Pricing</h3>
+      <p>
+        Alma is a city that values straightforwardness. We tell you exactly what's wrong and what it'll cost before we start. No surprises on the invoice, no pressure to buy things you don't need.
+      </p>
+    </div>
 
-      <div>
-    <h3 class="sub-sub-heading">Quality Work That Lasts</h3>
-    <p>
-      We use professional-grade parts and proper installation techniques. We don't cut corners or rush through jobs just to get to the next appointment.
-    </p>
-</div>
+    <div>
+      <h3 class="sub-sub-heading">Work That Holds Up</h3>
+      <p>
+        We use professional-grade parts and do the job right the first time. Central Michigan winters are hard on garage door systems—what we install and repair is built to handle them.
+      </p>
+    </div>
 
-      <div>
-    <h3 class="sub-sub-heading">Small-Town Service Values</h3>
-    <p>
-      We treat Alma residents the way we'd want to be treated. Professional, courteous, respectful of your property, and committed to doing the job right.
-    </p>
-</div>
-</div>
-  </section>
+    <div>
+      <h3 class="sub-sub-heading">Genuinely Local</h3>
+      <p>
+        Based in Rosebush, we're your neighbor in Isabella County—not a Lansing franchise with an Alma service page. When you call us, someone who knows these roads picks up the phone.
+      </p>
+    </div>
+  </div>
+</section>
 
 <section>
-<img src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" />
-    <p class="p-home area-description-intro">
-      Isabella Garage Door proudly serves homeowners in:
-    </p>
+  <img src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" />
+  <p class="p-home area-description-intro">
+    Isabella Garage Door proudly serves homeowners in:
+  </p>
 <p class="area-description-list">
       <a href="/locations/mt-pleasant">Mount Pleasant</a> • 
       <a href="/locations/lake-isabella">Lake Isabella</a> • 
       <a href="/locations/clare">Clare</a> • 
       <a href="/locations/alma">Alma</a> • 
- <!-- <a href="/locations/farwell">Farwell</a> • 
+      <a href="/locations/farwell">Farwell</a> • 
       <a href="/locations/coleman">Coleman</a> • 
       <a href="/locations/shepherd">Shepherd</a> • 
       <a href="/locations/remus">Remus</a> • 
       <a href="/locations/rosebush">Rosebush</a> • 
       <a href="/locations/beal-city">Beal City</a> • 
       <a href="/locations/st-louis">St. Louis</a>
--->
-      Farwell • 
-      Coleman • 
-      Shepherd • 
-      Remus • 
-      Rosebush • 
-      Beal City • 
-      St. Louis
       and surrounding 
       <a href="/locations/central-michigan">Central Michigan</a> 
       communities.
     </p>
 </section>
+
+  <HomeownerToolbox />
+
 
 <section class="faq-area">
 <section id="faq">
@@ -327,7 +327,7 @@ const faqSchema = {
       <span class="faq-arrow">&#9654;</span>
     </div>
     <div class="faq-answer">
-      <p>Yes. We proudly serve Alma and all of Gratiot County. Whether you're downtown near the Alma College campus, in the residential neighborhoods off Wright Avenue, or on a rural property outside city limits, we'll come to you with fast, reliable service. Alma is just 20 minutes from our shop.</p>
+      <p>Yes. We serve Alma and all of Gratiot County. Whether you're near the Alma College campus, in one of the historic neighborhoods off Superior Street, along the Pine River, or on a rural property outside city limits, we'll come to you with fast, reliable service. Alma is about 20 minutes from our Rosebush shop.</p>
     </div>
   </div>
 
@@ -337,17 +337,17 @@ const faqSchema = {
       <span class="faq-arrow">&#9654;</span>
     </div>
     <div class="faq-answer">
-      <p>Alma is about 20 minutes from our location, so we typically offer same-day or next-day service to Alma residents. Emergency situations like broken springs or doors that won't close get priority scheduling. Most Alma service calls are completed within 24 hours of your call. Call us at <a href="tel:9895720303" style="color: #c57b30;">989-572-0303</a> for today's availability.</p>
+      <p>Alma is about 20 minutes from our Rosebush location, so we typically offer same-day or next-day service. Emergency situations like broken springs or doors that won't close get priority scheduling. Call us at <a href="tel:9895720303" style="color: #c57b30;">989-572-0303</a> and we'll give you an honest time frame.</p>
     </div>
   </div>
 
   <div class="faq-item">
     <div class="faq-question">
-      <span>What neighborhoods in Alma do you serve?</span>
+      <span>Do you work on older homes in Alma's historic neighborhoods?</span>
       <span class="faq-arrow">&#9654;</span>
     </div>
     <div class="faq-answer">
-      <p>We serve all of Alma including downtown, the Alma College campus area, Pine River neighborhoods, Wright Avenue corridor, Superior Street area, residential subdivisions, commercial districts, and rural properties surrounding Alma. Whether you're in the historic downtown, newer subdivisions, or farmland outside town—if you're in Alma or Gratiot County, we serve you.</p>
+      <p>Absolutely—and it's something we do often. Alma has beautiful older homes, especially in the neighborhoods around downtown and Alma College, and many have original or non-standard garage hardware. We're experienced with older configurations and don't charge extra for the added complexity. We just fix it.</p>
     </div>
   </div>
 
@@ -357,7 +357,7 @@ const faqSchema = {
       <span class="faq-arrow">&#9654;</span>
     </div>
     <div class="faq-answer">
-      <p>We provide complete garage door services in Alma including broken spring replacement, cable repair, opener repair and installation, off-track door repair, roller and hinge replacement, track alignment, sensor repair<!-- , new door installation -->, and preventive maintenance for residential garage doors.</p>
+      <p>We provide complete garage door services in Alma including broken spring replacement, cable repair, opener repair and installation, off-track door repair, roller and hinge replacement, track alignment, sensor repair<!-- , new door installation -->, and preventive maintenance for residential garage doors and agricultural buildings throughout Gratiot County.</p>
     </div>
   </div>
 
@@ -367,11 +367,11 @@ const faqSchema = {
       <span class="faq-arrow">&#9654;</span>
     </div>
     <div class="faq-answer">
-      <p>Yes. Isabella Garage Door is fully insured and operates throughout Central Michigan including Alma and Gratiot County. We're a local, professional garage door company. You can trust that your Alma property is protected when we work on your garage door.</p>
+      <p>Yes. Isabella Garage Door is fully insured and operates throughout Central Michigan including Alma and Gratiot County. We're a local, professional garage door company—not a franchise or unlicensed handyman service. Your Alma property is protected when we work on your garage door.</p>
     </div>
   </div>
 
- </section>
+</section>
 </section>
 
     <!--
@@ -389,15 +389,15 @@ const faqSchema = {
   <!-- Highlight Section -->
   <div class="highlight-section reveal-on-scroll">
     <p>
-      Alma homeowners, businesses, and property managers trust <strong>Isabella Garage Door</strong> for honest, reliable garage door service and expert workmanship.
+      Alma homeowners, Gratiot County property owners, and everyone in between trust <strong>Isabella Garage Door</strong> for honest work, fair pricing, and service that actually shows up when it says it will.
     </p>
   </div>
 
   <section>
     <h2 class="sub-heading">Ready to Get Your Alma Garage Door Fixed?</h2>
     <p class="p-home">
-      Whether you need emergency spring replacement, routine maintenance, or a brand new door for your Alma home or business—we're here to help. 
-      Call us, text us, or request a quote online. We respond quickly and get your door working right.
+      Whether it's an emergency repair, a long-overdue tune-up, or a new door for your Alma home—we're here and we respond fast. 
+      Call us, text us, or use EasyEstimate™ to get a ballpark online. We'll take it from there.
     </p>
     <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto 1rem;"><i class="fas fa-calculator"></i> Get Free Estimate</a>
     <a href="/contact" class="cta-button"><i class="fas fa-calendar-check"></i> Schedule Service</a>
@@ -406,7 +406,7 @@ const faqSchema = {
 <section>
   <h2 class="sub-heading">Isabella Garage Door</h2>
   <p style="font-size: .9rem; text-align: center;">
-    Professional garage door service throughout Alma, Michigan—from downtown to Wright Avenue to rural Gratiot County.
+    Serving Alma, Gratiot County, and all of Central Michigan—professional garage door work done right.
   </p>
   <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
     <em>Raising Performance. Elevating Standards</em>
@@ -449,12 +449,12 @@ document.querySelectorAll('.faq-item').forEach(item => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
-            observer.unobserve(entry.target); // reveal once
+            observer.unobserve(entry.target);
           }
         });
       },
       {
-        threshold: 0.2, // trigger when 20% of card is visible
+        threshold: 0.2,
       }
     );
 

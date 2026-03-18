@@ -2017,11 +2017,20 @@ z-index: 1;
 .core-services-card.agricultural {
   background-image: url('/photos/ag-door.webp');
 }
+
+.core-services-card.rental {
+  background-image: url('/photos/rental-apartments.webp');
+}
+
+.core-services-card.polebarn {
+  background-image: url('/photos/pole-barn.webp');
+}
+
 .core-services-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.4); /* Light overlay */
+  background: rgba(0, 0, 0, 0.6); /* Light overlay */
   z-index: 0;
   border-radius: inherit;
 }

@@ -1,21 +1,24 @@
 ---
-title: "Central Michigan Garage Door Services"
+title: "Garage Door Repair in Central Michigan - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import TestimonialCard from '../../components/TestimonialCard.astro'
+import TrustBadges from '../../components/TrustBadges.astro';
+import HomeownerToolbox from '../../components/HomeownerToolbox.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import ServiceFooter from '../../components/ServiceFooter.astro';
 import LocationsFooter from '../../components/LocationsFooter.astro';
 
-const title = 'Central Michigan Garage Door Services | Isabella Garage Door';
-const description = 'Garage door repair, installation, and maintenance across Central Michigan by Isabella Garage Door. Locally owned, regionally trusted.'
+const title = 'Garage Door Repair Central Michigan | Isabella Garage Door';
+const description = 'Professional garage door repair and installation throughout Central Michigan. Broken springs, openers, new doors, pole barns. Serving Mt. Pleasant, Clare, Alma, and surrounding communities from our Rosebush base. Call 989-572-0303.';
 
-const serviceAreaSchema = {
+const centralMichiganSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
       "@id": "https://isabellagaragedoor.com/locations/central-michigan",
       "url": "https://isabellagaragedoor.com/locations/central-michigan",
-      "name": "Central Michigan Garage Door Services",
-      "description": "Garage door repair, installation, and maintenance across Central Michigan by Isabella Garage Door. Locally owned, regionally trusted."
+      "name": "Garage Door Repair in Central Michigan | Isabella Garage Door",
+      "description": "Professional garage door repair, broken spring replacement, opener installation, and new door installation throughout Central Michigan—serving Isabella, Gratiot, Clare, and Mecosta County communities from a Rosebush base."
     },
     {
       "@type": "Service",
@@ -23,22 +26,109 @@ const serviceAreaSchema = {
       "provider": {
         "@id": "https://isabellagaragedoor.com/#business"
       },
-      "description": "Providing reliable garage door repair, new door installation, opener replacement, and maintenance plans.",
+      "description": "Comprehensive garage door services throughout Central Michigan including spring replacement, opener repair and installation, door repair, new door installation, and preventive maintenance.",
       "areaServed": [
-        { "@type": "City", "name": "Mt. Pleasant" },
-        { "@type": "City", "name": "Clare" },
-        { "@type": "City", "name": "Lake Isabella" },
-        { "@type": "City", "name": "Beal City" },
-        { "@type": "City", "name": "Shepherd" },
-        { "@type": "City", "name": "Rosebush" },
-        { "@type": "City", "name": "Remus" },
-        { "@type": "City", "name": "Farwell" },
-        { "@type": "City", "name": "Coleman" },
-        { "@type": "City", "name": "St. Louis" },
-        { "@type": "City", "name": "Alma" },
-        { "@type": "City", "name": "Edmore" },
-        { "@type": "City", "name": "Winn" }
-      ]
+        { "@type": "AdministrativeArea", "name": "Isabella County, Michigan" },
+        { "@type": "AdministrativeArea", "name": "Gratiot County, Michigan" },
+        { "@type": "AdministrativeArea", "name": "Clare County, Michigan" },
+        { "@type": "AdministrativeArea", "name": "Mecosta County, Michigan" },
+        { "@type": "City", "name": "Mount Pleasant, MI" },
+        { "@type": "City", "name": "Alma, MI" },
+        { "@type": "City", "name": "Clare, MI" },
+        { "@type": "City", "name": "Farwell, MI" },
+        { "@type": "City", "name": "Coleman, MI" },
+        { "@type": "City", "name": "Shepherd, MI" },
+        { "@type": "City", "name": "Remus, MI" },
+        { "@type": "City", "name": "Rosebush, MI" },
+        { "@type": "City", "name": "Lake Isabella, MI" },
+        { "@type": "City", "name": "Beal City, MI" },
+        { "@type": "City", "name": "St. Louis, MI" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Central Michigan Garage Door Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Broken Spring Replacement",
+              "url": "https://isabellagaragedoor.com/services/broken-springs"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Garage Door Repair",
+              "url": "https://isabellagaragedoor.com/services/door-repair"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Opener Repair & Installation",
+              "url": "https://isabellagaragedoor.com/services/opener-repair"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "New Door Installation",
+              "url": "https://isabellagaragedoor.com/services/new-door-installation"
+            }
+          }
+        ]
+      }
+    }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What areas of Central Michigan do you serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We serve communities throughout Isabella, Gratiot, Clare, and Mecosta County including Mt. Pleasant, Alma, Clare, Farwell, Coleman, Shepherd, Remus, Rosebush, Lake Isabella, Beal City, St. Louis, and all rural areas in between. If you're in Central Michigan and you're not sure whether we cover your area, call us—the answer is almost certainly yes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are you actually based in Central Michigan or are you a regional franchise?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We're genuinely local. Isabella Garage Door is based in Rosebush, Michigan—right in the heart of the region we serve. We're not a franchise, not a Lansing or Grand Rapids company with a Central Michigan service area page, and not a call center that dispatches strangers. When you call us, you reach someone who lives and works in Central Michigan and knows these communities firsthand."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work on pole barns and agricultural doors throughout Central Michigan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Central Michigan is farm country—Isabella, Gratiot, Clare, and Mecosta counties all have strong agricultural traditions, and pole barns, machine sheds, and large overhead doors are a significant part of what we service. We carry heavy-duty parts, work on large openings regularly, and understand the difference between what a farm door needs and what a residential door needs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can you respond to garage door repairs in Central Michigan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Response times vary by location but our Rosebush base puts us close to most Central Michigan communities. Mt. Pleasant, Rosebush, Beal City, and Isabella Township properties are often same-day within hours. Communities like Clare, Farwell, Alma, Shepherd, St. Louis, Coleman, and Remus typically receive same-day or next-day service. Emergency situations like broken springs or doors that won't close get priority across the whole service area."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What garage door services do you offer throughout Central Michigan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Complete garage door services: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation for all major brands, sensor repair, new door installation, and annual preventive maintenance. Residential, agricultural, and rural properties throughout Central Michigan."
+      }
     }
   ]
 };
@@ -47,134 +137,355 @@ const serviceAreaSchema = {
 <BaseLayout {title} {description}>
 
 <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(serviceAreaSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(centralMichiganSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
 
-<img src="/photos/new-garage-door-install-central-michigan.webp" alt="Request garage door service or intallation today in Central Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
+<img src="/photos/new-garage-door-install-central-michigan.webp" alt="Professional garage door repair and installation throughout Central Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
 
-  <section>
-    <h1 class="page-title">Garage Door Repair & Installation in Central Michigan</h1>
-    <p class="slogan">Raising Performance. Elevating Standards.</p>
-    <p>
-      At <strong>Isabella Garage Door</strong>, we proudly serve the heart of Central Michigan—where dependable service meets small-town values. From rural homes to suburban garages, we help homeowners across the region keep things moving safely and smoothly.
+<section>
+  <h1 class="page-title">Garage Door Repair Throughout Central Michigan</h1>
+  <p>
+    Central Michigan isn't a single city or a single county—it's a stretch of the Lower Peninsula that runs from the 
+    lakes and forests of Clare County in the north down through the agricultural heartland of Gratiot County in the south, 
+    with Isabella County at the center and Mecosta County reaching west toward Big Rapids. It's a region of small cities, 
+    tight-knit towns, working farms, lakefront communities, and rural roads that connect them all. Isabella Garage Door 
+    was built for exactly this territory. We're based in Rosebush—genuinely in the middle of it—and we service every 
+    corner of Central Michigan with the same fast response, honest pricing, and quality work that our home community 
+    has always expected from us.
+  </p>
+  <p style="margin-top: 1rem; text-align: center;">
+    <strong>Anywhere in Central Michigan:</strong> Call or text us now. Same-day appointments often available.
+  </p>
+    <a href="tel:9895720303" class="hero-contact-button" style="margin: 2rem auto 0;">
+      <i class="fas fa-phone"></i> Call 989-572-0303
+    </a>
+    <a href="sms:9895720303?&body=Hi%2C%20I%20need%20garage%20door%20service%20in%20Central%20Michigan." class="hero-contact-button" style="margin: 1rem auto 0; background: #1a334f; border: .094rem solid #b27d57;">
+      <i class="fas fa-comment-dots"></i> Text Us Now
+    </a>
+</section>
+
+<section>
+  <TrustBadges />
+</section>
+
+<section>
+  <h2 class="sub-heading">Locally Owned. Regionally Trusted.</h2>
+  <p class="p-home">
+    Isabella Garage Door is built around one simple idea: the best garage door service in Central Michigan should come 
+    from someone who actually lives here. We're based in Rosebush, Isabella County—right at the center of the region 
+    we serve. Mt. Pleasant is minutes away. Clare and Farwell are up Old 27. Alma and St. Louis are down US-127. 
+    Remus is west on M-20. We know these corridors, these communities, and these people—not because we studied a map, 
+    but because this is home. When you call us, you reach a real person who knows exactly where you are. 
+    And when we show up, we do the work like our reputation in this community depends on it—because it does.
+  </p>
+</section>
+
+<section class="core-services-section">
+  <h2 class="sub-heading">Complete Garage Door Services Across Central Michigan</h2>
+  <p class="core-services-intro">
+    Every community in our service area gets access to the same full range of services. Here's what Central Michigan homeowners, farmers, and property owners count on us for:
+  </p>
+
+  <div class="core-services-grid">
+
+    <a href="/services/broken-springs" class="core-services-card spring reveal-on-scroll">
+      <h3>Broken Spring Replacement</h3>
+      <p>Broken springs are the most common garage door failure in Central Michigan—and the most urgent. When a spring snaps, your door isn't moving safely until it's replaced. We carry high-cycle replacement springs for residential and agricultural applications, serve the entire region, and prioritize spring calls for same-day response wherever possible. We replace both springs at once and balance the door before we leave.</p>
+    </a>
+
+    <a href="/services/door-repair" class="core-services-card repair">
+      <h3>General Door Repair</h3>
+      <p>Off-track doors, snapped cables, worn rollers, bent tracks, damaged panels—we find the real problem and fix it. Central Michigan's housing stock ranges from century-old farmhouses to new construction subdivisions, and we've worked on garage hardware across the full spectrum. No configuration surprises us and no job gets a generic fix.</p>
+    </a>
+
+    <a href="/services/opener-repair" class="core-services-card opener">
+      <h3>Opener Repair & Installation</h3>
+      <p>Every opener brand, every failure mode—we've seen them all across the region. We service LiftMaster, Chamberlain, Genie, Craftsman, and all major brands. When repair isn't worth it, we install new smart openers with Wi-Fi and smartphone control. Especially valuable for rural properties and farm operations where remote access matters.</p>
+    </a>
+<!--
+    <a href="/services/new-door-installation" class="core-services-card installation">
+      <h3>New Door Installation</h3>
+      <p>A new garage door is one of the highest-return home improvements available in Central Michigan's market. We install quality residential doors in every style—traditional, carriage house, modern—in steel, wood, or composite. Heavy-duty options for agricultural buildings and shops. We handle everything from measurement to removal of your old door to final adjustment throughout the region.</p>
+    </a>
+-->
+    <a href="/services/maintenance" class="core-services-card maintenance">
+      <h3>Preventive Maintenance</h3>
+      <p>Central Michigan winters are real—cold that tightens springs, moisture that corrodes hardware, and freeze-thaw cycles that wear on every moving part. An annual tune-up before the season turns keeps your entire system running reliably and catches problems while they're still inexpensive. Available throughout the service area, residential and agricultural.</p>
+    </a>
+
+    <div class="core-services-card core-services-card agricultural">
+      <h3>Pole Barns & Agricultural Doors</h3>
+      <p>Central Michigan is farm country. Isabella, Gratiot, Clare, and Mecosta counties all have deep agricultural roots, and working farms with pole barns, machine sheds, and large overhead doors are a fixture across the region. We service agricultural doors regularly, carry heavy-duty parts, and understand the difference between what a farm operation needs and what can wait. When the season is on, we move fast.</p>
+    </div>
+
+  </div>
+</section>
+
+<section style="margin-top: 2rem;">
+  <h2 class="sub-heading">Every Community in Our Service Area</h2>
+  <p class="p-home">
+    We've built dedicated service pages for each community in our area because we believe every town deserves to be 
+    treated as its own place—not a line item on a regional coverage map. Here's where we work, and what makes each community worth knowing:
+  </p>
+
+  <div class="p-home" style="margin-top: 1.5rem;">
+
+    <p><strong>📍 <a href="/locations/mt-pleasant" style="color: #c57b30;">Mt. Pleasant</a></strong><br>
+    The commercial and civic hub of Isabella County—our most frequently served city. CMU drives a large rental market alongside established residential neighborhoods and a busy south side. Minutes from our Rosebush base and one of our fastest response areas in the region.</p>
+
+    <p style="margin-top: 1rem;"><strong>📍 <a href="/locations/rosebush" style="color: #c57b30;">Rosebush</a></strong><br>
+    Home base. Isabella Garage Door is based right here in Rosebush—which means Rosebush and Isabella Township properties get the fastest possible response. When you call from Rosebush, you're calling your actual neighbor.</p>
+
+    <p style="margin-top: 1rem;"><strong>📍 <a href="/locations/lake-isabella" style="color: #c57b30;">Lake Isabella</a></strong><br>
+    One of Isabella County's premier lakefront communities—a mix of year-round residents and seasonal cottage owners spread across Broomfield, Rolland, and Coe Township. We service lakefront homes, year-round neighborhoods, and seasonal properties throughout the lake community.</p>
+
+    <p style="margin-top: 1rem;"><strong>📍 <a href="/locations/beal-city" style="color: #c57b30;">Beal City</a></strong><br>
+    A tight-knit faith-and-farming community in Denver Township, just minutes from our Rosebush base. Multigenerational farms, well-kept homes, and one of the most closely connected communities in Isabella County. The Aggies country—and we know every road in it.</p>
+
+    <p style="margin-top: 1rem;"><strong>📍 <a href="/locations/shepherd" style="color: #c57b30;">Shepherd</a></strong><br>
+    Home of the Sugar Festival and the Bluejays, sitting right at the Isabella-Gratiot county line. We cover both sides of the line without hesitation—Coe Township on the Isabella side, Gratiot County properties to the south and east.</p>
+
+    <p style="margin-top: 1rem;"><strong>📍 <a href="/locations/clare" style="color: #c57b30;">Clare</a></strong><br>
+    The Gateway to Michigan's North—where Old 27 meets US-10 and half of lower Michigan stops for gas and a dozen from Cops &amp; Doughnuts. About 20 minutes up Old 27 from Rosebush. Strong rural coverage into Clare County beyond the city.</p>
+
+    <p style="margin-top: 1rem;"><strong>📍 <a href="/locations/farwell" style="color: #c57b30;">Farwell</a></strong><br>
+    Clare's neighbor across the Muskegon River—its own distinct community with its own neighborhoods and rural roads reaching into northern Clare County. About 25 minutes up Old 27 from Rosebush, and we treat Farwell as a destination, not a detour.</p>
+
+    <p style="margin-top: 1rem;"><strong>📍 <a href="/locations/alma" style="color: #c57b30;">Alma</a></strong><br>
+    The Gratiot County seat—home of Alma College, the Highland Festival, and some of the best-preserved older homes in mid-Michigan. About 20 minutes south on US-127. We're experienced with Alma's older housing stock and know the difference between a Pine River address and a Wright Avenue one.</p>
+
+    <p style="margin-top: 1rem;"><strong>📍 <a href="/locations/st-louis" style="color: #c57b30;">St. Louis</a></strong><br>
+    The geographic center of Michigan's Lower Peninsula—and well within the center of our service area. About 25 minutes south on US-127. St. Louis gets its own service, not Alma's overflow—we know which side of the Pine River we're heading to.</p>
+
+    <p style="margin-top: 1rem;"><strong>📍 <a href="/locations/coleman" style="color: #c57b30;">Coleman</a></strong><br>
+    Comets country—a working-class farming community on M-18 between Mt. Pleasant and Midland, with strong agricultural roots in Midland County. Pole barns and farm doors are a big part of our work in the Coleman area, and we come prepared for them.</p>
+
+    <p style="margin-top: 1rem;"><strong>📍 <a href="/locations/remus" style="color: #c57b30;">Remus</a></strong><br>
+    Home of the Wheatland Music Festival and surrounded by the farm country of Wheatland Township in Mecosta County. About 20 minutes west on M-20. Remus isn't our edge case—it's a regular stop on a route we know well.</p>
+
+  </div>
+
+  <p class="p-home" style="margin-top: 1.5rem;">
+    <strong>Don't see your community listed?</strong> Call us at <a href="tel:9895720303" style="color: #c57b30; text-decoration: underline;">989-572-0303</a>. 
+    If you're anywhere in Central Michigan, the answer is almost certainly yes.
+  </p>
+</section>
+
+<section class="signs additional-info">
+  <h2 class="sub-heading">Why Central Michigan Homeowners Choose Isabella Garage Door</h2>
+  <div class="columns">
+    <div>
+      <h3 class="sub-sub-heading">Actually Central Michigan</h3>
+      <p>
+        Based in Rosebush, we're not reaching into Central Michigan from somewhere else—we're at its center. No long drives built into the price, no crews unfamiliar with the territory, no call centers routing your job to whoever's available. We're already here.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">Every Community Gets a Dedicated Response</h3>
+      <p>
+        We don't treat Mt. Pleasant like the hub and everyone else like overflow. Clare, Farwell, Remus, Coleman, St. Louis, Beal City—every community in our service area gets scheduled on its own terms, with response times that reflect how close we actually are.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">Farm Country Experience</h3>
+      <p>
+        Central Michigan's agricultural heritage runs deep across four counties. We carry heavy-duty parts, we work on large openings, and we understand what a working farm needs from a garage door company—including that some repairs can't wait for a convenient day.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">Small Town Accountability at Regional Scale</h3>
+      <p>
+        In small towns, reputation is everything—and we operate in a lot of small towns. Every community we serve is close enough that word travels. We do every job like someone in that community is going to talk about it, because they usually do.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">Honest Pricing, Every County</h3>
+      <p>
+        Gratiot County gets the same pricing as Isabella County. Clare County doesn't pay more because it's farther. We quote before we start and stick to it everywhere we work—no regional rate cards, no rural upcharges, no surprises.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <img src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" />
+  <p class="p-home area-description-intro">
+    Isabella Garage Door proudly serves homeowners in:
+  </p>
+<p class="area-description-list">
+      <a href="/locations/mt-pleasant">Mount Pleasant</a> • 
+      <a href="/locations/lake-isabella">Lake Isabella</a> • 
+      <a href="/locations/clare">Clare</a> • 
+      <a href="/locations/alma">Alma</a> • 
+      <a href="/locations/farwell">Farwell</a> • 
+      <a href="/locations/coleman">Coleman</a> • 
+      <a href="/locations/shepherd">Shepherd</a> • 
+      <a href="/locations/remus">Remus</a> • 
+      <a href="/locations/rosebush">Rosebush</a> • 
+      <a href="/locations/beal-city">Beal City</a> • 
+      <a href="/locations/st-louis">St. Louis</a>
+      and surrounding 
+      <a href="/locations/central-michigan">Central Michigan</a> 
+      communities.
     </p>
-  </section>
+</section>
 
-  <section>
-    <h2 class="sub-heading">Locally Owned. Regionally Trusted.</h2>
-    <p>
-      We’re based right here in <strong>Isabella County</strong>, and we know what Central Michigan needs—harsh winters, wet spring thaws, and all. Whether you're in a quiet farming town or a growing neighborhood, you’ll get the same honest, high-quality service every time.
-    </p>
-  </section>
+  <HomeownerToolbox />
 
-  <section>
-    <h2 class="sub-heading">Areas We Serve</h2>
-<img src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" style="margin-bottom: 2rem;"/>
-    <ul>
-      <li>Mt. Pleasant</li>
-      <li>Clare</li>
-      <li>Lake Isabella</li>
-      <li>Beal City</li>
-      <li>Shepherd</li>
-      <li>Rosebush</li>
-      <li>Remus</li>
-      <li>Farwell</li>
-      <li>Coleman</li>
-      <li>St. Louis</li>
-      <li>Alma</li>
-      <li>Edmore</li>
-      <li>Winn</li>
-      <li>...and surrounding areas</li>
-    </ul>
-    <p style="margin-top: 0.5rem;">
-      👉 See our <a href="/contact#service-area" class="link">full service area</a><br>
-      👉 Receive an <a href="/homeowner-tools/easy-estimate#estimate-form" class="link">Online Estimate</a>
-    </p>
-  </section>
+<section class="faq-area">
+<section id="faq">
+<div class="faq-head">
+  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions - Central Michigan</h2>
+</div>
 
-  <section>
-    <h2 class="sub-heading">What We Offer</h2>
-    <ul>
-      <li><strong>Garage Door Repairs</strong> – Springs, rollers, cables, openers, and more</li>
-      <li><strong>New Door Installation</strong> – Residential upgrades with pro recommendations</li>
-      <li><strong>Opener Installation & Replacement</strong> – Trusted brands like LiftMaster® Chamberlain® and Genie®</li>
-      <li><strong>Preventive Maintenance Plans</strong> – So you don’t get stuck in the cold</li>
-    </ul>
-  </section>
+<div class="reveal-on-scroll">
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What areas of Central Michigan do you serve?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>We serve communities throughout Isabella, Gratiot, Clare, and Mecosta County including Mt. Pleasant, Alma, Clare, Farwell, Coleman, Shepherd, Remus, Rosebush, Lake Isabella, Beal City, St. Louis, and all rural areas in between. If you're in Central Michigan and you're not sure whether we cover your area, call us at <a href="tel:9895720303" style="color: #c57b30;">989-572-0303</a>—the answer is almost certainly yes.</p>
+    </div>
+  </div>
 
-  <section>
-    <h2 class="sub-heading">Why Central Michigan Homeowners Trust Us</h2>
-    <ul>
-      <li>👨‍🔧 Reliable—We keep our word, and your door moving </li>
-      <li>📅 Prompt scheduling—clear communication</li>
-      <li>✅ Honest recommendations—no upsells</li>
-      <li>📍 Deep local roots—never subcontracted</li>
-      <li>💬 5-star reviews from your neighbors</li>
-    </ul>
-  </section>
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Are you actually based in Central Michigan or are you a regional franchise?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>We're genuinely local. Isabella Garage Door is based in Rosebush, Michigan—right in the heart of the region we serve. We're not a franchise, not a Lansing or Grand Rapids company with a Central Michigan service area page, and not a call center dispatching strangers. When you call us, you reach someone who lives and works in Central Michigan and knows these communities firsthand.</p>
+    </div>
+  </div>
 
-    <!-- Testimonial 
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you work on pole barns and agricultural doors throughout Central Michigan?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes. Central Michigan is farm country—Isabella, Gratiot, Clare, and Mecosta counties all have strong agricultural traditions, and pole barns, machine sheds, and large overhead doors are a significant part of what we service. We carry heavy-duty parts, work on large openings regularly, and understand what farm operations actually need from a garage door company.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>How quickly can you respond to garage door repairs in Central Michigan?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Response times vary by location but our Rosebush base keeps us close to most Central Michigan communities. Mt. Pleasant, Rosebush, Beal City, and Isabella Township properties are often same-day within hours. Clare, Farwell, Alma, Shepherd, St. Louis, Coleman, and Remus typically receive same-day or next-day service. Emergency situations get priority across the whole service area—call us at <a href="tel:9895720303" style="color: #c57b30;">989-572-0303</a> and we'll give you an honest window.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What garage door services do you offer throughout Central Michigan?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Complete garage door services region-wide: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation for all major brands, sensor repair<!-- , new door installation -->, and annual preventive maintenance. Residential, agricultural, and rural properties throughout Central Michigan.</p>
+    </div>
+  </div>
+
+</section>
+</section>
+
+    <!--
+ Testimonial Placeholder Until I Get Real Reviews
 <section>
 <a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
   <TestimonialCard 
-    quote="We live out past Rosebush and still got fast help when our spring broke on a cold day. Wouldn’t call anyone else."
-    author="Carrie H."
+    quote="I didn't realize there was a local garage door company that covered this whole area. Called them for a spring replacement and they were out the same day. Great work, honest price. Now I know who to call."
+    author="Karen M., Central Michigan"
   />
 </a>
 </section>
--->
+   -->
 
   <!-- Highlight Section -->
-  <div class="highlight-section">
+  <div class="highlight-section reveal-on-scroll">
     <p>
-      When garage doors need attention anywhere in Central Michigan, locals turn to <strong>Isabella Garage Door</strong> for reliable repairs done right the first time.
+      From Clare County in the north to Gratiot County in the south, from Isabella County at the center to Mecosta County in the west—<strong>Isabella Garage Door</strong> is Central Michigan's local garage door company. Built here. Based here. Working here every day.
     </p>
   </div>
 
   <section>
-    <h2 class="sub-heading">Book Trusted Garage Door Service in Central Michigan</h2>
-    <p>
-      Your garage door keeps your life running. Let us help you keep it that way—with service rooted right here in Central Michigan.
+    <h2 class="sub-heading">Serving All of Central Michigan</h2>
+    <p class="p-home">
+      Wherever you are in the region—city, small town, rural road, or lakefront property—we're close by and ready to help. 
+      Call us, text us, or use EasyEstimate™ to get a ballpark online. We'll take it from there.
     </p>
-    <a href="/homeowner-tools/easy-estimate#estimate-form" class="testimonials-cta-button">Get an EasyEstimate™</a>
-    <a href="/contact" class="cta-button">Request Service</a>
+    <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto 1rem;"><i class="fas fa-calculator"></i> Get Free Estimate</a>
+    <a href="/contact" class="cta-button"><i class="fas fa-calendar-check"></i> Schedule Service</a>
   </section>
-
 
 <section>
   <h2 class="sub-heading">Isabella Garage Door</h2>
   <p style="font-size: .9rem; text-align: center;">
-    Serving Central Michigan with all your garage door needs.
+    Central Michigan's local garage door company—based in Rosebush, serving four counties and every community in between.
   </p>
   <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
     <em>Raising Performance. Elevating Standards</em>
   </p>
+  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
+    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #c57b30; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
+  </p>
 </section>
 
-<LocationsFooter currentPath="" slot="full-width-section" />
+<ServiceFooter currentPath="null" slot="full-width-section"/>
+<LocationsFooter currentPath="/locations/central-michigan" slot="full-width-section" />
 
-<style>
-  .slogan {
-    font-size: 1.2rem;
-    color: #b27d57;
-    margin: 1rem 0;
-  }
+<script is:inline>
+document.querySelectorAll('.faq-item').forEach(item => {
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
 
-  ul {
-    list-style: disc;
-    padding-left: 2.5rem;
-  }
+  question.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
 
-.link {
-  color: #b27d57;
-  font-weight: bold;
-  text-decoration: underline;
-}
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+    });
 
-.link:hover {
-  color: #81583b;
-}
-</style>
+    if (!isOpen) {
+      item.classList.add('open');
+       answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(" .core-services-card, .reveal-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>
 
 <script>
   if (typeof window !== 'undefined') {
@@ -182,7 +493,7 @@ const serviceAreaSchema = {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('slide-up-in');
-          observer.unobserve(entry.target); // Animate only once
+          observer.unobserve(entry.target);
         }
       });
     }, {
@@ -197,6 +508,23 @@ const serviceAreaSchema = {
       }
     });
   }
+</script>
+
+<script is:script>
+  const icons = document.querySelectorAll('.core-services-icon-circle');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+icons.forEach(icon => observer.observe(icon));
 </script>
 
 </BaseLayout>

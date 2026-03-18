@@ -1,0 +1,181 @@
+---
+
+---
+<!-- Homeowner toolbox -->
+<section class="core-services-section">
+  <div class="homeowner-toolbox-section">
+    <h2 class="sub-heading">Homeowner Toolbox</h2>
+     <p style="text-align: left;">Fast answers. Instant estimates. Easy diagnostics. Built for you.</p>
+
+    <div class="homeowner-toolbox-wrapper">
+      <div class="homeowner-toolbox-grid">
+
+        <a href="/homeowner-tools/easy-estimate#estimate-form" aria-label="Receive a Free Estimate from Isabella Garage Door" class="homeowner-toolbox-card">
+          <img src="/photos/easyestimate-logo.webp" alt="EasyEstimate" class="homeowner-toolbox-img">
+          <div class="homeowner-toolbox-body">
+            <h3>EasyEstimate™</h3>
+            <p>Curious about costs? EasyEstimate™ gives fast estimates in seconds.</p>
+        <p class="read-more" style="color: #b27d57;">Get Estimate →</p>
+          </div>
+        </a>
+
+        <a href="/homeowner-tools/door-diagnosis#troubleshooting" aria-label="Diagnose Your Garage Door with DoorDiagnosis Tool" class="homeowner-toolbox-card">
+          <img src="/photos/doordiagnosis-logo.webp" alt="DoorDiagnosis" class="homeowner-toolbox-img">
+          <div class="homeowner-toolbox-body">
+            <h3>DoorDiagnosis™</h3>
+            <p>Door problems? DoorDiagnosis™ pinpoints the problem in less than a minute.</p>
+        <p class="read-more" style="color: #b27d57;">Find Problem →</p>
+          </div>
+        </a>
+
+        <a href="/homeowner-tools/spring-status#springstatus" aria-label="Check Your Garage Door Springs with SpringStatus Tool" class="homeowner-toolbox-card">
+          <img src="/photos/springstatus-logo.webp" alt="SpringStatus" class="homeowner-toolbox-img">
+          <div class="homeowner-toolbox-body">
+            <h3>SpringStatus™</h3>
+            <p>Worried your springs might fail? SpringStatus™ calculates their lifespan instantly—so you know when to replace them.</p>
+        <p class="read-more" style="color: #b27d57;">Check Springs →</p>
+          </div>
+        </a>
+
+        <a href="/homeowner-tools/ask-abel-ai-assistant#askabel" aria-label="AI Garage Door Chat Bot" class="homeowner-toolbox-card">
+          <img src="/photos/askabel-logo.webp" alt="AI Garage Door Assistant" class="homeowner-toolbox-img">
+          <div class="homeowner-toolbox-body">
+            <h3>AskAbel™</h3>
+            <p>Got a garage door question? AskAbel™ gives you instant answers—anytime, day or night</p>
+        <p class="read-more" style="color: #b27d57;">Ask Abel →</p>
+          </div>
+        </a>
+   
+
+      </div>
+    </div>
+
+<!--
+    <a href="/homeowner-tools/toolbox" class="cta-button margin-bottom-2rem" style="display: block; margin: 2rem auto 0;">
+      <i class="fa-solid fa-toolbox"></i> Use Homeowner Tools
+    </a>
+-->
+  </div>
+</section>
+
+<style>
+.homeowner-toolbox-section {
+  text-align: center;
+}
+
+.homeowner-toolbox-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.homeowner-toolbox-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.homeowner-toolbox-card {
+  background: #fff;
+  border: 0.094rem solid #b27d57;
+  border-radius: 0.75rem;
+  padding: 1rem 1rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+  position: relative;
+  background-image: url('/photos/white-garage-door-service-section.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #ffffff; /* fallback if image fails */
+z-index: 1;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.homeowner-toolbox-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.homeowner-toolbox-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.5); /* Light overlay */
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.homeowner-toolbox-card * {
+  position: relative;
+  z-index: 2;
+}
+
+.homeowner-toolbox-card:hover,
+.homeowner-toolbox-card:focus {
+  transform: translateY(-5px);
+  box-shadow: 0 0 0.75rem rgba(178, 125, 87, 0.5);
+  outline: none;
+}
+
+.homeowner-toolbox-img {
+  display: block;           /* Prevents weird bottom spacing */
+  max-width: 100%;          /* Never wider than its container */
+  height: auto;             /* Maintains aspect ratio automatically */
+  margin-left: auto;        /* Center it if the container is wider */
+  margin-right: auto;       /* Center it */
+  margin-bottom: 1rem;
+  border-radius: .75rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+}
+
+.homeowner-toolbox-body h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1a334f;
+  font-family: 'Lora', serif;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  line-height: 2.1rem;
+}
+
+.homeowner-toolbox-body p {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #333;
+  text-align: left;
+  padding: 0 1rem;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".homeowner-toolbox-card, .core-services-card, .reveal-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // reveal once
+          }
+        });
+      },
+      {
+        threshold: 0.2, // trigger when 20% of card is visible
+      }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>

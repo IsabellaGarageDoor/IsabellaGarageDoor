@@ -1,0 +1,517 @@
+---
+title: "Garage Door Repair in Shepherd, MI - Isabella Garage Door"
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
+import HomeownerToolbox from '../../components/HomeownerToolbox.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import ServiceFooter from '../../components/ServiceFooter.astro';
+import LocationsFooter from '../../components/LocationsFooter.astro';
+
+const title = 'Garage Door Repair Shepherd MI | Isabella Garage Door';
+const description = 'Professional garage door repair and installation in Shepherd, Michigan. Broken springs, opener repair, pole barns, and new doors. Local service for Shepherd and surrounding Isabella County. Call 989-572-0303.';
+
+const shepherdSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Isabella Garage Door - Shepherd",
+  "image": "https://isabellagaragedoor.com/photos/shepherd-michigan-garage-door-repair.webp",
+  "@id": "https://isabellagaragedoor.com/service-areas/shepherd",
+  "url": "https://isabellagaragedoor.com/service-areas/shepherd",
+  "telephone": "+1-989-572-0303",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Shepherd",
+    "addressRegion": "MI",
+    "postalCode": "48883",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.5239,
+    "longitude": -84.6930
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Shepherd",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Shepherd",
+        "addressRegion": "MI",
+        "addressCountry": "US"
+      }
+    },
+    { "@type": "Place", "name": "Coe Township, MI" },
+    { "@type": "Place", "name": "Broomfield Township, MI" },
+    { "@type": "Place", "name": "Gratiot County, MI" },
+    { "@type": "Place", "name": "Isabella County, MI" }
+  ],
+  "description": "Professional garage door repair, broken spring replacement, opener installation, and new door installation serving Shepherd, Michigan, Coe Township, and the surrounding Isabella and Gratiot County area.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Shepherd Garage Door Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Broken Spring Replacement in Shepherd",
+          "url": "https://isabellagaragedoor.com/services/broken-springs"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Garage Door Repair in Shepherd",
+          "url": "https://isabellagaragedoor.com/services/door-repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Opener Repair & Installation in Shepherd",
+          "url": "https://isabellagaragedoor.com/services/opener-repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "New Door Installation in Shepherd",
+          "url": "https://isabellagaragedoor.com/services/new-door-installation"
+        }
+      }
+    ]
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you repair garage doors in Shepherd, Michigan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Shepherd is one of our regularly served communities. We're based in Rosebush, about 15 minutes away, and we cover Shepherd, Coe Township, Broomfield Township, and rural properties on both the Isabella and Gratiot County sides of town. Same-day service is often available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can you get to Shepherd for garage door repairs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Shepherd is about 15 minutes from our Rosebush location—one of our closest service areas. For broken springs, stuck doors, or anything urgent, we prioritize same-day scheduling. Call 989-572-0303 and we'll give you a tight arrival window."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you service properties on both the Isabella County and Gratiot County sides of Shepherd?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Shepherd sits right at the Isabella-Gratiot county line and we service both sides without hesitation. Whether your address falls in Isabella County or Gratiot County, we come to you. The county line doesn't affect our coverage or our pricing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work on pole barns and agricultural doors near Shepherd?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. Shepherd is surrounded by farmland and agricultural properties, and we service pole barns, machine sheds, and large overhead doors throughout the area. We carry parts for heavy-duty applications and regularly work on farm properties in Coe Township and the rural Shepherd area."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What garage door services do you offer in Shepherd?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair, new door installation, and annual preventive maintenance for residential and agricultural garage doors in Shepherd and the surrounding area."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(shepherdSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+<img src="/photos/shepherd-michigan.webp" alt="Professional garage door repair service in Shepherd, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
+
+<section>
+  <h1 class="page-title">Garage Door Service in Shepherd, MI</h1>
+  <p>
+    Every May, Shepherd shuts down Wright Avenue and throws one of the longest-running festivals in Michigan. The Maple Syrup Festival 
+    has been drawing crowds to this small town for decades—a tradition that says something about the kind of community Shepherd is. 
+    It's a town that shows up, takes pride in what it has, and values the businesses and neighbors that do the same. The Bluejays 
+    pack the stands on Friday nights. The farms that surround the town have been worked by the same families for generations. 
+    When your garage door breaks in Shepherd, Isabella Garage Door is about 15 minutes away in Rosebush—close enough to get 
+    there fast, local enough to care about doing it right.
+  </p>
+  <p style="margin-top: 1rem; text-align: center;">
+    <strong>Shepherd residents:</strong> Call or text us now. Same-day appointments often available.
+  </p>
+    <a href="tel:9895720303" class="hero-contact-button" style="margin: 2rem auto 0;">
+      <i class="fas fa-phone"></i> Call 989-572-0303
+    </a>
+    <a href="sms:9895720303?&body=Hi%2C%20I%20need%20garage%20door%20service%20in%20Shepherd." class="hero-contact-button" style="margin: 1rem auto 0; background: #1a334f; border: .094rem solid #b27d57;">
+      <i class="fas fa-comment-dots"></i> Text Us Now
+    </a>
+</section>
+
+<section>
+  <TrustBadges />
+</section>
+
+<section>
+  <h2 class="sub-heading">Local Service for a Town That Knows the Difference</h2>
+  <p class="p-home">
+    Shepherd sits right at the line where Isabella County meets Gratiot County—a crossroads community on US-10 that draws 
+    from both sides of the county line. The town is small but the surrounding area is wide, covering farmland, rural 
+    properties, and country homes spread across Coe Township and beyond. Isabella Garage Door knows this territory. 
+    We're based in Rosebush, just up the road, and we've worked on garages throughout the Shepherd area—older homes 
+    near downtown, newer builds on the outskirts, and agricultural properties on the county roads in every direction.
+  </p>
+  <p class="p-home" style="margin-top: 1rem;">
+    A town like Shepherd can tell the difference between a company that's just ticking a box on a service area list 
+    and one that actually knows the area and takes pride in the work. We're the second kind. We show up when we say 
+    we will, fix what's broken without padding the job, and charge a price we'd be comfortable defending to anyone 
+    in the community. That's how we do business everywhere—but it matters especially in towns small enough that 
+    everyone finds out either way.
+  </p>
+</section>
+
+<section class="core-services-section">
+  <h2 class="sub-heading">Complete Garage Door Services in Shepherd, Michigan</h2>
+  <p class="core-services-intro">
+    From Wright Avenue to the county roads—here's what Shepherd homeowners and property owners count on us for:
+  </p>
+
+  <div class="core-services-grid">
+
+    <a href="/services/broken-springs" class="core-services-card spring reveal-on-scroll">
+      <h3>Broken Spring Replacement</h3>
+      <p>A snapped torsion or extension spring brings your door to a complete stop—and it rarely gives a warning first. We carry high-cycle replacement springs for both residential and heavy-duty applications, replace both springs at once so one failure doesn't lead to another, and balance the door before we leave. Shepherd is 15 minutes from Rosebush, so same-day service is very often possible.</p>
+    </a>
+
+    <a href="/services/door-repair" class="core-services-card repair">
+      <h3>General Door Repair</h3>
+      <p>Off-track panels, broken cables, worn rollers, bent tracks, damaged sections—we've seen every way a garage door can fail and we fix them all. Shepherd has older homes near the downtown core and newer builds further out, and we're comfortable with hardware from any era. We find the real problem and fix it, not just the thing that's visibly wrong.</p>
+    </a>
+
+    <a href="/services/opener-repair" class="core-services-card opener">
+      <h3>Opener Repair & Installation</h3>
+      <p>Grinding, reversing unexpectedly, running but not moving the door, or completely unresponsive—opener failures show up in a lot of different ways. We diagnose them accurately and fix them fast. We service all major brands and can install a new smart opener with Wi-Fi control when the old one isn't worth saving. A remote-access opener is a practical upgrade for any property where you're in and out frequently.</p>
+    </a>
+<!--
+    <a href="/services/new-door-installation" class="core-services-card installation">
+      <h3>New Door Installation</h3>
+      <p>When a door is past repairing, we install quality replacements that are built for Michigan's climate and hold up through the seasons. Residential styles in steel, wood, or composite—traditional, carriage house, or modern. Heavy-duty options for agricultural and shop buildings. We handle measurement, removal of the old door, full installation, and final balancing and adjustment.</p>
+    </a>
+-->
+    <a href="/services/maintenance" class="core-services-card maintenance">
+      <h3>Preventive Maintenance</h3>
+      <p>The stretch of US-10 running through Shepherd sees real Michigan winters—cold that tightens springs, freezes lubricant, and accelerates wear on rollers and cables. An annual tune-up before the cold sets in keeps your system dialed in, catches developing problems early, and extends the life of every component. It's the lowest-cost way to avoid the highest-cost repairs.</p>
+    </a>
+
+    <div class="core-services-card core-services-card agricultural">
+      <h3>Pole Barns & Agricultural Doors</h3>
+      <p>Shepherd is surrounded by farmland on every side, and agricultural doors are a regular part of our work in this area. Pole barns, machine sheds, grain storage, and shop buildings with large overhead openings—we carry heavy-duty parts and come prepared for what farm properties need. Coe Township and the rural Shepherd area are familiar ground for us.</p>
+    </div>
+
+  </div>
+</section>
+
+<section style="margin-top: 2rem;">
+  <h2 class="sub-heading">We Know Shepherd—On Both Sides of the County Line</h2>
+  <p class="p-home">
+    Shepherd's location on the Isabella-Gratiot county line gives it a broader reach than most towns its size. Here's how we cover the community:
+  </p>
+
+  <div class="p-home" style="margin-top: 1.5rem;">
+    <p><strong>🎪 Downtown Shepherd & Wright Avenue</strong><br>
+    The heart of Shepherd—Wright Avenue, the Maple Syrup Festival parade route, and the residential neighborhoods surrounding downtown. Older homes in this part of town sometimes have original or non-standard garage hardware. We know how to work with it and we don't charge extra for the added complexity.</p>
+
+    <p style="margin-top: 1rem;"><strong>🛣️ US-10 Corridor</strong><br>
+    The US-10 corridor through Shepherd connects it to Mt. Pleasant to the west and Alma to the east—and the residential and rural properties along this stretch are well within our range. We travel this road regularly and know every mile of it between Rosebush and Shepherd.</p>
+
+    <p style="margin-top: 1rem;"><strong>🌾 Coe Township & Isabella County Side</strong><br>
+    The farms and rural properties of Coe Township spread north and west of Shepherd into Isabella County territory. We service this area completely—pole barns, farmsteads, country homes, and everything in between. No gap in coverage on the Isabella County side.</p>
+
+    <p style="margin-top: 1rem;"><strong>🌽 Gratiot County Side</strong><br>
+    Properties south and east of Shepherd that fall into Gratiot County are equally familiar ground. The county line doesn't change our response time or our pricing—if you're in the Shepherd area, you're in our service area, full stop.</p>
+
+    <p style="margin-top: 1rem;"><strong>🏫 Shepherd-Remus School District Area</strong><br>
+    The Shepherd-Remus school district covers a wide swath of the surrounding townships beyond the city limits. If you're a Bluejays family anywhere in the district—whether you're in town or several miles out on a gravel road—we're your garage door company.</p>
+
+  </div>
+  <p class="p-home" style="margin-top: 1.5rem;">
+    <strong>In Shepherd or anywhere in the surrounding area?</strong> Call us at <a href="tel:9895720303" style="color: #c57b30; text-decoration: underline;">989-572-0303</a>. 
+    Isabella or Gratiot County, we come to you.
+  </p>
+</section>
+
+<section class="signs additional-info">
+  <h2 class="sub-heading">Why Shepherd Homeowners Call Us</h2>
+  <div class="columns">
+    <div>
+      <h3 class="sub-sub-heading">15 Minutes Away</h3>
+      <p>
+        Rosebush to Shepherd is a short drive. No long waits, no trip charges built into the quote for a technician coming from somewhere far off. We're close and our response times reflect it.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">Both Counties Covered</h3>
+      <p>
+        Shepherd straddles the Isabella-Gratiot county line and so does our service area. We don't stop at the county boundary—if you're in the Shepherd area, you're covered regardless of which side of the line your property falls on.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">Farm-Country Experience</h3>
+      <p>
+        The land around Shepherd has been farmed for generations and we know what agricultural properties need. Pole barns, heavy-duty springs, large overhead openings—we come prepared and don't treat farm jobs like residential ones.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">Small Town Standards</h3>
+      <p>
+        Shepherd is a town where a handshake still means something and word gets around fast. We operate knowing that every job is a reference in a community this size. We do it right because that's the only way we know how.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">Honest Pricing</h3>
+      <p>
+        We quote before we start and stand behind every number. No line items that show up after the fact, no pressure to replace components with years of life left. Straight talk on what's wrong and what it'll cost to fix it.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <img src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" />
+  <p class="p-home area-description-intro">
+    Isabella Garage Door proudly serves homeowners in:
+  </p>
+<p class="area-description-list">
+      <a href="/locations/mt-pleasant">Mount Pleasant</a> • 
+      <a href="/locations/lake-isabella">Lake Isabella</a> • 
+      <a href="/locations/clare">Clare</a> • 
+      <a href="/locations/alma">Alma</a> • 
+      <a href="/locations/farwell">Farwell</a> • 
+      <a href="/locations/coleman">Coleman</a> • 
+      <a href="/locations/shepherd">Shepherd</a> • 
+      <a href="/locations/remus">Remus</a> • 
+      <a href="/locations/rosebush">Rosebush</a> • 
+      <a href="/locations/beal-city">Beal City</a> • 
+      <a href="/locations/st-louis">St. Louis</a>
+      and surrounding 
+      <a href="/locations/central-michigan">Central Michigan</a> 
+      communities.
+    </p>
+</section>
+
+  <HomeownerToolbox />
+
+<section class="faq-area">
+<section id="faq">
+<div class="faq-head">
+  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions - Shepherd, MI</h2>
+</div>
+
+<div class="reveal-on-scroll">
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you repair garage doors in Shepherd, Michigan?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes. Shepherd is one of our regularly served communities. We're based in Rosebush, about 15 minutes away, and we cover Shepherd, Coe Township, Broomfield Township, and rural properties on both the Isabella and Gratiot County sides of town. Same-day service is often available.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>How quickly can you get to Shepherd for garage door repairs?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Shepherd is about 15 minutes from our Rosebush location—one of our closest service areas. For broken springs, stuck doors, or anything that needs same-day attention, call us at <a href="tel:9895720303" style="color: #c57b30;">989-572-0303</a> and we'll give you a tight arrival window.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you service properties on both the Isabella and Gratiot County sides of Shepherd?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes. Shepherd sits right at the Isabella-Gratiot county line and we service both sides without hesitation. Whether your address falls in Isabella County or Gratiot County, we come to you. The county line doesn't affect our coverage or our pricing—if you're in the Shepherd area, you're in our service area.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you work on pole barns and agricultural doors near Shepherd?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Absolutely. Shepherd is surrounded by farmland and agricultural properties, and we service pole barns, machine sheds, and large overhead doors throughout Coe Township and the rural Shepherd area. We carry parts for heavy-duty applications and know how to work on farm properties without making a project of it.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What garage door services do you offer in Shepherd?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair<!-- , new door installation -->, and annual preventive maintenance. Residential garages, pole barns, and agricultural buildings throughout Shepherd and the surrounding area.</p>
+    </div>
+  </div>
+
+</section>
+</section>
+
+    <!--
+ Testimonial Placeholder Until I Get Real Reviews
+<section>
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
+  <TestimonialCard 
+    quote="Fast response, honest quote, good work. Spring broke on a Wednesday morning and they had it fixed by noon. Didn't try to sell me anything I didn't need. Will use them again."
+    author="Gary M., Shepherd"
+  />
+</a>
+</section>
+   -->
+
+  <!-- Highlight Section -->
+  <div class="highlight-section reveal-on-scroll">
+    <p>
+      Shepherd homeowners, farmers, and property owners on both sides of the county line trust <strong>Isabella Garage Door</strong> for fast response, honest pricing, and garage door work that holds up through Michigan winters.
+    </p>
+  </div>
+
+  <section>
+    <h2 class="sub-heading">Ready to Get Your Shepherd Garage Door Fixed?</h2>
+    <p class="p-home">
+      We're 15 minutes away and we respond fast—Isabella County side, Gratiot County side, county roads in between. 
+      Call us, text us, or use EasyEstimate™ to get a ballpark online. We'll take it from there.
+    </p>
+    <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto 1rem;"><i class="fas fa-calculator"></i> Get Free Estimate</a>
+    <a href="/contact" class="cta-button"><i class="fas fa-calendar-check"></i> Schedule Service</a>
+  </section>
+
+<section>
+  <h2 class="sub-heading">Isabella Garage Door</h2>
+  <p style="font-size: .9rem; text-align: center;">
+    Serving Shepherd, Coe Township, and both sides of the Isabella-Gratiot county line—professional garage door work done right.
+  </p>
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+    <em>Raising Performance. Elevating Standards</em>
+  </p>
+  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
+    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #c57b30; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
+  </p>
+</section>
+
+<ServiceFooter currentPath="null" slot="full-width-section"/>
+<LocationsFooter currentPath="/locations/shepherd" slot="full-width-section" />
+
+<script is:inline>
+document.querySelectorAll('.faq-item').forEach(item => {
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+
+  question.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+       answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(" .core-services-card, .reveal-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>
+
+<script>
+  if (typeof window !== 'undefined') {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('slide-up-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.6,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const section = document.querySelector('.highlight-section');
+      if (section) {
+        observer.observe(section);
+      }
+    });
+  }
+</script>
+
+<script is:script>
+  const icons = document.querySelectorAll('.core-services-icon-circle');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+icons.forEach(icon => observer.observe(icon));
+</script>
+
+</BaseLayout>

@@ -1,0 +1,512 @@
+---
+title: "Garage Door Repair in Coleman, MI - Isabella Garage Door"
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
+import HomeownerToolbox from '../../components/HomeownerToolbox.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import ServiceFooter from '../../components/ServiceFooter.astro';
+import LocationsFooter from '../../components/LocationsFooter.astro';
+
+const title = 'Garage Door Repair Coleman MI | Isabella Garage Door';
+const description = 'Professional garage door repair and installation in Coleman, Michigan. Broken springs, opener repair, pole barns, and new doors. Local service for Coleman and Midland County. Call 989-572-0303.';
+
+const colemanSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Isabella Garage Door - Coleman",
+  "image": "https://isabellagaragedoor.com/photos/coleman-michigan-garage-door-repair.webp",
+  "@id": "https://isabellagaragedoor.com/service-areas/coleman",
+  "url": "https://isabellagaragedoor.com/service-areas/coleman",
+  "telephone": "+1-989-572-0303",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Coleman",
+    "addressRegion": "MI",
+    "postalCode": "48618",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.7542,
+    "longitude": -84.5897
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Coleman",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Coleman",
+        "addressRegion": "MI",
+        "addressCountry": "US"
+      }
+    },
+    { "@type": "Place", "name": "Mills Township, MI" },
+    { "@type": "Place", "name": "Geneva Township, MI" },
+    { "@type": "Place", "name": "Midland County, MI" }
+  ],
+  "description": "Professional garage door repair, broken spring replacement, opener installation, and new door installation serving Coleman, Michigan, Mills Township, and surrounding Midland County.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Coleman Garage Door Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Broken Spring Replacement in Coleman",
+          "url": "https://isabellagaragedoor.com/services/broken-springs"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Garage Door Repair in Coleman",
+          "url": "https://isabellagaragedoor.com/services/door-repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Opener Repair & Installation in Coleman",
+          "url": "https://isabellagaragedoor.com/services/opener-repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "New Door Installation in Coleman",
+          "url": "https://isabellagaragedoor.com/services/new-door-installation"
+        }
+      }
+    ]
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you repair garage doors in Coleman, Michigan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We serve Coleman and the surrounding Midland County area including Mills Township and Geneva Township. Whether you're in town or on a rural property off M-18, we come to you with fast, professional service."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can you get to Coleman for garage door repairs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Coleman is about 20 to 25 minutes from our Rosebush location. We typically offer same-day or next-day service. Emergency situations like broken springs or a door that won't close get priority scheduling. Call 989-572-0303 and we'll give you an honest arrival window."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work on pole barns and agricultural doors near Coleman?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely—and it's some of our most common work in the Coleman area. Midland County has a strong agricultural community and we service pole barns, machine sheds, shop doors, and large agricultural openings throughout the area. If it's a garage-style door on a farm or rural property near Coleman, we take care of it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What garage door services do you offer in Coleman?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We handle everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair, new door installation, and annual preventive maintenance for residential and agricultural garage doors in Coleman and Midland County."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are you local to the Coleman area?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Isabella Garage Door is based in Rosebush, about 20 minutes from Coleman. We're a Central Michigan company—not a franchise or an out-of-area service that treats Coleman like a footnote on a service area map. We know this part of Michigan and we take the work seriously."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(colemanSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+<img src="/photos/coleman-michigan.webp" alt="Professional garage door repair service in Coleman, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
+
+<section>
+  <h1 class="page-title">Garage Door Service in Coleman, MI</h1>
+  <p>
+    Coleman is a small town with a long memory. Centennial farms still dot the roads off M-18. The Comets have been playing 
+    Friday night football under the same lights for generations. People here know their neighbors, shake hands and mean it, 
+    and have very little patience for businesses that don't do what they say they're going to do. When your garage door breaks 
+    in Coleman—whether it's the door on your house or the one on your pole barn—Isabella Garage Door is the call that shows 
+    up, fixes it right, and doesn't try to nickel-and-dime you on the way out.
+  </p>
+  <p style="margin-top: 1rem; text-align: center;">
+    <strong>Coleman residents:</strong> Call or text us now. Same-day appointments often available.
+  </p>
+    <a href="tel:9895720303" class="hero-contact-button" style="margin: 2rem auto 0;">
+      <i class="fas fa-phone"></i> Call 989-572-0303
+    </a>
+    <a href="sms:9895720303?&body=Hi%2C%20I%20need%20garage%20door%20service%20in%20Coleman." class="hero-contact-button" style="margin: 1rem auto 0; background: #1a334f; border: .094rem solid #b27d57;">
+      <i class="fas fa-comment-dots"></i> Text Us Now
+    </a>
+</section>
+
+<section>
+  <TrustBadges />
+</section>
+
+<section>
+  <h2 class="sub-heading">The Kind of Service Coleman Expects</h2>
+  <p class="p-home">
+    Small towns have a way of sorting out which businesses are worth calling and which ones aren't. Word travels fast in Coleman—
+    good work gets remembered, and so does bad work. We operate knowing that. Isabella Garage Door is based in Rosebush, about 
+    20 minutes down the road, and we've built our reputation the same way Coleman has always valued: show up when you say you 
+    will, do the job right, charge a fair price, and stand behind your work.
+  </p>
+  <p class="p-home" style="margin-top: 1rem;">
+    We're not a franchise dispatching crews from a regional hub. We're a Central Michigan company that knows the difference 
+    between a torsion spring and an extension spring, the difference between a residential door and an agricultural one, and 
+    the difference between a repair that lasts and one that just buys time. Coleman homeowners and farmers deserve the real thing.
+  </p>
+</section>
+
+<section class="core-services-section">
+  <h2 class="sub-heading">Complete Garage Door Services in Coleman, Michigan</h2>
+  <p class="core-services-intro">
+    From residential garages in town to pole barns out on the county roads—here's what Coleman homeowners and property owners count on us for:
+  </p>
+
+  <div class="core-services-grid">
+
+    <a href="/services/broken-springs" class="core-services-card spring reveal-on-scroll">
+      <h3>Broken Spring Replacement</h3>
+      <p>A snapped spring means your door isn't moving—period. It usually happens without warning and at the worst possible time, like when you need to get a tractor out of the barn or your car to work. We carry high-cycle replacement springs for residential and heavy-duty applications, replace both springs at once, and balance the door before we leave. Most Coleman spring calls are completed same-day.</p>
+    </a>
+
+    <a href="/services/door-repair" class="core-services-card repair">
+      <h3>General Door Repair</h3>
+      <p>Off-track doors, snapped cables, worn rollers, bent tracks, damaged panels—we diagnose the real problem and fix it. Coleman's mix of older farmhouses, in-town homes, and newer builds means we see a wide range of hardware and configurations. We come prepared for whatever we find and don't charge extra for the unexpected.</p>
+    </a>
+
+    <a href="/services/opener-repair" class="core-services-card opener">
+      <h3>Opener Repair & Installation</h3>
+      <p>Grinding, humming, reversing for no reason, or just dead—opener failures have a lot of root causes and we track them down fast. We service all major brands and can upgrade you to a smart opener with Wi-Fi control when it's time. A remote-access opener is a practical upgrade for farm properties where you're in and out of the shop all day.</p>
+    </a>
+<!--
+    <a href="/services/new-door-installation" class="core-services-card installation">
+      <h3>New Door Installation</h3>
+      <p>Whether you're replacing a worn-out residential door or putting a new overhead door on a shop building, we install quality doors that are built to last in Michigan's climate. Residential styles in steel, wood, or composite. Heavy-duty options for agricultural and commercial applications. We handle measurement, removal of the old door, installation, and final balancing.</p>
+    </a>
+-->
+    <a href="/services/maintenance" class="core-services-card maintenance">
+      <h3>Preventive Maintenance</h3>
+      <p>Midland County winters are hard on garage door hardware—springs lose tension in the cold, rollers wear faster with temperature swings, and lubricant dries out. An annual tune-up before winter keeps your system running reliably and catches problems before they strand you. Practical for any homeowner, essential for anyone relying on a farm or shop door year-round.</p>
+    </a>
+
+    <div class="core-services-card core-services-card agricultural">
+      <h3>Pole Barns & Agricultural Doors</h3>
+      <p>This is Coleman country—and that means pole barns, machine sheds, grain bins, and shop buildings with large overhead doors. We work on agricultural doors regularly and understand what farm operations need: fast repairs, heavy-duty parts, and someone who doesn't flinch at a large opening or an unusual setup. If it's on your property in Midland County, we service it.</p>
+    </div>
+
+  </div>
+</section>
+
+<section style="margin-top: 2rem;">
+  <h2 class="sub-heading">We Know Coleman & the Surrounding Area</h2>
+  <p class="p-home">
+    Coleman is a small town but the service area around it is anything but small. Here's how we think about the community:
+  </p>
+
+  <div class="p-home" style="margin-top: 1.5rem;">
+    <p><strong>🏘️ Coleman Township & In-Town Homes</strong><br>
+    The residential streets of Coleman proper—houses that have been in families for generations alongside newer builds. In-town homes get the same fast response as anyone else. We know that in a town this size, your neighbor probably used us too—and we plan to keep earning that word-of-mouth.</p>
+
+    <p style="margin-top: 1rem;"><strong>🚜 M-18 Corridor & Rural Midland County</strong><br>
+    The farms and rural properties spread along M-18 and the county roads branching off it are some of our most familiar territory. Centennial farms, working operations, hobby farms, and everything in between. We don't charge extra for rural addresses and we don't show up unprepared for what we find on a farm property.</p>
+
+    <p style="margin-top: 1rem;"><strong>🏗️ Mills Township & Geneva Township</strong><br>
+    The townships surrounding Coleman have a lot of properties that fall outside city limits but still consider themselves Coleman area. We cover Mills Township and Geneva Township completely—if you have a Coleman area address in either township, we come to you.</p>
+
+    <p style="margin-top: 1rem;"><strong>🏫 Coleman School District Area</strong><br>
+    The Coleman school district covers a wide swath of Midland County beyond the city limits. If you're in the Comets' territory—whether you're in town or several miles out on a gravel road—we service your area.</p>
+
+    <p style="margin-top: 1rem;"><strong>🔗 Between Mt. Pleasant & Midland</strong><br>
+    Coleman sits on M-18 between Mt. Pleasant and Midland, and we service the full corridor. Properties that feel in between—not quite Mt. Pleasant, not quite Midland—fall squarely in our service area. No gap in coverage here.</p>
+
+  </div>
+  <p class="p-home" style="margin-top: 1.5rem;">
+    <strong>Not sure if we cover your Coleman area property?</strong> Call us at <a href="tel:9895720303" style="color: #c57b30; text-decoration: underline;">989-572-0303</a>. 
+    If you're in Coleman or Midland County, the answer is almost certainly yes.
+  </p>
+</section>
+
+<section class="signs additional-info">
+  <h2 class="sub-heading">Why Coleman Homeowners & Farmers Call Us</h2>
+  <div class="columns">
+    <div>
+      <h3 class="sub-sub-heading">Built for Farm Country</h3>
+      <p>
+        Pole barns, machine sheds, large overhead doors—we work on agricultural properties regularly and come prepared. Heavy-duty springs, large openings, non-standard configurations. We've seen it before and we know how to handle it.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">Small Town Accountability</h3>
+      <p>
+        In a town like Coleman, your reputation is everything. We operate knowing that every job is a reference—and that word travels fast in a tight-knit community. We do the work right because that's what we'd want if the roles were reversed.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">No Rural Upcharges</h3>
+      <p>
+        We service rural Midland County without tacking on fees for the drive. Gravel roads, long driveways, properties well off the main road—we don't charge extra for being in the country. That's just part of serving this area.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">Straight Talk on Pricing</h3>
+      <p>
+        We tell you what's wrong, what it'll cost, and what your options are before we start. No inflated quotes, no pressure to replace things that don't need replacing. Coleman folks appreciate a straight answer and that's what we give.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">20 Minutes Away</h3>
+      <p>
+        Based in Rosebush, we're close enough to get to Coleman fast—without the trip charges that companies coming from Midland or Mt. Pleasant sometimes tack on. Same-day service is often available.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <img src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" />
+  <p class="p-home area-description-intro">
+    Isabella Garage Door proudly serves homeowners in:
+  </p>
+<p class="area-description-list">
+      <a href="/locations/mt-pleasant">Mount Pleasant</a> • 
+      <a href="/locations/lake-isabella">Lake Isabella</a> • 
+      <a href="/locations/clare">Clare</a> • 
+      <a href="/locations/alma">Alma</a> • 
+      <a href="/locations/farwell">Farwell</a> • 
+      <a href="/locations/coleman">Coleman</a> • 
+      <a href="/locations/shepherd">Shepherd</a> • 
+      <a href="/locations/remus">Remus</a> • 
+      <a href="/locations/rosebush">Rosebush</a> • 
+      <a href="/locations/beal-city">Beal City</a> • 
+      <a href="/locations/st-louis">St. Louis</a>
+      and surrounding 
+      <a href="/locations/central-michigan">Central Michigan</a> 
+      communities.
+    </p>
+</section>
+
+  <HomeownerToolbox />
+
+<section class="faq-area">
+<section id="faq">
+<div class="faq-head">
+  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions - Coleman, MI</h2>
+</div>
+
+<div class="reveal-on-scroll">
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you repair garage doors in Coleman, Michigan?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes. We serve Coleman and the surrounding Midland County area including Mills Township and Geneva Township. Whether you're in town or on a rural property off M-18, we come to you with fast, professional service. Same-day appointments are often available.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>How quickly can you get to Coleman for garage door repairs?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Coleman is about 20 to 25 minutes from our Rosebush location. We typically offer same-day or next-day service. Broken springs and doors that won't close get priority scheduling. Call us at <a href="tel:9895720303" style="color: #c57b30;">989-572-0303</a> and we'll give you an honest arrival window.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you work on pole barns and agricultural doors near Coleman?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Absolutely—and it's some of our most common work in the Coleman area. Midland County has a strong agricultural community and we service pole barns, machine sheds, shop doors, and large agricultural openings throughout the area. We carry heavy-duty parts for larger applications and don't treat farm doors like residential ones. If it's a garage-style door on a farm or rural property near Coleman, we take care of it.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What garage door services do you offer in Coleman?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>We handle everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair<!-- , new door installation -->, and annual preventive maintenance for residential and agricultural garage doors in Coleman and Midland County.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Are you local to the Coleman area?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes. Isabella Garage Door is based in Rosebush, about 20 minutes from Coleman. We're a Central Michigan company—not a franchise or an out-of-area service that treats Coleman like a footnote on a service area map. We know this part of Michigan, we know what farm country needs, and we take the work seriously.</p>
+    </div>
+  </div>
+
+</section>
+</section>
+
+    <!--
+ Testimonial Placeholder Until I Get Real Reviews
+<section>
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
+  <TestimonialCard 
+    quote="Spring broke on our pole barn door right in the middle of harvest. They came out same day, had the right parts on the truck, and got us back up and running fast. Exactly what you need when you're in a crunch."
+    author="Brad K., Coleman"
+  />
+</a>
+</section>
+   -->
+
+  <!-- Highlight Section -->
+  <div class="highlight-section reveal-on-scroll">
+    <p>
+      Coleman homeowners, farmers, and rural property owners throughout Midland County trust <strong>Isabella Garage Door</strong> for honest work, fair pricing, and service that shows up when it says it will.
+    </p>
+  </div>
+
+  <section>
+    <h2 class="sub-heading">Ready to Get Your Coleman Garage Door Fixed?</h2>
+    <p class="p-home">
+      Whether it's a broken spring on your house, a farm door that won't open, or a long-overdue tune-up before winter—
+      we're about 20 minutes away and we respond fast. Call us, text us, or use EasyEstimate™ to get a ballpark online.
+    </p>
+    <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto 1rem;"><i class="fas fa-calculator"></i> Get Free Estimate</a>
+    <a href="/contact" class="cta-button"><i class="fas fa-calendar-check"></i> Schedule Service</a>
+  </section>
+
+<section>
+  <h2 class="sub-heading">Isabella Garage Door</h2>
+  <p style="font-size: .9rem; text-align: center;">
+    Serving Coleman, Midland County, and all of Central Michigan—residential garages, pole barns, and everything in between.
+  </p>
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+    <em>Raising Performance. Elevating Standards</em>
+  </p>
+  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
+    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #c57b30; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
+  </p>
+</section>
+
+<ServiceFooter currentPath="null" slot="full-width-section"/>
+<LocationsFooter currentPath="/locations/coleman" slot="full-width-section" />
+
+<script is:inline>
+document.querySelectorAll('.faq-item').forEach(item => {
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+
+  question.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+       answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(" .core-services-card, .reveal-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>
+
+<script>
+  if (typeof window !== 'undefined') {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('slide-up-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.6,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const section = document.querySelector('.highlight-section');
+      if (section) {
+        observer.observe(section);
+      }
+    });
+  }
+</script>
+
+<script is:script>
+  const icons = document.querySelectorAll('.core-services-icon-circle');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+icons.forEach(icon => observer.observe(icon));
+</script>
+
+</BaseLayout>

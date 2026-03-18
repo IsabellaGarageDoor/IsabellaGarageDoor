@@ -1,0 +1,516 @@
+---
+title: "Garage Door Repair in Remus, MI - Isabella Garage Door"
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import TrustBadges from '../../components/TrustBadges.astro';
+import HomeownerToolbox from '../../components/HomeownerToolbox.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+import ServiceFooter from '../../components/ServiceFooter.astro';
+import LocationsFooter from '../../components/LocationsFooter.astro';
+
+const title = 'Garage Door Repair Remus MI | Isabella Garage Door';
+const description = 'Professional garage door repair and installation in Remus, Michigan. Broken springs, opener repair, pole barns, and new doors. Local service for Remus and Mecosta County. Call 989-572-0303.';
+
+const remusSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Isabella Garage Door - Remus",
+  "image": "https://isabellagaragedoor.com/photos/remus-michigan-garage-door-repair.webp",
+  "@id": "https://isabellagaragedoor.com/service-areas/remus",
+  "url": "https://isabellagaragedoor.com/service-areas/remus",
+  "telephone": "+1-989-572-0303",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "",
+    "addressLocality": "Remus",
+    "addressRegion": "MI",
+    "postalCode": "49340",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 43.5942,
+    "longitude": -85.1414
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Remus",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Remus",
+        "addressRegion": "MI",
+        "addressCountry": "US"
+      }
+    },
+    { "@type": "Place", "name": "Wheatland Township, MI" },
+    { "@type": "Place", "name": "Colfax Township, MI" },
+    { "@type": "Place", "name": "Mecosta County, MI" }
+  ],
+  "description": "Professional garage door repair, broken spring replacement, opener installation, and new door installation serving Remus, Michigan, Wheatland Township, and surrounding Mecosta County.",
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Remus Garage Door Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Broken Spring Replacement in Remus",
+          "url": "https://isabellagaragedoor.com/services/broken-springs"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Garage Door Repair in Remus",
+          "url": "https://isabellagaragedoor.com/services/door-repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Opener Repair & Installation in Remus",
+          "url": "https://isabellagaragedoor.com/services/opener-repair"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "New Door Installation in Remus",
+          "url": "https://isabellagaragedoor.com/services/new-door-installation"
+        }
+      }
+    ]
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do you repair garage doors in Remus, Michigan?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Remus is one of our regularly served communities. We're based in Rosebush, about 20 minutes east on M-20, and we cover Remus, Wheatland Township, Colfax Township, and rural properties throughout the Mecosta County area. Same-day service is often available."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can you get to Remus for garage door repairs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Remus is about 20 minutes from our Rosebush location along M-20. For broken springs, stuck doors, or anything urgent, we prioritize same-day scheduling. Call 989-572-0303 and we'll give you an honest arrival window. We travel the M-20 corridor regularly and know the route well."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work on pole barns and agricultural doors near Remus?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. Wheatland Township and the Remus area is farm country through and through, and agricultural doors are a regular part of our work out here. We service pole barns, machine sheds, and large overhead doors throughout the area. We carry heavy-duty parts and know how to work on larger agricultural openings without making a project of it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you service rural properties in Wheatland Township and Mecosta County?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The Remus area is surrounded by rural Mecosta County—farms, country homes, and properties spread across Wheatland Township and beyond. We service all of it. No extra charges for rural addresses and no hesitation about gravel roads or long driveways. If you're in the Remus area or Mecosta County, we come to you."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What garage door services do you offer in Remus?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair, new door installation, and annual preventive maintenance for residential and agricultural garage doors in Remus and Mecosta County."
+      }
+    }
+  ]
+};
+---
+
+<BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(remusSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+<img src="/photos/remus-michigan.webp" alt="Professional garage door repair service in Remus, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
+
+<section>
+  <h1 class="page-title">Garage Door Service in Remus, MI</h1>
+  <p>
+    Every September, thousands of people descend on a farm just outside Remus for the Wheatland Music Festival—one of the 
+    most beloved folk and roots gatherings in the Midwest. People come from all over the country for it, and the ones who 
+    live nearby know what a special thing it is to have that kind of event rooted in your backyard. Remus is that kind of 
+    place: small, unpretentious, deeply connected to the land and the community around it, and more notable than its size 
+    on a map would suggest. When your garage door breaks in Remus—whether it's on your house, your shop, or your pole barn 
+    on a Wheatland Township road—Isabella Garage Door is about 20 minutes east in Rosebush. Close enough to get there fast. 
+    Local enough to take the work seriously.
+  </p>
+  <p style="margin-top: 1rem; text-align: center;">
+    <strong>Remus residents:</strong> Call or text us now. Same-day appointments often available.
+  </p>
+    <a href="tel:9895720303" class="hero-contact-button" style="margin: 2rem auto 0;">
+      <i class="fas fa-phone"></i> Call 989-572-0303
+    </a>
+    <a href="sms:9895720303?&body=Hi%2C%20I%20need%20garage%20door%20service%20in%20Remus." class="hero-contact-button" style="margin: 1rem auto 0; background: #1a334f; border: .094rem solid #b27d57;">
+      <i class="fas fa-comment-dots"></i> Text Us Now
+    </a>
+</section>
+
+<section>
+  <TrustBadges />
+</section>
+
+<section>
+  <h2 class="sub-heading">The M-20 Corridor Deserves Real Local Service</h2>
+  <p class="p-home">
+    Remus sits on M-20 between Mt. Pleasant and Big Rapids—a stretch of mid-Michigan that's easy to overlook if you're 
+    routing service calls from a city hub. A lot of companies technically cover this area but treat it as the far edge 
+    of their range, which shows in their response times and their enthusiasm for the work. We're different. Isabella 
+    Garage Door is based in Rosebush, 20 minutes east on the same M-20 corridor. Remus isn't the edge of our range—
+    it's well within it, and we treat every job there like a neighbor's.
+  </p>
+  <p class="p-home" style="margin-top: 1rem;">
+    Wheatland Township and the Remus area is real farm country—the kind of place where a broken pole barn door during 
+    planting or harvest isn't a minor inconvenience, it's a problem that needs solving today. We understand that. We 
+    carry what we need, we arrive prepared, and we work efficiently because we know your time matters. That's the 
+    standard we bring to every call in the Remus area.
+  </p>
+</section>
+
+<section class="core-services-section">
+  <h2 class="sub-heading">Complete Garage Door Services in Remus, Michigan</h2>
+  <p class="core-services-intro">
+    From M-20 in-town properties to the farms and back roads of Wheatland Township—here's what Remus homeowners and property owners count on us for:
+  </p>
+
+  <div class="core-services-grid">
+
+    <a href="/services/broken-springs" class="core-services-card spring reveal-on-scroll">
+      <h3>Broken Spring Replacement</h3>
+      <p>A snapped spring stops your door completely—no amount of manual effort changes that. We carry high-cycle replacement springs for residential and heavy-duty agricultural applications, replace both at once so you're not facing the same problem in a few months, and balance the door before we leave. Remus is 20 minutes from Rosebush, and same-day service is very often available when you call in the morning.</p>
+    </a>
+
+    <a href="/services/door-repair" class="core-services-card repair">
+      <h3>General Door Repair</h3>
+      <p>Off-track panels, snapped cables, worn rollers, bent tracks, damaged sections—we diagnose the real problem and fix it. The Remus area has older farmstead garages, in-town residential homes, and newer rural builds across Wheatland Township. We're experienced across all of it and come prepared for whatever we find on a Mecosta County property.</p>
+    </a>
+
+    <a href="/services/opener-repair" class="core-services-card opener">
+      <h3>Opener Repair & Installation</h3>
+      <p>Grinding, reversing, running but not moving the door, or completely unresponsive—we've seen every opener failure and track them down fast. We service all major brands and can install a new smart opener with Wi-Fi control when it's time. Remote access is a practical upgrade for farm properties and rural homes where you want to manage access without being physically present.</p>
+    </a>
+<!--
+    <a href="/services/new-door-installation" class="core-services-card installation">
+      <h3>New Door Installation</h3>
+      <p>When a door is past repairing, we install quality replacements built for Michigan's climate and the demands of rural living. Residential styles in steel, wood, or composite—traditional, carriage house, or modern. Heavy-duty options for agricultural buildings and shops. Full service from measurement to removal of your old door to final adjustment. We leave it working right.</p>
+    </a>
+-->
+    <a href="/services/maintenance" class="core-services-card maintenance">
+      <h3>Preventive Maintenance</h3>
+      <p>Mecosta County winters are genuine—cold that tightens springs, moisture that works into hardware, and freeze-thaw cycles that wear on every moving part. An annual tune-up before the hard weather sets in keeps your springs lubricated, cables tensioned, rollers moving freely, and opener dialed in. For farmers especially, preventive maintenance on a shop or barn door is far cheaper than an emergency call mid-season.</p>
+    </a>
+
+    <div class="core-services-card core-services-card agricultural">
+      <h3>Pole Barns & Farm Doors</h3>
+      <p>Wheatland Township is agricultural land—working farms, equipment storage, grain buildings, and pole barns are a fixture of the landscape around Remus. We work on farm doors regularly and understand what they need: heavy-duty springs, proper track alignment for large openings, and parts that hold up under year-round use. This is familiar territory for us and we come ready for it.</p>
+    </div>
+
+  </div>
+</section>
+
+<section style="margin-top: 2rem;">
+  <h2 class="sub-heading">We Know Remus & the Wheatland Township Area</h2>
+  <p class="p-home">
+    Remus is small but the surrounding area is wide. Here's how we think about the community and the territory around it:
+  </p>
+
+  <div class="p-home" style="margin-top: 1.5rem;">
+    <p><strong>🎵 Remus Community & M-20 Corridor</strong><br>
+    The town of Remus and the properties along M-20 form the core of our coverage here. In-town homes, rural addresses just outside the community, and everything lining the corridor between Remus and the county line. We travel this route regularly and know it well in both directions.</p>
+
+    <p style="margin-top: 1rem;"><strong>🚜 Wheatland Township Farms & Rural Properties</strong><br>
+    The township Remus sits in is named Wheatland for a reason—this is agricultural ground, and the farms, pole barns, and rural properties spread across it are some of our most regular work west of Rosebush. We know these roads and we don't treat a Wheatland Township farm call like an unusual request. It's Tuesday out here.</p>
+
+    <p style="margin-top: 1rem;"><strong>🌾 Colfax Township & Western Mecosta County</strong><br>
+    Colfax Township and the broader western Mecosta County area extend our coverage further into farm country. Rural properties here sometimes fall in a gap between what a Mt. Pleasant company will drive to and what a Big Rapids company considers their territory. We fill that gap. If you're in this area, you're in our service area.</p>
+
+    <p style="margin-top: 1rem;"><strong>🎪 Wheatland Festival Grounds Area</strong><br>
+    The Wheatland Music Festival draws thousands to a farm near Remus every September—and the properties surrounding the festival grounds are homes and farms we service year-round. The rest of the year, when the stages are quiet and the fields are back to work, these are just Wheatland Township neighbors who need reliable garage door service like everyone else.</p>
+
+    <p style="margin-top: 1rem;"><strong>🛣️ M-20 Between Remus & Rosebush</strong><br>
+    The M-20 corridor connecting Remus to Rosebush passes through some genuinely beautiful mid-Michigan countryside—and a lot of rural properties with garage doors that need occasional service. If your address falls anywhere along this stretch, you're essentially on our regular route already.</p>
+
+  </div>
+  <p class="p-home" style="margin-top: 1.5rem;">
+    <strong>In Remus or the surrounding Mecosta County area?</strong> Call us at <a href="tel:9895720303" style="color: #c57b30; text-decoration: underline;">989-572-0303</a>. 
+    We're 20 minutes east on M-20 and we'll be on our way.
+  </p>
+</section>
+
+<section class="signs additional-info">
+  <h2 class="sub-heading">Why Remus Homeowners & Farmers Call Us</h2>
+  <div class="columns">
+    <div>
+      <h3 class="sub-sub-heading">20 Minutes on M-20</h3>
+      <p>
+        Rosebush to Remus is a straight shot east on M-20—about 20 minutes on a route we travel regularly. Fast response, no inflated trip charges, and a technician who's made this drive before and knows what to expect.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">Remus Isn't Our Edge Case</h3>
+      <p>
+        A lot of companies treat the M-20 corridor west of Mt. Pleasant as the far edge of their range. For us, Remus is a regular stop, not a stretch. You get the same response time and the same quality of work as anyone closer to our shop.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">Farm-Ready All Year</h3>
+      <p>
+        Wheatland Township is working farmland and we know what that means for garage door service. Heavy-duty springs, large openings, time-sensitive repairs during planting and harvest—we come prepared and work fast because we understand the stakes.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">No Rural Upcharges</h3>
+      <p>
+        Gravel roads, long driveways, properties well off M-20—we don't charge extra for any of it. Serving rural Mecosta County is part of what we do, and we price it like it is.
+      </p>
+    </div>
+
+    <div>
+      <h3 class="sub-sub-heading">Honest from the Start</h3>
+      <p>
+        We tell you what's wrong, what it'll cost, and what your options are before we touch anything. No surprises on the invoice. No pressure to replace things that don't need replacing. Remus gets the same straight talk as everyone else we serve.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <img src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" />
+  <p class="p-home area-description-intro">
+    Isabella Garage Door proudly serves homeowners in:
+  </p>
+<p class="area-description-list">
+      <a href="/locations/mt-pleasant">Mount Pleasant</a> • 
+      <a href="/locations/lake-isabella">Lake Isabella</a> • 
+      <a href="/locations/clare">Clare</a> • 
+      <a href="/locations/alma">Alma</a> • 
+      <a href="/locations/farwell">Farwell</a> • 
+      <a href="/locations/coleman">Coleman</a> • 
+      <a href="/locations/shepherd">Shepherd</a> • 
+      <a href="/locations/remus">Remus</a> • 
+      <a href="/locations/rosebush">Rosebush</a> • 
+      <a href="/locations/beal-city">Beal City</a> • 
+      <a href="/locations/st-louis">St. Louis</a>
+      and surrounding 
+      <a href="/locations/central-michigan">Central Michigan</a> 
+      communities.
+    </p>
+</section>
+
+  <HomeownerToolbox />
+
+<section class="faq-area">
+<section id="faq">
+<div class="faq-head">
+  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions - Remus, MI</h2>
+</div>
+
+<div class="reveal-on-scroll">
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you repair garage doors in Remus, Michigan?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes. Remus is one of our regularly served communities. We're based in Rosebush, about 20 minutes east on M-20, and we cover Remus, Wheatland Township, Colfax Township, and rural properties throughout the Mecosta County area. Same-day service is often available.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>How quickly can you get to Remus for garage door repairs?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>About 20 minutes from our Rosebush location along M-20. For broken springs, stuck doors, or anything that needs same-day attention, call us at <a href="tel:9895720303" style="color: #c57b30;">989-572-0303</a> and we'll give you an honest arrival window. We travel the M-20 corridor regularly and know the route well.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you work on pole barns and agricultural doors near Remus?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Absolutely. Wheatland Township and the Remus area is farm country through and through, and agricultural doors are a regular part of our work out here. We service pole barns, machine sheds, and large overhead doors throughout the area. We carry heavy-duty parts and know how to work on larger agricultural openings without making a project of it.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>Do you service rural properties in Wheatland Township and Mecosta County?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Yes. The Remus area is surrounded by rural Mecosta County—farms, country homes, and properties spread across Wheatland Township and beyond. We service all of it. No extra charges for rural addresses and no hesitation about gravel roads or long driveways. If you're in the Remus area or Mecosta County, we come to you.</p>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-question">
+      <span>What garage door services do you offer in Remus?</span>
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+    <div class="faq-answer">
+      <p>Everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair<!-- , new door installation -->, and annual preventive maintenance. Residential garages, pole barns, and agricultural buildings throughout the Remus and Wheatland Township area.</p>
+    </div>
+  </div>
+
+</section>
+</section>
+
+    <!--
+ Testimonial Placeholder Until I Get Real Reviews
+<section>
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
+  <TestimonialCard 
+    quote="Spring went on the shop door right before a busy week. Called Isabella Garage Door in the morning, they were out by early afternoon with the right parts. Fast, fair, and no nonsense. Exactly what you want."
+    author="Dan W., Remus"
+  />
+</a>
+</section>
+   -->
+
+  <!-- Highlight Section -->
+  <div class="highlight-section reveal-on-scroll">
+    <p>
+      Remus homeowners, Wheatland Township farmers, and rural Mecosta County property owners trust <strong>Isabella Garage Door</strong> for fast response, honest pricing, and work that holds up through Michigan winters and working seasons alike.
+    </p>
+  </div>
+
+  <section>
+    <h2 class="sub-heading">Ready to Get Your Remus Garage Door Fixed?</h2>
+    <p class="p-home">
+      We're 20 minutes east on M-20 and we respond fast—house, shop, pole barn, or back-road rural property. 
+      Call us, text us, or use EasyEstimate™ to get a ballpark online. We'll be on our way.
+    </p>
+    <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto 1rem;"><i class="fas fa-calculator"></i> Get Free Estimate</a>
+    <a href="/contact" class="cta-button"><i class="fas fa-calendar-check"></i> Schedule Service</a>
+  </section>
+
+<section>
+  <h2 class="sub-heading">Isabella Garage Door</h2>
+  <p style="font-size: .9rem; text-align: center;">
+    Serving Remus, Wheatland Township, and Mecosta County—20 minutes west on M-20, ready when you need us.
+  </p>
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+    <em>Raising Performance. Elevating Standards</em>
+  </p>
+  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
+    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #c57b30; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
+  </p>
+</section>
+
+<ServiceFooter currentPath="null" slot="full-width-section"/>
+<LocationsFooter currentPath="/locations/remus" slot="full-width-section" />
+
+<script is:inline>
+document.querySelectorAll('.faq-item').forEach(item => {
+  const question = item.querySelector('.faq-question');
+  const answer = item.querySelector('.faq-answer');
+
+  question.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+
+    document.querySelectorAll('.faq-item').forEach(i => {
+      i.classList.remove('open');
+      i.querySelector('.faq-answer').style.maxHeight = null;
+    });
+
+    if (!isOpen) {
+      item.classList.add('open');
+       answer.style.maxHeight = answer.scrollHeight + 'px';
+    }
+  });
+});
+</script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(" .core-services-card, .reveal-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>
+
+<script>
+  if (typeof window !== 'undefined') {
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('slide-up-in');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.6,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const section = document.querySelector('.highlight-section');
+      if (section) {
+        observer.observe(section);
+      }
+    });
+  }
+</script>
+
+<script is:script>
+  const icons = document.querySelectorAll('.core-services-icon-circle');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+icons.forEach(icon => observer.observe(icon));
+</script>
+
+</BaseLayout>
