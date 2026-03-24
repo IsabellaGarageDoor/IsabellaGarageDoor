@@ -1043,7 +1043,7 @@ font-family: 'Lora', serif;
   margin-top: -1.2rem;
   margin-left: calc(-50vw + 50%);
   color: white;
-  padding: 6rem 1rem;
+  padding: 5rem 1rem;
   text-align: center;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -1186,12 +1186,6 @@ background: linear-gradient(
   transform: translateY(2px);
 }
 
-
-
-
-
-
-
 .hero-estimate-button {
   position: relative;
   overflow: hidden;
@@ -1251,8 +1245,6 @@ background: linear-gradient(
   transform: translateY(2px);
 }
 
-
-
     .hero-contact-button i,
     .hero-estimate-button i {
       margin-right: 0.75rem; /* Increased margin */
@@ -1280,6 +1272,16 @@ background: linear-gradient(
       text-align: center;
     }
 
+.serving-area-tagline {
+  text-align: center;
+  color: #b27d57;
+  font-size: 1.3rem;
+  margin: 1rem auto 2.5rem;
+  font-family: 'Jost', sans-serif; 
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: 0.03em;
+}
     .availability-banner {
       background-color: white;
       border: 1px solid #d3e2f2;
@@ -2030,7 +2032,7 @@ z-index: 1;
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6); /* Light overlay */
+  background: rgba(0, 0, 0, 0.4); /* Light overlay */
   z-index: 0;
   border-radius: inherit;
 }

@@ -2,6 +2,7 @@
 title: "Garage Door Repair in Rosebush, MI - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadges from '../../components/TrustBadges.astro';
+import HomeownerToolbox from '../../components/HomeownerToolbox.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro';
 import ServiceFooter from '../../components/ServiceFooter.astro';
 import LocationsFooter from '../../components/LocationsFooter.astro';
@@ -300,31 +301,25 @@ const faqSchema = {
   <p class="p-home area-description-intro">
     Isabella Garage Door proudly serves homeowners in:
   </p>
-  <p class="area-description-list">
-    <a href="/locations/mt-pleasant">Mount Pleasant</a> • 
-    <a href="/locations/lake-isabella">Lake Isabella</a> • 
-    <a href="/locations/clare">Clare</a> • 
-    <a href="/locations/alma">Alma</a> • 
- <!-- <a href="/locations/farwell">Farwell</a> • 
-    <a href="/locations/coleman">Coleman</a> • 
-    <a href="/locations/shepherd">Shepherd</a> • 
-    <a href="/locations/remus">Remus</a> • 
-    <a href="/locations/rosebush">Rosebush</a> • 
-    <a href="/locations/beal-city">Beal City</a> • 
-    <a href="/locations/st-louis">St. Louis</a>
--->
-    Farwell • 
-    Coleman • 
-    Shepherd • 
-    Remus • 
-    Rosebush • 
-    Beal City • 
-    St. Louis
-    and surrounding 
-    <a href="/locations/central-michigan">Central Michigan</a> 
-    communities.
-  </p>
+<p class="area-description-list">
+      <a href="/locations/mt-pleasant">Mount Pleasant</a> • 
+      <a href="/locations/lake-isabella">Lake Isabella</a> • 
+      <a href="/locations/clare">Clare</a> • 
+      <a href="/locations/alma">Alma</a> • 
+      <a href="/locations/farwell">Farwell</a> • 
+      <a href="/locations/coleman">Coleman</a> • 
+      <a href="/locations/shepherd">Shepherd</a> • 
+      <a href="/locations/remus">Remus</a> • 
+      <a href="/locations/rosebush">Rosebush</a> • 
+      <a href="/locations/beal-city">Beal City</a> • 
+      <a href="/locations/st-louis">St. Louis</a>
+      and surrounding 
+      <a href="/locations/central-michigan">Central Michigan</a> 
+      communities.
+    </p>
 </section>
+
+  <HomeownerToolbox />
 
 <section class="faq-area">
 <section id="faq">
@@ -366,7 +361,9 @@ const faqSchema = {
   <div class="faq-item">
     <div class="faq-question">
       <span>What garage door services do you offer in Rosebush?</span>
-      <span class="faq-answer">
+      <span class="faq-arrow">&#9654;</span>
+    </div>
+      <div class="faq-answer">
       <p>Everything. Broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair<!-- , new door installation -->, and annual preventive maintenance. Residential garages, pole barns, agricultural buildings—if it's a garage-style door in Rosebush or Isabella Township, we take care of it.</p>
     </div>
   </div>
