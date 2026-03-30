@@ -46,6 +46,16 @@ const baseSchema = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1A334F" />
 
+<!-- Google analytics tag (gtag.js) -->
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-J7NE8QVPVC"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-J7NE8QVPVC');
+</script>
+
     <title>{title}</title>
     <meta name="description" content={description} />
 
