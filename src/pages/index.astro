@@ -58,9 +58,9 @@ const homeSchema = {
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "08:00",
-      "closes": "16:00"
+      "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "12:00",
+      "closes": "18:00"
     }
   ],
   "hasOfferCatalog": {
@@ -127,12 +127,52 @@ const homeSchema = {
     "https://www.facebook.com/isabellagaragedoor"
   ]
 };
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can you work on older garage doors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Definitely. We repair and maintain a wide range of door types—even older models. If something isn’t available, we’ll help find a good solution."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will you explain what's wrong before starting work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Every visit starts with a thorough inspection and diagnostic test. We’ll explain the issue, go over your options, and get your approval before any repairs begin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are your repairs guaranteed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. We stand behind our work with an outstanding 1 year warranty and a commitment to getting it done right the first time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I book online?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can fill out our online form to request service, and we’ll contact you promptly by email, text, or phone to schedule your repair at a convenient time."
+      }
+    }
+  ]
+};
 ---
 
 <BaseLayout {title} {description}>
 
 <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(homeSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>
 
 <link rel="stylesheet" href="/styles/global.css" />
@@ -662,17 +702,15 @@ services near you? Isabella Garage Door proudly serves homeowners in:</p>
 </section>
 
 <section>
-  <a href="/" aria-label="Go to homepage">
-  <img src="/photos/blue-tag-isabella-garage-door-logo.svg" alt="Isabella Garage Door" class="responsive-image reveal-on-scroll" />
- </a>
+  <h2 class="sub-heading">Isabella Garage Door</h2>
   <p style="font-size: .9rem; text-align: center;">
     Serving Central Michigan with honest, high-quality garage door service.
   </p>
-  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem; color: #b27d57;">
     <em>Raising Performance. Elevating Standards</em>
   </p>
   <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
-    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #c57b30; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
+    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #b27d57; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
   </p>
 </section>
 

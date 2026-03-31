@@ -5,86 +5,79 @@ layout: "../../layouts/BaseLayout.astro"
 
 # **Privacy Policy**
 
-**Effective Date:** May-11-2025
+---
 
-At Isabella Garage Door, we value your privacy. This Privacy Policy explains what information we collect, how we use it, and your rights regarding that information.
+Effective Date: May 11, 2025 <br>
+Last Updated: March 31, 2026
 
 ---
 
-## 1. Information We Collect
-
-We may collect the following personal information when you use our website or submit a form:
-
-- Name  
-- Email address  
-- Phone number  
-- Address (if provided)  
-- Any other information you share through a contact or quote form  
-- IP address and browser details (collected automatically via analytics)
+### **1. Introduction & Legal Entity**
+This Privacy Policy describes how **Schwab & Co. Holdings LLC**, a Michigan limited liability company doing business as **Isabella Garage Door** (“we,” “us,” or “our”), collects, uses, and protects your information. By using our website, you agree to the terms of this Privacy Policy.
 
 ---
 
-## 2. How We Use Your Information
+### **2. Information We Collect**
+We collect information necessary to provide our services and improve your experience.
 
-We use your information to:
+**Information You Provide:**
+* Name, Email address, and Phone number
+* Service address
+* Any details submitted through contact or estimate forms
 
-- Respond to service inquiries and provide quotes  
-- Schedule or follow up on service appointments  
-- Improve our website and user experience  
-- Track site usage through analytics  
-- Manage customer relationships
-
-We may store submitted information in a secure third-party customer relationship management (CRM) system for follow-up and service purposes.
-
----
-
-## 3. Cookies and Analytics
-
-We use Google Analytics to understand how visitors interact with our website. Google Analytics uses cookies to collect anonymous usage data.
-
-You can opt out of Google Analytics by installing the [Google Analytics Opt-out Browser Add-on](https://tools.google.com/dlpage/gaoptout).
+**Automatically Collected Information:**
+* IP address, browser type, and device information
+* Pages visited and interactions on our website
+* Cookies and tracking data
 
 ---
 
-## 4. Sharing Your Information
-
-We do **not** sell, rent, or trade your personal information.  
-We may share data with trusted third-party service providers (like Google or our CRM provider) to help operate our website and business.
+### **3. Cookies and Tracking Technologies**
+We use cookies and similar technologies to operate and improve our website, understand user behavior, and deliver relevant advertising. You can control or disable cookies through your browser settings; however, some features of the site may not function properly.
 
 ---
 
-## 5. Your Rights and Choices
+### **4. Analytics & Advertising**
+We use services provided by Google to analyze traffic and display advertisements.
 
-You have the right to:
-
-- Request a copy of the data we hold about you  
-- Ask us to delete your personal information  
-- Withdraw consent at any time
-
-To make a request, contact us at: **isabellagaragedoor@gmail.com**
+* **Google Analytics:** Helps us understand how visitors interact with our website using anonymized usage data.
+* **Google Ads & Remarketing:** We use Google Ads remarketing features to display advertisements to you after you visit our website. Google and third-party vendors use cookies to serve these ads based on prior visits to our site.
+* **Google Consent Mode:** We utilize Google Consent Mode to adjust data collection based on your preferences.
 
 ---
 
-## 6. Data Security
-
-We take reasonable steps to protect your information, but no system is 100% secure. Please avoid submitting sensitive personal data through our website.
-
----
-
-## 7. Changes to This Policy
-
-We may update this Privacy Policy from time to time. Any changes will be posted on this page with the updated effective date.
+### **5. How We Use Your Information**
+We use collected information for legitimate business purposes:
+* Providing estimates and performing garage door services.
+* Communicating with customers and managing service appointments.
+* Processing payments and maintaining business records.
+* Improving website performance and marketing efforts.
 
 ---
 
-## 8. Contact Us
+### **6. Sharing of Information**
+* **No Sale of Personal Data:** We do not sell, rent, or trade your personal information to third parties.
+* **Service Providers:** We may share info with trusted providers (hosting, analytics, payment processors) solely to operate our business under strict confidentiality.
+* **Legal Requirements:** We may disclose information if required by law or in response to valid legal requests.
 
-**Isabella Garage Door**  
-**Email:** isabellagaragedoor@gmail.com
+---
 
+### **7. Data Security & Retention**
+We implement reasonable safeguards, including SSL encryption, to protect your info. We retain personal information only as long as necessary to provide services, comply with legal obligations, or resolve disputes.
 
-<section>
-  <a href="/" aria-label="Go to homepage">
-  <img src="/photos/blue-tag-isabella-garage-door-logo.svg" alt="Isabella Garage Door" class="responsive-image" />
- </a>
-</section>
+---
+
+### **8. Your Rights**
+You may request to access, correct, or delete the personal information we hold about you by contacting us at **isabellagaragedoor@gmail.com**.
+
+---
+
+### **9. Children’s Privacy**
+Our services are intended for homeowners and adults. We do not knowingly collect personal information from children under 13.
+
+---
+
+### **10. Contact Information**
+**Schwab & Co. Holdings LLC** *Doing Business As Isabella Garage Door* <br>
+Location: Isabella County, Michigan <br>
+Email: [isabellagaragedoor@gmail.com](mailto:isabellagaragedoor@gmail.com)
