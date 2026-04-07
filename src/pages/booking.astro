@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Schedule Garage Door Service | Isabella Garage Door';
+const description = 'Book a garage door service call online with Isabella Garage Door. Serving Mt. Pleasant, Clare, Alma, Shepherd, and all of Central Michigan.';
+
+const bookingSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://isabellagaragedoor.com/booking",
+      "url": "https://isabellagaragedoor.com/booking",
+      "name": "Schedule Garage Door Service | Isabella Garage Door",
+      "description": "Book a garage door service call online. Isabella Garage Door serves Mt. Pleasant, Clare, Alma, Shepherd, and all of Central Michigan.",
+      "mainEntity": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Garage Door Service Call",
+      "provider": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      },
+      "areaServed": [
+        "Mount Pleasant", "Alma", "Clare", "Rosebush", "Shepherd",
+        "Weidman", "Coleman", "Farwell", "Lake Isabella", "Remus",
+        "Edmore", "St. Louis", "Winn", "Beal City"
+      ],
+      "description": "A technician visits your home to diagnose and repair your garage door issue. Common repairs include spring replacement, cable repair, roller replacement, opener troubleshooting, and track adjustment.",
+      "availableChannel": {
+        "@type": "ServiceChannel",
+        "serviceUrl": "https://isabellagaragedoor.com/booking"
+      }
+    },
+    {
+      "@type": "ContactPoint",
+      "telephone": "+1-989-572-0303",
+      "contactType": "customer service",
+      "email": "IsabellaGarageDoor@gmail.com",
+      "areaServed": [
+        "Mount Pleasant", "Alma", "Clare", "Rosebush", "Shepherd",
+        "Weidman", "Coleman", "Farwell", "Lake Isabella", "Remus",
+        "Edmore", "St. Louis", "Winn", "Beal City"
+      ],
+      "availableLanguage": "en"
+    }
+  ]
+};
+---
+<link rel="stylesheet" href="/styles/global.css" />
+
+<BaseLayout {title} {description}>
+
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(bookingSchema)} />
+  </Fragment>
+
+ <img
+    src="/photos/book-garage-door-service-online.webp"
+    alt="Schedule a garage door service call online in Central Michigan with Isabella Garage Door"
+    loading="eager"
+    fetchpriority="high"
+    class="header-photo-interior"
+  />
+ 
+  <h1 class="page-title">Schedule a Service Call Online</h1>
+ 
+  <p class="left-content">
+    Not sure what's wrong with your garage door? That's exactly what a service call is for.
+    Book an appointment below and we'll come out, inspect the full system, and give you a
+    straight answer on what's going on and what it will take to fix it — no guesswork, no
+    pressure. Most issues are resolved the same visit.
+  </p>
+ 
+  <p class="left-content">
+    Don't see a time that works for you? We have additional slot times available and can usually work you into our schedule. Just give us a call or text
+    to find out more.
+  </p>
+ 
+  <p style="font-size: 0.95rem; margin: 0 auto; text-align: center;">
+    <strong>Need help now? </strong><a href="tel:9895720303" style="color: #b27d57; font-weight: bold;">Call or text (989) 572-0303</a> for an immediate response.
+  </p>
+ 
+  <!-- ================================================
+       SQUARE BOOKING WIDGET
+       ================================================ -->
+  <section style="margin: 2rem auto; max-width: 800px;">
+    <!-- Start Square Appointments Embed Code -->
+    <div class="embed-placeholder">
+      <script is:inline src='https://square.site/appointments/buyer/widget/bs4l0fegqblc5h/LMJS6ZXSNBX8B.js'>
+      </script>
+    </div>
+    <!-- End Square Appointments Embed Code -->
+  </section>
+  <!-- ================================================ -->
+ 
+  <section>
+    <h3 class="sub-sub-heading">How it works</h3>
+    <p class="left-content">
+      When we arrive, we go through the whole system — springs, cables, rollers, tracks,
+      opener — and tell you exactly what we find. The <strong>service call fee is $75</strong>,
+      which covers the visit and the diagnosis. If your door just needs a quick adjustment
+      or something minor like realigning the photo sensors, that's handled as part of the
+      service call and you're all set.
+    </p>
+    <p class="left-content">
+      If new parts are going in — a spring replacement, new cables, rollers, or anything
+      beyond adjustments — the $75 fee is waived and you only pay for the repair. You can
+      get a head start on what things typically cost by checking out our
+      <a href="homeowner-tools/easy-estimate#estimate-form" style="color: #b27d57;">EasyEstimate&trade;</a> tool before
+      your appointment. Either way, you'll have the full price in front of you before
+      anything is touched, and nothing gets done without your go-ahead.
+    </p>
+    <p class="left-content">
+      Payment is collected on-site when the work is done — cash, check, or card all work.
+      When you book online you'll be asked to put a card on file through Square's secure
+      system, but it isn't charged until the job is finished and you've signed off. We just
+      ask that you're home for the appointment, or that you've made arrangements with us
+      ahead of time. If we show up and can't reach you, the service call fee may be applied
+      to the card on file.
+    </p>
+    <p class="left-content">
+      If something comes up, no problem — just cancel or reschedule at least an hour before
+      your appointment and there's no charge.
+    </p>
+  </section>
+ 
+  <section>
+    <h3 class="sub-sub-heading">Prefer to call or text?</h3>
+    <div class="contact-block">
+      <p>
+        <strong>📱 Text us:</strong> <a href="sms:9895720303" style="color: #0000EE; text-decoration: none;">(989) 572-0303</a><br />
+        <strong>📞 Call us:</strong> <a href="tel:9895720303" style="color: #0000EE; text-decoration: none;">(989) 572-0303</a><br />
+        <strong>✉️ Email:</strong> <a href="mailto:IsabellaGarageDoor@gmail.com" style="color: #0000EE; text-decoration: none;">IsabellaGarageDoor@gmail.com</a>
+      </p>
+    </div>
+  </section>
+ 
+  <h2 class="sub-heading">Service Area</h2>
+  <img
+    src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp"
+    alt="Isabella Garage Door Service Area Map covering Central Michigan including Mt. Pleasant, Clare, Alma, Coleman and more"
+    class="homepg-service-photo"
+  />
+  <section class="area-description">
+    <div class="centered-content">
+      <p class="p-home area-description-intro">
+        Isabella Garage Door proudly serves homeowners across Central Michigan, including:
+      </p>
+      <p class="area-description-list">
+        Mount Pleasant • Lake Isabella • Clare • Farwell • Coleman • Beal City • Shepherd • Alma • Remus • Edmore • Rosebush • St. Louis • Winn
+        and surrounding communities.
+      </p>
+    </div>
+  </section>
+ 
+  <section>
+    <h2 class="sub-heading">Isabella Garage Door</h2>
+    <p style="font-size: .9rem; text-align: center;">
+      Serving Central Michigan with honest, high-quality garage door service.
+    </p>
+    <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
+      <em>Raising Performance. Elevating Standards</em>
+    </p>
+    <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
+      <strong>Call or text: </strong>
+      <a href="tel:9895720303" style="color: #b27d57; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
+    </p>
+  </section>
+ 
+<style>
+  .embed-placeholder {
+    background: #fdfaf7;
+    border: 0.194rem solid #b27d57;
+    padding: 1rem;
+    border-radius: .75rem;
+    text-align: center;
+    font-size: 1.1rem;
+    color: #6b6b6b;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+  }
+</style>
+ 
+</BaseLayout>
