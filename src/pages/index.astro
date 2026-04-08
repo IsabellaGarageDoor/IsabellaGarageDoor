@@ -558,7 +558,24 @@ Our commitment to quality materials and meticulous workmanship ensures your gara
   </div>
 </section>
 
-
+<section class="booking-cta-section reveal-on-scroll">
+  <h2 class="sub-heading">Ready to Get Your Door Fixed?</h2>
+  <p class="booking-cta-text">
+    Book a service call online in minutes — pick a time that works for you and we'll take
+    care of the rest. Most repairs are completed the same visit.
+  </p>
+  <div class="booking-cta-buttons">
+    <a href="/booking" class="cta-button">
+      <i class="fa-solid fa-calendar-check fa-fw"></i> Schedule a Service Call
+    </a>
+    <a href="tel:9895720303" class="cta-button-secondary">
+      <i class="fa-solid fa-phone fa-fw"></i> Call (989) 572-0303
+    </a>
+  </div>
+  <p class="booking-cta-subtext">
+    Need help today? Call or text for an immediate response.
+  </p>
+</section>
 
 <section class="faq-area">
 <section id="faq">
@@ -581,7 +598,7 @@ If something isn’t available, we’ll help find a good solution.</p></div></di
 We stand behind our work with an outstanding 1 year warranty and a commitment to getting it done right the first time.</p></div></div>
 
     <div class="faq-item"><div class="faq-question"><span>Can I book online?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer">
-<p>Yes. You can book your appointment online using our booking page. Just choose a time that works for you. Prefer to reach out first? You can still <a href="/contact" style="color: #b27d57;">contact</a> us anytime.</p>
+<p>Yes. You can book your appointment online using our booking page. Just choose a time that works for you. Prefer to reach out first? You can still <a href="/contact" style="color: #b27d57;">contact us</a> anytime.</p>
 <a href="/booking" class="faq-button" style="margin-bottom: 0.5rem;"><i class="fa-solid fa-calendar fa-fw"></i>Book Online</a></div></div>
 
   <div class="faq-item">
@@ -727,9 +744,26 @@ services near you? Isabella Garage Door proudly serves homeowners in:</p>
 
 .homeowner-toolbox-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.5rem;
   margin-top: 2rem;
+  /* 1. Default: 4 in a column (Mobile) */
+  grid-template-columns: 1fr;
+}
+
+/* 2. Tablet: Force 2x2 */
+/* We trigger this when the screen can comfortably fit two 220px columns */
+@media (min-width: 550px) {
+  .homeowner-toolbox-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 3. Desktop: Force 4 in a row */
+/* We trigger this when the screen can fit all four 220px columns + gaps */
+@media (min-width: 1050px) {
+  .homeowner-toolbox-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .homeowner-toolbox-card {
@@ -811,6 +845,63 @@ z-index: 1;
   text-align: left;
   padding: 0 1rem;
 }
+
+.booking-cta-section {
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  margin: 1rem auto;
+  max-width: 680px;
+  background: #fdfaf7;
+  border: 0.194rem solid #b27d57;
+  border-radius: 0.75rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+}
+
+.booking-cta-section:hover,
+.booking-cta-section:focus {
+  box-shadow: 0 0 0.75rem rgba(178, 125, 87, 0.5);
+  outline: none;
+}
+
+.booking-cta-text {
+  font-size: 1.05rem;
+  color: #333;
+  margin: 0.75rem auto 1.5rem;
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+.booking-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.cta-button-secondary {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid #1a334f;
+  border-radius: 0.5rem;
+  color: #1a334f;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.cta-button-secondary:hover {
+  background: #1a334f;
+  color: #fff;
+}
+
+.booking-cta-subtext {
+  font-size: 0.875rem;
+  color: #777;
+  margin-top: 0.5rem;
+}
+
 </style>
 
 <script>

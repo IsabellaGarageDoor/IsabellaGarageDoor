@@ -13,6 +13,7 @@ body {
     font-size: 1.2rem;
     color: #b27d57;
     margin: 1rem 0;
+    text-align: center;
   }
 
 img {
@@ -84,15 +85,61 @@ p {
   font-size: 1.1rem;
 }
 
-.contact-block {
-  max-width: 500px;
+.technical-contact {
+  max-width: 400px;
+  border-top: 0.094rem solid #b27d57;
   margin: 0 auto;
-  text-align: left; /* keep the text itself left-aligned */
 }
 
-.contact-block a {
-  color: #0000EE;
+.contact-row {
+  display: flex;
+  /* This ensures vertical centering if one side is taller than the other */
+  align-items: center; 
+  padding: 1rem 1.5rem;
+  border-bottom: 0.094rem solid #b27d57;
+  cursor: pointer;
+  position: relative; /* ADDED: Allows the full-row click trick to work */
+  transition: background-color 0.2s ease; /* ADDED: Smooth transition for the row */
+}
+
+/* ADDED: Gives a very subtle highlight to the row when hovered */
+.contact-row:hover {
+  background-color: rgba(178, 125, 87, 0.03); 
+}
+
+.method {
+  flex: 0 0 80px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: rgba(26, 51, 79, 0.6);
+  /* Removes align-self: center as the parent now handles it */
+}
+
+.contact-row a {
+  color: #1a334f;
   text-decoration: none;
+  font-weight: 600;
+  /* THE FIX: This pushes the link to the far right */
+  margin-left: auto; 
+  /* Optional: adds a slight transition for the hover effect */
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+/* FIXED: The link changes color when the ROW is hovered */
+.contact-row:hover a {
+  color: #b27d57;
+}
+
+/* ADDED: Stretches the link area to cover the entire row */
+.contact-row a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
 }
 
 

@@ -48,7 +48,7 @@ const contactSchema = {
   <p class="left-content">Ready to schedule service, ask a question, or request a quote? We're here to help. Reach out using the form below, or contact us directly - whichever is easiest for you.
 </p>
 
-
+<div id="contact-form" style="position: relative; top: -80px;"></div>
 <section class="py-8 px-4 max-w-4xl mx-auto">
   <ContactForm client:visible />
 </section>
@@ -58,23 +58,23 @@ const contactSchema = {
   Prefer to talk to someone?
 </h3>
 
-<div class="contact-block">
-  <p>
-    <strong>📱 Text us:</strong> 
-    <a href="/booking" style="color: #b27d57; text-decoration: none;">
-      Start a Text Conversation
-    </a><br />
+<div class="technical-contact">
+  
+  <div class="contact-row">
+    <span class="method">VOICE</span>
+    <a href="tel:9895720303">(989) 572-0303</a>
+  </div>
+  
+  <div class="contact-row">
+    <span class="method">MOBILE</span>
+    <a href="sms:9895720303">Text a Technician</a>
+  </div>
+  
+  <div class="contact-row">
+    <span class="method">INBOX</span>
+    <a href="mailto:isabellagaragedoor@gmail.com">Email the Office</a>
+  </div>
 
-    <strong>📞 Call us:</strong> 
-    <a href="/booking" style="color: #b27d57; text-decoration: none;">
-      Request a Call
-    </a><br />
-
-    <strong>✉️ Email:</strong> 
-    <a href="/booking" style="color: #b27d57; text-decoration: none;">
-      Send Us a Message
-    </a><br />
-  </p>
 </div>
 
 
@@ -89,8 +89,21 @@ const contactSchema = {
 services near you? Isabella Garage Door proudly serves homeowners in:</p>
 
 <p class="area-description-list">
-Mount Pleasant • Lake Isabella • Clare • Farwell • Coleman • Beal City • Shepherd • Alma • Remus • Edmore • Rosebush • St. Louis • Winn
-and surrounding Central Michigan communities.</p>
+      <a href="/locations/mt-pleasant">Mount Pleasant</a> • 
+      <a href="/locations/lake-isabella">Lake Isabella</a> • 
+      <a href="/locations/clare">Clare</a> • 
+      <a href="/locations/alma">Alma</a> • 
+      <a href="/locations/farwell">Farwell</a> • 
+      <a href="/locations/coleman">Coleman</a> • 
+      <a href="/locations/shepherd">Shepherd</a> • 
+      <a href="/locations/remus">Remus</a> • 
+      <a href="/locations/rosebush">Rosebush</a> • 
+      <a href="/locations/beal-city">Beal City</a> • 
+      <a href="/locations/st-louis">St. Louis</a>
+      and surrounding 
+      <a href="/locations/central-michigan">Central Michigan</a> 
+      communities.
+    </p>
 </div> 
 </section>
 
