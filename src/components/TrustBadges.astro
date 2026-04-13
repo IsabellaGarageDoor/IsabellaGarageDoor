@@ -50,7 +50,7 @@ import starsImg from '../assets/images/trust-badge-stars.png';
 
 max-width: 1000px; 
 
-margin: 0 auto; 
+margin: 1rem auto; 
 
 display: grid; 
 
@@ -92,15 +92,34 @@ font-weight: 500;
 
 }
 
- /* Mobile: 3 columns, 2 rows */ 
+@media (max-width: 768px) { .trust-badge img { 
 
-@media (max-width: 768px) { .trust-badges { 
+width: 35px; 
 
-grid-template-columns: repeat(3, 1fr); 
+height: auto; 
+
+display: block; 
+
+margin: 0 auto; 
+
+object-fit: contain;
 
 } 
 
+.trust-badge p { 
+
+margin-top: 0.15rem; 
+
+font-size: 0.6rem; 
+
+font-weight: 500; 
+
 }
+
+}
+
+
+
 
 </style>
 

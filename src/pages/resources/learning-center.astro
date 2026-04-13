@@ -15,7 +15,7 @@ const sortedPosts = allPosts.sort((a, b) => {
 });
 
 // Pagination setup
-const postsPerPage = 5;
+const postsPerPage = 8;
 const currentPage = +Astro.url.searchParams.get('page') || 1;
 const totalPages = Math.ceil(sortedPosts.length / postsPerPage);
 const startIndex = (currentPage - 1) * postsPerPage;
@@ -153,6 +153,9 @@ const learningCenterSchema = {
   </p>
   <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
     <em>Raising Performance. Elevating Standards</em>
+  </p>
+  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
+    <strong>Call or text: </strong> <a href="tel:9895720303" style="color: #b27d57; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
   </p>
 </section>
   

@@ -1,21 +1,28 @@
-
-<section class="availability-banner reveal-on-scroll">
-  <div class="availability-content">
-    <p class="availability-text">
-
+---
+// Set this to true to show, false to hide
+const isVisible = false; 
+---
 
 <!-- Edit This Section -->
+        
+{isVisible && (
+  <section class="availability-banner reveal-on-scroll">
+    <div class="availability-content">
+      <div class="availability-text">
         <p>
-    📅 <strong>Book Your Service Call</strong> <span class="highlighted">Online Today</span>!<br>
-    Reserve your spot now—slots are limited!<br>
-    <em style="color: #b27d57;">Raising Performance. Elevating Standards.</em>
-  </p>
+          📅 <strong>Book Your Service Call</strong> <span class="highlighted"> Online Today</span>!<br>
+          Reserve your spot now—slots are limited!<br>
+          <em style="color: #b27d57;">Raising Performance. Elevating Standards.</em>
+        </p>
+      </div>
 
-  <a href="/booking" class="availability-btn">
-    Book Your Service Call
-  </a>
-  </div>
-</section>
+      <a href="/booking" class="availability-btn">
+        Book Your Service Call
+      </a>
+    </div>
+  </section>
+)}
+
 <!-- Stop Editing Here -->
 
 

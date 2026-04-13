@@ -1091,7 +1091,7 @@ font-family: 'Lora', serif;
   margin-top: -1.2rem;
   margin-left: calc(-50vw + 50%);
   color: white;
-  padding: 5rem 1rem;
+  padding: 2rem 1rem;
   text-align: center;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -1119,7 +1119,7 @@ font-family: 'Lora', serif;
   /* CHANGE: Put your Navy #1a334f HERE with the opacity */
 background: linear-gradient(
     rgba(0, 0, 0, 0.3), 
-    rgba(0, 0, 0, 0.7)
+    rgba(0, 0, 0, 0.6)
   );
   z-index: -1;
 }
@@ -1151,11 +1151,33 @@ background: linear-gradient(
     .hero p {
       font-size: clamp(1.1rem, 2.8vw, 1.4rem); /* Larger font size */
       max-width: 700px;
-      text-align: left;
-      margin: 0rem auto 2rem; /* Adjusted margin */
+      text-align: center;
+      margin: 0rem auto 1rem; /* Adjusted margin */
       line-height: 1.7; /* Increased line height for readability */
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Added text shadow */
     }
+
+    .hero ul {
+      font-size: clamp(1rem, 2.8vw, 1.4rem); /* Larger font size */
+      max-width: 400px;
+      text-align: left;
+      margin: 0rem auto 1rem; /* Adjusted margin */
+      line-height: 1.5; /* Increased line height for readability */
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Added text shadow */
+    display: inline-block;
+    }
+
+@media (max-width: 768px) { .hero h1 {
+      font-size: clamp(2rem, 4vw, 2rem); /* Larger font size */
+      font-weight: 800;
+      margin-bottom: 1.5rem; /* Adjusted margin */
+      font-family: 'Lora', serif; /* Ensure Lora is applied */
+      letter-spacing: -0.8px; /* Tighter letter spacing */
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Added text shadow */
+    }
+}
+
+
 
     .hero-contact-button,
     .hero-estimate-button {
@@ -1304,9 +1326,70 @@ background: linear-gradient(
       gap: 1rem; /* Increased gap */
       flex-wrap: wrap;
       justify-content: center;
-      margin-top: 2rem; /* Adjusted margin */
+      margin-top: 1rem; /* Adjusted margin */
       margin-bottom: 2rem; /* Adjusted margin */
     }
+
+
+.hero-estimate-cta {
+  position: relative;
+  overflow: hidden;
+  color: #ffffff;
+  padding: 0.85rem 2.25rem;
+  font-size: 1.1rem;
+  border: 0.094rem solid #b27d57;
+  border-radius: 0.75rem;
+  margin: 1rem auto 0rem;
+  font-family: 'Lora', serif;
+  font-weight: 500;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  width: 100%;
+  max-width: 25rem;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Shine overlay */
+.hero-estimate-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  transform: skewX(-20deg);
+  transition: none;
+}
+
+/* Shine animation on hover */
+.hero-estimate-cta:hover::before {
+  animation: shine 0.9s ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+.hero-estimate-cta:hover {
+  box-shadow:
+    0 6px 12px rgba(0, 0, 0, 0.4),
+    0 0 20px rgba(178, 125, 87, 0.45);
+  transform: translateY(2px);
+}
 
     .icon-bronze {
       color: #b27d57;

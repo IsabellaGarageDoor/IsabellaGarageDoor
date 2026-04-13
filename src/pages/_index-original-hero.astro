@@ -10,7 +10,7 @@ import Coupons from '../components/editable-sections/Coupons.astro';
 import Homeownertools from '../components/Homeownertools.astro';
 import { Image } from 'astro:assets';
 // Import the image from your new assets folder
-import heroBg from '../assets/images/herobg203.webp';
+import heroBg from '../assets/images/herobg.webp';
 
 const title = 'Isabella Garage Door | Garage Door Service in Central Michigan';
 const description = 'Professional garage door repair and replacement in Central Michigan. Honest service, fast response, and quaility you can trust.';
@@ -189,41 +189,25 @@ const faqSchema = {
   <div class="hero-overlay"></div>
 
   <div class="hero-content reveal-on-scroll">
-    <h1>Central Michigan's Trusted Garage Door Repair</h1>
+    <h1>Don't Let a Broken Door Ruin Your Day</h1>
     <p class="hero-description">
-      Fast, reliable service to get your day back on track.
+      We make it easy — with dependable service, quality craftsmanship, and clear communication to get your day back on track.
     </p>
-
-<div class="reveal-on-scroll">
-   <ul>
-    <li>✓ Locally Owned & Family Operated</li>
-    <li>✓ Upfront Pricing — No Surprises</li>
-    <li>✓ Work Backed by a 1-Year Warranty</li>
-   </ul>
-  </div>    
-
+    
     <div class="hero-buttons reveal-on-scroll">
-
-      <a href="sms:9895720303?&body=Hi%2C%20I%20need%20some%20help%20with%20my%20garage%20door." class="hero-estimate-button">
+      <a href="/homeowner-tools/easy-estimate#estimate-form" class="hero-estimate-button">
+        <i class="fa-solid fa-calculator fa-fw"></i> Get a Free Estimate
+      </a>
+      <a href="sms:9895720303?&body=Hi%2C%20I%20need%20some%20help%20with%20my%20garage%20door." class="hero-contact-button">
         <i class="fas fa-comment-dots"></i> Text Us
       </a>
-      <a href="tel:9895720303" class="hero-contact-button">
-        <i class="fa-solid fa-phone fa-fw"></i> Call (989) 572-0303
-      </a>
     </div>
-
-<p>
-Not sure what it'll cost?
-</p>
-<a href="/homeowner-tools/easy-estimate#estimate-form" class="hero-estimate-cta">Get an Instant Estimate →</a>
   </div>
-
-  <TrustBadges />
-
-<a href="/booking" class="book-now-btn">Book Now</a>
-
 </section>
 
+<p class="serving-area-tagline">
+  <em>Proudly Serving Central Michigan</em>
+</p>
 
 <AvailabilityBanner />
 
@@ -245,6 +229,7 @@ Don’t wait — secure your spot today.
 
 
 <section style="margin-bottom: 1rem;">
+<img src="/photos/garage-door-technician-with-customer.webp" alt="The-best-garage-door-installation-Mount-Pleasant-Michigan" class="homepg-about-photo reveal-on-scroll" />
 <h2 class="sub-heading" style="margin-top: 2rem;">Elevating the Standard</h2>
   <p class="p-home">At Isabella Garage Door, we know your time, your home, and your peace of mind matter.
 When something breaks, you shouldn’t have to deal with delays, confusion, or half-done repairs.
@@ -252,10 +237,10 @@ That’s why we focus on doing things the right way — with clear communication
 We take pride in showing up when we say we will, respecting your space, and making sure every job is done right.
 It’s not just about fixing the door — it’s about making your day a little easier and your home feel taken care of.
 </p>
-<img src="/photos/garage-door-technician-with-customer.webp" alt="The-best-garage-door-installation-Mount-Pleasant-Michigan" class="homepg-about-photo reveal-on-scroll" />
 
+<section>
+  <TrustBadges />
 </section>
-
 
 <!-- Copy Of Trust Badges
 <div class="trust-badges"> 
@@ -574,13 +559,13 @@ Our commitment to quality materials and meticulous workmanship ensures your gara
 </section>
 
 <section class="booking-cta-section reveal-on-scroll">
-  <h2 class="sub-heading" style="color: #ffffff;">Ready to Get Your Door Fixed?</h2>
+  <h2 class="sub-heading">Ready to Get Your Door Fixed?</h2>
   <p class="booking-cta-text">
     Book a service call online in minutes — pick a time that works for you and we'll take
     care of the rest. Most repairs are completed the same visit.
   </p>
   <div class="booking-cta-buttons">
-    <a href="/booking" class="testimonials-cta-button" style="margin-bottom: 1rem;">
+    <a href="/booking" class="cta-button">
       <i class="fa-solid fa-calendar-check fa-fw"></i> Schedule a Service Call
     </a>
     <a href="tel:9895720303" class="cta-button-secondary">
@@ -591,7 +576,6 @@ Our commitment to quality materials and meticulous workmanship ensures your gara
     Need help today? Call or text for an immediate response.
   </p>
 </section>
-
 
 <section class="faq-area">
 <section id="faq">
@@ -611,10 +595,10 @@ If something isn’t available, we’ll help find a good solution.</p></div></di
 </p></div></div>
 
     <div class="faq-item"><div class="faq-question"><span>Are your repairs guaranteed?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Absolutely.
-We stand behind our work with an outstanding <a href="/resources/warranty" style="color: #b27d57;">1 year warranty</a> and a commitment to getting it done right the first time.</p></div></div>
+We stand behind our work with an outstanding 1 year warranty and a commitment to getting it done right the first time.</p></div></div>
 
     <div class="faq-item"><div class="faq-question"><span>Can I book online?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer">
-<p>Yes. You can book your appointment online using our <a href="/booking" style="color: #b27d57;">booking page</a>. Just choose a time that works for you. Prefer to reach out first? You can still <a href="/contact" style="color: #b27d57;">contact us</a> anytime.</p>
+<p>Yes. You can book your appointment online using our booking page. Just choose a time that works for you. Prefer to reach out first? You can still <a href="/contact" style="color: #b27d57;">contact us</a> anytime.</p>
 <a href="/booking" class="faq-button" style="margin-bottom: 0.5rem;"><i class="fa-solid fa-calendar fa-fw"></i>Book Online</a></div></div>
 
   <div class="faq-item">
@@ -623,7 +607,7 @@ We stand behind our work with an outstanding <a href="/resources/warranty" style
     <span class="faq-arrow">&#9654;</span>
   </div>
   <div class="faq-answer">
-    <p>We’ve got a full <a href="/resources/faq" style="color: #b27d57;">FAQ</a> page covering everything from opener issues to smart garage setups.</p>
+    <p>We’ve got a full FAQ page covering everything from opener issues to smart garage setups.</p>
     <a href="/resources/faq" class="faq-button" style="margin-bottom: 0.5rem;"><i class="fa-solid fa-book-open fa-fw"></i> Browse All FAQs</a>
   </div>
 </div>
@@ -866,8 +850,8 @@ z-index: 1;
   text-align: center;
   padding: 2.5rem 1.5rem;
   margin: 1rem auto;
-  max-width: 800px;
-  background: #1a334f;
+  max-width: 680px;
+  background: #fdfaf7;
   border: 0.194rem solid #b27d57;
   border-radius: 0.75rem;
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
@@ -881,14 +865,14 @@ z-index: 1;
 
 .booking-cta-text {
   font-size: 1.05rem;
-  color: #ffffff;
+  color: #333;
   margin: 0.75rem auto 1.5rem;
   max-width: 520px;
   line-height: 1.6;
 }
 
 .booking-cta-buttons {
-  display: inline-block;
+  display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
@@ -898,9 +882,9 @@ z-index: 1;
 .cta-button-secondary {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  border: 2px solid #ffffff;
+  border: 2px solid #1a334f;
   border-radius: 0.5rem;
-  color: #ffffff;
+  color: #1a334f;
   font-weight: 600;
   font-size: 1rem;
   text-decoration: none;
@@ -908,49 +892,16 @@ z-index: 1;
 }
 
 .cta-button-secondary:hover {
-  background: #ffffff;
-  color: #1a334f;
+  background: #1a334f;
+  color: #fff;
 }
 
 .booking-cta-subtext {
   font-size: 0.875rem;
-  color: #fff;
+  color: #777;
   margin-top: 0.5rem;
 }
 
-/* Base styles for the button */
-.book-now-btn {
-  display: inline-block;
-  background-color: #e63946; /* High-contrast Crimson Red */
-  color: #ffffff; /* White text for readability */
-  font-family: Arial, sans-serif; /* Replace with your brand font */
-  font-size: 18px;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 16px 32px;
-  border-radius: 8px; /* Slightly rounded corners */
-  border: 2px solid #f72a25;
-  box-shadow: 0 4px 6px rgba(26, 51, 79, 0.2); /* Shadow subtly uses your brand blue */
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-  text-align: center;
-}
-
-/* Hover and Focus states for interactivity */
-.book-now-btn:hover,
-.book-now-btn:focus {
-  background-color: #ffffff; 
-  color: #e63946; /* Inverts the colors on hover */
-  box-shadow: 0 6px 12px rgba(26, 51, 79, 0.3); /* Deeper shadow on hover */
-  transform: translateY(-2px); /* Slight lift effect */
-}
-
-/* Active state for when the button is clicked */
-.book-now-btn:active {
-  transform: translateY(0); /* Pushes the button back down */
-  box-shadow: 0 2px 4px rgba(26, 51, 79, 0.2);
-}
 </style>
 
 <script>
