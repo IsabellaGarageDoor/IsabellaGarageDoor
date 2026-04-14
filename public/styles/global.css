@@ -1091,7 +1091,7 @@ font-family: 'Lora', serif;
   margin-top: -1.2rem;
   margin-left: calc(-50vw + 50%);
   color: white;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem 1.5rem;
   text-align: center;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -1152,8 +1152,8 @@ background: linear-gradient(
       font-size: clamp(1.1rem, 2.8vw, 1.4rem); /* Larger font size */
       max-width: 700px;
       text-align: center;
-      margin: 0rem auto 1rem; /* Adjusted margin */
-      line-height: 1.7; /* Increased line height for readability */
+      margin: 0rem auto; /* Adjusted margin */
+      line-height: 1.5; /* Increased line height for readability */
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Added text shadow */
     }
 
@@ -1161,7 +1161,7 @@ background: linear-gradient(
       font-size: clamp(1rem, 2.8vw, 1.4rem); /* Larger font size */
       max-width: 400px;
       text-align: left;
-      margin: 0rem auto 1rem; /* Adjusted margin */
+      margin: 1rem auto 1rem; /* Adjusted margin */
       line-height: 1.5; /* Increased line height for readability */
       text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6); /* Added text shadow */
     display: inline-block;
@@ -1170,7 +1170,7 @@ background: linear-gradient(
 @media (max-width: 768px) { .hero h1 {
       font-size: clamp(2rem, 4vw, 2rem); /* Larger font size */
       font-weight: 800;
-      margin-bottom: 1.5rem; /* Adjusted margin */
+      margin-bottom: 1rem; /* Adjusted margin */
       font-family: 'Lora', serif; /* Ensure Lora is applied */
       letter-spacing: -0.8px; /* Tighter letter spacing */
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Added text shadow */
@@ -1202,9 +1202,10 @@ background: linear-gradient(
 .hero-contact-button {
   position: relative;
   overflow: hidden;
-  background: #b27d57;
+  /* background: rgba(178, 125, 87, 0.85); */
+  background-color: rgba(0, 0, 0, 0.6);
   color: #fff;
-  border: 0.1rem solid #1a334f;
+  border: 0.1rem solid #b27d57;
   font-family: 'Lora', serif;
   font-weight: 600;
   font-size: 1.1rem;
@@ -1251,7 +1252,7 @@ background: linear-gradient(
 
 /* Hover styles */
 .hero-contact-button:hover {
-  background: #b27d57;
+  background-color: rgba(0, 0, 0, 0.8);
       box-shadow: none;
   transform: translateY(2px);
 }
@@ -1259,7 +1260,8 @@ background: linear-gradient(
 .hero-estimate-button {
   position: relative;
   overflow: hidden;
-  background: #1a334f;
+  /* background: rgba(26, 51, 79, 0.9);  90% opacity */
+  background-color: rgba(0, 0, 0, 0.6);
   color: #ffffff;
   border: 0.094rem solid #b27d57;
   font-family: 'Lora', serif;
@@ -1308,7 +1310,7 @@ background: linear-gradient(
 
 /* Hover styles */
 .hero-estimate-button:hover {
-  background: #1a334f;
+  background-color: rgba(0, 0, 0, 0.8);
   box-shadow:
     0 6px 12px rgba(0, 0, 0, 0.4),
     0 0 20px rgba(178, 125, 87, 0.45);
@@ -1334,23 +1336,25 @@ background: linear-gradient(
 .hero-estimate-cta {
   position: relative;
   overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
   color: #ffffff;
-  padding: 0.85rem 2.25rem;
+  padding: 0.5rem 1rem;
   font-size: 1.1rem;
   border: 0.094rem solid #b27d57;
   border-radius: 0.75rem;
-  margin: 1rem auto 0rem;
+  margin: .5rem auto 0rem;
   font-family: 'Lora', serif;
   font-weight: 500;
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
-  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  display: block;
   width: 100%;
-  max-width: 25rem;
+  max-width: 16rem;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   white-space: nowrap;
   cursor: pointer;
+display: inline-block;
 }
+
 
 /* Shine overlay */
 .hero-estimate-cta::before {
@@ -1385,11 +1389,47 @@ background: linear-gradient(
 }
 
 .hero-estimate-cta:hover {
+  background-color: rgba(0, 0, 0, 0.7);
   box-shadow:
     0 6px 12px rgba(0, 0, 0, 0.4),
     0 0 20px rgba(178, 125, 87, 0.45);
   transform: translateY(2px);
 }
+
+/* Base styles for the button */
+.book-now-btn {
+  display: inline-block;
+  background-color: #e63946; /* High-contrast Crimson Red */
+  color: #ffffff; /* White text for readability */
+  font-family: Ariel, sans-serif; /* Replace with your brand font */
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 16px 32px;
+  border-radius: 8px; /* Slightly rounded corners */
+  border: 2px solid #f72a25;
+  box-shadow: 0 4px 6px rgba(26, 51, 79, 0.2); /* Shadow subtly uses your brand blue */
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  text-align: center;
+}
+
+/* Hover and Focus states for interactivity */
+.book-now-btn:hover,
+.book-now-btn:focus {
+  background-color: #ffffff; 
+  color: #e63946; /* Inverts the colors on hover */
+  box-shadow: 0 6px 12px rgba(26, 51, 79, 0.3); /* Deeper shadow on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Active state for when the button is clicked */
+.book-now-btn:active {
+  transform: translateY(0); /* Pushes the button back down */
+  box-shadow: 0 2px 4px rgba(26, 51, 79, 0.2);
+}
+
 
     .icon-bronze {
       color: #b27d57;
