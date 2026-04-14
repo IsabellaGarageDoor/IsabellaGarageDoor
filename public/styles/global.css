@@ -1180,6 +1180,7 @@ background: linear-gradient(
 
 
     .hero-contact-button,
+    .hero-home-contact-button,
     .hero-estimate-button {
       padding: 1rem 1.5rem; /* Consistent padding */
       font-size: 1.15rem; /* Consistent font size */
@@ -1203,7 +1204,8 @@ background: linear-gradient(
   position: relative;
   overflow: hidden;
   /* background: rgba(178, 125, 87, 0.85); */
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: #1A334F;
+  /* background-color: rgba(0, 0, 0, 0.6); */
   color: #fff;
   border: 0.1rem solid #b27d57;
   font-family: 'Lora', serif;
@@ -1252,7 +1254,67 @@ background: linear-gradient(
 
 /* Hover styles */
 .hero-contact-button:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+  /* background-color: rgba(0, 0, 0, 0.8); */
+     background-color: #1a334f;
+      box-shadow: none;
+  transform: translateY(2px);
+}
+
+
+.hero-home-contact-button {
+  position: relative;
+  overflow: hidden;
+  /* background: rgba(178, 125, 87, 0.85); */
+  background-color: rgba(0, 0, 0, 0.6); 
+  color: #fff;
+  border: 0.1rem solid #b27d57;
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: 0.85rem 2.25rem;
+  border-radius: 0.75rem;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Shine overlay */
+.hero-home-contact-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  transform: skewX(-20deg);
+  transition: none;
+}
+
+/* Shine animation on hover */
+.hero-home-contact-button:hover::before {
+  animation: shine 0.9s ease-in-out;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+/* Hover styles */
+.hero-home-contact-button:hover {
+   background-color: rgba(0, 0, 0, 0.8); 
       box-shadow: none;
   transform: translateY(2px);
 }
