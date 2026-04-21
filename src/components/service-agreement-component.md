@@ -9,17 +9,17 @@
 
 ## 1. Scope of Work
 
-Isabella Garage Door (“Contractor”) agrees to provide garage door services to the customer (“Client”), including but not limited to:
+Schwab & Co. Holdings LLC, a Michigan Limited Liability Company ("Contractor"), operating under the assumed name: Isabella Garage Door,  agrees to provide garage door services to the customer (“Client”), including but not limited to:
 
 * Repairs (e.g., springs, cables, rollers)
 * Installation and replacement of garage doors
 * Garage door opener installation and repair
 * Preventive maintenance
-* Any additional services specified in the approved written estimate
+* Any additional services specified in the approved written work order
 
-All work to be performed will be outlined in a written estimate, which must be approved by the Client prior to commencement. The Contractor’s obligations are limited to the services and components explicitly described in the estimate. Any additional work falls outside the scope of this agreement unless documented and approved in writing.
+All work to be performed will be outlined in a written work order, which must be approved by the Client prior to commencement. The Contractor’s obligations are limited to the services and components explicitly described in the work order. Any additional work falls outside the scope of this agreement unless documented and approved in writing.
 
-Any deviation from the original estimate, whether in scope, material, or method, must be documented and signed off by the Client in writing or via email confirmation.
+Any deviation from the original work order, whether in scope, material, or method, must be documented and signed off by the Client in writing or via email confirmation.
 
 ---
 
@@ -100,7 +100,7 @@ This warranty does not apply to issues arising from:
 * Normal wear and tear
 * Weather or environmental conditions
 * Unauthorized alterations or repairs
-* Pre-existing conditions not addressed in the original estimate
+* Pre-existing conditions not addressed in the original work order
 
 Any unauthorized modification that affects the Contractor’s work may void the warranty.
 
@@ -265,7 +265,7 @@ Any judicial proceeding permitted under this Agreement, including enforcement of
 
 ## 17. Entire Agreement
 
-This Agreement, together with any written estimates or proposals provided by the Contractor, constitutes the complete and exclusive understanding between the parties with respect to the subject matter hereof. It supersedes and replaces any prior discussions, negotiations, agreements, or understandings, whether written or oral, regarding the services to be provided.
+This Agreement, together with any written estimates, work orders, or proposals provided by the Contractor, constitutes the complete and exclusive understanding between the parties with respect to the subject matter hereof. It supersedes and replaces any prior discussions, negotiations, agreements, or understandings, whether written or oral, regarding the services to be provided.
 
 No amendments, modifications, or additions to this Agreement shall be valid unless made in writing and signed by both parties.
 
