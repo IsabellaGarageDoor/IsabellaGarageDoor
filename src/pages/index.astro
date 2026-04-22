@@ -15,7 +15,7 @@ import heroBg from '../assets/images/herobg203.webp';
 import heroBgMobile from '../assets/images/herobg-mobile.webp';
 
 const title = 'Isabella Garage Door | Garage Door Service in Central Michigan';
-const description = 'Professional garage door repair and replacement in Central Michigan. Honest service, fast response, and quaility you can trust.';
+const description = 'Professional garage door repair and replacement in Central Michigan. Honest service, fast response, and quality you can trust.';
 
 // YOUR SCHEMA HERE
 const homeSchema = {
@@ -260,7 +260,6 @@ That’s why we focus on doing things the right way — with clear communication
 We take pride in showing up when we say we will, respecting your space, and making sure every job is done right.
 It’s not just about fixing the door — it’s about making your day a little easier and your home feel taken care of.
 </p>
-<img src="/photos/garage-door-technician-with-customer.webp" alt="The-best-garage-door-installation-Mount-Pleasant-Michigan" class="homepg-about-photo reveal-on-scroll" />
 
 </section>
 
@@ -351,54 +350,67 @@ It’s not just about fixing the door — it’s about making your day a little 
 
  <section class="core-services-section">
 <h2 class="sub-heading">How We Can Help</h2>
-   <p class="core-services-intro">
- <!-- From simple repairs to full installations, --> We're here to keep your garage door working reliably and looking great.
+   <!-- <p class="core-services-intro">
+  From simple repairs to full installations, We're here to keep your garage door working reliably and looking great.
     Explore our core services below.
 </p>
+-->
 
   <div class="core-services-grid">
     <a href="/services/broken-springs" class="core-services-card spring">
+  <div class="card-text">
       <h3>Broken Spring Replacement</h3>
       <p>
          The most common garage door failure. Springs snap with a loud bang and leave your door stuck.
       </p>
+     </div>
     </a>
 
     <a href="/services/door-repair" class="core-services-card repair">
+  <div class="card-text">
       <h3>General Door Repair</h3>
       <p>
         Fixing broken cables, misaligned tracks, worn-out rollers, and more — fast, clean, and dependable.
       </p> 
+     </div>
     </a>
 
     <a href="/services/opener-repair" class="core-services-card opener">
+  <div class="card-text">
       <h3>Opener Repair & Installation</h3>
       <p>
          Need a new opener? Troubleshooting a glitchy remote? We work with all major brands and smart systems.
       </p>
+     </div>
     </a>
 
 <!-- UN-HIDE THIS WHEN LICENSED 
     <a href="/services/new-door-installation" class="core-services-card installation">
+  <div class="card-text">
       <h3>New Door Installation</h3>
       <p>
         We help you choose the right door and install it with craftsmanship and care — no mess left behind.
       </p>
+     </div>
     </a>
   
     <a href="/services/door-repair" class="core-services-card agricultural">
+  <div class="card-text">
       <h3>Agricultural & Pole Barn Doors</h3>
       <p>
        We work on more than just residential garages. Pole barns, shop doors, agricultural buildings too.
       </p>
+     </div>
     </a>
 -->
 
     <a href="/services/maintenance" class="core-services-card maintenance">
+  <div class="card-text">
       <h3>Preventive Maintenance</h3>
       <p>
         Routine maintenance helps identify small issues before they become major repairs while extending the life of your garage door and opener.
       </p>
+     </div>
     </a>
   </div>
 
@@ -413,10 +425,7 @@ It’s not just about fixing the door — it’s about making your day a little 
 <div class="why-choose-us-section">
     <div class="why-choose-us-container">
         <h2 class="sub-heading">Why Choose Isabella Garage Door?</h2>
-           <p class="testimonial-intro-paragraph" >We believe great service starts with trust. That’s why we do things the right way — with pride, care, and real respect for your home.
-              </p> 
-
-
+         
         <div class="accordion-group reveal-on-scroll">
             <div class="accordion-item">
                 <button class="accordion-button" onclick="toggleAccordion(this)">
@@ -480,11 +489,13 @@ Our commitment to quality materials and meticulous workmanship ensures your gara
         </div>
     </div>
 </div>
+  <p class="testimonial-intro-paragraph" >We believe great service starts with trust. That’s why we do things the right way — with pride, care, and real respect for your home.
+    </p> 
 <a href="/about/why-choose-isabella-garage-door" class="cta-button margin-bottom-2rem"><i class="fas fa-magnifying-glass"></i> Learn More About Us</a>
 </section>
 
 
-<!-- SHOW ONCE YOU GET REVEIWS  
+ <!-- SHOW ONCE YOU GET REVEIWS  
 <div class="testimonial-outer">
   <section>
     <h2 class="sub-heading">Real Feedback.<br>Real Trust.</h2>
@@ -493,23 +504,13 @@ Our commitment to quality materials and meticulous workmanship ensures your gara
 
 <a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;" class="reveal-on-scroll">
       <SplideSlider client:load />
-
-<a href="/about/testimonials" class="cta-button"><i class="fa-solid fa-star fa-fw"></i> Read Customer Reviews</a>
 </a>
+<a href="/about/testimonials" class="cta-button"><i class="fa-solid fa-star fa-fw"></i> Read Customer Reviews</a>
 </section>
 -->
 
-<!--  I THINK THIS MUST BE IN REVIEW COMPONENT, KEEP COMMENTED OUT INCASE LOST
-   <p class="testimonial-feature-heading"><i class="fas fa-check icon-bronze"></i> <strong>Locally Owned & Family Operated</strong></p>
-    <p class="p-testimonials">Personal service from people who live and work in your community.</p>
-  <p class="testimonial-feature-heading"><i class="fas fa-check icon-bronze"></i> <strong>Satisfaction Backed by Craftsmanship</strong></p>
-    <p class="p-testimonials">We do it right — or we make it right. Every time.</p>
-  <p class="testimonial-feature-heading"><i class="fas fa-check icon-bronze"></i> <strong>Trusted by Michigan Homeowners</strong></p>
-    <p class="p-testimonials padding-bottom-2rem">Known for honest recommendations and dependable work throughout Central Michigan.</p>
-  -->
-
-
-<section>
+<!--
+<section class="testimonial-feature-heading">
 <div class="reveal-on-scroll">
    <p class="testimonial-feature-heading" style="margin-top: 3rem;"><i class="fas fa-check icon-bronze"></i> <strong>Locally Owned & Family Operated</strong></p>
     <p class="p-testimonials">Personal service from people who live and work in your community.</p>
@@ -520,15 +521,26 @@ Our commitment to quality materials and meticulous workmanship ensures your gara
   </div>
   </section>
 </div>
+-->
 
+<section class="testimonial-feature-section">
+  <div class="testimonial-feature-overlay reveal-on-scroll">
+    <p class="testimonial-feature-heading"><i class="fas fa-check icon-bronze"></i> <strong>Rooted in the Community We Serve</strong></p>
+    <p class="p-testimonials">Personal service from people who live and work in your community.</p>
+    <p class="testimonial-feature-heading"><i class="fas fa-check icon-bronze"></i> <strong>Satisfaction Backed by Craftsmanship</strong></p>
+    <p class="p-testimonials">We do it right — or we make it right. Every time.</p>
+    <p class="testimonial-feature-heading"><i class="fas fa-check icon-bronze"></i> <strong>Trusted by Michigan Homeowners</strong></p>
+    <p class="p-testimonials">Known for honest recommendations and dependable work throughout Central Michigan.</p>
+  </div>
+</section>
 
-
+  <BookingCta />
 
 <!-- Homeowner toolbox -->
 <section class="core-services-section">
   <div class="homeowner-toolbox-section">
     <h2 class="sub-heading">Homeowner Toolbox</h2>
-     <p style="text-align: left;">Fast answers. Instant estimates. Easy diagnostics. Built for you.</p>
+     <p style="text-align: center;">Fast answers. Instant estimates. Easy diagnostics. Built for you.</p>
 
     <div class="homeowner-toolbox-wrapper">
       <div class="homeowner-toolbox-grid">
@@ -581,7 +593,7 @@ Our commitment to quality materials and meticulous workmanship ensures your gara
   </div>
 </section>
 
-  <BookingCta />
+
 
 <section class="faq-area">
 <section id="faq">
@@ -730,7 +742,7 @@ services near you? Isabella Garage Door proudly serves homeowners in:</p>
   <p style="font-size: .9rem; text-align: center;">
     Serving Central Michigan with honest, high-quality garage door service.
   </p>
-  <p style="font-size: .9rem; text-align: center; margin: 0.5rem; color: #b27d57;">
+  <p style="font-size: .9rem; text-align: center; margin: 0.5rem auto; color: #b27d57;">
     <em>Raising Performance. Elevating Standards</em>
   </p>
   <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
@@ -847,7 +859,7 @@ z-index: 1;
 .homeowner-toolbox-body p {
   font-size: 1.1rem;
   line-height: 1.4;
-  color: #333;
+  color: #1a334f;
   text-align: left;
   padding: 0 1rem;
 }
@@ -900,7 +912,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
 });
 </script>
 
-<script is:script>
+<script is:inline>
   const icons = document.querySelectorAll('.core-services-icon-circle');
 
   const observer = new IntersectionObserver(
