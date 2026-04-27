@@ -7,7 +7,7 @@ author: "Isabella Garage Door"
 thumbnail: "/photos/thumbnails/graduation-party-do-and-dont-with-garage-doors.webp"
 ---
  
-# Throwing a Graduation Party? Read This Before You Decorate the Garage
+# Throwing a Graduation Party? Read This Before You Decorate the Garage 
 
 Graduation party season in Michigan means one thing: the garage is getting pressed into service. Folding tables, coolers, the extra fridge, a makeshift buffet line — and of course, decorations everywhere. It's one of the best days of the year and you've been planning it for weeks.
 

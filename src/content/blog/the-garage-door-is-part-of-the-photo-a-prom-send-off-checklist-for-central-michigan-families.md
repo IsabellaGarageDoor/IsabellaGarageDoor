@@ -1,6 +1,6 @@
 ---
 title: "The Garage Door Is Part of the Photo: A Prom Send-Off Checklist for Central Michigan Families"
-description: "For most Central Michigan homes, the driveway *is* the send-off stage. It's where families gather, where grandparents park, where the group photos happen before everyone piles in and disappears for the night."
+description: "For most Central Michigan homes, the driveway is the send-off stage. It's where families gather, where grandparents park, where the group photos happen before everyone piles in and disappears for the night."
 pubDate: "2026-04-19"
 slug: "the-garage-door-is-part-of-the-photo-a-prom-send-off-checklist-for-central-michigan-families"
 author: "Isabella Garage Door"
