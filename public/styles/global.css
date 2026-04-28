@@ -1795,7 +1795,7 @@ display: inline-block;
   border: 0.094rem solid #b27d57;
   border-radius: 0.75rem;
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
-  max-width: 1000px;
+  max-width: 720px;
   margin: 0rem auto;
   overflow: hidden; /* keeps overlay inside border-radius */
 }
@@ -1810,6 +1810,8 @@ display: inline-block;
       margin-right: calc(-50vw + 50%);
       border-bottom: 0.5px solid #b27d57;
       border-top: 0.5px solid #b27d57;
+      border-left: 0;
+      border-right: 0;
       border-radius: 0;
   }
 }
@@ -2590,7 +2592,7 @@ position: center;
   background-image: url('/photos/garage-door-technician-with-customer.webp');
   background-size: cover;
   background-position: center;
-  border: 0.094rem solid #b27d57;
+  border: 0.5px solid #b27d57;
   border-radius: 0.75rem;
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
   max-width: 1000px;
@@ -2607,6 +2609,10 @@ position: center;
       height: auto;
       margin-left: calc(-50vw + 50%);
       margin-right: calc(-50vw + 50%);
+      border-bottom: 0.5px solid #b27d57;
+      border-top: 0.5px solid #b27d57;
+      border-left: 0;
+      border-right: 0;
       border-radius: 0;
   }
 }
