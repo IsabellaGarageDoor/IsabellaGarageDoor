@@ -284,10 +284,10 @@ const description = "Save Isabella Garage Door to your contacts for warranty sup
           </div>
         </div>
 
-        <button class="save-btn save-btn-primary" onclick="saveContact()">
+        <a href="/isabella-garage-door.vcf" class="save-btn save-btn-primary">
           <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
           Save to My Contacts
-        </button>
+        </a>
 
         <div class="save-divider"><span>Had a great experience?</span></div>
 
@@ -311,40 +311,10 @@ const description = "Save Isabella Garage Door to your contacts for warranty sup
       </div>
     </div>
 
-    <div class="save-toast" id="save-toast">Contact saved — open the file to add to your contacts!</div>
+
 
   </div>
 
-  <script>
-    function saveContact() {
-      const vcard = [
-        'BEGIN:VCARD',
-        'VERSION:3.0',
-        'FN:Isabella Garage Door',
-        'ORG:Isabella Garage Door',
-        'TITLE:Garage Door Repair & Service',
-        'TEL;TYPE=CELL,VOICE:(989) 572-0303',
-        'EMAIL:isabellagaragedoor@gmail.com',
-        'URL:https://isabellagaragedoor.com',
-        'ADR;TYPE=WORK:;;Rosebush;MI;;US',
-        'NOTE:Warranty info: https://isabellagaragedoor.com/resources/warranty',
-        'END:VCARD'
-      ].join('\r\n');
 
-      const blob = new Blob([vcard], { type: 'text/vcard' });
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'isabella-garage-door.vcf';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-
-      const toast = document.getElementById('save-toast');
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 3500);
-    }
-  </script>
 
 </BaseLayout>
