@@ -7,7 +7,6 @@ author: "Isabella Garage Door"
 thumbnail: "/photos/thumbnails/diy-garage-door-opener-installation.webp"
 ---
 
-
 # Can You Install a Garage Door Opener Yourself? Here's What to Check First
 
 If you're handy and you've got a free Saturday, installing a garage door opener is probably within your ability. The instructions that come in the box are actually pretty decent, and for a straightforward installation, most people can follow them from start to finish without much trouble.

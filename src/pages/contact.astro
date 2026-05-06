@@ -2,6 +2,7 @@
 title: "Contact Us - Isabella Garage Door"
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.jsx';
+import SaveContactBanner from '../components/SaveContactBanner.astro';
 
 const title = 'Request Service | Isabella Garage Door';
 const description = 'Get in touch with Isabella Garage Door for fast, friendly, and reliable garage door repairs in Central, Michigan.';
@@ -74,10 +75,9 @@ const contactSchema = {
     <span class="method">INBOX</span>
     <a href="mailto:isabellagaragedoor@gmail.com">Email the Office</a>
   </div>
-
 </div>
 
-
+<SaveContactBanner />
 
 <div id="service-area" style="position: relative; top: -60px;"></div>
    <h2 class="sub-heading" style="margin-top: 2rem;">Service Area</h2>

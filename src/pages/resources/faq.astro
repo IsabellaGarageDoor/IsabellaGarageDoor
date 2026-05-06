@@ -1,5 +1,4 @@
 ---
-title: "FAQ - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const title = 'FAQs | Isabella Garage Door';
@@ -9,12 +8,114 @@ const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
+
+    // General Questions
+    {
+      "@type": "Question",
+      "name": "What areas do you service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We proudly serve Mount Pleasant, Alma, Clare, and surrounding areas in Central Michigan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are your business hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We typically are available most afternoons."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are you locally owned?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes! Isabella Garage Door is a locally owned and family-operated business based in Isabella County, Michigan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I schedule a service call?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The fastest and easiest way to schedule is by booking directly through our online booking page. You can also submit a request through our EasyEstimate tool, or contact us by call, text, email, or our website form."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide same-day service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In many cases, yes! However it will depend on our current availability."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are you insured?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Isabella Garage Door is fully insured for residential garage door services. We operate with transparency and uphold all local regulations to protect your home and our work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How quickly can I expect a response?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We typically respond the same day — often within a few hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you only work on certain brands?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — we service all major residential garage door and opener brands regardless of who installed them originally."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to be home for the service call?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For most repairs, yes — we'll need access to the garage and prefer to walk you through the work when finished. If your situation is unique, reach out and we can discuss options."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will you explain what's wrong before doing any work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Always. We diagnose the problem first, explain what we found, and give you a clear price before touching anything. No surprises."
+      }
+    },
+
+    // General - new additions
+    {
+      "@type": "Question",
+      "name": "Do you work on commercial garage doors?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — we specialize exclusively in residential garage doors and openers. If you need commercial service, we recommend contacting a commercial door specialist."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you tell me over the phone what's wrong with my door?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sometimes. If you describe the symptoms, we can often give you a good idea of what's going on and whether it's urgent. You can also use our DoorDiagnosis tool online. But an accurate diagnosis really requires seeing the door in person — there's a lot we can miss without being there."
+      }
+    },
+
+    // Repairs & Service
     {
       "@type": "Question",
       "name": "How much does it cost to fix a broken garage door spring?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The cost varies depending on the size and weight of your door, but you can get a ballpark price in under 60 seconds using our EasyEstimate™ tool. We focus on value by using high-cycle springs that last twice as long as standard ones."
+        "text": "The cost varies depending on the size and weight of your door, but you can get a ballpark price in under 60 seconds using our EasyEstimate tool. We focus on value by using high-cycle springs that last twice as long as standard ones."
       }
     },
     {
@@ -27,18 +128,278 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "Do you offer emergency or same-day service?",
+      "name": "My garage door is making a loud grinding or squeaking noise. Is that serious?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes! We understand that a stuck garage door can be a major inconvenience or safety risk. We prioritize urgent repairs and often provide same-day service to the Isabella County and surrounding Mid-Michigan areas."
+        "text": "Not always — sometimes it just needs lubrication. But grinding can also indicate worn rollers, loose hardware, or a failing opener gear. If the noise is new or getting worse, it's worth having it looked at before a small issue becomes a bigger repair."
       }
     },
     {
       "@type": "Question",
-      "name": "How often should my garage door be serviced?",
+      "name": "My door opens but won't close all the way. What's causing that?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We recommend a professional 20-point tune-up once a year. This includes lubrication, safety sensor alignment, and hardware inspection to prevent costly repairs and extend the life of your opener."
+        "text": "This is usually a safety sensor issue. The sensors at the bottom of your door tracks need to be aligned and unobstructed. It can also be a travel limit setting on the opener. Both are straightforward fixes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long do garage door springs last?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard springs are rated for around 10,000 cycles — roughly 7 to 10 years with average use. High-cycle springs are rated for 25,000+ cycles, which significantly extends the life of your system."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you repair broken garage door panels?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In some cases, yes — especially if the damage is cosmetic or isolated. We'll let you know whether a repair or panel replacement makes more sense."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My opener works but the door doesn't move. What's wrong?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This could be a broken spring or disconnected drive mechanism. We'll assess and fix the issue safely — never try to force the door open yourself."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My garage door goes back up right after it closes. What's going on?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "That's almost always the safety sensors detecting something in the path — real or imagined. Misaligned sensors, a dirty sensor lens, or direct sunlight interference can all trigger it. It's a quick fix in most cases."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My remote stopped working. Do I need a new opener?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Probably not. Start with fresh batteries. If that doesn't fix it, the remote may need to be reprogrammed or replaced — both inexpensive fixes. A new opener is rarely the answer for a remote issue alone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is it safe to use my garage door if a spring is broken?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. A broken spring puts enormous strain on your opener and cables, and the door can drop unexpectedly. Keep it closed and call us — this is one repair you don't want to delay."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My garage door is off its tracks. Can I fix it myself?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We strongly advise against it. A door off its tracks is under uneven tension and can fall without warning. It's one of the more dangerous DIY attempts we see go wrong. Call us and keep the door where it is until we arrive."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a typical garage door repair take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most common repairs take about an hour, sometimes two. More involved jobs may take a bit longer. We'll give you a time estimate before we start."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "One side of my garage door looks crooked or uneven. What's wrong?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "An uneven door usually means one spring has broken or lost tension, or a cable has come off the drum. Either way, don't force it — operating the door in that condition can cause further damage or injury."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if I need a repair or a full replacement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on the age of the door and opener, the extent of the damage, and what a repair would cost relative to replacement. We'll always give you an honest recommendation — if a repair makes more sense, we'll say so. If the door is at the end of its life, we'll tell you that too."
+      }
+    },
+
+    // Safety
+    {
+      "@type": "Question",
+      "name": "How do I test if my garage door's auto-reverse is working?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Place a 2x4 flat on the ground in the center of the door opening. Close the door — it should reverse automatically when it contacts the board. If it doesn't, your auto-reverse needs adjustment. This is a critical safety feature, especially if you have children or pets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My garage door came down on my car. What should I do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Don't try to force the door back up manually. If the door came off track or the cables came off the drum DO NOT go near it! Call us — we'll get there quickly and handle it without causing additional damage to your car or the door system."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is my old garage door opener safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Openers made before 1993 don't have the auto-reverse feature required by law today, which means they can close on people, pets, or objects without stopping. If your opener is more than 20-25 years old, replacement is worth serious consideration for safety alone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a garage door opener be hacked?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Older openers using fixed-code remotes can be vulnerable to signal capture. Modern openers use rolling code technology that changes with every use, making them significantly more secure. If your opener is old, this is one more reason to consider an upgrade."
+      }
+    },
+
+    // Weather & Michigan-Specific
+    {
+      "@type": "Question",
+      "name": "Why does my garage door struggle to open in cold weather?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cold temperatures cause metal components to contract and lubricants to thicken, which increases resistance throughout the system. Springs especially lose efficiency in the cold. A pre-winter tune-up with the right lubricant can make a noticeable difference."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My garage door froze to the ground overnight. What do I do?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Don't force it with the opener — you can burn out the motor. Use a hair dryer along the bottom seal to melt the ice. Once it's free, apply a silicone-based lubricant to the bottom seal to help prevent it from happening again."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I insulate my garage door for Michigan winters?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If you use your garage for anything beyond parking — a workshop, storage, laundry — insulation is worth it. It keeps temps more stable, reduces strain on the opener in cold weather, and cuts down on noise. Michigan winters are hard on uninsulated doors."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does humidity affect my garage door?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "High humidity can cause wooden doors to swell and warp, and accelerate rust on springs, cables, and hardware. It can also affect sensor performance. Keeping your door lubricated and ensuring good weatherstripping goes a long way in Michigan's humid summers."
+      }
+    },
+
+    // Openers
+    {
+      "@type": "Question",
+      "name": "What's the difference between a belt drive and chain drive opener?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Chain drive openers are the most common — durable and affordable, but louder. Belt drive openers run on a rubber belt, making them significantly quieter — a good choice if your garage is attached and below a bedroom. Direct drive openers are the quietest of all, with only one moving part."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a garage door opener last?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most openers last 10 to 15 years with regular use. Heavy use, poor maintenance, or power surge damage can shorten that. If your opener is over 10 years old and starting to act up, repair costs often approach replacement cost — worth considering an upgrade."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "My opener light is flashing. What does that mean?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A flashing opener light is usually a diagnostic code. The number of flashes corresponds to a specific fault — commonly a sensor issue, travel limit problem, or internal error. Count the flashes and check your opener's manual, or contact us and we can help you decode it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I repair or replace my garage door opener?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "If the opener is under 10 years old and the repair is minor, fixing it usually makes sense. If it's older than 10 years, frequently acting up, or lacks modern safety features like auto-reverse and rolling code security, replacement is likely the smarter long-term investment."
+      }
+    },
+
+    // Pricing - new additions
+    {
+      "@type": "Question",
+      "name": "Will my homeowner's insurance cover garage door repairs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It depends on your policy and the cause of damage. Damage from a covered event like a storm or vehicle impact is often covered, minus your deductible. Wear-and-tear repairs generally aren't. Check with your insurer — we can provide documentation if needed for a claim."
+      }
+    },
+
+    // Maintenance & Memberships
+    {
+      "@type": "Question",
+      "name": "What's included in a maintenance visit?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A typical maintenance visit includes spring tension adjustment, roller and hinge lubrication, safety tests, sensor alignment, and a full system inspection."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How often should I schedule garage door maintenance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We recommend a professional inspection at least once a year, or twice if your door gets heavy daily use. Preventive maintenance saves money and avoids breakdowns."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What can I do to maintain my garage door between service visits?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A few simple things go a long way: spray the rollers, hinges, and springs with a garage door lubricant (not WD-40) once or twice a year, visually inspect the cables and springs for wear, and test the auto-reverse by placing a 2x4 flat on the ground under the door. If the door doesn't reverse on contact, call us."
+      }
+    },
+
+    // Pricing & Policies
+    {
+      "@type": "Question",
+      "name": "What are your payment options?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We accept major credit cards, checks, ACH and digital payments."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you charge extra for same-day or weekend service?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We don't upcharge for same-day service when it's available. Emergency appointments may have a small premium, depending on urgency."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is your service warranty?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We stand by our work with a 1-year labor warranty on most repairs and installations. Product warranties vary by manufacturer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is there a service call fee?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, there is a $75 service call fee which covers the visit and diagnosis. That fee is applied toward the cost of any repair completed the same day."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you provide a written estimate before starting work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We always provide a clear estimate before any work begins. You'll know exactly what you're paying before we pick up a tool."
       }
     }
   ]
@@ -57,7 +418,6 @@ const faqSchema = {
   margin: 0 auto;
   content-align: center;
 }
-
 
 .faq-intro p {
   font-size: 1.1rem;
@@ -84,12 +444,12 @@ const faqSchema = {
 }
 
 .faq-answer a {
-  color: #b27d57;       /* your desired link color */
-  text-decoration: none; /* optional: remove underline */
+  color: #b27d57;
+  text-decoration: none;
 }
 
 .faq-answer a:hover {
-  text-decoration: underline; /* optional: show underline on hover */
+  text-decoration: underline;
 }
 </style>
 
@@ -100,7 +460,7 @@ const faqSchema = {
     <section class="faq-intro">
       <h1 class="page-title">Frequently Asked Questions</h1>
       <p>
-        Got questions about your garage door? We’ve compiled answers to the most common issues, concerns, and curiosities. Whether you're troubleshooting a noisy opener or wondering how often to schedule maintenance, you're in the right place.
+        Got questions about your garage door? We've compiled answers to the most common issues, concerns, and curiosities. Whether you're troubleshooting a noisy opener or wondering how often to schedule maintenance, you're in the right place.
       </p>
       <p>
         Still unsure? Our interactive <a href="/homeowner-tools/ask-abel-ai-assistant#askabel" class="faq-link">Garage Door Assistant</a> can help guide you.
@@ -108,9 +468,7 @@ const faqSchema = {
     </section>
 
 
-
 <!-- FAQ -->
-
 
 <section id="faq">
 
@@ -126,27 +484,74 @@ const faqSchema = {
   <div class="faq-item"><div class="faq-question"><span>How do I schedule a service call?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>The fastest and easiest way to schedule is by booking directly through our <a href="/booking">online booking page</a>. You can also submit a request through our <a href="/homeowner-tools/easy-estimate">EasyEstimate tool</a>, or contact us by <a href="tel:19895720303">call</a>, <a href="sms:19895720303">text</a>, <a href="mailto:isabellagaragedoor@gmail.com">email</a>, or our <a href="/contact">website form</a>.</p></div></div>
   <div class="faq-item"><div class="faq-question"><span>Do you provide same-day service?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>In many cases, yes! However it will depend on our current availability.</p></div></div>
   <div class="faq-item"><div class="faq-question"><span>Are you insured?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Yes. Isabella Garage Door is fully insured for residential garage door services. We operate with transparency and uphold all local regulations to protect your home and our work.</p></div></div>
-  <div class="faq-item"><div class="faq-question"><span>How quickly can I expect a response?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>We typically respond the same day—often within a few hours..</p></div></div>
-  <div class="faq-item"><div class="faq-question"><span>Do you service all brands of garage doors and openers?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Yes, we service most major brands, including LiftMaster, Chamberlain, Genie, Craftsman, and others. If you’re not sure, just ask.</p></div></div>
-  <div class="faq-item"><div class="faq-question"><span>Do you provide free estimates?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Yes, we offer free estimates for all services. You can request one online or by phone. Or get an instant, no-obligation estimate right now using our <a href="/homeowner-tools/easy-estimate">EasyEstimate™</a>—no information required, see your options immediately.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>How quickly can I expect a response?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>We typically respond the same day — often within a few hours.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>Do you only work on certain brands?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>No — we service all major residential garage door and opener brands regardless of who installed them originally.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>Do I need to be home for the service call?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>For most repairs, yes — we'll need access to the garage and prefer to walk you through the work when finished. If your situation is unique, reach out and we can discuss options.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>Will you explain what's wrong before doing any work?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Always. We diagnose the problem first, explain what we found, and give you a clear price before touching anything. No surprises.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>Do you work on commercial garage doors?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>No — we specialize exclusively in residential garage doors and openers. If you need commercial service, we recommend contacting a commercial door specialist.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>Can you tell me over the phone what's wrong with my door?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Sometimes. If you describe the symptoms, we can often give you a good idea of what's going on and whether it's urgent. You can also use our <a href="/homeowner-tools/door-diagnosis">DoorDiagnosis tool</a> online, But an accurate diagnosis really requires seeing the door in person — there's a lot we can miss without being there.</p></div></div>
 </section>
 
 <div style="height: 2px; background-color: #ccc; margin: 2rem 0;"></div>
 
-  <!-- Repair & Troubleshooting -->
-<section id="faq" style="margin: 2rem auto 2rem;">
+  <!-- Repairs & Service -->
+<section id="faq-repairs" style="margin: 2rem auto 2rem;">
 <div class="faq-head">
-<h2 class="sub-heading" style="margin-bottom: -.5rem;">Repair & Troubleshooting</h2>
+<h2 class="sub-heading" style="margin-bottom: -.5rem;">Repairs & Service</h2>
 </div>
-  <div class="faq-item"><div class="faq-question"><span>What are common signs my garage door needs repair?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Slow response, unusual noises, sagging sections, or the door not opening/closing properly are common signs. We can inspect and resolve the issue.</p></div></div>
-  <div class="faq-item"><div class="faq-question"><span>Is it safe to repair a broken spring myself?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>No. Torsion and extension <a href="/services/broken-springs">springs</a> are under high tension and can cause serious injury. Leave spring repairs to trained professionals.</p></div></div>
-  <div class="faq-item"><div class="faq-question"><span>Why won’t my garage door open even though the opener runs?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>This could mean a broken spring, disconnected trolley, or stripped gear. We’ll diagnose and fix the root issue safely.</p></div></div>
-  <div class="faq-item"><div class="faq-question"><span>Can you fix a door that’s come off track?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Yes. We can realign and secure the door, check for bent tracks or damaged rollers, and ensure everything operates smoothly again.</p></div></div>
-  <div class="faq-item"><div class="faq-question"><span>Do you offer emergency repair services?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Yes, we offer emergency repair support for urgent garage door issues.</p></div></div>
-  <div class="faq-item"><div class="faq-question"><span>What should I do if my garage door won’t open or close?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>First, check the power source and the photo-eye sensors. If nothing looks obviously out of place, give us a call—we’ll diagnose the issue quickly and safely.</p></div></div>
-  <div class="faq-item"><div class="faq-question"><span>Why is my garage door so loud?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Noise often comes from worn rollers, loose hardware, or lack of lubrication. We can pinpoint the source and quiet things down with the right <a href="/services/door-repair">repair</a> or tune-up.</p></div></div>
-  <div class="faq-item"><div class="faq-question"><span>Can you repair broken garage door panels?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>In some cases, yes—especially if the damage is cosmetic or isolated. We’ll let you know whether a repair or panel replacement makes more sense.</p></div></div>
-  <div class="faq-item"><div class="faq-question"><span>My opener works but the door doesn’t move. What’s wrong?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>This could be a <a href="/services/broken-springs">broken spring</a> or disconnected drive mechanism. We’ll assess and fix the issue safely—never try to force the door open yourself.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>How much does it cost to fix a broken garage door spring?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>The cost varies depending on the size and weight of your door, but you can get a ballpark price in under 60 seconds using our <a href="/homeowner-tools/easy-estimate">EasyEstimate™ tool</a>. We focus on value by using high-cycle springs that last twice as long as standard ones.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>My door won't open. Should I try to fix it myself?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>If you hear a loud bang or see a gap in your spring, do not attempt to open the door. Garage door springs are under extreme tension and can be dangerous. It is best to keep the door closed and call a professional for a safe repair.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>My garage door is making a loud grinding or squeaking noise. Is that serious?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Not always — sometimes it just needs lubrication. But grinding can also indicate worn rollers, loose hardware, or a failing opener gear. If the noise is new or getting worse, it's worth having it looked at before a small issue becomes a bigger repair.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>My door opens but won't close all the way. What's causing that?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>This is usually a safety sensor issue. The sensors at the bottom of your door tracks need to be aligned and unobstructed. It can also be a travel limit setting on the opener. Both are straightforward fixes.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>My garage door goes back up right after it closes. What's going on?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>That's almost always the safety sensors detecting something in the path — real or imagined. Misaligned sensors, a dirty sensor lens, or direct sunlight interference can all trigger it. It's a quick fix in most cases.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>My remote stopped working. Do I need a new opener?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Probably not. Start with fresh batteries. If that doesn't fix it, the remote may need to be reprogrammed or replaced — both inexpensive fixes. A new opener is rarely the answer for a remote issue alone.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>How long do garage door springs last?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Standard springs are rated for around 10,000 cycles — roughly 7 to 10 years with average use. High-cycle springs are rated for 25,000+ cycles, which significantly extends the life of your system.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>Can you repair broken garage door panels?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>In some cases, yes — especially if the damage is cosmetic or isolated. We'll let you know whether a repair or panel replacement makes more sense.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>My opener works but the door doesn't move. What's wrong?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>This could be a <a href="/services/broken-springs">broken spring</a> or disconnected drive mechanism. We'll assess and fix the issue safely — never try to force the door open yourself.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>Is it safe to use my garage door if a spring is broken?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>No. A <a href="/services/broken-springs">broken spring</a> puts enormous strain on your opener and cables, and the door can drop unexpectedly. Keep it closed and <a href="/contact#contact-form">contact us</a> — this is one repair you don't want to delay.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>My garage door is off its tracks. Can I fix it myself?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>We strongly advise against it. A door off its tracks is under uneven tension and can fall without warning. It's one of the more dangerous DIY attempts we see go wrong. <a href="tel:9895720303">Call</a> us and keep the door where it is until we arrive.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>How long does a typical garage door repair take?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Most common repairs take about an hour, sometimes two. More involved jobs may take a bit longer. We'll give you a time estimate before we start.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>One side of my garage door looks crooked or uneven. What's wrong?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>An uneven door usually means one spring has broken or lost tension, or a cable has come off the drum. Either way, don't force it — operating the door in that condition can cause further damage or injury.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>How do I know if I need a repair or a full replacement?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>It depends on the age of the door and opener, the extent of the damage, and what a repair would cost relative to replacement. We'll always give you an honest recommendation — if a repair makes more sense, we'll say so. If the door is at the end of its life, we'll tell you that too.</p></div></div>
+</section>
+
+<div style="height: 2px; background-color: #ccc; margin: 2rem 0;"></div>
+
+  <!-- Safety -->
+<section id="faq-safety" style="margin: 2rem auto 2rem;">
+<div class="faq-head">
+<h2 class="sub-heading" style="margin-bottom: -.5rem;">Safety</h2>
+</div>
+  <div class="faq-item"><div class="faq-question"><span>How do I test if my garage door's auto-reverse is working?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Place a 2x4 flat on the ground in the center of the door opening. Close the door — it should reverse automatically when it contacts the board. If it doesn't, your auto-reverse needs adjustment. This is a critical safety feature, especially if you have children or pets.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>My garage door came down on my car. What should I do?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Don't try to force the door back up manually. If the door came off track or the cables came off the drum DO NOT go near it! <a href="tel:9895720303">Call</a> us — we'll get there quickly and handle it without causing additional damage to your car or the door system.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>Is my old garage door opener safe?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Openers made before 1993 don't have the auto-reverse feature required by law today, which means they can close on people, pets, or objects without stopping. If your opener is more than 20–25 years old, replacement is worth serious consideration for safety alone.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>Can a garage door opener be hacked?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Older openers using fixed-code remotes can be vulnerable to signal capture. Modern openers use rolling code technology that changes with every use, making them significantly more secure. If your opener is old, this is one more reason to consider an upgrade.</p></div></div>
+</section>
+
+<div style="height: 2px; background-color: #ccc; margin: 2rem 0;"></div>
+
+  <!-- Weather & Michigan-Specific -->
+<section id="faq-weather" style="margin: 2rem auto 2rem;">
+<div class="faq-head">
+<h2 class="sub-heading" style="margin-bottom: -.5rem;">Weather & Michigan winters</h2>
+</div>
+  <div class="faq-item"><div class="faq-question"><span>Why does my garage door struggle to open in cold weather?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Cold temperatures cause metal components to contract and lubricants to thicken, which increases resistance throughout the system. Springs especially lose efficiency in the cold. A pre-winter tune-up with the right lubricant can make a noticeable difference.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>My garage door froze to the ground overnight. What do I do?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Don't force it with the opener — you can burn out the motor. Use a hair dryer along the bottom seal to melt the ice. Once it's free, apply a silicone-based lubricant to the bottom seal to help prevent it from happening again.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>Should I insulate my garage door for Michigan winters?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>If you use your garage for anything beyond parking — a workshop, storage, laundry — insulation is worth it. It keeps temps more stable, reduces strain on the opener in cold weather, and cuts down on noise. Michigan winters are hard on uninsulated doors.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>How does humidity affect my garage door?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>High humidity can cause wooden doors to swell and warp, and accelerate rust on springs, cables, and hardware. It can also affect sensor performance. Keeping your door lubricated and ensuring good weatherstripping goes a long way in Michigan's humid summers.</p></div></div>
+</section>
+
+<div style="height: 2px; background-color: #ccc; margin: 2rem 0;"></div>
+
+  <!-- Openers -->
+<section id="faq-openers" style="margin: 2rem auto 2rem;">
+<div class="faq-head">
+<h2 class="sub-heading" style="margin-bottom: -.5rem;">Openers</h2>
+</div>
+  <div class="faq-item"><div class="faq-question"><span>What's the difference between a belt drive and chain drive opener?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Chain drive openers are the most common — durable and affordable, but louder. Belt drive openers run on a rubber belt, making them significantly quieter — a good choice if your garage is attached and below a bedroom. Direct drive openers are the quietest of all, with only one moving part.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>How long does a garage door opener last?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Most openers last 10 to 15 years with regular use. Heavy use, poor maintenance, or power surge damage can shorten that. If your opener is over 10 years old and starting to act up, repair costs often approach replacement cost — worth considering an upgrade.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>My opener light is flashing. What does that mean?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>A flashing opener light is usually a diagnostic code. The number of flashes corresponds to a specific fault — commonly a sensor issue, travel limit problem, or internal error. Count the flashes and check your opener's manual, or <a href="/contact">contact us</a> and we can help you decode it.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>Should I repair or replace my garage door opener?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>If the opener is under 10 years old and the repair is minor, fixing it usually makes sense. If it's older than 10 years, frequently acting up, or lacks modern safety features like auto-reverse and rolling code security, replacement is likely the smarter long-term investment.</p></div></div>
 </section>
 
 <div style="height: 2px; background-color: #ccc; margin: 2rem 0;"></div>
@@ -158,41 +563,45 @@ const faqSchema = {
 <h2 class="sub-heading" style="margin-bottom: -.5rem;">Installation & Products</h2>
 </div>
   <div class="faq-item"><div class="faq-question"><span>Do you install new garage doors?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Yes, we <a href="/services/new-door-installation">install</a> high-quality residential garage doors with expert craftsmanship and attention to detail.</p></div></div>
-  <div class="faq-item"><div class="faq-question"><span>Can I choose a custom style or color?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Absolutely. We offer a wide range of customizable options to match your home’s architecture and your personal style.</p></div></div>
-  <div class="faq-item"><div class="faq-question"><span>Do you install smart garage door openers?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Yes, we install <a href="/services/new-opener-installation">openers</a> with WiFi and MyQ compatibility for remote access and monitoring. We’ll help you choose the right model for your needs.</p></div></div>
-  <div class="faq-item"><div class="faq-question"><span>How long does a new garage door installation take?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Most <a href="/services/new-door-installation">installations</a> take half a day to a full day, depending on complexity. We’ll give you a clear timeline and clean up when finished.</p></div></div>
-  <div class="faq-item"><div class="faq-question"><span>Can I customize the look of my new garage door?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Absolutely. We offer a range of styles, materials, colors, and window options to match your home’s aesthetic.</p></div></div>
-  <div class="faq-item"><div class="faq-question"><span>What brands do you install or recommend?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>We work with quality manufacturers like Amarr, Clopay, and Haas, among others. We’ll help you choose the right door based on your budget and style.</p></div></div> 
+  <div class="faq-item"><div class="faq-question"><span>Can I choose a custom style or color?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Absolutely. We offer a wide range of customizable options to match your home's architecture and your personal style.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>Do you install smart garage door openers?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Yes, we install <a href="/services/new-opener-installation">openers</a> with WiFi and MyQ compatibility for remote access and monitoring. We'll help you choose the right model for your needs.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>How long does a new garage door installation take?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Most <a href="/services/new-door-installation">installations</a> take half a day to a full day, depending on complexity. We'll give you a clear timeline and clean up when finished.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>Can I customize the look of my new garage door?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Absolutely. We offer a range of styles, materials, colors, and window options to match your home's aesthetic.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>What brands do you install or recommend?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>We work with quality manufacturers like Amarr, Clopay, and Haas, among others. We'll help you choose the right door based on your budget and style.</p></div></div>
   <div class="faq-item"><div class="faq-question"><span>Is insulation worth it for my garage door?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Yes—especially in Michigan. Insulated doors improve energy efficiency, reduce noise, and help regulate temperatures inside garages used as workshops or living spaces.</p></div></div>
 </section>
 
-<div style="height: 2px; background-color: #ccc; margin: 2rem 0;"></div> 
+<div style="height: 2px; background-color: #ccc; margin: 2rem 0;"></div>
 -->
 
   <!-- Maintenance & Memberships -->
-<section id="faq" style="margin: 2rem auto 2rem;">
+<section id="faq-maintenance" style="margin: 2rem auto 2rem;">
 <div class="faq-head">
 <h2 class="sub-heading" style="margin-bottom: -.5rem;">Maintenance & Memberships</h2>
 </div>
-  <div class="faq-item"><div class="faq-question"><span>What’s included in a maintenance visit?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>A typical <a href="/services/maintenance">maintenance</a> visit includes spring tension adjustment, roller and hinge lubrication, safety tests, sensor alignment, and a full system inspection.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>What's included in a maintenance visit?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>A typical <a href="/services/maintenance">maintenance</a> visit includes spring tension adjustment, roller and hinge lubrication, safety tests, sensor alignment, and a full system inspection.</p></div></div>
   <div class="faq-item"><div class="faq-question"><span>How often should I schedule garage door maintenance?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>We recommend a professional inspection at least once a year, or twice if your door gets heavy daily use. Preventive <a href="/services/maintenance">maintenance</a> saves money and avoids breakdowns.</p></div></div>
-<!--  <div class="faq-item"><div class="faq-question"><span>Do you offer maintenance plans?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>We offer a <a href="/services/performance-membership">Performance Membership</a> instead of traditional maintenance plans. This membership provides ongoing care, priority service, and system protection designed to prevent problems before they happen — not just a once-a-year visit.</p></div></div>
-  <div class="faq-item"><div class="faq-question"><span>What does the Performance Membership include?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p><a href="/services/performance-membership">Performance Members</a> receive scheduled inspections, full safety and mechanical checks, professional lubrication, minor adjustments, priority scheduling, included parts coverage, and exclusive repair discounts. It’s designed to keep your garage door system operating safely and reliably year-round without you having to think about it.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>What can I do to maintain my garage door between service visits?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>A few simple things go a long way: spray the rollers, hinges, and springs with a garage door lubricant (not WD-40) once or twice a year, visually inspect the cables and springs for wear, and test the auto-reverse by placing a 2x4 flat on the ground under the door. If the door doesn't reverse on contact, <a href="tel:9895720303">call</a> us.</p></div></div>
+<!--
+  <div class="faq-item"><div class="faq-question"><span>Do you offer maintenance plans?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>We offer a <a href="/services/performance-membership">Performance Membership</a> instead of traditional maintenance plans. This membership provides ongoing care, priority service, and system protection designed to prevent problems before they happen — not just a once-a-year visit.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>What does the Performance Membership include?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p><a href="/services/performance-membership">Performance Members</a> receive scheduled inspections, full safety and mechanical checks, professional lubrication, minor adjustments, priority scheduling, included parts coverage, and exclusive repair discounts. It's designed to keep your garage door system operating safely and reliably year-round without you having to think about it.</p></div></div>
   <div class="faq-item"><div class="faq-question"><span>Can I cancel my Performance Membership?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Yes, you can cancel your <a href="/services/performance-membership">Performance Membership</a> after 12 months. Cancelling prior to 12 months may result in additional fees.</p></div></div>
 -->
-
 </section>
 
 <div style="height: 2px; background-color: #ccc; margin: 2rem 0;"></div>
 
   <!-- Pricing & Policies -->
-<section id="faq" style="margin: 2rem auto 2rem;">
+<section id="faq-pricing" style="margin: 2rem auto 2rem;">
 <div class="faq-head">
 <h2 class="sub-heading" style="margin-bottom: -.5rem;">Pricing & Policies</h2>
 </div>
+  <div class="faq-item"><div class="faq-question"><span>Is there a service call fee?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Yes, there is a $75 service call fee which covers the visit and diagnosis. That fee is applied toward the cost of any repair completed the same day.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>Do you provide a written estimate before starting work?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>Yes. We always provide a clear estimate before any work begins. You'll know exactly what you're paying before we pick up a tool.</p></div></div>
   <div class="faq-item"><div class="faq-question"><span>What are your payment options?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>We accept major credit cards, checks, ACH and digital payments. <a href="/services/performance-membership">Performance Memberships</a> will be billed monthly with a card on file.</p></div></div>
-  <div class="faq-item"><div class="faq-question"><span>Do you charge extra for same-day or weekend service?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>We don’t upcharge for same-day service when it’s available. Weekend appointments may have a small premium, depending on urgency.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>Do you charge extra for same-day or weekend service?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>We don't upcharge for same-day service when it's available. Emergency appointments may have a small premium, depending on urgency.</p></div></div>
   <div class="faq-item"><div class="faq-question"><span>What is your service warranty?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>We stand by our work with a 1-year labor <a href="/resources/warranty">warranty</a> on most repairs and installations. Product warranties vary by manufacturer.</p></div></div>
+  <div class="faq-item"><div class="faq-question"><span>Will my homeowner's insurance cover garage door repairs?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer"><p>It depends on your policy and the cause of damage. Damage from a covered event like a storm or vehicle impact is often covered, minus your deductible. Wear-and-tear repairs generally aren't. Check with your insurer — we can provide documentation if needed for a claim.</p></div></div>
 
   <!-- END FAQ ITEMS -->
 </section>
@@ -243,12 +652,7 @@ const faqSchema = {
   </p>
 </section>
 
-
-
-
 </section>
-
-
  
 <script is:inline>
 document.querySelectorAll('.faq-item').forEach(item => {
@@ -270,7 +674,5 @@ document.querySelectorAll('.faq-item').forEach(item => {
   });
 });
 </script>
-
-
 
 </BaseLayout>

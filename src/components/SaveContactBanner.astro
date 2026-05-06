@@ -1,0 +1,109 @@
+---
+// src/components/SaveContactBanner.astro
+---
+
+<div class="save-banner">
+  <div class="save-banner-inner">
+    <div class="save-banner-text">
+      <p class="save-banner-eyebrow">Did you know?</p>
+      <p class="save-banner-copy">You can save our contact in one tap — keep our number handy for easy warranty support, quick questions, or future service.</p>
+    </div>
+    <div class="save-banner-right">
+      <div class="save-banner-icon">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+        </svg>
+      </div>
+      <a href="/isabella-garage-door.vcf" class="save-banner-btn">
+        Save My Contact
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .save-banner {
+    display: none; /* mobile only */
+    margin: 2rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .save-banner {
+      display: block;
+    }
+  }
+
+  .save-banner-inner {
+    background: #fdfaf7;
+    border: 0.094rem solid #b27d57;
+    border-radius: 12px;
+    padding: 1.1rem 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .save-banner-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .save-banner-right {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .save-banner-icon {
+    width: 38px;
+    height: 38px;
+    background: #1a334f;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .save-banner-icon svg {
+    width: 18px;
+    height: 18px;
+    fill: #b27d57;
+  }
+
+  .save-banner-eyebrow {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #b27d57;
+    margin-bottom: 0.2rem;
+    font-family: 'Jost', sans-serif;
+  }
+
+  .save-banner-copy {
+    font-size: 0.82rem;
+    color: rgba(26, 51, 79, 0.7);
+    line-height: 1.45;
+    font-family: 'Jost', sans-serif;
+  }
+
+  .save-banner-btn {
+    flex-shrink: 0;
+    background: #b27d57;
+    color: white;
+    text-decoration: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.55rem 1rem;
+    border-radius: 8px;
+    border: none;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+    white-space: nowrap;
+  }
+
+  .save-banner-btn:hover { opacity: 0.88; }
+  .save-banner-btn:active { transform: scale(0.97); }
+</style>

@@ -101,7 +101,8 @@ const learningCenterSchema = {
       <p style="margin-bottom: 0;">
         <em>
           {new Date(post.data.pubDate).toLocaleDateString('en-US', {
-            year: 'numeric', month: 'long', day: 'numeric'
+            year: 'numeric', month: 'long', day: 'numeric',
+  timeZone: 'UTC'
           })}
         </em>
       </p>
