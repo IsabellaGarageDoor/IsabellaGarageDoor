@@ -1,9 +1,9 @@
 # Garage Door Service Agreement
 
-**Business Name:** Isabella Garage Door, a DBA of Schwab & Co. Holdings LLC
-**Phone:** (989) 572-0303
-**Email:** [IsabellaGarageDoor@gmail.com](mailto:IsabellaGarageDoor@gmail.com)
-**Service Area:** Based in Isabella County, MI — Proudly serving Isabella County and surrounding communities
+**Business Name:** Isabella Garage Door, a DBA of Schwab & Co. Holdings LLC<br>
+**Phone:** (989) 572-0303<br>
+**Email:** [IsabellaGarageDoor@gmail.com](mailto:IsabellaGarageDoor@gmail.com)<br>
+**Service Area:** Based in Isabella County, MI — Proudly serving Isabella County and surrounding communities<br>
 
 ---
 

@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadges from '../../components/TrustBadges.astro';
 import HomeownerToolbox from '../../components/HomeownerToolbox.astro';
 import TestimonialCard from '../../components/TestimonialCard.astro';
+import ServiceAreaMap from '../../components/ServiceAreaMap.astro';
 import ServiceFooter from '../../components/ServiceFooter.astro';
 import LocationsFooter from '../../components/LocationsFooter.astro';
 import BookingCta from '../../components/BookingCta.astro';
@@ -302,28 +303,7 @@ const faqSchema = {
 
   <BookingCta />
 
-<section>
-  <img src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" />
-  <p class="p-home area-description-intro">
-    Isabella Garage Door proudly serves homeowners in:
-  </p>
-<p class="area-description-list">
-      <a href="/locations/mt-pleasant">Mount Pleasant</a> • 
-      <a href="/locations/lake-isabella">Lake Isabella</a> • 
-      <a href="/locations/clare">Clare</a> • 
-      <a href="/locations/alma">Alma</a> • 
-      <a href="/locations/farwell">Farwell</a> • 
-      <a href="/locations/coleman">Coleman</a> • 
-      <a href="/locations/shepherd">Shepherd</a> • 
-      <a href="/locations/remus">Remus</a> • 
-      <a href="/locations/rosebush">Rosebush</a> • 
-      <a href="/locations/beal-city">Beal City</a> • 
-      <a href="/locations/st-louis">St. Louis</a>
-      and surrounding 
-      <a href="/locations/central-michigan">Central Michigan</a> 
-      communities.
-    </p>
-</section>
+  <ServiceAreaMap /> 
 
   <HomeownerToolbox />
 

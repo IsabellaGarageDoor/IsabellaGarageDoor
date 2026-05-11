@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SaveContactBanner from '../components/SaveContactBanner.astro';
+import ServiceAreaMap from '../components/ServiceAreaMap.astro';
 
 const title = 'Schedule Garage Door Service | Isabella Garage Door';
 const description = 'Book a garage door service call online with Isabella Garage Door. Serving Mt. Pleasant, Clare, Alma, Shepherd, and all of Central Michigan.';
@@ -86,6 +87,7 @@ const bookingSchema = {
        SQUARE BOOKING WIDGET
        ================================================ -->
   <section style="margin: 2rem auto; max-width: 800px;">
+<div id="book-online" style="position: relative; top: -80px;"></div>
     <!-- Start Square Appointments Embed Code -->
     <div class="embed-placeholder">
       <script is:inline src='https://square.site/appointments/buyer/widget/bs4l0fegqblc5h/LMJS6ZXSNBX8B.js'>
@@ -153,24 +155,9 @@ const bookingSchema = {
   </section>
 
 <SaveContactBanner />
- 
-  <h2 class="sub-heading">Service Area</h2>
-  <img
-    src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp"
-    alt="Isabella Garage Door Service Area Map covering Central Michigan including Mt. Pleasant, Clare, Alma, Coleman and more"
-    class="homepg-service-photo"
-  />
-  <section class="area-description">
-    <div class="centered-content">
-      <p class="p-home area-description-intro">
-        Isabella Garage Door proudly serves homeowners across Central Michigan, including:
-      </p>
-      <p class="area-description-list">
-        Mount Pleasant • Lake Isabella • Clare • Farwell • Coleman • Beal City • Shepherd • Alma • Remus • Edmore • Rosebush • St. Louis • Winn
-        and surrounding communities.
-      </p>
-    </div>
-  </section>
+
+<ServiceAreaMap /> 
+
  
   <section>
     <h2 class="sub-heading">Isabella Garage Door</h2>

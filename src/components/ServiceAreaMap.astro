@@ -1,0 +1,68 @@
+---
+const {
+  title = "Our Service Area",
+  height = "400px"
+} = Astro.props;
+---
+
+<section class="service-area-map">
+
+ <div class="service-area-section">
+<div id="service-area" style="position: relative; top: -80px;"></div>
+
+   <h2 class="sub-heading">Our Service Area</h2>
+
+  <div class="map-wrapper">
+    <iframe 
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d369828.344646622!2d-85.19637064728467!3d43.60062923509618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8aadaa53b2adce97%3A0x3913aebf0ae0b1fe!2sIsabella%20Garage%20Door!5e0!3m2!1sen!2sus!4v1778481566879!5m2!1sen!2sus" 
+      style={`width: 100%; height: ${height}; border: 0.094rem solid #b27d57; border-radius: 0.75rem`}
+      allowfullscreen="" 
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+    ></iframe>
+  </div>
+
+   <div class="area-description">
+  <div class="centered-content">
+    <p class="p-home area-description-intro">
+      Looking for garage door
+services near you? Isabella Garage Door proudly serves homeowners in:</p>
+<p class="area-description-list">
+      <a href="/locations/mt-pleasant">Mount Pleasant</a> • 
+      <a href="/locations/lake-isabella">Lake Isabella</a> • 
+      <a href="/locations/clare">Clare</a> • 
+      <a href="/locations/alma">Alma</a> • 
+      <a href="/locations/farwell">Farwell</a> • 
+      <a href="/locations/coleman">Coleman</a> • 
+      <a href="/locations/shepherd">Shepherd</a> • 
+      <a href="/locations/remus">Remus</a> • 
+      <a href="/locations/rosebush">Rosebush</a> • 
+      <a href="/locations/beal-city">Beal City</a> • 
+      <a href="/locations/st-louis">St. Louis</a>
+      and surrounding 
+      <a href="/locations/central-michigan">Central Michigan</a> 
+      communities.
+    </p>
+
+       </div> </div> </div>
+
+</section>
+
+<!-- FALL BACK IMAGE 
+<img src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" />
+ -->
+
+<style>
+  .service-area-map {
+    width: 100%;
+    max-width: 1000px;
+    margin: 3rem auto 2rem;
+  }
+
+  .map-wrapper {
+    width: 100%;
+    border-radius: 0.75rem;
+    overflow: hidden;
+   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+  }
+</style>

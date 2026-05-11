@@ -3,6 +3,7 @@ title: "Contact Us - Isabella Garage Door"
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ContactForm from '../components/ContactForm.jsx';
 import SaveContactBanner from '../components/SaveContactBanner.astro';
+import ServiceAreaMap from '../components/ServiceAreaMap.astro';
 
 const title = 'Request Service | Isabella Garage Door';
 const description = 'Get in touch with Isabella Garage Door for fast, friendly, and reliable garage door repairs in Central, Michigan.';
@@ -79,33 +80,7 @@ const contactSchema = {
 
 <SaveContactBanner />
 
-<div id="service-area" style="position: relative; top: -60px;"></div>
-   <h2 class="sub-heading" style="margin-top: 2rem;">Service Area</h2>
-<img src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" />
-   <section class="area-description">
-  <div class="centered-content">
-    <p class="p-home area-description-intro">
-      Looking for garage door
-services near you? Isabella Garage Door proudly serves homeowners in:</p>
-
-<p class="area-description-list">
-      <a href="/locations/mt-pleasant">Mount Pleasant</a> • 
-      <a href="/locations/lake-isabella">Lake Isabella</a> • 
-      <a href="/locations/clare">Clare</a> • 
-      <a href="/locations/alma">Alma</a> • 
-      <a href="/locations/farwell">Farwell</a> • 
-      <a href="/locations/coleman">Coleman</a> • 
-      <a href="/locations/shepherd">Shepherd</a> • 
-      <a href="/locations/remus">Remus</a> • 
-      <a href="/locations/rosebush">Rosebush</a> • 
-      <a href="/locations/beal-city">Beal City</a> • 
-      <a href="/locations/st-louis">St. Louis</a>
-      and surrounding 
-      <a href="/locations/central-michigan">Central Michigan</a> 
-      communities.
-    </p>
-</div> 
-</section>
+<ServiceAreaMap /> 
 
 <section>
   <h2 class="sub-heading">Isabella Garage Door</h2>
