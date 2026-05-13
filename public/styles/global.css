@@ -1095,7 +1095,6 @@ font-family: 'Lora', serif;
   text-align: center;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-  border-bottom: 0.5px solid #b27d57;
   /* CHANGE: Remove background-color from here */
   background-color: transparent; 
 }
@@ -1515,7 +1514,7 @@ display: inline-block;
   font-style: italic;
   letter-spacing: 0.03em;
 }
-    .availability-banner {
+    .announcement-banner {
       background-color: white;
       border: 1px solid #d3e2f2;
       padding: 1rem 1rem; /* Increased padding */
@@ -1528,13 +1527,13 @@ display: inline-block;
     }
 
     @media (max-width: 600px) {
-      .availability-banner {
+      .announcement-banner {
         padding-left: 1rem;
         padding-right: 1rem;
       }
     }
 
-    .availability-content {
+    .announcement-content {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -1542,18 +1541,18 @@ display: inline-block;
       gap: 1rem; /* Increased gap */
     }
 
-    .availability-text {
+    .announcement-text {
       font-size: 1.15rem; /* Slightly larger */
       color: #1a1a1a;
       margin: 0;
     }
 
-    .availability-text .highlighted {
+    .announcement-text .highlighted {
       color: #1A334F;
       font-weight: 700; /* Bolder */
     }
 
-.availability-btn {
+.announcement-btn {
   position: relative;
   overflow: hidden;
   background-color: #1a334f;
@@ -1574,7 +1573,7 @@ display: inline-block;
 
 
 /* Hover effect */
-.availability-btn:hover {
+.announcement-btn:hover {
   background-color: #1a334f;
   color: white;
   box-shadow: none;
@@ -1583,7 +1582,7 @@ display: inline-block;
 
 
     @media (min-width: 600px) {
-      .availability-content {
+      .announcement-content {
         flex-direction: row;
         justify-content: space-between;
         text-align: left;
@@ -2246,35 +2245,35 @@ z-index: 1;
 }
 
 .core-services-card.spring {
-  background-image: url('/photos/springnew.webp');
+  background-image: url('/photos/springnew.avif');
 }
 
 .core-services-card.repair {
-  background-image: url('/photos/core-services-door-repair.webp');
+  background-image: url('/photos/core-services-door-repair.avif');
 }
 
 .core-services-card.opener {
-  background-image: url('/photos/core-services-opener.webp');
+  background-image: url('/photos/core-services-opener.avif');
 }
 
 .core-services-card.installation {
-  background-image: url('/photos/core-services-new-installation.webp');
+  background-image: url('/photos/core-services-new-installation.avif');
 }
 
 .core-services-card.maintenance {
-  background-image: url('/photos/maintenance-plan-garage-door.webp');
+  background-image: url('/photos/maintenance-plan-garage-door.avif');
 }
 
 .core-services-card.agricultural {
-  background-image: url('/photos/ag-door.webp');
+  background-image: url('/photos/ag-door.avif');
 }
 
 .core-services-card.rental {
-  background-image: url('/photos/rental-apartments.webp');
+  background-image: url('/photos/rental-apartments.avif');
 }
 
 .core-services-card.polebarn {
-  background-image: url('/photos/pole-barn.webp');
+  background-image: url('/photos/pole-barn.avif');
 }
 
 .core-services-card::before {
@@ -2589,7 +2588,7 @@ position: center;
     }
 
 .testimonial-feature-section {
-  background-image: url('/photos/garage-door-technician-with-customer.webp');
+  background-image: url('/photos/garage-door-technician-with-customer.avif');
   background-size: cover;
   background-position: center;
   border: 0.5px solid #b27d57;

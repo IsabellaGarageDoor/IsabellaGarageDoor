@@ -2,9 +2,10 @@
 title: "Home - Isabella Garage Door"
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TrustBadges from '../components/TrustBadges.astro';
+import AvailabilityBanner from '../components/AvailabilityBanner.astro';
 import SplideSlider from '../components/SplideSlider.jsx'
 import TestimonialCardWhite from '../components/TestimonialCardWhite.astro';
-import AvailabilityBanner from '../components/editable-sections/AvailabilityBanner.astro';
+import AnnouncementBanner from '../components/editable-sections/AnnouncementBanner.astro';
 import BlogCards from '../components/BlogCards.astro';
 import Coupons from '../components/editable-sections/Coupons.astro';
 import HomeownerToolbox from '../components/HomeownerToolbox.astro';
@@ -12,8 +13,8 @@ import BookingCta from '../components/BookingCta.astro';
 import ServiceAreaMap from '../components/ServiceAreaMap.astro';
 import { Image } from 'astro:assets';
 // Import the image from your new assets folder
-import heroBg from '../assets/images/herobg203.webp';
-import heroBgMobile from '../assets/images/herobg-mobile.webp';
+import heroBg from '../assets/images/herobg203.avif';
+import heroBgMobile from '../assets/images/herobg-mobile.avif';
 
 const title = 'Isabella Garage Door | Garage Door Service in Central Michigan';
 const description = 'Professional garage door repair and replacement in Central Michigan. Honest service, fast response, and quality you can trust.';
@@ -233,8 +234,9 @@ Not sure what it'll cost?
 
 </section>
 
-
 <AvailabilityBanner />
+
+<AnnouncementBanner />
 
 <section style="margin-bottom: 1rem;">
 <h2 class="sub-heading" style="margin-top: 2rem;">Elevating the Standard</h2>
@@ -425,7 +427,7 @@ Our commitment to quality materials and meticulous workmanship ensures your gara
 
   <BookingCta />
 
-<section class="testimonial-feature-section" style="margin: 3rem auto 2rem;">
+<section class="testimonial-feature-section" style="margin-top: 3rem; margin-bottom: 2rem;">
   <div class="testimonial-feature-overlay reveal-on-scroll">
     <p class="testimonial-feature-heading"><i class="fas fa-check icon-bronze"></i> <strong>Rooted in the Community We Serve</strong></p>
     <p class="p-testimonials">Personal service from people who live and work in your community.</p>

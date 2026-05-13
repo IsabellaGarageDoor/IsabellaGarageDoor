@@ -1,0 +1,259 @@
+---
+// AvailabilityBanner.astro
+// Drop this component immediately below your hero section.
+// No props needed — all logic runs client-side from the visitor's local time.
+---
+
+<div id="availability-banner" aria-live="polite">
+  <div class="banner-inner">
+    <span class="banner-dot" id="banner-dot"></span>
+    <span class="banner-text" id="banner-text"></span>
+    <a class="banner-cta" id="banner-cta" href="#contact"></a>
+  </div>
+</div>
+
+<style>
+  #availability-banner {
+    width: 100vw;
+    max-width: 100vw;
+    height: auto;
+    margin-left: calc(-50vw + 50%);
+    margin-right: calc(-50vw + 50%);
+    margin-top: -3rem;
+    background: #1a1a2e;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    padding: 0.75rem 1.5rem;
+    font-family: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 48px;
+    transition: background 0.4s ease;
+  }
+
+  #availability-banner.status-open {
+    background: linear-gradient(90deg, #0a2a1a 0%, #0d1f0f 100%);
+    border-color: rgba(52, 211, 153, 0.15);
+  }
+
+  #availability-banner.status-limited {
+    background: linear-gradient(90deg, #1a1a00 0%, #1f1a00 100%);
+    border-color: rgba(251, 191, 36, 0.15);
+  }
+
+  #availability-banner.status-closed {
+    background: linear-gradient(90deg, #1a0a0a 0%, #1f0d0d 100%);
+    border-color: rgba(248, 113, 113, 0.12);
+  }
+
+  .banner-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 900px;
+  }
+
+  .banner-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: #6b7280;
+  }
+
+  .status-open .banner-dot {
+    background: #34d399;
+    animation: pulse-green 2s infinite;
+  }
+
+  .status-limited .banner-dot {
+    background: #fbbf24;
+    animation: pulse-yellow 2s infinite;
+  }
+
+  .status-closed .banner-dot {
+    background: #f87171;
+  }
+
+  @keyframes pulse-green {
+    0%   { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5); }
+    70%  { box-shadow: 0 0 0 7px rgba(52, 211, 153, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+  }
+
+  @keyframes pulse-yellow {
+    0%   { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.5); }
+    70%  { box-shadow: 0 0 0 7px rgba(251, 191, 36, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0); }
+  }
+
+  .banner-text {
+    font-size: 0.875rem;
+    color: #d1d5db;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+  }
+
+  .banner-cta {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.85rem;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 1px solid;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .status-open .banner-cta {
+    color: #34d399;
+    border-color: #34d399;
+  }
+  .status-open .banner-cta:hover {
+    background: #34d399;
+    color: #0a2a1a;
+  }
+
+  .status-limited .banner-cta {
+    color: #fbbf24;
+    border-color: #fbbf24;
+  }
+  .status-limited .banner-cta:hover {
+    background: #fbbf24;
+    color: #1a1a00;
+  }
+
+  .status-closed .banner-cta {
+    color: #f87171;
+    border-color: #f87171;
+  }
+  .status-closed .banner-cta:hover {
+    background: #f87171;
+    color: #1a0a0a;
+  }
+
+  .banner-cta:empty {
+    display: none;
+  }
+</style>
+
+<script>
+  (function () {
+    const banner = document.getElementById('availability-banner');
+    const text   = document.getElementById('banner-text');
+    const cta    = document.getElementById('banner-cta');
+
+    if (!banner || !text || !cta) return;
+
+    // ── Replace with your actual number ───────────────────────────────────────
+    const PHONE = 'tel:+19895720303';
+    const SMS   = 'sms:+19895720303';
+    // ─────────────────────────────────────────────────────────────────────────
+
+    const now = new Date();
+    const day = now.getDay();                              // 0=Sun 1=Mon 2=Tue 3=Wed 4=Thu 5=Fri 6=Sat
+    const t   = now.getHours() + now.getMinutes() / 60;   // decimal time e.g. 13.5 = 1:30pm
+
+    function greeting() {
+      if (t >= 5  && t < 12) return 'Good morning. ';
+      if (t >= 12 && t < 17) return 'Good afternoon. ';
+      if (t >= 17 && t < 21) return 'Good evening. ';
+      return 'Late night troubles? '; // overnight — no greeting reads more natural
+    }
+    const g = greeting();
+
+    // ── Message buckets ───────────────────────────────────────────────────────
+
+    function setOpenDay() {
+      banner.classList.add('status-open');
+      text.textContent = g + "We're available now — call or text and we'll see about getting someone out to you today.";
+      cta.textContent  = 'Call Now';
+      cta.href         = PHONE;
+    }
+
+    function setOpenNight() {
+      banner.classList.add('status-open');
+      text.textContent = g + "We're available right now — call or text to get started. We may be able to get out to you.";
+      cta.textContent  = 'Call Now';
+      cta.href         = PHONE;
+    }
+
+    function setSleeping() {
+      banner.classList.add('status-closed');
+      text.textContent = g + "We're out of the office until this afternoon — leave us a message and we'll get back to you as soon as we're back.";
+      cta.textContent  = 'Leave a Message';
+      cta.href         = SMS;
+    }
+
+    function setCasinoAfternoon() {
+      banner.classList.add('status-limited');
+      text.textContent = g + "Give us a call — we'd love to help. We'll get you taken care of as soon as possible.";
+      cta.textContent  = 'Call Now';
+      cta.href         = PHONE;
+    }
+
+    function setCasinoShift() {
+      banner.classList.add('status-limited');
+      text.textContent = g + "We're monitoring messages tonight and typically respond within the hour. Text us and we'll get you taken care of.";
+      cta.textContent  = 'Text Us';
+      cta.href         = SMS;
+    }
+
+    // ── Routing ───────────────────────────────────────────────────────────────
+    //
+    // SUN (0):  midnight–6am  = casino shift carryover from Sat night
+    //           6am–1pm       = sleeping
+    //           1pm–midnight  = open
+    //
+    // MON (1):  midnight–6am  = open (off-day overnight)
+    // TUE (2):  6am–1pm       = sleeping
+    //           1pm–midnight  = open
+    //
+    // WED (3):  midnight–6am  = open (Tue night off carryover)
+    //           6am–1pm       = sleeping
+    //           1pm–8pm       = casino afternoon
+    //           8pm–midnight  = casino shift
+    //
+    // THU (4):  midnight–1pm  = sleeping (Wed shift carryover + morning)
+    // FRI (5):  1pm–8pm       = casino afternoon
+    // SAT (6):  8pm–midnight  = casino shift
+
+    switch (day) {
+
+      case 0: // Sunday
+        if      (t < 6)  setCasinoShift();    // Sat night shift still running
+        else if (t < 13) setSleeping();
+        else             setOpenDay();
+        break;
+
+      case 1: // Monday
+      case 2: // Tuesday
+        if      (t < 6)  setOpenNight();
+        else if (t < 13) setSleeping();
+        else             setOpenDay();
+        break;
+
+      case 3: // Wednesday
+        if      (t < 6)  setOpenNight();      // Tue night off carryover
+        else if (t < 13) setSleeping();
+        else if (t < 20) setCasinoAfternoon();
+        else             setCasinoShift();
+        break;
+
+      case 4: // Thursday
+      case 5: // Friday
+      case 6: // Saturday
+        if      (t < 13) setSleeping();       // shift carryover + morning sleep
+        else if (t < 20) setCasinoAfternoon();
+        else             setCasinoShift();
+        break;
+    }
+
+  })();
+</script>
