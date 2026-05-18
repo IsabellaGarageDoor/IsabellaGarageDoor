@@ -239,16 +239,35 @@ document.querySelectorAll('.faq-item').forEach(item => {
 </script>
 <!-- End FAQ -->
 
-<form id="estimateForm" action="https://formsubmit.co/Isabellagaragedoor@gmail.com" method="POST" style="display: none;">
-  <input type="hidden" name="_subject" value="New Garage Door Service Request">
-  <input type="hidden" name="name">
-  <input type="hidden" name="phone">
-  <input type="hidden" name="email">
-  <input type="hidden" name="address">
-  <input type="hidden" name="details">
-  <input type="hidden" name="Service Type">
-  <input type="hidden" name="Estimated Cost">
-  <input type="hidden" name="_next" value="http://isabellagaragedoor.com/thank-you-estimate">
+<form 
+  id="estimateForm" 
+  name="easy-estimate" 
+  method="POST" 
+  action="/thank-you-estimate" 
+  data-netlify="true" 
+  data-netlify-honeypot="bot-field" 
+  style="display: none;"
+>
+  <input type="hidden" name="form-name" value="easy-estimate" />
+  <input type="hidden" name="bot-field" />
+
+  <input type="hidden" name="name" />
+  <input type="hidden" name="phone" />
+  <input type="hidden" name="email" />
+  <input type="hidden" name="address" />
+  <input type="hidden" name="details" />
+  <input type="hidden" name="Service Type" />
+  <input type="hidden" name="Estimated Cost" />
+
+  <input type="hidden" name="Selection: start" class="dynamic-answer" />
+  <input type="hidden" name="Selection: spring-type" class="dynamic-answer" />
+  <input type="hidden" name="Selection: spring-count-torsion" class="dynamic-answer" />
+  <input type="hidden" name="Selection: spring-count-extension" class="dynamic-answer" />
+  <input type="hidden" name="Selection: opener-problem" class="dynamic-answer" />
+  <input type="hidden" name="Selection: roller-problem" class="dynamic-answer" />
+  <input type="hidden" name="Selection: roller-count" class="dynamic-answer" />
+  <input type="hidden" name="Selection: cable-problem" class="dynamic-answer" />
+  <input type="hidden" name="Selection: track-problem" class="dynamic-answer" />
 </form>
 
 

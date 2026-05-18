@@ -9,33 +9,9 @@ const description = 'Hear from our satisfied customers across Central Michigan a
 
 const reviews = [
   {
-    quote: "Our garage door opener stopped working out of nowhere and we were stuck parking outside. Isabella Garage Door came out and diagnosed the issue and had a new opener installed that same day. Super friendly and professional. Everything works perfectly now. Couldn't be happier with the service!",
-    author: "Taylor W.",
-    date: "2025-05-26",
-    rating: 5
-  },
-  {
-    quote: "The tech explained the problem clearly and fixed it same day.",
-    author: "Paul R.",
-    date: "2024-06-30",
-    rating: 5
-  }, 
-  {
-    quote: "Our experience with Isabella Garage Door was exceptional. They provided high quality service and made us feel valued as customers. If you're in Mount Pleasant and need garage door services, I wholeheartedly recommend giving them a call. You won't be disappointed!",
-    author: "Micheal S.",
-    date: "2024-06-15",
-    rating: 5
-  },
-  {
-    quote: "After months of dealing with a noisy, jerky garage door, we finally decided to call Isabella Garage Door. The tech replaced the old worn out rollers. What a difference! The door is so quiet now. We really appreciate them fixing our door. Highly recommend!",
-    author: "Elizabeth A.",
-    date: "2024-06-30",
-    rating: 5
-  },
-  {
-    quote: "We were having issues with our garage door not closing all the way, and it started getting worse. We called Isabella Garage Door and they showed up the next day, right on time. They inspected everything, explained the problem and made the repairs. The door works great now and it’s so much quieter. Very impressed!",
-    author: "Tracey S.",
-    date: "2024-06-30",
+    quote: "Got our garage door working again! They got us on the schedule quick and made everything easy. I can't thank them enough. High recommend!!",
+    author: "Elizabeth S.",
+    date: "2026-05-14",
     rating: 5
   },
 
@@ -75,10 +51,7 @@ const paginated = sorted.slice(start, end);
 <p class="left-content">We don’t just fix garage doors — we build trust. Homeowners in Mt. Pleasant, Alma, Clare, Isabella County, and across Central Michigan say it best:
 </p>
 
-  <h2 class="sub-heading">Reviews Will Be Shown As We Recieve Them</h2>
 
-
-<!-- REMOVE COMMENT TAG TO SHOW REVIEWS AND DELETE THE ABOVE H2
 <div id="reviews"></div>
   
 <section class="max-w-3xl mx-auto px-4 py-8">
@@ -126,50 +99,50 @@ const paginated = sorted.slice(start, end);
     <a href={`?page=${page + 1}#reviews`} class="pagination-button arrow">&rarr;</a>
   )}
 </div>
--->
+
 
 <section class="testimonial-form-section">
   <h2 class="testimonial-form-heading">Want to share your experience?</h2>
   <p class="testimonial-form-subtext">We'd love to hear how we did. Your feedback helps others know what to expect from our service.</p>
 
-  <form
-    action="https://formsubmit.co/isabellagaragedoor@gmail.com"
-    method="POST"
-    class="testimonial-form"
-  >
-    <input type="hidden" name="_subject" value="New Testimonial Submission" />
-    <input type="hidden" name="_template" value="table" />
+<form
+  name="testimonials"
+  method="POST"
+  action="/thank-you-estimate"
+  data-netlify="true"
+  data-netlify-honeypot="bot-field"
+  class="testimonial-form"
+>
+  <p style="display: none;">
+    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+  </p>
 
-    <label for="name">Your Name</label>
-    <input type="text" id="name" name="name" placeholder="John D." required />
+  <label for="name">Your Name</label>
+  <input type="text" id="name" name="name" placeholder="John D." required /> 
 
+  <label for="rating">Star Rating</label>
+  <select id="rating" name="rating" required> 
+    <option value="">Select</option> 
+    <option value="5">★★★★★ (5 - Excellent)</option> 
+    <option value="4">★★★★☆ (4 - Very good)</option> 
+    <option value="3">★★★☆☆ (3 - Average)</option> 
+    <option value="2">★★☆☆☆ (2 - Needs work)</option> 
+    <option value="1">★☆☆☆☆ (1 - Poor)</option> 
+  </select>
 
-    <label for="rating">Star Rating</label>
-    <select id="rating" name="rating" required>
-      <option value="">Select</option>
-      <option value="5">★★★★★ (5 - Excellent)</option>
-      <option value="4">★★★★☆ (4 - Very good)</option>
-      <option value="3">★★★☆☆ (3 - Average)</option>
-      <option value="2">★★☆☆☆ (2 - Needs work)</option>
-      <option value="1">★☆☆☆☆ (1 - Poor)</option>
-    </select>
+  <label for="quote">Your Review</label>
+  <textarea 
+    [cite_start]id="quote" 
+    [cite_start]name="quote" 
+    [cite_start]rows="4" 
+    [cite_start]required 
+    [cite_start]placeholder="Tell us about your experience..." 
+  ></textarea> 
 
-    <label for="quote">Your Review</label>
-    <textarea
-      id="quote"
-      name="quote"
-      rows="4"
-      required
-      placeholder="Tell us about your experience..."
-    ></textarea>
-
-  <input type="hidden" name="_next" value="http://isabellagaragedoor.com/thank-you-estimate">
-
-<div class="form-button-wrapper">
-  <button type="submit" class="cta-button">Send Review</button>
-</div>
-
-  </form>
+  <div class="form-button-wrapper"> 
+    <button type="submit" class="cta-button">Send Review</button> 
+  </div> 
+</form>
 </section>
 
 

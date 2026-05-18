@@ -6,21 +6,10 @@ export default function SplideSlider() {
   const reviews = [
     // ... (Your existing combined review data goes here) ...
    
+
     {
-      quote: `We were having issues with our garage door not closing all the way, and it started getting worse. We called Isabella Garage Door and they showed up the next day, right on time. They inspected everything, explained the problem and made the repairs. The door works great now and it’s so much quieter. Very impressed!`,
-      author: 'Tracey S.'
-    },
-    {
-      quote: `Our garage door opener stopped working out of nowhere and we were stuck parking outside. Isabella Garage Door came out and diagnosed the issue and had a new opener installed that same day. Super friendly and professional. Everything works perfectly now. Couldn't be happier with the service!`,
-      author: 'Taylor W.'
-    },
-    {
-      quote: `Our experience with Isabella Garage Door was exceptional. They provided high quality service and made us feel valued as customers. If you're in Mount Pleasant and need garage door services, I wholeheartedly recommend giving them a call. You won't be disappointed!`,
-      author: 'Micheal S.'
-    },
-    {
-      quote: `After months of dealing with a noisy, jerky garage door, we finally decided to call Isabella Garage Door. The tech replaced the old worn out rollers. What a difference! The door is so quiet now. We really appreciate them fixing our door. Highly recommend!`,
-      author: 'Elizabeth A.'
+      quote: `Got our garage door working again! They got us on the schedule quick and made everything easy. I can't thank them enough. High recommend!!`,
+      author: 'Elizabeth S.'
     },
     
   ];

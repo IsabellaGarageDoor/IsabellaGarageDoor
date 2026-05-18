@@ -1,0 +1,296 @@
+---
+// HolidaysBirthdaysBanner.astro
+// All banners are controlled automatically by JavaScript date logic.
+// No manual toggles needed — each banner shows 2 weeks before its date
+// and hides the day after, repeating every year.
+//
+// CHRISTMAS DATES: The window is hardcoded as Dec 8 – Jan 2.
+// If Christmas falls on a weekend and you adjust your closure days,
+// update the christmas start/end dates in the script below.
+---
+
+<!-- Banner containers — JS will show/hide each one -->
+<section id="banner-amandas-birthday"  class="holiday-banner reveal-on-scroll" style="display:none"></section>
+<section id="banner-peters-birthday"   class="holiday-banner reveal-on-scroll" style="display:none"></section>
+<section id="banner-vivians-birthday"  class="holiday-banner reveal-on-scroll" style="display:none"></section>
+<section id="banner-lilys-birthday"    class="holiday-banner reveal-on-scroll" style="display:none"></section>
+<section id="banner-memorial-day"      class="holiday-banner reveal-on-scroll" style="display:none"></section>
+<section id="banner-july-4th"          class="holiday-banner reveal-on-scroll" style="display:none"></section>
+<section id="banner-labor-day"         class="holiday-banner reveal-on-scroll" style="display:none"></section>
+<section id="banner-halloween"         class="holiday-banner reveal-on-scroll" style="display:none"></section>
+<section id="banner-thanksgiving"      class="holiday-banner reveal-on-scroll" style="display:none"></section>
+<section id="banner-christmas"         class="holiday-banner reveal-on-scroll" style="display:none"></section>
+<section id="banner-new-years"         class="holiday-banner reveal-on-scroll" style="display:none"></section>
+
+<style>
+  .holiday-banner {
+    background-color: white;
+    border: 4px solid #d3e2f2;
+    padding: .5rem;
+    margin: 1rem auto 2rem;
+    max-width: 1000px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 30, 60, 0.4);
+    outline: 2px solid #f72a25;
+    outline-offset: 0px;
+  }
+
+  .holiday-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .holiday-text {
+    font-size: 1.15rem;
+    color: #ffffff;
+    margin: 0;
+  }
+
+  .holiday-btn {
+    position: relative;
+    overflow: hidden;
+    background-color: #1a334f;
+    color: white;
+    border: 0.094rem solid #b27d57;
+    text-decoration: none;
+    padding: 0.75rem 2.5rem;
+    width: 100%;
+    border-radius: 8px;
+    font-family: 'Lora', serif;
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.05rem;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .holiday-btn:hover {
+    background-color: #1a334f;
+    color: white;
+    box-shadow: none;
+    transform: translateY(2px);
+  }
+
+  @media (min-width: 600px) {
+    .holiday-content {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+</style>
+
+<script>
+(function () {
+
+  // ── Utility: midnight-safe date comparison ──────────────────────────────────
+  // Returns a date stripped to midnight so time-of-day doesn't affect comparisons
+  function today() {
+    const d = new Date();
+    return new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  }
+
+  function date(year, month, day) {
+    // month is 1-based for readability (1=Jan, 12=Dec)
+    return new Date(year, month - 1, day);
+  }
+
+  const now  = today();  // to test enter date as new Date(2026, 9, 20) January is 0 December is 11
+  const year = now.getFullYear();
+
+  // ── Floating holiday calculators ────────────────────────────────────────────
+
+  // Memorial Day: last Monday of May
+  function getMemorialDay(y) {
+    const d = new Date(y, 4, 31); // May 31
+    d.setDate(31 - ((d.getDay() + 6) % 7)); // back up to Monday
+    return d;
+  }
+
+  // Labor Day: first Monday of September
+  function getLaborDay(y) {
+    const d = new Date(y, 8, 1); // Sep 1
+    const offset = (8 - d.getDay()) % 7; // days until Monday
+    d.setDate(1 + offset);
+    return d;
+  }
+
+  // Thanksgiving: fourth Thursday of November
+  function getThanksgiving(y) {
+    const d = new Date(y, 10, 1); // Nov 1
+    const firstThursday = (4 - d.getDay() + 7) % 7; // days until first Thursday
+    d.setDate(1 + firstThursday + 21); // +21 = three more weeks
+    return d;
+  }
+
+  // ── Window checker ──────────────────────────────────────────────────────────
+  // Returns true if today falls within [startDate, endDate] inclusive
+  function inWindow(startDate, endDate) {
+    return now >= startDate && now <= endDate;
+  }
+
+  // ── Show helper ─────────────────────────────────────────────────────────────
+  function show(id, html, gradient) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.style.display = 'block';
+    el.innerHTML = `
+      <div class="holiday-content" style="background: linear-gradient(135deg, ${gradient}); padding: 1rem;">
+        <div class="holiday-text" style="color: #ffffff;">${html}</div>
+      </div>
+    `;
+  }
+
+  // ── Fixed-date windows (month/day, repeats every year) ──────────────────────
+  // For dates that cross a year boundary (Christmas/New Year) we handle manually below.
+
+  // Helper: build a same-year window from a fixed month/day event
+  // showDaysBefore: how many days before eventMonth/eventDay to start showing
+  // hideAfterDays: how many days after to hide (1 = hide the day after)
+  function fixedWindow(eventMonth, eventDay, showDaysBefore, hideAfterDays) {
+    const eventDate  = date(year, eventMonth, eventDay);
+    const startDate  = new Date(eventDate); startDate.setDate(eventDate.getDate() - showDaysBefore);
+    const endDate    = new Date(eventDate); endDate.setDate(eventDate.getDate() + hideAfterDays - 1);
+    return inWindow(startDate, endDate);
+  }
+
+  // ── BIRTHDAYS ───────────────────────────────────────────────────────────────
+
+  // Amanda: Feb 17 — show Feb 3–17
+  if (fixedWindow(2, 17, 14, 1)) {
+    show('banner-amandas-birthday',
+      `🎉 <strong>A Special Day at Isabella Garage Door!</strong> 🎈
+       We are taking a little time today to celebrate a family birthday.
+       Isabella Garage Door will be closed February 17th — thank you for your support! 🎂`,
+      '#d946ef, #fbbf24'
+    );
+  }
+
+  // Peter: Jul 14 — show Jun 30–Jul 14
+  if (fixedWindow(7, 14, 14, 1)) {
+    show('banner-peters-birthday',
+      `🎉 <strong>A Special Day at Isabella Garage Door!</strong> 🎈
+       We are taking a little time today to celebrate a family birthday.
+       Isabella Garage Door will be closed July 14th — thank you for your support! 🎂`,
+      '#d946ef, #fbbf24'
+    );
+  }
+
+  // Vivian: Aug 15 — show Aug 1–15
+  if (fixedWindow(8, 15, 14, 1)) {
+    show('banner-vivians-birthday',
+      `🎉 <strong>A Special Day at Isabella Garage Door!</strong> 🎈
+       We are taking a little time today to celebrate a family birthday.
+       Isabella Garage Door will be closed August 15th — thank you for your support! 🎂`,
+      '#d946ef, #fbbf24'
+    );
+  }
+
+  // Lily: Nov 7 — show Oct 24–Nov 7
+  if (fixedWindow(11, 7, 14, 1)) {
+    show('banner-lilys-birthday',
+      `🎉 <strong>A Special Day at Isabella Garage Door!</strong> 🎈
+       We are taking a little time today to celebrate a family birthday.
+       Isabella Garage Door will be closed November 7th — thank you for your support! 🎂`,
+      '#d946ef, #fbbf24'
+    );
+  }
+
+  // ── HOLIDAYS ────────────────────────────────────────────────────────────────
+
+  // Memorial Day (floating — last Monday of May) — show 14 days before through day-of
+  const memorialDay = getMemorialDay(year);
+  const memorialStart = new Date(memorialDay); memorialStart.setDate(memorialDay.getDate() - 14);
+  const memorialEnd   = new Date(memorialDay);
+  if (inWindow(memorialStart, memorialEnd)) {
+    show('banner-memorial-day',
+      `<strong>Memorial Day Weekend Notice:</strong> Isabella Garage Door will be
+       <strong>closed for the weekend</strong> as we honor those who served.`,
+      '#0b1f44, #7b0000'
+    );
+  }
+
+  // July 4th — show Jun 20–Jul 4
+  if (fixedWindow(7, 4, 14, 1)) {
+    show('banner-july-4th',
+      `In observance of Independence Day, Isabella Garage Door will be closed on July 4th.
+       We wish everyone across Central Michigan a safe holiday! 🎆🎇`,
+      '#0b1f44, #7b0000'
+    );
+  }
+
+  // Labor Day (floating — first Monday of September) — show 14 days before through day-of
+  const laborDay = getLaborDay(year);
+  const laborStart = new Date(laborDay); laborStart.setDate(laborDay.getDate() - 14);
+  const laborEnd   = new Date(laborDay);
+  if (inWindow(laborStart, laborEnd)) {
+    show('banner-labor-day',
+      `☀️ <strong>Labor Day Schedule:</strong> We will be <strong>closed on Labor Day</strong>
+       to enjoy the holiday with family. 🍂`,
+      '#f59e0b, #7c2d12'
+    );
+  }
+
+  // Halloween: Oct 31 — show Oct 17–31
+  if (fixedWindow(10, 31, 14, 1)) {
+    show('banner-halloween',
+      `<strong>Happy Halloween!</strong> 🎃 Isabella Garage Door will be closed on Halloween (October 31st) 
+      so our technicians can spend the evening with family and enjoy the holiday safely. 
+      We'll be back the following morning to help with any garage door troubles haunting your home. 👻`,
+      '#f97316, #1a1a1a'
+    );
+  }
+
+  // Thanksgiving (floating — fourth Thursday of November) — show 14 days before through day-of
+  const thanksgiving = getThanksgiving(year);
+  const thanksStart = new Date(thanksgiving); thanksStart.setDate(thanksgiving.getDate() - 14);
+  const thanksEnd   = new Date(thanksgiving);
+  if (inWindow(thanksStart, thanksEnd)) {
+    show('banner-thanksgiving',
+      `<strong>Happy Thanksgiving!</strong> 🦃 Isabella Garage Door will be closed on Thanksgiving Day
+       to spend time with family. We are truly thankful for our Central Michigan neighbors! 🥧`,
+      '#7c2d12, #f59e0b'
+    );
+  }
+
+  // Christmas: show Dec 8 – Jan 2
+  // This window crosses a year boundary so we handle it manually.
+  // To adjust closure dates (e.g. if Christmas falls on a weekend),
+  // update the text below — the window logic does not need to change.
+  const christmasStart = date(year, 12, 8);
+  const christmasEnd   = date(year + 1, 1, 2);  // Jan 2 of next year
+  // Also catch Jan 1–2 of the current year (from last year's Christmas window)
+  const christmasStartPrev = date(year - 1, 12, 8);
+  const christmasEndPrev   = date(year, 1, 2);
+  if (inWindow(christmasStart, christmasEnd) || inWindow(christmasStartPrev, christmasEndPrev)) {
+    show('banner-christmas',
+      `🎄 Isabella Garage Door will be taking our annual holiday break to spend time with family.
+       We will be <strong>closed from December 22nd through January 1st</strong>.
+       We look forward to serving our Central Michigan neighbors again when we reopen on January 2nd!
+       Happy Holidays! 🔔`,
+      '#064e3b, #991b1b'
+    );
+  }
+
+  // New Year's: show Dec 31 – Jan 13
+  // Also crosses a year boundary — handled manually.
+  const nyStart     = date(year, 12, 31);
+  const nyEnd       = date(year + 1, 1, 13);
+  const nyStartPrev = date(year - 1, 12, 31);
+  const nyEndPrev   = date(year, 1, 13);
+  if (inWindow(nyStart, nyEnd) || inWindow(nyStartPrev, nyEndPrev)) {
+    show('banner-new-years',
+      `<strong>Happy New Year from Isabella Garage Door!</strong> 🎆
+       Cheers to a new year of raising performance and elevating standards.
+       We look forward to serving Central Michigan in ${now.getMonth() === 0 ? now.getFullYear() : now.getFullYear() + 1}! 🥂`,
+      '#1e293b, #d4af37'
+    );
+  }
+
+})();
+</script>

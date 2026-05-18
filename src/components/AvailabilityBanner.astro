@@ -156,7 +156,7 @@
     const SMS   = 'sms:+19895720303';
     // ─────────────────────────────────────────────────────────────────────────
 
-    const now = new Date();
+    const now = new Date('2026-05-15T03:30:00');            // '2026-05-14T12:30:00' example for testing 12:30pm march 14th
     const day = now.getDay();                              // 0=Sun 1=Mon 2=Tue 3=Wed 4=Thu 5=Fri 6=Sat
     const t   = now.getHours() + now.getMinutes() / 60;   // decimal time e.g. 13.5 = 1:30pm
 
@@ -249,7 +249,8 @@
       case 4: // Thursday
       case 5: // Friday
       case 6: // Saturday
-        if      (t < 13) setSleeping();       // shift carryover + morning sleep
+        if      (t < 6)  setCasinoShift();
+        else if (t < 13) setSleeping();       // shift carryover + morning sleep
         else if (t < 20) setCasinoAfternoon();
         else             setCasinoShift();
         break;

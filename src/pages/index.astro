@@ -3,9 +3,10 @@ title: "Home - Isabella Garage Door"
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TrustBadges from '../components/TrustBadges.astro';
 import AvailabilityBanner from '../components/AvailabilityBanner.astro';
+import AnnouncementBanner from '../components/editable-sections/AnnouncementBanner.astro';
+import HolidaysBirthdaysBanner from '../components/HolidaysBirthdaysBanner.astro';
 import SplideSlider from '../components/SplideSlider.jsx'
 import TestimonialCardWhite from '../components/TestimonialCardWhite.astro';
-import AnnouncementBanner from '../components/editable-sections/AnnouncementBanner.astro';
 import BlogCards from '../components/BlogCards.astro';
 import Coupons from '../components/editable-sections/Coupons.astro';
 import HomeownerToolbox from '../components/HomeownerToolbox.astro';
@@ -238,6 +239,8 @@ Not sure what it'll cost?
 
 <AnnouncementBanner />
 
+<HolidaysBirthdaysBanner />
+
 <section style="margin-bottom: 1rem;">
 <h2 class="sub-heading" style="margin-top: 2rem;">Elevating the Standard</h2>
   <p class="p-home">At Isabella Garage Door, we know your time, your home, and your peace of mind matter.
@@ -411,16 +414,16 @@ Our commitment to quality materials and meticulous workmanship ensures your gara
 </section>
 
 
- <!-- SHOW ONCE YOU GET REVEIWS  possibly hide the p tag
-<div class="testimonial-outer">
   <section>
     <h2 class="sub-heading">Real Feedback.<br>Real Trust.</h2>
-       <p class="testimonial-intro-paragraph">Here’s what Michigan homeowners are saying about Isabella Garage Door:
+<!--       <p class="testimonial-intro-paragraph">Here’s what Michigan homeowners are saying about Isabella Garage Door:
          </p> 
+-->
 
 <a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;" class="reveal-on-scroll">
       <SplideSlider client:load />
 </a>
+<!--
 <a href="/about/testimonials" class="cta-button"><i class="fa-solid fa-star fa-fw"></i> Read Customer Reviews</a>
 </section>
 -->

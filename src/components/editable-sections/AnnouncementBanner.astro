@@ -4,21 +4,6 @@
 const isVisibleGeneralClosed = false;
 const isVisibleVacation = false;
 const isVisibleBooking = false;
-
-// Birthdays
-const isVisibleAmandasBirthday = false;
-const isVisiblePetersBirthday = false;
-const isVisibleViviansBirthday = false;
-const isVisibleLilysBirthday = false;
-
-// Holidays 
-const isVisibleMemorialDay = false;
-const isVisibleJuly4th = false;
-const isVisibleLaborDay = false;
-const isVisibleHalloween = false;
-const isVisibleThanksgiving = false;
-const isVisibleChristmas = false; // Change Dates Yearly
-const isVisibleNewYears = false;
 ---
 
 <!-- GENERAL BANNERS -->
@@ -65,159 +50,6 @@ const isVisibleNewYears = false;
   </section>
 )}
 
-
-<!-- BIRTHDAYS -->
-   
-{isVisibleAmandasBirthday && (
-  <section class="announcement-banner reveal-on-scroll">
-    <div class="announcement-content" style="background: linear-gradient(135deg, #d946ef, #fbbf24); padding: 1rem;">
-      <div class="announcement-text" style="color: #ffffff;">
-        <p>
-          🎉 <strong>A Special Day at Isabella Garage Door!</strong> 🎈 
-          We are taking a little time today to celebrate a family birthday. 
-          Isabella Garage Door will be closed February 17th—thank you for your support! 🎂
-        </p>
-      </div>
-    </div>
-  </section>
-)}
-        
-{isVisiblePetersBirthday && (
-  <section class="announcement-banner reveal-on-scroll">
-    <div class="announcement-content" style="background: linear-gradient(135deg, #d946ef, #fbbf24); padding: 1rem;">
-      <div class="announcement-text" style="color: #ffffff;">
-        <p>
-          🎉 <strong>A Special Day at Isabella Garage Door!</strong> 🎈 
-          We are taking a little time today to celebrate a family birthday. 
-          Isabella Garage Door will be closed July 14th—thank you for your support! 🎂
-        </p>
-      </div>
-    </div>
-  </section>
-)}
-        
-{isVisibleViviansBirthday && (
-  <section class="announcement-banner reveal-on-scroll">
-    <div class="announcement-content" style="background: linear-gradient(135deg, #d946ef, #fbbf24); padding: 1rem;">
-      <div class="announcement-text" style="color: #ffffff;">
-        <p>
-          🎉 <strong>A Special Day at Isabella Garage Door!</strong> 🎈 
-          We are taking a little time today to celebrate a family birthday. 
-          Isabella Garage Door will be closed August 15th—thank you for your support! 🎂
-        </p>
-      </div>
-    </div>
-  </section>
-)}
-        
-{isVisibleLilysBirthday && (
-  <section class="announcement-banner reveal-on-scroll">
-    <div class="announcement-content" style="background: linear-gradient(135deg, #d946ef, #fbbf24); padding: 1rem;">
-      <div class="announcement-text" style="color: #ffffff;">
-        <p>
-          🎉 <strong>A Special Day at Isabella Garage Door!</strong> 🎈 
-          We are taking a little time today to celebrate a family birthday. 
-          Isabella Garage Door will be closed November 7th—thank you for your support! 🎂
-        </p>
-      </div>
-    </div>
-  </section>
-)}
-
-
-<!-- HOLIDAYS -->
-
-{isVisibleMemorialDay && (
-  <section class="announcement-banner reveal-on-scroll">
-    <div class="announcement-content" style="background: linear-gradient(135deg, #0b1f44, #7b0000); padding: 1rem;">
-      <div class="announcement-text" style="color: #ffffff;">
-        <p>
-          <strong>Memorial Day Weekend Notice:</strong> Isabella Garage Door will be <strong>closed for the weekend</strong> as we honor those who served.
-        </p>
-      </div>
-    </div>
-  </section>
-)}
-
-{isVisibleJuly4th && (
-  <section class="announcement-banner reveal-on-scroll">
-    <div class="announcement-content" style="background: linear-gradient(135deg, #0b1f44, #7b0000); padding: 1rem;">
-      <div class="announcement-text" style="color: #ffffff;">
-        <p>
-          In observance of Independence Day, Isabella Garage Door will be closed on July 4th. 
-          We wish everyone across Central Michigan a safe holiday! 🎆🎇
-        </p>
-      </div>
-    </div>
-  </section>
-)}
-
-{isVisibleLaborDay && (
-  <section class="announcement-banner reveal-on-scroll">
-    <div class="announcement-content" style="background: linear-gradient(135deg, #f59e0b, #7c2d12); padding: 1rem;">
-      <div class="announcement-text" style="color: #ffffff;">
-        <p>
-          ☀️ <strong>Labor Day Schedule:</strong> We will be <strong>closed on Labor Day</strong> to enjoy the holiday with family. 🍂
-        </p>
-      </div>
-    </div>
-  </section>
-)}
-
-{isVisibleHalloween && (
-  <section class="announcement-banner reveal-on-scroll">
-    <div class="announcement-content" style="background: linear-gradient(135deg, #f97316, #1a1a1a); padding: 1rem;">
-      <div class="announcement-text" style="color: #ffffff;">
-        <p>
-          <strong>Happy Halloween!</strong> 🎃 Our technicians will be taking the night off to avoid any ghosts and goblins. 
-          Isabella Garage Door <strong>will be closed on Halloween (Oct 31st)</strong>, but we’ll be back to exorcise your garage door 'demons' the following morning! 👻
-        </p>
-      </div>
-    </div>
-  </section>
-)}
-
-{isVisibleThanksgiving && (
-  <section class="announcement-banner reveal-on-scroll">
-    <div class="announcement-content" style="background: linear-gradient(135deg, #7c2d12, #f59e0b); padding: 1rem;">
-      <div class="announcement-text" style="color: #ffffff;">
-        <p>
-          <strong>Happy Thanksgiving!</strong> 🦃 Isabella Garage Door will be closed on Thanksgiving Day to spend time with family. 
-          We are truly thankful for our Central Michigan neighbors! 🥧
-        </p>
-      </div>
-    </div>
-  </section>
-)}
-
-{isVisibleChristmas && (
-  <section class="announcement-banner reveal-on-scroll">
-    <div class="announcement-content" style="background: linear-gradient(135deg, #064e3b, #991b1b); padding: 1rem;">
-      <div class="announcement-text" style="color: #ffffff;">
-        <p>
-          🎄 Isabella Garage Door will be taking our annual holiday break to spend time with family. 
-          We will be <strong>closed from December 22nd through January 1st</strong>. 
-          We look forward to serving our Central Michigan neighbors again when we reopen on January 2nd! 
-          Happy Holidays! 🔔
-        </p>
-      </div>
-    </div>
-  </section>
-)}
-
-{isVisibleNewYears && (
-  <section class="announcement-banner reveal-on-scroll">
-    <div class="announcement-content" style="background: linear-gradient(135deg, #1e293b, #d4af37); padding: 1rem;">
-      <div class="announcement-text" style="color: #ffffff;">
-        <p>
-          <strong>Happy New Year!</strong> 🎆 Cheers to a new year of raising performance and elevating standards. 
-          We will be closed on New Year's Day. See you in the morning! 🥂
-        </p>
-      </div>
-    </div>
-  </section>
-)}
-
 <!-- Stop Editing Here -->
 
 
@@ -235,21 +67,14 @@ Don’t wait — secure your spot today.
 
     .announcement-banner {
       background-color: white;
-      border: 1px solid #d3e2f2;
-      padding: 1rem 1rem; /* Increased padding */
+      border: 4px solid #d3e2f2;
+      padding: .5rem; /* Increased padding */
       margin: 1rem auto 2rem; /* More vertical spacing */
       max-width: 1000px;
       border-radius: 12px;
       box-shadow: 0 6px 16px rgba(0, 30, 60, 0.3); /* Stronger shadow */
       outline: 2px solid #f72a25;
       outline-offset: 0px;
-    }
-
-    @media (max-width: 600px) {
-      .announcement-banner {
-        padding-left: 1rem;
-        padding-right: 1rem;
-      }
     }
 
     .announcement-content {
