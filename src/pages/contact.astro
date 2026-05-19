@@ -186,7 +186,7 @@ const contactSchema = {
     const formData = new FormData(form);
     
     // Push the submission payload straight to the root domain for Netlify to intercept
-    fetch("/", {
+    fetch("/contact", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString()

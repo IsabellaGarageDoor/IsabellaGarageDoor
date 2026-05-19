@@ -171,13 +171,7 @@ const testimonialsSchema = {
   </select>
 
   <label for="quote">Your Review</label>
-  <textarea 
-    [cite_start]id="quote" 
-    [cite_start]name="quote" 
-    [cite_start]rows="4" 
-    [cite_start]required 
-    [cite_start]placeholder="Tell us about your experience..." 
-  ></textarea> 
+  <textarea id="quote" name="quote" rows="4" required placeholder="Tell us about your experience..."></textarea> 
 
   <div class="form-button-wrapper"> 
     <button type="submit" class="cta-button">Send Review</button> 
@@ -383,7 +377,7 @@ const testimonialsSchema = {
     const formData = new FormData(form);
     
     // Force the request to hit the root domain where Netlify can catch it cleanly
-    fetch("/", {
+    fetch("/about/testimonials", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString()
