@@ -698,7 +698,19 @@ function submitEstimate() {
         });
 
         // Submit form
-        form.submit();
+        // Submit form cleanly via fetch to bypass Astro's SSR interception
+        const formData = new FormData(form);
+        
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+        })
+        .then(() => {
+            // Once Netlify securely grabs the data, manually direct to the thank-you page
+            window.location.href = "/thank-you-estimate";
+        })
+        .catch((error) => console.error("Form submission error:", error));
     }, 1500);
 }
 
