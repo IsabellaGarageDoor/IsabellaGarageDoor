@@ -37,9 +37,48 @@ const end = start + perPage;
 
 const totalPages = Math.ceil(sorted.length / perPage);
 const paginated = sorted.slice(start, end);
+
+const testimonialsSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ItemPage",
+      "@id": "https://isabellagaragedoor.com/testimonials",
+      "url": "https://isabellagaragedoor.com/testimonials",
+      "name": "Customer Testimonials | Isabella Garage Door",
+      "description": "Read reviews from satisfied homeowners across Central Michigan who chose Isabella Garage Door for fast, honest, and reliable repair service.",
+      "mainEntity": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      }
+    },
+    // Map your native reviews array directly into individual structured review objects
+    ...reviews.map((review, index) => ({
+      "@type": "Review",
+      "@id": `https://isabellagaragedoor.com/testimonials#review-${index}`,
+      "itemReviewed": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": review.rating.toString(),
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": review.author
+      },
+      "reviewBody": review.quote,
+      "datePublished": review.date
+    }))
+  ]
+};
 ---
 
 <BaseLayout {title} {description}>
+
+<Fragment slot="head">
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(testimonialsSchema)} />
+  </Fragment>
 
 <link rel="stylesheet" href="/styles/global.css"/>
 
@@ -113,6 +152,7 @@ const paginated = sorted.slice(start, end);
   data-netlify-honeypot="bot-field"
   class="testimonial-form"
 >
+<input type="hidden" name="form-name" value="testimonials" />
   <p style="display: none;">
     <label>Don't fill this out if you're human: <input name="bot-field" /></label>
   </p>

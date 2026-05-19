@@ -488,7 +488,7 @@ const baseSchema = {
 </p>
 
       <p style="margin: 0 auto;">Serving <a href="/locations/isabella-county">Isabella County</a> and the Surrounding <a href="/locations/central-michigan">Central Michigan</a> Area</p>
-      <p style="margin: 0 auto;">&copy;  2026 Isabella Garage Door. All rights reserved.</p>
+      <p style="margin: 0 auto;">&copy;  <span id="current-year"></span> Isabella Garage Door. All rights reserved.</p>
         <div style="margin: 0 auto; font-size: 0.8rem; opacity: 0.9;">
     <a href="/legal/privacy-policy" style="color: #ffffff; text-decoration: underline; margin: 0 0.3rem;">Privacy Policy</a> | 
     <a href="/legal/terms-of-service" style="color: #ffffff; text-decoration: underline; margin: 0 0.3rem;">Terms of Service</a>
@@ -496,5 +496,10 @@ const baseSchema = {
       <p style="opacity: 0.7; margin: 0 auto;";"><strong>Isabella Garage Door</strong> is a registered assumed name of <strong>Schwab & Co. Holdings LLC</strong></p>
     </footer>
 
+
+<script>
+  // Automatically update the copyright year
+  document.getElementById('current-year').textContent = new Date().getFullYear();
+</script>
   </body>
 </html>

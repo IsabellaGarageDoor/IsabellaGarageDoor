@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Netlify Forms Injection Gateway</title>
+</head>
+<body>
+
+  <form name="testimonials" data-netlify="true" data-netlify-honeypot="bot-field">
+    <input type="text" name="bot-field" />
+    <input type="text" name="name" />
+    <input type="text" name="rating" />
+    <textarea name="quote"></textarea>
+  </form>
+
+  <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field">
+    <input type="text" name="bot-field" />
+    <input type="text" name="name" />
+    <input type="tel" name="phone" />
+    <input type="email" name="email" />
+    <input type="text" name="address" />
+    <select name="serviceType"></select>
+    <textarea name="description"></textarea>
+    <select name="contactMethod"></select>
+    <input type="text" name="appointmentTime" />
+    <select name="referral"></select>
+  </form>
+
+  <form name="easy-estimate" data-netlify="true" data-netlify-honeypot="bot-field">
+    <input type="hidden" name="form-name" value="easy-estimate" />
+    <input type="text" name="bot-field" />
+    <input type="hidden" name="name" />
+    <input type="hidden" name="phone" />
+    <input type="hidden" name="email" />
+    <input type="hidden" name="address" />
+    <input type="hidden" name="details" />
+    <input type="hidden" name="Service Type" />
+    <input type="hidden" name="Estimated Cost" />
+    <input type="hidden" name="Selection: start" />
+    <input type="hidden" name="Selection: spring-type" />
+    <input type="hidden" name="Selection: spring-count-torsion" />
+    <input type="hidden" name="Selection: spring-count-extension" />
+    <input type="hidden" name="Selection: opener-problem" />
+    <input type="hidden" name="Selection: roller-problem" />
+    <input type="hidden" name="Selection: roller-count" />
+    <input type="hidden" name="Selection: cable-problem" />
+    <input type="hidden" name="Selection: track-problem" />
+  </form>
+
+</body>
+</html>

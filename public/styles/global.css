@@ -161,7 +161,25 @@ header {
   width: 100%;
 }
 
+/* Wet-Dog Shake with a ~21 Second Static Pause */
+@keyframes wet-dog-shake {
+  /* Fast, aggressive vibration over the first 0.6 seconds */
+  0% { transform: rotate(0); }
+  0.5% { transform: rotate(13deg); }
+  1.0% { transform: rotate(-10deg); }
+  1.5% { transform: rotate(13deg); }
+  2.0% { transform: rotate(-9deg); }
+  2.5% { transform: rotate(8deg); }
+  3.0% { transform: rotate(0); }
 
+  /* Perfectly still for the remaining 21.4 seconds */
+  100% { transform: rotate(0); }
+}
+
+.phone-button__icon {
+  animation: wet-dog-shake 22s ease-in-out infinite; /* 22-second total cycle */
+  transform-origin: center;
+}
 
 /* === Navigation === */
 
@@ -2601,7 +2619,7 @@ position: center;
       height: auto;
       margin-left: calc(-50vw + 50%);
       margin-right: calc(-50vw + 50%);
-      border-bottom: 0.094rem solid #b27d57;
+      border-bottom: 0.5px solid #b27d57;
       border-top: 0.5px solid #b27d57;
       border-left: 0;
       border-right: 0;
