@@ -1,5 +1,4 @@
 ---
-title: "Contact Us - Isabella Garage Door"
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SaveContactBanner from '../components/SaveContactBanner.astro';
 import ServiceAreaMap from '../components/ServiceAreaMap.astro';
@@ -51,21 +50,21 @@ const contactSchema = {
 
 <div id="contact-form" style="position: relative; top: -80px;"></div>
 <section>
-  <div class="testimonial-form-section"> <h2 class="testimonial-form-heading">Request Service or an Estimate</h2>
+  <div class="testimonial-form-section">
+    <h2 class="testimonial-form-heading">Request Service or an Estimate</h2>
     <p class="testimonial-form-subtext">Fill out the details below and a technician will get back to you shortly.</p>
 
     <form
       id="contactForm"
       name="contact"
       method="POST"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
+      action="https://api.web3forms.com/submit"
       class="testimonial-form"
     >
-    <input type="hidden" name="form-name" value="contact" />
-      <p style="display: none;">
-        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-      </p>
+      <input type="hidden" name="access_key" value="f356bda4-8613-4c1d-92cc-43871d5e272b" />
+      <input type="hidden" name="subject" value="New Contact Form Submission - Isabella Garage Door" />
+      <input type="hidden" name="redirect" value="https://isabellagaragedoor.com/thank-you-estimate" />
+      <input type="checkbox" name="botcheck" style="display: none;" />
 
       <div class="form-group">
         <label for="name">Your Name *</label>
@@ -177,26 +176,5 @@ const contactSchema = {
     <strong>Call or text: </strong> <a href="tel:9895720303" style="color: #b27d57; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
   </p>
 </section>
-
-<script is:inline>
-  document.getElementById('contactForm')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const form = e.target;
-    const formData = new FormData(form);
-    
-    // Push the submission payload straight to the root domain for Netlify to intercept
-    fetch("/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString()
-    })
-    .then(() => {
-      // Safely redirect to your thank you page after Netlify accepts the data
-      window.location.href = "/thank-you-estimate";
-    })
-    .catch((error) => console.error("Form submission error:", error));
-  });
-</script>
 
 </BaseLayout>

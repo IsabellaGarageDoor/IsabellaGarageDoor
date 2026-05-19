@@ -148,14 +148,13 @@ const testimonialsSchema = {
   id="testimonialsForm"
   name="testimonials"
   method="POST"
-  data-netlify="true"
-  data-netlify-honeypot="bot-field"
+  action="https://api.web3forms.com/submit"
   class="testimonial-form"
 >
-<input type="hidden" name="form-name" value="testimonials" />
-  <p style="display: none;">
-    <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-  </p>
+  <input type="hidden" name="access_key" value="f356bda4-8613-4c1d-92cc-43871d5e272b" />
+  <input type="hidden" name="subject" value="New Testimonial Submission - Isabella Garage Door" />
+  <input type="hidden" name="redirect" value="https://isabellagaragedoor.com/thank-you-estimate" />
+  <input type="checkbox" name="botcheck" style="display: none;" />
 
   <label for="name">Your Name</label>
   <input type="text" id="name" name="name" placeholder="John D." required /> 
