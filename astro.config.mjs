@@ -7,8 +7,7 @@ import netlify from '@astrojs/netlify';
 
 export default defineConfig({
   site: 'https://isabellagaragedoor.com',
-  output: 'server', // Keep this for development
-  adapter: netlify(), 
+  output: 'static', 
   integrations: [tailwind(), sitemap(), react(), alpinejs()],
   markdown: {
     shikiConfig: {

@@ -697,20 +697,7 @@ function submitEstimate() {
             form.appendChild(input);
         });
 
-        // Submit form
-        // Submit form cleanly via fetch to bypass Astro's SSR interception
-        const formData = new FormData(form);
-        
-        fetch("/homeowner-tools/easy-estimate", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString()
-        })
-        .then(() => {
-            // Once Netlify securely grabs the data, manually direct to the thank-you page
-            window.location.href = "/thank-you-estimate";
-        })
-        .catch((error) => console.error("Form submission error:", error));
+        form.submit();
     }, 1500);
 }
 

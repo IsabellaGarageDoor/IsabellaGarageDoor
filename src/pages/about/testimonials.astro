@@ -367,28 +367,4 @@ const testimonialsSchema = {
 
 
 
-
-
-<script is:inline>
-  document.getElementById('testimonialsForm')?.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    const form = e.target;
-    const formData = new FormData(form);
-    
-    // Force the request to hit the root domain where Netlify can catch it cleanly
-    fetch("/about/testimonials", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString()
-    })
-    .then(() => {
-      // Manually send them to your thank you page after Netlify saves the data
-      window.location.href = "/thank-you-estimate";
-    })
-    .catch((error) => console.error("Form submission error:", error));
-  });
-</script>
-
-
 </BaseLayout>
