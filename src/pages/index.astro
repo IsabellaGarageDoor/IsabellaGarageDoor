@@ -1,6 +1,5 @@
 ---
 title: "Home - Isabella Garage Door"
-import TestimonialCard from '../components/TestimonialCard.astro'
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TrustBadges from '../components/TrustBadges.astro';
 import AvailabilityBanner from '../components/AvailabilityBanner.astro';
@@ -191,8 +190,26 @@ const reviewSchema = {
         "@type": "Person",
         "name": "Elizabeth S."
       },
-      "reviewBody": "Got our garage door working again! They got us on the schedule quick and made everything easy. I can't thank them enough. High recommend!!",
+      "reviewBody": "Got our garage door working again! They got us on the schedule quick and made everything easy. I can't thank them enough. Highly recommend!!",
       "datePublished": "2026-05-14"
+    },
+    {
+      "@type": "Review",
+      "@id": "https://isabellagaragedoor.com/#review-2",
+      "itemReviewed": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Autumn S."
+      },
+      "reviewBody": "I highly recommend Isabella Garage Door for any repairs you need. They were fast, efficient and reasonably priced. He had our spring fixed and door working again in no time. Will definitely use again.",
+      "datePublished": "2026-05-19"
     }
   ]
 };
@@ -445,17 +462,11 @@ Our commitment to quality materials and meticulous workmanship ensures your gara
       <p class="testimonial-intro-paragraph">Here’s what Michigan homeowners are saying about Isabella Garage Door:
          </p> 
 <a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
-  <TestimonialCard 
-    quote="Got our garage door working again! They got us on the schedule quick and made everything easy. I can't thank them enough. High recommend!!"
-    author="Elizabeth S."
-  />
-</a>
 
-<!-- REMOVE TESTIMONIAL CARD IMPORT WHEN YOU SWITCH TO CAROUSEL its at the very top of head
 <a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;" class="reveal-on-scroll">
       <SplideSlider client:load />
 </a>
--->
+
 <a href="/about/testimonials" class="cta-button"><i class="fa-solid fa-star fa-fw"></i> Read Customer Reviews</a>
 </section>
 

@@ -17,29 +17,42 @@ const posts = [
 
 
   {
+    image: "/photos/spring-replacement-mount-pleasant-michigan.webp",
+    alt: "Garage Door spring replacement in Mt. Pleasant Michigan",
+    caption: "Replaced a garage door spring in Mt. Pleasant this morning. The customer was so happy to get her door working again!",
+    date: "2026-05-18"
+  },
+  {
+    image: "/photos/garage-door-repair-mt-pleasant-mi.webp",
+    alt: "Garage door repaired in Mt. Pleasant",
+    caption: "Repaired this garage door this morning. We like the color.",
+    date: "2026-05-18"
+  },
+  {
     image: "/photos/unique-garage-door-opener.webp",
     alt: "Repaired garage door opener in Isabella Township",
     caption: "Worked on a very unique opener today in Rosebush. Never seen one like this before. Glad to get it running again for the customer.",
-    date: "2025-07-05"
+    date: "2026-04-26"
   },
   {
     image: "/photos/double-torsion-spring-change.webp",
     alt: "Double garage door torsion spring change",
     caption: "Completed a double torsion spring change today. Balanced, tuned, and running smooth!",
-    date: "2025-06-30"
+    date: "2026-04-08"
   },
   {
     image: "/photos/spring.jpg",
     alt: "Spring replacement in Mt. Pleasant",
     caption: "Quick spring replacement in Mt. Pleasant this morning. Same-day fix before lunch.",
-    date: "2025-06-25"
+    date: "2026-03-25"
   },
   {
     image: "/photos/photo-eye-replacement.webp",
-    alt: "Sensor replacement in Clare Michigan",
+    alt: "Sensor replacement in Clare",
     caption: "This door wouldnt close unless you held the wall button. turned out to be a bad safety sensor. New photo eyes got their door working again.",
-    date: "2025-06-20"
+    date: "2026-03-20"
   },
+
   
   // Add more posts as needed
   // 1200 by 900 pixels - 4x3
@@ -51,7 +64,7 @@ const sorted = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
 // Pagination setup
 const page = Number(Astro.url.searchParams.get("page") || 1);
-const perPage = 4;
+const perPage = 9;
 const start = (page - 1) * perPage;
 const end = start + perPage;
 

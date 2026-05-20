@@ -8,8 +8,12 @@ export default function SplideSlider() {
    
 
     {
-      quote: `Got our garage door working again! They got us on the schedule quick and made everything easy. I can't thank them enough. High recommend!!`,
+      quote: `Got our garage door working again! They got us on the schedule quick and made everything easy. I can't thank them enough. Highly recommend!!`,
       author: 'Elizabeth S.'
+    },
+    {
+      quote: `I highly recommend Isabella Garage Door for any repairs you need. They were fast, efficient and reasonably priced. He had our spring fixed and door working again in no time. Will definitely use again.`,
+      author: 'Autumn S.'
     },
     
   ];
