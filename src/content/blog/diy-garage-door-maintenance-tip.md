@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogLayout.astro
 title: "5 Simple DIY Garage Door Maintenance Tips"
 description: "5 Maintenance tips."
 pubDate: "2025-10-13"

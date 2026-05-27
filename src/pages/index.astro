@@ -12,10 +12,36 @@ import Coupons from '../components/editable-sections/Coupons.astro';
 import HomeownerToolbox from '../components/HomeownerToolbox.astro';
 import BookingCta from '../components/BookingCta.astro';
 import ServiceAreaMap from '../components/ServiceAreaMap.astro';
+
 import { Image } from 'astro:assets';
-// Import the image from your new assets folder
-import heroBg from '../assets/images/herobg203.avif';
-import heroBgMobile from '../assets/images/herobg-mobile.avif';
+// desktop
+import heroAutumn from '../assets/images/hero-background-autumn.avif';
+import heroWinter from '../assets/images/hero-background-winter.avif';
+import heroSpring from '../assets/images/hero-background-spring.avif';
+import heroSummer from '../assets/images/hero-background-summer.avif';
+// mobile
+import heroMobileAutumn from '../assets/images/hero-mobile-background-autumn.avif';
+import heroMobileWinter from '../assets/images/hero-mobile-background-winter.avif';
+import heroMobileSpring from '../assets/images/hero-mobile-background-spring.avif';
+import heroMobileSummer from '../assets/images/hero-mobile-background-summer.avif';
+
+const month = new Date().getMonth();  //  months start at 0 so month equals 6 is July not June 
+
+let heroBg = heroAutumn;
+let heroBgMobile = heroMobileAutumn;
+
+if ([11, 0, 1].includes(month)) {
+  heroBg = heroWinter;
+  heroBgMobile = heroMobileWinter;
+
+} else if ([2, 3, 4].includes(month)) {
+  heroBg = heroSpring;
+  heroBgMobile = heroMobileSpring;
+
+} else if ([5, 6, 7].includes(month)) {
+  heroBg = heroSummer;
+  heroBgMobile = heroMobileSummer;
+}
 
 const title = 'Isabella Garage Door | Garage Door Service in Central Michigan';
 const description = 'Professional garage door repair and replacement in Central Michigan. Honest service, fast response, and quality you can trust.';
@@ -486,6 +512,31 @@ Our commitment to quality materials and meticulous workmanship ensures your gara
 
   <HomeownerToolbox />
 
+ <!-- <img src="/photos/Brand-new-garage-door-installation-Mt-Pleasant-Michigan.webp" alt="New garage door installed in Mt. Pleasant Michigan by Isabella Garage Door" class="about-image" /> -->
+ <img src="/photos/isabella-garage-door-about-us-img.webp" alt="New garage door installed in Mt. Pleasant Michigan by Isabella Garage Door" class="about-image" />
+
+ <section class="no-card">
+     <h2 class="sub-heading">About Isabella Garage Door</h2>
+<div class="reveal-on-scroll">
+    <p class="about-main-paragraph">
+          <span class="about-highlight-span">At Isabella Garage Door</span>, we bring premium craftsmanship, honest service, and personal attention to every project.
+We proudly serve Central Michigan communities with expert garage door repair <!--, installation, --> and maintenance.
+</p>
+      <p class="about-paragraph-with-padding">
+        <span class="about-highlight-span">Our commitment is simple:</span> <em>Raising Performance.
+Elevating Standards.</em>
+        From the first phone call to the final inspection, we prioritize clear communication, dependable workmanship, and a respectful experience.
+We don't just work in the community - we're proud to serve our neighbors with integrity and care.
+</p>
+      <p class="about-last-paragraph">
+       <span class="about-highlight-span">Thank You!</span>
+        for considering Isabella Garage Door.
+We look forward to serving you.</p>
+</div>
+
+    <a href="/about/our-story" class="cta-button"><i class="fa-solid fa-users fa-fw"></i> Learn More About Us</a>
+  </section>
+
 <section class="faq-area">
 <section id="faq">
 <div class="faq-head">
@@ -524,32 +575,6 @@ We stand behind our work with an outstanding <a href="/resources/warranty" style
  </section>
 </section>
 
-
- <!-- <img src="/photos/Brand-new-garage-door-installation-Mt-Pleasant-Michigan.webp" alt="New garage door installed in Mt. Pleasant Michigan by Isabella Garage Door" class="about-image" /> -->
- <img src="/photos/isabella-garage-door-about-us-img.webp" alt="New garage door installed in Mt. Pleasant Michigan by Isabella Garage Door" class="about-image" />
-
- <section class="no-card">
-     <h2 class="sub-heading">About Isabella Garage Door</h2>
-<div class="reveal-on-scroll">
-    <p class="about-main-paragraph">
-          <span class="about-highlight-span">At Isabella Garage Door</span>, we bring premium craftsmanship, honest service, and personal attention to every project.
-We proudly serve Central Michigan communities with expert garage door repair <!--, installation, --> and maintenance.
-</p>
-      <p class="about-paragraph-with-padding">
-        <span class="about-highlight-span">Our commitment is simple:</span> <em>Raising Performance.
-Elevating Standards.</em>
-        From the first phone call to the final inspection, we prioritize clear communication, dependable workmanship, and a respectful experience.
-We don't just work in the community - we're proud to serve our neighbors with integrity and care.
-</p>
-      <p class="about-last-paragraph">
-       <span class="about-highlight-span">Thank You!</span>
-        for considering Isabella Garage Door.
-We look forward to serving you.</p>
-</div>
-
-    <a href="/about/our-story" class="cta-button" style="margin-bottom: 2rem"><i class="fa-solid fa-users fa-fw"></i> Learn More About Us</a>
-  </section>
-
 <BlogCards />
 
 <ServiceAreaMap /> 
@@ -571,6 +596,7 @@ We look forward to serving you.</p>
     <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #b27d57; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
   </p>
 </section>
+
 <style>
 .homeowner-toolbox-section {
   text-align: center;

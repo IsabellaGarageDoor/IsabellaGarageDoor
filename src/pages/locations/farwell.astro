@@ -2,12 +2,21 @@
 title: "Garage Door Repair in Farwell, MI - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadges from '../../components/TrustBadges.astro';
+import AvailabilityBanner from '../../components/AvailabilityBanner.astro';
+import AnnouncementBanner from '../../components/editable-sections/AnnouncementBanner.astro';
+import HolidaysBirthdaysBanner from '../../components/HolidaysBirthdaysBanner.astro';
+import SplideSlider from '../../components/SplideSlider.jsx'
+import BlogCards from '../../components/BlogCards.astro';
+import Coupons from '../../components/editable-sections/Coupons.astro';
 import HomeownerToolbox from '../../components/HomeownerToolbox.astro';
-import TestimonialCard from '../../components/TestimonialCard.astro';
+import BookingCta from '../../components/BookingCta.astro';
 import ServiceAreaMap from '../../components/ServiceAreaMap.astro';
 import ServiceFooter from '../../components/ServiceFooter.astro';
 import LocationsFooter from '../../components/LocationsFooter.astro';
-import BookingCta from '../../components/BookingCta.astro';
+
+import { Image } from 'astro:assets';
+import heroBg from '../../assets/images/herobg301.webp';
+import heroBgMobile from '../../assets/images/herobg-mobile301.webp';
 
 const title = 'Garage Door Repair Farwell MI | Isabella Garage Door';
 const description = 'Professional garage door repair and installation in Farwell, Michigan. Broken springs, opener repair, pole barns, and new doors. Local service for Farwell and Clare County. Call 989-572-0303.';
@@ -136,6 +145,48 @@ const faqSchema = {
     }
   ]
 };
+
+const reviewSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Review",
+      "@id": "https://isabellagaragedoor.com/#review-1",
+      "itemReviewed": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Elizabeth S."
+      },
+      "reviewBody": "Got our garage door working again! They got us on the schedule quick and made everything easy. I can't thank them enough. Highly recommend!!",
+      "datePublished": "2026-05-14"
+    },
+    {
+      "@type": "Review",
+      "@id": "https://isabellagaragedoor.com/#review-2",
+      "itemReviewed": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Autumn S."
+      },
+      "reviewBody": "I highly recommend Isabella Garage Door for any repairs you need. They were fast, efficient and reasonably priced. He had our spring fixed and door working again in no time. Will definitely use again.",
+      "datePublished": "2026-05-19"
+    }
+  ]
+};
 ---
 
 <BaseLayout {title} {description}>
@@ -143,49 +194,73 @@ const faqSchema = {
 <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(farwellSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
   </Fragment>
 
-<img src="/photos/farwell-michigan.avif" alt="Professional garage door repair service in Farwell, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
+<link rel="stylesheet" href="/styles/global.css" />
 
-<section>
-  <h1 class="page-title">Garage Door Service in Farwell, MI</h1>
-  <p>
+<section class="hero">
+<picture>
+  <source media="(max-width: 767px)" srcset={heroBgMobile.src} />
+  <source media="(min-width: 768px)" srcset={heroBg.src} />
+  <img
+    src={heroBg.src}
+    alt="Garage door repair background"
+    loading="eager"
+    fetchpriority="high"
+    class="hero-bg-image"
+  />
+</picture>
+
+  <div class="hero-overlay"></div>
+
+<div class="hero-content reveal-on-scroll">
+  <h1>Garage Door Repair in Farwell — Up Old 27 & Ready to Go</h1>
+  <p class="hero-description">
+    25 minutes from Rosebush — serving Farwell homes, farms, and back-road properties throughout Clare County.
+  </p>
+  <div class="reveal-on-scroll">
+    <ul>
+      <li>✓ Rural Clare County — No Extra Trip Charges</li>
+      <li>✓ Upfront Pricing — No Surprises</li>
+      <li>✓ Work Backed by a 1-Year Warranty</li>
+    </ul>
+  </div>
+
+    <div class="hero-buttons reveal-on-scroll">
+      <a href="sms:9895720303?&body=Hi%2C%20I%20need%20some%20help%20with%20my%20garage%20door." class="hero-estimate-button">
+        <i class="fas fa-comment-dots"></i> Text Us
+      </a>
+      <a href="tel:9895720303" class="hero-home-contact-button">
+        <i class="fa-solid fa-phone fa-fw"></i> Call (989) 572-0303
+      </a>
+    </div>
+
+<p>Not sure what it'll cost?</p>
+<a href="/homeowner-tools/easy-estimate#estimate-form" class="hero-estimate-cta">Get an Instant Estimate →</a>
+  </div>
+
+  <TrustBadges />
+
+<a href="/booking" class="book-now-btn">Book Now</a>
+
+</section>
+
+<AvailabilityBanner />
+
+<AnnouncementBanner />
+
+<HolidaysBirthdaysBanner />
+
+<section style="margin-bottom: 1rem;">
+<h2 class="sub-heading" style="margin-top: 2rem;">Dedicated to Farwell: Local Service You Can Count On</h2>
+  <p class="p-home">
     Farwell and Clare sit on opposite banks of the Muskegon River—close enough to share a zip code corridor, distinct enough 
     that locals from each will tell you they're different towns. Farwell is its own community: working-class, unpretentious, 
     rooted in Clare County, and surrounded by the kind of rural Michigan landscape that gets more wooded and more wild the 
     further north you go from the US-10 and Old 27 junction. The Eagles have their own pride, their own history, and their 
-    own set of homeowners and farmers who need reliable local service when something breaks. When your garage door goes down 
-    in Farwell, Isabella Garage Door is about 25 minutes south on Old 27 in Rosebush—close enough to get there fast, local 
-    enough to do it right.
-  </p>
-  <p style="margin-top: 1rem; text-align: center;">
-    <strong>Farwell residents:</strong> Call or text us now. Same-day appointments often available.
-  </p>
-    <a href="tel:9895720303" class="hero-contact-button" style="margin: 2rem auto 0;">
-      <i class="fas fa-phone"></i> Call 989-572-0303
-    </a>
-    <a href="sms:9895720303?&body=Hi%2C%20I%20need%20garage%20door%20service%20in%20Farwell." class="hero-contact-button" style="margin: 1rem auto 0; background: #1a334f; border: .094rem solid #b27d57;">
-      <i class="fas fa-comment-dots"></i> Text Us Now
-    </a>
-</section>
-
-<section>
-  <TrustBadges />
-</section>
-
-<section>
-  <h2 class="sub-heading">Dedicated to Farwell: Local Service You Can Count On</h2>
-  <p class="p-home">
-    Farwell isn't just a spot on our map; it’s a community we are proud to serve. We understand the layout of our local 
-    neighborhoods and the unique character of our rural roads because we work here every day. When you schedule a job with us, 
-    you’re getting a team that prioritizes Farwell as a primary destination. We don’t treat our local routes as an 
-    afterthought—we treat them as our priority.
-  </p>
-  <p class="p-home" style="margin-top: 1rem;">
-    Isabella Garage Door is based in Rosebush, about 25 minutes down Old 27. We've worked throughout Clare County and we 
-    know the Farwell area well—the in-town neighborhoods, the rural properties in Freeman Township, and the wooded back-road 
-    addresses north of town where Clare County starts feeling genuinely Up North. We show up prepared, work efficiently, and 
-    charge fairly. That's the same standard we hold in every community we serve.
+    own set of homeowners and farmers who need reliable local service when something breaks. Isabella Garage Door is about 
+    25 minutes south on Old 27 in Rosebush—close enough to get there fast, local enough to do it right.
   </p>
 </section>
 
@@ -230,6 +305,107 @@ const faqSchema = {
   </div>
 </section>
 
+<section class="no-card">
+<div class="why-choose-us-section">
+    <div class="why-choose-us-container">
+        <h2 class="sub-heading">Why Farwell Homeowners Call Us</h2>
+
+        <div class="accordion-group reveal-on-scroll">
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Down Old 27, Not Across Town
+                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        We come up from Rosebush on Old 27—a route we know well. About 25 minutes, no traffic, no detours. Fast response without the trip charges some companies tack on for the distance.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Farwell Is Its Own Town
+                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        We don't treat Farwell as an extension of Clare or a secondary market. It's its own community with its own service call, its own scheduling priority, and its own place on our regular route.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Ready for Rural Clare County
+                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        Back roads, wooded properties, rural outbuildings—we're comfortable out here. We carry what we need, we don't charge extra for the drive, and we don't treat rural addresses like an inconvenience.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Built for Northern Michigan Winters
+                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        Farwell is close enough to Michigan's north that the winters hit hard. We use professional-grade parts rated for cold and moisture, and we do the job in a way that holds up through freeze-thaw cycles and the real cold Clare County gets.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Honest All the Way Through
+                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        We quote before we start and mean it. We tell you what's wrong, what it'll cost, and what your options are. No pressure, no inflated estimates, no unnecessary parts. Farwell homeowners get straight talk every time.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="/about/why-choose-isabella-garage-door" class="cta-button margin-bottom-2rem"><i class="fas fa-magnifying-glass"></i> Learn More About Us</a>
+</section>
+
+
+  <section>
+    <h2 class="sub-heading">Real Feedback.<br>Real Trust.</h2>
+      <p class="testimonial-intro-paragraph">Here's what local homeowners are saying about Isabella Garage Door:</p>
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
+
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;" class="reveal-on-scroll">
+      <SplideSlider client:only="react" />
+</a>
+
+<a href="/about/testimonials" class="cta-button"><i class="fa-solid fa-star fa-fw"></i> Read Customer Reviews</a>
+</section>
+
+
+  <BookingCta />
+
+  <HomeownerToolbox />
+
+<img src="/photos/farwell-michigan.avif" alt="Professional garage door repair service in Farwell, Michigan" loading="eager" fetchpriority="high" class="about-image" />
+
 <section style="margin-top: 2rem;">
   <h2 class="sub-heading">We Know Farwell & Clare County</h2>
   <p class="p-home">
@@ -251,59 +427,12 @@ const faqSchema = {
 
     <p style="margin-top: 1rem;"><strong>🛣️ Old 27 Corridor Between Farwell & Rosebush</strong><br>
     We travel Old 27 between Rosebush and Farwell regularly—it's one of our most familiar routes. Rural properties and country homes along this corridor are squarely in our territory. If your address is somewhere on or near Old 27 between the two towns, you're practically on our regular path.</p>
-
   </div>
+
   <p class="p-home" style="margin-top: 1.5rem;">
-    <strong>In Farwell or Clare County?</strong> Call us at <a href="tel:9895720303" style="color: #b27d57; text-decoration: underline;">989-572-0303</a>. 
-    We'll be heading your way before you know it.
+    <strong>In Farwell or Clare County?</strong> Call us at <a href="tel:9895720303" style="color: #b27d57; text-decoration: underline;">989-572-0303</a>. We'll be heading your way before you know it.
   </p>
 </section>
-
-<section class="signs additional-info">
-  <h2 class="sub-heading">Why Farwell Homeowners Call Us</h2>
-  <div class="columns">
-    <div>
-      <h3 class="sub-sub-heading">Down Old 27, Not Across Town</h3>
-      <p>
-        We come up from Rosebush on Old 27—a route we know well. About 25 minutes, no traffic, no detours. Fast response without the trip charges some companies tack on for the distance.
-      </p>
-    </div>
-
-    <div>
-      <h3 class="sub-sub-heading">Farwell Is Its Own Town</h3>
-      <p>
-        We don't treat Farwell as an extension of Clare or a secondary market. It's its own community with its own service call, its own scheduling priority, and its own place on our regular route.
-      </p>
-    </div>
-
-    <div>
-      <h3 class="sub-sub-heading">Ready for Rural Clare County</h3>
-      <p>
-        Back roads, wooded properties, rural outbuildings—we're comfortable out here. We carry what we need, we don't charge extra for the drive, and we don't treat rural addresses like an inconvenience.
-      </p>
-    </div>
-
-    <div>
-      <h3 class="sub-sub-heading">Built for Northern Michigan Winters</h3>
-      <p>
-        Farwell is close enough to Michigan's north that the winters hit hard. We use professional-grade parts rated for cold and moisture, and we do the job in a way that holds up through freeze-thaw cycles and the real cold Clare County gets.
-      </p>
-    </div>
-
-    <div>
-      <h3 class="sub-sub-heading">Honest All the Way Through</h3>
-      <p>
-        We quote before we start and mean it. We tell you what's wrong, what it'll cost, and what your options are. No pressure, no inflated estimates, no unnecessary parts. Farwell homeowners get straight talk every time.
-      </p>
-    </div>
-  </div>
-</section>
-
-  <BookingCta />
-
-  <ServiceAreaMap /> 
-
-  <HomeownerToolbox />
 
 <section class="faq-area">
 <section id="faq">
@@ -365,34 +494,27 @@ const faqSchema = {
 </section>
 </section>
 
-    <!--
- Testimonial Placeholder Until I Get Real Reviews
 <section>
-<a href="/about/testimonials" style="text-decoration: none; color: inherit; display to block;">
-  <TestimonialCard 
-    quote="We're out on a back road in Freeman Township and weren't sure anyone would come out this far. They came out same day, had everything on the truck, and fixed it in less than an hour. Great service, fair price."
-    author="Jim & Karen B., Farwell"
-  />
-</a>
+  <h2 class="sub-heading">Farwell Garage Door Repair, Done Right</h2>
+  <p class="p-home">
+    We're 25 minutes down Old 27 and we respond fast—in town, rural, wooded back roads, doesn't matter. 
+    Isabella Garage Door knows the Farwell area, knows Clare County, and knows what it takes to do this 
+    work the right way on properties that don't always make it easy.
+  </p>
+  <p class="p-home" style="margin-top: 1rem;">
+    When you call, you get a local technician who shows up on time, explains what's wrong, and fixes it 
+    right the first time. No franchise, no call center, no excuses.
+  </p>
 </section>
-   -->
 
-  <!-- Highlight Section -->
-  <div class="highlight-section reveal-on-scroll">
-    <p>
-      Farwell homeowners and Clare County property owners trust <strong>Isabella Garage Door</strong> for fast response, honest pricing, and work that holds up—from the in-town neighborhoods to the back roads of Freeman Township.
-    </p>
-  </div>
+<BlogCards />
 
-  <section>
-    <h2 class="sub-heading">Ready to Get Your Farwell Garage Door Fixed?</h2>
-    <p class="p-home">
-      We're 25 minutes down Old 27 and we respond fast—in town, rural, wooded back roads, doesn't matter. 
-      Call us, text us, or use EasyEstimate™ to get a ballpark online. We'll be heading your way.
-    </p>
-    <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto 1rem;"><i class="fas fa-calculator"></i> Get Free Estimate</a>
-    <a href="/contact" class="cta-button"><i class="fas fa-calendar-check"></i> Schedule Service</a>
-  </section>
+<ServiceAreaMap />
+<a href="/contact" class="cta-button" style="margin-top: 2rem;"><i class="fa-solid fa-location-dot fa-fw"></i> Need Local Help?</a>
+
+<section class="core-services-section reveal-on-scroll">
+<Coupons />
+</section>
 
 <section>
   <h2 class="sub-heading">Isabella Garage Door</h2>
@@ -410,6 +532,145 @@ const faqSchema = {
 <ServiceFooter currentPath="null" slot="full-width-section"/>
 <LocationsFooter currentPath="/locations/farwell" slot="full-width-section" />
 
+
+<style>
+.homeowner-toolbox-section {
+  text-align: center;
+}
+
+.homeowner-toolbox-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.homeowner-toolbox-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 550px) {
+  .homeowner-toolbox-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1050px) {
+  .homeowner-toolbox-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.homeowner-toolbox-card {
+  justify-content: flex-start;
+  background: #fff;
+  border: 0.094rem solid #b27d57;
+  border-radius: 0.75rem;
+  padding: 1rem 1rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+  position: relative;
+  background-image: url('/photos/white-garage-door-service-section.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.homeowner-toolbox-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.homeowner-toolbox-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.homeowner-toolbox-card * {
+  position: relative;
+  z-index: 2;
+}
+
+.homeowner-toolbox-card:hover,
+.homeowner-toolbox-card:focus {
+  transform: translateY(-5px);
+  box-shadow: 0 0 0.75rem rgba(178, 125, 87, 0.5);
+  outline: none;
+}
+
+.homeowner-toolbox-img {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+
+.homeowner-toolbox-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.homeowner-toolbox-body h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1a334f;
+  font-family: 'Lora', serif;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  line-height: 2.1rem;
+}
+
+.homeowner-toolbox-body p {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #1a334f;
+  text-align: left;
+  padding: 0 1rem;
+  flex: 1;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".homeowner-toolbox-card, .core-services-card, .reveal-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>
+
 <script is:inline>
 document.querySelectorAll('.faq-item').forEach(item => {
   const question = item.querySelector('.faq-question');
@@ -425,60 +686,13 @@ document.querySelectorAll('.faq-item').forEach(item => {
 
     if (!isOpen) {
       item.classList.add('open');
-       answer.style.maxHeight = answer.scrollHeight + 'px';
+      answer.style.maxHeight = answer.scrollHeight + 'px';
     }
   });
 });
 </script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(" .core-services-card, .reveal-on-scroll");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.2,
-      }
-    );
-
-    cards.forEach((card) => {
-      observer.observe(card);
-    });
-  });
-</script>
-
-<script>
-  if (typeof window !== 'undefined') {
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('slide-up-in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.6,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const section = document.querySelector('.highlight-section');
-      if (section) {
-        observer.observe(section);
-      }
-    });
-  }
-</script>
-
-<script is:script>
+<script is:inline>
   const icons = document.querySelectorAll('.core-services-icon-circle');
 
   const observer = new IntersectionObserver(
@@ -492,7 +706,86 @@ document.querySelectorAll('.faq-item').forEach(item => {
     },
     { threshold: 0.5 }
   );
-icons.forEach(icon => observer.observe(icon));
+  icons.forEach(icon => observer.observe(icon));
 </script>
+
+<script>
+function toggleAccordion(button) {
+    const item = button.parentElement;
+    const clickedContent = button.nextElementSibling;
+    const clickedArrow = button.querySelector('.accordion-arrow');
+
+    document.querySelectorAll('.accordion-content').forEach(content => {
+        const parentItem = content.parentElement;
+        const arrow = parentItem.querySelector('.accordion-arrow');
+
+        if (content !== clickedContent && content.style.maxHeight !== '0px' && content.style.maxHeight !== '') {
+            content.style.maxHeight = '0px';
+            if (arrow) arrow.style.transform = 'rotate(0deg)';
+            parentItem.classList.remove('active');
+        }
+    });
+
+    if (clickedContent.style.maxHeight === '0px' || clickedContent.style.maxHeight === '') {
+        clickedContent.style.maxHeight = clickedContent.scrollHeight + 'px';
+        clickedArrow.style.transform = 'rotate(180deg)';
+        item.classList.add('active');
+    } else {
+        clickedContent.style.maxHeight = '0px';
+        clickedArrow.style.transform = 'rotate(0deg)';
+        item.classList.remove('active');
+    }
+}
+
+function initializeAccordions() {
+    document.querySelectorAll('.accordion-content').forEach(content => {
+        content.style.maxHeight = '0px';
+        content.parentElement.classList.remove('active');
+        const arrow = content.previousElementSibling.querySelector('.accordion-arrow');
+        if (arrow) arrow.style.transform = 'rotate(0deg)';
+    });
+}
+
+window.toggleAccordion = toggleAccordion;
+document.addEventListener('DOMContentLoaded', initializeAccordions);
+document.addEventListener('astro:after-swap', initializeAccordions);
+</script>
+
+  <script>
+    if (typeof window !== 'undefined') {
+      const highlightObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('slide-up-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.5,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      window.addEventListener('DOMContentLoaded', () => {
+        const highlightSection = document.querySelector('.highlight-section');
+        if (highlightSection) {
+          highlightObserver.observe(highlightSection);
+        }
+
+        const iconCards = document.querySelectorAll('.value-icon-card');
+        const iconObserver = new IntersectionObserver((entries, iconObs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const index = Array.from(iconCards).indexOf(entry.target);
+              entry.target.style.animation = `fadeSlideUp 0.6s ease forwards`;
+              entry.target.style.animationDelay = `${index * 150}ms`;
+              iconObs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+
+        iconCards.forEach(card => iconObserver.observe(card));
+      });
+    }
+  </script>
 
 </BaseLayout>

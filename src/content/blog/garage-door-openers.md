@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogLayout.astro
 title: "Garage Door Openers 101: What Every Homeowner Should Know"
 description: "What homeowners should know about their garage door opener"
 pubDate: "2025-09-08"

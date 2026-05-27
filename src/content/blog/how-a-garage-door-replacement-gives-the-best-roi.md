@@ -1,5 +1,4 @@
 ---
-layout: ../../layouts/BlogLayout.astro
 title: "Boosting Your Home's Value: How a Garage Door Replacement Offers the Best ROI"
 description: "How replacing your garage door delivers significant retrun on investment"
 pubDate: "2025-09-29"

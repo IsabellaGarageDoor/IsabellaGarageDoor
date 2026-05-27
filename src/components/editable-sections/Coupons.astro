@@ -1,10 +1,11 @@
 ---
-const showFirstCoupon = false;
-const showSecondCoupon = false;
-const showThirdCoupon = false;
-const showFourthCoupon = false;
-const showFifthCoupon = true;
-const showSixthCoupon = false;
+// long words may break, especially on ipad, use shorter synonyms or a different amount of active coupons
+const showFirstCoupon = false;  // Spring Special
+const showSecondCoupon = false; // Thanksgiving Special
+const showThirdCoupon = true;   // Storm Season Special
+const showFourthCoupon = false; // September Special
+const showFifthCoupon = true;    // Torsion Spring Special
+const showSixthCoupon = true;    // Local Hero Discount
 ---
 
 <div class="coupons-container">
@@ -35,10 +36,10 @@ const showSixthCoupon = false;
 {showThirdCoupon && (
 <a href="/contact" class="coupon-bleed" aria-label="Go to contact page">
   <div class="coupon">
-    <h2>September Special</h2>
-    <p class="offer">Save <span>$75</span> on a new garage door opener!</p>
-    <p class="details">Just mention the special and agree to leave us a review.</p>
-    <p class="expiration">Offer expires October 30th.</p>
+    <h2>Storm Season Special</h2>
+    <p class="offer">FREE <span>Surge Protector</span> With Any Opener Installation</p>
+    <p class="details">Lightning-proof your investment! Protect your brand new opener from summer power surges.</p>
+    <p class="expiration">Offer expires June 30th.</p>
     <button type="button" class="print-coupon-btn">Print Coupon</button>
   </div>
 </a>
@@ -59,10 +60,10 @@ const showSixthCoupon = false;
 {showFifthCoupon && (
 <a href="/contact" class="coupon-bleed" aria-label="Go to contact page">
   <div class="coupon">
-    <h2>Spring Replacement Special</h2>
+    <h2>Torsion Spring Special</h2>
     <p class="offer">Save <span>$25</span> on Any Torsion Spring Replacement</p>
     <p class="details">Professional installation to get your day back on track!</p>
-    <p class="expiration">Offer expires May 30th.</p>
+    <p class="expiration">Offer expires June 30th.</p>
     <p>Limit one coupon per household.</p>
     <button type="button" class="print-coupon-btn">Print Coupon</button>
   </div>
@@ -72,7 +73,7 @@ const showSixthCoupon = false;
 {showSixthCoupon && (
 <a href="/contact" class="coupon-bleed" aria-label="Go to contact page">
   <div class="coupon">
-    <h2>Community Hero Discount</h2>
+    <h2>Local Hero Discount</h2>
     <p class="offer"><span>$20 OFF</span> Any Repair for Seniors, Veterans, & First Responders</p>
     <p class="details">We appreciate your service to our Central Michigan community</p>
     <p class="expiration">Thank you for all that you do!</p>
@@ -85,39 +86,60 @@ const showSixthCoupon = false;
 <style>
 .coupons-container {
   display: grid;
-  grid-template-columns: 1fr; /* 1 column by default (mobile) */
+  /* Mobile slider behavior fallback */
+  grid-auto-flow: column;
+  grid-auto-columns: 89%;
   gap: 1rem;
   max-width: 100%;
   margin: 0 auto;
-  padding: 0rem;
+  padding: 1rem 0;
+  
+  /* Horizontal scrolling and snapping mechanics */
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 1rem;
+  -webkit-overflow-scrolling: touch;
+  
+  /* Hide standard scrollbars */
+  scrollbar-width: none; 
 }
 
-/* Desktop (min-width 768px): dynamic columns set by JS */
+.coupons-container::-webkit-scrollbar {
+  display: none; 
+}
+
+/* Desktop (min-width 768px): Reset slider back to standard grid layout */
 @media (min-width: 768px) {
   .coupons-container {
-    /* We'll override grid-template-columns dynamically with JS */
+    grid-auto-flow: unset;
+    grid-auto-columns: unset;
+    overflow-x: visible;
+    padding: 0rem;
+    scrollbar-width: auto;
   }
 }
 
 .coupon-bleed {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 8px; /* this is the "bleed" space around the coupon */
+  padding: 8px; 
   background: #1a334f;
   border-radius: 16px;
   box-shadow: 0 0 10px 2px rgba(178, 125, 87, 0.3);
   display: block;
   text-decoration: none;
   box-sizing: border-box;
+  
+  /* Lock snap targets cleanly into place on mobile swipe */
+  scroll-snap-align: start;
 }
 
 .coupon {
   background: #1a334f;
   border: 4px dashed #b27d57;
   border-radius: 12px;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem clamp(0.5rem, 1.5vw, 1rem);
   box-sizing: border-box;
-  /* Fill container minus the bleed padding */
   width: 100%;
   height: 100%;
   text-align: center;
@@ -125,103 +147,102 @@ const showSixthCoupon = false;
   color: #ffffff;
   display: flex;
   flex-direction: column;
-  height: 100%;
   box-shadow: inset 0 0 12px rgba(178, 125, 87, 0.15);
 }
 
+.coupon h2 {
+  /* Dynamically adjusts between 1.4rem on small screens and 2rem on desktop */
+  font-size: clamp(1.3rem, 3.5vw, 2rem); 
+  margin-bottom: 14px;
+  font-weight: 800;
+  letter-spacing: clamp(0.5px, 0.2vw, 2px);
+  text-transform: uppercase;
+  font-family: 'Lora', serif;
+  
+  /* A safety net to force text wrapping if a device gets incredibly narrow */
+  word-break: break-word; 
+}
 
-  .coupon h2 {
-    font-size: 2rem;
-    margin-bottom: 14px;
-    font-weight: 800;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-family: 'Lora', serif;
-  }
+.offer {
+  font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+  font-weight: 700;
+  margin-bottom: 16px;
+  line-height: 1.3;
+}
 
-  .offer {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 16px;
-    line-height: 1.3;
-  }
+.offer span {
+  color: #b27d57;
+  font-weight: 900;
+  font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
 
-  .offer span {
-    color: #b27d57;
-    font-weight: 900;
-    font-size: 1.8rem;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-
-  .details {
-    font-size: 1.1rem;
-    font-style: italic;
-    color: #ffffff;
-    letter-spacing: 0.03em;
-    line-height: 1.4;
-  }
+.details {
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+}
 
 .expiration {
   font-size: 0.9rem;
   font-style: italic;
-  color: #b27d57; /* your bronze color */
+  color: #b27d57; 
   margin-top: 8px;
   letter-spacing: 0.05em;
 }
 
-  /* Style the print button */
-  .print-coupon-btn {
-    margin-top: auto;
-    background-color: #b27d57;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 6px;
-    font-weight: 700;
-    color: #1a334f;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
+.print-coupon-btn {
+  margin-top: auto;
+  background-color: #b27d57;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-weight: 700;
+  color: #1a334f;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
 
-  .print-coupon-btn:hover {
-    background-color: #a46e4a;
-  }
+.print-coupon-btn:hover {
+  background-color: #a46e4a;
+}
 </style>
 
 <script>
 function updateGridColumns() {
   const container = document.querySelector('.coupons-container');
   if (!container) return;
-
   const count = container.children.length;
   const isDesktop = window.innerWidth >= 768;
 
+  // Mobile: Clear custom styles and let the slider CSS mechanics run natively
   if (!isDesktop) {
-    // Mobile: always 1 column
-    container.style.gridTemplateColumns = '1fr';
+    container.style.gridTemplateColumns = '';
     return;
   }
 
-  // Desktop: dynamic balanced columns
+// Desktop: Calculate balanced desktop grid layout columns dynamically
   if (count === 4) {
-    container.style.gridTemplateColumns = 'repeat(2, 1fr)';
+    container.style.gridTemplateColumns = 'repeat(2, minmax(0, 1fr))';
   } else if (count <= 3) {
-    container.style.gridTemplateColumns = `repeat(${count}, 1fr)`;
+    container.style.gridTemplateColumns = `repeat(${count}, minmax(0, 1fr))`;
   } else {
-    container.style.gridTemplateColumns = 'repeat(3, 1fr)';
+    container.style.gridTemplateColumns = 'repeat(3, minmax(0, 1fr))';
   }
 }
 
-// Run on load
+// Run layout calculations on initialization
 updateGridColumns();
 
-// Update on resize (debounced)
+// Monitor window adjustments and update grid configurations (debounced)
 let resizeTimeout;
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimeout);
   resizeTimeout = setTimeout(updateGridColumns, 200);
 });
-
 </script>
 
 <script>
@@ -239,7 +260,6 @@ document.querySelectorAll('.print-coupon-btn').forEach((btn) => {
       return;
     }
 
-    // Build the HTML for printing
     const htmlContent = `
       <html>
       <head>
@@ -313,16 +333,12 @@ document.querySelectorAll('.print-coupon-btn').forEach((btn) => {
       </body>
       </html>
     `;
-
     printWindow.document.open();
     printWindow.document.write(htmlContent);
     printWindow.document.close();
 
     printWindow.focus();
     printWindow.print();
-    // Optionally close after print dialog:
-    // printWindow.close();
   });
 });
-
 </script>

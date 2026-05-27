@@ -2,12 +2,22 @@
 title: "Garage Door Repair in Clare, MI - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadges from '../../components/TrustBadges.astro';
+import AvailabilityBanner from '../../components/AvailabilityBanner.astro';
+import AnnouncementBanner from '../../components/editable-sections/AnnouncementBanner.astro';
+import HolidaysBirthdaysBanner from '../../components/HolidaysBirthdaysBanner.astro';
+import SplideSlider from '../../components/SplideSlider.jsx'
+import TestimonialCardWhite from '../../components/TestimonialCardWhite.astro';
+import BlogCards from '../../components/BlogCards.astro';
+import Coupons from '../../components/editable-sections/Coupons.astro';
 import HomeownerToolbox from '../../components/HomeownerToolbox.astro';
-import TestimonialCard from '../../components/TestimonialCard.astro';
+import BookingCta from '../../components/BookingCta.astro';
 import ServiceAreaMap from '../../components/ServiceAreaMap.astro';
 import ServiceFooter from '../../components/ServiceFooter.astro';
 import LocationsFooter from '../../components/LocationsFooter.astro';
-import BookingCta from '../../components/BookingCta.astro';
+
+import { Image } from 'astro:assets';
+import heroBg from '../../assets/images/herobg301.webp';
+import heroBgMobile from '../../assets/images/herobg-mobile301.webp';
 
 const title = 'Garage Door Repair Clare MI | Isabella Garage Door';
 const description = 'Professional garage door repair and installation in Clare, Michigan. Broken springs, opener repair, new doors. Fast local service from your Central Michigan neighbor. Call 989-572-0303.';
@@ -131,6 +141,48 @@ const faqSchema = {
     }
   ]
 };
+
+const reviewSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Review",
+      "@id": "https://isabellagaragedoor.com/#review-1",
+      "itemReviewed": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Elizabeth S."
+      },
+      "reviewBody": "Got our garage door working again! They got us on the schedule quick and made everything easy. I can't thank them enough. Highly recommend!!",
+      "datePublished": "2026-05-14"
+    },
+    {
+      "@type": "Review",
+      "@id": "https://isabellagaragedoor.com/#review-2",
+      "itemReviewed": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Autumn S."
+      },
+      "reviewBody": "I highly recommend Isabella Garage Door for any repairs you need. They were fast, efficient and reasonably priced. He had our spring fixed and door working again in no time. Will definitely use again.",
+      "datePublished": "2026-05-19"
+    }
+  ]
+};
 ---
 
 <BaseLayout {title} {description}>
@@ -138,45 +190,76 @@ const faqSchema = {
 <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(clareSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
   </Fragment>
 
-<img src="/photos/clare-michigan.avif" alt="Professional garage door repair service in Clare, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
+<link rel="stylesheet" href="/styles/global.css" />
 
-<section>
-  <h1 class="page-title">Garage Door Repair in Clare, MI</h1>
-  <p>
+<section class="hero">
+<picture>
+  <source media="(max-width: 767px)" srcset={heroBgMobile.src} />
+  
+  <source media="(min-width: 768px)" srcset={heroBg.src} />
+
+  <img 
+    src={heroBg.src} 
+    alt="Garage door repair background" 
+    loading="eager" 
+    fetchpriority="high"
+    class="hero-bg-image"
+  />
+</picture>
+  
+  <div class="hero-overlay"></div>
+
+<div class="hero-content reveal-on-scroll">
+  <h1>Clare's Garage Door Repair Expert</h1>
+  <p class="hero-description">
+    Same-day service for Clare homeowners — just down Old 27, never far away.
+  </p>
+  <div class="reveal-on-scroll">
+    <ul>
+      <li>✓ Local to Clare — Not a Call Center</li>
+      <li>✓ Upfront Pricing — No Surprises</li>
+      <li>✓ Work Backed by a 1-Year Warranty</li>
+    </ul>
+  </div>    
+
+    <div class="hero-buttons reveal-on-scroll">
+
+      <a href="sms:9895720303?&body=Hi%2C%20I%20need%20some%20help%20with%20my%20garage%20door." class="hero-estimate-button">
+        <i class="fas fa-comment-dots"></i> Text Us
+      </a>
+      <a href="tel:9895720303" class="hero-home-contact-button">
+        <i class="fa-solid fa-phone fa-fw"></i> Call (989) 572-0303
+      </a>
+    </div>
+
+<p>
+Not sure what it'll cost?
+</p>
+<a href="/homeowner-tools/easy-estimate#estimate-form" class="hero-estimate-cta">Get an Instant Estimate →</a>
+  </div>
+
+  <TrustBadges />
+
+<a href="/booking" class="book-now-btn">Book Now</a>
+
+</section>
+
+<AvailabilityBanner />
+
+<AnnouncementBanner />
+
+<HolidaysBirthdaysBanner />
+
+<section style="margin-bottom: 1rem;">
+<h2 class="sub-heading" style="margin-top: 2rem;">A Local Company Serving a Town That Gets Local</h2>
+  <p class="p-home">
     Clare calls itself the Gateway to Michigan's North—and if you've driven through on US-10 or Old 27, you know exactly what that means. 
     It's where the pine trees start thickening and half of lower Michigan stops for gas, a burger on Hamburger Hill, or a dozen from 
-    Cops &amp; Doughnuts before heading to the cabin. We love Clare for all of it. And when Clare homeowners need their garage door fixed, 
-    we're just south of town near Rosebush—close enough to get there fast, local enough to actually care.
-  </p>
-  <p style="margin-top: 1rem; text-align: center;">
-    <strong>Clare residents:</strong> Call or text us now. Same-day appointments often available.
-  </p>
-    <a href="tel:9895720303" class="hero-contact-button" style="margin: 2rem auto 0;">
-      <i class="fas fa-phone"></i> Call 989-572-0303
-    </a>
-    <a href="sms:9895720303?&body=Hi%2C%20I%20need%20garage%20door%20service%20in%20Clare." class="hero-contact-button" style="margin: 1rem auto 0; background: #1a334f; border: .094rem solid #b27d57;">
-      <i class="fas fa-comment-dots"></i> Text Us Now
-    </a>
-</section>
-
-<section>
-  <TrustBadges />
-</section>
-
-<section>
-  <h2 class="sub-heading">A Local Company Serving a Town That Gets Local</h2>
-  <p class="p-home">
-    Clare has always had a strong sense of community. You can see it in the way the whole city turns out for the Irish Festival every March, 
-    in the way Cops &amp; Doughnuts became a full-blown national destination rather than just a bakery, and in the way locals still call 
-    that stretch of fast food on Old 27 "Hamburger Hill" like it's always been on the map. Clare has character—and it tends to appreciate 
-    businesses that do too.
-  </p>
-  <p class="p-home" style="margin-top: 1rem;">
-    Isabella Garage Door isn't a franchise or a faceless service company dispatching crews from Midland or Lansing. We're Central Michigan 
-    locals, based just down Old 27 in Rosebush. When you call us, you get a real person who knows this area. When we show up, we do the 
-    work right and treat your property with respect. That's the kind of service Clare homeowners deserve.
+    Cops &amp; Doughnuts before heading to the cabin. When Clare homeowners need their garage door fixed, we're just south of town 
+    in Rosebush—close enough to get there fast, local enough to actually care.
   </p>
 </section>
 
@@ -221,6 +304,108 @@ const faqSchema = {
 </div>
 </section>
 
+<section class="no-card">
+<div class="why-choose-us-section">
+    <div class="why-choose-us-container">
+        <h2 class="sub-heading">Why Clare Homeowners Call Us</h2>   
+      
+        <div class="accordion-group reveal-on-scroll">
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Just Down Old 27
+                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                 <div class="accordion-content">
+                    <div class="accordion-text">
+                        We're based in Rosebush—about 20 minutes south of Clare on Old 27. Fast response, no long-distance trip charges, and a technician who knows this corridor like the back of his hand.
+                   </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Built for Michigan Winters
+                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                 <div class="accordion-content">
+                    <div class="accordion-text">
+                        Clare gets real winters—and garage door hardware takes a beating. We use quality, professional-grade parts rated for Michigan's temperature swings, so repairs hold up long after we leave.
+                   </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Honest Pricing, No Surprises
+                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                     <div class="accordion-text">
+                        We quote before we start and we stick to it. Clare homeowners deserve straight talk about what something costs—not a lowball estimate that grows once we're in the driveway.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Rural-Ready
+                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                     <div class="accordion-text">
+                        Clare County has a lot of rural properties and we're comfortable on all of them. Gravel roads, long driveways, pole barns, agricultural buildings—we come prepared and we don't charge extra for the drive.
+                   </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Community Minded
+                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                     <div class="accordion-text">
+                        Clare values local businesses—just look at what the community has built around Cops & Doughnuts and the Irish Festival. We're a local business too, and we take that responsibility seriously.
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="/about/why-choose-isabella-garage-door" class="cta-button margin-bottom-2rem"><i class="fas fa-magnifying-glass"></i> Learn More About Us</a>
+</section>
+
+
+  <section>
+    <h2 class="sub-heading">Real Feedback.<br>Real Trust.</h2>
+      <p class="testimonial-intro-paragraph">Here's what local homeowners are saying about Isabella Garage Door:
+         </p> 
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
+
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;" class="reveal-on-scroll">
+      <SplideSlider client:only="react" />
+</a>
+
+<a href="/about/testimonials" class="cta-button"><i class="fa-solid fa-star fa-fw"></i> Read Customer Reviews</a>
+</section>
+
+
+  <BookingCta />
+
+  <HomeownerToolbox />
+
+<img src="/photos/clare-michigan.avif" alt="Professional garage door repair service in Clare, Michigan" loading="eager" fetchpriority="high" class="about-image" />
+
 <section style="margin-top: 2rem;">
   <h2 class="sub-heading">We Know Clare—From Downtown to the County Roads</h2>
   <p class="p-home">
@@ -242,57 +427,12 @@ const faqSchema = {
 
     <p style="margin-top: 1rem;"><strong>🌾 Rural Clare County</strong><br>
     Farms, country homes, and properties well outside the city limits. We cover rural Clare County regularly and don't charge extra for being off the beaten path. If you're in Clare County, we come to you.</p>
+  </div>
 
   <p class="p-home" style="margin-top: 1.5rem;">
     <strong>Not sure if we cover your area?</strong> Call us at <a href="tel:9895720303" style="color: #b27d57; text-decoration: underline;">989-572-0303</a>—if you're in Clare or Clare County, the answer is yes.
   </p>
 </section>
-
-  <section class="signs additional-info">
-    <h2 class="sub-heading">Why Clare Homeowners Call Us</h2>
-    <div class="columns">
-      <div>
-    <h3 class="sub-sub-heading">Just Down Old 27</h3>
-    <p>
-      We're based in Rosebush—about 20 minutes south of Clare on Old 27. Fast response, no long-distance trip charges, and a technician who knows this corridor like the back of his hand.
-    </p>
-      </div>
-
-      <div>
-    <h3 class="sub-sub-heading">Built for Michigan Winters</h3>
-    <p>
-      Clare gets real winters—and garage door hardware takes a beating. We use quality, professional-grade parts rated for Michigan's temperature swings, so repairs hold up long after we leave.
-    </p>
-</div>
-
-      <div>
-    <h3 class="sub-sub-heading">Honest Pricing, No Surprises</h3>
-    <p>
-      We quote before we start and we stick to it. Clare homeowners deserve straight talk about what something costs—not a lowball estimate that grows once we're in the driveway.
-    </p>
-</div>
-
-      <div>
-    <h3 class="sub-sub-heading">Rural-Ready</h3>
-    <p>
-      Clare County has a lot of rural properties and we're comfortable on all of them. Gravel roads, long driveways, pole barns, agricultural buildings—we come prepared and we don't charge extra for the drive.
-    </p>
-</div>
-
-      <div>
-    <h3 class="sub-sub-heading">Community Minded</h3>
-    <p>
-      Clare values local businesses—just look at what the community has built around Cops &amp; Doughnuts and the Irish Festival. We're a local business too, and we take that responsibility seriously.
-    </p>
-</div>
-</div>
-  </section>
-
-  <BookingCta />
-
-  <ServiceAreaMap /> 
-
-  <HomeownerToolbox />
 
 <section class="faq-area">
 <section id="faq">
@@ -317,7 +457,7 @@ const faqSchema = {
       <span class="faq-arrow">&#9654;</span>
     </div>
     <div class="faq-answer">
-      <p>About 20 minutes from our Rosebush shop. For broken springs, stuck doors, or anything that's left your car trapped, we prioritize same-day scheduling. Call us at <a href="tel:9895720303" style="color: #c57b30;">989-572-0303</a> and we'll give you an accurate arrival window.</p>
+      <p>About 20 minutes from our Rosebush shop. For broken springs, stuck doors, or anything that's left your car trapped, we prioritize same-day scheduling. Call us at <a href="tel:9895720303" style="color: #b27d57;">989-572-0303</a> and we'll give you an accurate arrival window.</p>
     </div>
   </div>
 
@@ -354,53 +494,28 @@ const faqSchema = {
  </section>
 </section>
 
-    <!--
- Testimonial Placeholder Until I Get Real Reviews
 <section>
-<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
-  <TestimonialCard 
-    quote="Called in the morning, they were here by early afternoon. Spring was replaced, door was balanced, and the price was exactly what they quoted. No nonsense, great work. Will call them again."
-    author="Dave H., Clare"
-  />
-</a>
-</section>
-   -->
-
-  <!-- Highlight Section -->
-  <div class="highlight-section reveal-on-scroll">
-    <p>
-      Clare homeowners and rural property owners throughout Clare County trust <strong>Isabella Garage Door</strong> for fast response, honest pricing, and work that holds up through Michigan winters.
-    </p>
-  </div>
-
-<section>
-  <h2 class="sub-heading">Why we love Clare Michigan</h2>
-  <p>
-   There’s a strong sense of community in Clare, and it shows in the way people look out for their homes. 
-   We’re proud to serve this area with garage door service that reflects those same values—reliable, 
-   straightforward, and done right.
+  <h2 class="sub-heading">Clare Garage Door Repair, Done Right</h2>
+  <p class="p-home">
+    Clare has always had a strong sense of community. You can see it in the way the whole city turns out for the Irish Festival 
+    every March, in the way Cops &amp; Doughnuts became a full-blown national destination rather than just a bakery, and in the 
+    way locals still call that stretch of fast food on Old 27 "Hamburger Hill" like it's always been on the map. Clare has 
+    character—and we're proud to serve it.
   </p>
-   <div class="blog-cards">
-    <article class="blog-card reveal-on-scroll">
-      <img src="/photos/thumbnails/clare-blog.webp" alt="Local garage door repair near Clare Michigan">
-      <div class="blog-content">
-         <h3><a href="/blog/why-we-love-serving-clare-mi">What serving Clare means to us.</a></h3>
-        <p>At Isabella Garage Door, we spend a lot of time driving around Central Michigan—but there’s always something special about pulling into Clare. Maybe it’s the historic charm, the familiar faces, or the way everyone seems to know each other.</p>
-        <a class="read-more" href="/blog/why-we-love-serving-clare-mi">Read More →</a>
-      </div>
-    </article>
-    </div>
+  <p class="p-home" style="margin-top: 1rem;">
+    We're based right here in Central Michigan, just down Old 27 in Rosebush. When you call, you get a local technician 
+    who shows up on time, explains what's wrong, and fixes it right the first time.
+  </p>
 </section>
 
-  <section>
-    <h2 class="sub-heading">Ready to Get Your Clare Garage Door Fixed?</h2>
-    <p class="p-home">
-      We're just down Old 27 and we respond fast. Whether it's an emergency repair or you're planning ahead—
-      call us, text us, or use EasyEstimate™ to get a ballpark online. We'll take it from there.
-    </p>
-    <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto 1rem;"><i class="fas fa-calculator"></i> Get Free Estimate</a>
-    <a href="/contact" class="cta-button"><i class="fas fa-calendar-check"></i> Schedule Service</a>
-  </section>
+<BlogCards />
+
+<ServiceAreaMap /> 
+<a href="/contact" class="cta-button" style="margin-top: 2rem;"><i class="fa-solid fa-location-dot fa-fw"></i> Need Local Help?</a>
+
+<section class="core-services-section reveal-on-scroll">
+<Coupons /> 
+</section>
 
 <section>
   <h2 class="sub-heading">Isabella Garage Door</h2>
@@ -417,6 +532,152 @@ const faqSchema = {
 
 <ServiceFooter currentPath="null" slot="full-width-section"/>
 <LocationsFooter currentPath="/locations/clare" slot="full-width-section" />
+
+
+<style>
+.homeowner-toolbox-section {
+  text-align: center;
+}
+
+.homeowner-toolbox-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.homeowner-toolbox-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  /* 1. Default: 4 in a column (Mobile) */
+  grid-template-columns: 1fr;
+}
+
+/* 2. Tablet: Force 2x2 */
+@media (min-width: 550px) {
+  .homeowner-toolbox-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 3. Desktop: Force 4 in a row */
+@media (min-width: 1050px) {
+  .homeowner-toolbox-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.homeowner-toolbox-card {
+  justify-content: flex-start;
+  background: #fff;
+  border: 0.094rem solid #b27d57;
+  border-radius: 0.75rem;
+  padding: 1rem 1rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+  position: relative;
+  background-image: url('/photos/white-garage-door-service-section.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+z-index: 1;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.homeowner-toolbox-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.homeowner-toolbox-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.homeowner-toolbox-card * {
+  position: relative;
+  z-index: 2;
+}
+
+.homeowner-toolbox-card:hover,
+.homeowner-toolbox-card:focus {
+  transform: translateY(-5px);
+  box-shadow: 0 0 0.75rem rgba(178, 125, 87, 0.5);
+  outline: none;
+}
+
+.homeowner-toolbox-img {
+    height: 70px;
+  width: auto;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+
+.homeowner-toolbox-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.homeowner-toolbox-body h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1a334f;
+  font-family: 'Lora', serif;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  line-height: 2.1rem;
+}
+
+.homeowner-toolbox-body p {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #1a334f;
+  text-align: left;
+  padding: 0 1rem;
+  flex: 1;
+}
+
+
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".homeowner-toolbox-card, .core-services-card, .reveal-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target); // reveal once
+          }
+        });
+      },
+      {
+        threshold: 0.2, // trigger when 20% of card is visible
+      }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>
 
 <script is:inline>
 document.querySelectorAll('.faq-item').forEach(item => {
@@ -439,54 +700,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
 });
 </script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(" .core-services-card, .reveal-on-scroll");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.2,
-      }
-    );
-
-    cards.forEach((card) => {
-      observer.observe(card);
-    });
-  });
-</script>
-
-<script>
-  if (typeof window !== 'undefined') {
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('slide-up-in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.6,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const section = document.querySelector('.highlight-section');
-      if (section) {
-        observer.observe(section);
-      }
-    });
-  }
-</script>
-
-<script is:script>
+<script is:inline>
   const icons = document.querySelectorAll('.core-services-icon-circle');
 
   const observer = new IntersectionObserver(
@@ -502,5 +716,96 @@ document.querySelectorAll('.faq-item').forEach(item => {
   );
 icons.forEach(icon => observer.observe(icon));
 </script>
+
+<script>
+// Function to toggle accordion visibility and arrow rotation
+function toggleAccordion(button) {
+    const item = button.parentElement;
+    const clickedContent = button.nextElementSibling;
+    const clickedArrow = button.querySelector('.accordion-arrow');
+
+    // Close all other open accordions
+    document.querySelectorAll('.accordion-content').forEach(content => {
+        const parentItem = content.parentElement;
+        const arrow = parentItem.querySelector('.accordion-arrow');
+
+        if (content !== clickedContent && content.style.maxHeight !== '0px' && content.style.maxHeight !== '') {
+            content.style.maxHeight = '0px';
+            if (arrow) arrow.style.transform = 'rotate(0deg)';
+            parentItem.classList.remove('active');
+        }
+    });
+
+    // Toggle the clicked accordion
+    if (clickedContent.style.maxHeight === '0px' || clickedContent.style.maxHeight === '') {
+        clickedContent.style.maxHeight = clickedContent.scrollHeight + 'px';
+        clickedArrow.style.transform = 'rotate(180deg)';
+        item.classList.add('active');
+    } else {
+        clickedContent.style.maxHeight = '0px';
+        clickedArrow.style.transform = 'rotate(0deg)';
+        item.classList.remove('active');
+    }
+}
+
+// Function to initialize accordions (set them to closed on load)
+function initializeAccordions() {
+    document.querySelectorAll('.accordion-content').forEach(content => {
+        content.style.maxHeight = '0px';
+        content.parentElement.classList.remove('active');
+        const arrow = content.previousElementSibling.querySelector('.accordion-arrow');
+        if (arrow) arrow.style.transform = 'rotate(0deg)';
+    });
+}
+
+// Make toggleAccordion available globally (used by HTML onclick)
+window.toggleAccordion = toggleAccordion;
+
+// Run initialization on first page load
+document.addEventListener('DOMContentLoaded', initializeAccordions);
+
+// Reinitialize after soft navigation (Astro)
+document.addEventListener('astro:after-swap', initializeAccordions);
+</script>
+
+  <script>
+    if (typeof window !== 'undefined') {
+      // Animate highlight section (existing)
+      const highlightObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('slide-up-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.5,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      window.addEventListener('DOMContentLoaded', () => {
+        const highlightSection = document.querySelector('.highlight-section');
+        if (highlightSection) {
+          highlightObserver.observe(highlightSection);
+        }
+
+        // Animate value icon cards with staggered delay
+        const iconCards = document.querySelectorAll('.value-icon-card');
+        const iconObserver = new IntersectionObserver((entries, iconObs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Add animation with stagger delay based on index
+              const index = Array.from(iconCards).indexOf(entry.target);
+              entry.target.style.animation = `fadeSlideUp 0.6s ease forwards`;
+              entry.target.style.animationDelay = `${index * 150}ms`;
+              iconObs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+
+        iconCards.forEach(card => iconObserver.observe(card));
+      });
+    }
+  </script>
 
 </BaseLayout>
