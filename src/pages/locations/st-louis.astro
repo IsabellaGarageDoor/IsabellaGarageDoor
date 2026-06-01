@@ -2,12 +2,21 @@
 title: "Garage Door Repair in St. Louis, MI - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadges from '../../components/TrustBadges.astro';
+import AvailabilityBanner from '../../components/AvailabilityBanner.astro';
+import AnnouncementBanner from '../../components/editable-sections/AnnouncementBanner.astro';
+import HolidaysBirthdaysBanner from '../../components/HolidaysBirthdaysBanner.astro';
+import SplideSlider from '../../components/SplideSlider.jsx'
+import BlogCards from '../../components/BlogCards.astro';
+import Coupons from '../../components/editable-sections/Coupons.astro';
 import HomeownerToolbox from '../../components/HomeownerToolbox.astro';
-import TestimonialCard from '../../components/TestimonialCard.astro';
+import BookingCta from '../../components/BookingCta.astro';
 import ServiceAreaMap from '../../components/ServiceAreaMap.astro';
 import ServiceFooter from '../../components/ServiceFooter.astro';
 import LocationsFooter from '../../components/LocationsFooter.astro';
-import BookingCta from '../../components/BookingCta.astro';
+
+import { Image } from 'astro:assets';
+import heroBg from '../../assets/images/herobg301.webp';
+import heroBgMobile from '../../assets/images/herobg-mobile301.webp';
 
 const title = 'Garage Door Repair St. Louis MI | Isabella Garage Door';
 const description = 'Professional garage door repair and installation in St. Louis, Michigan. Broken springs, opener repair, and new doors. Local service for St. Louis and Gratiot County. Call 989-572-0303.';
@@ -136,6 +145,48 @@ const faqSchema = {
     }
   ]
 };
+
+const reviewSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Review",
+      "@id": "https://isabellagaragedoor.com/#review-1",
+      "itemReviewed": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Elizabeth S."
+      },
+      "reviewBody": "Got our garage door working again! They got us on the schedule quick and made everything easy. I can't thank them enough. Highly recommend!!",
+      "datePublished": "2026-05-14"
+    },
+    {
+      "@type": "Review",
+      "@id": "https://isabellagaragedoor.com/#review-2",
+      "itemReviewed": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Autumn S."
+      },
+      "reviewBody": "I highly recommend Isabella Garage Door for any repairs you need. They were fast, efficient and reasonably priced. He had our spring fixed and door working again in no time. Will definitely use again.",
+      "datePublished": "2026-05-19"
+    }
+  ]
+};
 ---
 
 <BaseLayout {title} {description}>
@@ -143,13 +194,67 @@ const faqSchema = {
 <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(stLouisSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
   </Fragment>
 
-<img src="/photos/st-louis-michigan.avif" alt="Professional garage door repair service in St. Louis, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
+<link rel="stylesheet" href="/styles/global.css" />
 
-<section>
-  <h1 class="page-title">Garage Door Service in St. Louis, MI</h1>
-  <p>
+<section class="hero">
+<picture>
+  <source media="(max-width: 767px)" srcset={heroBgMobile.src} />
+  <source media="(min-width: 768px)" srcset={heroBg.src} />
+  <img
+    src={heroBg.src}
+    alt="Garage door repair background"
+    loading="eager"
+    fetchpriority="high"
+    class="hero-bg-image"
+  />
+</picture>
+
+  <div class="hero-overlay"></div>
+
+<div class="hero-content reveal-on-scroll">
+  <h1>St. Louis Gets Its Own Service — Not Alma's Overflow</h1>
+  <p class="hero-description">
+    25 minutes south on US-127 — we treat St. Louis as a destination, not a detour.
+  </p>
+  <div class="reveal-on-scroll">
+    <ul>
+      <li>✓ St. Louis Scheduled as Its Own Stop</li>
+      <li>✓ Upfront Pricing — No Surprises</li>
+      <li>✓ Work Backed by a 1-Year Warranty</li>
+    </ul>
+  </div>
+
+    <div class="hero-buttons reveal-on-scroll">
+      <a href="sms:9895720303?&body=Hi%2C%20I%20need%20some%20help%20with%20my%20garage%20door." class="hero-estimate-button">
+        <i class="fas fa-comment-dots"></i> Text Us
+      </a>
+      <a href="tel:9895720303" class="hero-home-contact-button">
+        <i class="fa-solid fa-phone fa-fw"></i> Call (989) 572-0303
+      </a>
+    </div>
+
+<p>Not sure what it'll cost?</p>
+<a href="/homeowner-tools/easy-estimate#estimate-form" class="hero-estimate-cta">Get an Instant Estimate →</a>
+  </div>
+
+  <TrustBadges />
+
+<a href="/booking" class="book-now-btn">Book Now</a>
+
+</section>
+
+<AvailabilityBanner />
+
+<AnnouncementBanner />
+
+<HolidaysBirthdaysBanner />
+
+<section style="margin-bottom: 1rem;">
+<h2 class="sub-heading" style="margin-top: 2rem;">Center of the Mitten, Center of Our Service Area</h2>
+  <p class="p-home">
     St. Louis carries a distinction that locals cite with quiet pride: it sits at the geographic center of Michigan's Lower 
     Peninsula. Smack in the middle of the mitten. The Pine River runs through the heart of it, the Sharks have their own 
     loyal following, and the city has a working-class resilience that comes from a long industrial history and a community 
@@ -157,35 +262,6 @@ const faqSchema = {
     of Gratiot County services—but ask anyone from St. Louis and they'll tell you the two are their own distinct places. 
     When your garage door breaks in St. Louis, Isabella Garage Door is about 25 minutes north on US-127 in Rosebush. 
     We treat St. Louis as its own community, we show up when we say we will, and we fix it right.
-  </p>
-  <p style="margin-top: 1rem; text-align: center;">
-    <strong>St. Louis residents:</strong> Call or text us now. Same-day appointments often available.
-  </p>
-    <a href="tel:9895720303" class="hero-contact-button" style="margin: 2rem auto 0;">
-      <i class="fas fa-phone"></i> Call 989-572-0303
-    </a>
-    <a href="sms:9895720303?&body=Hi%2C%20I%20need%20garage%20door%20service%20in%20St.%20Louis." class="hero-contact-button" style="margin: 1rem auto 0; background: #1a334f; border: .094rem solid #b27d57;">
-      <i class="fas fa-comment-dots"></i> Text Us Now
-    </a>
-</section>
-
-<section>
-  <TrustBadges />
-</section>
-
-<section>
-  <h2 class="sub-heading">St. Louis Gets Its Own Service—Not Alma's Overflow</h2>
-  <p class="p-home">
-    Because St. Louis and Alma are so close together, some companies service the whole area as a single market—scheduling 
-    St. Louis calls as Alma add-ons when it's convenient. St. Louis residents notice that. It shows up in longer wait times, 
-    in technicians who don't know which side of the river they're on, and in companies that can't tell you the difference 
-    between a State Street address and a Michigan Avenue one. We don't operate that way.
-  </p>
-  <p class="p-home" style="margin-top: 1rem;">
-    Isabella Garage Door is based in Rosebush, 25 minutes north on US-127—and we service St. Louis as a destination, not 
-    a detour. We know the city's neighborhoods, the Pine River corridor, the older homes near downtown, and the residential 
-    streets on both sides of the water. When you call us for a St. Louis job, that's what you get: a technician who knows 
-    where he's going, shows up when we say he will, and does the work right the first time.
   </p>
 </section>
 
@@ -230,8 +306,109 @@ const faqSchema = {
   </div>
 </section>
 
+<section class="no-card">
+<div class="why-choose-us-section">
+    <div class="why-choose-us-container">
+        <h2 class="sub-heading">Why St. Louis Homeowners Choose Us</h2>
+
+        <div class="accordion-group reveal-on-scroll">
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    St. Louis Is a Destination, Not a Detour
+                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        We don't schedule St. Louis calls as overflow from an Alma route. St. Louis is its own stop on its own schedule, and the homeowners there get the same priority, the same response time, and the same quality of work as anywhere else we serve.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    We Know Older St. Louis Homes
+                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        St. Louis has a rich stock of older homes, particularly near downtown and the Pine River, and we're experienced with the hardware that comes with them. Non-standard openings, original track systems, vintage configurations—we handle it without guesswork.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    25 Minutes on US-127
+                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        Rosebush to St. Louis is a straight shot south on US-127—one of our most-traveled routes. Fast response, no inflated trip charges, and a technician who knows the corridor and can give you a tight arrival window.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Center of the Mitten, Center of Our Range
+                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        St. Louis likes to point out it's the geographic center of Michigan's Lower Peninsula. From our Rosebush base, it's squarely in the center of our service area too. You're not on the edge of anything—you're well within our regular coverage.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Honest All the Way Through
+                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        We quote before we start and stand behind every number. No surprises after the work is done, no pressure to replace components that have life left in them. St. Louis homeowners get straight talk and fair pricing every time.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="/about/why-choose-isabella-garage-door" class="cta-button margin-bottom-2rem"><i class="fas fa-magnifying-glass"></i> Learn More About Us</a>
+</section>
+
+
+  <section>
+    <h2 class="sub-heading">Real Feedback.<br>Real Trust.</h2>
+      <p class="testimonial-intro-paragraph">Here's what local homeowners are saying about Isabella Garage Door:</p>
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
+
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;" class="reveal-on-scroll">
+      <SplideSlider client:only="react" />
+</a>
+
+<a href="/about/testimonials" class="cta-button"><i class="fa-solid fa-star fa-fw"></i> Read Customer Reviews</a>
+</section>
+
+
+  <BookingCta />
+
+  <HomeownerToolbox />
+
+<img src="/photos/st-louis-michigan.avif" alt="Professional garage door repair service in St. Louis, Michigan" loading="eager" fetchpriority="high" class="about-image" />
+
 <section style="margin-top: 2rem;">
-  <h2 class="sub-heading">We Know St. Louis—Both Sides of the River</h2>
+  <h2 class="sub-heading">We Know St. Louis — Both Sides of the River</h2>
   <p class="p-home">
     St. Louis has distinct character from one neighborhood to the next. Here's how we think about the community we serve:
   </p>
@@ -251,59 +428,12 @@ const faqSchema = {
 
     <p style="margin-top: 1rem;"><strong>🌾 Arcada & Bethany Township</strong><br>
     The townships surrounding St. Louis extend into rural Gratiot County with farms, country properties, and rural addresses that still consider St. Louis their community. We service Arcada and Bethany Township completely—no gap in coverage for addresses outside the city limits. If you're in the St. Louis area, you're in our service area.</p>
-
   </div>
+
   <p class="p-home" style="margin-top: 1.5rem;">
-    <strong>In St. Louis or the surrounding Gratiot County area?</strong> Call us at <a href="tel:9895720303" style="color: #b27d57; text-decoration: underline;">989-572-0303</a>. 
-    We're 25 minutes north on US-127 and we'll be there.
+    <strong>In St. Louis or the surrounding Gratiot County area?</strong> Call us at <a href="tel:9895720303" style="color: #b27d57; text-decoration: underline;">989-572-0303</a>. We're 25 minutes north on US-127 and we'll be there.
   </p>
 </section>
-
-<section class="signs additional-info">
-  <h2 class="sub-heading">Why St. Louis Homeowners Choose Us</h2>
-  <div class="columns">
-    <div>
-      <h3 class="sub-sub-heading">St. Louis Is a Destination, Not a Detour</h3>
-      <p>
-        We don't schedule St. Louis calls as overflow from an Alma route. St. Louis is its own stop on its own schedule, and the homeowners there get the same priority, the same response time, and the same quality of work as anywhere else we serve.
-      </p>
-    </div>
-
-    <div>
-      <h3 class="sub-sub-heading">We Know Older St. Louis Homes</h3>
-      <p>
-        St. Louis has a rich stock of older homes, particularly near downtown and the Pine River, and we're experienced with the hardware that comes with them. Non-standard openings, original track systems, vintage openers—we handle it without the guesswork.
-      </p>
-    </div>
-
-    <div>
-      <h3 class="sub-sub-heading">25 Minutes on US-127</h3>
-      <p>
-        Rosebush to St. Louis is a straight shot south on US-127—one of our most-traveled routes. Fast response, no inflated trip charges, and a technician who knows the corridor.
-      </p>
-    </div>
-
-    <div>
-      <h3 class="sub-sub-heading">Center of the Mitten, Center of Our Range</h3>
-      <p>
-        St. Louis likes to point out it's the geographic center of Michigan's Lower Peninsula. From our Rosebush base, it's squarely in the center of our service area too. You're not on the edge of anything—you're well within our regular coverage.
-      </p>
-    </div>
-
-    <div>
-      <h3 class="sub-sub-heading">Honest All the Way Through</h3>
-      <p>
-        We quote before we start and stand behind every number. No surprises after the work is done, no pressure to replace components that have life left in them. St. Louis homeowners get straight talk and fair pricing every time.
-      </p>
-    </div>
-  </div>
-</section>
-
-  <BookingCta />
-
-  <ServiceAreaMap /> 
-
-  <HomeownerToolbox />
 
 <section class="faq-area">
 <section id="faq">
@@ -365,34 +495,27 @@ const faqSchema = {
 </section>
 </section>
 
-    <!--
- Testimonial Placeholder Until I Get Real Reviews
 <section>
-<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
-  <TestimonialCard 
-    quote="Called on a Tuesday morning, they were here by early afternoon. Replaced the spring, balanced the door, and explained everything clearly. Fair price and no attempt to sell me things I didn't need. Will use them again."
-    author="Linda H., St. Louis"
-  />
-</a>
+  <h2 class="sub-heading">St. Louis Garage Door Repair, Done Right</h2>
+  <p class="p-home">
+    We're 25 minutes north on US-127 and we respond fast. Whether it's an emergency repair or you're finally 
+    getting around to that tune-up—call us, text us, or use EasyEstimate™ to get a ballpark online. 
+    We treat St. Louis as its own community and always will.
+  </p>
+  <p class="p-home" style="margin-top: 1rem;">
+    When you call, you get a local technician who shows up on time, knows which side of the river he's 
+    heading to, and fixes it right the first time.
+  </p>
 </section>
-   -->
 
-  <!-- Highlight Section -->
-  <div class="highlight-section reveal-on-scroll">
-    <p>
-      St. Louis homeowners and Gratiot County residents trust <strong>Isabella Garage Door</strong> for fast response, honest pricing, and garage door work done right—right in the center of the mitten, right in the center of our service area.
-    </p>
-  </div>
+<BlogCards />
 
-  <section>
-    <h2 class="sub-heading">Ready to Get Your St. Louis Garage Door Fixed?</h2>
-    <p class="p-home">
-      We're 25 minutes north on US-127 and we respond fast. Whether it's an emergency repair or you're finally 
-      getting around to that tune-up—call us, text us, or use EasyEstimate™ to get a ballpark online. We'll take it from there.
-    </p>
-    <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto 1rem;"><i class="fas fa-calculator"></i> Get Free Estimate</a>
-    <a href="/contact" class="cta-button"><i class="fas fa-calendar-check"></i> Schedule Service</a>
-  </section>
+<ServiceAreaMap />
+<a href="/contact" class="cta-button" style="margin-top: 2rem;"><i class="fa-solid fa-location-dot fa-fw"></i> Need Local Help?</a>
+
+<section class="core-services-section reveal-on-scroll">
+<Coupons />
+</section>
 
 <section>
   <h2 class="sub-heading">Isabella Garage Door</h2>
@@ -410,6 +533,145 @@ const faqSchema = {
 <ServiceFooter currentPath="null" slot="full-width-section"/>
 <LocationsFooter currentPath="/locations/st-louis" slot="full-width-section" />
 
+
+<style>
+.homeowner-toolbox-section {
+  text-align: center;
+}
+
+.homeowner-toolbox-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.homeowner-toolbox-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 550px) {
+  .homeowner-toolbox-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1050px) {
+  .homeowner-toolbox-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.homeowner-toolbox-card {
+  justify-content: flex-start;
+  background: #fff;
+  border: 0.094rem solid #b27d57;
+  border-radius: 0.75rem;
+  padding: 1rem 1rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+  position: relative;
+  background-image: url('/photos/white-garage-door-service-section.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.homeowner-toolbox-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.homeowner-toolbox-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.homeowner-toolbox-card * {
+  position: relative;
+  z-index: 2;
+}
+
+.homeowner-toolbox-card:hover,
+.homeowner-toolbox-card:focus {
+  transform: translateY(-5px);
+  box-shadow: 0 0 0.75rem rgba(178, 125, 87, 0.5);
+  outline: none;
+}
+
+.homeowner-toolbox-img {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+
+.homeowner-toolbox-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.homeowner-toolbox-body h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1a334f;
+  font-family: 'Lora', serif;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  line-height: 2.1rem;
+}
+
+.homeowner-toolbox-body p {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #1a334f;
+  text-align: left;
+  padding: 0 1rem;
+  flex: 1;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".homeowner-toolbox-card, .core-services-card, .reveal-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>
+
 <script is:inline>
 document.querySelectorAll('.faq-item').forEach(item => {
   const question = item.querySelector('.faq-question');
@@ -425,60 +687,13 @@ document.querySelectorAll('.faq-item').forEach(item => {
 
     if (!isOpen) {
       item.classList.add('open');
-       answer.style.maxHeight = answer.scrollHeight + 'px';
+      answer.style.maxHeight = answer.scrollHeight + 'px';
     }
   });
 });
 </script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(" .core-services-card, .reveal-on-scroll");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.2,
-      }
-    );
-
-    cards.forEach((card) => {
-      observer.observe(card);
-    });
-  });
-</script>
-
-<script>
-  if (typeof window !== 'undefined') {
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('slide-up-in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.6,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const section = document.querySelector('.highlight-section');
-      if (section) {
-        observer.observe(section);
-      }
-    });
-  }
-</script>
-
-<script is:script>
+<script is:inline>
   const icons = document.querySelectorAll('.core-services-icon-circle');
 
   const observer = new IntersectionObserver(
@@ -492,7 +707,86 @@ document.querySelectorAll('.faq-item').forEach(item => {
     },
     { threshold: 0.5 }
   );
-icons.forEach(icon => observer.observe(icon));
+  icons.forEach(icon => observer.observe(icon));
 </script>
+
+<script>
+function toggleAccordion(button) {
+    const item = button.parentElement;
+    const clickedContent = button.nextElementSibling;
+    const clickedArrow = button.querySelector('.accordion-arrow');
+
+    document.querySelectorAll('.accordion-content').forEach(content => {
+        const parentItem = content.parentElement;
+        const arrow = parentItem.querySelector('.accordion-arrow');
+
+        if (content !== clickedContent && content.style.maxHeight !== '0px' && content.style.maxHeight !== '') {
+            content.style.maxHeight = '0px';
+            if (arrow) arrow.style.transform = 'rotate(0deg)';
+            parentItem.classList.remove('active');
+        }
+    });
+
+    if (clickedContent.style.maxHeight === '0px' || clickedContent.style.maxHeight === '') {
+        clickedContent.style.maxHeight = clickedContent.scrollHeight + 'px';
+        clickedArrow.style.transform = 'rotate(180deg)';
+        item.classList.add('active');
+    } else {
+        clickedContent.style.maxHeight = '0px';
+        clickedArrow.style.transform = 'rotate(0deg)';
+        item.classList.remove('active');
+    }
+}
+
+function initializeAccordions() {
+    document.querySelectorAll('.accordion-content').forEach(content => {
+        content.style.maxHeight = '0px';
+        content.parentElement.classList.remove('active');
+        const arrow = content.previousElementSibling.querySelector('.accordion-arrow');
+        if (arrow) arrow.style.transform = 'rotate(0deg)';
+    });
+}
+
+window.toggleAccordion = toggleAccordion;
+document.addEventListener('DOMContentLoaded', initializeAccordions);
+document.addEventListener('astro:after-swap', initializeAccordions);
+</script>
+
+  <script>
+    if (typeof window !== 'undefined') {
+      const highlightObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('slide-up-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.5,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      window.addEventListener('DOMContentLoaded', () => {
+        const highlightSection = document.querySelector('.highlight-section');
+        if (highlightSection) {
+          highlightObserver.observe(highlightSection);
+        }
+
+        const iconCards = document.querySelectorAll('.value-icon-card');
+        const iconObserver = new IntersectionObserver((entries, iconObs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const index = Array.from(iconCards).indexOf(entry.target);
+              entry.target.style.animation = `fadeSlideUp 0.6s ease forwards`;
+              entry.target.style.animationDelay = `${index * 150}ms`;
+              iconObs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+
+        iconCards.forEach(card => iconObserver.observe(card));
+      });
+    }
+  </script>
 
 </BaseLayout>

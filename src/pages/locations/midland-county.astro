@@ -1,5 +1,5 @@
 ---
-title: "Garage Door Repair in Lake Isabella, MI - Isabella Garage Door"
+title: "Garage Door Repair in Midland County, MI - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadges from '../../components/TrustBadges.astro';
 import AvailabilityBanner from '../../components/AvailabilityBanner.astro';
@@ -18,85 +18,83 @@ import { Image } from 'astro:assets';
 import heroBg from '../../assets/images/herobg301.webp';
 import heroBgMobile from '../../assets/images/herobg-mobile301.webp';
 
-const title = 'Garage Door Repair Lake Isabella MI | Isabella Garage Door';
-const description = 'Professional garage door repair and installation in Lake Isabella, Michigan. Broken springs, opener repair, new doors. Local service for lakefront and year-round homes. Call 989-572-0303.';
+const title = 'Garage Door Repair Midland County MI | Isabella Garage Door';
+const description = 'Professional garage door repair and installation throughout Midland County, Michigan. Broken springs, opener repair, pole barns, and new doors. Serving Coleman, Sanford, Beaverton, and surrounding communities. Call 989-572-0303.';
 
-const lakeIsabellaSchema = {
+const countySchema = {
   "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "Isabella Garage Door - Lake Isabella",
-  "image": "https://isabellagaragedoor.com/photos/lake-isabella-garage-door-repair.webp",
-  "@id": "https://isabellagaragedoor.com/service-areas/lake-isabella",
-  "url": "https://isabellagaragedoor.com/service-areas/lake-isabella",
-  "telephone": "+1-989-572-0303",
-  "priceRange": "$$",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "",
-    "addressLocality": "Lake Isabella",
-    "addressRegion": "MI",
-    "postalCode": "48893",
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 43.6453,
-    "longitude": -85.0108
-  },
-  "areaServed": [
+  "@graph": [
     {
-      "@type": "City",
-      "name": "Lake Isabella",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Lake Isabella",
-        "addressRegion": "MI",
-        "addressCountry": "US"
-      }
+      "@type": "WebPage",
+      "@id": "https://isabellagaragedoor.com/service-areas/midland-county",
+      "url": "https://isabellagaragedoor.com/service-areas/midland-county",
+      "name": "Garage Door Repair in Midland County, MI | Isabella Garage Door",
+      "description": "Professional garage door repair, broken spring replacement, opener installation, and new door installation throughout Midland County, Michigan."
     },
-    { "@type": "Place", "name": "Broomfield Township, MI" },
-    { "@type": "Place", "name": "Rolland Township, MI" },
-    { "@type": "Place", "name": "Coe Township, MI" }
-  ],
-  "description": "Professional garage door repair, broken spring replacement, opener installation, and new door installation serving Lake Isabella, Michigan and the surrounding lakefront communities of Broomfield, Rolland, and Coe Township.",
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Lake Isabella Garage Door Services",
-    "itemListElement": [
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Broken Spring Replacement in Lake Isabella",
-          "url": "https://isabellagaragedoor.com/services/broken-springs"
-        }
+    {
+      "@type": "Service",
+      "name": "Garage Door Repair & Installation",
+      "provider": {
+        "@id": "https://isabellagaragedoor.com/#business"
       },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Garage Door Repair in Lake Isabella",
-          "url": "https://isabellagaragedoor.com/services/door-repair"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "Opener Repair & Installation in Lake Isabella",
-          "url": "https://isabellagaragedoor.com/services/opener-repair"
-        }
-      },
-      {
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": "New Door Installation in Lake Isabella",
-          "url": "https://isabellagaragedoor.com/services/new-door-installation"
-        }
+      "description": "Comprehensive garage door services including spring replacement, opener repair and installation, door repair, new door installation, and preventive maintenance throughout Midland County.",
+      "areaServed": [
+        {
+          "@type": "AdministrativeArea",
+          "name": "Midland County, Michigan",
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 43.7637,
+            "longitude": -84.5986
+          }
+        },
+        { "@type": "City", "name": "Coleman, MI" },
+        { "@type": "City", "name": "Sanford, MI" },
+        { "@type": "City", "name": "Midland, MI" },
+        { "@type": "Place", "name": "Mills Township, MI" },
+        { "@type": "Place", "name": "Geneva Township, MI" },
+        { "@type": "Place", "name": "Hope Township, MI" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Midland County Garage Door Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Broken Spring Replacement",
+              "url": "https://isabellagaragedoor.com/services/broken-springs"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Garage Door Repair",
+              "url": "https://isabellagaragedoor.com/services/door-repair"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Opener Repair & Installation",
+              "url": "https://isabellagaragedoor.com/services/opener-repair"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "New Door Installation",
+              "url": "https://isabellagaragedoor.com/services/new-door-installation"
+            }
+          }
+        ]
       }
-    ]
-  }
+    }
+  ]
 };
 
 const faqSchema = {
@@ -105,42 +103,42 @@ const faqSchema = {
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Do you repair garage doors at Lake Isabella, Michigan?",
+      "name": "Do you service Midland County for garage door repair?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Lake Isabella is one of our most regularly served communities. We cover lakefront properties, year-round homes, seasonal cottages, and rural addresses in Broomfield, Rolland, and Coe Township surrounding the lake. If your mailing address says Lake Isabella—or if you're just close to it—we come to you."
+        "text": "Yes. We service communities throughout Midland County including Coleman, Sanford, Midland, and surrounding townships. We're based in Rosebush in neighboring Isabella County, and the M-18 and US-10 corridors put most of Midland County well within our regular service range. Same-day service is often available for communities like Coleman."
       }
     },
     {
       "@type": "Question",
-      "name": "How quickly can you get to Lake Isabella for garage door repairs?",
+      "name": "How quickly can you get to Midland County for garage door repairs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Lake Isabella is a short drive from our Rosebush location. We typically offer same-day or next-day service to Lake Isabella residents. Emergency situations like broken springs or a door that won't close get priority scheduling. Call 989-572-0303 and we'll give you an honest arrival window."
+        "text": "Response times depend on location within the county. Coleman is about 20-25 minutes from our Rosebush base and often gets same-day service. Sanford and Beaverton are farther west along M-20 and US-10 and typically receive same-day or next-day service. Emergency situations get priority. Call 989-572-0303 for an honest arrival window."
       }
     },
     {
       "@type": "Question",
-      "name": "Do you work on seasonal cottages and vacation homes at Lake Isabella?",
+      "name": "Do you work on pole barns and agricultural doors in Midland County?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, and we do it regularly. Garage doors on seasonal properties have their own set of challenges—systems that sit dormant through the winter, springs that fail when you're opening up for the first warm weekend of the year, openers that haven't been touched since Labor Day. We're familiar with all of it and can get your property ready to use quickly."
+        "text": "Absolutely. Midland County has a strong agricultural community—particularly in the southern townships near Coleman and along M-18—and farm doors, pole barns, and machine sheds are a regular part of our work in the area. We carry heavy-duty parts and know how to service large agricultural openings."
       }
     },
     {
       "@type": "Question",
-      "name": "My Lake Isabella address is actually in Broomfield Township—do you still service it?",
+      "name": "Do you cover rural properties throughout Midland County?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Absolutely. Many Lake Isabella properties carry a Lake Isabella mailing address but sit in Broomfield Township, Rolland Township, or Coe Township. We service the entire lake community regardless of which township your property falls in. If you're around the lake, we come to you."
+        "text": "Yes. Rural Midland County—farms, country homes, and properties spread across Mills Township, Geneva Township, Hope Township, and the other rural townships—is well within our service area. We don't charge extra for rural addresses and we're comfortable on gravel roads and long driveways. If you're in Midland County, call us."
       }
     },
     {
       "@type": "Question",
-      "name": "What garage door services do you offer at Lake Isabella?",
+      "name": "What garage door services do you offer in Midland County?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "We handle everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair, new door installation, and annual preventive maintenance. We work on residential garages, boathouse-adjacent structures, and any garage-style door in the Lake Isabella area."
+        "text": "Everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation for all major brands, sensor repair, new door installation, and annual preventive maintenance. Residential and agricultural garage doors throughout Midland County."
       }
     }
   ]
@@ -192,7 +190,7 @@ const reviewSchema = {
 <BaseLayout {title} {description}>
 
 <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(lakeIsabellaSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(countySchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
   </Fragment>
@@ -215,13 +213,13 @@ const reviewSchema = {
   <div class="hero-overlay"></div>
 
 <div class="hero-content reveal-on-scroll">
-  <h1>Lake Isabella Garage Door Repair — Right Around the Corner</h1>
+  <h1>Garage Door Repair Across Midland County — Your Isabella County Neighbor</h1>
   <p class="hero-description">
-    Fast service for lakefront homes, year-round residents, and seasonal cottages — from your Rosebush neighbor.
+    Serving Coleman, Sanford, Midland, and rural Midland County from our Rosebush base — fast, honest, and local.
   </p>
   <div class="reveal-on-scroll">
     <ul>
-      <li>✓ Close to the Lake — Fast Response Times</li>
+      <li>✓ No Upcharges — Midland County Covered</li>
       <li>✓ Upfront Pricing — No Surprises</li>
       <li>✓ Work Backed by a 1-Year Warranty</li>
     </ul>
@@ -253,52 +251,53 @@ const reviewSchema = {
 <HolidaysBirthdaysBanner />
 
 <section style="margin-bottom: 1rem;">
-<h2 class="sub-heading" style="margin-top: 2rem;">Local Service for a Community That Values It</h2>
+<h2 class="sub-heading" style="margin-top: 2rem;">Close to Home, No Matter Which Side of the County Line</h2>
   <p class="p-home">
-    Lake Isabella is one of Isabella County's most sought-after communities—an all-sports lake with a loyal year-round population 
-    and a seasonal crowd that shows up every spring ready to get back on the water. Whether you live on the lake full-time or 
-    you're opening the cottage for Memorial Day weekend and the garage door won't cooperate, Isabella Garage Door is right 
-    around the corner in Rosebush. We know the lake community, we know the winding roads that get you there, and we'll show 
-    up and fix it right.
+    Midland County is our next-door neighbor. Isabella Garage Door is based in Rosebush—just across the county line—and 
+    the M-18 and US-10 corridors put Coleman, Sanford, Midland, and the rural townships of Midland 
+    County well within our regular service range. Midland County has a lot of character: a strong Dow Chemical heritage 
+    in the city of Midland, a working agricultural tradition in the southern townships, river communities along the 
+    Tittabawassee and Chippewa, and tight-knit small towns that operate on a handshake. We respect all of that—and we 
+    bring the same honest, professional service across the county line that our own neighbors expect from us.
   </p>
 </section>
 
 <section class="core-services-section">
-  <h2 class="sub-heading">Complete Garage Door Services at Lake Isabella</h2>
+  <h2 class="sub-heading">Complete Garage Door Services Across Midland County</h2>
   <p class="core-services-intro">
-    Lakefront living puts unique demands on garage door systems. Here's what Lake Isabella homeowners and cottage owners count on us for:
+    From the farms of southern Midland County to river communities along the Tittabawassee — here's what Midland County homeowners and property owners count on us for:
   </p>
 
   <div class="core-services-grid">
 
     <a href="/services/broken-springs" class="core-services-card spring reveal-on-scroll">
       <h3>Broken Spring Replacement</h3>
-      <p>Springs fail without warning—often right when you're trying to load the boat trailer on the first warm weekend of the year. When a spring snaps, the door isn't going anywhere on its own. We carry high-cycle replacement springs, replace both at once so you're not in this situation again next season, and balance the door before we leave. Most Lake Isabella spring calls completed same-day.</p>
+      <p>Springs fail without warning and leave your door completely immobile — no workaround changes that until the spring is replaced. We carry high-cycle replacement springs for residential and heavy-duty agricultural applications, replace both at once, and balance the door before we leave. Coleman and communities along M-18 often get same-day service. The rest of Midland County typically same-day or next-day.</p>
     </a>
 
     <a href="/services/door-repair" class="core-services-card repair">
       <h3>General Door Repair</h3>
-      <p>Off-track doors, snapped cables, worn rollers, bent tracks, damaged panels—whatever it is, we'll find it and fix it. Lakefront properties can present unique access situations and we're used to that. No drama, no guesswork—just an accurate diagnosis and a solid repair that holds up through the season.</p>
+      <p>Off-track panels, snapped cables, worn rollers, bent tracks, damaged sections — we find the real problem and fix it. Midland County's housing stock ranges from well-maintained older homes in established neighborhoods to newer subdivisions to rural farmsteads. We've worked on hardware across all of it and come prepared for whatever we find.</p>
     </a>
 
     <a href="/services/opener-repair" class="core-services-card opener">
       <h3>Opener Repair & Installation</h3>
-      <p>An opener that sat all winter can be temperamental come spring. Grinding, reversing, remote issues, or complete failure—we service all major brands and can install a new smart opener with Wi-Fi control if it's time to upgrade. Smart openers are especially useful for lake properties where you want to let someone in remotely or check if you left the door open.</p>
+      <p>Grinding, reversing, failing to respond, or just completely dead — opener failures show up in a lot of ways and we diagnose them accurately. We service all major brands including LiftMaster, Chamberlain, Genie, and Craftsman, and install new smart openers with Wi-Fi control when it's time to upgrade. Especially practical for rural Midland County properties where remote access is a real convenience.</p>
     </a>
 <!--
     <a href="/services/new-door-installation" class="core-services-card installation">
       <h3>New Door Installation</h3>
-      <p>Lakefront homes are an investment, and a worn-out garage door undercuts the whole property. We install quality residential doors in every style—traditional, carriage house, modern—in steel, wood, or composite. Insulated options are worth considering for seasonal properties that see temperature extremes. We handle everything including removal of your old door.</p>
+      <p>When a door is past saving, we install quality replacements built for Michigan's climate. Residential styles in steel, wood, or composite — traditional, carriage house, or modern. Heavy-duty options for agricultural and shop buildings. We handle measurement, removal of the old door, full installation, and final adjustment throughout Midland County.</p>
     </a>
 -->
     <a href="/services/maintenance" class="core-services-card maintenance">
-      <h3>Seasonal Tune-Up & Maintenance</h3>
-      <p>Garage doors on seasonal properties take a beating—months of dormancy followed by heavy use all summer. An annual tune-up before or after the season keeps springs lubricated, cables tensioned, rollers moving smoothly, and the opener dialed in. It's the kind of thing that prevents the emergency call on Memorial Day weekend when you'd rather be on the water.</p>
+      <h3>Preventive Maintenance</h3>
+      <p>Midland County winters are serious — springs contract in the cold, lubricant dries out, and rollers wear faster with the freeze-thaw cycles that run all season. An annual tune-up keeps everything running reliably before the weather turns hard. For farming operations especially, preventive maintenance on a shop or barn door is far cheaper than an emergency repair at the worst possible time.</p>
     </a>
 
-    <div class="core-services-card core-services-card polebarn">
-      <h3>Storage Buildings & Outbuildings</h3>
-      <p>Lake properties often have more going on than just a garage—boat storage buildings, large sheds, detached garages, and outbuildings with overhead doors. If it's a garage-style door on your Lake Isabella property, we service it. We come prepared for larger openings and non-standard setups.</p>
+    <div class="core-services-card core-services-card agricultural">
+      <h3>Pole Barns & Agricultural Doors</h3>
+      <p>Southern Midland County has strong agricultural roots — working farms, centennial operations, pole barns, machine sheds, and grain buildings with large overhead doors are common throughout Mills Township, Geneva Township, and the rural areas around Coleman and Oil City. We carry heavy-duty parts, work on large openings regularly, and understand what farm operations need from a garage door company.</p>
     </div>
 
   </div>
@@ -307,75 +306,75 @@ const reviewSchema = {
 <section class="no-card">
 <div class="why-choose-us-section">
     <div class="why-choose-us-container">
-        <h2 class="sub-heading">Why Lake Isabella Homeowners Call Us</h2>
+        <h2 class="sub-heading">Why Midland County Homeowners Call Us</h2>
 
         <div class="accordion-group reveal-on-scroll">
             <div class="accordion-item">
                 <button class="accordion-button" onclick="toggleAccordion(this)">
-                    We Know the Lake
+                    Right Across the County Line
                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                 </button>
                 <div class="accordion-content">
                     <div class="accordion-text">
-                        Based in Rosebush, we're as close to Lake Isabella as anyone. We know the roads, the neighborhoods, the seasonal rhythms of the community, and what lakefront properties tend to throw at you. We come prepared.
+                        Rosebush is just over the Isabella-Midland county line. For communities like Coleman and the townships along M-18, we're closer than many companies operating out of Midland city. Fast response, no padded trip charges, and a technician who knows this part of Michigan.
                     </div>
                 </div>
             </div>
 
             <div class="accordion-item">
                 <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Seasonal Property Experience
+                    Farm-Ready for Midland County
                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                 </button>
                 <div class="accordion-content">
                     <div class="accordion-text">
-                        Doors that sit all winter and get hammered all summer have their own set of failure patterns. We've seen them all—and we know how to fix them in a way that actually holds up through the season.
+                        Southern Midland County is agricultural land and we work on it regularly. Pole barns, machine sheds, heavy-duty springs, large overhead openings — we come prepared for what farm properties in this area actually need.
                     </div>
                 </div>
             </div>
 
             <div class="accordion-item">
                 <button class="accordion-button" onclick="toggleAccordion(this)">
-                    We Respect Your Weekend
+                    No Rural Upcharges
                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                 </button>
                 <div class="accordion-content">
                     <div class="accordion-text">
-                        For seasonal residents, time at the lake is precious. We move fast, communicate clearly, and don't drag out a job that should take an hour. Your Saturday shouldn't be spent waiting on a garage door tech.
+                        Gravel roads, long driveways, properties off the main roads — we don't charge extra for any of it. Midland County's rural addresses get the same pricing as everyone else we serve. We built this business to serve this kind of territory.
                     </div>
                 </div>
             </div>
 
             <div class="accordion-item">
                 <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Honest Pricing
+                    Honest Pricing, Every Time
                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                 </button>
                 <div class="accordion-content">
                     <div class="accordion-text">
-                        We quote before we start and stick to it. Lake property owners get the same straight talk as everyone else—what's wrong, what it costs, what your options are. No surprises, no lake-property upcharges.
+                        We quote before we start and stick to it. We tell you what's wrong, what it'll cost, and what your options are — no pressure, no inflated estimates, no parts recommended that don't need replacing. Midland County gets the same straight talk as everyone else.
                     </div>
                 </div>
             </div>
 
             <div class="accordion-item">
                 <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Genuinely Local
+                    Work That Holds Up
                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                     </svg>
                 </button>
                 <div class="accordion-content">
                     <div class="accordion-text">
-                        We're Isabella County neighbors, not a franchise. When you call us, someone local picks up—someone who could probably name the road you're on just from your description of where you're at.
+                        Professional-grade parts, proper installation, and a 1-year warranty on our work. We do the job right the first time so you're not calling someone back out in six months for the same problem.
                     </div>
                 </div>
             </div>
@@ -403,90 +402,95 @@ const reviewSchema = {
 
   <HomeownerToolbox />
 
-<img src="/photos/Lake-Isabella-Michigan.avif" alt="Professional garage door repair service in Lake Isabella, Michigan" loading="eager" fetchpriority="high" class="about-image" />
+<img src="/photos/tridge-midland-michigan.avif" alt="Professional garage door repair throughout Midland County, Michigan" loading="eager" fetchpriority="high" class="about-image" />
 
 <section style="margin-top: 2rem;">
-  <h2 class="sub-heading">We Know the Lake Isabella Community</h2>
+  <h2 class="sub-heading">Serving Communities Across Midland County</h2>
   <p class="p-home">
-    Lake Isabella isn't one size fits all. The community has distinct pockets and we know them:
+    Midland County stretches from the city of Midland in the north down through agricultural townships to the Isabella County line. Here's how we cover the county:
   </p>
 
   <div class="p-home" style="margin-top: 1.5rem;">
-    <p><strong>🌊 Lakefront Properties</strong><br>
-    Homes right on the water with boat docks, lake access, and the kind of garage that stores everything from jet skis to fishing gear. Tight lakefront lots can make access tricky—we're used to navigating them. We've worked on garages all around the lake and know what to expect.</p>
 
-    <p style="margin-top: 1rem;"><strong>🏡 Year-Round Neighborhoods</strong><br>
-    The full-time residents who keep the community running through the off-season. Year-rounders rely on their garage doors 365 days a year, and a January breakdown in Isabella County is no joke. We prioritize fast response for year-round Lake Isabella residents who can't wait.</p>
+    <p><strong>🏘️ <a href="/locations/coleman" style="color: #b27d57;">Coleman</a></strong><br>
+    Our primary Midland County community — right on M-18, about 20 minutes from our Rosebush base. Coleman is Comets country: a working-class farming community with centennial farms throughout the surrounding townships. We have a dedicated Coleman service page and treat it as a regular stop on our route. Same-day service is often available.</p>
 
-    <p style="margin-top: 1rem;"><strong>🏕️ Seasonal Cottages & Vacation Properties</strong><br>
-    Memorial Day to Labor Day is the season—and it's short. A garage door problem on a Friday afternoon in June shouldn't eat into your weekend. We move quickly for seasonal property owners and understand that your time at the lake is limited. We also service properties that need to be buttoned up properly before winter.</p>
+    <p style="margin-top: 1rem;"><strong>🌊 Sanford</strong><br>
+    The Sanford Lake community and surrounding area along the Tittabawassee River corridor. Sanford has a strong sense of community — river properties, year-round homes, and rural addresses throughout Hope Township. We cover Sanford and the surrounding area as part of our Midland County service.</p>
 
-    <p style="margin-top: 1rem;"><strong>📍 Broomfield, Rolland & Coe Township Addresses</strong><br>
-    A lot of Lake Isabella properties carry a Lake Isabella mailing address but technically sit in Broomfield Township, Rolland Township, or Coe Township. We service the entire lake community regardless of which township your deed says. If you're around the lake, we come to you—no exceptions, no extra charges.</p>
+    <p style="margin-top: 1rem;"><strong>🌾 Beaverton</strong><br>
+    Beaverton sits just north of Midland County in Gladwin County, and it shares the rural character of that border territory — farms, country homes, and properties that don't fit neatly into many companies service areas. We cover Midland County and portions of Gladwin County including Beaverton and the townships surrounding it.</p>
 
-    <p style="margin-top: 1rem;"><strong>🌾 Rural Properties West of Mt. Pleasant</strong><br>
-    The corridor between Rosebush and Lake Isabella is home to a lot of rural properties and country homes that don't fit neatly into any one community. We service this whole area regularly and we're comfortable wherever the address takes us.</p>
+    <p style="margin-top: 1rem;"><strong>🚜 Mills Township & Geneva Township</strong><br>
+    The townships directly surrounding Coleman are some of our most familiar Midland County territory. Centennial farms, pole barns, rural homesteads, and properties spread across the county roads of Mills and Geneva Township. We service this area regularly and don't charge extra for the rural addresses.</p>
+
+    <p style="margin-top: 1rem;"><strong>🏭 Midland City Area</strong><br>
+    The city of Midland and its surrounding neighborhoods are at the far end of our Midland County coverage — further from our Rosebush base than Coleman or Sanford. We do service Midland and surrounding areas; response times are a bit longer but same-day is still often possible. Call us and we'll give you an honest window.</p>
+
+    <p style="margin-top: 1rem;"><strong>🌲 Rural & Unincorporated Midland County</strong><br>
+    The townships and rural areas that don't carry a city address — Hope, Lincoln, Lee, Jasper, and the other townships spread across the county. These are properties that sometimes fall through the cracks of other companies' service areas. They don't fall through ours. If you're in Midland County, we come to you.</p>
+
   </div>
 
   <p class="p-home" style="margin-top: 1.5rem;">
-    <strong>Not sure if we cover your Lake Isabella property?</strong> Call us at <a href="tel:9895720303" style="color: #b27d57; text-decoration: underline;">989-572-0303</a>. If you're in the Lake Isabella area or Isabella County, the answer is yes.
+    <strong>Not sure if we cover your part of Midland County?</strong> Call us at <a href="tel:9895720303" style="color: #b27d57; text-decoration: underline;">989-572-0303</a>. Give us your general location and we'll tell you exactly what to expect.
   </p>
 </section>
 
 <section class="faq-area">
 <section id="faq">
 <div class="faq-head">
-  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions - Lake Isabella, MI</h2>
+  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions - Midland County, MI</h2>
 </div>
 
 <div class="reveal-on-scroll">
   <div class="faq-item">
     <div class="faq-question">
-      <span>Do you repair garage doors at Lake Isabella, Michigan?</span>
+      <span>Do you service Midland County for garage door repair?</span>
       <span class="faq-arrow">&#9654;</span>
     </div>
     <div class="faq-answer">
-      <p>Yes. Lake Isabella is one of our most regularly served communities. We cover lakefront properties, year-round homes, seasonal cottages, and rural addresses in Broomfield, Rolland, and Coe Township surrounding the lake. If your mailing address says Lake Isabella—or if you're just close to it—we come to you.</p>
+      <p>Yes. We service communities throughout Midland County including Coleman, Sanford, Midland, and surrounding townships. We're based in Rosebush in neighboring Isabella County, and the M-18 and US-10 corridors put most of western Midland County well within our regular service range. Same-day service is often available for communities like Coleman.</p>
     </div>
   </div>
 
   <div class="faq-item">
     <div class="faq-question">
-      <span>How quickly can you get to Lake Isabella for garage door repairs?</span>
+      <span>How quickly can you get to Midland County for garage door repairs?</span>
       <span class="faq-arrow">&#9654;</span>
     </div>
     <div class="faq-answer">
-      <p>Lake Isabella is a short drive from our Rosebush location. We typically offer same-day or next-day service. Emergency situations—broken springs, doors that won't close—get priority scheduling. Call us at <a href="tel:9895720303" style="color: #b27d57;">989-572-0303</a> and we'll give you an honest arrival window.</p>
+      <p>Response times depend on your location in the county. Coleman is about 20-25 minutes from Rosebush and often gets same-day service. Sanford and Midland are farther west and typically receive same-day or next-day service. Emergency situations get priority. Call us at <a href="tel:9895720303" style="color: #b27d57;">989-572-0303</a> and we'll give you an honest arrival window based on where you are.</p>
     </div>
   </div>
 
   <div class="faq-item">
     <div class="faq-question">
-      <span>Do you work on seasonal cottages and vacation homes at Lake Isabella?</span>
+      <span>Do you work on pole barns and agricultural doors in Midland County?</span>
       <span class="faq-arrow">&#9654;</span>
     </div>
     <div class="faq-answer">
-      <p>Yes, and we do it regularly. Garage doors on seasonal properties have their own set of challenges—systems that sit dormant through winter, springs that fail on the first warm weekend, openers that haven't run since Labor Day. We're familiar with all of it and get your property sorted out quickly so you can get on with your weekend.</p>
+      <p>Absolutely. Midland County has a strong agricultural community — particularly in the southern townships near Coleman and along M-18 — and farm doors, pole barns, and machine sheds are a regular part of our work in the area. We carry heavy-duty parts and know how to service large agricultural openings without making a project of it.</p>
     </div>
   </div>
 
   <div class="faq-item">
     <div class="faq-question">
-      <span>My Lake Isabella address is actually in Broomfield Township—do you still service it?</span>
+      <span>Do you cover rural properties throughout Midland County?</span>
       <span class="faq-arrow">&#9654;</span>
     </div>
     <div class="faq-answer">
-      <p>Absolutely. Many Lake Isabella properties carry a Lake Isabella mailing address but sit in Broomfield Township, Rolland Township, or Coe Township. We service the entire lake community regardless of which township your property falls in. If you're around the lake, we come to you—no exceptions, no extra charges for the township technicality.</p>
+      <p>Yes. Rural Midland County — farms, country homes, and properties spread across Mills Township, Geneva Township, Hope Township, and the other rural townships — is well within our service area. We don't charge extra for rural addresses and we're comfortable on gravel roads and long driveways. If you're in Midland County, call us.</p>
     </div>
   </div>
 
   <div class="faq-item">
     <div class="faq-question">
-      <span>What garage door services do you offer at Lake Isabella?</span>
+      <span>What garage door services do you offer in Midland County?</span>
       <span class="faq-arrow">&#9654;</span>
     </div>
     <div class="faq-answer">
-      <p>We handle everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair<!-- , new door installation -->, and annual preventive maintenance. We work on residential garages, storage buildings, and any garage-style door on your Lake Isabella property.</p>
+      <p>Everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation for all major brands, sensor repair<!-- , new door installation -->, and annual preventive maintenance. Residential and agricultural garage doors throughout Midland County.</p>
     </div>
   </div>
 
@@ -494,15 +498,16 @@ const reviewSchema = {
 </section>
 
 <section>
-  <h2 class="sub-heading">Lake Isabella Garage Door Repair, Done Right</h2>
+  <h2 class="sub-heading">Midland County Garage Door Service, Done Right</h2>
   <p class="p-home">
-    We're close by, we respond fast, and we know the community. Isabella Garage Door isn't a franchise routing 
-    calls through a regional dispatch center. When you call us, you reach someone local who knows exactly where 
-    you are—someone who could probably name the road you're on just from your description of where you're at.
+    Midland County sits right next door to Isabella County — and we treat it like the neighboring community 
+    it is. Close response times, no inflated pricing for crossing a county line, and the same quality of 
+    work we bring to every job across our service area.
   </p>
   <p class="p-home" style="margin-top: 1rem;">
-    Whether it's an emergency repair on a summer Friday or a tune-up before you close up for the winter, 
-    we show up when we say we will and fix it right the first time.
+    Whether you need emergency spring replacement, a routine tune-up, or help figuring out what's wrong 
+    with your opener — call us, text us, or use EasyEstimate™ to get a ballpark online. We'll respond 
+    quickly and get your door working right.
   </p>
 </section>
 
@@ -518,7 +523,7 @@ const reviewSchema = {
 <section>
   <h2 class="sub-heading">Isabella Garage Door</h2>
   <p style="font-size: .9rem; text-align: center;">
-    Serving Lake Isabella, Broomfield Township, and all of Isabella County—your local garage door company, right around the corner.
+    Serving Midland County and all of Central Michigan — based in Rosebush, right across the county line.
   </p>
   <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
     <em>Raising Performance. Elevating Standards</em>
@@ -529,7 +534,7 @@ const reviewSchema = {
 </section>
 
 <ServiceFooter currentPath="null" slot="full-width-section"/>
-<LocationsFooter currentPath="/locations/lake-isabella" slot="full-width-section" />
+<LocationsFooter currentPath="/locations/midland-county" slot="full-width-section" />
 
 
 <style>

@@ -2,12 +2,21 @@
 title: "Garage Door Repair in Remus, MI - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import TrustBadges from '../../components/TrustBadges.astro';
+import AvailabilityBanner from '../../components/AvailabilityBanner.astro';
+import AnnouncementBanner from '../../components/editable-sections/AnnouncementBanner.astro';
+import HolidaysBirthdaysBanner from '../../components/HolidaysBirthdaysBanner.astro';
+import SplideSlider from '../../components/SplideSlider.jsx'
+import BlogCards from '../../components/BlogCards.astro';
+import Coupons from '../../components/editable-sections/Coupons.astro';
 import HomeownerToolbox from '../../components/HomeownerToolbox.astro';
-import TestimonialCard from '../../components/TestimonialCard.astro';
+import BookingCta from '../../components/BookingCta.astro';
 import ServiceAreaMap from '../../components/ServiceAreaMap.astro';
 import ServiceFooter from '../../components/ServiceFooter.astro';
 import LocationsFooter from '../../components/LocationsFooter.astro';
-import BookingCta from '../../components/BookingCta.astro';
+
+import { Image } from 'astro:assets';
+import heroBg from '../../assets/images/herobg301.webp';
+import heroBgMobile from '../../assets/images/herobg-mobile301.webp';
 
 const title = 'Garage Door Repair Remus MI | Isabella Garage Door';
 const description = 'Professional garage door repair and installation in Remus, Michigan. Broken springs, opener repair, pole barns, and new doors. Local service for Remus and Mecosta County. Call 989-572-0303.';
@@ -136,6 +145,48 @@ const faqSchema = {
     }
   ]
 };
+
+const reviewSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Review",
+      "@id": "https://isabellagaragedoor.com/#review-1",
+      "itemReviewed": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Elizabeth S."
+      },
+      "reviewBody": "Got our garage door working again! They got us on the schedule quick and made everything easy. I can't thank them enough. Highly recommend!!",
+      "datePublished": "2026-05-14"
+    },
+    {
+      "@type": "Review",
+      "@id": "https://isabellagaragedoor.com/#review-2",
+      "itemReviewed": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Autumn S."
+      },
+      "reviewBody": "I highly recommend Isabella Garage Door for any repairs you need. They were fast, efficient and reasonably priced. He had our spring fixed and door working again in no time. Will definitely use again.",
+      "datePublished": "2026-05-19"
+    }
+  ]
+};
 ---
 
 <BaseLayout {title} {description}>
@@ -143,13 +194,67 @@ const faqSchema = {
 <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(remusSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
   </Fragment>
 
-<img src="/photos/remus-michigan.avif" alt="Professional garage door repair service in Remus, Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
+<link rel="stylesheet" href="/styles/global.css" />
 
-<section>
-  <h1 class="page-title">Garage Door Service in Remus, MI</h1>
-  <p>
+<section class="hero">
+<picture>
+  <source media="(max-width: 767px)" srcset={heroBgMobile.src} />
+  <source media="(min-width: 768px)" srcset={heroBg.src} />
+  <img
+    src={heroBg.src}
+    alt="Garage door repair background"
+    loading="eager"
+    fetchpriority="high"
+    class="hero-bg-image"
+  />
+</picture>
+
+  <div class="hero-overlay"></div>
+
+<div class="hero-content reveal-on-scroll">
+  <h1>Serving Remus & Wheatland Township — 20 Minutes on M-20</h1>
+  <p class="hero-description">
+    Fast garage door repair for Remus homes, farms, and pole barns — Remus isn't the edge of our range, it's well within it.
+  </p>
+  <div class="reveal-on-scroll">
+    <ul>
+      <li>✓ No Rural Upcharges — Mecosta County Included</li>
+      <li>✓ Upfront Pricing — No Surprises</li>
+      <li>✓ Work Backed by a 1-Year Warranty</li>
+    </ul>
+  </div>
+
+    <div class="hero-buttons reveal-on-scroll">
+      <a href="sms:9895720303?&body=Hi%2C%20I%20need%20some%20help%20with%20my%20garage%20door." class="hero-estimate-button">
+        <i class="fas fa-comment-dots"></i> Text Us
+      </a>
+      <a href="tel:9895720303" class="hero-home-contact-button">
+        <i class="fa-solid fa-phone fa-fw"></i> Call (989) 572-0303
+      </a>
+    </div>
+
+<p>Not sure what it'll cost?</p>
+<a href="/homeowner-tools/easy-estimate#estimate-form" class="hero-estimate-cta">Get an Instant Estimate →</a>
+  </div>
+
+  <TrustBadges />
+
+<a href="/booking" class="book-now-btn">Book Now</a>
+
+</section>
+
+<AvailabilityBanner />
+
+<AnnouncementBanner />
+
+<HolidaysBirthdaysBanner />
+
+<section style="margin-bottom: 1rem;">
+<h2 class="sub-heading" style="margin-top: 2rem;">The M-20 Corridor Deserves Real Local Service</h2>
+  <p class="p-home">
     Every September, thousands of people descend on a farm just outside Remus for the Wheatland Music Festival—one of the 
     most beloved folk and roots gatherings in the Midwest. People come from all over the country for it, and the ones who 
     live nearby know what a special thing it is to have that kind of event rooted in your backyard. Remus is that kind of 
@@ -157,36 +262,6 @@ const faqSchema = {
     on a map would suggest. When your garage door breaks in Remus—whether it's on your house, your shop, or your pole barn 
     on a Wheatland Township road—Isabella Garage Door is about 20 minutes east in Rosebush. Close enough to get there fast. 
     Local enough to take the work seriously.
-  </p>
-  <p style="margin-top: 1rem; text-align: center;">
-    <strong>Remus residents:</strong> Call or text us now. Same-day appointments often available.
-  </p>
-    <a href="tel:9895720303" class="hero-contact-button" style="margin: 2rem auto 0;">
-      <i class="fas fa-phone"></i> Call 989-572-0303
-    </a>
-    <a href="sms:9895720303?&body=Hi%2C%20I%20need%20garage%20door%20service%20in%20Remus." class="hero-contact-button" style="margin: 1rem auto 0; background: #1a334f; border: .094rem solid #b27d57;">
-      <i class="fas fa-comment-dots"></i> Text Us Now
-    </a>
-</section>
-
-<section>
-  <TrustBadges />
-</section>
-
-<section>
-  <h2 class="sub-heading">The M-20 Corridor Deserves Real Local Service</h2>
-  <p class="p-home">
-    Remus sits on M-20 between Mt. Pleasant and Big Rapids—a stretch of mid-Michigan that's easy to overlook if you're 
-    routing service calls from a city hub. A lot of companies technically cover this area but treat it as the far edge 
-    of their range, which shows in their response times and their enthusiasm for the work. We're different. Isabella 
-    Garage Door is based in Rosebush, 20 minutes east on the same M-20 corridor. Remus isn't the edge of our range—
-    it's well within it, and we treat every job there like a neighbor's.
-  </p>
-  <p class="p-home" style="margin-top: 1rem;">
-    Wheatland Township and the Remus area is real farm country—the kind of place where a broken pole barn door during 
-    planting or harvest isn't a minor inconvenience, it's a problem that needs solving today. We understand that. We 
-    carry what we need, we arrive prepared, and we work efficiently because we know your time matters. That's the 
-    standard we bring to every call in the Remus area.
   </p>
 </section>
 
@@ -231,6 +306,107 @@ const faqSchema = {
   </div>
 </section>
 
+<section class="no-card">
+<div class="why-choose-us-section">
+    <div class="why-choose-us-container">
+        <h2 class="sub-heading">Why Remus Homeowners & Farmers Call Us</h2>
+
+        <div class="accordion-group reveal-on-scroll">
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    20 Minutes on M-20
+                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        Rosebush to Remus is a straight shot east on M-20—about 20 minutes on a route we travel regularly. Fast response, no inflated trip charges, and a technician who's made this drive before and knows what to expect.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Remus Isn't Our Edge Case
+                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        A lot of companies treat the M-20 corridor west of Mt. Pleasant as the far edge of their range. For us, Remus is a regular stop, not a stretch. You get the same response time and the same quality of work as anyone closer to our shop.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Farm-Ready All Year
+                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        Wheatland Township is working farmland and we know what that means for garage door service. Heavy-duty springs, large openings, time-sensitive repairs during planting and harvest—we come prepared and work fast because we understand the stakes.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    No Rural Upcharges
+                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        Gravel roads, long driveways, properties well off M-20—we don't charge extra for any of it. Serving rural Mecosta County is part of what we do, and we price it like it is.
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-button" onclick="toggleAccordion(this)">
+                    Honest from the Start
+                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                </button>
+                <div class="accordion-content">
+                    <div class="accordion-text">
+                        We tell you what's wrong, what it'll cost, and what your options are before we touch anything. No surprises on the invoice. No pressure to replace things that don't need replacing. Remus gets the same straight talk as everyone else we serve.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="/about/why-choose-isabella-garage-door" class="cta-button margin-bottom-2rem"><i class="fas fa-magnifying-glass"></i> Learn More About Us</a>
+</section>
+
+
+  <section>
+    <h2 class="sub-heading">Real Feedback.<br>Real Trust.</h2>
+      <p class="testimonial-intro-paragraph">Here's what local homeowners are saying about Isabella Garage Door:</p>
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
+
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;" class="reveal-on-scroll">
+      <SplideSlider client:only="react" />
+</a>
+
+<a href="/about/testimonials" class="cta-button"><i class="fa-solid fa-star fa-fw"></i> Read Customer Reviews</a>
+</section>
+
+
+  <BookingCta />
+
+  <HomeownerToolbox />
+
+<img src="/photos/remus-michigan.avif" alt="Professional garage door repair service in Remus, Michigan" loading="eager" fetchpriority="high" class="about-image" />
+
 <section style="margin-top: 2rem;">
   <h2 class="sub-heading">We Know Remus & the Wheatland Township Area</h2>
   <p class="p-home">
@@ -252,59 +428,12 @@ const faqSchema = {
 
     <p style="margin-top: 1rem;"><strong>🛣️ M-20 Between Remus & Rosebush</strong><br>
     The M-20 corridor connecting Remus to Rosebush passes through some genuinely beautiful mid-Michigan countryside—and a lot of rural properties with garage doors that need occasional service. If your address falls anywhere along this stretch, you're essentially on our regular route already.</p>
-
   </div>
+
   <p class="p-home" style="margin-top: 1.5rem;">
-    <strong>In Remus or the surrounding Mecosta County area?</strong> Call us at <a href="tel:9895720303" style="color: #b27d57; text-decoration: underline;">989-572-0303</a>. 
-    We're 20 minutes east on M-20 and we'll be on our way.
+    <strong>In Remus or the surrounding Mecosta County area?</strong> Call us at <a href="tel:9895720303" style="color: #b27d57; text-decoration: underline;">989-572-0303</a>. We're 20 minutes east on M-20 and we'll be on our way.
   </p>
 </section>
-
-<section class="signs additional-info">
-  <h2 class="sub-heading">Why Remus Homeowners & Farmers Call Us</h2>
-  <div class="columns">
-    <div>
-      <h3 class="sub-sub-heading">20 Minutes on M-20</h3>
-      <p>
-        Rosebush to Remus is a straight shot east on M-20—about 20 minutes on a route we travel regularly. Fast response, no inflated trip charges, and a technician who's made this drive before and knows what to expect.
-      </p>
-    </div>
-
-    <div>
-      <h3 class="sub-sub-heading">Remus Isn't Our Edge Case</h3>
-      <p>
-        A lot of companies treat the M-20 corridor west of Mt. Pleasant as the far edge of their range. For us, Remus is a regular stop, not a stretch. You get the same response time and the same quality of work as anyone closer to our shop.
-      </p>
-    </div>
-
-    <div>
-      <h3 class="sub-sub-heading">Farm-Ready All Year</h3>
-      <p>
-        Wheatland Township is working farmland and we know what that means for garage door service. Heavy-duty springs, large openings, time-sensitive repairs during planting and harvest—we come prepared and work fast because we understand the stakes.
-      </p>
-    </div>
-
-    <div>
-      <h3 class="sub-sub-heading">No Rural Upcharges</h3>
-      <p>
-        Gravel roads, long driveways, properties well off M-20—we don't charge extra for any of it. Serving rural Mecosta County is part of what we do, and we price it like it is.
-      </p>
-    </div>
-
-    <div>
-      <h3 class="sub-sub-heading">Honest from the Start</h3>
-      <p>
-        We tell you what's wrong, what it'll cost, and what your options are before we touch anything. No surprises on the invoice. No pressure to replace things that don't need replacing. Remus gets the same straight talk as everyone else we serve.
-      </p>
-    </div>
-  </div>
-</section>
-
-  <BookingCta />
-
-  <ServiceAreaMap /> 
-
-  <HomeownerToolbox />
 
 <section class="faq-area">
 <section id="faq">
@@ -366,34 +495,27 @@ const faqSchema = {
 </section>
 </section>
 
-    <!--
- Testimonial Placeholder Until I Get Real Reviews
 <section>
-<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
-  <TestimonialCard 
-    quote="Spring went on the shop door right before a busy week. Called Isabella Garage Door in the morning, they were out by early afternoon with the right parts. Fast, fair, and no nonsense. Exactly what you want."
-    author="Dan W., Remus"
-  />
-</a>
+  <h2 class="sub-heading">Remus Garage Door Repair, Done Right</h2>
+  <p class="p-home">
+    We're 20 minutes east on M-20 and we respond fast—house, shop, pole barn, or back-road rural property. 
+    Remus isn't a stretch for us or an afterthought on our service map. It's a community we know, a route 
+    we travel regularly, and a place where we're proud to do good work for people who expect it.
+  </p>
+  <p class="p-home" style="margin-top: 1rem;">
+    When you call, you get a local technician who shows up on time, explains what's wrong, and fixes it 
+    right the first time.
+  </p>
 </section>
-   -->
 
-  <!-- Highlight Section -->
-  <div class="highlight-section reveal-on-scroll">
-    <p>
-      Remus homeowners, Wheatland Township farmers, and rural Mecosta County property owners trust <strong>Isabella Garage Door</strong> for fast response, honest pricing, and work that holds up through Michigan winters and working seasons alike.
-    </p>
-  </div>
+<BlogCards />
 
-  <section>
-    <h2 class="sub-heading">Ready to Get Your Remus Garage Door Fixed?</h2>
-    <p class="p-home">
-      We're 20 minutes east on M-20 and we respond fast—house, shop, pole barn, or back-road rural property. 
-      Call us, text us, or use EasyEstimate™ to get a ballpark online. We'll be on our way.
-    </p>
-    <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto 1rem;"><i class="fas fa-calculator"></i> Get Free Estimate</a>
-    <a href="/contact" class="cta-button"><i class="fas fa-calendar-check"></i> Schedule Service</a>
-  </section>
+<ServiceAreaMap />
+<a href="/contact" class="cta-button" style="margin-top: 2rem;"><i class="fa-solid fa-location-dot fa-fw"></i> Need Local Help?</a>
+
+<section class="core-services-section reveal-on-scroll">
+<Coupons />
+</section>
 
 <section>
   <h2 class="sub-heading">Isabella Garage Door</h2>
@@ -411,6 +533,145 @@ const faqSchema = {
 <ServiceFooter currentPath="null" slot="full-width-section"/>
 <LocationsFooter currentPath="/locations/remus" slot="full-width-section" />
 
+
+<style>
+.homeowner-toolbox-section {
+  text-align: center;
+}
+
+.homeowner-toolbox-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.homeowner-toolbox-grid {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 550px) {
+  .homeowner-toolbox-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1050px) {
+  .homeowner-toolbox-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.homeowner-toolbox-card {
+  justify-content: flex-start;
+  background: #fff;
+  border: 0.094rem solid #b27d57;
+  border-radius: 0.75rem;
+  padding: 1rem 1rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+  position: relative;
+  background-image: url('/photos/white-garage-door-service-section.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #ffffff;
+  z-index: 1;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.homeowner-toolbox-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.homeowner-toolbox-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+  border-radius: inherit;
+}
+
+.homeowner-toolbox-card * {
+  position: relative;
+  z-index: 2;
+}
+
+.homeowner-toolbox-card:hover,
+.homeowner-toolbox-card:focus {
+  transform: translateY(-5px);
+  box-shadow: 0 0 0.75rem rgba(178, 125, 87, 0.5);
+  outline: none;
+}
+
+.homeowner-toolbox-img {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+
+.homeowner-toolbox-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.homeowner-toolbox-body h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1a334f;
+  font-family: 'Lora', serif;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+  line-height: 2.1rem;
+}
+
+.homeowner-toolbox-body p {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  color: #1a334f;
+  text-align: left;
+  padding: 0 1rem;
+  flex: 1;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const cards = document.querySelectorAll(".homeowner-toolbox-card, .core-services-card, .reveal-on-scroll");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    cards.forEach((card) => {
+      observer.observe(card);
+    });
+  });
+</script>
+
 <script is:inline>
 document.querySelectorAll('.faq-item').forEach(item => {
   const question = item.querySelector('.faq-question');
@@ -426,60 +687,13 @@ document.querySelectorAll('.faq-item').forEach(item => {
 
     if (!isOpen) {
       item.classList.add('open');
-       answer.style.maxHeight = answer.scrollHeight + 'px';
+      answer.style.maxHeight = answer.scrollHeight + 'px';
     }
   });
 });
 </script>
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(" .core-services-card, .reveal-on-scroll");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.2,
-      }
-    );
-
-    cards.forEach((card) => {
-      observer.observe(card);
-    });
-  });
-</script>
-
-<script>
-  if (typeof window !== 'undefined') {
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('slide-up-in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, {
-      threshold: 0.6,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const section = document.querySelector('.highlight-section');
-      if (section) {
-        observer.observe(section);
-      }
-    });
-  }
-</script>
-
-<script is:script>
+<script is:inline>
   const icons = document.querySelectorAll('.core-services-icon-circle');
 
   const observer = new IntersectionObserver(
@@ -493,7 +707,86 @@ document.querySelectorAll('.faq-item').forEach(item => {
     },
     { threshold: 0.5 }
   );
-icons.forEach(icon => observer.observe(icon));
+  icons.forEach(icon => observer.observe(icon));
 </script>
+
+<script>
+function toggleAccordion(button) {
+    const item = button.parentElement;
+    const clickedContent = button.nextElementSibling;
+    const clickedArrow = button.querySelector('.accordion-arrow');
+
+    document.querySelectorAll('.accordion-content').forEach(content => {
+        const parentItem = content.parentElement;
+        const arrow = parentItem.querySelector('.accordion-arrow');
+
+        if (content !== clickedContent && content.style.maxHeight !== '0px' && content.style.maxHeight !== '') {
+            content.style.maxHeight = '0px';
+            if (arrow) arrow.style.transform = 'rotate(0deg)';
+            parentItem.classList.remove('active');
+        }
+    });
+
+    if (clickedContent.style.maxHeight === '0px' || clickedContent.style.maxHeight === '') {
+        clickedContent.style.maxHeight = clickedContent.scrollHeight + 'px';
+        clickedArrow.style.transform = 'rotate(180deg)';
+        item.classList.add('active');
+    } else {
+        clickedContent.style.maxHeight = '0px';
+        clickedArrow.style.transform = 'rotate(0deg)';
+        item.classList.remove('active');
+    }
+}
+
+function initializeAccordions() {
+    document.querySelectorAll('.accordion-content').forEach(content => {
+        content.style.maxHeight = '0px';
+        content.parentElement.classList.remove('active');
+        const arrow = content.previousElementSibling.querySelector('.accordion-arrow');
+        if (arrow) arrow.style.transform = 'rotate(0deg)';
+    });
+}
+
+window.toggleAccordion = toggleAccordion;
+document.addEventListener('DOMContentLoaded', initializeAccordions);
+document.addEventListener('astro:after-swap', initializeAccordions);
+</script>
+
+  <script>
+    if (typeof window !== 'undefined') {
+      const highlightObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('slide-up-in');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.5,
+        rootMargin: '0px 0px -50px 0px'
+      });
+
+      window.addEventListener('DOMContentLoaded', () => {
+        const highlightSection = document.querySelector('.highlight-section');
+        if (highlightSection) {
+          highlightObserver.observe(highlightSection);
+        }
+
+        const iconCards = document.querySelectorAll('.value-icon-card');
+        const iconObserver = new IntersectionObserver((entries, iconObs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const index = Array.from(iconCards).indexOf(entry.target);
+              entry.target.style.animation = `fadeSlideUp 0.6s ease forwards`;
+              entry.target.style.animationDelay = `${index * 150}ms`;
+              iconObs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.3 });
+
+        iconCards.forEach(card => iconObserver.observe(card));
+      });
+    }
+  </script>
 
 </BaseLayout>

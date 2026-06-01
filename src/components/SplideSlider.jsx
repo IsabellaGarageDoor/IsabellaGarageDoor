@@ -15,6 +15,14 @@ export default function SplideSlider() {
       quote: `I highly recommend Isabella Garage Door for any repairs you need. They were fast, efficient and reasonably priced. He had our spring fixed and door working again in no time. Will definitely use again.`,
       author: 'Autumn S.'
     },
+    {
+      quote: `Very reputable and great prices compared to other places 10/10 would recommend!`,
+      author: 'Colton B.'
+    },
+    {
+      quote: `Very efficient! Arrived and fixed my garage door in a timely manor. Will use this service if I have any future issues!`,
+      author: 'Suzanna B.'
+    },
     
   ];
 

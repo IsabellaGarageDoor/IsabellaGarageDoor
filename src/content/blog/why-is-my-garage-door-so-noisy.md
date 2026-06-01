@@ -1,7 +1,7 @@
 ---
 title: "Why Is My Garage Door So Noisy?"
 description: "A little bit of noise from a garage door is normal and expected, but when your garage door goes from a quiet hum to a grinding, banging, squealing, or rattling operation — that's your door telling you something."
-pubDate: "2026-05-31"
+pubDate: "2026-06-01"
 slug: "why-is-my-garage-door-so-noisy"
 author: "Isabella Garage Door"
 thumbnail: "/photos/thumbnails/noisy-loud-garage-door-sounds.webp"
