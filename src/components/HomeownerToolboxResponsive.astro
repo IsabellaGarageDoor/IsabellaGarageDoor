@@ -1,0 +1,32 @@
+---
+import HomeownerToolbox from './HomeownerToolbox.astro';
+import HomeownerTools from './Homeownertools.astro';
+---
+
+<div class="desktop-toolbox">
+  <HomeownerToolbox />
+</div>
+
+<div class="mobile-toolbox">
+  <HomeownerTools />
+</div>
+
+<style>
+.desktop-toolbox {
+  display: none;
+}
+
+.mobile-toolbox {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .desktop-toolbox {
+    display: block;
+  }
+
+  .mobile-toolbox {
+    display: none;
+  }
+}
+</style>
