@@ -1,0 +1,260 @@
+---
+// src/components/AskAbelCard.astro
+// Place this directly below your FAQ section on the home page.
+// Usage: <AskAbelCard chatUrl="/ask-abel" />
+
+export interface Props {
+  chatUrl: string;
+  heading?: string;
+  subheading?: string;
+}
+
+const {
+  chatUrl,
+  heading    = "Still have questions?",
+  subheading = "Ask Abel — our AI assistant — and get an answer in seconds.",
+} = Astro.props;
+---
+
+<section class="abel-section" aria-label="Ask Abel AI assistant">
+
+  <div class="abel-intro">
+    <h2 class="sub-heading">{heading}</h2>
+    <p>{subheading}</p>
+  </div>
+
+  <div class="abel-card">
+    <!-- Spinning gradient border layer -->
+    <div class="abel-border" aria-hidden="true"></div>
+
+    <!-- Card content -->
+    <div class="abel-inner">
+
+      <header class="abel-header">
+        <div class="abel-header-left">
+   <!--       <div class="abel-avatar" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                 stroke="#b27d57" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <line x1="2" y1="7" x2="22" y2="7"/>
+              <line x1="2" y1="11" x2="22" y2="11"/>
+              <line x1="12" y1="3" x2="12" y2="17"/>
+            </svg>   
+          </div>
+-->
+          <div class="abel-header-text">
+            <strong>AskAbel™</strong>
+            <span>AI Garage Door Assistant · Answers instantly</span>
+          </div>
+        </div>
+        <span class="abel-badge" aria-label="Online">
+          <span class="abel-dot" aria-hidden="true"></span>
+          Online
+        </span>
+      </header>
+
+      <div class="abel-body">
+        <iframe
+          src="https://www.chatbase.co/chatbot-iframe/wPbactyhYnPn8LQYfaQWP"
+          title="Ask Abel — Isabella Garage Door AI Assistant"
+          loading="lazy"
+          allowtransparency="true"
+        ></iframe>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+
+<style>
+  /* ── Spinning border ── */
+  @keyframes abel-spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* ── Section wrapper ── */
+  .abel-section {
+    padding-bottom: 1rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  }
+
+  /* ── Intro copy ── */
+  .abel-intro {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+
+  /* ── Card shell (holds border + content) ── */
+  .abel-card {
+    position: relative;
+    border-radius: 20px;
+  }
+
+  /* ── Spinning gradient border ── */
+  .abel-border {
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .abel-border::before {
+    content: '';
+    position: absolute;
+    inset: -55%;
+    background: conic-gradient(
+      from 0deg,
+      #1a334f  0deg,
+      #b27d57  60deg,
+      #d4a574  105deg,
+      #ffffff  180deg,
+      #d4a574  255deg,
+      #b27d57  300deg,
+      #1a334f  360deg
+    );
+    animation: abel-spin 7s linear infinite;
+  }
+
+  /* ── Card interior ── */
+  .abel-inner {
+    position: relative;
+    z-index: 1;
+    inset: 3px; /* matches border thickness */
+    margin: 3px;
+    border-radius: 17px;
+    background: #ffffff;
+    overflow: hidden;
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.07),
+      0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  }
+
+  /* ── Header bar ── */
+  .abel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.9rem 1.25rem;
+    background: #1a334f;
+    gap: 1rem;
+  }
+
+  .abel-header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    min-width: 0;
+  }
+
+  .abel-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background: rgba(178, 125, 87, 0.15);
+    border: 1px solid rgba(178, 125, 87, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .abel-avatar svg {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+
+  .abel-header-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+
+  .abel-header-text strong {
+    color: #ffffff;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1;
+  }
+
+  .abel-header-text span {
+    color: #b27d57;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Online badge */
+  .abel-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    background: rgba(74, 222, 128, 0.12);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    color: #4ade80;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 0.3rem 0.65rem;
+    border-radius: 50px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  .abel-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #4ade80;
+    flex-shrink: 0;
+  }
+
+  /* ── Iframe body ── */
+  .abel-body {
+    width: 100%;
+    height: 320px;
+  }
+
+  .abel-body iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  /* ── Reduced motion ── */
+  @media (prefers-reduced-motion: reduce) {
+    .abel-border::before {
+      animation: none;
+      background: linear-gradient(135deg, #b27d57, #1a334f 50%, #b27d57);
+    }
+  }
+
+  /* ── Mobile ── */
+  @media (max-width: 600px) {
+    .abel-section {
+      padding-bottom: 1rem;
+    }
+
+  .abel-header {
+    display: none;
+  }
+
+    .abel-header-text span {
+      display: none;
+    }
+
+    .abel-body {
+      height: 300px;
+    }
+  }
+</style>

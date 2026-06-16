@@ -7,6 +7,7 @@ import AnnouncementBanner from '../components/editable-sections/AnnouncementBann
 import HolidaysBirthdaysBanner from '../components/HolidaysBirthdaysBanner.astro';
 import SplideSlider from '../components/SplideSlider.jsx'
 import TestimonialCardWhite from '../components/TestimonialCardWhite.astro';
+import AskAbelCard from '../components/AskAbelCard.astro';
 import BlogCards from '../components/BlogCards.astro';
 import Coupons from '../components/editable-sections/Coupons.astro';
 import HomeownerToolboxResponsive from '../components/HomeownerToolboxResponsive.astro';
@@ -236,6 +237,60 @@ const reviewSchema = {
       },
       "reviewBody": "I highly recommend Isabella Garage Door for any repairs you need. They were fast, efficient and reasonably priced. He had our spring fixed and door working again in no time. Will definitely use again.",
       "datePublished": "2026-05-19"
+    },
+    {
+      "@type": "Review",
+      "@id": "https://isabellagaragedoor.com/#review-2",
+      "itemReviewed": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Suzanna B."
+      },
+      "reviewBody": "Very efficient! Arrived and fixed my garage door in a timely manor. Will use this service if I have any future issues!",
+      "datePublished": "2026-05-31"
+    },
+    {
+      "@type": "Review",
+      "@id": "https://isabellagaragedoor.com/#review-2",
+      "itemReviewed": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Colton B."
+      },
+      "reviewBody": "Very reputable and great prices compared to other places 10/10 would recommend!",
+      "datePublished": "2026-05-31"
+    },
+    {
+      "@type": "Review",
+      "@id": "https://isabellagaragedoor.com/#review-2",
+      "itemReviewed": {
+        "@id": "https://isabellagaragedoor.com/#business"
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "5",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Elizabeth M."
+      },
+      "reviewBody": "I am very happy with how fast, friendly and how smooth everything went using Isabella Garage Door. We dealt with a broken door a long time and had it fixed in no time with this company. I would recommend this guy All Day. Thank you for your help. 🙂",
+      "datePublished": "2026-06-11"
     }
   ]
 };
@@ -574,6 +629,8 @@ We stand behind our work with an outstanding <a href="/resources/warranty" style
 </div>
  </section>
 </section>
+
+<AskAbelCard chatUrl="/ask-abel" />
 
 <BlogCards />
 
