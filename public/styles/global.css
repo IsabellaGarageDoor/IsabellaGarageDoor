@@ -1850,25 +1850,7 @@ display: inline-block;
       margin-right: calc(-50vw + 50%);
     }
 
-    .blog-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      max-width: 1000px;
-      margin: 2rem auto 0;
-    }
 
-    .blog-card {
-      background: white;
-      border: 0.094rem solid #b27d57;
-      border-radius: 0.75rem;
-      margin: 1.5rem auto 0rem; /* Adjusted margin */
-      overflow: hidden;
-      max-width: 24rem; /* Slightly wider cards */
-      text-align: left;
-      box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition */
-    }
 
     .blog-card:hover {
       transform: translateY(-5px); /* Lift on hover */

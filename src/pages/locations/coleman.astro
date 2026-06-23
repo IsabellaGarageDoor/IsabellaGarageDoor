@@ -8,7 +8,8 @@ import HolidaysBirthdaysBanner from '../../components/HolidaysBirthdaysBanner.as
 import SplideSlider from '../../components/SplideSlider.jsx'
 import BlogCards from '../../components/BlogCards.astro';
 import Coupons from '../../components/editable-sections/Coupons.astro';
-import HomeownerToolbox from '../../components/HomeownerToolbox.astro';
+import HomeownerToolboxResponsive from '../../components/HomeownerToolboxResponsive.astro';
+import AskAbelCard from '../../components/AskAbelCard.astro';
 import BookingCta from '../../components/BookingCta.astro';
 import ServiceAreaMap from '../../components/ServiceAreaMap.astro';
 import ServiceFooter from '../../components/ServiceFooter.astro';
@@ -401,7 +402,7 @@ const reviewSchema = {
 
   <BookingCta />
 
-  <HomeownerToolbox />
+  <HomeownerToolboxResponsive />
 
 <img src="/photos/coleman-michigan.avif" alt="Professional garage door repair service in Coleman, Michigan" loading="eager" fetchpriority="high" class="about-image" />
 
@@ -492,6 +493,8 @@ const reviewSchema = {
 
 </section>
 </section>
+
+<AskAbelCard chatUrl="/ask-abel" />
 
 <section>
   <h2 class="sub-heading">Coleman Garage Door Repair, Done Right</h2>

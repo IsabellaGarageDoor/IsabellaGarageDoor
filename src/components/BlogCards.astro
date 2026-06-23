@@ -15,9 +15,9 @@ const featuredPosts = [...posts]
 <section class="blog-background">
   <h2 class="sub-heading">Garage Door Tips & Learning Center</h2>
 
-  <div class="blog-cards">
+  <div class="blog-cards reveal-on-scroll">
     {featuredPosts.map(post => (
-      <article class="blog-card reveal-on-scroll">
+      <article class="blog-card">
         {post.data.thumbnail && (
           <img
             src={post.data.thumbnail}
@@ -45,3 +45,98 @@ const featuredPosts = [...posts]
     ))}
   </div>
 </section>
+
+<style>
+    /* --- BASE/MOBILE CONTAINER STYLES (SLIDER ACTIVATED) --- */
+    .blog-cards {
+      display: grid;
+      /* Mobile slider behavior fallback */
+      grid-auto-flow: column;
+      grid-auto-columns: 89%;
+      gap: 1rem;
+      max-width: 100%;
+      margin: 2rem 0 0;
+      padding: 1rem 0;
+      
+      /* Horizontal scrolling and snapping mechanics */
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding: 1rem;
+      -webkit-overflow-scrolling: touch;
+      
+      /* Hide standard scrollbars */
+      scrollbar-width: none; 
+    }
+
+    .blog-cards::-webkit-scrollbar {
+      display: none; 
+    }
+
+    /* --- BASE/MOBILE CARD STYLES --- */
+    .blog-card {
+      background: white;
+      border: 0.094rem solid #b27d57;
+      border-radius: 0.75rem;
+      margin: 0;
+      overflow: hidden;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: left;
+      box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition */
+      
+      /* Lock snap targets cleanly into place on mobile swipe */
+      scroll-snap-align: start;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px); /* Lift on hover */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 20px rgba(178, 125, 87, 0.4); /* Stronger shadow and glow */
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: auto;
+      max-height: 14rem; /* Slightly taller images */
+      display: block;
+      object-fit: cover; /* Ensure images cover the area */
+    }
+
+    .blog-content {
+      padding: 1.25rem; /* Increased padding */
+    }
+
+    .blog-content h3 {
+      font-size: 1.15rem; /* Slightly larger */
+      margin-bottom: 0.6rem; /* Adjusted margin */
+      font-family: 'Lora', serif;
+      font-weight: 600;
+    }
+
+    .read-more {
+      color: #b27d57;
+      font-weight: bold;
+      text-align: left;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .read-more:hover {
+      color: #81583b; /* Darker bronze on hover */
+      text-decoration: underline;
+    }
+
+    /* --- DESKTOP BREAKPOINT (RESTORE ORIGINAL GRID) --- */
+    @media (min-width: 768px) {
+      .blog-cards {
+        grid-auto-flow: unset;
+        grid-auto-columns: unset;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        overflow-x: visible;
+        padding: 0rem;
+        scrollbar-width: auto;
+        max-width: 1000px;
+        margin: 2rem auto 0;
+      }
+    }
+</style>
