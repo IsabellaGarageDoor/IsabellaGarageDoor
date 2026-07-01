@@ -27,6 +27,10 @@ export default function SplideSlider() {
       quote: `I am very happy with how fast, friendly and how smooth everything went using Isabella Garage Door. We dealt with a broken door a long time and had it fixed in no time with this company. I would recommend this guy All Day. Thank you for your help. 🙂`,
       author: 'Elizabeth M.'
     },
+    {
+      quote: `So glad we contacted Isabella Garage Door. They were prompt, polite, hard working. Highly recommend`,
+      author: 'Tracey S.'
+    },
     
   ];
 
