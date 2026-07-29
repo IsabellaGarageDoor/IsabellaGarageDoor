@@ -31,6 +31,14 @@ export default function SplideSlider() {
       quote: `So glad we contacted Isabella Garage Door. They were prompt, polite, hard working. Highly recommend`,
       author: 'Tracey S.'
     },
+    {
+      quote: `This guy was very knowledgeable and pleasant to work with. I'd call him back.`,
+      author: 'Ken Y.'
+    },
+    {
+      quote: `Extremely prompt. Great price and service.`,
+      author: 'Cole S.'
+    },
     
   ];
 
