@@ -39,6 +39,10 @@ export default function SplideSlider() {
       quote: `Extremely prompt. Great price and service.`,
       author: 'Cole S.'
     },
+    {
+      quote: `Good communication. Was able to fix my issues without needing an entire door replacement!`,
+      author: 'Kyle B.'
+    },
     
   ];
 
