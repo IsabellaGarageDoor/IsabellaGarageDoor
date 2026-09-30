@@ -43,6 +43,10 @@ export default function SplideSlider() {
       quote: `Good communication. Was able to fix my issues without needing an entire door replacement!`,
       author: 'Kyle B.'
     },
+    {
+      quote: `Peter did a great job but what really impressed me was how honest he was!! He had a basic Service charge that I was aware of. He had some extra necessary work that he completed and deducted the service charge without me asking. A very impressive young man that will go far in whatever he takes on in his future!!!`,
+      author: 'Thomas H.'
+    },
     
   ];
 
