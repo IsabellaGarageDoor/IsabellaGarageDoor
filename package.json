@@ -9,22 +9,22 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/alpinejs": "^0.4.8",
-    "@astrojs/markdown-remark": "^6.3.2",
-    "@astrojs/mdx": "^4.2.6",
-    "@astrojs/react": "^4.2.7",
-    "@astrojs/sitemap": "^3.3.1",
+    "@astrojs/alpinejs": "^1.0.0",
+    "@astrojs/markdown-remark": "^7.3.2",
+    "@astrojs/mdx": "^8.0.3",
+    "@astrojs/react": "^7.0.1",
+    "@astrojs/sitemap": "^3.7.4",
     "@astrojs/tailwind": "^6.0.2",
     "@splidejs/splide": "^4.1.4",
     "@types/alpinejs": "^3.13.11",
     "alpinejs": "^3.14.9",
-    "astro": "^5.7.10",
+    "astro": "^7.3.8",
     "lucide-static": "^0.511.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "tailwindcss": "^3.4.17"
   },
   "devDependencies": {
-    "@astrojs/netlify": "^6.6.4"
+    "@astrojs/netlify": "^8.2.9"
   }
 }

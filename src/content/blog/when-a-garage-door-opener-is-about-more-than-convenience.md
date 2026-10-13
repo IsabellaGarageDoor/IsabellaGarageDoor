@@ -1,4 +1,4 @@
- ---
+---
 title: "When a Garage Door Opener Is About More Than Convenience"
 description: "For someone who has difficulty walking, struggles with chronic pain, or simply finds it challenging to deal with the elements when coming and going, a reliable garage door and opener can make everyday life meaningfully easier"
 pubDate: "2026-10-12"
