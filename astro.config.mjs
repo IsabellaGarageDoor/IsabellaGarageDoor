@@ -1,5 +1,5 @@
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
+import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import alpinejs from '@astrojs/alpinejs';
@@ -9,7 +9,10 @@ export default defineConfig({
   site: 'https://isabellagaragedoor.com',
   output: 'server', // Keep this for development
   adapter: netlify(), 
-  integrations: [tailwind(), sitemap(), react(), alpinejs()],
+  integrations: [ sitemap(), react(), alpinejs()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   markdown: {
     shikiConfig: {
       // Choose from Shiki's built-in themes
