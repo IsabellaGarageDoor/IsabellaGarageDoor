@@ -105,8 +105,8 @@ const diagnosisSchema = {
   <section>
     <div class="footer-text">
       Need immediate help? Call us at 
-      <a href="tel:9895720303" style="color: #b27d57; font-weight: bold; text-decoration: none;">
-        (989) 572-0303
+      <a href="tel:+19895720303" style="color: #b27d57; font-weight: bold; text-decoration: none;">
+        989-572-0303
       </a>
     </div>
   </section>
@@ -559,9 +559,9 @@ document.querySelectorAll('.faq-item').forEach(item => {
             let buttonsHtml = '';
             if (solution.severity === 'emergency' || solution.severity === 'urgent') {
                 buttonsHtml += `
-<a href="tel:9895720303" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+<a href="tel:+19895720303" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
   ${getSvgIcon('phone')}
-  <span>Call Now: (989) 572-0303</span>
+  <span>Call Now: 989-572-0303</span>
 </a>
 
                 `;

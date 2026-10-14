@@ -174,7 +174,7 @@ function ServiceAgreementForm() {
             Your confirmation has been received. We appreciate you reviewing and accepting our service agreement.
           </p>
           <p className="text-sm mt-2">
-            If you have questions, feel free to call us at <a href="tel:9895720303" className="text-[#1a334f] font-semibold hover:underline">989-572-0303</a>.
+            If you have questions, feel free to call us at <a href="tel:+19895720303" className="text-[#1a334f] font-semibold hover:underline">989-572-0303</a>.
           </p>
         </div>
       )}

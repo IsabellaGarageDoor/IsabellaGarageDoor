@@ -74,7 +74,7 @@ function GarageDoorEstimate() {
         '1-2': '$125 - $150',
         '10': '$150 - $200',
         '12': '$160 - $220',
-        'other': 'return <a href="tel:9895720303" className="phone-link">Call for estimate</a>',
+        'other': 'return <a href="tel:+19895720303" className="phone-link">Call for estimate</a>',
         loudSqueaky: '$120 - $200',
         doorJerky: '$120 - $200',
         visibleWear: '$120 - $220',

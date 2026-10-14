@@ -102,7 +102,7 @@ Call us or use our online estimate tool to schedule your MyQ installation today.
 
 ---
 
-**Phone:** (989) 572-0303  
-**Email:** IsabellaGarageDoor@gmail.com  
+**Phone:** 989-572-0303  
+**Email:** isabellagaragedoor@gmail.com  
 **Website:** [www.IsabellaGarageDoor.com](https://www.isabellagaragedoor.com)
 
