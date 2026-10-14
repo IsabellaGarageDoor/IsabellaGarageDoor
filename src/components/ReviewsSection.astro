@@ -2,6 +2,11 @@
 // "Real Feedback. Real Trust." — the review slider with a link to all reviews.
 import SplideSlider from './SplideSlider.jsx';
 import Icon from './ui/Icon.astro';
+
+interface Props {
+  intro?: string;
+}
+const { intro = "Here's what local homeowners are saying about Isabella Garage Door:" } = Astro.props;
 ---
 
 <section class="section section--white reviews">
@@ -9,7 +14,7 @@ import Icon from './ui/Icon.astro';
     <div class="section-head">
       <span class="eyebrow">Customer Reviews</span>
       <h2>Real Feedback.<br />Real Trust.</h2>
-      <p>Here's what local homeowners are saying about Isabella Garage Door:</p>
+      <p>{intro}</p>
     </div>
     <div class="reveal">
       <SplideSlider client:only="react" />

@@ -22,3 +22,15 @@ export const tools = [
   { name: 'SpringStatus™', href: '/homeowner-tools/spring-status#springstatus', blurb: 'Check your spring life', logo: '/photos/spring-status-logo.avif' },
   { name: 'AskAbel™', href: '/homeowner-tools/ask-abel-ai-assistant', blurb: '24/7 AI garage door help', logo: '/photos/askabel-robot-head-logo.avif' },
 ];
+
+/** Photos used on service cards, keyed by the card's icon name */
+export const serviceCardImages: Record<string, string> = {
+  spring: '/photos/springnew.avif',
+  wrench: '/photos/core-services-door-repair.avif',
+  opener: '/photos/core-services-opener.avif',
+  door: '/photos/core-services-new-installation.avif',
+  shield: '/photos/maintenance-plan-garage-door.avif',
+  tractor: '/photos/ag-door.avif',
+  key: '/photos/rental-apartments.avif',
+  building: '/photos/pole-barn.avif',
+};

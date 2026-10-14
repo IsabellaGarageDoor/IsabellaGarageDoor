@@ -135,6 +135,8 @@ export interface FaqItem {
   question: string;
   /** Answer HTML (links allowed) */
   answer: string;
+  /** Leave out of FAQPage structured data (e.g. "Still have questions?") */
+  inSchema?: boolean;
 }
 
 /** FAQPage schema generated from the same items shown on the page */
@@ -142,7 +144,7 @@ export function faqPageSchema(items: FaqItem[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: items.map((item) => ({
+    mainEntity: items.filter((item) => item.inSchema !== false).map((item) => ({
       '@type': 'Question',
       name: plainText(item.question),
       acceptedAnswer: { '@type': 'Answer', text: plainText(item.answer) },
