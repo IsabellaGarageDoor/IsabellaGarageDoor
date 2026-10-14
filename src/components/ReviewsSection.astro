@@ -1,0 +1,23 @@
+---
+// "Real Feedback. Real Trust." — the review slider with a link to all reviews.
+import SplideSlider from './SplideSlider.jsx';
+import Icon from './ui/Icon.astro';
+---
+
+<section class="section section--white reviews">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Customer Reviews</span>
+      <h2>Real Feedback.<br />Real Trust.</h2>
+      <p>Here's what local homeowners are saying about Isabella Garage Door:</p>
+    </div>
+    <div class="reveal">
+      <SplideSlider client:only="react" />
+    </div>
+    <div class="cluster cluster--center mt-8">
+      <a href="/about/testimonials" class="btn btn--outline">
+        <Icon name="star" /> Read Customer Reviews
+      </a>
+    </div>
+  </div>
+</section>

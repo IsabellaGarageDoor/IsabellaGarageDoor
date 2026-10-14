@@ -1,0 +1,67 @@
+---
+// Sticky mobile footer: Call, Text, Email, Estimate, Book.
+// Same five destinations as before; visible below 900px. CSS-only, no JavaScript.
+import Icon from '../ui/Icon.astro';
+import { telHref, smsHref, smsMessages, mailtoHref } from '../../config/site';
+
+const actions = [
+  { label: 'Call', href: telHref, icon: 'phone' },
+  { label: 'Text', href: smsHref(smsMessages.general), icon: 'text' },
+  { label: 'Email', href: mailtoHref, icon: 'mail' },
+  { label: 'Estimate', href: '/homeowner-tools/easy-estimate#estimate-form', icon: 'calculator' },
+  { label: 'Book', href: '/booking', icon: 'calendar' },
+];
+---
+
+<nav class="action-bar" aria-label="Quick contact">
+  {actions.map((a) => (
+    <a href={a.href} class="action-bar__link">
+      <Icon name={a.icon} size="1.35em" />
+      <span>{a.label}</span>
+    </a>
+  ))}
+</nav>
+
+<style>
+  .action-bar {
+    position: fixed;
+    inset: auto 0 0;
+    z-index: 1050;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    height: calc(var(--action-bar-h) + env(safe-area-inset-bottom, 0px));
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    border-top: 2px solid var(--bronze);
+    background: var(--navy);
+    box-shadow: 0 -6px 20px rgb(12 26 42 / 0.25);
+  }
+
+  .action-bar__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+  }
+
+  .action-bar__link :global(.icon) {
+    color: var(--bronze-300);
+  }
+
+  .action-bar__link:hover,
+  .action-bar__link:focus-visible {
+    background: rgb(255 255 255 / 0.06);
+    color: var(--white);
+  }
+
+  @media (min-width: 900px) {
+    .action-bar {
+      display: none;
+    }
+  }
+</style>

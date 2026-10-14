@@ -1,34 +1,16 @@
 ---
-title: "Garage Door Repair in Farwell, MI - Isabella Garage Door"
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import TrustBadges from '../../components/TrustBadges.astro';
-import AvailabilityBanner from '../../components/AvailabilityBanner.astro';
-import AnnouncementBanner from '../../components/editable-sections/AnnouncementBanner.astro';
-import HolidaysBirthdaysBanner from '../../components/HolidaysBirthdaysBanner.astro';
-import SplideSlider from '../../components/SplideSlider.jsx'
-import BlogCards from '../../components/BlogCards.astro';
-import Coupons from '../../components/editable-sections/Coupons.astro';
-import HomeownerToolboxResponsive from '../../components/HomeownerToolboxResponsive.astro';
-import AskAbelCard from '../../components/AskAbelCard.astro';
-import BookingCta from '../../components/BookingCta.astro';
-import ServiceAreaMap from '../../components/ServiceAreaMap.astro';
-import ServiceFooter from '../../components/ServiceFooter.astro';
-import LocationsFooter from '../../components/LocationsFooter.astro';
-
-import { Image } from 'astro:assets';
-import heroBg from '../../assets/images/herobg301.webp';
-import heroBgMobile from '../../assets/images/herobg-mobile301.webp';
-
-const title = 'Garage Door Repair Farwell MI | Isabella Garage Door';
-const description = 'Professional garage door repair and installation in Farwell, Michigan. Broken springs, opener repair, pole barns, and new doors. Local service for Farwell and Clare County. Call 989-572-0303.';
+// Farwell location page. The page's own content lives here;
+// the shared layout and sections are in layouts/LocationPage.astro.
+import LocationPage, { type LocationContent } from '../../layouts/LocationPage.astro';
+import { findReview, reviewsSchema } from '../../data/reviews';
 
 const farwellSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Isabella Garage Door - Farwell",
   "image": "https://isabellagaragedoor.com/photos/farwell-michigan-garage-door-repair.webp",
-  "@id": "https://isabellagaragedoor.com/service-areas/farwell",
-  "url": "https://isabellagaragedoor.com/service-areas/farwell",
+  "@id": "https://isabellagaragedoor.com/locations/farwell",
+  "url": "https://isabellagaragedoor.com/locations/farwell",
   "telephone": "+1-989-572-0303",
   "priceRange": "$$",
   "address": {
@@ -100,694 +82,159 @@ const farwellSchema = {
   }
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Do you repair garage doors in Farwell, Michigan?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Farwell is one of our regularly served communities. We're based in Rosebush, about 25 minutes south on Old 27, and we cover Farwell, Freeman Township, Surrey Township, and rural properties throughout the Clare County area. Same-day service is often available."
+const content: Omit<LocationContent, 'schema'> = {
+  name: "Farwell",
+  title: "Garage Door Repair Farwell MI | Isabella Garage Door",
+  description: "Professional garage door repair and installation in Farwell, Michigan. Broken springs, opener repair, pole barns, and new doors. Local service for Farwell and Clare County. Call 989-572-0303.",
+  hero: {
+    title: "Garage Door Repair in Farwell — Up Old 27 &amp; Ready to Go",
+    description: "25 minutes from Rosebush — serving Farwell homes, farms, and back-road properties throughout Clare County.",
+    bullets: [
+      "Rural Clare County — No Extra Trip Charges",
+      "Upfront Pricing — No Surprises",
+      "Work Backed by a 1-Year Warranty"
+    ]
+  },
+  intro: {
+    heading: "Dedicated to Farwell: Local Service You Can Count On",
+    paragraphs: [
+      "Farwell and Clare sit on opposite banks of the Muskegon River—close enough to share a zip code corridor, distinct enough that locals from each will tell you they're different towns. Farwell is its own community: working-class, unpretentious, rooted in Clare County, and surrounded by the kind of rural Michigan landscape that gets more wooded and more wild the further north you go from the US-10 and Old 27 junction. The Eagles have their own pride, their own history, and their own set of homeowners and farmers who need reliable local service when something breaks. Isabella Garage Door is about 25 minutes south on Old 27 in Rosebush—close enough to get there fast, local enough to do it right."
+    ]
+  },
+  services: {
+    heading: "Complete Garage Door Services in Farwell, Michigan",
+    intro: "Whether you're in town on a residential street or out on a rural road in Freeman Township—here's what Farwell homeowners and property owners count on us for:",
+    cards: [
+      {
+        title: "Broken Spring Replacement",
+        text: "Springs snap without warning and bring your door to a dead stop—no amount of forcing it will help. We carry high-cycle replacement springs for residential and heavy-duty applications, always replace both springs at once so you're not facing the same failure in a few months, and balance the door before we leave. Farwell is 25 minutes from Rosebush and same-day service is very often possible.",
+        icon: "spring",
+        href: "/services/broken-springs"
+      },
+      {
+        title: "General Door Repair",
+        text: "Off-track panels, snapped cables, worn rollers, bent tracks, damaged sections—we find the real problem and fix it, not just the thing that's visibly wrong. Farwell has older in-town homes, newer residential builds, and rural properties with a wide range of hardware. We're experienced across all of it and don't get thrown off by what we find.",
+        icon: "wrench",
+        href: "/services/door-repair"
+      },
+      {
+        title: "Opener Repair &amp; Installation",
+        text: "Grinding, reversing unexpectedly, running but not lifting, or completely dead—we've seen every opener failure mode and diagnose them accurately. We service all major brands and install new smart openers with Wi-Fi and smartphone control when it's time to upgrade. Remote access is especially practical for rural properties where you're managing multiple buildings or want to let someone in from a distance.",
+        icon: "opener",
+        href: "/services/opener-repair"
+      },
+      {
+        title: "New Door Installation",
+        text: "When a door is past saving, we install quality replacements built for Michigan's climate—because Up North winters are real, and Farwell gets its share of them. Residential styles in steel, wood, or composite—traditional, carriage house, or modern. Heavy-duty options for outbuildings and agricultural structures. Full service from measurement to final adjustment, old door removal included.",
+        icon: "door",
+        href: "/services/new-door-installation",
+        hidden: true
+      },
+      {
+        title: "Preventive Maintenance",
+        text: "Farwell sits at the edge of where Michigan's north really begins—and the winters prove it. Cold that contracts springs, moisture that corrodes hardware, freeze-thaw cycles that accelerate wear on every moving part. An annual tune-up keeps your system dialed in before the season gets hard, and prevents the kind of breakdown that leaves you standing in a cold garage on a January morning waiting for help.",
+        icon: "shield",
+        href: "/services/maintenance"
+      },
+      {
+        title: "Rural, Wooded &amp; Outbuilding Doors",
+        text: "Clare County north of Farwell is a mix of farms, rural homesteads, wooded properties, and seasonal cabins—many with garages, shops, or outbuildings that don't get serviced nearly often enough. We're comfortable on back roads and two-tracks, we don't charge extra for the drive, and we come prepared for whatever a rural Clare County property needs. If it has an overhead door, we take care of it.",
+        icon: "building"
       }
-    },
-    {
-      "@type": "Question",
-      "name": "How quickly can you get to Farwell for garage door repairs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Farwell is about 25 minutes from our Rosebush location. For broken springs, stuck doors, or anything urgent, we prioritize same-day scheduling. Call 989-572-0303 and we'll give you an honest arrival window. We travel Old 27 to Farwell regularly and know the route well."
+    ]
+  },
+  why: {
+    heading: "Why Farwell Homeowners Call Us",
+    items: [
+      {
+        title: "Down Old 27, Not Across Town",
+        body: "We come up from Rosebush on Old 27—a route we know well. About 25 minutes, no traffic, no detours. Fast response without the trip charges some companies tack on for the distance."
+      },
+      {
+        title: "Farwell Is Its Own Town",
+        body: "We don't treat Farwell as an extension of Clare or a secondary market. It's its own community with its own service call, its own scheduling priority, and its own place on our regular route."
+      },
+      {
+        title: "Ready for Rural Clare County",
+        body: "Back roads, wooded properties, rural outbuildings—we're comfortable out here. We carry what we need, we don't charge extra for the drive, and we don't treat rural addresses like an inconvenience."
+      },
+      {
+        title: "Built for Northern Michigan Winters",
+        body: "Farwell is close enough to Michigan's north that the winters hit hard. We use professional-grade parts rated for cold and moisture, and we do the job in a way that holds up through freeze-thaw cycles and the real cold Clare County gets."
+      },
+      {
+        title: "Honest All the Way Through",
+        body: "We quote before we start and mean it. We tell you what's wrong, what it'll cost, and what your options are. No pressure, no inflated estimates, no unnecessary parts. Farwell homeowners get straight talk every time."
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you service rural and wooded properties north of Farwell?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. Clare County north of Farwell has a lot of wooded rural properties, seasonal cabins, and country homes—and we service them all. We're comfortable on two-tracks and back roads, and we don't charge extra for properties that are a little off the beaten path. If you're in Clare County, we come to you."
+    ]
+  },
+  areaImage: {
+    src: "/photos/farwell-michigan.avif",
+    alt: "Professional garage door repair service in Farwell, Michigan"
+  },
+  area: {
+    heading: "We Know Farwell &amp; Clare County",
+    intro: "Farwell is the southern gateway to a stretch of Clare County that gets progressively more rural as you head north. Here's how we cover the community and surrounding area:",
+    items: [
+      {
+        title: "🏘️ Farwell In-Town Neighborhoods",
+        text: "The residential streets of Farwell proper—older homes, established neighborhoods, and the kind of tight community feel you get in a small Clare County town. We know these streets and we don't need GPS to find them. In-town Farwell jobs get fast response and the same care we bring to every property we work on."
+      },
+      {
+        title: "🌊 Muskegon River Corridor",
+        text: "The Muskegon River runs between Farwell and Clare, and the properties along the river corridor have their own character—wooded lots, older cottages, and homes tucked back from the road. We service the river corridor area and know the access quirks that come with it."
+      },
+      {
+        title: "🌲 Freeman Township &amp; Rural Clare County",
+        text: "Freeman Township spreads out around Farwell into genuinely rural Clare County territory—working farms, wooded properties, long driveways, and back-road addresses that some companies won't bother driving to. We do. No extra charges for rural Freeman Township addresses and no hesitation about the drive."
+      },
+      {
+        title: "🛖 Surrey Township &amp; North Clare County",
+        text: "North of Farwell, Clare County gets more wooded and more sparsely populated—the kind of territory where people have shops, outbuildings, and rural properties that need occasional service but aren't always easy to get someone out to. We cover Surrey Township and the broader northern Clare County area. If you're up that way and need a garage door fixed, we'll come."
+      },
+      {
+        title: "🛣️ Old 27 Corridor Between Farwell &amp; Rosebush",
+        text: "We travel Old 27 between Rosebush and Farwell regularly—it's one of our most familiar routes. Rural properties and country homes along this corridor are squarely in our territory. If your address is somewhere on or near Old 27 between the two towns, you're practically on our regular path."
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you work on pole barns and agricultural doors near Farwell?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Freeman Township and the rural Clare County area surrounding Farwell has a mix of farms, rural properties, and outbuildings with overhead doors. We carry parts for heavy-duty applications and service agricultural doors, pole barns, and shop buildings throughout the area."
+    ],
+    closing: "<strong>In Farwell or Clare County?</strong> Call us at <a href=\"tel:+19895720303\">989-572-0303</a>. We'll be heading your way before you know it."
+  },
+  faq: {
+    heading: "Frequently Asked Questions - Farwell, MI",
+    items: [
+      {
+        question: "Do you repair garage doors in Farwell, Michigan?",
+        answer: "<p>Yes. Farwell is one of our regularly served communities. We're based in Rosebush, about 25 minutes south on Old 27, and we cover Farwell, Freeman Township, Surrey Township, and rural properties throughout the Clare County area. Same-day service is often available.</p>"
+      },
+      {
+        question: "How quickly can you get to Farwell for garage door repairs?",
+        answer: "<p>About 25 minutes from our Rosebush location up Old 27. For broken springs, stuck doors, or anything urgent, we prioritize same-day scheduling. Call us at <a href=\"tel:+19895720303\">989-572-0303</a> and we'll give you an honest arrival window.</p>"
+      },
+      {
+        question: "Do you service rural and wooded properties north of Farwell?",
+        answer: "<p>Absolutely. Clare County north of Farwell has a lot of wooded rural properties, seasonal cabins, and country homes—and we service them all. We're comfortable on back roads and two-tracks, and we don't charge extra for properties that are off the beaten path. If you're in Clare County, we come to you.</p>"
+      },
+      {
+        question: "Do you work on pole barns and agricultural doors near Farwell?",
+        answer: "<p>Yes. Freeman Township and the rural Clare County area surrounding Farwell has a mix of farms, rural properties, and outbuildings with overhead doors. We carry parts for heavy-duty applications and service agricultural doors, pole barns, and shop buildings throughout the area without making a project of it.</p>"
+      },
+      {
+        question: "What garage door services do you offer in Farwell?",
+        answer: "<p>Everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair<!-- , new door installation -->, and annual preventive maintenance for residential and agricultural garage doors in Farwell and Clare County.</p>"
       }
-    },
-    {
-      "@type": "Question",
-      "name": "What garage door services do you offer in Farwell?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair, new door installation, and annual preventive maintenance for residential and agricultural garage doors in Farwell and Clare County."
-      }
-    }
-  ]
+    ]
+  },
+  closing: {
+    heading: "Farwell Garage Door Repair, Done Right",
+    paragraphs: [
+      "We're 25 minutes down Old 27 and we respond fast—in town, rural, wooded back roads, doesn't matter. Isabella Garage Door knows the Farwell area, knows Clare County, and knows what it takes to do this work the right way on properties that don't always make it easy.",
+      "When you call, you get a local technician who shows up on time, explains what's wrong, and fixes it right the first time. No franchise, no call center, no excuses."
+    ]
+  },
+  signoff: "Serving Farwell, Freeman Township, and Clare County—up Old 27 from Rosebush, ready when you need us."
 };
 
-const reviewSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Review",
-      "@id": "https://isabellagaragedoor.com/#review-1",
-      "itemReviewed": {
-        "@id": "https://isabellagaragedoor.com/#business"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Elizabeth S."
-      },
-      "reviewBody": "Got our garage door working again! They got us on the schedule quick and made everything easy. I can't thank them enough. Highly recommend!!",
-      "datePublished": "2026-05-14"
-    },
-    {
-      "@type": "Review",
-      "@id": "https://isabellagaragedoor.com/#review-2",
-      "itemReviewed": {
-        "@id": "https://isabellagaragedoor.com/#business"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Autumn S."
-      },
-      "reviewBody": "I highly recommend Isabella Garage Door for any repairs you need. They were fast, efficient and reasonably priced. He had our spring fixed and door working again in no time. Will definitely use again.",
-      "datePublished": "2026-05-19"
-    }
-  ]
-};
+const schema = [farwellSchema, reviewsSchema([findReview('Elizabeth S.'), findReview('Autumn S.')])];
 ---
 
-<BaseLayout {title} {description}>
-
-<Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(farwellSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
-  </Fragment>
-
-<link rel="stylesheet" href="/styles/global.css" />
-
-<section class="hero">
-<picture>
-  <source media="(max-width: 767px)" srcset={heroBgMobile.src} />
-  <source media="(min-width: 768px)" srcset={heroBg.src} />
-  <img
-    src={heroBg.src}
-    alt="Garage door repair background"
-    loading="eager"
-    fetchpriority="high"
-    class="hero-bg-image"
-  />
-</picture>
-
-  <div class="hero-overlay"></div>
-
-<div class="hero-content reveal-on-scroll">
-  <h1>Garage Door Repair in Farwell — Up Old 27 & Ready to Go</h1>
-  <p class="hero-description">
-    25 minutes from Rosebush — serving Farwell homes, farms, and back-road properties throughout Clare County.
-  </p>
-  <div class="reveal-on-scroll">
-    <ul>
-      <li>✓ Rural Clare County — No Extra Trip Charges</li>
-      <li>✓ Upfront Pricing — No Surprises</li>
-      <li>✓ Work Backed by a 1-Year Warranty</li>
-    </ul>
-  </div>
-
-    <div class="hero-buttons reveal-on-scroll">
-      <a href="sms:+19895720303?&body=Hi%2C%20I%20need%20some%20help%20with%20my%20garage%20door." class="hero-estimate-button">
-        <i class="fas fa-comment-dots"></i> Text Us
-      </a>
-      <a href="tel:+19895720303" class="hero-home-contact-button">
-        <i class="fa-solid fa-phone fa-fw"></i> Call 989-572-0303
-      </a>
-    </div>
-
-<p>Not sure what it'll cost?</p>
-<a href="/homeowner-tools/easy-estimate#estimate-form" class="hero-estimate-cta">Get an Instant Estimate →</a>
-  </div>
-
-  <TrustBadges />
-
-<a href="/booking" class="book-now-btn">Book Now</a>
-
-</section>
-
-<AvailabilityBanner />
-
-<AnnouncementBanner />
-
-<HolidaysBirthdaysBanner />
-
-<section style="margin-bottom: 1rem;">
-<h2 class="sub-heading" style="margin-top: 2rem;">Dedicated to Farwell: Local Service You Can Count On</h2>
-  <p class="p-home">
-    Farwell and Clare sit on opposite banks of the Muskegon River—close enough to share a zip code corridor, distinct enough 
-    that locals from each will tell you they're different towns. Farwell is its own community: working-class, unpretentious, 
-    rooted in Clare County, and surrounded by the kind of rural Michigan landscape that gets more wooded and more wild the 
-    further north you go from the US-10 and Old 27 junction. The Eagles have their own pride, their own history, and their 
-    own set of homeowners and farmers who need reliable local service when something breaks. Isabella Garage Door is about 
-    25 minutes south on Old 27 in Rosebush—close enough to get there fast, local enough to do it right.
-  </p>
-</section>
-
-<section class="core-services-section">
-  <h2 class="sub-heading">Complete Garage Door Services in Farwell, Michigan</h2>
-  <p class="core-services-intro">
-    Whether you're in town on a residential street or out on a rural road in Freeman Township—here's what Farwell homeowners and property owners count on us for:
-  </p>
-
-  <div class="core-services-grid">
-
-    <a href="/services/broken-springs" class="core-services-card spring reveal-on-scroll">
-      <h3>Broken Spring Replacement</h3>
-      <p>Springs snap without warning and bring your door to a dead stop—no amount of forcing it will help. We carry high-cycle replacement springs for residential and heavy-duty applications, always replace both springs at once so you're not facing the same failure in a few months, and balance the door before we leave. Farwell is 25 minutes from Rosebush and same-day service is very often possible.</p>
-    </a>
-
-    <a href="/services/door-repair" class="core-services-card repair">
-      <h3>General Door Repair</h3>
-      <p>Off-track panels, snapped cables, worn rollers, bent tracks, damaged sections—we find the real problem and fix it, not just the thing that's visibly wrong. Farwell has older in-town homes, newer residential builds, and rural properties with a wide range of hardware. We're experienced across all of it and don't get thrown off by what we find.</p>
-    </a>
-
-    <a href="/services/opener-repair" class="core-services-card opener">
-      <h3>Opener Repair & Installation</h3>
-      <p>Grinding, reversing unexpectedly, running but not lifting, or completely dead—we've seen every opener failure mode and diagnose them accurately. We service all major brands and install new smart openers with Wi-Fi and smartphone control when it's time to upgrade. Remote access is especially practical for rural properties where you're managing multiple buildings or want to let someone in from a distance.</p>
-    </a>
-<!--
-    <a href="/services/new-door-installation" class="core-services-card installation">
-      <h3>New Door Installation</h3>
-      <p>When a door is past saving, we install quality replacements built for Michigan's climate—because Up North winters are real, and Farwell gets its share of them. Residential styles in steel, wood, or composite—traditional, carriage house, or modern. Heavy-duty options for outbuildings and agricultural structures. Full service from measurement to final adjustment, old door removal included.</p>
-    </a>
--->
-    <a href="/services/maintenance" class="core-services-card maintenance">
-      <h3>Preventive Maintenance</h3>
-      <p>Farwell sits at the edge of where Michigan's north really begins—and the winters prove it. Cold that contracts springs, moisture that corrodes hardware, freeze-thaw cycles that accelerate wear on every moving part. An annual tune-up keeps your system dialed in before the season gets hard, and prevents the kind of breakdown that leaves you standing in a cold garage on a January morning waiting for help.</p>
-    </a>
-
-    <div class="core-services-card core-services-card polebarn">
-      <h3>Rural, Wooded & Outbuilding Doors</h3>
-      <p>Clare County north of Farwell is a mix of farms, rural homesteads, wooded properties, and seasonal cabins—many with garages, shops, or outbuildings that don't get serviced nearly often enough. We're comfortable on back roads and two-tracks, we don't charge extra for the drive, and we come prepared for whatever a rural Clare County property needs. If it has an overhead door, we take care of it.</p>
-    </div>
-
-  </div>
-</section>
-
-<section class="no-card">
-<div class="why-choose-us-section">
-    <div class="why-choose-us-container">
-        <h2 class="sub-heading">Why Farwell Homeowners Call Us</h2>
-
-        <div class="accordion-group reveal-on-scroll">
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Down Old 27, Not Across Town
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        We come up from Rosebush on Old 27—a route we know well. About 25 minutes, no traffic, no detours. Fast response without the trip charges some companies tack on for the distance.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Farwell Is Its Own Town
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        We don't treat Farwell as an extension of Clare or a secondary market. It's its own community with its own service call, its own scheduling priority, and its own place on our regular route.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Ready for Rural Clare County
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        Back roads, wooded properties, rural outbuildings—we're comfortable out here. We carry what we need, we don't charge extra for the drive, and we don't treat rural addresses like an inconvenience.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Built for Northern Michigan Winters
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        Farwell is close enough to Michigan's north that the winters hit hard. We use professional-grade parts rated for cold and moisture, and we do the job in a way that holds up through freeze-thaw cycles and the real cold Clare County gets.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Honest All the Way Through
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        We quote before we start and mean it. We tell you what's wrong, what it'll cost, and what your options are. No pressure, no inflated estimates, no unnecessary parts. Farwell homeowners get straight talk every time.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<a href="/about/why-choose-isabella-garage-door" class="cta-button margin-bottom-2rem"><i class="fas fa-magnifying-glass"></i> Learn More About Us</a>
-</section>
-
-
-  <section>
-    <h2 class="sub-heading">Real Feedback.<br>Real Trust.</h2>
-      <p class="testimonial-intro-paragraph">Here's what local homeowners are saying about Isabella Garage Door:</p>
-<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;" class="reveal-on-scroll">
-      <SplideSlider client:only="react" />
-</a>
-
-<a href="/about/testimonials" class="cta-button"><i class="fa-solid fa-star fa-fw"></i> Read Customer Reviews</a>
-</section>
-
-
-  <BookingCta />
-
-  <HomeownerToolboxResponsive />
-
-<img src="/photos/farwell-michigan.avif" alt="Professional garage door repair service in Farwell, Michigan" loading="eager" fetchpriority="high" class="about-image" />
-
-<section style="margin-top: 2rem;">
-  <h2 class="sub-heading">We Know Farwell & Clare County</h2>
-  <p class="p-home">
-    Farwell is the southern gateway to a stretch of Clare County that gets progressively more rural as you head north. Here's how we cover the community and surrounding area:
-  </p>
-
-  <div class="p-home" style="margin-top: 1.5rem;">
-    <p><strong>🏘️ Farwell In-Town Neighborhoods</strong><br>
-    The residential streets of Farwell proper—older homes, established neighborhoods, and the kind of tight community feel you get in a small Clare County town. We know these streets and we don't need GPS to find them. In-town Farwell jobs get fast response and the same care we bring to every property we work on.</p>
-
-    <p style="margin-top: 1rem;"><strong>🌊 Muskegon River Corridor</strong><br>
-    The Muskegon River runs between Farwell and Clare, and the properties along the river corridor have their own character—wooded lots, older cottages, and homes tucked back from the road. We service the river corridor area and know the access quirks that come with it.</p>
-
-    <p style="margin-top: 1rem;"><strong>🌲 Freeman Township & Rural Clare County</strong><br>
-    Freeman Township spreads out around Farwell into genuinely rural Clare County territory—working farms, wooded properties, long driveways, and back-road addresses that some companies won't bother driving to. We do. No extra charges for rural Freeman Township addresses and no hesitation about the drive.</p>
-
-    <p style="margin-top: 1rem;"><strong>🛖 Surrey Township & North Clare County</strong><br>
-    North of Farwell, Clare County gets more wooded and more sparsely populated—the kind of territory where people have shops, outbuildings, and rural properties that need occasional service but aren't always easy to get someone out to. We cover Surrey Township and the broader northern Clare County area. If you're up that way and need a garage door fixed, we'll come.</p>
-
-    <p style="margin-top: 1rem;"><strong>🛣️ Old 27 Corridor Between Farwell & Rosebush</strong><br>
-    We travel Old 27 between Rosebush and Farwell regularly—it's one of our most familiar routes. Rural properties and country homes along this corridor are squarely in our territory. If your address is somewhere on or near Old 27 between the two towns, you're practically on our regular path.</p>
-  </div>
-
-  <p class="p-home" style="margin-top: 1.5rem;">
-    <strong>In Farwell or Clare County?</strong> Call us at <a href="tel:+19895720303" style="color: #b27d57; text-decoration: underline;">989-572-0303</a>. We'll be heading your way before you know it.
-  </p>
-</section>
-
-<section class="faq-area">
-<section id="faq">
-<div class="faq-head">
-  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions - Farwell, MI</h2>
-</div>
-
-<div class="reveal-on-scroll">
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Do you repair garage doors in Farwell, Michigan?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Yes. Farwell is one of our regularly served communities. We're based in Rosebush, about 25 minutes south on Old 27, and we cover Farwell, Freeman Township, Surrey Township, and rural properties throughout the Clare County area. Same-day service is often available.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>How quickly can you get to Farwell for garage door repairs?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>About 25 minutes from our Rosebush location up Old 27. For broken springs, stuck doors, or anything urgent, we prioritize same-day scheduling. Call us at <a href="tel:+19895720303" style="color: #b27d57;">989-572-0303</a> and we'll give you an honest arrival window.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Do you service rural and wooded properties north of Farwell?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Absolutely. Clare County north of Farwell has a lot of wooded rural properties, seasonal cabins, and country homes—and we service them all. We're comfortable on back roads and two-tracks, and we don't charge extra for properties that are off the beaten path. If you're in Clare County, we come to you.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Do you work on pole barns and agricultural doors near Farwell?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Yes. Freeman Township and the rural Clare County area surrounding Farwell has a mix of farms, rural properties, and outbuildings with overhead doors. We carry parts for heavy-duty applications and service agricultural doors, pole barns, and shop buildings throughout the area without making a project of it.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>What garage door services do you offer in Farwell?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair<!-- , new door installation -->, and annual preventive maintenance for residential and agricultural garage doors in Farwell and Clare County.</p>
-    </div>
-  </div>
-
-</div>
-</section>
-</section>
-
-<AskAbelCard chatUrl="/ask-abel" />
-
-<section>
-  <h2 class="sub-heading">Farwell Garage Door Repair, Done Right</h2>
-  <p class="p-home">
-    We're 25 minutes down Old 27 and we respond fast—in town, rural, wooded back roads, doesn't matter. 
-    Isabella Garage Door knows the Farwell area, knows Clare County, and knows what it takes to do this 
-    work the right way on properties that don't always make it easy.
-  </p>
-  <p class="p-home" style="margin-top: 1rem;">
-    When you call, you get a local technician who shows up on time, explains what's wrong, and fixes it 
-    right the first time. No franchise, no call center, no excuses.
-  </p>
-</section>
-
-<BlogCards />
-
-<ServiceAreaMap />
-<a href="/contact" class="cta-button" style="margin-top: 2rem;"><i class="fa-solid fa-location-dot fa-fw"></i> Need Local Help?</a>
-
-<section class="core-services-section reveal-on-scroll">
-<Coupons />
-</section>
-
-<section>
-  <h2 class="sub-heading">Isabella Garage Door</h2>
-  <p style="font-size: .9rem; text-align: center;">
-    Serving Farwell, Freeman Township, and Clare County—up Old 27 from Rosebush, ready when you need us.
-  </p>
-  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
-    <em>Raising Performance. Elevating Standards</em>
-  </p>
-  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
-    <strong>Call or text:</strong> <a href="tel:+19895720303" style="color: #b27d57; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
-  </p>
-</section>
-
-<ServiceFooter currentPath="null" slot="full-width-section"/>
-<LocationsFooter currentPath="/locations/farwell" slot="full-width-section" />
-
-
-<style>
-.homeowner-toolbox-section {
-  text-align: center;
-}
-
-.homeowner-toolbox-wrapper {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.homeowner-toolbox-grid {
-  display: grid;
-  gap: 1.5rem;
-  margin-top: 2rem;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 550px) {
-  .homeowner-toolbox-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1050px) {
-  .homeowner-toolbox-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.homeowner-toolbox-card {
-  justify-content: flex-start;
-  background: #fff;
-  border: 0.094rem solid #b27d57;
-  border-radius: 0.75rem;
-  padding: 1rem 1rem 1rem;
-  text-decoration: none;
-  color: inherit;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
-  position: relative;
-  background-image: url('/photos/white-garage-door-service-section.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #ffffff;
-  z-index: 1;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.homeowner-toolbox-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.homeowner-toolbox-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(255, 255, 255, 0.5);
-  z-index: 0;
-  border-radius: inherit;
-}
-
-.homeowner-toolbox-card * {
-  position: relative;
-  z-index: 2;
-}
-
-.homeowner-toolbox-card:hover,
-.homeowner-toolbox-card:focus {
-  transform: translateY(-5px);
-  box-shadow: 0 0 0.75rem rgba(178, 125, 87, 0.5);
-  outline: none;
-}
-
-.homeowner-toolbox-img {
-  height: 70px;
-  width: auto;
-  object-fit: contain;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1rem;
-}
-
-.homeowner-toolbox-body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.homeowner-toolbox-body h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #1a334f;
-  font-family: 'Lora', serif;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-  line-height: 2.1rem;
-}
-
-.homeowner-toolbox-body p {
-  font-size: 1.1rem;
-  line-height: 1.4;
-  color: #1a334f;
-  text-align: left;
-  padding: 0 1rem;
-  flex: 1;
-}
-</style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(".homeowner-toolbox-card, .core-services-card, .reveal-on-scroll");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    cards.forEach((card) => {
-      observer.observe(card);
-    });
-  });
-</script>
-
-<script is:inline>
-document.querySelectorAll('.faq-item').forEach(item => {
-  const question = item.querySelector('.faq-question');
-  const answer = item.querySelector('.faq-answer');
-
-  question.addEventListener('click', () => {
-    const isOpen = item.classList.contains('open');
-
-    document.querySelectorAll('.faq-item').forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.faq-answer').style.maxHeight = null;
-    });
-
-    if (!isOpen) {
-      item.classList.add('open');
-      answer.style.maxHeight = answer.scrollHeight + 'px';
-    }
-  });
-});
-</script>
-
-<script is:inline>
-  const icons = document.querySelectorAll('.core-services-icon-circle');
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-  icons.forEach(icon => observer.observe(icon));
-</script>
-
-<script>
-function toggleAccordion(button) {
-    const item = button.parentElement;
-    const clickedContent = button.nextElementSibling;
-    const clickedArrow = button.querySelector('.accordion-arrow');
-
-    document.querySelectorAll('.accordion-content').forEach(content => {
-        const parentItem = content.parentElement;
-        const arrow = parentItem.querySelector('.accordion-arrow');
-
-        if (content !== clickedContent && content.style.maxHeight !== '0px' && content.style.maxHeight !== '') {
-            content.style.maxHeight = '0px';
-            if (arrow) arrow.style.transform = 'rotate(0deg)';
-            parentItem.classList.remove('active');
-        }
-    });
-
-    if (clickedContent.style.maxHeight === '0px' || clickedContent.style.maxHeight === '') {
-        clickedContent.style.maxHeight = clickedContent.scrollHeight + 'px';
-        clickedArrow.style.transform = 'rotate(180deg)';
-        item.classList.add('active');
-    } else {
-        clickedContent.style.maxHeight = '0px';
-        clickedArrow.style.transform = 'rotate(0deg)';
-        item.classList.remove('active');
-    }
-}
-
-function initializeAccordions() {
-    document.querySelectorAll('.accordion-content').forEach(content => {
-        content.style.maxHeight = '0px';
-        content.parentElement.classList.remove('active');
-        const arrow = content.previousElementSibling.querySelector('.accordion-arrow');
-        if (arrow) arrow.style.transform = 'rotate(0deg)';
-    });
-}
-
-window.toggleAccordion = toggleAccordion;
-document.addEventListener('DOMContentLoaded', initializeAccordions);
-document.addEventListener('astro:after-swap', initializeAccordions);
-</script>
-
-  <script>
-    if (typeof window !== 'undefined') {
-      const highlightObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('slide-up-in');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.5,
-        rootMargin: '0px 0px -50px 0px'
-      });
-
-      window.addEventListener('DOMContentLoaded', () => {
-        const highlightSection = document.querySelector('.highlight-section');
-        if (highlightSection) {
-          highlightObserver.observe(highlightSection);
-        }
-
-        const iconCards = document.querySelectorAll('.value-icon-card');
-        const iconObserver = new IntersectionObserver((entries, iconObs) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const index = Array.from(iconCards).indexOf(entry.target);
-              entry.target.style.animation = `fadeSlideUp 0.6s ease forwards`;
-              entry.target.style.animationDelay = `${index * 150}ms`;
-              iconObs.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.3 });
-
-        iconCards.forEach(card => iconObserver.observe(card));
-      });
-    }
-  </script>
-
-</BaseLayout>
+<LocationPage {...content} schema={schema} />

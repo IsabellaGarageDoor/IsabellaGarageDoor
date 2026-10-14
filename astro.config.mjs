@@ -1,8 +1,6 @@
 import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
-import alpinejs from '@astrojs/alpinejs';
 
 export default defineConfig({
   site: 'https://isabellagaragedoor.com',
@@ -11,10 +9,7 @@ export default defineConfig({
   // Build /about/our-story as about/our-story.html so URLs keep their current
   // no-trailing-slash form (matches existing links and canonical tags)
   build: { format: 'file' },
-  integrations: [ sitemap(), react(), alpinejs()],
-  vite: {
-    plugins: [tailwindcss()],
-  },
+  integrations: [sitemap(), react()],
   markdown: {
     shikiConfig: {
       // Choose from Shiki's built-in themes

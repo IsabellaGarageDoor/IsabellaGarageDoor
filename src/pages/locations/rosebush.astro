@@ -1,34 +1,16 @@
 ---
-title: "Garage Door Repair in Rosebush, MI - Isabella Garage Door"
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import TrustBadges from '../../components/TrustBadges.astro';
-import AvailabilityBanner from '../../components/AvailabilityBanner.astro';
-import AnnouncementBanner from '../../components/editable-sections/AnnouncementBanner.astro';
-import HolidaysBirthdaysBanner from '../../components/HolidaysBirthdaysBanner.astro';
-import SplideSlider from '../../components/SplideSlider.jsx'
-import BlogCards from '../../components/BlogCards.astro';
-import Coupons from '../../components/editable-sections/Coupons.astro';
-import HomeownerToolboxResponsive from '../../components/HomeownerToolboxResponsive.astro';
-import AskAbelCard from '../../components/AskAbelCard.astro';
-import BookingCta from '../../components/BookingCta.astro';
-import ServiceAreaMap from '../../components/ServiceAreaMap.astro';
-import ServiceFooter from '../../components/ServiceFooter.astro';
-import LocationsFooter from '../../components/LocationsFooter.astro';
-
-import { Image } from 'astro:assets';
-import heroBg from '../../assets/images/herobg301.webp';
-import heroBgMobile from '../../assets/images/herobg-mobile301.webp';
-
-const title = 'Garage Door Repair Rosebush MI | Isabella Garage Door';
-const description = 'Isabella Garage Door is based right here in Rosebush, MI. Broken springs, opener repair, pole barns, new doors. Your actual neighbors—not a franchise. Call 989-572-0303.';
+// Rosebush location page. The page's own content lives here;
+// the shared layout and sections are in layouts/LocationPage.astro.
+import LocationPage, { type LocationContent } from '../../layouts/LocationPage.astro';
+import { findReview, reviewsSchema } from '../../data/reviews';
 
 const rosebushSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Isabella Garage Door - Rosebush",
   "image": "https://isabellagaragedoor.com/photos/rosebush-michigan-garage-door-repair.webp",
-  "@id": "https://isabellagaragedoor.com/service-areas/rosebush",
-  "url": "https://isabellagaragedoor.com/service-areas/rosebush",
+  "@id": "https://isabellagaragedoor.com/locations/rosebush",
+  "url": "https://isabellagaragedoor.com/locations/rosebush",
   "telephone": "+1-989-572-0303",
   "priceRange": "$$",
   "address": {
@@ -101,693 +83,159 @@ const rosebushSchema = {
   }
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Are you actually based in Rosebush, Michigan?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes—Rosebush is home. Isabella Garage Door is based right here in the community, not in Mt. Pleasant or Midland with a Rosebush service page. When you call us for garage door repair in Rosebush, you're calling your actual neighbor. Response times for Rosebush and Isabella Township are as fast as they get."
+const content: Omit<LocationContent, 'schema'> = {
+  name: "Rosebush",
+  title: "Garage Door Repair Rosebush MI | Isabella Garage Door",
+  description: "Isabella Garage Door is based right here in Rosebush, MI. Broken springs, opener repair, pole barns, new doors. Your actual neighbors—not a franchise. Call 989-572-0303.",
+  hero: {
+    title: "Rosebush Is Home — Your Garage Door Company Lives Here Too",
+    description: "Not 20 minutes away, not routing calls from another city — we're based right here in Rosebush.",
+    bullets: [
+      "Based in Rosebush — Fastest Response Available",
+      "Upfront Pricing — No Surprises",
+      "Work Backed by a 1-Year Warranty"
+    ]
+  },
+  intro: {
+    heading: "This Is Our Home. We Take That Seriously.",
+    paragraphs: [
+      "Rosebush sits at the quiet intersection of US-127 and Isabella County's rural roads—a community that doesn't make much noise but has plenty of character. Farms that have been in the same family for a hundred years. Neighbors who still actually know each other. The kind of place where how you do business reflects directly on who you are as a person, because everyone around you knows both. That's the standard we hold ourselves to. When we work on a garage door in Rosebush, we're working in our own backyard—and our reputation here isn't a marketing talking point, it's something we live with every day."
+    ]
+  },
+  services: {
+    heading: "Complete Garage Door Services in Rosebush, Michigan",
+    intro: "From the homes along US-127 to the farms and rural properties of Isabella Township—here's what Rosebush residents count on us for:",
+    cards: [
+      {
+        title: "Broken Spring Replacement",
+        text: "When a spring snaps—and it usually happens without warning—your door is going nowhere until it's fixed. For Rosebush properties, we're often able to respond same-day, sometimes within a couple of hours. We carry high-cycle replacement springs, replace both at once, and balance the door before we leave. You won't find a faster response anywhere in Isabella County.",
+        icon: "spring",
+        href: "/services/broken-springs"
+      },
+      {
+        title: "General Door Repair",
+        text: "Off-track panels, snapped cables, worn rollers, bent tracks, damaged sections—we've seen every failure mode a garage door can throw at you. Rosebush has a mix of older rural homes, farmsteads, and newer properties, and we're equipped for all of it. We diagnose accurately and repair efficiently, without padding the job or recommending things you don't need.",
+        icon: "wrench",
+        href: "/services/door-repair"
+      },
+      {
+        title: "Opener Repair &amp; Installation",
+        text: "Grinding, humming, reversing, or just completely unresponsive—opener failures have a lot of causes and we find them fast. We service all major brands and can install a new smart opener with Wi-Fi and smartphone control when it's time. Especially useful for rural properties where you want to monitor and control access remotely.",
+        icon: "opener",
+        href: "/services/opener-repair"
+      },
+      {
+        title: "New Door Installation",
+        text: "Whether you're replacing a worn-out residential door or putting a new overhead door on a shop or outbuilding, we install quality doors built for Michigan's climate. Residential styles in steel, wood, or composite. Heavy-duty options for agricultural buildings. We handle everything—measurement, removal of the old door, installation, and final balancing.",
+        icon: "door",
+        href: "/services/new-door-installation",
+        hidden: true
+      },
+      {
+        title: "Preventive Maintenance",
+        text: "Isabella County winters are no joke—cold snaps, freeze-thaw cycles, and months of heavy use put real stress on springs, cables, and openers. An annual tune-up keeps everything lubricated, tensioned, and adjusted properly. For Rosebush residents and rural property owners, it's the simplest way to avoid a breakdown at the worst possible time.",
+        icon: "shield",
+        href: "/services/maintenance"
+      },
+      {
+        title: "Pole Barns &amp; Farm Doors",
+        text: "The Rosebush area is farm country—and we work on farm doors all the time. Pole barns, machine sheds, grain storage buildings, large shop doors—we carry parts for heavy-duty applications and know how to work on large openings. This is our territory, and we know what properties around here tend to need.",
+        icon: "tractor"
       }
-    },
-    {
-      "@type": "Question",
-      "name": "How fast can you get to a Rosebush garage door repair?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Faster than anyone else—we're already here. For Rosebush and Isabella Township properties, we're often able to respond same-day, sometimes within hours depending on scheduling. Broken springs, doors that won't close, and other urgent issues get priority. Call 989-572-0303 and we can usually give you a very short window."
+    ]
+  },
+  why: {
+    heading: "Why Rosebush Residents Call Us First",
+    items: [
+      {
+        title: "We're Already Here",
+        body: "No drive time, no trip charges, no scheduling around a technician's commute from another city. For Rosebush and Isabella Township, we're the fastest response available. Period."
+      },
+      {
+        title: "We Know These Properties",
+        body: "Older farmsteads, rural outbuildings, properties with long driveways and non-standard setups—we've worked on them. We know what the Rosebush area throws at garage door hardware and we come prepared for it."
+      },
+      {
+        title: "Reputation Is Everything Here",
+        body: "In a small community, you can't hide bad work. Everyone knows everyone. We do every Rosebush job like the homeowner is going to talk about it at the next family gathering—because they probably will."
+      },
+      {
+        title: "Keep It Local",
+        body: "When you call us, your money stays in Rosebush. We're not a franchise sending revenue to a corporate office somewhere else. We're your neighbors, and supporting us is supporting this community directly."
+      },
+      {
+        title: "Honest Work at Fair Prices",
+        body: "We quote before we start and we mean it. No inflated prices because we think you don't know any better, no upselling things you don't need. We'd be embarrassed to do business that way in our own backyard."
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you service rural properties and farms around Rosebush?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. The Rosebush area is surrounded by farms, rural properties, and pole barns—we service all of it. We know the back roads around here and we're comfortable on long driveways, gravel roads, and agricultural properties throughout Isabella Township and the surrounding area."
+    ]
+  },
+  areaImage: {
+    src: "/photos/rosebush-michigan.avif",
+    alt: "Isabella Garage Door - based in Rosebush, Michigan"
+  },
+  area: {
+    heading: "Our Home Territory — Inside and Out",
+    intro: "We don't just service Rosebush—we know it. Here's the territory we consider home:",
+    items: [
+      {
+        title: "🏡 Rosebush Community &amp; US-127 Corridor",
+        text: "The homes and properties along and near US-127 through Rosebush are ground zero for us—this is where we live and work. Response times here are as fast as anywhere in Central Michigan. When you call, we're already close."
+      },
+      {
+        title: "🚜 Isabella Township",
+        text: "The farms, rural properties, and country homes of Isabella Township spread out in every direction from Rosebush. We know these roads—the paved ones and the gravel ones. Long driveways, older farmsteads, working operations, hobby farms. We've been on most of these properties before and we come prepared for what we find."
+      },
+      {
+        title: "🌾 Deerfield &amp; Union Township",
+        text: "The townships adjacent to Isabella Township are equally familiar ground. Rural properties, agricultural operations, and country homes throughout Deerfield and Union Township are well within our home range. No extra charges, no hesitation about the drive."
+      },
+      {
+        title: "🔗 The Roads Between",
+        text: "Rosebush sits at a crossroads connecting Mt. Pleasant, Clare, Coleman, and the broader Isabella County area. The rural properties that fall in between those cities—the ones that aren't quite one community or another—are exactly the kind of addresses we service every day. If your property doesn't fit neatly on anyone's service area map, it's on ours."
+      },
+      {
+        title: "📍 All of Isabella County",
+        text: "Rosebush is our home but Isabella County is our territory. From Mt. Pleasant to Lake Isabella to Shepherd and every back road in between—we cover the whole county. But Rosebush always gets the shortest wait time, because we're already here."
       }
-    },
-    {
-      "@type": "Question",
-      "name": "What garage door services do you offer in Rosebush?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Everything. Broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair, new door installation, and annual preventive maintenance. Residential garages, pole barns, agricultural buildings—if it's a garage-style door in Rosebush or Isabella Township, we take care of it."
+    ],
+    closing: "<strong>You're our neighbor.</strong> Call us at <a href=\"tel:+19895720303\">989-572-0303</a> and we'll be there."
+  },
+  faq: {
+    heading: "Frequently Asked Questions - Rosebush, MI",
+    items: [
+      {
+        question: "Are you actually based in Rosebush, Michigan?",
+        answer: "<p>Yes—Rosebush is home. Isabella Garage Door is based right here in the community, not in Mt. Pleasant or Midland with a Rosebush service page tacked on. When you call us for garage door repair in Rosebush, you're calling your actual neighbor. Response times here are as fast as they get.</p>"
+      },
+      {
+        question: "How fast can you get to a Rosebush garage door repair?",
+        answer: "<p>Faster than anyone else—we're already here. For Rosebush and Isabella Township properties, we're often able to respond same-day, sometimes within a few hours depending on scheduling. Broken springs and doors that won't close get priority. Call us at <a href=\"tel:+19895720303\">989-572-0303</a> and we can usually give you a tight arrival window.</p>"
+      },
+      {
+        question: "Do you service rural properties and farms around Rosebush?",
+        answer: "<p>Absolutely. The Rosebush area is surrounded by farms, rural properties, and pole barns—it's some of our most familiar territory. We know the back roads around here and we're comfortable on long driveways, gravel roads, and agricultural properties throughout Isabella Township and the surrounding townships. This is home turf.</p>"
+      },
+      {
+        question: "What garage door services do you offer in Rosebush?",
+        answer: "<p>Everything. Broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair<!-- , new door installation -->, and annual preventive maintenance. Residential garages, pole barns, agricultural buildings—if it's a garage-style door in Rosebush or Isabella Township, we take care of it.</p>"
+      },
+      {
+        question: "Why should I call Isabella Garage Door instead of a company from Mt. Pleasant?",
+        answer: "<p>Because we're already here. A company coming from Mt. Pleasant has to schedule around the drive and often builds that into what they charge. We're in Rosebush—your wait time is shorter, your price isn't inflated by someone else's commute, and you're supporting a business that's genuinely part of this community. We also know these roads and properties better than anyone coming in from out of town.</p>"
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Why should I call Isabella Garage Door instead of a company from Mt. Pleasant?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Because we're already here. A company coming from Mt. Pleasant has to schedule around the drive. We're in Rosebush—your response time is shorter, there are no trip charges padded into the quote, and you're supporting a business that's actually part of your community. We also know these roads and properties better than anyone coming from out of town."
-      }
-    }
-  ]
+    ]
+  },
+  closing: {
+    heading: "Rosebush Garage Door Repair, Done Right",
+    paragraphs: [
+      "We're right here. No long waits, no trip charges, no out-of-town crew who has to find your driveway on a map. Just your local garage door company, in your community, ready to help.",
+      "Call us, text us, or use EasyEstimate™ to get a ballpark online. We show up on time, explain what's wrong, and fix it right the first time — every time, in our own backyard."
+    ]
+  },
+  signoff: "Based in Rosebush. Serving Isabella County and Central Michigan. Your actual neighbor."
 };
 
-const reviewSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Review",
-      "@id": "https://isabellagaragedoor.com/#review-1",
-      "itemReviewed": {
-        "@id": "https://isabellagaragedoor.com/#business"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Elizabeth S."
-      },
-      "reviewBody": "Got our garage door working again! They got us on the schedule quick and made everything easy. I can't thank them enough. Highly recommend!!",
-      "datePublished": "2026-05-14"
-    },
-    {
-      "@type": "Review",
-      "@id": "https://isabellagaragedoor.com/#review-2",
-      "itemReviewed": {
-        "@id": "https://isabellagaragedoor.com/#business"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Autumn S."
-      },
-      "reviewBody": "I highly recommend Isabella Garage Door for any repairs you need. They were fast, efficient and reasonably priced. He had our spring fixed and door working again in no time. Will definitely use again.",
-      "datePublished": "2026-05-19"
-    }
-  ]
-};
+const schema = [rosebushSchema, reviewsSchema([findReview('Elizabeth S.'), findReview('Autumn S.')])];
 ---
 
-<BaseLayout {title} {description}>
-
-<Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(rosebushSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
-  </Fragment>
-
-<link rel="stylesheet" href="/styles/global.css" />
-
-<section class="hero">
-<picture>
-  <source media="(max-width: 767px)" srcset={heroBgMobile.src} />
-  <source media="(min-width: 768px)" srcset={heroBg.src} />
-  <img
-    src={heroBg.src}
-    alt="Garage door repair background"
-    loading="eager"
-    fetchpriority="high"
-    class="hero-bg-image"
-  />
-</picture>
-
-  <div class="hero-overlay"></div>
-
-<div class="hero-content reveal-on-scroll">
-  <h1>Rosebush Is Home — Your Garage Door Company Lives Here Too</h1>
-  <p class="hero-description">
-    Not 20 minutes away, not routing calls from another city — we're based right here in Rosebush.
-  </p>
-  <div class="reveal-on-scroll">
-    <ul>
-      <li>✓ Based in Rosebush — Fastest Response Available</li>
-      <li>✓ Upfront Pricing — No Surprises</li>
-      <li>✓ Work Backed by a 1-Year Warranty</li>
-    </ul>
-  </div>
-
-    <div class="hero-buttons reveal-on-scroll">
-      <a href="sms:+19895720303?&body=Hi%2C%20I%20need%20some%20help%20with%20my%20garage%20door." class="hero-estimate-button">
-        <i class="fas fa-comment-dots"></i> Text Us
-      </a>
-      <a href="tel:+19895720303" class="hero-home-contact-button">
-        <i class="fa-solid fa-phone fa-fw"></i> Call 989-572-0303
-      </a>
-    </div>
-
-<p>Not sure what it'll cost?</p>
-<a href="/homeowner-tools/easy-estimate#estimate-form" class="hero-estimate-cta">Get an Instant Estimate →</a>
-  </div>
-
-  <TrustBadges />
-
-<a href="/booking" class="book-now-btn">Book Now</a>
-
-</section>
-
-<AvailabilityBanner />
-
-<AnnouncementBanner />
-
-<HolidaysBirthdaysBanner />
-
-<section style="margin-bottom: 1rem;">
-<h2 class="sub-heading" style="margin-top: 2rem;">This Is Our Home. We Take That Seriously.</h2>
-  <p class="p-home">
-    Rosebush sits at the quiet intersection of US-127 and Isabella County's rural roads—a community that doesn't make much 
-    noise but has plenty of character. Farms that have been in the same family for a hundred years. Neighbors who still 
-    actually know each other. The kind of place where how you do business reflects directly on who you are as a person, 
-    because everyone around you knows both. That's the standard we hold ourselves to. When we work on a garage door in 
-    Rosebush, we're working in our own backyard—and our reputation here isn't a marketing talking point, it's something 
-    we live with every day.
-  </p>
-</section>
-
-<section class="core-services-section">
-  <h2 class="sub-heading">Complete Garage Door Services in Rosebush, Michigan</h2>
-  <p class="core-services-intro">
-    From the homes along US-127 to the farms and rural properties of Isabella Township—here's what Rosebush residents count on us for:
-  </p>
-
-  <div class="core-services-grid">
-
-    <a href="/services/broken-springs" class="core-services-card spring reveal-on-scroll">
-      <h3>Broken Spring Replacement</h3>
-      <p>When a spring snaps—and it usually happens without warning—your door is going nowhere until it's fixed. For Rosebush properties, we're often able to respond same-day, sometimes within a couple of hours. We carry high-cycle replacement springs, replace both at once, and balance the door before we leave. You won't find a faster response anywhere in Isabella County.</p>
-    </a>
-
-    <a href="/services/door-repair" class="core-services-card repair">
-      <h3>General Door Repair</h3>
-      <p>Off-track panels, snapped cables, worn rollers, bent tracks, damaged sections—we've seen every failure mode a garage door can throw at you. Rosebush has a mix of older rural homes, farmsteads, and newer properties, and we're equipped for all of it. We diagnose accurately and repair efficiently, without padding the job or recommending things you don't need.</p>
-    </a>
-
-    <a href="/services/opener-repair" class="core-services-card opener">
-      <h3>Opener Repair & Installation</h3>
-      <p>Grinding, humming, reversing, or just completely unresponsive—opener failures have a lot of causes and we find them fast. We service all major brands and can install a new smart opener with Wi-Fi and smartphone control when it's time. Especially useful for rural properties where you want to monitor and control access remotely.</p>
-    </a>
-<!--
-    <a href="/services/new-door-installation" class="core-services-card installation">
-      <h3>New Door Installation</h3>
-      <p>Whether you're replacing a worn-out residential door or putting a new overhead door on a shop or outbuilding, we install quality doors built for Michigan's climate. Residential styles in steel, wood, or composite. Heavy-duty options for agricultural buildings. We handle everything—measurement, removal of the old door, installation, and final balancing.</p>
-    </a>
--->
-    <a href="/services/maintenance" class="core-services-card maintenance">
-      <h3>Preventive Maintenance</h3>
-      <p>Isabella County winters are no joke—cold snaps, freeze-thaw cycles, and months of heavy use put real stress on springs, cables, and openers. An annual tune-up keeps everything lubricated, tensioned, and adjusted properly. For Rosebush residents and rural property owners, it's the simplest way to avoid a breakdown at the worst possible time.</p>
-    </a>
-
-    <div class="core-services-card core-services-card agricultural">
-      <h3>Pole Barns & Farm Doors</h3>
-      <p>The Rosebush area is farm country—and we work on farm doors all the time. Pole barns, machine sheds, grain storage buildings, large shop doors—we carry parts for heavy-duty applications and know how to work on large openings. This is our territory, and we know what properties around here tend to need.</p>
-    </div>
-
-  </div>
-</section>
-
-<section class="no-card">
-<div class="why-choose-us-section">
-    <div class="why-choose-us-container">
-        <h2 class="sub-heading">Why Rosebush Residents Call Us First</h2>
-
-        <div class="accordion-group reveal-on-scroll">
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    We're Already Here
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        No drive time, no trip charges, no scheduling around a technician's commute from another city. For Rosebush and Isabella Township, we're the fastest response available. Period.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    We Know These Properties
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        Older farmsteads, rural outbuildings, properties with long driveways and non-standard setups—we've worked on them. We know what the Rosebush area throws at garage door hardware and we come prepared for it.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Reputation Is Everything Here
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        In a small community, you can't hide bad work. Everyone knows everyone. We do every Rosebush job like the homeowner is going to talk about it at the next family gathering—because they probably will.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Keep It Local
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        When you call us, your money stays in Rosebush. We're not a franchise sending revenue to a corporate office somewhere else. We're your neighbors, and supporting us is supporting this community directly.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Honest Work at Fair Prices
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        We quote before we start and we mean it. No inflated prices because we think you don't know any better, no upselling things you don't need. We'd be embarrassed to do business that way in our own backyard.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<a href="/about/why-choose-isabella-garage-door" class="cta-button margin-bottom-2rem"><i class="fas fa-magnifying-glass"></i> Learn More About Us</a>
-</section>
-
-
-  <section>
-    <h2 class="sub-heading">Real Feedback.<br>Real Trust.</h2>
-      <p class="testimonial-intro-paragraph">Here's what local homeowners are saying about Isabella Garage Door:</p>
-<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;" class="reveal-on-scroll">
-      <SplideSlider client:only="react" />
-</a>
-
-<a href="/about/testimonials" class="cta-button"><i class="fa-solid fa-star fa-fw"></i> Read Customer Reviews</a>
-</section>
-
-
-  <BookingCta />
-
-  <HomeownerToolboxResponsive />
-
-<img src="/photos/rosebush-michigan.avif" alt="Isabella Garage Door - based in Rosebush, Michigan" loading="eager" fetchpriority="high" class="about-image" />
-
-<section style="margin-top: 2rem;">
-  <h2 class="sub-heading">Our Home Territory — Inside and Out</h2>
-  <p class="p-home">
-    We don't just service Rosebush—we know it. Here's the territory we consider home:
-  </p>
-
-  <div class="p-home" style="margin-top: 1.5rem;">
-    <p><strong>🏡 Rosebush Community & US-127 Corridor</strong><br>
-    The homes and properties along and near US-127 through Rosebush are ground zero for us—this is where we live and work. Response times here are as fast as anywhere in Central Michigan. When you call, we're already close.</p>
-
-    <p style="margin-top: 1rem;"><strong>🚜 Isabella Township</strong><br>
-    The farms, rural properties, and country homes of Isabella Township spread out in every direction from Rosebush. We know these roads—the paved ones and the gravel ones. Long driveways, older farmsteads, working operations, hobby farms. We've been on most of these properties before and we come prepared for what we find.</p>
-
-    <p style="margin-top: 1rem;"><strong>🌾 Deerfield & Union Township</strong><br>
-    The townships adjacent to Isabella Township are equally familiar ground. Rural properties, agricultural operations, and country homes throughout Deerfield and Union Township are well within our home range. No extra charges, no hesitation about the drive.</p>
-
-    <p style="margin-top: 1rem;"><strong>🔗 The Roads Between</strong><br>
-    Rosebush sits at a crossroads connecting Mt. Pleasant, Clare, Coleman, and the broader Isabella County area. The rural properties that fall in between those cities—the ones that aren't quite one community or another—are exactly the kind of addresses we service every day. If your property doesn't fit neatly on anyone's service area map, it's on ours.</p>
-
-    <p style="margin-top: 1rem;"><strong>📍 All of Isabella County</strong><br>
-    Rosebush is our home but Isabella County is our territory. From Mt. Pleasant to Lake Isabella to Shepherd and every back road in between—we cover the whole county. But Rosebush always gets the shortest wait time, because we're already here.</p>
-  </div>
-
-  <p class="p-home" style="margin-top: 1.5rem;">
-    <strong>You're our neighbor.</strong> Call us at <a href="tel:+19895720303" style="color: #b27d57; text-decoration: underline;">989-572-0303</a> and we'll be there.
-  </p>
-</section>
-
-<section class="faq-area">
-<section id="faq">
-<div class="faq-head">
-  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions - Rosebush, MI</h2>
-</div>
-
-<div class="reveal-on-scroll">
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Are you actually based in Rosebush, Michigan?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Yes—Rosebush is home. Isabella Garage Door is based right here in the community, not in Mt. Pleasant or Midland with a Rosebush service page tacked on. When you call us for garage door repair in Rosebush, you're calling your actual neighbor. Response times here are as fast as they get.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>How fast can you get to a Rosebush garage door repair?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Faster than anyone else—we're already here. For Rosebush and Isabella Township properties, we're often able to respond same-day, sometimes within a few hours depending on scheduling. Broken springs and doors that won't close get priority. Call us at <a href="tel:+19895720303" style="color: #b27d57;">989-572-0303</a> and we can usually give you a tight arrival window.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Do you service rural properties and farms around Rosebush?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Absolutely. The Rosebush area is surrounded by farms, rural properties, and pole barns—it's some of our most familiar territory. We know the back roads around here and we're comfortable on long driveways, gravel roads, and agricultural properties throughout Isabella Township and the surrounding townships. This is home turf.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>What garage door services do you offer in Rosebush?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Everything. Broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair<!-- , new door installation -->, and annual preventive maintenance. Residential garages, pole barns, agricultural buildings—if it's a garage-style door in Rosebush or Isabella Township, we take care of it.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Why should I call Isabella Garage Door instead of a company from Mt. Pleasant?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Because we're already here. A company coming from Mt. Pleasant has to schedule around the drive and often builds that into what they charge. We're in Rosebush—your wait time is shorter, your price isn't inflated by someone else's commute, and you're supporting a business that's genuinely part of this community. We also know these roads and properties better than anyone coming in from out of town.</p>
-    </div>
-  </div>
-
-</div>
-</section>
-</section>
-
-<AskAbelCard chatUrl="/ask-abel" />
-
-<section>
-  <h2 class="sub-heading">Rosebush Garage Door Repair, Done Right</h2>
-  <p class="p-home">
-    We're right here. No long waits, no trip charges, no out-of-town crew who has to find your driveway 
-    on a map. Just your local garage door company, in your community, ready to help.
-  </p>
-  <p class="p-home" style="margin-top: 1rem;">
-    Call us, text us, or use EasyEstimate™ to get a ballpark online. We show up on time, explain what's 
-    wrong, and fix it right the first time — every time, in our own backyard.
-  </p>
-</section>
-
-<BlogCards />
-
-<ServiceAreaMap />
-<a href="/contact" class="cta-button" style="margin-top: 2rem;"><i class="fa-solid fa-location-dot fa-fw"></i> Need Local Help?</a>
-
-<section class="core-services-section reveal-on-scroll">
-<Coupons />
-</section>
-
-<section>
-  <h2 class="sub-heading">Isabella Garage Door</h2>
-  <p style="font-size: .9rem; text-align: center;">
-    Based in Rosebush. Serving Isabella County and Central Michigan. Your actual neighbor.
-  </p>
-  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
-    <em>Raising Performance. Elevating Standards</em>
-  </p>
-  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
-    <strong>Call or text:</strong> <a href="tel:+19895720303" style="color: #b27d57; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
-  </p>
-</section>
-
-<ServiceFooter currentPath="null" slot="full-width-section"/>
-<LocationsFooter currentPath="/locations/rosebush" slot="full-width-section" />
-
-
-<style>
-.homeowner-toolbox-section {
-  text-align: center;
-}
-
-.homeowner-toolbox-wrapper {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.homeowner-toolbox-grid {
-  display: grid;
-  gap: 1.5rem;
-  margin-top: 2rem;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 550px) {
-  .homeowner-toolbox-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1050px) {
-  .homeowner-toolbox-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.homeowner-toolbox-card {
-  justify-content: flex-start;
-  background: #fff;
-  border: 0.094rem solid #b27d57;
-  border-radius: 0.75rem;
-  padding: 1rem 1rem 1rem;
-  text-decoration: none;
-  color: inherit;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
-  position: relative;
-  background-image: url('/photos/white-garage-door-service-section.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #ffffff;
-  z-index: 1;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.homeowner-toolbox-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.homeowner-toolbox-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(255, 255, 255, 0.5);
-  z-index: 0;
-  border-radius: inherit;
-}
-
-.homeowner-toolbox-card * {
-  position: relative;
-  z-index: 2;
-}
-
-.homeowner-toolbox-card:hover,
-.homeowner-toolbox-card:focus {
-  transform: translateY(-5px);
-  box-shadow: 0 0 0.75rem rgba(178, 125, 87, 0.5);
-  outline: none;
-}
-
-.homeowner-toolbox-img {
-  height: 70px;
-  width: auto;
-  object-fit: contain;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1rem;
-}
-
-.homeowner-toolbox-body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.homeowner-toolbox-body h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #1a334f;
-  font-family: 'Lora', serif;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-  line-height: 2.1rem;
-}
-
-.homeowner-toolbox-body p {
-  font-size: 1.1rem;
-  line-height: 1.4;
-  color: #1a334f;
-  text-align: left;
-  padding: 0 1rem;
-  flex: 1;
-}
-</style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(".homeowner-toolbox-card, .core-services-card, .reveal-on-scroll");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    cards.forEach((card) => {
-      observer.observe(card);
-    });
-  });
-</script>
-
-<script is:inline>
-document.querySelectorAll('.faq-item').forEach(item => {
-  const question = item.querySelector('.faq-question');
-  const answer = item.querySelector('.faq-answer');
-
-  question.addEventListener('click', () => {
-    const isOpen = item.classList.contains('open');
-
-    document.querySelectorAll('.faq-item').forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.faq-answer').style.maxHeight = null;
-    });
-
-    if (!isOpen) {
-      item.classList.add('open');
-      answer.style.maxHeight = answer.scrollHeight + 'px';
-    }
-  });
-});
-</script>
-
-<script is:inline>
-  const icons = document.querySelectorAll('.core-services-icon-circle');
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-  icons.forEach(icon => observer.observe(icon));
-</script>
-
-<script>
-function toggleAccordion(button) {
-    const item = button.parentElement;
-    const clickedContent = button.nextElementSibling;
-    const clickedArrow = button.querySelector('.accordion-arrow');
-
-    document.querySelectorAll('.accordion-content').forEach(content => {
-        const parentItem = content.parentElement;
-        const arrow = parentItem.querySelector('.accordion-arrow');
-
-        if (content !== clickedContent && content.style.maxHeight !== '0px' && content.style.maxHeight !== '') {
-            content.style.maxHeight = '0px';
-            if (arrow) arrow.style.transform = 'rotate(0deg)';
-            parentItem.classList.remove('active');
-        }
-    });
-
-    if (clickedContent.style.maxHeight === '0px' || clickedContent.style.maxHeight === '') {
-        clickedContent.style.maxHeight = clickedContent.scrollHeight + 'px';
-        clickedArrow.style.transform = 'rotate(180deg)';
-        item.classList.add('active');
-    } else {
-        clickedContent.style.maxHeight = '0px';
-        clickedArrow.style.transform = 'rotate(0deg)';
-        item.classList.remove('active');
-    }
-}
-
-function initializeAccordions() {
-    document.querySelectorAll('.accordion-content').forEach(content => {
-        content.style.maxHeight = '0px';
-        content.parentElement.classList.remove('active');
-        const arrow = content.previousElementSibling.querySelector('.accordion-arrow');
-        if (arrow) arrow.style.transform = 'rotate(0deg)';
-    });
-}
-
-window.toggleAccordion = toggleAccordion;
-document.addEventListener('DOMContentLoaded', initializeAccordions);
-document.addEventListener('astro:after-swap', initializeAccordions);
-</script>
-
-  <script>
-    if (typeof window !== 'undefined') {
-      const highlightObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('slide-up-in');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.5,
-        rootMargin: '0px 0px -50px 0px'
-      });
-
-      window.addEventListener('DOMContentLoaded', () => {
-        const highlightSection = document.querySelector('.highlight-section');
-        if (highlightSection) {
-          highlightObserver.observe(highlightSection);
-        }
-
-        const iconCards = document.querySelectorAll('.value-icon-card');
-        const iconObserver = new IntersectionObserver((entries, iconObs) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const index = Array.from(iconCards).indexOf(entry.target);
-              entry.target.style.animation = `fadeSlideUp 0.6s ease forwards`;
-              entry.target.style.animationDelay = `${index * 150}ms`;
-              iconObs.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.3 });
-
-        iconCards.forEach(card => iconObserver.observe(card));
-      });
-    }
-  </script>
-
-</BaseLayout>
+<LocationPage {...content} schema={schema} />

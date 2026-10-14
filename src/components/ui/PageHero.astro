@@ -1,0 +1,99 @@
+---
+// Interior page header: breadcrumbs, eyebrow, H1, intro, optional actions, and the
+// page's header photo. Slot "actions" for buttons; default slot for extra intro content.
+import Breadcrumbs from './Breadcrumbs.astro';
+import type { Crumb } from '../../lib/schema';
+
+interface Props {
+  title: string;
+  /** Intro paragraph HTML */
+  intro?: string;
+  eyebrow?: string;
+  image?: string;
+  imageAlt?: string;
+  /** Breadcrumb trail after Home (last = current page). Omit to hide. */
+  crumbs?: Crumb[];
+}
+
+const { title, intro, eyebrow, image, imageAlt = '', crumbs } = Astro.props;
+---
+
+<section class:list={['page-hero', { 'page-hero--image': image }]}>
+  <div class="container page-hero__grid">
+    <div class="page-hero__text">
+      {crumbs && <Breadcrumbs items={crumbs} />}
+      {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+      <h1 set:html={title} />
+      {intro && <p class="page-hero__intro" set:html={intro} />}
+      <slot />
+      {Astro.slots.has('actions') && (
+        <div class="cluster page-hero__actions">
+          <slot name="actions" />
+        </div>
+      )}
+    </div>
+    {image && (
+      <div class="page-hero__media">
+        <img src={image} alt={imageAlt} loading="eager" fetchpriority="high" decoding="async" />
+      </div>
+    )}
+  </div>
+</section>
+
+<style>
+  .page-hero {
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(2.5rem, 1.5rem + 4vw, 5rem);
+    background:
+      radial-gradient(circle at 100% 0%, rgb(178 125 87 / 0.2), transparent 40%),
+      linear-gradient(160deg, var(--navy) 0%, var(--navy-800) 100%);
+    color: rgb(255 255 255 / 0.86);
+  }
+
+  .page-hero__grid {
+    display: grid;
+    gap: var(--space-10);
+    align-items: center;
+  }
+
+  .page-hero__text > * + * {
+    margin-top: var(--space-5);
+  }
+
+  .page-hero h1 {
+    color: var(--white);
+  }
+
+  .page-hero .eyebrow {
+    color: var(--bronze-300);
+  }
+
+  .page-hero__intro {
+    max-width: 40rem;
+    font-size: var(--text-lg);
+  }
+
+  .page-hero__text :global(a:not(.btn)) {
+    color: var(--bronze-300);
+  }
+
+  .page-hero__actions {
+    padding-top: var(--space-2);
+  }
+
+  .page-hero__media img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 24px 50px rgb(0 0 0 / 0.3);
+  }
+
+  @media (min-width: 960px) {
+    .page-hero--image .page-hero__grid {
+      grid-template-columns: 1.1fr 1fr;
+      gap: var(--space-16);
+    }
+  }
+</style>

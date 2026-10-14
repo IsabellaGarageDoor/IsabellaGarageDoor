@@ -1,0 +1,239 @@
+---
+// Shared layout for the location landing pages (src/pages/locations/*).
+// Each location file holds its own unique local content and passes it in here.
+import BaseLayout from './BaseLayout.astro';
+import HomeHero from '../components/HomeHero.astro';
+import AvailabilityBanner from '../components/AvailabilityBanner.astro';
+import AnnouncementBanner from '../components/editable-sections/AnnouncementBanner.astro';
+import HolidaysBirthdaysBanner from '../components/HolidaysBirthdaysBanner.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+import ServiceCards, { type ServiceCard } from '../components/ServiceCards.astro';
+import Accordion, { type AccordionItem } from '../components/ui/Accordion.astro';
+import ReviewsSection from '../components/ReviewsSection.astro';
+import BookingCta from '../components/BookingCta.astro';
+import Faq from '../components/ui/Faq.astro';
+import AskAbelCard from '../components/AskAbelCard.astro';
+import HomeownerToolbox from '../components/HomeownerToolbox.astro';
+import BlogCards from '../components/BlogCards.astro';
+import ServiceAreaMap from '../components/ServiceAreaMap.astro';
+import CouponsSection from '../components/editable-sections/CouponsSection.astro';
+import ContactBlock from '../components/ContactBlock.astro';
+import Breadcrumbs from '../components/ui/Breadcrumbs.astro';
+import Icon from '../components/ui/Icon.astro';
+import type { FaqItem } from '../lib/schema';
+import { publicPath } from '../lib/urls';
+import heroBg from '../assets/images/herobg301.webp';
+import heroBgMobile from '../assets/images/herobg-mobile301.webp';
+
+export interface AreaItem {
+  /** Bold lead-in, e.g. "🎵 Remus Community & M-20 Corridor" */
+  title: string;
+  /** Description HTML */
+  text: string;
+}
+
+export interface LocationContent {
+  /** Short place name for breadcrumbs, e.g. "Remus" */
+  name: string;
+  title: string;
+  description: string;
+  /** Structured data objects emitted in <head> */
+  schema: object[];
+  hero: { title: string; description: string; bullets: string[] };
+  intro: { heading: string; paragraphs: string[] };
+  services: { heading: string; intro: string; cards: (ServiceCard & { hidden?: boolean })[] };
+  why: { heading: string; items: AccordionItem[] };
+  areaImage: { src: string; alt: string };
+  area: { heading: string; intro?: string; items: AreaItem[]; paragraphs?: string[]; closing?: string };
+  faq: { heading: string; items: FaqItem[] };
+  closing: { heading: string; paragraphs: string[] };
+  /** Line in the closing sign-off under the business name */
+  signoff: string;
+}
+
+const c = Astro.props as LocationContent;
+const visibleCards = c.services.cards.filter((card) => !card.hidden);
+const path = publicPath(Astro.url);
+---
+
+<BaseLayout title={c.title} description={c.description} legacy={false}>
+  <Fragment slot="head">
+    {c.schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+  </Fragment>
+
+  <HomeHero title={c.hero.title} description={c.hero.description} bullets={c.hero.bullets} eyebrow={`Serving ${c.name} · Locally owned`}>
+    <picture slot="image">
+      <source media="(max-width: 767px)" srcset={heroBgMobile.src} />
+      <source media="(min-width: 768px)" srcset={heroBg.src} />
+      <img src={heroBg.src} alt="Garage door repair background" loading="eager" fetchpriority="high" />
+    </picture>
+  </HomeHero>
+
+  <AvailabilityBanner />
+
+  <section class="section section--tight section--white trust-band">
+    <div class="container">
+      <TrustBadges />
+    </div>
+  </section>
+
+  <AnnouncementBanner />
+  <HolidaysBirthdaysBanner />
+
+  <!-- Local introduction -->
+  <section class="section">
+    <div class="container split">
+      <div class="stack-lg stack">
+        <Breadcrumbs items={[{ name: c.name, href: path }]} tone="light" />
+        <h2 set:html={c.intro.heading} />
+        {c.intro.paragraphs.map((p) => <p class="lead" set:html={p} />)}
+      </div>
+      <figure class="location-photo reveal">
+        <img src={c.areaImage.src} alt={c.areaImage.alt} loading="lazy" decoding="async" />
+      </figure>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section section--sand">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Our Services</span>
+        <h2 set:html={c.services.heading} />
+        <p set:html={c.services.intro} />
+      </div>
+      <ServiceCards cards={visibleCards} />
+    </div>
+  </section>
+
+  <!-- Why choose us -->
+  <section class="section">
+    <div class="container why-grid">
+      <div class="why-grid__head stack">
+        <span class="eyebrow">Why Choose Us</span>
+        <h2 set:html={c.why.heading} />
+        <a href="/about/why-choose-isabella-garage-door" class="btn btn--outline">
+          <Icon name="search" /> Learn More About Us
+        </a>
+      </div>
+      <Accordion items={c.why.items} name="why" />
+    </div>
+  </section>
+
+  <ReviewsSection />
+
+  <!-- Local knowledge -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Local Knowledge</span>
+        <h2 set:html={c.area.heading} />
+        {c.area.intro && <p set:html={c.area.intro} />}
+      </div>
+      {c.area.paragraphs && (
+        <div class="prose prose--center area-paragraphs">
+          {c.area.paragraphs.map((p) => <p set:html={p} />)}
+        </div>
+      )}
+      <div class="grid grid--3 area-grid">
+        {c.area.items.map((item) => (
+          <div class="card area-card reveal">
+            <h3 set:html={item.title} />
+            <p set:html={item.text} />
+          </div>
+        ))}
+      </div>
+      {c.area.closing && <p class="area-closing" set:html={c.area.closing} />}
+    </div>
+  </section>
+
+  <BookingCta />
+
+  <Faq heading={c.faq.heading} items={c.faq.items} />
+
+  <AskAbelCard />
+
+  <!-- Closing -->
+  <section class="section section--sand">
+    <div class="container container--narrow text-center stack">
+      <h2 set:html={c.closing.heading} />
+      {c.closing.paragraphs.map((p) => <p class="lead" set:html={p} />)}
+    </div>
+  </section>
+
+  <HomeownerToolbox />
+  <BlogCards />
+
+  <ServiceAreaMap />
+  <div class="map-cta">
+    <a href="/contact" class="btn btn--navy"><Icon name="pin" /> Need Local Help?</a>
+  </div>
+
+  <CouponsSection />
+  <ContactBlock text={c.signoff} />
+</BaseLayout>
+
+<style>
+  .trust-band {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .location-photo img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .why-grid {
+    display: grid;
+    gap: var(--space-8);
+  }
+
+  .why-grid__head {
+    align-self: start;
+  }
+
+  .why-grid__head .btn {
+    margin-top: var(--space-6);
+  }
+
+  @media (min-width: 960px) {
+    .why-grid {
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: var(--space-16);
+    }
+
+    .why-grid__head {
+      position: sticky;
+      top: calc(var(--header-h) + 2rem);
+    }
+  }
+
+  .area-card h3 {
+    font-size: 1.15rem;
+  }
+
+  .area-paragraphs {
+    margin-bottom: var(--space-10);
+  }
+
+  .area-closing {
+    max-width: 46rem;
+    margin: var(--space-10) auto 0;
+    padding: var(--space-5) var(--space-6);
+    border-radius: var(--radius);
+    background: var(--bronze-50);
+    border: 1px solid var(--bronze-100);
+    text-align: center;
+  }
+
+  .map-cta {
+    display: flex;
+    justify-content: center;
+    margin-top: calc(-1 * var(--space-8));
+    padding-bottom: var(--section-y);
+    background: var(--white);
+  }
+</style>
