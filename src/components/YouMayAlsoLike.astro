@@ -7,7 +7,7 @@ const allPosts = await getCollection('blog');
 
 // Remove current article
 const filteredPosts = allPosts.filter(
-  (post) => post.data.slug !== currentSlug
+  (post) => post.id !== currentSlug
 );
 
 // Shuffle and pick 3
@@ -23,7 +23,7 @@ const randomPosts = [...filteredPosts]
     <div class="post-grid">
       {randomPosts.map(post => (
         <a
-          href={`/blog/${post.slug}`}
+          href={`/blog/${post.id}`}
           class="post-card"
         >
           {post.data.thumbnail && (

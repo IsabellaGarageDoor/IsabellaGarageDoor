@@ -1,5 +1,4 @@
 ---
-import SearchBar from '../../components/SearchBar.jsx'
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
@@ -39,7 +38,7 @@ const learningCenterSchema = {
         "itemListElement": paginatedPosts.map((post, index) => ({
           "@type": "ListItem",
           "position": index + 1,
-          "url": `https://isabellagaragedoor.com/blog/${post.slug}`,
+          "url": `https://isabellagaragedoor.com/blog/${post.id}`,
           "name": post.data.title,
           "description": post.data.description
         }))
@@ -86,7 +85,7 @@ const learningCenterSchema = {
       <ul class="blog-list">
   {paginatedPosts.map(post => (
     <li class="blog-item">
-      <a href={`/blog/${post.slug}`}>
+      <a href={`/blog/${post.id}`}>
         {post.data.thumbnail && (
           <img 
             src={post.data.thumbnail} 
@@ -161,6 +160,7 @@ const learningCenterSchema = {
 </section>
   
 
+</div>
   </body>
 </html>
 

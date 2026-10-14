@@ -1,8 +1,7 @@
 ---
 // src/pages/blog/[slug].astro
 
-import { getEntry } from 'astro:content';
-import { Markdown } from 'astro/components';
+import { getEntry, render } from 'astro:content';
 import BlogLayout from '../../layouts/BlogLayout.astro';
 import YouMayAlsoLike from '../../components/YouMayAlsoLike.astro';
 
@@ -11,7 +10,7 @@ const post = await getEntry('blog', slug);
 const url = Astro.url; // ✅ Grab the full URL object
 
 if (!post) throw new Error(`Post not found: ${slug}`);
-const { Content } = await post.render();
+const { Content } = await render(post);
 ---
 
 

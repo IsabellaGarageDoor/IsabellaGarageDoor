@@ -28,7 +28,7 @@ const featuredPosts = [...posts]
 
         <div class="blog-content">
           <h3>
-            <a href={`/blog/${post.slug}`}>
+            <a href={`/blog/${post.id}`}>
               {post.data.title}
             </a>
           </h3>
@@ -37,7 +37,7 @@ const featuredPosts = [...posts]
             <p>{post.data.description}</p>
           )}
 
-          <a class="read-more" href={`/blog/${post.slug}`}>
+          <a class="read-more" href={`/blog/${post.id}`}>
             Read More →
           </a>
         </div>
