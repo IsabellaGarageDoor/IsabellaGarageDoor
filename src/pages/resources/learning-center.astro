@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Paginate from '../../components/Paginate.astro';
 
 const title = 'Learning Center | Isabella Garage Door';
 const description = 'Explore expert tips, how-tos, and helpful guides to keep your garage door running smoothly and safely.';
@@ -13,13 +14,10 @@ const sortedPosts = allPosts.sort((a, b) => {
   return new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime();
 });
 
-// Pagination setup
+// Pagination happens in the browser (?page=N) — see components/Paginate.astro
 const postsPerPage = 8;
-const currentPage = +Astro.url.searchParams.get('page') || 1;
-const totalPages = Math.ceil(sortedPosts.length / postsPerPage);
-const startIndex = (currentPage - 1) * postsPerPage;
-const endIndex = startIndex + postsPerPage;
-const paginatedPosts = sortedPosts.slice(startIndex, endIndex);
+// Structured data lists the first page of articles
+const paginatedPosts = sortedPosts.slice(0, postsPerPage);
 
 const learningCenterSchema = {
   "@context": "https://schema.org",
@@ -82,8 +80,8 @@ const learningCenterSchema = {
 </div>
     
     <div style="width: 100%; text-align: center;">
-      <ul class="blog-list">
-  {paginatedPosts.map(post => (
+      <Paginate perPage={postsPerPage} class="blog-list">
+  {sortedPosts.map(post => (
     <li class="blog-item">
       <a href={`/blog/${post.id}`}>
         {post.data.thumbnail && (
@@ -107,43 +105,10 @@ const learningCenterSchema = {
       </p>
     </li>
   ))}
-</ul>
+</Paginate>
       
       <!-- Pagination controls -->
-<div class="pagination-wrapper">
-  {currentPage > 1 && (
-    <a href={`?page=${currentPage - 1}`} class="pagination-button arrow">&larr;</a>
-  )}
 
-  {currentPage > 3 && (
-    <>
-      <a href={`?page=1`} class="pagination-button">1</a>
-      <span class="pagination-ellipsis">...</span>
-    </>
-  )}
-
-  {Array.from({ length: totalPages }, (_, i) => i + 1)
-    .filter(p => p >= currentPage - 2 && p <= currentPage + 2)
-    .map(p => (
-      <a
-        href={`?page=${p}`}
-        class={`pagination-button ${p === currentPage ? 'active' : ''}`}
-      >
-        {p}
-      </a>
-    ))}
-
-  {currentPage < totalPages - 2 && (
-    <>
-      <span class="pagination-ellipsis">...</span>
-      <a href={`?page=${totalPages}`} class="pagination-button">{totalPages}</a>
-    </>
-  )}
-
-  {currentPage < totalPages && (
-    <a href={`?page=${currentPage + 1}`} class="pagination-button arrow">&rarr;</a>
-  )}
-</div>
 
 
   <section>

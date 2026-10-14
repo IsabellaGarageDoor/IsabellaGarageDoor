@@ -14,35 +14,8 @@ import HomeownerToolboxResponsive from '../components/HomeownerToolboxResponsive
 import BookingCta from '../components/BookingCta.astro';
 import ServiceAreaMap from '../components/ServiceAreaMap.astro';
 
-import { Image } from 'astro:assets';
-// desktop
-import heroAutumn from '../assets/images/hero-background-autumn.avif';
-import heroWinter from '../assets/images/hero-background-winter.avif';
-import heroSpring from '../assets/images/hero-background-spring.avif';
-import heroSummer from '../assets/images/hero-background-summer.avif';
-// mobile
-import heroMobileAutumn from '../assets/images/hero-mobile-background-autumn.avif';
-import heroMobileWinter from '../assets/images/hero-mobile-background-winter.avif';
-import heroMobileSpring from '../assets/images/hero-mobile-background-spring.avif';
-import heroMobileSummer from '../assets/images/hero-mobile-background-summer.avif';
+import SeasonalHeroImage from '../components/SeasonalHeroImage.astro';
 
-const month = new Date().getMonth();  //  months start at 0 so month equals 6 is July not June 
-
-let heroBg = heroAutumn;
-let heroBgMobile = heroMobileAutumn;
-
-if ([11, 0, 1].includes(month)) {
-  heroBg = heroWinter;
-  heroBgMobile = heroMobileWinter;
-
-} else if ([2, 3, 4].includes(month)) {
-  heroBg = heroSpring;
-  heroBgMobile = heroMobileSpring;
-
-} else if ([5, 6, 7].includes(month)) {
-  heroBg = heroSummer;
-  heroBgMobile = heroMobileSummer;
-}
 
 const title = 'Isabella Garage Door | Garage Door Service in Central Michigan';
 const description = 'Professional garage door repair and replacement in Central Michigan. Honest service, fast response, and quality you can trust.';
@@ -416,19 +389,7 @@ const reviewSchema = {
 <link rel="stylesheet" href="/styles/global.css" />
 
 <section class="hero">
-<picture>
-  <source media="(max-width: 767px)" srcset={heroBgMobile.src} />
-  
-  <source media="(min-width: 768px)" srcset={heroBg.src} />
-
-  <img 
-    src={heroBg.src} 
-    alt="Garage door repair background" 
-    loading="eager" 
-    fetchpriority="high"
-    class="hero-bg-image"
-  />
-</picture>
+<SeasonalHeroImage class="hero-bg-image" />
   
   <div class="hero-overlay"></div>
 

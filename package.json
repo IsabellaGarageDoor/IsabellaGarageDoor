@@ -14,7 +14,6 @@
     "@astrojs/mdx": "^8.0.3",
     "@astrojs/react": "^7.0.1",
     "@astrojs/sitemap": "^3.7.4",
-    "@netlify/blobs": "^11.1.4",
     "@splidejs/splide": "^4.1.4",
     "@tailwindcss/vite": "^4.3.3",
     "@types/alpinejs": "^3.13.11",
@@ -24,8 +23,5 @@
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "tailwindcss": "^4.3.3"
-  },
-  "devDependencies": {
-    "@astrojs/netlify": "^8.2.9"
   }
 }

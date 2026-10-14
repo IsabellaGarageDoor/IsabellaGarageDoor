@@ -1,15 +1,18 @@
 ---
 // src/pages/blog/[slug].astro
 
-import { getEntry, render } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import BlogLayout from '../../layouts/BlogLayout.astro';
 import YouMayAlsoLike from '../../components/YouMayAlsoLike.astro';
 
-const { slug } = Astro.params;
-const post = await getEntry('blog', slug);
-const url = Astro.url; // ✅ Grab the full URL object
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
 
-if (!post) throw new Error(`Post not found: ${slug}`);
+const { slug } = Astro.params;
+const { post } = Astro.props;
+const url = Astro.url;
 const { Content } = await render(post);
 ---
 

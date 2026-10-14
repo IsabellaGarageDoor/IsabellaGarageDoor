@@ -6,18 +6,19 @@ const COUNT = 3;
 
 const posts = await getCollection('blog');
 
-// Shuffle + select
-const featuredPosts = [...posts]
-  .sort(() => 0.5 - Math.random())
-  .slice(0, COUNT);
+// Every post is rendered; the newest COUNT show by default and the browser
+// picks COUNT at random on each visit (see src/scripts/random-pick.ts)
+const featuredPosts = [...posts].sort(
+  (a, b) => new Date(b.data.pubDate ?? 0).getTime() - new Date(a.data.pubDate ?? 0).getTime()
+);
 ---
 
 <section class="blog-background">
   <h2 class="sub-heading">Garage Door Tips & Learning Center</h2>
 
-  <div class="blog-cards reveal-on-scroll">
-    {featuredPosts.map(post => (
-      <article class="blog-card">
+  <div class="blog-cards reveal-on-scroll" data-random-pick={COUNT}>
+    {featuredPosts.map((post, i) => (
+      <article class="blog-card" hidden={i >= COUNT}>
         {post.data.thumbnail && (
           <img
             src={post.data.thumbnail}
@@ -45,6 +46,10 @@ const featuredPosts = [...posts]
     ))}
   </div>
 </section>
+
+<script>
+  import '../scripts/random-pick';
+</script>
 
 <style>
     /* --- BASE/MOBILE CONTAINER STYLES (SLIDER ACTIVATED) --- */

@@ -1,4 +1,5 @@
 ---
+import { publicPath, absoluteUrl } from '../lib/urls';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import ConvertKitForm from '../components/ConvertKitForm.astro';
@@ -6,7 +7,7 @@ import ConvertKitForm from '../components/ConvertKitForm.astro';
 const { title, description, pubDate, thumbnail, post, url } = Astro.props;
 
 // Build the full URL for this blog post
-const fullUrl = new URL(Astro.url.pathname, Astro.site || 'https://isabellagaragedoor.com').href;
+const fullUrl = absoluteUrl(publicPath(Astro.url), Astro.site);
 
 // Build the full image URL
 const imageUrl = thumbnail ? `https://isabellagaragedoor.com${thumbnail}` : 'https://isabellagaragedoor.com/images/og-default.jpg';
@@ -39,7 +40,7 @@ const imageUrl = thumbnail ? `https://isabellagaragedoor.com${thumbnail}` : 'htt
 <div>
   <h3 style="text-align:center; font-weight:600; margin-top:2rem;">Share this page</h3>
   <div class="share-buttons">
-    <ShareButtons url={Astro.url.pathname} />
+    <ShareButtons url={publicPath(Astro.url)} />
   </div>
 </div>
 </section>

@@ -1,10 +1,13 @@
 ---
 import '../styles/tailwind.css';
+import { publicPath, absoluteUrl } from '../lib/urls';
+
+const pagePath = publicPath(Astro.url);
 const {
   title = 'Isabella Garage Door | Raising Performance. Elevating Standards.',
   description = 'Local, honest, and professional garage door repair and installation in Central Michigan.',
   image = '/og-default.jpg',
-  fullUrl = Astro.url.href, // Use actual current URL as default
+  fullUrl = absoluteUrl(pagePath, Astro.site),
   type = 'website'
 } = Astro.props;
 
@@ -14,7 +17,7 @@ const imageUrl = image.startsWith('http')
   : `https://isabellagaragedoor.com${image}`;
 
 // Build canonical URL
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://isabellagaragedoor.com').href;
+const canonicalURL = absoluteUrl(pagePath, Astro.site);
 
 const baseSchema = {
   "@context": "https://schema.org",

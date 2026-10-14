@@ -10,21 +10,23 @@ const filteredPosts = allPosts.filter(
   (post) => post.id !== currentSlug
 );
 
-// Shuffle and pick 3
-const randomPosts = [...filteredPosts]
-  .sort(() => 0.5 - Math.random())
-  .slice(0, 3);
+// Every other post is rendered; the newest 3 show by default and the browser
+// picks 3 at random on each visit (see src/scripts/random-pick.ts)
+const randomPosts = [...filteredPosts].sort(
+  (a, b) => new Date(b.data.pubDate ?? 0).getTime() - new Date(a.data.pubDate ?? 0).getTime()
+);
 ---
 
 {randomPosts.length > 0 && (
   <section class="you-may-also-like">
     <h3>You May Also Like</h3>
 
-    <div class="post-grid">
-      {randomPosts.map(post => (
+    <div class="post-grid" data-random-pick="3">
+      {randomPosts.map((post, i) => (
         <a
           href={`/blog/${post.id}`}
           class="post-card"
+          hidden={i >= 3}
         >
           {post.data.thumbnail && (
             <img
@@ -46,6 +48,10 @@ const randomPosts = [...filteredPosts]
     </div>
   </section>
 )}
+
+<script>
+  import '../scripts/random-pick';
+</script>
 
 <style>
 .you-may-also-like {

@@ -1,6 +1,7 @@
 ---
 title: "Garage Log Archive - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Paginate from '../../components/Paginate.astro';
 
 const title = 'Archive | Isabella Garage Door';
 const description = 'Browse our archive of past garage door projects showcasing craftsmanship and quality work across Central Michigan.';
@@ -70,14 +71,8 @@ const posts = [
 // Sort newest first
 const sorted = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-// Pagination setup
-const page = Number(Astro.url.searchParams.get("page") || 1);
+// Pagination happens in the browser (?page=N) — see components/Paginate.astro
 const perPage = 9;
-const start = (page - 1) * perPage;
-const end = start + perPage;
-
-const totalPages = Math.ceil(sorted.length / perPage);
-const paginated = sorted.slice(start, end);
 ---
 
 <BaseLayout {title} {description}>
@@ -91,49 +86,16 @@ const paginated = sorted.slice(start, end);
   <div id="gallery"></div>
 
   <section class="max-width: 1000px; margin: 0 auto; padding: 2rem 1rem;">
-    <div class="gallery-grid">
-      {paginated.map(post => (
+    <Paginate perPage={perPage} anchor="gallery" class="gallery-grid">
+      {sorted.map(post => (
         <div class="gallery-card">
           <img src={post.image} alt={post.alt} loading="lazy" decoding="async" />
           <p>{post.caption}</p>
         </div>
       ))}
-    </div>
+    </Paginate>
 
-    <div class="pagination-wrapper">
-      {page > 1 && (
-        <a href={`?page=${page - 1}#gallery`} class="pagination-button arrow">&larr;</a>
-      )}
-
-      {page > 3 && (
-        <>
-          <a href="?page=1" class="pagination-button">1</a>
-          <span class="pagination-ellipsis">...</span>
-        </>
-      )}
-
-      {Array.from({ length: totalPages }, (_, i) => i + 1)
-        .filter(p => p >= page - 2 && p <= page + 2)
-        .map(p => (
-          <a
-            href={`?page=${p}#gallery`}
-            class={`pagination-button ${p === page ? 'active' : ''}`}
-          >
-            {p}
-          </a>
-        ))}
-
-      {page < totalPages - 2 && (
-        <>
-          <span class="pagination-ellipsis">...</span>
-          <a href={`?page=${totalPages}`} class="pagination-button">{totalPages}</a>
-        </>
-      )}
-
-      {page < totalPages && (
-        <a href={`?page=${page + 1}#gallery`} class="pagination-button arrow">&rarr;</a>
-      )}
-    </div>
+    
   </section>
 
 <p class="left-content" style="margin-top: 1rem;">
