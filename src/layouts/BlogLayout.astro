@@ -42,7 +42,7 @@ const articleSchema = {
 };
 ---
 
-<BaseLayout title={title} description={description} image={thumbnail} fullUrl={fullUrl} type="article" legacy={false}>
+<BaseLayout title={title} description={description} image={thumbnail} fullUrl={fullUrl} type="article">
   <Fragment slot="head">
     {pubDate && <meta property="article:published_time" content={pubDate} />}
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />

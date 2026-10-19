@@ -49,7 +49,7 @@ const c = Astro.props as ServicePageContent;
 const [firstParagraph, ...moreParagraphs] = c.hero.paragraphs;
 ---
 
-<BaseLayout title={c.title} description={c.description} legacy={false}>
+<BaseLayout title={c.title} description={c.description}>
   <Fragment slot="head">
     {c.schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
   </Fragment>

@@ -4,7 +4,7 @@ import { z } from 'astro/zod';
 
 const blog = defineCollection({
   // Skip files starting with "_" (drafts), matching the old content collections behavior
-  loader: glob({ pattern: ['**/*.{md,mdx}', '!**/_*'], base: './src/content/blog' }),
+  loader: glob({ pattern: ['**/*.md', '!**/_*'], base: './src/content/blog' }),
   schema: z.object({
     title: z.string().optional(),
     description: z.string().optional(),

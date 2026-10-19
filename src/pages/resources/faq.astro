@@ -312,7 +312,7 @@ const visibleGroups = groups
 const faqSchema = faqPageSchema(visibleGroups.flatMap((g) => g.items));
 ---
 
-<BaseLayout {title} {description} legacy={false}>
+<BaseLayout {title} {description}>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </Fragment>

@@ -45,7 +45,7 @@ interface Props {
 const p = Astro.props;
 ---
 
-<BaseLayout title={p.title} description={p.description} legacy={false}>
+<BaseLayout title={p.title} description={p.description}>
   <slot name="head" slot="head" />
 
   <PageHero

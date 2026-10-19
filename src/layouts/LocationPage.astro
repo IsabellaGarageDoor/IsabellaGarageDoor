@@ -59,7 +59,7 @@ const visibleCards = c.services.cards
 const path = publicPath(Astro.url);
 ---
 
-<BaseLayout title={c.title} description={c.description} legacy={false}>
+<BaseLayout title={c.title} description={c.description}>
   <Fragment slot="head">
     {c.schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
   </Fragment>

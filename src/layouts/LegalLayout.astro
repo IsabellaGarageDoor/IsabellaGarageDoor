@@ -13,7 +13,7 @@ interface Props {
 const { frontmatter, title, description } = Astro.props;
 ---
 
-<BaseLayout frontmatter={frontmatter} title={title} description={description} legacy={false}>
+<BaseLayout frontmatter={frontmatter} title={title} description={description}>
   <section class="section legal">
     <div class="container legal__container">
       <article class="prose legal__doc">

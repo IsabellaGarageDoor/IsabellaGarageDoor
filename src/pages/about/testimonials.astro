@@ -54,7 +54,7 @@ const testimonialsSchema = {
 };
 ---
 
-<BaseLayout {title} {description} legacy={false}>
+<BaseLayout {title} {description}>
   <Fragment slot="head">
     <script type="application/ld+json" is:inline set:html={JSON.stringify(testimonialsSchema)} />
   </Fragment>

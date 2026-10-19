@@ -17,11 +17,6 @@ interface Props {
   type?: string;
   /** Markdown pages pass their frontmatter here */
   frontmatter?: { title?: string; description?: string };
-  /**
-   * Temporary while pages move to the new design: loads the previous
-   * stylesheet and icon font for pages that still use the old markup.
-   */
-  legacy?: boolean;
 }
 
 const pagePath = publicPath(Astro.url);
@@ -32,7 +27,6 @@ const {
   image = site.defaultImage,
   fullUrl = absoluteUrl(pagePath, Astro.site),
   type = 'website',
-  legacy = true,
 } = Astro.props;
 
 const imageUrl = image.startsWith('http') ? image : absoluteUrl(image, Astro.site);
@@ -94,12 +88,6 @@ const { googleAnalyticsId, clarityId } = site.analytics;
       href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600&family=Lora:ital,wght@0,500;0,600;0,700;1,500&display=swap"
     />
 
-    {legacy && (
-      <>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="/styles/global.css" />
-      </>
-    )}
 
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
@@ -113,7 +101,7 @@ const { googleAnalyticsId, clarityId } = site.analytics;
     <a class="skip-link" href="#main">Skip to content</a>
     <SiteHeader currentPath={pagePath} />
 
-    <main id="main" class:list={{ 'main-content': legacy }} tabindex="-1">
+    <main id="main" tabindex="-1">
       <slot />
     </main>
 
