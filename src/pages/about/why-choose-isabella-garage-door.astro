@@ -1,6 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import TestimonialCard from '../../components/TestimonialCard.astro'
+import PageHero from '../../components/ui/PageHero.astro';
+import Faq from '../../components/ui/Faq.astro';
+import BookingCta from '../../components/BookingCta.astro';
+import ContactBlock from '../../components/ContactBlock.astro';
+import Icon from '../../components/ui/Icon.astro';
+import type { FaqItem } from '../../lib/schema';
 
 const title = 'Why Choose Us | Isabella Garage Door';
 const description = 'Learn why homeowners in Mt. Pleasant, Clare, Alma and across Central Michigan trust Isabella Garage Door for honest, high-quality garage door service.';
@@ -38,117 +43,120 @@ const whyChooseUsSchema = {
           }
         ]
       }
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Does Isabella Garage Door provide a warranty?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, we provide a full 1-year warranty on both labor and all parts we install for your peace of mind."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What makes your springs better than standard ones?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We use high-cycle torsion springs rated for 25,000+ cycles. Standard industry springs often only last 10,000 cycles, meaning ours last more than twice as long."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What areas in Central Michigan do you serve?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "We proudly serve Isabella County and surrounding areas, including Mt. Pleasant, Alma, Clare, Rosebush, Shepherd, and Weidman."
-          }
-        }
-      ]
     }
   ]
 };
+
+// Previously schema-only (FAQPage in the graph above); now shown on the page and
+// emitted as FAQPage by the Faq component from the same items.
+const faqs: FaqItem[] = [
+  {
+    question: 'Does Isabella Garage Door provide a warranty?',
+    answer: '<p>Yes, we provide a full 1-year warranty on both labor and all parts we install for your peace of mind.</p>',
+  },
+  {
+    question: 'What makes your springs better than standard ones?',
+    answer: '<p>We use high-cycle torsion springs rated for 25,000+ cycles. Standard industry springs often only last 10,000 cycles, meaning ours last more than twice as long.</p>',
+  },
+  {
+    question: 'What areas in Central Michigan do you serve?',
+    answer: '<p>We proudly serve Isabella County and surrounding areas, including Mt. Pleasant, Alma, Clare, Rosebush, Shepherd, and Weidman.</p>',
+  },
+];
+
+const differentiators = [
+  { icon: 'home', title: 'Locally Owned & Operated:', text: "We're not a franchise. We're a family-run business rooted right here in Isabella County. This isn't just our work — it's our community." },
+  { icon: 'handshake', title: 'No Pushy Sales Tactics:', text: 'We don’t believe in scare tactics, bloated estimates, or selling you things you don’t need. Just honest advice and quality service.' },
+  { icon: 'tag', title: 'Upfront Pricing:', text: 'With our <a href="/homeowner-tools/easy-estimate">online estimate tool</a> and clear service agreements, you’ll know what to expect — no surprises.' },
+  { icon: 'sparkles', title: 'Clean, Professional Work:', text: 'We show up on time, respect your home, and leave things better than we found them.' },
+  { icon: 'shield', title: 'Fully Insured & Detail-Oriented:', text: 'We do it right the first time — and we stand behind our work.' },
+];
+
+const bars = [
+  { label: 'Responsiveness', width: '90%', delay: '0.1s' },
+  { label: 'Transparency', width: '95%', delay: '0.3s' },
+  { label: 'Modern Tools', width: '93%', delay: '0.5s' },
+  { label: 'Local Connection', width: '98%', delay: '0.7s' },
+];
+
+const expectations = [
+  { title: 'Clear Communication:', text: "From your first call to project completion, you'll always know what's next." },
+  { title: 'Flexible Solutions:', text: 'Whether you need a quick repair or a complete upgrade, we tailor our approach to your needs and budget.' },
+  { title: 'Follow-Through:', text: "We don't disappear after the job - we're here for questions, adjustments, and future needs." },
+  { title: 'Continuous Improvement:', text: "We're always learning new techniques and investing in better tools to serve you better." },
+];
 ---
 
-<BaseLayout {title} {description}>
-
-<Fragment slot="head">
+<BaseLayout {title} {description} legacy={false}>
+  <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(whyChooseUsSchema)} />
   </Fragment>
 
-  <img src="/photos/garage-door-why-choose-us.avif" alt="New garage door intallation in Central Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
+  <PageHero
+    title="Why Choose Isabella Garage Door?"
+    eyebrow="Why Choose Us"
+    intro="Choosing a garage door company is more than comparing prices — it's about who you’re inviting into your home and whether they’ll treat it with care, respect, and honesty. Here’s what sets us apart in Central Michigan."
+    image="/photos/garage-door-why-choose-us.avif"
+    imageAlt="New garage door intallation in Central Michigan"
+    crumbs={[{ name: 'Why Choose Us', href: '/about/why-choose-isabella-garage-door' }]}
+  >
+    <Fragment slot="actions">
+      <a href="/homeowner-tools/easy-estimate#estimate-form" class="btn btn--primary"><Icon name="calculator" /> Try Estimate Tool</a>
+      <a href="/contact" class="btn btn--outline-light"><Icon name="mail" /> Contact Us</a>
+    </Fragment>
+  </PageHero>
 
-  
-    <section class="hero-section">
-      <h1 class="page-title">Why Choose Isabella Garage Door?</h1>
-      <p>Choosing a garage door company is more than comparing prices — it's about who you’re inviting into your home and whether they’ll treat it with care, respect, and honesty. Here’s what sets us apart in Central Michigan.</p>
-    </section>
-
-    <section class="differentiators">
-      <h2 class="sub-heading">We're Local. We're Personal. We Care.</h2>
-      <ul class="bullet-list">
-        <li><strong>Locally Owned & Operated:</strong> We're not a franchise. We're a family-run business rooted right here in Isabella County. This isn't just our work — it's our community.</li>
-        <li><strong>No Pushy Sales Tactics:</strong> We don’t believe in scare tactics, bloated estimates, or selling you things you don’t need. Just honest advice and quality service.</li>
-        <li><strong>Upfront Pricing:</strong> With our <a href="/estimate-tool">online estimate tool</a> and clear service agreements, you’ll know what to expect — no surprises.</li>
-        <li><strong>Clean, Professional Work:</strong> We show up on time, respect your home, and leave things better than we found them.</li>
-        <li><strong>Fully Insured & Detail-Oriented:</strong> We do it right the first time — and we stand behind our work.</li>
+  <!-- Differentiators -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">What Sets Us Apart</span>
+        <h2>We're Local. We're Personal. We Care.</h2>
+      </div>
+      <ul class="diff-grid">
+        {differentiators.map((d) => (
+          <li class="card diff-card reveal">
+            <span class="card__icon"><Icon name={d.icon} /></span>
+            <p><strong>{d.title}</strong> <span set:html={d.text} /></p>
+          </li>
+        ))}
       </ul>
-    </section>
-
-
-
-
-<section class="graph-section" style="max-width: 1000px; margin: 3rem auto; padding: 1rem;">
-  <h2 class="sub-heading">Where We Stand Out</h2>
-
-  <div style="margin-bottom: 1rem;">
-    <span style="display: block; font-weight: 600;">Responsiveness</span>
-    <div style="background: #e0e0e0; height: 12px; border-radius: 6px; overflow: hidden;">
-      <div class="progress-bar" data-width="90%" data-delay="0.1s" style="width: 0%; height: 100%; background: #b27d57;"></div>
     </div>
-  </div>
+  </section>
 
-  <div style="margin-bottom: 1rem;">
-    <span style="display: block; font-weight: 600;">Transparency</span>
-    <div style="background: #e0e0e0; height: 12px; border-radius: 6px; overflow: hidden;">
-      <div class="progress-bar" data-width="95%" data-delay="0.3s" style="width: 0%; height: 100%; background: #b27d57;"></div>
+  <!-- Where we stand out + what to expect -->
+  <section class="section section--sand">
+    <div class="container split expect">
+      <div class="card stand-out">
+        <h2>Where We Stand Out</h2>
+        <div class="bars">
+          {bars.map((b) => (
+            <div class="bar">
+              <span class="bar__label">{b.label}</span>
+              <div class="bar__track">
+                <div class="progress-bar" data-width={b.width} data-delay={b.delay} style="width: 0%;"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="stack">
+        <span class="eyebrow">Working With Us</span>
+        <h2>What You Can Expect</h2>
+        <p>When you choose Isabella Garage Door, you're not just hiring a service provider - you're partnering with a team that's committed to making the entire experience as smooth and stress-free as possible. Here's what that looks like in practice:</p>
+        <ul class="check-list">
+          {expectations.map((e) => (
+            <li><Icon name="check-circle" /> <span><strong>{e.title}</strong> {e.text}</span></li>
+          ))}
+        </ul>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div style="margin-bottom: 1rem;">
-    <span style="display: block; font-weight: 600;">Modern Tools</span>
-    <div style="background: #e0e0e0; height: 12px; border-radius: 6px; overflow: hidden;">
-      <div class="progress-bar" data-width="93%" data-delay="0.5s" style="width: 0%; height: 100%; background: #b27d57;"></div>
-    </div>
-  </div>
-
-  <div>
-    <span style="display: block; font-weight: 600;">Local Connection</span>
-    <div style="background: #e0e0e0; height: 12px; border-radius: 6px; overflow: hidden;">
-      <div class="progress-bar" data-width="98%" data-delay="0.7s" style="width: 0%; height: 100%; background: #b27d57;"></div>
-    </div>
-  </div>
-</section>
-
-
-
-    <section class="comparison">
-      <h2 class="sub-heading">What You Can Expect</h2>
-      <p>When you choose Isabella Garage Door, you're not just hiring a service provider - you're partnering with a team that's committed to making the entire experience as smooth and stress-free as possible. Here's what that looks like in practice:</p>
-      <ul class="bullet-list">
-        <li><strong>Clear Communication:</strong> From your first call to project completion, you'll always know what's next.</li>
-        <li><strong>Flexible Solutions:</strong> Whether you need a quick repair or a complete upgrade, we tailor our approach to your needs and budget.</li>
-        <li><strong>Follow-Through:</strong> We don't disappear after the job - we're here for questions, adjustments, and future needs.</li>
-        <li><strong>Continuous Improvement:</strong> We're always learning new techniques and investing in better tools to serve you better.</li>
-      </ul>
-    </section>
-
-    <!-- Testimonial 
+  <!-- Testimonial
 <section>
 <a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
-  <TestimonialCard 
+  <TestimonialCard
     quote="After months of dealing with a noisy, jerky garage door, we finally decided to call Isabella Garage Door. The tech replaced the old worn out rollers. What a difference! The door is so quiet now. We really appreciate them fixing our door. Highly recommend!"
     author="Elizabeth A."
   />
@@ -156,69 +164,167 @@ const whyChooseUsSchema = {
 </section>
 -->
 
-
-
-    <section class="values-section">
-      <h2 class="sub-heading">We’re Not Just Raising Garage Doors — We’re Raising Standards.</h2>
-      <p>Our slogan isn’t just words. It’s how we operate, day in and day out. Whether it’s a simple repair 
+  <!-- Values -->
+  <section class="section">
+    <div class="container container--narrow text-center stack-lg stack">
+      <span class="eyebrow">Our Standard</span>
+      <h2>We’re Not Just Raising Garage Doors — We’re Raising Standards.</h2>
+      <p class="lead">Our slogan isn’t just words. It’s how we operate, day in and day out. Whether it’s a simple repair
 or a stuck door
-<!-- spring repair 
+<!-- spring repair
 or a full garage door installation -->, we approach every job with pride, craftsmanship, and care.</p>
       <p>We're the garage door company people feel good about recommending to family and friends — because we focus on the things that matter: quality, honesty, and treating every home like our own.</p>
-    </section>
-
-    <!-- Highlight Section -->
-    <div class="highlight-section">
-        <p>
-    Every bolt we tighten, every door we balance—it’s a reflection of <strong>who we are</strong> and the life we’re building here. We’re not just repairing doors; we’re showing our children what <strong>honest work looks like</strong>.
-  </p>
     </div>
+  </section>
 
-    <section class="call-to-action">
-      <h2 class="sub-heading">Still Deciding?</h2>
-      <p>We don’t expect to earn your trust with words alone. Check out our <a href="/testimonials">customer reviews</a>, try our <a href="/estimate-tool">free estimate tool</a>, or reach out directly to talk through your needs.</p>
-      <div class="cta-wrapper" style="margin-top: 3rem;">
-        <a href="/homeowner-tools/easy-estimate#estimate-form" class="testimonials-cta-button"><i class="fa-solid fa-wrench"></i> Try Estimate Tool</a>
-        <a href="/contact" class="cta-button"><i class="fa-solid fa-envelope-open-text"></i> Contact Us</a>
+  <!-- Highlight -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="highlight reveal">
+        <Icon name="handshake" class="highlight__icon" size="2rem" />
+        <p>
+          Every bolt we tighten, every door we balance—it’s a reflection of <strong>who we are</strong> and the life we’re building here. We’re not just repairing doors; we’re showing our children what <strong>honest work looks like</strong>.
+        </p>
       </div>
-    </section>
-  
-<section>
-  <h2 class="sub-heading">Isabella Garage Door</h2>
-  <p style="font-size: .9rem; text-align: center;">
-    Trusted, local, and owner-operated—experience the difference of service done right.
-  </p>
-  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
-    <em>Raising Performance. Elevating Standards</em>
-  </p>
-  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
-    <strong>Call or text:</strong> <a href="tel:+19895720303" style="color: #b27d57; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
-  </p>
-</section>
+    </div>
+  </section>
 
+  <Faq heading="Common Questions" items={faqs} />
+
+  <!-- Still deciding -->
+  <section class="section section--sand">
+    <div class="container container--narrow text-center stack-lg stack">
+      <span class="eyebrow">Next Steps</span>
+      <h2>Still Deciding?</h2>
+      <p class="lead">We don’t expect to earn your trust with words alone. Check out our <a href="/about/testimonials">customer reviews</a>, try our <a href="/homeowner-tools/easy-estimate">free estimate tool</a>, or reach out directly to talk through your needs.</p>
+      <div class="cluster cluster--center">
+        <a href="/homeowner-tools/easy-estimate#estimate-form" class="btn btn--primary"><Icon name="wrench" /> Try Estimate Tool</a>
+        <a href="/contact" class="btn btn--navy"><Icon name="mail" /> Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <BookingCta />
+  <ContactBlock text="Trusted, local, and owner-operated—experience the difference of service done right." />
+</BaseLayout>
 
 <style>
-ul {
-  padding-left: 1.2rem;
-  margin: 0;
-}
+  .diff-grid {
+    display: grid;
+    gap: var(--space-5);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+    list-style: none;
+  }
 
-li {
-  margin: 0.6rem 0 0.6rem;
-  list-style-type: disc;
-  font-size: 1rem;
-}
+  @media (min-width: 1000px) {
+    .diff-grid {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    .diff-card {
+      grid-column: span 2;
+    }
+    .diff-card:nth-child(4) {
+      grid-column: 2 / span 2;
+    }
+  }
+
+  .diff-card p {
+    color: var(--text);
+  }
+
+  .diff-card strong {
+    display: block;
+    margin-bottom: var(--space-1);
+    color: var(--navy);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+  }
+
+  .diff-card a {
+    color: var(--bronze-700);
+    text-decoration: underline;
+  }
+
+  .expect {
+    align-items: center;
+  }
+
+  .stand-out {
+    padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+  }
+
+  .bars {
+    display: grid;
+    gap: var(--space-5);
+    margin-top: var(--space-6);
+  }
+
+  .bar__label {
+    display: block;
+    margin-bottom: var(--space-2);
+    color: var(--navy);
+    font-weight: 600;
+  }
+
+  .bar__track {
+    height: 12px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: var(--sand);
+  }
+
+  .progress-bar {
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, var(--bronze-600), var(--bronze));
+  }
+
+  .lead a {
+    color: var(--bronze-700);
+    text-decoration: underline;
+  }
+
+  .highlight {
+    max-width: 62rem;
+    margin-inline: auto;
+    padding: clamp(2rem, 1.5rem + 2vw, 3rem);
+    border: 1px solid var(--bronze);
+    border-radius: var(--radius-lg);
+    background:
+      radial-gradient(circle at 0% 0%, rgb(255 255 255 / 0.1), transparent 60%),
+      linear-gradient(150deg, var(--navy), var(--navy-800));
+    box-shadow: var(--shadow-lg);
+    color: rgb(255 255 255 / 0.9);
+    text-align: center;
+  }
+
+  .highlight :global(.highlight__icon) {
+    margin: 0 auto var(--space-4);
+    color: var(--bronze-300);
+  }
+
+  .highlight p {
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 1rem + 0.5vw, 1.3rem);
+    line-height: 1.7;
+  }
+
+  .highlight strong {
+    color: var(--bronze-300);
+    font-weight: 600;
+  }
 </style>
 
 <script>
+  // Animate the "Where We Stand Out" bars when they scroll into view
   const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
+    (entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          const bar = entry.target;
-          const delay = bar.dataset.delay || "0s";
+          const bar = entry.target as HTMLElement;
+          const delay = bar.dataset.delay || '0s';
           bar.style.transition = `width 1s ease-out ${delay}`;
-          bar.style.width = bar.dataset.width;
+          bar.style.width = bar.dataset.width ?? '';
           observer.unobserve(bar);
         }
       });
@@ -226,32 +332,7 @@ li {
     { threshold: 0.3 }
   );
 
-  document.querySelectorAll('.progress-bar').forEach(bar => {
+  document.querySelectorAll('.progress-bar').forEach((bar) => {
     observer.observe(bar);
   });
 </script>
-
-<script>
-  if (typeof window !== 'undefined') {
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('slide-up-in');
-          observer.unobserve(entry.target); // Animate only once
-        }
-      });
-    }, {
-      threshold: 0.6,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const section = document.querySelector('.highlight-section');
-      if (section) {
-        observer.observe(section);
-      }
-    });
-  }
-</script>
-
-</BaseLayout>
