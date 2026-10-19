@@ -1,112 +1,34 @@
 ---
+// Related articles under a blog post. Every other post is rendered; the newest 3
+// show by default and the browser picks 3 at random on each visit
+// (see src/scripts/random-pick.ts).
 import { getCollection } from 'astro:content';
+import ArticleCard from './ArticleCard.astro';
 
+interface Props {
+  currentSlug: string;
+}
 const { currentSlug } = Astro.props;
 
-const allPosts = await getCollection('blog');
-
-// Remove current article
-const filteredPosts = allPosts.filter(
-  (post) => post.data.slug !== currentSlug
-);
-
-// Shuffle and pick 3
-const randomPosts = [...filteredPosts]
-  .sort(() => 0.5 - Math.random())
-  .slice(0, 3);
+const posts = (await getCollection('blog'))
+  .filter((post) => post.id !== currentSlug)
+  .sort((a, b) => new Date(b.data.pubDate ?? 0).getTime() - new Date(a.data.pubDate ?? 0).getTime());
 ---
 
-{randomPosts.length > 0 && (
-  <section class="you-may-also-like">
-    <h3>You May Also Like</h3>
-
-    <div class="post-grid">
-      {randomPosts.map(post => (
-        <a
-          href={`/blog/${post.slug}`}
-          class="post-card"
-        >
-          {post.data.thumbnail && (
-            <img
-              src={post.data.thumbnail}
-              alt={post.data.title || 'Garage door article'}
-              loading="lazy"
-            />
-          )}
-
-          <div class="post-content">
-            <strong>{post.data.title || 'Untitled Article'}</strong>
-
-            {post.data.description && (
-              <p>{post.data.description}</p>
-            )}
-          </div>
-        </a>
-      ))}
+{posts.length > 0 && (
+  <section class="section section--sand you-may-also-like">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Keep Reading</span>
+        <h2>You May Also Like</h2>
+      </div>
+      <div class="post-grid grid grid--3" data-random-pick="3">
+        {posts.map((post, i) => <ArticleCard post={post} hidden={i >= 3} />)}
+      </div>
     </div>
   </section>
 )}
 
-<style>
-.you-may-also-like {
-  margin-top: 4rem;
-  margin: 2rem auto 3rem auto;  /* centered, spacing below */
-  border-top: 2px solid #ccc;
-}
-
-.you-may-also-like h3 {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-}
-
-/* Grid layout */
-.post-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
-}
-
-/* Card */
-.post-card {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  font-family: 'Lora', serif;
-  color: #1a334f;
-  border: 0.094rem solid #b27d57;
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
-  border-radius: 8px;
-  overflow: hidden;
-  background: #fff;
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-
-.post-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
-}
-
-/* Thumbnail */
-.post-card img {
-  width: 100%;
-  height: 140px;
-  object-fit: cover;
-}
-
-/* Content */
-.post-content {
-  padding: 0.75rem;
-}
-
-.post-content strong {
-  display: block;
-  font-size: 1rem;
-  margin-bottom: 0.4rem;
-}
-
-.post-content p {
-  font-size: 0.85rem;
-  color: #555;
-  margin: 0;
-}
-</style>
+<script>
+  import '../scripts/random-pick';
+</script>

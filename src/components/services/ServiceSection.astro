@@ -1,0 +1,91 @@
+---
+// A content section on a service page: heading + prose body, optionally beside a photo.
+// Slotted content can use:
+//   <p class="callout">…</p>          highlighted "Bottom line" style note
+//   <div class="section-actions">…</div>  button row under the text
+interface Props {
+  heading: string;
+  eyebrow?: string;
+  image?: string;
+  imageAlt?: string;
+  tone?: 'default' | 'white' | 'sand';
+  /** Put the photo on the left on wide screens */
+  reverse?: boolean;
+  id?: string;
+}
+
+const { heading, eyebrow, image, imageAlt = '', tone = 'default', reverse = false, id } = Astro.props;
+---
+
+<section id={id} class:list={['section service-section', { 'section--white': tone === 'white', 'section--sand': tone === 'sand' }]}>
+  {image ? (
+    <div class:list={['container split', { 'split--reverse': reverse }]}>
+      <div class="service-section__text">
+        {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+        <h2 set:html={heading} />
+        <div class="prose service-section__body"><slot /></div>
+      </div>
+      <figure class="service-section__media reveal">
+        <img src={image} alt={imageAlt} loading="lazy" decoding="async" />
+      </figure>
+    </div>
+  ) : (
+    <div class="container container--narrow">
+      <div class="service-section__text">
+        {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+        <h2 set:html={heading} />
+        <div class="prose service-section__body"><slot /></div>
+      </div>
+    </div>
+  )}
+</section>
+
+<style>
+  .service-section__text > * + * {
+    margin-top: var(--space-5);
+  }
+
+  .service-section__body {
+    max-width: none;
+  }
+
+  .service-section__body :global(ul) {
+    padding-left: 1.25rem;
+  }
+
+  .service-section__body :global(li::marker) {
+    color: var(--bronze);
+  }
+
+  .service-section__body :global(.callout) {
+    padding: var(--space-5) var(--space-6);
+    border: 1px solid var(--bronze-100);
+    border-left: 4px solid var(--bronze);
+    border-radius: var(--radius);
+    background: var(--bronze-50);
+  }
+
+  .section--sand .service-section__body :global(.callout) {
+    background: var(--white);
+  }
+
+  .service-section__body :global(.section-actions) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    padding-top: var(--space-2);
+  }
+
+  .service-section__body :global(.section-actions a) {
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .service-section__media img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+</style>

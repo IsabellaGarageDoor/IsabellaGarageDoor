@@ -1,10 +1,10 @@
 ---
-title: "SpringStatus™ Estimator - Isabella Garage Door"
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import TestimonialCard from '../../components/TestimonialCard.astro'
+// SpringStatus™ page. The tool itself (its questions, calculations and scripts) is unchanged;
+// this file holds the page text and passes it to layouts/ToolPage.astro.
+import ToolPage from '../../layouts/ToolPage.astro';
 
-const title = 'SpringStatus™ Estimator | Isabella Garage Door';
-const description = 'If you’re wondering how much life your garage door spring has left in it, give our free SpringStatus™ Estimator a try!';
+const title = "SpringStatus™ Estimator | Isabella Garage Door";
+const description = "If you’re wondering how much life your garage door spring has left in it, give our free SpringStatus™ Estimator a try!";
 
 const springStatusSchema = {
   "@context": "https://schema.org",
@@ -30,223 +30,100 @@ const springStatusSchema = {
     }
   ]
 };
----
 
-<BaseLayout {title} {description}>   
-
-<Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(springStatusSchema)} />
-  </Fragment>
-
-<link rel="stylesheet" href="/styles/tools.css" />
-
-  <!-- Header Image -->
-  <section>
-<img src="/photos/Broken-spring.avif" alt="A clearly worn spring with an unknown amount of life left" loading="eager" fetchpriority="high" class="header-photo-interior" />
-  </section>
-
-  <!-- Page Title and Introduction -->
-<section>
-    <h1 class="page-title">SpringStatus™</h1>
-      <h2 class="sub-heading">How long will your garage door springs last? Let’s find out.</h2>
-        <p>Your torsion springs do the heavy lifting every day — and when they break, everything stops. SpringStatus™ helps you estimate how much life they’ve got left, so you’re not caught off guard.
-       </p>
-<div style="margin: 1rem;">
-      <ul class="bullet-list">
-        <li><i class="fas fa-check icon-bronze"></i><strong> Fast, free online tool</strong></li>
-        <li><i class="fas fa-check icon-bronze"></i><strong> No tech required</strong></li>
-        <li><i class="fas fa-check icon-bronze"></i><strong> Know before they snap</strong></li>
-      </ul>
-</div>
-</section>
-
-<!-- Highlight Section -->
-    <div class="highlight-section">
-        <p>
-    A broken spring doesn’t give you a heads-up — until now.
-   </p>
-    </div>
-
-<section>
- <p>Take a minute to answer a few quick questions and get an accurate estimate of how much life is left in your springs:</p>
-</section>
-
-  <section id="springstatus" style="position: relative; top: -80px;"></section>
-
-<!-- Splash + App Container -->
-<div id="estimate-app-container">
-
-  <!-- Splash Screen (initially visible) -->
- 
-<div id="estimate-splash" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 250px; gap: 1rem;">
-  <img src="/photos/blue-isabella-garage-door-logo.avif" alt="Isabella Garage Door Logo" style="max-width: 280px; opacity: 0.8;">
-  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-</div>
-
-  <!-- Your Actual App -->
-  <div id="app" style="display: none;"></div>
-
-</div></section>
-
-
-  <!-- Footer Text with Phone -->
-  <section>
-    <div class="footer-text">
-      Need immediate help? Call us at 
-      <a href="tel:9895720303" style="color: #b27d57; font-weight: bold; text-decoration: none;">
-        (989) 572-0303
-      </a>
-    </div>
-  </section>
-
-<section style="margin-top: 3rem;">
-      <h2 class="sub-heading">How SpringStatus™ works</h2>
-         <p>Springs don’t last forever. Most break between 10,000–15,000 cycles — and they don’t always give clear warning signs. SpringStatus™ asks a few quick questions about your door, usage, and wear signs to estimate:
-</p>
-<div style="margin: 1rem;">
-      <ul class="bullet-list">
-        <li><i class="fas fa-check icon-bronze"></i><strong> How much life is likely left</strong></li>
-        <li><i class="fas fa-check icon-bronze"></i><strong> Whether you’re at risk of a sudden failure</strong></li>
-        <li><i class="fas fa-check icon-bronze"></i><strong> If it’s worth replacing now — or waiting a little longer</strong></li>
-      </ul>
-</div>
-</section>
-
-    <!-- Testimonial 
+// Content that was commented out on the previous version of this page (kept for later):
+/*
+Testimonial 
 <section>
 <a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
   <TestimonialCard 
     quote="I had no clue my springs were even a thing until one snapped and trapped my car. This tool would’ve saved me from being late to work. It’s smart. Everyone should check theirs."
-    author="Derrick S."
-  />
+    author="Derrick S."></TestimonialCard>
 </a>
 </section>
--->
+*/
 
-
-<section style="margin-top: 3rem;">
-      <h2 class="sub-heading">Why spring failure matters</h2>
-<p>When a torsion spring breaks:</p>
-<div style="margin: 1rem;">
-      <ul class="bullet-list">
-        <li><i class="fas fa-check icon-bronze"></i><strong> Your door becomes heavy and inoperable</strong></li>
-        <li><i class="fas fa-check icon-bronze"></i><strong> Openers can burn out trying to lift it</strong></li>
-        <li><i class="fas fa-check icon-bronze"></i><strong> It can cause injury or damage if you're nearby</strong></li>
-        <li><i class="fas fa-check icon-bronze"></i><strong> You’ll be stuck until a tech arrives — often at higher emergency rates</strong></li>
-      </ul>
-</div>
-<p>With SpringStatus™, you can plan ahead, avoid urgent repairs, and replace springs on your terms.</p>
-</section>
-
-<!-- FAQ -->
-<section id="faq">
-<div class="faq-head">
-<a href="/resources/faq" style="text-decoration: none; color: inherit; display: block;">
-<h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions</h2>
-</a>
-</div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>How accurate is the estimate?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>It’s an educated prediction based on your door size, usage, and any visible signs of wear. It’s not exact, but it’s surprisingly useful for planning ahead — especially if your springs are 5+ years old.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Can I replace springs myself?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>We strongly advise against it. Torsion springs are under extreme tension and can cause serious injury. Always hire a trained professional for spring replacement.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>My springs "feel fine" — should I still check?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Yes. Springs can fail suddenly with no obvious symptoms. If it’s been a few years since installation (or you’re not sure), SpringStatus™ is a smart step.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>How often should springs be checked?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>We recommend checking once a year — or any time you notice the door getting heavier, uneven, or noisy.</p>
-    </div>
-  </div>
-
-</section>
-
-<section style="margin-top: 3rem;">
- <h2 class="sub-heading">Smart maintenance = fewer surprises</h2>
-<p style="text-align:center;">You wouldn’t wait for a tire to explode before replacing it.
-Your springs deserve the same care — especially when they support a 200+ lb door over your head.</p>
-<a href="/contact" class="cta-button margin-bottom-2rem"> 📅 Book an Inspection</a>
-</section>
-
-<section>
- <h2 class="sub-heading">Isabella Garage Door</h2>
-<p style="font-size: .9rem; text-align: center;">Torsion spring experts.
-Proudly serving Central Michigan with professional garage door care.</p>
-<p style="font-size: .9rem; text-align: center; margin: 0.5rem;"><em>Raising Performance. Elevating Standards</em></p>
-</section>
-
-
-  <!-- scripts -->
-<script is:inline>
-document.querySelectorAll('.faq-item').forEach(item => {
-  const question = item.querySelector('.faq-question');
-  const answer = item.querySelector('.faq-answer');
-
-  question.addEventListener('click', () => {
-    const isOpen = item.classList.contains('open');
-
-    // Close all
-    document.querySelectorAll('.faq-item').forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.faq-answer').style.maxHeight = null;
-    });
-    if (!isOpen) {
-      item.classList.add('open');
-      answer.style.maxHeight = answer.scrollHeight + 'px';
+const page = {
+  title: "__TITLE__",
+  description: "__DESC__",
+  toolName: "SpringStatus™",
+  hero: {
+    h1: "SpringStatus™",
+    subheading: "How long will your garage door springs last? Let’s find out.",
+    intro: "Your torsion springs do the heavy lifting every day — and when they break, everything stops. SpringStatus™ helps you estimate how much life they’ve got left, so you’re not caught off guard.",
+    bullets: [
+      "<strong>Fast, free online tool</strong>",
+      "<strong>No tech required</strong>",
+      "<strong>Know before they snap</strong>"
+    ],
+    image: "/photos/Broken-spring.avif",
+    imageAlt: "A clearly worn spring with an unknown amount of life left"
+  },
+  highlight: "A broken spring doesn’t give you a heads-up — until now.",
+  prompt: "Take a minute to answer a few quick questions and get an accurate estimate of how much life is left in your springs:",
+  anchorId: "springstatus",
+  sections: [
+    {
+      heading: "How SpringStatus™ works",
+      intro: [
+        "Springs don’t last forever. Most break between 10,000–15,000 cycles — and they don’t always give clear warning signs. SpringStatus™ asks a few quick questions about your door, usage, and wear signs to estimate:"
+      ],
+      bullets: [
+        "<strong>How much life is likely left</strong>",
+        "<strong>Whether you’re at risk of a sudden failure</strong>",
+        "<strong>If it’s worth replacing now — or waiting a little longer</strong>"
+      ]
+    },
+    {
+      heading: "Why spring failure matters",
+      intro: [
+        "When a torsion spring breaks:"
+      ],
+      bullets: [
+        "<strong>Your door becomes heavy and inoperable</strong>",
+        "<strong>Openers can burn out trying to lift it</strong>",
+        "<strong>It can cause injury or damage if you're nearby</strong>",
+        "<strong>You’ll be stuck until a tech arrives — often at higher emergency rates</strong>"
+      ],
+      after: [
+        "With SpringStatus™, you can plan ahead, avoid urgent repairs, and replace springs on your terms."
+      ]
     }
-  });
-});
-</script>
+  ],
+  faqs: [
+    {
+      question: "How accurate is the estimate?",
+      answer: "<p>It’s an educated prediction based on your door size, usage, and any visible signs of wear. It’s not exact, but it’s surprisingly useful for planning ahead — especially if your springs are 5+ years old.</p>"
+    },
+    {
+      question: "Can I replace springs myself?",
+      answer: "<p>We strongly advise against it. Torsion springs are under extreme tension and can cause serious injury. Always hire a trained professional for spring replacement.</p>"
+    },
+    {
+      question: "My springs \"feel fine\" — should I still check?",
+      answer: "<p>Yes. Springs can fail suddenly with no obvious symptoms. If it’s been a few years since installation (or you’re not sure), SpringStatus™ is a smart step.</p>"
+    },
+    {
+      question: "How often should springs be checked?",
+      answer: "<p>We recommend checking once a year — or any time you notice the door getting heavier, uneven, or noisy.</p>"
+    }
+  ],
+  closing: {
+    heading: "Smart maintenance = fewer surprises",
+    text: "You wouldn’t wait for a tire to explode before replacing it. Your springs deserve the same care — especially when they support a 200+ lb door over your head.",
+    cta: {
+      href: "/contact",
+      label: "📅 Book an Inspection"
+    }
+  },
+  signoff: "Torsion spring experts. Proudly serving Central Michigan with professional garage door care."
+};
+---
 
-<script>
-  if (typeof window !== 'undefined') {
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('slide-up-in');
-          observer.unobserve(entry.target); // Animate only once
-        }
-      });
-    }, {
-      threshold: 0.6,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const section = document.querySelector('.highlight-section');
-      if (section) {
-        observer.observe(section);
-      }
-    });
-  }
-</script>
+<ToolPage {...page} title={title} description={description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(springStatusSchema)} />
+  </Fragment>
 
 <script>
   const observer = new IntersectionObserver((entries) => {
@@ -417,9 +294,9 @@ document.querySelectorAll('.faq-item').forEach(item => {
             }
 
             const buttonsHtml = `
-                <a href="tel:9895720303" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
+                <a href="tel:+19895720303" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 8px;">
                     ${getSvgIcon('phone')}
-                    <span>Call Now: (989) 572-0303</span>
+                    <span>Call Now: 989-572-0303</span>
                 </a>
                 <a href="/contact" class="btn btn-secondary" style="display: inline-flex; align-items: center; gap: 8px;">
                     ${getSvgIcon('calendar')}
@@ -588,5 +465,4 @@ function resetAndScroll() {
         // Initialize the app
         renderQuestion();
     </script>
-
-</BaseLayout>
+</ToolPage>

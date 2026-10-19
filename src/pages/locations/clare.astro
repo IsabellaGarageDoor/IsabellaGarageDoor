@@ -1,35 +1,16 @@
 ---
-title: "Garage Door Repair in Clare, MI - Isabella Garage Door"
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import TrustBadges from '../../components/TrustBadges.astro';
-import AvailabilityBanner from '../../components/AvailabilityBanner.astro';
-import AnnouncementBanner from '../../components/editable-sections/AnnouncementBanner.astro';
-import HolidaysBirthdaysBanner from '../../components/HolidaysBirthdaysBanner.astro';
-import SplideSlider from '../../components/SplideSlider.jsx'
-import TestimonialCardWhite from '../../components/TestimonialCardWhite.astro';
-import BlogCards from '../../components/BlogCards.astro';
-import Coupons from '../../components/editable-sections/Coupons.astro';
-import HomeownerToolboxResponsive from '../../components/HomeownerToolboxResponsive.astro';
-import AskAbelCard from '../../components/AskAbelCard.astro';
-import BookingCta from '../../components/BookingCta.astro';
-import ServiceAreaMap from '../../components/ServiceAreaMap.astro';
-import ServiceFooter from '../../components/ServiceFooter.astro';
-import LocationsFooter from '../../components/LocationsFooter.astro';
-
-import { Image } from 'astro:assets';
-import heroBg from '../../assets/images/herobg301.webp';
-import heroBgMobile from '../../assets/images/herobg-mobile301.webp';
-
-const title = 'Garage Door Repair Clare MI | Isabella Garage Door';
-const description = 'Professional garage door repair and installation in Clare, Michigan. Broken springs, opener repair, new doors. Fast local service from your Central Michigan neighbor. Call 989-572-0303.';
+// Clare location page. The page's own content lives here;
+// the shared layout and sections are in layouts/LocationPage.astro.
+import LocationPage, { type LocationContent } from '../../layouts/LocationPage.astro';
+import { findReview, reviewsSchema } from '../../data/reviews';
 
 const clareSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Isabella Garage Door - Clare",
   "image": "https://isabellagaragedoor.com/photos/clare-michigan-garage-door-repair.webp",
-  "@id": "https://isabellagaragedoor.com/service-areas/clare",
-  "url": "https://isabellagaragedoor.com/service-areas/clare",
+  "@id": "https://isabellagaragedoor.com/locations/clare",
+  "url": "https://isabellagaragedoor.com/locations/clare",
   "telephone": "+1-989-572-0303",
   "priceRange": "$$",
   "address": {
@@ -96,719 +77,160 @@ const clareSchema = {
   }
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Do you repair garage doors in Clare, MI?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Clare is one of our most frequently served cities. We're based in Rosebush, about 20 minutes south on Old 27, and we cover all of Clare including downtown, the US-10 and Old 27 corridors, and surrounding Clare County. Same-day service is often available."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How fast can you get to Clare for garage door repairs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Clare is about 20 minutes from our Rosebush location. For broken springs, stuck doors, or anything urgent, we prioritize same-day scheduling. Call 989-572-0303 and we'll give you an accurate arrival window."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you service rural properties and farms outside Clare city limits?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. Clare County has a lot of rural properties, farms, and pole barns and we service all of it. We're comfortable on gravel roads, long driveways, and agricultural buildings. If you have a garage-style door in Clare County, we'll come to you."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What garage door services do you offer in Clare?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We handle everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair, new door installation, and annual preventive maintenance. If it involves a residential garage door in Clare, we take care of it."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are you local to the Clare area?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Isabella Garage Door is based in Rosebush—about 20 minutes south of Clare on Old 27. We're not a franchise or an out-of-area company with a Clare landing page. We're Central Michigan locals who know these roads, these communities, and what it means to do good work for neighbors."
-      }
-    }
-  ]
-};
-
-const reviewSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Review",
-      "@id": "https://isabellagaragedoor.com/#review-1",
-      "itemReviewed": {
-        "@id": "https://isabellagaragedoor.com/#business"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Elizabeth S."
-      },
-      "reviewBody": "Got our garage door working again! They got us on the schedule quick and made everything easy. I can't thank them enough. Highly recommend!!",
-      "datePublished": "2026-05-14"
-    },
-    {
-      "@type": "Review",
-      "@id": "https://isabellagaragedoor.com/#review-2",
-      "itemReviewed": {
-        "@id": "https://isabellagaragedoor.com/#business"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Autumn S."
-      },
-      "reviewBody": "I highly recommend Isabella Garage Door for any repairs you need. They were fast, efficient and reasonably priced. He had our spring fixed and door working again in no time. Will definitely use again.",
-      "datePublished": "2026-05-19"
-    }
-  ]
-};
----
-
-<BaseLayout {title} {description}>
-
-<Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(clareSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
-  </Fragment>
-
-<link rel="stylesheet" href="/styles/global.css" />
-
-<section class="hero">
-<picture>
-  <source media="(max-width: 767px)" srcset={heroBgMobile.src} />
-  
-  <source media="(min-width: 768px)" srcset={heroBg.src} />
-
-  <img 
-    src={heroBg.src} 
-    alt="Garage door repair background" 
-    loading="eager" 
-    fetchpriority="high"
-    class="hero-bg-image"
-  />
-</picture>
-  
-  <div class="hero-overlay"></div>
-
-<div class="hero-content reveal-on-scroll">
-  <h1>Clare's Garage Door Repair Expert</h1>
-  <p class="hero-description">
-    Same-day service for Clare homeowners — just down Old 27, never far away.
-  </p>
-  <div class="reveal-on-scroll">
-    <ul>
-      <li>✓ Local to Clare — Not a Call Center</li>
-      <li>✓ Upfront Pricing — No Surprises</li>
-      <li>✓ Work Backed by a 1-Year Warranty</li>
-    </ul>
-  </div>    
-
-    <div class="hero-buttons reveal-on-scroll">
-
-      <a href="sms:9895720303?&body=Hi%2C%20I%20need%20some%20help%20with%20my%20garage%20door." class="hero-estimate-button">
-        <i class="fas fa-comment-dots"></i> Text Us
-      </a>
-      <a href="tel:9895720303" class="hero-home-contact-button">
-        <i class="fa-solid fa-phone fa-fw"></i> Call (989) 572-0303
-      </a>
-    </div>
-
-<p>
-Not sure what it'll cost?
-</p>
-<a href="/homeowner-tools/easy-estimate#estimate-form" class="hero-estimate-cta">Get an Instant Estimate →</a>
-  </div>
-
-  <TrustBadges />
-
-<a href="/booking" class="book-now-btn">Book Now</a>
-
-</section>
-
-<AvailabilityBanner />
-
-<AnnouncementBanner />
-
-<HolidaysBirthdaysBanner />
-
-<section style="margin-bottom: 1rem;">
-<h2 class="sub-heading" style="margin-top: 2rem;">A Local Company Serving a Town That Gets Local</h2>
-  <p class="p-home">
-    Clare calls itself the Gateway to Michigan's North—and if you've driven through on US-10 or Old 27, you know exactly what that means. 
-    It's where the pine trees start thickening and half of lower Michigan stops for gas, a burger on Hamburger Hill, or a dozen from 
-    Cops &amp; Doughnuts before heading to the cabin. When Clare homeowners need their garage door fixed, we're just south of town 
-    in Rosebush—close enough to get there fast, local enough to actually care.
-  </p>
-</section>
-
- <section class="core-services-section">
-<h2 class="sub-heading">Complete Garage Door Services in Clare, Michigan</h2>
-   <p class="core-services-intro">
- Whether your spring snapped, your opener quit, or it's finally time for a new door—here's what Clare homeowners count on us for:
-</p>
-
-<div class="core-services-grid">
-
-  <a href="/services/broken-springs" class="core-services-card spring reveal-on-scroll">
-    <h3>Broken Spring Replacement</h3>
-    <p>Michigan winters are hard on garage door springs—and Clare gets its share of cold. When a spring snaps, the door isn't going anywhere on its own. We carry high-cycle replacement springs, replace both at once so you're not calling us again in six months, and balance the door before we leave. Most Clare spring jobs completed same-day.</p>
-  </a>
-
-  <a href="/services/door-repair" class="core-services-card repair">
-    <h3>General Door Repair</h3>
-    <p>Off-track panels, snapped cables, worn rollers, bent tracks, damaged sections—whatever's wrong, we find it and fix it. Clare has a mix of older homes near downtown and newer builds on the outskirts, and we're experienced working on all of it. No guesswork, no unnecessary parts, just an accurate diagnosis and a solid repair.</p>
-  </a>
-
-  <a href="/services/opener-repair" class="core-services-card opener">
-    <h3>Opener Repair & Installation</h3>
-    <p>Grinding on the way up, reversing for no reason, or just completely dead—opener issues have a lot of root causes and we'll track yours down fast. We service all major brands and can install a new smart opener with Wi-Fi control if it's time to upgrade. Great for properties where remote access matters.</p>
-  </a>
-<!--
-  <a href="/services/new-door-installation" class="core-services-card installation">
-    <h3>New Door Installation</h3>
-    <p>If your door has seen better days, a replacement can transform your home's curb appeal and add real value. We install quality residential doors in every style—traditional raised panel, carriage house, modern flush—in steel, wood, or composite. We handle everything from measurement to hauling away your old door.</p>
-  </a>
--->
-  <a href="/services/maintenance" class="core-services-card maintenance">
-    <h3>Preventive Maintenance</h3>
-    <p>Clare's seasonal temperature swings—hot summers, hard freezes, and freeze-thaw cycles all winter long—are tough on garage door hardware. An annual tune-up keeps your springs, cables, rollers, and opener running smoothly and catches small problems before they become expensive ones.</p>
-  </a>
-<!--
-  <div class="core-services-card core-services-card agricultural">
-    <h3>Rural & Agricultural Doors</h3>
-    <p>Clare County has plenty of farms, pole barns, and rural properties and we service them all. We're comfortable working on large agricultural openings, older barn-style hardware, and the setups you find on country properties throughout the Clare area. Long driveway? Gravel road? No problem.</p>
-  </div>
--->
-</div>
-</section>
-
-<section class="no-card">
-<div class="why-choose-us-section">
-    <div class="why-choose-us-container">
-        <h2 class="sub-heading">Why Clare Homeowners Call Us</h2>   
-      
-        <div class="accordion-group reveal-on-scroll">
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Just Down Old 27
-                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                 <div class="accordion-content">
-                    <div class="accordion-text">
-                        We're based in Rosebush—about 20 minutes south of Clare on Old 27. Fast response, no long-distance trip charges, and a technician who knows this corridor like the back of his hand.
-                   </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Built for Michigan Winters
-                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                 <div class="accordion-content">
-                    <div class="accordion-text">
-                        Clare gets real winters—and garage door hardware takes a beating. We use quality, professional-grade parts rated for Michigan's temperature swings, so repairs hold up long after we leave.
-                   </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Honest Pricing, No Surprises
-                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                     <div class="accordion-text">
-                        We quote before we start and we stick to it. Clare homeowners deserve straight talk about what something costs—not a lowball estimate that grows once we're in the driveway.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Rural-Ready
-                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                     <div class="accordion-text">
-                        Clare County has a lot of rural properties and we're comfortable on all of them. Gravel roads, long driveways, pole barns, agricultural buildings—we come prepared and we don't charge extra for the drive.
-                   </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Community Minded
-                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                     <div class="accordion-text">
-                        Clare values local businesses—just look at what the community has built around Cops & Doughnuts and the Irish Festival. We're a local business too, and we take that responsibility seriously.
-                   </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<a href="/about/why-choose-isabella-garage-door" class="cta-button margin-bottom-2rem"><i class="fas fa-magnifying-glass"></i> Learn More About Us</a>
-</section>
-
-
-  <section>
-    <h2 class="sub-heading">Real Feedback.<br>Real Trust.</h2>
-      <p class="testimonial-intro-paragraph">Here's what local homeowners are saying about Isabella Garage Door:
-         </p> 
-<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
-
-<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;" class="reveal-on-scroll">
-      <SplideSlider client:only="react" />
-</a>
-
-<a href="/about/testimonials" class="cta-button"><i class="fa-solid fa-star fa-fw"></i> Read Customer Reviews</a>
-</section>
-
-
-  <BookingCta />
-
-  <HomeownerToolboxResponsive />
-
-<img src="/photos/clare-michigan.avif" alt="Professional garage door repair service in Clare, Michigan" loading="eager" fetchpriority="high" class="about-image" />
-
-<section style="margin-top: 2rem;">
-  <h2 class="sub-heading">We Know Clare—From Downtown to the County Roads</h2>
-  <p class="p-home">
-    Clare is more than a stoplight on the way Up North. It's a real community with real neighborhoods, and we know them well:
-  </p>
-
-  <div class="p-home" style="margin-top: 1.5rem;">
-    <p><strong>🍩 Downtown Clare</strong><br>
-    McEwan Street and the heart of downtown Clare—home to Cops &amp; Doughnuts, the Irish Festival parade route, and some of the city's oldest and most well-kept residential blocks. Older homes in this part of town often have non-standard garage openings or aging hardware that takes real experience to properly service.</p>
-    
-    <p style="margin-top: 1rem;"><strong>🍔 Old 27 / Hamburger Hill Corridor</strong><br>
-    The Old 27 strip through Clare is one of the most recognizable stretches in Central Michigan. We come up from Rosebush on this road regularly—residential neighborhoods in and around this corridor get fast, familiar service from a tech who knows every mile of it.</p>
-    
-    <p style="margin-top: 1rem;"><strong>🛣️ US-10 Gateway Area</strong><br>
-    Clare sits at one of the most-traveled crossroads in the state, where US-10 meets US-27. Homes and properties in this part of town get the same local attention as anywhere else in Clare—we don't treat any neighborhood like an afterthought.</p>
-    
-    <p style="margin-top: 1rem;"><strong>☘️ Clare's Residential Neighborhoods</strong><br>
-    Established streets, newer subdivisions, and everything in between. Clare's housing stock ranges from well-loved older homes to newer builds on the outskirts of town—we work on all of it without breaking a sweat.</p>
-
-    <p style="margin-top: 1rem;"><strong>🌾 Rural Clare County</strong><br>
-    Farms, country homes, and properties well outside the city limits. We cover rural Clare County regularly and don't charge extra for being off the beaten path. If you're in Clare County, we come to you.</p>
-  </div>
-
-  <p class="p-home" style="margin-top: 1.5rem;">
-    <strong>Not sure if we cover your area?</strong> Call us at <a href="tel:9895720303" style="color: #b27d57; text-decoration: underline;">989-572-0303</a>—if you're in Clare or Clare County, the answer is yes.
-  </p>
-</section>
-
-<section class="faq-area">
-<section id="faq">
-<div class="faq-head">
-  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions - Clare, MI</h2>
-</div>
-
-<div class="reveal-on-scroll">
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Do you repair garage doors in Clare, MI?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Yes. Clare is one of our most frequently served cities. We're based in Rosebush, about 20 minutes south on Old 27, and we cover all of Clare including downtown, the US-10 and Old 27 corridors, and surrounding Clare County. Same-day service is often available when you call in the morning.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>How fast can you get to Clare for garage door repairs?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>About 20 minutes from our Rosebush shop. For broken springs, stuck doors, or anything that's left your car trapped, we prioritize same-day scheduling. Call us at <a href="tel:9895720303" style="color: #b27d57;">989-572-0303</a> and we'll give you an accurate arrival window.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Do you service rural properties and farms outside Clare city limits?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Absolutely. Clare County has a lot of rural properties, farms, and pole barns and we service all of it. We're comfortable on gravel roads, long driveways, and agricultural buildings. If you have a garage-style door in Clare County, we'll come to you—no extra charge for being out in the country.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>What garage door services do you offer in Clare?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>We handle everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair<!-- , new door installation -->, and annual preventive maintenance. If it involves a residential garage door in Clare, we take care of it.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Are you local to the Clare area?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Yes. Isabella Garage Door is based in Rosebush—about 20 minutes south of Clare on Old 27. We're not a franchise or an out-of-area company with a Clare landing page. We're Central Michigan locals who know these roads, these communities, and what it means to do good work for neighbors.</p>
-    </div>
-  </div>
-
- </section>
-</section>
-
-<AskAbelCard chatUrl="/ask-abel" />
-
-<section>
-  <h2 class="sub-heading">Clare Garage Door Repair, Done Right</h2>
-  <p class="p-home">
-    Clare has always had a strong sense of community. You can see it in the way the whole city turns out for the Irish Festival 
-    every March, in the way Cops &amp; Doughnuts became a full-blown national destination rather than just a bakery, and in the 
-    way locals still call that stretch of fast food on Old 27 "Hamburger Hill" like it's always been on the map. Clare has 
-    character—and we're proud to serve it.
-  </p>
-  <p class="p-home" style="margin-top: 1rem;">
-    We're based right here in Central Michigan, just down Old 27 in Rosebush. When you call, you get a local technician 
-    who shows up on time, explains what's wrong, and fixes it right the first time.
-  </p>
-</section>
-
-<BlogCards />
-
-<ServiceAreaMap /> 
-<a href="/contact" class="cta-button" style="margin-top: 2rem;"><i class="fa-solid fa-location-dot fa-fw"></i> Need Local Help?</a>
-
-<section class="core-services-section reveal-on-scroll">
-<Coupons /> 
-</section>
-
-<section>
-  <h2 class="sub-heading">Isabella Garage Door</h2>
-  <p style="font-size: .9rem; text-align: center;">
-    Your local garage door company—based in Rosebush, just down Old 27 from Clare.
-  </p>
-  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
-    <em>Raising Performance. Elevating Standards</em>
-  </p>
-  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
-    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #b27d57; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
-  </p>
-</section>
-
-<ServiceFooter currentPath="null" slot="full-width-section"/>
-<LocationsFooter currentPath="/locations/clare" slot="full-width-section" />
-
-
-<style>
-.homeowner-toolbox-section {
-  text-align: center;
-}
-
-.homeowner-toolbox-wrapper {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.homeowner-toolbox-grid {
-  display: grid;
-  gap: 1.5rem;
-  margin-top: 2rem;
-  /* 1. Default: 4 in a column (Mobile) */
-  grid-template-columns: 1fr;
-}
-
-/* 2. Tablet: Force 2x2 */
-@media (min-width: 550px) {
-  .homeowner-toolbox-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-/* 3. Desktop: Force 4 in a row */
-@media (min-width: 1050px) {
-  .homeowner-toolbox-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.homeowner-toolbox-card {
-  justify-content: flex-start;
-  background: #fff;
-  border: 0.094rem solid #b27d57;
-  border-radius: 0.75rem;
-  padding: 1rem 1rem 1rem;
-  text-decoration: none;
-  color: inherit;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
-  position: relative;
-  background-image: url('/photos/white-garage-door-service-section.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #ffffff;
-z-index: 1;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.homeowner-toolbox-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.homeowner-toolbox-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(255, 255, 255, 0.5);
-  z-index: 0;
-  border-radius: inherit;
-}
-
-.homeowner-toolbox-card * {
-  position: relative;
-  z-index: 2;
-}
-
-.homeowner-toolbox-card:hover,
-.homeowner-toolbox-card:focus {
-  transform: translateY(-5px);
-  box-shadow: 0 0 0.75rem rgba(178, 125, 87, 0.5);
-  outline: none;
-}
-
-.homeowner-toolbox-img {
-    height: 70px;
-  width: auto;
-  object-fit: contain;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1rem;
-}
-
-.homeowner-toolbox-body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.homeowner-toolbox-body h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #1a334f;
-  font-family: 'Lora', serif;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-  line-height: 2.1rem;
-}
-
-.homeowner-toolbox-body p {
-  font-size: 1.1rem;
-  line-height: 1.4;
-  color: #1a334f;
-  text-align: left;
-  padding: 0 1rem;
-  flex: 1;
-}
-
-
-</style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(".homeowner-toolbox-card, .core-services-card, .reveal-on-scroll");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target); // reveal once
-          }
-        });
+const content: Omit<LocationContent, 'schema'> = {
+  name: "Clare",
+  title: "Garage Door Repair Clare MI | Isabella Garage Door",
+  description: "Professional garage door repair and installation in Clare, Michigan. Broken springs, opener repair, new doors. Fast local service from your Central Michigan neighbor. Call 989-572-0303.",
+  hero: {
+    title: "Clare's Garage Door Repair Expert",
+    description: "Same-day service for Clare homeowners — just down Old 27, never far away.",
+    bullets: [
+      "Local to Clare — Not a Call Center",
+      "Upfront Pricing — No Surprises",
+      "Work Backed by a 1-Year Warranty"
+    ]
+  },
+  intro: {
+    heading: "A Local Company Serving a Town That Gets Local",
+    paragraphs: [
+      "Clare calls itself the Gateway to Michigan's North—and if you've driven through on US-10 or Old 27, you know exactly what that means. It's where the pine trees start thickening and half of lower Michigan stops for gas, a burger on Hamburger Hill, or a dozen from Cops &amp; Doughnuts before heading to the cabin. When Clare homeowners need their garage door fixed, we're just south of town in Rosebush—close enough to get there fast, local enough to actually care."
+    ]
+  },
+  services: {
+    heading: "Complete Garage Door Services in Clare, Michigan",
+    intro: "Whether your spring snapped, your opener quit, or it's finally time for a new door—here's what Clare homeowners count on us for:",
+    cards: [
+      {
+        title: "Broken Spring Replacement",
+        text: "Michigan winters are hard on garage door springs—and Clare gets its share of cold. When a spring snaps, the door isn't going anywhere on its own. We carry high-cycle replacement springs, replace both at once so you're not calling us again in six months, and balance the door before we leave. Most Clare spring jobs completed same-day.",
+        icon: "spring",
+        href: "/services/broken-springs"
       },
       {
-        threshold: 0.2, // trigger when 20% of card is visible
+        title: "General Door Repair",
+        text: "Off-track panels, snapped cables, worn rollers, bent tracks, damaged sections—whatever's wrong, we find it and fix it. Clare has a mix of older homes near downtown and newer builds on the outskirts, and we're experienced working on all of it. No guesswork, no unnecessary parts, just an accurate diagnosis and a solid repair.",
+        icon: "wrench",
+        href: "/services/door-repair"
+      },
+      {
+        title: "Opener Repair &amp; Installation",
+        text: "Grinding on the way up, reversing for no reason, or just completely dead—opener issues have a lot of root causes and we'll track yours down fast. We service all major brands and can install a new smart opener with Wi-Fi control if it's time to upgrade. Great for properties where remote access matters.",
+        icon: "opener",
+        href: "/services/opener-repair"
+      },
+      {
+        title: "New Door Installation",
+        text: "If your door has seen better days, a replacement can transform your home's curb appeal and add real value. We install quality residential doors in every style—traditional raised panel, carriage house, modern flush—in steel, wood, or composite. We handle everything from measurement to hauling away your old door.",
+        icon: "door",
+        href: "/services/new-door-installation",
+        hidden: true
+      },
+      {
+        title: "Preventive Maintenance",
+        text: "Clare's seasonal temperature swings—hot summers, hard freezes, and freeze-thaw cycles all winter long—are tough on garage door hardware. An annual tune-up keeps your springs, cables, rollers, and opener running smoothly and catches small problems before they become expensive ones.",
+        icon: "shield",
+        href: "/services/maintenance"
+      },
+      {
+        title: "Rural &amp; Agricultural Doors",
+        text: "Clare County has plenty of farms, pole barns, and rural properties and we service them all. We're comfortable working on large agricultural openings, older barn-style hardware, and the setups you find on country properties throughout the Clare area. Long driveway? Gravel road? No problem.",
+        icon: "tractor",
+        hidden: true
       }
-    );
+    ]
+  },
+  why: {
+    heading: "Why Clare Homeowners Call Us",
+    items: [
+      {
+        title: "Just Down Old 27",
+        body: "We're based in Rosebush—about 20 minutes south of Clare on Old 27. Fast response, no long-distance trip charges, and a technician who knows this corridor like the back of his hand."
+      },
+      {
+        title: "Built for Michigan Winters",
+        body: "Clare gets real winters—and garage door hardware takes a beating. We use quality, professional-grade parts rated for Michigan's temperature swings, so repairs hold up long after we leave."
+      },
+      {
+        title: "Honest Pricing, No Surprises",
+        body: "We quote before we start and we stick to it. Clare homeowners deserve straight talk about what something costs—not a lowball estimate that grows once we're in the driveway."
+      },
+      {
+        title: "Rural-Ready",
+        body: "Clare County has a lot of rural properties and we're comfortable on all of them. Gravel roads, long driveways, pole barns, agricultural buildings—we come prepared and we don't charge extra for the drive."
+      },
+      {
+        title: "Community Minded",
+        body: "Clare values local businesses—just look at what the community has built around Cops &amp; Doughnuts and the Irish Festival. We're a local business too, and we take that responsibility seriously."
+      }
+    ]
+  },
+  areaImage: {
+    src: "/photos/clare-michigan.avif",
+    alt: "Professional garage door repair service in Clare, Michigan"
+  },
+  area: {
+    heading: "We Know Clare—From Downtown to the County Roads",
+    intro: "Clare is more than a stoplight on the way Up North. It's a real community with real neighborhoods, and we know them well:",
+    items: [
+      {
+        title: "🍩 Downtown Clare",
+        text: "McEwan Street and the heart of downtown Clare—home to Cops &amp; Doughnuts, the Irish Festival parade route, and some of the city's oldest and most well-kept residential blocks. Older homes in this part of town often have non-standard garage openings or aging hardware that takes real experience to properly service."
+      },
+      {
+        title: "🍔 Old 27 / Hamburger Hill Corridor",
+        text: "The Old 27 strip through Clare is one of the most recognizable stretches in Central Michigan. We come up from Rosebush on this road regularly—residential neighborhoods in and around this corridor get fast, familiar service from a tech who knows every mile of it."
+      },
+      {
+        title: "🛣️ US-10 Gateway Area",
+        text: "Clare sits at one of the most-traveled crossroads in the state, where US-10 meets US-27. Homes and properties in this part of town get the same local attention as anywhere else in Clare—we don't treat any neighborhood like an afterthought."
+      },
+      {
+        title: "☘️ Clare's Residential Neighborhoods",
+        text: "Established streets, newer subdivisions, and everything in between. Clare's housing stock ranges from well-loved older homes to newer builds on the outskirts of town—we work on all of it without breaking a sweat."
+      },
+      {
+        title: "🌾 Rural Clare County",
+        text: "Farms, country homes, and properties well outside the city limits. We cover rural Clare County regularly and don't charge extra for being off the beaten path. If you're in Clare County, we come to you."
+      }
+    ],
+    closing: "<strong>Not sure if we cover your area?</strong> Call us at <a href=\"tel:+19895720303\">989-572-0303</a>—if you're in Clare or Clare County, the answer is yes."
+  },
+  faq: {
+    heading: "Frequently Asked Questions - Clare, MI",
+    items: [
+      {
+        question: "Do you repair garage doors in Clare, MI?",
+        answer: "<p>Yes. Clare is one of our most frequently served cities. We're based in Rosebush, about 20 minutes south on Old 27, and we cover all of Clare including downtown, the US-10 and Old 27 corridors, and surrounding Clare County. Same-day service is often available when you call in the morning.</p>"
+      },
+      {
+        question: "How fast can you get to Clare for garage door repairs?",
+        answer: "<p>About 20 minutes from our Rosebush shop. For broken springs, stuck doors, or anything that's left your car trapped, we prioritize same-day scheduling. Call us at <a href=\"tel:+19895720303\">989-572-0303</a> and we'll give you an accurate arrival window.</p>"
+      },
+      {
+        question: "Do you service rural properties and farms outside Clare city limits?",
+        answer: "<p>Absolutely. Clare County has a lot of rural properties, farms, and pole barns and we service all of it. We're comfortable on gravel roads, long driveways, and agricultural buildings. If you have a garage-style door in Clare County, we'll come to you—no extra charge for being out in the country.</p>"
+      },
+      {
+        question: "What garage door services do you offer in Clare?",
+        answer: "<p>We handle everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair<!-- , new door installation -->, and annual preventive maintenance. If it involves a residential garage door in Clare, we take care of it.</p>"
+      },
+      {
+        question: "Are you local to the Clare area?",
+        answer: "<p>Yes. Isabella Garage Door is based in Rosebush—about 20 minutes south of Clare on Old 27. We're not a franchise or an out-of-area company with a Clare landing page. We're Central Michigan locals who know these roads, these communities, and what it means to do good work for neighbors.</p>"
+      }
+    ]
+  },
+  closing: {
+    heading: "Clare Garage Door Repair, Done Right",
+    paragraphs: [
+      "Clare has always had a strong sense of community. You can see it in the way the whole city turns out for the Irish Festival every March, in the way Cops &amp; Doughnuts became a full-blown national destination rather than just a bakery, and in the way locals still call that stretch of fast food on Old 27 \"Hamburger Hill\" like it's always been on the map. Clare has character—and we're proud to serve it.",
+      "We're based right here in Central Michigan, just down Old 27 in Rosebush. When you call, you get a local technician who shows up on time, explains what's wrong, and fixes it right the first time."
+    ]
+  },
+  signoff: "Your local garage door company—based in Rosebush, just down Old 27 from Clare."
+};
 
-    cards.forEach((card) => {
-      observer.observe(card);
-    });
-  });
-</script>
+const schema = [clareSchema, reviewsSchema([findReview('Elizabeth S.'), findReview('Autumn S.')])];
+---
 
-<script is:inline>
-document.querySelectorAll('.faq-item').forEach(item => {
-  const question = item.querySelector('.faq-question');
-  const answer = item.querySelector('.faq-answer');
-
-  question.addEventListener('click', () => {
-    const isOpen = item.classList.contains('open');
-
-    document.querySelectorAll('.faq-item').forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.faq-answer').style.maxHeight = null;
-    });
-
-    if (!isOpen) {
-      item.classList.add('open');
-       answer.style.maxHeight = answer.scrollHeight + 'px';
-    }
-  });
-});
-</script>
-
-<script is:inline>
-  const icons = document.querySelectorAll('.core-services-icon-circle');
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-icons.forEach(icon => observer.observe(icon));
-</script>
-
-<script>
-// Function to toggle accordion visibility and arrow rotation
-function toggleAccordion(button) {
-    const item = button.parentElement;
-    const clickedContent = button.nextElementSibling;
-    const clickedArrow = button.querySelector('.accordion-arrow');
-
-    // Close all other open accordions
-    document.querySelectorAll('.accordion-content').forEach(content => {
-        const parentItem = content.parentElement;
-        const arrow = parentItem.querySelector('.accordion-arrow');
-
-        if (content !== clickedContent && content.style.maxHeight !== '0px' && content.style.maxHeight !== '') {
-            content.style.maxHeight = '0px';
-            if (arrow) arrow.style.transform = 'rotate(0deg)';
-            parentItem.classList.remove('active');
-        }
-    });
-
-    // Toggle the clicked accordion
-    if (clickedContent.style.maxHeight === '0px' || clickedContent.style.maxHeight === '') {
-        clickedContent.style.maxHeight = clickedContent.scrollHeight + 'px';
-        clickedArrow.style.transform = 'rotate(180deg)';
-        item.classList.add('active');
-    } else {
-        clickedContent.style.maxHeight = '0px';
-        clickedArrow.style.transform = 'rotate(0deg)';
-        item.classList.remove('active');
-    }
-}
-
-// Function to initialize accordions (set them to closed on load)
-function initializeAccordions() {
-    document.querySelectorAll('.accordion-content').forEach(content => {
-        content.style.maxHeight = '0px';
-        content.parentElement.classList.remove('active');
-        const arrow = content.previousElementSibling.querySelector('.accordion-arrow');
-        if (arrow) arrow.style.transform = 'rotate(0deg)';
-    });
-}
-
-// Make toggleAccordion available globally (used by HTML onclick)
-window.toggleAccordion = toggleAccordion;
-
-// Run initialization on first page load
-document.addEventListener('DOMContentLoaded', initializeAccordions);
-
-// Reinitialize after soft navigation (Astro)
-document.addEventListener('astro:after-swap', initializeAccordions);
-</script>
-
-  <script>
-    if (typeof window !== 'undefined') {
-      // Animate highlight section (existing)
-      const highlightObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('slide-up-in');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.5,
-        rootMargin: '0px 0px -50px 0px'
-      });
-
-      window.addEventListener('DOMContentLoaded', () => {
-        const highlightSection = document.querySelector('.highlight-section');
-        if (highlightSection) {
-          highlightObserver.observe(highlightSection);
-        }
-
-        // Animate value icon cards with staggered delay
-        const iconCards = document.querySelectorAll('.value-icon-card');
-        const iconObserver = new IntersectionObserver((entries, iconObs) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              // Add animation with stagger delay based on index
-              const index = Array.from(iconCards).indexOf(entry.target);
-              entry.target.style.animation = `fadeSlideUp 0.6s ease forwards`;
-              entry.target.style.animationDelay = `${index * 150}ms`;
-              iconObs.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.3 });
-
-        iconCards.forEach(card => iconObserver.observe(card));
-      });
-    }
-  </script>
-
-</BaseLayout>
+<LocationPage {...content} schema={schema} />

@@ -84,7 +84,7 @@ Our technicians are factory-trained, fully insured, and equipped with the latest
 
 Don't wait for a complete breakdown to address garage door issues. Regular maintenance not only extends the life of your system but also protects your family from potential hazards.
 
-Contact us today at (989) 572-0303 or visit our website to schedule your professional garage door inspection. New customers receive a free safety assessment with any service call!
+Contact us today at 989-572-0303 or visit our website to schedule your professional garage door inspection. New customers receive a free safety assessment with any service call!
 
 ---
 

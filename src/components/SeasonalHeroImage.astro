@@ -1,0 +1,54 @@
+---
+// Homepage hero photo that follows the seasons.
+// Dec–Feb winter, Mar–May spring, Jun–Aug summer, Sep–Nov autumn.
+// The build renders the season it was built in; a tiny inline script switches
+// to the visitor's current season, so a static build never goes stale.
+import heroAutumn from '../assets/images/hero-background-autumn.avif';
+import heroWinter from '../assets/images/hero-background-winter.avif';
+import heroSpring from '../assets/images/hero-background-spring.avif';
+import heroSummer from '../assets/images/hero-background-summer.avif';
+import heroMobileAutumn from '../assets/images/hero-mobile-background-autumn.avif';
+import heroMobileWinter from '../assets/images/hero-mobile-background-winter.avif';
+import heroMobileSpring from '../assets/images/hero-mobile-background-spring.avif';
+import heroMobileSummer from '../assets/images/hero-mobile-background-summer.avif';
+
+interface Props {
+  alt?: string;
+  class?: string;
+}
+const { alt = 'Garage door repair background', class: className } = Astro.props;
+
+const seasons = {
+  winter: { desktop: heroWinter.src, mobile: heroMobileWinter.src },
+  spring: { desktop: heroSpring.src, mobile: heroMobileSpring.src },
+  summer: { desktop: heroSummer.src, mobile: heroMobileSummer.src },
+  autumn: { desktop: heroAutumn.src, mobile: heroMobileAutumn.src },
+};
+
+const seasonFor = (month: number) =>
+  [11, 0, 1].includes(month) ? 'winter'
+  : [2, 3, 4].includes(month) ? 'spring'
+  : [5, 6, 7].includes(month) ? 'summer'
+  : 'autumn';
+
+const buildSeason = seasons[seasonFor(new Date().getMonth())];
+---
+
+<picture id="seasonal-hero">
+  <source media="(max-width: 767px)" srcset={buildSeason.mobile} />
+  <source media="(min-width: 768px)" srcset={buildSeason.desktop} />
+  <img src={buildSeason.desktop} alt={alt} loading="eager" fetchpriority="high" class={className} />
+</picture>
+<script is:inline define:vars={{ seasons }}>
+  (function () {
+    var m = new Date().getMonth();
+    var s = [11, 0, 1].includes(m) ? 'winter' : [2, 3, 4].includes(m) ? 'spring' : [5, 6, 7].includes(m) ? 'summer' : 'autumn';
+    var pic = document.getElementById('seasonal-hero');
+    if (!pic) return;
+    var sources = pic.querySelectorAll('source');
+    if (sources[0].getAttribute('srcset') === seasons[s].mobile) return;
+    sources[0].srcset = seasons[s].mobile;
+    sources[1].srcset = seasons[s].desktop;
+    pic.querySelector('img').src = seasons[s].desktop;
+  })();
+</script>

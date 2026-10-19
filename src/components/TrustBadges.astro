@@ -1,7 +1,6 @@
 ---
+// Six trust badges (insured, technicians, parts, local, warranty, rated).
 import { Image } from 'astro:assets';
-
-// Import your badge assets
 import shieldImg from '../assets/images/trust-badge-shield.avif';
 import toolsImg from '../assets/images/trust-badge-tools.avif';
 import gearsImg from '../assets/images/trust-badge-gears.avif';
@@ -9,140 +8,69 @@ import michiganImg from '../assets/images/trust-badge-michigan.avif';
 import bannerImg from '../assets/images/trust-badge-banner.avif';
 import starsImg from '../assets/images/trust-badge-stars.avif';
 
+interface Props {
+  /** "light" for cream/white backgrounds, "dark" for navy/photo backgrounds */
+  tone?: 'light' | 'dark';
+}
+const { tone = 'light' } = Astro.props;
+
+const badges = [
+  { img: shieldImg, alt: 'Fully Insured', label: ['Fully', 'Insured'] },
+  { img: toolsImg, alt: 'Expert Technicians', label: ['Expert', 'Technicians'] },
+  { img: gearsImg, alt: 'Premium Parts', label: ['Premium', 'Parts'] },
+  { img: michiganImg, alt: 'Local-Family Owned', label: ['Local-Family', 'Owned'] },
+  { img: bannerImg, alt: 'Warranty Guarantee', label: ['Warranty', 'Guarantee'] },
+  { img: starsImg, alt: '5 Star Rated', label: ['5 Star', 'Rated'] },
+];
 ---
-<!-- I THINK THIS IS PROPERLY WORKING AFTER GEMINI SCREWED IT UP -->
 
-<div class="trust-badges"> 
-  <div class="trust-badge reveal-on-scroll"> 
-    <Image src={shieldImg} alt="Fully Insured" width={140} height={140} />
-    <p>Fully<br>Insured</p> 
-  </div> 
-
-  <div class="trust-badge reveal-on-scroll"> 
-    <Image src={toolsImg} alt="Expert Technicians" width={140} height={140} />
-    <p>Expert<br>Technicians</p> 
-  </div> 
-
-  <div class="trust-badge reveal-on-scroll"> 
-    <Image src={gearsImg} alt="Premium Parts" width={140} height={140} />
-    <p>Premium<br>Parts</p> 
-  </div> 
-
-  <div class="trust-badge reveal-on-scroll"> 
-    <Image src={michiganImg} alt="Local-Family Owned" width={140} height={140} />
-    <p>Local-Family<br>Owned</p> 
-  </div> 
-
-  <div class="trust-badge reveal-on-scroll"> 
-    <Image src={bannerImg} alt="Warranty Guarantee" width={140} height={140} />
-    <p>Warranty<br>Guarantee</p> 
-  </div> 
-
-  <div class="trust-badge reveal-on-scroll"> 
-    <Image src={starsImg} alt="5 Star Rated" width={140} height={140} />
-    <p>5 Star<br>Rated</p> 
-  </div> 
-</div>
-</section>
+<ul class:list={['trust-badges', `trust-badges--${tone}`]}>
+  {badges.map((b) => (
+    <li class="trust-badge">
+      <Image src={b.img} alt="" width={140} height={140} />
+      <p>{b.label[0]}<br />{b.label[1]}</p>
+    </li>
+  ))}
+</ul>
 
 <style>
- .trust-badges { 
+  .trust-badges {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5) var(--space-3);
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+  }
 
-max-width: 1000px; 
+  .trust-badge img {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--space-2);
+    filter: drop-shadow(0 4px 8px rgb(17 35 56 / 0.18));
+  }
 
-margin: 1rem auto; 
+  .trust-badge p {
+    color: var(--navy);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    line-height: 1.3;
+  }
 
-display: grid; 
+  .trust-badges--dark .trust-badge p {
+    color: rgb(255 255 255 / 0.92);
+  }
 
-grid-template-columns: repeat(6, 1fr); 
+  @media (min-width: 720px) {
+    .trust-badges {
+      grid-template-columns: repeat(6, 1fr);
+    }
 
-gap: .05rem; text-align: center; 
-
-} 
-
-
-
-
-
-
-
-.trust-badge img { 
-
-width: 70px; 
-
-height: auto; 
-
-display: block; 
-
-margin: 0 auto; 
-
-object-fit: contain;
-
-} 
-
-
-
-.trust-badge p { 
-
-margin-top: 0.15rem; 
-
-font-size: 0.9rem; 
-
-font-weight: 500; 
-
-}
-
-@media (max-width: 768px) { .trust-badge img { 
-
-width: 35px; 
-
-height: auto; 
-
-display: block; 
-
-margin: 0 auto; 
-
-object-fit: contain;
-
-} 
-
-.trust-badge p { 
-
-margin-top: 0.15rem; 
-
-font-size: 0.6rem; 
-
-font-weight: 500; 
-
-}
-
-}
-
-
-
-
+    .trust-badge img {
+      width: 72px;
+      height: 72px;
+    }
+  }
 </style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(".reveal-on-scroll");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target); // reveal once
-          }
-        });
-      },
-      {
-        threshold: 0.2, // trigger when 20% of card is visible
-      }
-    );
-
-    cards.forEach((card) => {
-      observer.observe(card);
-    });
-  });
-</script>

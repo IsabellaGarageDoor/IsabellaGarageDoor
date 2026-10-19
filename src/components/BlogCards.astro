@@ -1,142 +1,39 @@
 ---
+// Three article cards from the blog. Every post is rendered; the newest COUNT show
+// by default and the browser picks COUNT at random on each visit
+// (see src/scripts/random-pick.ts).
 import { getCollection } from 'astro:content';
+import ArticleCard from './ArticleCard.astro';
+import Icon from './ui/Icon.astro';
 
-// How many cards to show
 const COUNT = 3;
-
 const posts = await getCollection('blog');
-
-// Shuffle + select
-const featuredPosts = [...posts]
-  .sort(() => 0.5 - Math.random())
-  .slice(0, COUNT);
+const featuredPosts = [...posts].sort(
+  (a, b) => new Date(b.data.pubDate ?? 0).getTime() - new Date(a.data.pubDate ?? 0).getTime()
+);
 ---
 
-<section class="blog-background">
-  <h2 class="sub-heading">Garage Door Tips & Learning Center</h2>
+<section class="section blog-teaser">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">From the Blog</span>
+      <h2>Garage Door Tips & Learning Center</h2>
+    </div>
 
-  <div class="blog-cards reveal-on-scroll">
-    {featuredPosts.map(post => (
-      <article class="blog-card">
-        {post.data.thumbnail && (
-          <img
-            src={post.data.thumbnail}
-            alt={post.data.title || 'Garage door article'}
-            loading="lazy"
-          />
-        )}
+    <div class="blog-cards grid grid--3 reveal" data-random-pick={COUNT}>
+      {featuredPosts.map((post, i) => (
+        <ArticleCard post={post} hidden={i >= COUNT} />
+      ))}
+    </div>
 
-        <div class="blog-content">
-          <h3>
-            <a href={`/blog/${post.slug}`}>
-              {post.data.title}
-            </a>
-          </h3>
-
-          {post.data.description && (
-            <p>{post.data.description}</p>
-          )}
-
-          <a class="read-more" href={`/blog/${post.slug}`}>
-            Read More →
-          </a>
-        </div>
-      </article>
-    ))}
+    <div class="cluster cluster--center mt-10">
+      <a href="/resources/learning-center" class="btn btn--outline">
+        Visit the Learning Center <Icon name="arrow-right" />
+      </a>
+    </div>
   </div>
 </section>
 
-<style>
-    /* --- BASE/MOBILE CONTAINER STYLES (SLIDER ACTIVATED) --- */
-    .blog-cards {
-      display: grid;
-      /* Mobile slider behavior fallback */
-      grid-auto-flow: column;
-      grid-auto-columns: 89%;
-      gap: 1rem;
-      max-width: 100%;
-      margin: 2rem 0 0;
-      padding: 1rem 0;
-      
-      /* Horizontal scrolling and snapping mechanics */
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-padding: 1rem;
-      -webkit-overflow-scrolling: touch;
-      
-      /* Hide standard scrollbars */
-      scrollbar-width: none; 
-    }
-
-    .blog-cards::-webkit-scrollbar {
-      display: none; 
-    }
-
-    /* --- BASE/MOBILE CARD STYLES --- */
-    .blog-card {
-      background: white;
-      border: 0.094rem solid #b27d57;
-      border-radius: 0.75rem;
-      margin: 0;
-      overflow: hidden;
-      width: 100%;
-      box-sizing: border-box;
-      text-align: left;
-      box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Added transition */
-      
-      /* Lock snap targets cleanly into place on mobile swipe */
-      scroll-snap-align: start;
-    }
-
-    .blog-card:hover {
-      transform: translateY(-5px); /* Lift on hover */
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 20px rgba(178, 125, 87, 0.4); /* Stronger shadow and glow */
-    }
-
-    .blog-card img {
-      width: 100%;
-      height: auto;
-      max-height: 14rem; /* Slightly taller images */
-      display: block;
-      object-fit: cover; /* Ensure images cover the area */
-    }
-
-    .blog-content {
-      padding: 1.25rem; /* Increased padding */
-    }
-
-    .blog-content h3 {
-      font-size: 1.15rem; /* Slightly larger */
-      margin-bottom: 0.6rem; /* Adjusted margin */
-      font-family: 'Lora', serif;
-      font-weight: 600;
-    }
-
-    .read-more {
-      color: #b27d57;
-      font-weight: bold;
-      text-align: left;
-      text-decoration: none;
-      transition: color 0.3s ease;
-    }
-
-    .read-more:hover {
-      color: #81583b; /* Darker bronze on hover */
-      text-decoration: underline;
-    }
-
-    /* --- DESKTOP BREAKPOINT (RESTORE ORIGINAL GRID) --- */
-    @media (min-width: 768px) {
-      .blog-cards {
-        grid-auto-flow: unset;
-        grid-auto-columns: unset;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        overflow-x: visible;
-        padding: 0rem;
-        scrollbar-width: auto;
-        max-width: 1000px;
-        margin: 2rem auto 0;
-      }
-    }
-</style>
+<script>
+  import '../scripts/random-pick';
+</script>

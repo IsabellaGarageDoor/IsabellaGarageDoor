@@ -1,0 +1,101 @@
+---
+// Accordion of short points ("Why choose us"), built on native <details>.
+import Icon from './Icon.astro';
+
+export interface AccordionItem {
+  title: string;
+  /** Body HTML */
+  body: string;
+}
+
+interface Props {
+  items: AccordionItem[];
+  name?: string;
+  /** Open the first item by default */
+  openFirst?: boolean;
+}
+
+const { items, name = 'accordion', openFirst = true } = Astro.props;
+---
+
+<div class="accordion">
+  {items.map((item, i) => (
+    <details class="accordion__item" name={name} open={openFirst && i === 0}>
+      <summary>
+        <span class="accordion__num" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+        <span class="accordion__title" set:html={item.title} />
+        <Icon name="chevron-down" class="accordion__chev" />
+      </summary>
+      <div class="accordion__body" set:html={item.body} />
+    </details>
+  ))}
+</div>
+
+<style>
+  .accordion {
+    display: grid;
+    gap: var(--space-3);
+  }
+
+  .accordion__item {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    transition: box-shadow var(--duration) var(--ease), border-color var(--duration) var(--ease);
+  }
+
+  .accordion__item[open] {
+    border-color: var(--bronze-200);
+    box-shadow: var(--shadow);
+  }
+
+  .accordion__item summary {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-5) var(--space-6);
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .accordion__item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .accordion__num {
+    color: var(--bronze-600);
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  .accordion__title {
+    flex: 1;
+    color: var(--navy);
+    font-family: var(--font-heading);
+    font-size: 1.12rem;
+    font-weight: 600;
+    line-height: var(--leading-snug);
+  }
+
+  .accordion__item :global(.accordion__chev) {
+    flex-shrink: 0;
+    color: var(--bronze-600);
+    transition: transform var(--duration) var(--ease);
+  }
+
+  .accordion__item[open] :global(.accordion__chev) {
+    transform: rotate(180deg);
+  }
+
+  .accordion__body {
+    padding: 0 var(--space-6) var(--space-6) calc(var(--space-6) + 1.75rem + var(--space-4) - 0.5rem);
+    color: var(--muted);
+  }
+
+  @media (max-width: 599px) {
+    .accordion__body {
+      padding-left: var(--space-6);
+    }
+  }
+</style>

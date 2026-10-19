@@ -1,13 +1,12 @@
 ---
-title: "Spring Repair - Isabella Garage Door"
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import TrustBadges from '../../components/TrustBadges.astro';
-import TestimonialCard from '../../components/TestimonialCard.astro'
-import BookingCta from '../../components/BookingCta.astro';
-import ServiceFooter from '../../components/ServiceFooter.astro';
+// Broken Garage Door Spring Repair page. This page's own text lives here; the shared layout is layouts/ServicePage.astro.
+import ServicePage, { type ServicePageContent } from '../../layouts/ServicePage.astro';
+import ServiceSection from '../../components/services/ServiceSection.astro';
+import ServiceHighlights from '../../components/services/ServiceHighlights.astro';
+import ToolPromo from '../../components/services/ToolPromo.astro';
 
-const title = 'Broken Garage Door Spring Repair | Isabella Garage Door';
-const description = 'Broken garage door spring in Mt. Pleasant? We provide same-day spring replacement throughout Central Michigan. Expert service, fair pricing, and safety guaranteed. Call 989-572-0303.';
+const title = "Broken Garage Door Spring Repair | Isabella Garage Door";
+const description = "Broken garage door spring in Mt. Pleasant? We provide same-day spring replacement throughout Central Michigan. Expert service, fair pricing, and safety guaranteed. Call 989-572-0303.";
 
 const springSchema = {
   "@context": "https://schema.org",
@@ -47,345 +46,88 @@ const springSchema = {
   }
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How do I know if my garage door spring is broken?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The most obvious sign is a loud bang—it sounds like a gunshot or firecracker. You might also notice your garage door won't open more than a few inches, the door feels extremely heavy when you try to lift it manually, or the opener motor runs but the door doesn't move. If you see a gap in the spring coil (it looks like it's split in two), your spring is definitely broken."
+const content: Omit<ServicePageContent, 'schema'> = {
+  title: title,
+  description: description,
+  crumb: {
+    name: "Broken Garage Door Spring Repair",
+    href: "/services/broken-springs"
+  },
+  hero: {
+    title: "Broken Garage Door Spring?",
+    image: "/photos/garage-door-spring-repair.avif",
+    imageAlt: "Professional garage door spring repair in Mt. Pleasant, Michigan",
+    paragraphs: [
+      "Your garage door spring just snapped with a loud bang—and now your door won't open. We've been there dozens of times. Isabella Garage Door provides fast, safe spring replacement throughout Mt. Pleasant, Alma, Clare, and all of Central Michigan."
+    ],
+    callout: "<strong>Car stuck in your garage and can't get out?</strong> Call or text us now.",
+    smsHref: "sms:+19895720303?&body=Hi%2C%20I%20need%20help%20with%20a%20broken%20garage%20door%20spring."
+  },
+  faq: {
+    items: [
+      {
+        question: "How do I know if my garage door spring is broken?",
+        answer: "<p>The most obvious sign is a loud bang—it sounds like a gunshot or firecracker. You might also notice your garage door won't open more than a few inches, the door feels extremely heavy when you try to lift it manually, or the opener motor runs but the door doesn't move. If you see a gap in the spring coil (it looks like it's split in two), your spring is definitely broken. Our free <a href=\"/homeowner-tools/door-diagnosis\">DoorDiagnosis™ tool</a> can help you confirm the issue in under 60 seconds.</p>"
+      },
+      {
+        question: "Should I replace one spring or both?",
+        answer: "<p>We always recommend replacing both springs at the same time, even if only one is broken. Here's why: if one spring just broke, the other spring is the same age and has been through the same number of cycles. It's going to break soon—usually within a few weeks.</p>"
+      },
+      {
+        question: "What's the difference between torsion springs and extension springs?",
+        answer: "<p>Torsion springs are mounted on a rod above the garage door opening and twist to lift the door. They're safer, last longer, and are standard on most modern garage doors. Extension springs run along the sides of the door and stretch to provide lift. They're more common on older doors, have a shorter lifespan, and are more dangerous when they break. If you have extension springs and they're breaking frequently, we can often upgrade you to torsion springs for better performance and safety.</p>"
+      },
+      {
+        question: "Can I replace a garage door spring myself?",
+        answer: "<p>We strongly advise against it. Garage door springs are under extreme tension. When a spring breaks or is released improperly, it can cause serious injury. Professional technicians use specialized tools and safety proceedures to handle springs safely.</p>"
+      },
+      {
+        question: "How long does spring replacement take?",
+        answer: "<p>Most spring replacements take about an hour. We can usually offer same-day or next-day service, when available in Mt. Pleasant, Alma, Clare, and throughout Isabella County. When you call us at <a href=\"tel:+19895720303\">989-572-0303</a>, we'll give you a realistic time window and keep you updated if anything changes.</p>"
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Should I replace one spring or both?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We always recommend replacing both springs at the same time, even if only one is broken. If one spring just broke, the other spring is the same age and has been through the same number of cycles. It's going to break soon—usually within a few weeks."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the difference between torsion springs and extension springs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Torsion springs are mounted on a rod above the garage door opening and twist to lift the door. They're safer, last longer, and are standard on most modern garage doors. Extension springs run along the sides of the door and stretch to provide lift. They're more common on older doors, have a shorter lifespan, and are more dangerous when they break."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I replace a garage door spring myself?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We strongly advise against it. Garage door springs are under extreme tension. When a spring is released improperly, it can cause serious injury or death. Professional technicians use specialized tools and safety proceedures to handle springs safely."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does spring replacement take?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Most spring replacements take about an hour. We can usually offer same-day or next-day service, when available, in Mt. Pleasant, Alma, Clare, and throughout Isabella County."
-      }
-    },
-  ]
+    ]
+  },
+  testimonial: {
+    quote: "I highly recommend Isabella Garage Door for any repairs you need. They were fast, efficient and reasonably priced. He had our spring fixed and door working again in no time. Will definitely use again.",
+    author: "Autumn S."
+  },
+  research: {
+    heading: "Still researching garage door springs?",
+    text: "We’ve written a detailed guide explaining the typical cost of spring replacement in the Mt. Pleasant area and what homeowners should expect during the repair process",
+    post: {
+      image: "/photos/thumbnails/spring-cost-mt-pleasant-michigan.webp",
+      imageAlt: "Garage door spring replacement cost guide for Mt. Pleasant",
+      title: "How Much Does Garage Door Spring Replacement Cost in Mt. Pleasant, MI?",
+      titleHref: "/blog/how-much-does-garage-door-spring-replacement-cost-in-mt-pleasant-mi",
+      excerpt: "The first question most people ask is: what is this going to cost? It's a fair question, and we're going to give you a straight answer with no sales pitch."
+    }
+  },
+  cta: {
+    label: "Schedule Spring Repair Now"
+  },
+  signoff: "Broken spring repair done right, the first time, with expert, dependable service that gets your door moving safely again."
 };
 ---
 
-<BaseLayout {title} {description}> 
+<ServicePage {...content} schema={[springSchema]}>
+  <ServiceSection heading={"Fast, Safe Spring Repair You Can Trust"} image="/photos/Broken-spring.webp" imageAlt="Broken garage door spring showing gap in coil">
+    <p> A broken spring doesn't just mean an inconvenient repair—it means your 200+ pound garage door has no counterbalance. Operating the door in this condition is NOT safe. It risks severe injury and damages to your opener and door. </p>
+    <p> Our spring replacements restore your door's safety and reliability. We replace both springs (even if only one broke), balance your door, and test the entire system before we leave. </p>
+  </ServiceSection>
 
-<Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(springSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-  </Fragment>
+  <ServiceSection heading={"How to Know If Your Spring Is Broken"} tone="sand">
+    <ul><li><strong>Loud bang from the garage</strong> — sounds like a gunshot or firecracker (this is the spring breaking)</li><li><strong>Garage door only lifts a few inches</strong> or won't open at all</li><li><strong>Visible gap in the spring</strong> coil above the door (it looks split in two)</li><li><strong>Door feels extremely heavy</strong> when you try to lift it manually</li><li><strong>Opener motor runs but door doesn't move</strong> (motor can't lift the weight)</li></ul>
+    <p><strong>Not sure what's wrong?</strong> Use our free <a href="/homeowner-tools/door-diagnosis#troubleshooting">DoorDiagnosis™ tool</a> to walk through common issues step-by-step. It takes less than 60 seconds. </p>
+  </ServiceSection>
 
+  <ServiceSection heading={"Why You Should Act Quickly"}>
+    <p> We know it's tempting to try to "make it work" until you have time to deal with it. But operating a garage door with a broken spring is dangerous: </p>
+    <ul><li><strong>Injury risk:</strong> The door can fall suddenly, causing serious harm</li><li><strong>Opener damage:</strong> Your opener isn't designed to lift your garage door without spring assistance—forcing it burns out the motor</li><li><strong>Second spring failure:</strong> If one spring broke, the other is about to fail</li></ul>
+    <p><strong>Bottom line:</strong> Don't use the door until the spring is replaced. It's not safe, and it'll cost you more in the long run. </p>
+    <p><a href="/homeowner-tools/easy-estimate#estimate-form" class="btn btn--primary">Get Instant Price Estimate</a></p>
+  </ServiceSection>
 
-  <img src="/photos/garage-door-spring-repair.avif" alt="Professional garage door spring repair in Mt. Pleasant, Michigan" 
-  loading="eager" fetchpriority="high" class="header-photo-interior" />
+  <ServiceHighlights heading={"Restoring Your Door’s Performance"} items={[{"title":"Repairs Done Right the First Time","body":"<p> When a spring breaks, the other one is usually close behind. We install a properly matched set so your door runs smoothly and you’re not facing another failure weeks later. </p>"},{"title":"High-Quality Springs","body":"<p> We provide rugged, high-performance springs that deliver smooth, dependable operation for every residential door. </p>"},{"title":"Full System Check Included","body":"<p> Every spring replacement includes door balancing, safety testing, and complete inspection at no extra charge. </p>"},{"title":"Warranty on Parts and Labor","body":"<p> We stand behind our work. If there's an issue with the springs we install, we make it right—everytime. </p>"},{"title":"Same-Day Service","body":"<p> We know you need your garage. Most Mt. Pleasant area calls get same-day service when available. </p>"}]} tone="sand" />
 
-  <section>
-      <h1 class="page-title">Broken Garage Door Spring?</h1>
-      <p>
-        Your garage door spring just snapped with a loud bang—and now your door won't open. We've been there dozens of times. 
-        Isabella Garage Door provides fast, safe spring replacement throughout Mt. Pleasant, Alma, Clare, and all of Central Michigan. 
-      </p>
-      <p style="margin-top: 1rem;  text-align: center;">
-        <strong>Car stuck in your garage and can't get out?</strong> Call or text us now.
-      </p>
-        <a href="tel:9895720303" class="hero-contact-button" style="margin: 2rem auto 0;">
-          <i class="fas fa-phone"></i> Call 989-572-0303
-        </a>
-        <a href="sms:9895720303?&body=Hi%2C%20I%20need%20help%20with%20a%20broken%20garage%20door%20spring." class="hero-contact-button" style="margin: 1rem auto 0; background: #1a334f; border: .094rem solid #b27d57;">
-          <i class="fas fa-comment-dots"></i> Text Us Now
-        </a>
-  </section>
-
-<section>
-  <TrustBadges />
-</section>
-
-  <section class="no-card">
-    <h2 class="sub-heading">Fast, Safe Spring Repair You Can Trust</h2>
-    <p class="p-home">
-      A broken spring doesn't just mean an inconvenient repair—it means your 200+ pound garage door has no counterbalance. 
-      Operating the door in this condition is NOT safe. It risks severe injury and damages to your opener and door.
-    </p>
-    <p class="p-home" style="margin-top: 1rem;">
-      Our spring replacements restore your door's safety and reliability. We replace both springs 
-      (even if only one broke), balance your door, and test the entire system before we leave.
-    </p>
-
-    <img src="/photos/Broken-spring.webp" alt="Broken garage door spring showing gap in coil" loading="lazy" class="header-photo-interior" />
-  </section>
-
-  <section class="no-card">
-    <h2 class="sub-heading">How to Know If Your Spring Is Broken</h2>
-    <ul class="p-home" style="list-style: disc; padding-left: 1.5rem;">
-      <li><strong>Loud bang from the garage</strong> — sounds like a gunshot or firecracker (this is the spring breaking)</li>
-      <li><strong>Garage door only lifts a few inches</strong> or won't open at all</li>
-      <li><strong>Visible gap in the spring</strong> coil above the door (it looks split in two)</li>
-      <li><strong>Door feels extremely heavy</strong> when you try to lift it manually</li>
-      <li><strong>Opener motor runs but door doesn't move</strong> (motor can't lift the weight)</li>
-    </ul>
-    <p class="p-home" style="margin-top: 1.5rem;">
-      <strong>Not sure what's wrong?</strong> Use our free <a href="/homeowner-tools/door-diagnosis#troubleshooting" style="color: #c57b30; text-decoration: underline;">DoorDiagnosis™ tool</a> 
-      to walk through common issues step-by-step. It takes less than 60 seconds.
-    </p>
-  </section>
-
-  <section class="no-card">
-    <h2 class="sub-heading">Why You Should Act Quickly</h2>
-    <p class="p-home">
-      We know it's tempting to try to "make it work" until you have time to deal with it. But operating a garage door with a broken spring is dangerous:
-    </p>
-    <ul class="p-home" style="list-style: disc; padding-left: 1.5rem; margin-top: 1rem;">
-      <li><strong>Injury risk:</strong> The door can fall suddenly, causing serious harm</li>
-      <li><strong>Opener damage:</strong> Your opener isn't designed to lift your garage door without spring assistance—forcing it burns out the motor</li>
-
-      <li><strong>Second spring failure:</strong> If one spring broke, the other is about to fail</li>
-    </ul>
-    <p class="p-home" style="margin-top: 1.5rem;">
-      <strong>Bottom line:</strong> Don't use the door until the spring is replaced. It's not safe, and it'll cost you more in the long run.
-    </p>
-    <a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button" style="margin: 2rem auto;"><i class="fas fa-calculator"></i> Get Instant Price Estimate</a>
-  </section>
-
-
-  <section class="signs additional-info">
-
-    <h2 class="sub-heading">Restoring Your Door’s Performance</h2>
-
-    <div class="columns">
-      <div>
-    <h3 class="sub-sub-heading">Repairs Done Right the First Time</h3>
-    <p>
-      When a spring breaks, the other one is usually close behind. 
-      We install a properly matched set so your door runs smoothly and 
-      you’re not facing another failure weeks later.
-    </p>
-      </div>
-
-      <div>
-    <h3 class="sub-sub-heading">High-Quality Springs</h3>
-    <p>
-      We provide rugged, high-performance springs that deliver smooth, 
-      dependable operation for every residential door.
-    </p>
-</div>
-
-      <div>
-    <h3 class="sub-sub-heading">Full System Check Included</h3>
-    <p>
-      Every spring replacement includes door balancing, safety testing, and complete inspection at no extra charge.
-    </p>
-</div>
-
-      <div>
-    <h3 class="sub-sub-heading">Warranty on Parts and Labor</h3>
-    <p>
-      We stand behind our work. If there's an issue with the springs we install, we make it right—everytime.
-    </p>
-</div>
-
-      <div>
-    <h3 class="sub-sub-heading">Same-Day Service</h3>
-    <p>
-      We know you need your garage. Most Mt. Pleasant area calls get same-day service when available.
-    </p>
-</div>
-</div>
-  </section>
-
-    <section>
-      <img src="/photos/springstatus-logo.webp" alt="SpringStatus torsion spring lifespan estimator"  loading="lazy" class="header-photo-interior" />
-      <h2 class="sub-heading" style="margin-top: 1rem;">Curious How Much Life Your Springs Have Left?</h2>
-      <p class="estimate-intro-paragraph">
-        Our free SpringStatus™ Tool helps you estimate the remaining lifespan of your garage door springs based on a few quick questions. 
-        Find out if you're due for replacement soon—before you hear that loud bang.
-      </p>
-      <a href="/homeowner-tools/spring-status#springstatus" class="cta-button" style="align-items: center; justify-content: center;"><i class="fas fa-hourglass-half"></i> Check Your Springs Now</a>
-    </section>
-
-<section class="faq-area">
-<section id="faq">
-<div class="faq-head">
-<a href="/resources/faq" style="text-decoration: none; color: inherit; display: block;">
-  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions</h2>
-</a>
-</div>
-
-<div class="reveal-on-scroll">
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>How do I know if my garage door spring is broken?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>The most obvious sign is a loud bang—it sounds like a gunshot or firecracker. You might also notice your garage door won't open more than a few inches, the door feels extremely heavy when you try to lift it manually, or the opener motor runs but the door doesn't move. If you see a gap in the spring coil (it looks like it's split in two), your spring is definitely broken. Our free <a href="/homeowner-tools/door-diagnosis" style="color: #c57b30;">DoorDiagnosis™ tool</a> can help you confirm the issue in under 60 seconds.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Should I replace one spring or both?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>We always recommend replacing both springs at the same time, even if only one is broken. Here's why: if one spring just broke, the other spring is the same age and has been through the same number of cycles. It's going to break soon—usually within a few weeks.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>What's the difference between torsion springs and extension springs?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Torsion springs are mounted on a rod above the garage door opening and twist to lift the door. They're safer, last longer, and are standard on most modern garage doors. Extension springs run along the sides of the door and stretch to provide lift. They're more common on older doors, have a shorter lifespan, and are more dangerous when they break. If you have extension springs and they're breaking frequently, we can often upgrade you to torsion springs for better performance and safety.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Can I replace a garage door spring myself?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>We strongly advise against it. Garage door springs are under extreme tension. When a spring breaks or is released improperly, it can cause serious injury. Professional technicians use specialized tools and safety proceedures to handle springs safely.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>How long does spring replacement take?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Most spring replacements take about an hour. We can usually offer same-day or next-day service, when available in Mt. Pleasant, Alma, Clare, and throughout Isabella County. When you call us at <a href="tel:9895720303" style="color: #c57b30;">989-572-0303</a>, we'll give you a realistic time window and keep you updated if anything changes.</p>
-    </div>
-  </div>
-
- </section>
-</section>
-
-    
-<section>
-<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
-  <TestimonialCard 
-    quote="I highly recommend Isabella Garage Door for any repairs you need. They were fast, efficient and reasonably priced. He had our spring fixed and door working again in no time. Will definitely use again."
-    author="Autumn S."
-  />
-</a>
-</section>
-   
-
-  <BookingCta />
-
-<section>
-  <h2 class="sub-heading">Still researching garage door springs?</h2>
-  <p>
-   We’ve written a detailed guide explaining the typical cost of spring replacement in the Mt. Pleasant area 
-   and what homeowners should expect during the repair process
-  </p>
-   <div class="blog-cards">
-    <article class="blog-card reveal-on-scroll">
-      <img src="/photos/thumbnails/spring-cost-mt-pleasant-michigan.webp" alt="Garage door spring replacement cost guide for Mt. Pleasant">
-      <div class="blog-content">
-         <h3><a href="/blog/how-much-does-garage-door-spring-replacement-cost-in-mt-pleasant-mi">How Much Does Garage Door Spring Replacement Cost in Mt. Pleasant, MI?</a></h3>
-        <p>The first question most people ask is: what is this going to cost? It's a fair question, and we're going to give you a straight answer with no sales pitch.</p>
-        <a class="read-more" href="/blog/how-much-does-garage-door-spring-replacement-cost-in-mt-pleasant-mi">Read The Full Guide →</a>
-      </div>
-    </article>
-    </div>
-</section>
-
-  <!-- CTA -->
-<section>
-    <a href="/contact" class="cta-button"><i class="fa-solid fa-calendar-check fa-fw"></i> Schedule Spring Repair Now</a>
-</section>
-
-<section>
-  <h2 class="sub-heading">Isabella Garage Door</h2>
-  <p style="font-size: .9rem; text-align: center;">
-    Broken spring repair done right, the first time,  
-    with expert, dependable service that gets your door moving safely again.
-  </p>
-  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
-    <em>Raising Performance. Elevating Standards</em>
-  </p>
-  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
-    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #b27d57; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
-  </p>
-</section>
-
-<ServiceFooter currentPath="/services/broken-springs" slot="full-width-section"/>
-
-<script is:inline>
-document.querySelectorAll('.faq-item').forEach(item => {
-  const question = item.querySelector('.faq-question');
-  const answer = item.querySelector('.faq-answer');
-
-  question.addEventListener('click', () => {
-    const isOpen = item.classList.contains('open');
-
-    document.querySelectorAll('.faq-item').forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.faq-answer').style.maxHeight = null;
-    });
-
-    if (!isOpen) {
-      item.classList.add('open');
-       answer.style.maxHeight = answer.scrollHeight + 'px';
-    }
-  });
-});
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(".reveal-on-scroll");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target); // reveal once
-          }
-        });
-      },
-      {
-        threshold: 0.2, // trigger when 20% of card is visible
-      }
-    );
-
-    cards.forEach((card) => {
-      observer.observe(card);
-    });
-  });
-</script>
-
-</BaseLayout>
+  <ToolPromo image="/photos/springstatus-logo.webp" imageAlt="SpringStatus torsion spring lifespan estimator" heading={"Curious How Much Life Your Springs Have Left?"} text={"Our free SpringStatus™ Tool helps you estimate the remaining lifespan of your garage door springs based on a few quick questions. Find out if you're due for replacement soon—before you hear that loud bang."} href="/homeowner-tools/spring-status#springstatus" label="Check Your Springs Now" />
+</ServicePage>

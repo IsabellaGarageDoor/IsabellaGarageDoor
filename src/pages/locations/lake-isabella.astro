@@ -1,34 +1,16 @@
 ---
-title: "Garage Door Repair in Lake Isabella, MI - Isabella Garage Door"
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import TrustBadges from '../../components/TrustBadges.astro';
-import AvailabilityBanner from '../../components/AvailabilityBanner.astro';
-import AnnouncementBanner from '../../components/editable-sections/AnnouncementBanner.astro';
-import HolidaysBirthdaysBanner from '../../components/HolidaysBirthdaysBanner.astro';
-import SplideSlider from '../../components/SplideSlider.jsx'
-import BlogCards from '../../components/BlogCards.astro';
-import Coupons from '../../components/editable-sections/Coupons.astro';
-import HomeownerToolboxResponsive from '../../components/HomeownerToolboxResponsive.astro';
-import AskAbelCard from '../../components/AskAbelCard.astro';
-import BookingCta from '../../components/BookingCta.astro';
-import ServiceAreaMap from '../../components/ServiceAreaMap.astro';
-import ServiceFooter from '../../components/ServiceFooter.astro';
-import LocationsFooter from '../../components/LocationsFooter.astro';
-
-import { Image } from 'astro:assets';
-import heroBg from '../../assets/images/herobg301.webp';
-import heroBgMobile from '../../assets/images/herobg-mobile301.webp';
-
-const title = 'Garage Door Repair Lake Isabella MI | Isabella Garage Door';
-const description = 'Professional garage door repair and installation in Lake Isabella, Michigan. Broken springs, opener repair, new doors. Local service for lakefront and year-round homes. Call 989-572-0303.';
+// Lake Isabella location page. The page's own content lives here;
+// the shared layout and sections are in layouts/LocationPage.astro.
+import LocationPage, { type LocationContent } from '../../layouts/LocationPage.astro';
+import { findReview, reviewsSchema } from '../../data/reviews';
 
 const lakeIsabellaSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Isabella Garage Door - Lake Isabella",
   "image": "https://isabellagaragedoor.com/photos/lake-isabella-garage-door-repair.webp",
-  "@id": "https://isabellagaragedoor.com/service-areas/lake-isabella",
-  "url": "https://isabellagaragedoor.com/service-areas/lake-isabella",
+  "@id": "https://isabellagaragedoor.com/locations/lake-isabella",
+  "url": "https://isabellagaragedoor.com/locations/lake-isabella",
   "telephone": "+1-989-572-0303",
   "priceRange": "$$",
   "address": {
@@ -100,694 +82,159 @@ const lakeIsabellaSchema = {
   }
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Do you repair garage doors at Lake Isabella, Michigan?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Lake Isabella is one of our most regularly served communities. We cover lakefront properties, year-round homes, seasonal cottages, and rural addresses in Broomfield, Rolland, and Coe Township surrounding the lake. If your mailing address says Lake Isabella—or if you're just close to it—we come to you."
+const content: Omit<LocationContent, 'schema'> = {
+  name: "Lake Isabella",
+  title: "Garage Door Repair Lake Isabella MI | Isabella Garage Door",
+  description: "Professional garage door repair and installation in Lake Isabella, Michigan. Broken springs, opener repair, new doors. Local service for lakefront and year-round homes. Call 989-572-0303.",
+  hero: {
+    title: "Lake Isabella Garage Door Repair — Right Around the Corner",
+    description: "Fast service for lakefront homes, year-round residents, and seasonal cottages — from your Rosebush neighbor.",
+    bullets: [
+      "Close to the Lake — Fast Response Times",
+      "Upfront Pricing — No Surprises",
+      "Work Backed by a 1-Year Warranty"
+    ]
+  },
+  intro: {
+    heading: "Local Service for a Community That Values It",
+    paragraphs: [
+      "Lake Isabella is one of Isabella County's most sought-after communities—an all-sports lake with a loyal year-round population and a seasonal crowd that shows up every spring ready to get back on the water. Whether you live on the lake full-time or you're opening the cottage for Memorial Day weekend and the garage door won't cooperate, Isabella Garage Door is right around the corner in Rosebush. We know the lake community, we know the winding roads that get you there, and we'll show up and fix it right."
+    ]
+  },
+  services: {
+    heading: "Complete Garage Door Services at Lake Isabella",
+    intro: "Lakefront living puts unique demands on garage door systems. Here's what Lake Isabella homeowners and cottage owners count on us for:",
+    cards: [
+      {
+        title: "Broken Spring Replacement",
+        text: "Springs fail without warning—often right when you're trying to load the boat trailer on the first warm weekend of the year. When a spring snaps, the door isn't going anywhere on its own. We carry high-cycle replacement springs, replace both at once so you're not in this situation again next season, and balance the door before we leave. Most Lake Isabella spring calls completed same-day.",
+        icon: "spring",
+        href: "/services/broken-springs"
+      },
+      {
+        title: "General Door Repair",
+        text: "Off-track doors, snapped cables, worn rollers, bent tracks, damaged panels—whatever it is, we'll find it and fix it. Lakefront properties can present unique access situations and we're used to that. No drama, no guesswork—just an accurate diagnosis and a solid repair that holds up through the season.",
+        icon: "wrench",
+        href: "/services/door-repair"
+      },
+      {
+        title: "Opener Repair &amp; Installation",
+        text: "An opener that sat all winter can be temperamental come spring. Grinding, reversing, remote issues, or complete failure—we service all major brands and can install a new smart opener with Wi-Fi control if it's time to upgrade. Smart openers are especially useful for lake properties where you want to let someone in remotely or check if you left the door open.",
+        icon: "opener",
+        href: "/services/opener-repair"
+      },
+      {
+        title: "New Door Installation",
+        text: "Lakefront homes are an investment, and a worn-out garage door undercuts the whole property. We install quality residential doors in every style—traditional, carriage house, modern—in steel, wood, or composite. Insulated options are worth considering for seasonal properties that see temperature extremes. We handle everything including removal of your old door.",
+        icon: "door",
+        href: "/services/new-door-installation",
+        hidden: true
+      },
+      {
+        title: "Seasonal Tune-Up &amp; Maintenance",
+        text: "Garage doors on seasonal properties take a beating—months of dormancy followed by heavy use all summer. An annual tune-up before or after the season keeps springs lubricated, cables tensioned, rollers moving smoothly, and the opener dialed in. It's the kind of thing that prevents the emergency call on Memorial Day weekend when you'd rather be on the water.",
+        icon: "shield",
+        href: "/services/maintenance"
+      },
+      {
+        title: "Storage Buildings &amp; Outbuildings",
+        text: "Lake properties often have more going on than just a garage—boat storage buildings, large sheds, detached garages, and outbuildings with overhead doors. If it's a garage-style door on your Lake Isabella property, we service it. We come prepared for larger openings and non-standard setups.",
+        icon: "building"
       }
-    },
-    {
-      "@type": "Question",
-      "name": "How quickly can you get to Lake Isabella for garage door repairs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Lake Isabella is a short drive from our Rosebush location. We typically offer same-day or next-day service to Lake Isabella residents. Emergency situations like broken springs or a door that won't close get priority scheduling. Call 989-572-0303 and we'll give you an honest arrival window."
+    ]
+  },
+  why: {
+    heading: "Why Lake Isabella Homeowners Call Us",
+    items: [
+      {
+        title: "We Know the Lake",
+        body: "Based in Rosebush, we're as close to Lake Isabella as anyone. We know the roads, the neighborhoods, the seasonal rhythms of the community, and what lakefront properties tend to throw at you. We come prepared."
+      },
+      {
+        title: "Seasonal Property Experience",
+        body: "Doors that sit all winter and get hammered all summer have their own set of failure patterns. We've seen them all—and we know how to fix them in a way that actually holds up through the season."
+      },
+      {
+        title: "We Respect Your Weekend",
+        body: "For seasonal residents, time at the lake is precious. We move fast, communicate clearly, and don't drag out a job that should take an hour. Your Saturday shouldn't be spent waiting on a garage door tech."
+      },
+      {
+        title: "Honest Pricing",
+        body: "We quote before we start and stick to it. Lake property owners get the same straight talk as everyone else—what's wrong, what it costs, what your options are. No surprises, no lake-property upcharges."
+      },
+      {
+        title: "Genuinely Local",
+        body: "We're Isabella County neighbors, not a franchise. When you call us, someone local picks up—someone who could probably name the road you're on just from your description of where you're at."
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you work on seasonal cottages and vacation homes at Lake Isabella?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, and we do it regularly. Garage doors on seasonal properties have their own set of challenges—systems that sit dormant through the winter, springs that fail when you're opening up for the first warm weekend of the year, openers that haven't been touched since Labor Day. We're familiar with all of it and can get your property ready to use quickly."
+    ]
+  },
+  areaImage: {
+    src: "/photos/Lake-Isabella-Michigan.avif",
+    alt: "Professional garage door repair service in Lake Isabella, Michigan"
+  },
+  area: {
+    heading: "We Know the Lake Isabella Community",
+    intro: "Lake Isabella isn't one size fits all. The community has distinct pockets and we know them:",
+    items: [
+      {
+        title: "🌊 Lakefront Properties",
+        text: "Homes right on the water with boat docks, lake access, and the kind of garage that stores everything from jet skis to fishing gear. Tight lakefront lots can make access tricky—we're used to navigating them. We've worked on garages all around the lake and know what to expect."
+      },
+      {
+        title: "🏡 Year-Round Neighborhoods",
+        text: "The full-time residents who keep the community running through the off-season. Year-rounders rely on their garage doors 365 days a year, and a January breakdown in Isabella County is no joke. We prioritize fast response for year-round Lake Isabella residents who can't wait."
+      },
+      {
+        title: "🏕️ Seasonal Cottages &amp; Vacation Properties",
+        text: "Memorial Day to Labor Day is the season—and it's short. A garage door problem on a Friday afternoon in June shouldn't eat into your weekend. We move quickly for seasonal property owners and understand that your time at the lake is limited. We also service properties that need to be buttoned up properly before winter."
+      },
+      {
+        title: "📍 Broomfield, Rolland &amp; Coe Township Addresses",
+        text: "A lot of Lake Isabella properties carry a Lake Isabella mailing address but technically sit in Broomfield Township, Rolland Township, or Coe Township. We service the entire lake community regardless of which township your deed says. If you're around the lake, we come to you—no exceptions, no extra charges."
+      },
+      {
+        title: "🌾 Rural Properties West of Mt. Pleasant",
+        text: "The corridor between Rosebush and Lake Isabella is home to a lot of rural properties and country homes that don't fit neatly into any one community. We service this whole area regularly and we're comfortable wherever the address takes us."
       }
-    },
-    {
-      "@type": "Question",
-      "name": "My Lake Isabella address is actually in Broomfield Township—do you still service it?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. Many Lake Isabella properties carry a Lake Isabella mailing address but sit in Broomfield Township, Rolland Township, or Coe Township. We service the entire lake community regardless of which township your property falls in. If you're around the lake, we come to you."
+    ],
+    closing: "<strong>Not sure if we cover your Lake Isabella property?</strong> Call us at <a href=\"tel:+19895720303\">989-572-0303</a>. If you're in the Lake Isabella area or Isabella County, the answer is yes."
+  },
+  faq: {
+    heading: "Frequently Asked Questions - Lake Isabella, MI",
+    items: [
+      {
+        question: "Do you repair garage doors at Lake Isabella, Michigan?",
+        answer: "<p>Yes. Lake Isabella is one of our most regularly served communities. We cover lakefront properties, year-round homes, seasonal cottages, and rural addresses in Broomfield, Rolland, and Coe Township surrounding the lake. If your mailing address says Lake Isabella—or if you're just close to it—we come to you.</p>"
+      },
+      {
+        question: "How quickly can you get to Lake Isabella for garage door repairs?",
+        answer: "<p>Lake Isabella is a short drive from our Rosebush location. We typically offer same-day or next-day service. Emergency situations—broken springs, doors that won't close—get priority scheduling. Call us at <a href=\"tel:+19895720303\">989-572-0303</a> and we'll give you an honest arrival window.</p>"
+      },
+      {
+        question: "Do you work on seasonal cottages and vacation homes at Lake Isabella?",
+        answer: "<p>Yes, and we do it regularly. Garage doors on seasonal properties have their own set of challenges—systems that sit dormant through winter, springs that fail on the first warm weekend, openers that haven't run since Labor Day. We're familiar with all of it and get your property sorted out quickly so you can get on with your weekend.</p>"
+      },
+      {
+        question: "My Lake Isabella address is actually in Broomfield Township—do you still service it?",
+        answer: "<p>Absolutely. Many Lake Isabella properties carry a Lake Isabella mailing address but sit in Broomfield Township, Rolland Township, or Coe Township. We service the entire lake community regardless of which township your property falls in. If you're around the lake, we come to you—no exceptions, no extra charges for the township technicality.</p>"
+      },
+      {
+        question: "What garage door services do you offer at Lake Isabella?",
+        answer: "<p>We handle everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair<!-- , new door installation -->, and annual preventive maintenance. We work on residential garages, storage buildings, and any garage-style door on your Lake Isabella property.</p>"
       }
-    },
-    {
-      "@type": "Question",
-      "name": "What garage door services do you offer at Lake Isabella?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We handle everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair, new door installation, and annual preventive maintenance. We work on residential garages, boathouse-adjacent structures, and any garage-style door in the Lake Isabella area."
-      }
-    }
-  ]
+    ]
+  },
+  closing: {
+    heading: "Lake Isabella Garage Door Repair, Done Right",
+    paragraphs: [
+      "We're close by, we respond fast, and we know the community. Isabella Garage Door isn't a franchise routing calls through a regional dispatch center. When you call us, you reach someone local who knows exactly where you are—someone who could probably name the road you're on just from your description of where you're at.",
+      "Whether it's an emergency repair on a summer Friday or a tune-up before you close up for the winter, we show up when we say we will and fix it right the first time."
+    ]
+  },
+  signoff: "Serving Lake Isabella, Broomfield Township, and all of Isabella County—your local garage door company, right around the corner."
 };
 
-const reviewSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Review",
-      "@id": "https://isabellagaragedoor.com/#review-1",
-      "itemReviewed": {
-        "@id": "https://isabellagaragedoor.com/#business"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Elizabeth S."
-      },
-      "reviewBody": "Got our garage door working again! They got us on the schedule quick and made everything easy. I can't thank them enough. Highly recommend!!",
-      "datePublished": "2026-05-14"
-    },
-    {
-      "@type": "Review",
-      "@id": "https://isabellagaragedoor.com/#review-2",
-      "itemReviewed": {
-        "@id": "https://isabellagaragedoor.com/#business"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Autumn S."
-      },
-      "reviewBody": "I highly recommend Isabella Garage Door for any repairs you need. They were fast, efficient and reasonably priced. He had our spring fixed and door working again in no time. Will definitely use again.",
-      "datePublished": "2026-05-19"
-    }
-  ]
-};
+const schema = [lakeIsabellaSchema, reviewsSchema([findReview('Elizabeth S.'), findReview('Autumn S.')])];
 ---
 
-<BaseLayout {title} {description}>
-
-<Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(lakeIsabellaSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
-  </Fragment>
-
-<link rel="stylesheet" href="/styles/global.css" />
-
-<section class="hero">
-<picture>
-  <source media="(max-width: 767px)" srcset={heroBgMobile.src} />
-  <source media="(min-width: 768px)" srcset={heroBg.src} />
-  <img
-    src={heroBg.src}
-    alt="Garage door repair background"
-    loading="eager"
-    fetchpriority="high"
-    class="hero-bg-image"
-  />
-</picture>
-
-  <div class="hero-overlay"></div>
-
-<div class="hero-content reveal-on-scroll">
-  <h1>Lake Isabella Garage Door Repair — Right Around the Corner</h1>
-  <p class="hero-description">
-    Fast service for lakefront homes, year-round residents, and seasonal cottages — from your Rosebush neighbor.
-  </p>
-  <div class="reveal-on-scroll">
-    <ul>
-      <li>✓ Close to the Lake — Fast Response Times</li>
-      <li>✓ Upfront Pricing — No Surprises</li>
-      <li>✓ Work Backed by a 1-Year Warranty</li>
-    </ul>
-  </div>
-
-    <div class="hero-buttons reveal-on-scroll">
-      <a href="sms:9895720303?&body=Hi%2C%20I%20need%20some%20help%20with%20my%20garage%20door." class="hero-estimate-button">
-        <i class="fas fa-comment-dots"></i> Text Us
-      </a>
-      <a href="tel:9895720303" class="hero-home-contact-button">
-        <i class="fa-solid fa-phone fa-fw"></i> Call (989) 572-0303
-      </a>
-    </div>
-
-<p>Not sure what it'll cost?</p>
-<a href="/homeowner-tools/easy-estimate#estimate-form" class="hero-estimate-cta">Get an Instant Estimate →</a>
-  </div>
-
-  <TrustBadges />
-
-<a href="/booking" class="book-now-btn">Book Now</a>
-
-</section>
-
-<AvailabilityBanner />
-
-<AnnouncementBanner />
-
-<HolidaysBirthdaysBanner />
-
-<section style="margin-bottom: 1rem;">
-<h2 class="sub-heading" style="margin-top: 2rem;">Local Service for a Community That Values It</h2>
-  <p class="p-home">
-    Lake Isabella is one of Isabella County's most sought-after communities—an all-sports lake with a loyal year-round population 
-    and a seasonal crowd that shows up every spring ready to get back on the water. Whether you live on the lake full-time or 
-    you're opening the cottage for Memorial Day weekend and the garage door won't cooperate, Isabella Garage Door is right 
-    around the corner in Rosebush. We know the lake community, we know the winding roads that get you there, and we'll show 
-    up and fix it right.
-  </p>
-</section>
-
-<section class="core-services-section">
-  <h2 class="sub-heading">Complete Garage Door Services at Lake Isabella</h2>
-  <p class="core-services-intro">
-    Lakefront living puts unique demands on garage door systems. Here's what Lake Isabella homeowners and cottage owners count on us for:
-  </p>
-
-  <div class="core-services-grid">
-
-    <a href="/services/broken-springs" class="core-services-card spring reveal-on-scroll">
-      <h3>Broken Spring Replacement</h3>
-      <p>Springs fail without warning—often right when you're trying to load the boat trailer on the first warm weekend of the year. When a spring snaps, the door isn't going anywhere on its own. We carry high-cycle replacement springs, replace both at once so you're not in this situation again next season, and balance the door before we leave. Most Lake Isabella spring calls completed same-day.</p>
-    </a>
-
-    <a href="/services/door-repair" class="core-services-card repair">
-      <h3>General Door Repair</h3>
-      <p>Off-track doors, snapped cables, worn rollers, bent tracks, damaged panels—whatever it is, we'll find it and fix it. Lakefront properties can present unique access situations and we're used to that. No drama, no guesswork—just an accurate diagnosis and a solid repair that holds up through the season.</p>
-    </a>
-
-    <a href="/services/opener-repair" class="core-services-card opener">
-      <h3>Opener Repair & Installation</h3>
-      <p>An opener that sat all winter can be temperamental come spring. Grinding, reversing, remote issues, or complete failure—we service all major brands and can install a new smart opener with Wi-Fi control if it's time to upgrade. Smart openers are especially useful for lake properties where you want to let someone in remotely or check if you left the door open.</p>
-    </a>
-<!--
-    <a href="/services/new-door-installation" class="core-services-card installation">
-      <h3>New Door Installation</h3>
-      <p>Lakefront homes are an investment, and a worn-out garage door undercuts the whole property. We install quality residential doors in every style—traditional, carriage house, modern—in steel, wood, or composite. Insulated options are worth considering for seasonal properties that see temperature extremes. We handle everything including removal of your old door.</p>
-    </a>
--->
-    <a href="/services/maintenance" class="core-services-card maintenance">
-      <h3>Seasonal Tune-Up & Maintenance</h3>
-      <p>Garage doors on seasonal properties take a beating—months of dormancy followed by heavy use all summer. An annual tune-up before or after the season keeps springs lubricated, cables tensioned, rollers moving smoothly, and the opener dialed in. It's the kind of thing that prevents the emergency call on Memorial Day weekend when you'd rather be on the water.</p>
-    </a>
-
-    <div class="core-services-card core-services-card polebarn">
-      <h3>Storage Buildings & Outbuildings</h3>
-      <p>Lake properties often have more going on than just a garage—boat storage buildings, large sheds, detached garages, and outbuildings with overhead doors. If it's a garage-style door on your Lake Isabella property, we service it. We come prepared for larger openings and non-standard setups.</p>
-    </div>
-
-  </div>
-</section>
-
-<section class="no-card">
-<div class="why-choose-us-section">
-    <div class="why-choose-us-container">
-        <h2 class="sub-heading">Why Lake Isabella Homeowners Call Us</h2>
-
-        <div class="accordion-group reveal-on-scroll">
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    We Know the Lake
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        Based in Rosebush, we're as close to Lake Isabella as anyone. We know the roads, the neighborhoods, the seasonal rhythms of the community, and what lakefront properties tend to throw at you. We come prepared.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Seasonal Property Experience
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        Doors that sit all winter and get hammered all summer have their own set of failure patterns. We've seen them all—and we know how to fix them in a way that actually holds up through the season.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    We Respect Your Weekend
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        For seasonal residents, time at the lake is precious. We move fast, communicate clearly, and don't drag out a job that should take an hour. Your Saturday shouldn't be spent waiting on a garage door tech.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Honest Pricing
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        We quote before we start and stick to it. Lake property owners get the same straight talk as everyone else—what's wrong, what it costs, what your options are. No surprises, no lake-property upcharges.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Genuinely Local
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        We're Isabella County neighbors, not a franchise. When you call us, someone local picks up—someone who could probably name the road you're on just from your description of where you're at.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<a href="/about/why-choose-isabella-garage-door" class="cta-button margin-bottom-2rem"><i class="fas fa-magnifying-glass"></i> Learn More About Us</a>
-</section>
-
-
-  <section>
-    <h2 class="sub-heading">Real Feedback.<br>Real Trust.</h2>
-      <p class="testimonial-intro-paragraph">Here's what local homeowners are saying about Isabella Garage Door:</p>
-<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
-
-<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;" class="reveal-on-scroll">
-      <SplideSlider client:only="react" />
-</a>
-
-<a href="/about/testimonials" class="cta-button"><i class="fa-solid fa-star fa-fw"></i> Read Customer Reviews</a>
-</section>
-
-
-  <BookingCta />
-
-  <HomeownerToolboxResponsive />
-
-<img src="/photos/Lake-Isabella-Michigan.avif" alt="Professional garage door repair service in Lake Isabella, Michigan" loading="eager" fetchpriority="high" class="about-image" />
-
-<section style="margin-top: 2rem;">
-  <h2 class="sub-heading">We Know the Lake Isabella Community</h2>
-  <p class="p-home">
-    Lake Isabella isn't one size fits all. The community has distinct pockets and we know them:
-  </p>
-
-  <div class="p-home" style="margin-top: 1.5rem;">
-    <p><strong>🌊 Lakefront Properties</strong><br>
-    Homes right on the water with boat docks, lake access, and the kind of garage that stores everything from jet skis to fishing gear. Tight lakefront lots can make access tricky—we're used to navigating them. We've worked on garages all around the lake and know what to expect.</p>
-
-    <p style="margin-top: 1rem;"><strong>🏡 Year-Round Neighborhoods</strong><br>
-    The full-time residents who keep the community running through the off-season. Year-rounders rely on their garage doors 365 days a year, and a January breakdown in Isabella County is no joke. We prioritize fast response for year-round Lake Isabella residents who can't wait.</p>
-
-    <p style="margin-top: 1rem;"><strong>🏕️ Seasonal Cottages & Vacation Properties</strong><br>
-    Memorial Day to Labor Day is the season—and it's short. A garage door problem on a Friday afternoon in June shouldn't eat into your weekend. We move quickly for seasonal property owners and understand that your time at the lake is limited. We also service properties that need to be buttoned up properly before winter.</p>
-
-    <p style="margin-top: 1rem;"><strong>📍 Broomfield, Rolland & Coe Township Addresses</strong><br>
-    A lot of Lake Isabella properties carry a Lake Isabella mailing address but technically sit in Broomfield Township, Rolland Township, or Coe Township. We service the entire lake community regardless of which township your deed says. If you're around the lake, we come to you—no exceptions, no extra charges.</p>
-
-    <p style="margin-top: 1rem;"><strong>🌾 Rural Properties West of Mt. Pleasant</strong><br>
-    The corridor between Rosebush and Lake Isabella is home to a lot of rural properties and country homes that don't fit neatly into any one community. We service this whole area regularly and we're comfortable wherever the address takes us.</p>
-  </div>
-
-  <p class="p-home" style="margin-top: 1.5rem;">
-    <strong>Not sure if we cover your Lake Isabella property?</strong> Call us at <a href="tel:9895720303" style="color: #b27d57; text-decoration: underline;">989-572-0303</a>. If you're in the Lake Isabella area or Isabella County, the answer is yes.
-  </p>
-</section>
-
-<section class="faq-area">
-<section id="faq">
-<div class="faq-head">
-  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions - Lake Isabella, MI</h2>
-</div>
-
-<div class="reveal-on-scroll">
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Do you repair garage doors at Lake Isabella, Michigan?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Yes. Lake Isabella is one of our most regularly served communities. We cover lakefront properties, year-round homes, seasonal cottages, and rural addresses in Broomfield, Rolland, and Coe Township surrounding the lake. If your mailing address says Lake Isabella—or if you're just close to it—we come to you.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>How quickly can you get to Lake Isabella for garage door repairs?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Lake Isabella is a short drive from our Rosebush location. We typically offer same-day or next-day service. Emergency situations—broken springs, doors that won't close—get priority scheduling. Call us at <a href="tel:9895720303" style="color: #b27d57;">989-572-0303</a> and we'll give you an honest arrival window.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Do you work on seasonal cottages and vacation homes at Lake Isabella?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Yes, and we do it regularly. Garage doors on seasonal properties have their own set of challenges—systems that sit dormant through winter, springs that fail on the first warm weekend, openers that haven't run since Labor Day. We're familiar with all of it and get your property sorted out quickly so you can get on with your weekend.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>My Lake Isabella address is actually in Broomfield Township—do you still service it?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Absolutely. Many Lake Isabella properties carry a Lake Isabella mailing address but sit in Broomfield Township, Rolland Township, or Coe Township. We service the entire lake community regardless of which township your property falls in. If you're around the lake, we come to you—no exceptions, no extra charges for the township technicality.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>What garage door services do you offer at Lake Isabella?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>We handle everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair<!-- , new door installation -->, and annual preventive maintenance. We work on residential garages, storage buildings, and any garage-style door on your Lake Isabella property.</p>
-    </div>
-  </div>
-
-</section>
-</section>
-
-<AskAbelCard chatUrl="/ask-abel" />
-
-<section>
-  <h2 class="sub-heading">Lake Isabella Garage Door Repair, Done Right</h2>
-  <p class="p-home">
-    We're close by, we respond fast, and we know the community. Isabella Garage Door isn't a franchise routing 
-    calls through a regional dispatch center. When you call us, you reach someone local who knows exactly where 
-    you are—someone who could probably name the road you're on just from your description of where you're at.
-  </p>
-  <p class="p-home" style="margin-top: 1rem;">
-    Whether it's an emergency repair on a summer Friday or a tune-up before you close up for the winter, 
-    we show up when we say we will and fix it right the first time.
-  </p>
-</section>
-
-<BlogCards />
-
-<ServiceAreaMap />
-<a href="/contact" class="cta-button" style="margin-top: 2rem;"><i class="fa-solid fa-location-dot fa-fw"></i> Need Local Help?</a>
-
-<section class="core-services-section reveal-on-scroll">
-<Coupons />
-</section>
-
-<section>
-  <h2 class="sub-heading">Isabella Garage Door</h2>
-  <p style="font-size: .9rem; text-align: center;">
-    Serving Lake Isabella, Broomfield Township, and all of Isabella County—your local garage door company, right around the corner.
-  </p>
-  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
-    <em>Raising Performance. Elevating Standards</em>
-  </p>
-  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
-    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #b27d57; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
-  </p>
-</section>
-
-<ServiceFooter currentPath="null" slot="full-width-section"/>
-<LocationsFooter currentPath="/locations/lake-isabella" slot="full-width-section" />
-
-
-<style>
-.homeowner-toolbox-section {
-  text-align: center;
-}
-
-.homeowner-toolbox-wrapper {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.homeowner-toolbox-grid {
-  display: grid;
-  gap: 1.5rem;
-  margin-top: 2rem;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 550px) {
-  .homeowner-toolbox-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1050px) {
-  .homeowner-toolbox-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.homeowner-toolbox-card {
-  justify-content: flex-start;
-  background: #fff;
-  border: 0.094rem solid #b27d57;
-  border-radius: 0.75rem;
-  padding: 1rem 1rem 1rem;
-  text-decoration: none;
-  color: inherit;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
-  position: relative;
-  background-image: url('/photos/white-garage-door-service-section.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #ffffff;
-  z-index: 1;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.homeowner-toolbox-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.homeowner-toolbox-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(255, 255, 255, 0.5);
-  z-index: 0;
-  border-radius: inherit;
-}
-
-.homeowner-toolbox-card * {
-  position: relative;
-  z-index: 2;
-}
-
-.homeowner-toolbox-card:hover,
-.homeowner-toolbox-card:focus {
-  transform: translateY(-5px);
-  box-shadow: 0 0 0.75rem rgba(178, 125, 87, 0.5);
-  outline: none;
-}
-
-.homeowner-toolbox-img {
-  height: 70px;
-  width: auto;
-  object-fit: contain;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1rem;
-}
-
-.homeowner-toolbox-body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.homeowner-toolbox-body h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #1a334f;
-  font-family: 'Lora', serif;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-  line-height: 2.1rem;
-}
-
-.homeowner-toolbox-body p {
-  font-size: 1.1rem;
-  line-height: 1.4;
-  color: #1a334f;
-  text-align: left;
-  padding: 0 1rem;
-  flex: 1;
-}
-</style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(".homeowner-toolbox-card, .core-services-card, .reveal-on-scroll");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    cards.forEach((card) => {
-      observer.observe(card);
-    });
-  });
-</script>
-
-<script is:inline>
-document.querySelectorAll('.faq-item').forEach(item => {
-  const question = item.querySelector('.faq-question');
-  const answer = item.querySelector('.faq-answer');
-
-  question.addEventListener('click', () => {
-    const isOpen = item.classList.contains('open');
-
-    document.querySelectorAll('.faq-item').forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.faq-answer').style.maxHeight = null;
-    });
-
-    if (!isOpen) {
-      item.classList.add('open');
-      answer.style.maxHeight = answer.scrollHeight + 'px';
-    }
-  });
-});
-</script>
-
-<script is:inline>
-  const icons = document.querySelectorAll('.core-services-icon-circle');
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-  icons.forEach(icon => observer.observe(icon));
-</script>
-
-<script>
-function toggleAccordion(button) {
-    const item = button.parentElement;
-    const clickedContent = button.nextElementSibling;
-    const clickedArrow = button.querySelector('.accordion-arrow');
-
-    document.querySelectorAll('.accordion-content').forEach(content => {
-        const parentItem = content.parentElement;
-        const arrow = parentItem.querySelector('.accordion-arrow');
-
-        if (content !== clickedContent && content.style.maxHeight !== '0px' && content.style.maxHeight !== '') {
-            content.style.maxHeight = '0px';
-            if (arrow) arrow.style.transform = 'rotate(0deg)';
-            parentItem.classList.remove('active');
-        }
-    });
-
-    if (clickedContent.style.maxHeight === '0px' || clickedContent.style.maxHeight === '') {
-        clickedContent.style.maxHeight = clickedContent.scrollHeight + 'px';
-        clickedArrow.style.transform = 'rotate(180deg)';
-        item.classList.add('active');
-    } else {
-        clickedContent.style.maxHeight = '0px';
-        clickedArrow.style.transform = 'rotate(0deg)';
-        item.classList.remove('active');
-    }
-}
-
-function initializeAccordions() {
-    document.querySelectorAll('.accordion-content').forEach(content => {
-        content.style.maxHeight = '0px';
-        content.parentElement.classList.remove('active');
-        const arrow = content.previousElementSibling.querySelector('.accordion-arrow');
-        if (arrow) arrow.style.transform = 'rotate(0deg)';
-    });
-}
-
-window.toggleAccordion = toggleAccordion;
-document.addEventListener('DOMContentLoaded', initializeAccordions);
-document.addEventListener('astro:after-swap', initializeAccordions);
-</script>
-
-  <script>
-    if (typeof window !== 'undefined') {
-      const highlightObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('slide-up-in');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.5,
-        rootMargin: '0px 0px -50px 0px'
-      });
-
-      window.addEventListener('DOMContentLoaded', () => {
-        const highlightSection = document.querySelector('.highlight-section');
-        if (highlightSection) {
-          highlightObserver.observe(highlightSection);
-        }
-
-        const iconCards = document.querySelectorAll('.value-icon-card');
-        const iconObserver = new IntersectionObserver((entries, iconObs) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const index = Array.from(iconCards).indexOf(entry.target);
-              entry.target.style.animation = `fadeSlideUp 0.6s ease forwards`;
-              entry.target.style.animationDelay = `${index * 150}ms`;
-              iconObs.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.3 });
-
-        iconCards.forEach(card => iconObserver.observe(card));
-      });
-    }
-  </script>
-
-</BaseLayout>
+<LocationPage {...content} schema={schema} />

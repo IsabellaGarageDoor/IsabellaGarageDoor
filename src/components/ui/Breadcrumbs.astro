@@ -1,0 +1,66 @@
+---
+// Breadcrumb trail + BreadcrumbList structured data.
+import { breadcrumbSchema, type Crumb } from '../../lib/schema';
+
+interface Props {
+  /** Trail after "Home"; the last item is the current page */
+  items: Crumb[];
+  tone?: 'light' | 'dark';
+}
+const { items, tone = 'dark' } = Astro.props;
+const trail: Crumb[] = [{ name: 'Home', href: '/' }, ...items];
+---
+
+<nav class:list={['breadcrumbs', `breadcrumbs--${tone}`]} aria-label="Breadcrumb">
+  <ol>
+    {trail.map((c, i) =>
+      i === trail.length - 1 ? (
+        <li aria-current="page">{c.name}</li>
+      ) : (
+        <li><a href={c.href}>{c.name}</a></li>
+      )
+    )}
+  </ol>
+</nav>
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema(trail))} />
+
+<style>
+  .breadcrumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.5rem;
+    padding: 0;
+    font-size: var(--text-xs);
+    list-style: none;
+  }
+
+  .breadcrumbs li + li::before {
+    content: '/';
+    margin-right: 0.5rem;
+    opacity: 0.5;
+  }
+
+  .breadcrumbs a {
+    text-decoration: none;
+  }
+
+  .breadcrumbs--dark {
+    color: rgb(255 255 255 / 0.7);
+  }
+
+  .breadcrumbs--dark a {
+    color: rgb(255 255 255 / 0.85);
+  }
+
+  .breadcrumbs--dark a:hover {
+    color: var(--bronze-300);
+  }
+
+  .breadcrumbs--light {
+    color: var(--muted);
+  }
+
+  .breadcrumbs--light a {
+    color: var(--navy);
+  }
+</style>

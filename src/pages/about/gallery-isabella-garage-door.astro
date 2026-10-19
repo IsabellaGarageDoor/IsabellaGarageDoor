@@ -1,12 +1,17 @@
 ---
 title: "Garage Log - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import GalleryGrid, { type GalleryPost } from '../../components/about/GalleryGrid.astro';
+import BookingCta from '../../components/BookingCta.astro';
+import ContactBlock from '../../components/ContactBlock.astro';
+import Icon from '../../components/ui/Icon.astro';
 
 const title = 'Garage Door Log | Isabella Garage Door';
 const description = 'Browse our portfolio of completed garage door projects showcasing quality craftsmanship and reliable service throughout Central Michigan.';
 
 
-const posts = [
+const posts: GalleryPost[] = [
   // Add more posts as needed
   // 1200 by 900 pixels - 4x3
   // upload as webp
@@ -67,135 +72,58 @@ const posts = [
 ];
 
 // Sort newest first
-const sorted = posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date));
 
-// Pagination setup
-const page = Number(Astro.url.searchParams.get("page") || 1);
+// Pagination happens in the browser (?page=N) — see components/Paginate.astro
 const perPage = 9;
-const start = (page - 1) * perPage;
-const end = start + perPage;
-
-const totalPages = Math.ceil(sorted.length / perPage);
-const paginated = sorted.slice(start, end);
 ---
 
 <BaseLayout {title} {description}>
+  <PageHero
+    title="Garage Door Job Log"
+    eyebrow="Gallery"
+    intro="A look at real repairs<!--, installs,--> and maintenance calls across Mt. Pleasant, Clare, Rosebush, and beyond. Posted straight from the field — just clean, honest work."
+    image="/photos/gallery-garage-door-repair.avif"
+    imageAlt="A garage door technician repairing a broken door."
+    crumbs={[{ name: 'Gallery', href: '/about/gallery-isabella-garage-door' }]}
+  >
+    <Fragment slot="actions">
+      <a href="/booking" class="btn btn--primary"><Icon name="calendar" /> Book a Service Visit</a>
+    </Fragment>
+  </PageHero>
 
-  <img src="/photos/gallery-garage-door-repair.avif" alt="A garage door technician repairing a broken door." loading="eager" fetchpriority="high" class="header-photo-interior" />
+  <section class="section section--sand">
+    <div class="container">
+      <GalleryGrid posts={sorted} perPage={perPage} />
 
-  <h1 class="page-title">Garage Door Job Log</h1>
-  <p class="left-content">A look at real repairs<!--, installs,--> and maintenance calls across Mt. Pleasant, Clare, Rosebush, and beyond. Posted straight from the field — just clean, honest work.</p>
+      <p class="gallery-note">
+        These snapshots are just a glimpse of the work we do every week across Central Michigan. Whether it’s a noisy opener or a full door replacement, we show up ready to fix it right — with the same attention to detail you see here.
+      </p>
 
-  <div id="gallery"></div>
+      <!-- Remove the comment tags when you start archive.
+      <p class="gallery-archive-link">
+        Want to see more? Check out our
+        <a href="/about/gallery-archive-isabella-garage-door">Gallery Archive</a>
+       for additional past projects.
+      </p>
+      -->
 
-  <section class="max-width: 300px; margin: 0 auto; padding: 2rem 1rem;">
-    <div class="gallery-grid">
-      {paginated.map(post => (
-        <div class="gallery-card">
-          <img src={post.image} alt={post.alt} loading="lazy" decoding="async" />
-          <p>{post.caption}</p>
-        </div>
-      ))}
-    </div>
-
-    <div class="pagination-wrapper">
-      {page > 1 && (
-        <a href={`?page=${page - 1}#gallery`} class="pagination-button arrow">&larr;</a>
-      )}
-
-      {page > 3 && (
-        <>
-          <a href="?page=1" class="pagination-button">1</a>
-          <span class="pagination-ellipsis">...</span>
-        </>
-      )}
-
-      {Array.from({ length: totalPages }, (_, i) => i + 1)
-        .filter(p => p >= page - 2 && p <= page + 2)
-        .map(p => (
-          <a
-            href={`?page=${p}#gallery`}
-            class={`pagination-button ${p === page ? 'active' : ''}`}
-          >
-            {p}
-          </a>
-        ))}
-
-      {page < totalPages - 2 && (
-        <>
-          <span class="pagination-ellipsis">...</span>
-          <a href={`?page=${totalPages}`} class="pagination-button">{totalPages}</a>
-        </>
-      )}
-
-      {page < totalPages && (
-        <a href={`?page=${page + 1}#gallery`} class="pagination-button arrow">&rarr;</a>
-      )}
+      <div class="cluster cluster--center mt-8">
+        <a href="/booking" class="btn btn--navy"><Icon name="calendar" /> Book a Service Visit</a>
+      </div>
     </div>
   </section>
 
-<p class="left-content" style="margin-top: 1rem;">
-These snapshots are just a glimpse of the work we do every week across Central Michigan. Whether it’s a noisy opener or a full door replacement, we show up ready to fix it right — with the same attention to detail you see here.
-</p>
-
-
-<!-- Remove the comment tags when you start archive. 
-<p class="google-review-link">
-  Want to see more? Check out our 
-  <a href="/gallery-archive-isabella-garage-door">Gallery Archive</a>
- for additional past projects.
-</p>
--->
-
-
-
-<a href="/booking" class="cta-button" style="margin: 3rem auto 2rem;"><i class="fa-regular fa-calendar-check fa-fw"></i> Book a Service Visit</a>
-
-<section>
-  <h2 class="sub-heading">Isabella Garage Door</h2>
-  <p style="font-size: .9rem; text-align: center;">
-    Quality you can see. Work you can trust. Proudly serving homeowners across Central Michigan.
-  </p>
-  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
-    <em>Raising Performance. Elevating Standards</em>
-  </p>
-  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
-    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #b27d57; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
-  </p>
-</section>
-
-
-
-<script>
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-          observer.unobserve(entry.target); // Only animate once
-        }
-      });
-    },
-    { threshold: 0.1 }
-  );
-
-  document.querySelectorAll('.gallery-card').forEach(card => {
-    observer.observe(card);
-  });
-</script>
-
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll('.gallery-card img').forEach(img => {
-      if (img.complete) {
-        img.classList.add('loaded');
-      } else {
-        img.addEventListener('load', () => {
-          img.classList.add('loaded');
-        });
-      }
-    });
-  });
-</script>
-
+  <BookingCta />
+  <ContactBlock text="Quality you can see. Work you can trust. Proudly serving homeowners across Central Michigan." />
 </BaseLayout>
+
+<style>
+  .gallery-note {
+    max-width: 46rem;
+    margin: var(--space-12) auto 0;
+    color: var(--muted);
+    font-size: var(--text-lg);
+    text-align: center;
+  }
+</style>

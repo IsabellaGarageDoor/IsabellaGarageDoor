@@ -1,0 +1,87 @@
+---
+// Hand-written blog teaser used on the service pages ("Still researching…").
+// The title and "Read The Full Guide" links are separate because one page
+// points them at different articles.
+import Icon from '../ui/Icon.astro';
+
+export interface ResearchPost {
+  image: string;
+  imageAlt: string;
+  title: string;
+  titleHref: string;
+  /** Excerpt HTML */
+  excerpt: string;
+  /** "Read The Full Guide" link (defaults to titleHref) */
+  moreHref?: string;
+}
+
+interface Props {
+  post: ResearchPost;
+}
+const { post } = Astro.props;
+---
+
+<article class="research-card reveal">
+  <img src={post.image} alt={post.imageAlt} loading="lazy" decoding="async" class="research-card__img" />
+  <div class="research-card__body">
+    <h3><a href={post.titleHref}>{post.title}</a></h3>
+    <p set:html={post.excerpt} />
+    <a class="link-arrow" href={post.moreHref ?? post.titleHref}>Read The Full Guide <Icon name="arrow-right" size="1em" /></a>
+  </div>
+</article>
+
+<style>
+  .research-card {
+    display: grid;
+    max-width: 960px;
+    margin-inline: auto;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: var(--white);
+    box-shadow: var(--shadow);
+  }
+
+  .research-card__img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: var(--sand);
+  }
+
+  .research-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-8);
+  }
+
+  .research-card h3 {
+    font-size: var(--h3);
+  }
+
+  .research-card h3 a {
+    color: var(--navy);
+    text-decoration: none;
+  }
+
+  .research-card h3 a:hover {
+    color: var(--bronze-700);
+  }
+
+  .research-card p {
+    color: var(--muted);
+  }
+
+  @media (min-width: 820px) {
+    .research-card {
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .research-card__img {
+      aspect-ratio: auto;
+      min-height: 100%;
+    }
+  }
+</style>

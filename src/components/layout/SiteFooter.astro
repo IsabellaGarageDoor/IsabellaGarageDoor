@@ -1,0 +1,214 @@
+---
+// Site footer: brand + contact, services, service areas, company links, legal.
+import Icon from '../ui/Icon.astro';
+import { site, telHref, smsHref, smsMessages, mailtoHref } from '../../config/site';
+import { footerNav, legalNav } from '../../data/navigation';
+import { services } from '../../data/services';
+import { locations } from '../../data/locations';
+
+const buildYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container container--wide site-footer__grid">
+    <div class="site-footer__brand">
+      <a href="/" aria-label="Go to homepage">
+        <img src={site.logo.white} alt={`${site.name} logo`} width="190" height="66" loading="lazy" />
+      </a>
+      <p class="site-footer__tagline">{site.tagline}</p>
+      <p>
+        Serving <a href="/locations/isabella-county">Isabella County</a> and the Surrounding
+        <a href="/locations/central-michigan">Central Michigan</a> Area
+      </p>
+      <ul class="site-footer__contact">
+        <li>
+          <a href={telHref}><Icon name="phone" /> {site.phone.display}</a>
+        </li>
+        <li>
+          <a href={smsHref(smsMessages.issue)}><Icon name="text" /> Text us</a>
+        </li>
+        <li>
+          <a href={mailtoHref}><Icon name="mail" /> {site.email}</a>
+        </li>
+        <li>
+          <a href={site.social.facebook} target="_blank" rel="noopener noreferrer">
+            <Icon name="facebook" /> Facebook<span class="visually-hidden"> (opens in a new tab)</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <nav class="site-footer__col" aria-label="Services">
+      <h2>Services</h2>
+      <ul>
+        {services.map((s) => <li><a href={s.href}>{s.name}</a></li>)}
+      </ul>
+    </nav>
+
+    <nav class="site-footer__col site-footer__col--areas" aria-label="Service areas">
+      <h2>Service Areas</h2>
+      <ul>
+        {locations.map((l) => <li><a href={l.href}>{l.name}</a></li>)}
+      </ul>
+    </nav>
+
+    <nav class="site-footer__col" aria-label="Company">
+      <h2>Company</h2>
+      <ul>
+        {footerNav.filter((l) => l.href !== '/').map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+        <li><a href="/resources/faq">FAQs</a></li>
+        <li><a href="/resources/warranty">Warranty</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="site-footer__bottom">
+    <div class="container container--wide site-footer__bottom-inner">
+      <p>&copy; <span id="current-year">{buildYear}</span> {site.name}. All rights reserved.</p>
+      <ul class="site-footer__legal">
+        {legalNav.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+      </ul>
+      <p class="site-footer__dba">
+        <strong>{site.name}</strong> is a registered assumed name of <strong>{site.legalName}</strong>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Keep the copyright year current between builds
+  const year = document.getElementById('current-year');
+  if (year) year.textContent = String(new Date().getFullYear());
+</script>
+
+<style>
+  .site-footer {
+    background: var(--navy-900);
+    border-top: 3px solid var(--bronze);
+    color: rgb(255 255 255 / 0.78);
+    font-size: var(--text-sm);
+  }
+
+  .site-footer a {
+    color: rgb(255 255 255 / 0.85);
+    text-decoration: none;
+  }
+
+  .site-footer a:hover {
+    color: var(--bronze-300);
+  }
+
+  .site-footer__grid {
+    display: grid;
+    gap: var(--space-10);
+    padding-block: var(--space-16) var(--space-12);
+  }
+
+  .site-footer__brand > * + * {
+    margin-top: var(--space-4);
+  }
+
+  .site-footer__brand img {
+    width: 190px;
+    height: auto;
+  }
+
+  .site-footer__brand p a {
+    text-decoration: underline;
+    text-decoration-color: rgb(212 165 130 / 0.6);
+  }
+
+  .site-footer__tagline {
+    color: var(--bronze-300);
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-style: italic;
+  }
+
+  .site-footer__contact {
+    display: grid;
+    gap: var(--space-2);
+    padding: 0;
+    list-style: none;
+  }
+
+  .site-footer__contact a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    word-break: break-word;
+  }
+
+  .site-footer__contact :global(.icon) {
+    color: var(--bronze-300);
+  }
+
+  .site-footer__col h2 {
+    margin-bottom: var(--space-4);
+    color: var(--white);
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .site-footer__col ul {
+    display: grid;
+    gap: 0.55rem;
+    padding: 0;
+    list-style: none;
+  }
+
+  .site-footer__col--areas ul {
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--space-4);
+  }
+
+  .site-footer__bottom {
+    border-top: 1px solid rgb(255 255 255 / 0.1);
+  }
+
+  .site-footer__bottom-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3) var(--space-8);
+    padding-block: var(--space-6);
+    color: rgb(255 255 255 / 0.65);
+    font-size: var(--text-xs);
+  }
+
+  .site-footer__legal {
+    display: flex;
+    gap: var(--space-5);
+    padding: 0;
+    list-style: none;
+  }
+
+  .site-footer__legal a {
+    text-decoration: underline;
+  }
+
+  .site-footer__dba {
+    flex-basis: 100%;
+  }
+
+  .site-footer__dba strong {
+    color: rgb(255 255 255 / 0.8);
+    font-weight: 600;
+  }
+
+  @media (min-width: 700px) {
+    .site-footer__grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (min-width: 1100px) {
+    .site-footer__grid {
+      grid-template-columns: 1.35fr 1fr 1.2fr 0.9fr;
+    }
+  }
+</style>

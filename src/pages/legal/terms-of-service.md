@@ -1,6 +1,6 @@
 ---
 title: "Terms of Service - Isabella Garage Door"
-layout: "../../layouts/BaseLayout.astro"
+layout: "../../layouts/LegalLayout.astro"
 ---
 
 # **Terms and Conditions**

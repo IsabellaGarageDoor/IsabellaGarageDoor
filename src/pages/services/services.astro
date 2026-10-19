@@ -1,54 +1,67 @@
 ---
-title: "Services - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ServiceFooter from '../../components/ServiceFooter.astro';
----
+import PageHero from '../../components/ui/PageHero.astro';
+import ContactBlock from '../../components/ContactBlock.astro';
+import Icon from '../../components/ui/Icon.astro';
 
-<BaseLayout>
+const title = 'Our Services | Isabella Garage Door';
+const description = "Complete garage door services throughout Central Michigan—based in Rosebush, serving Isabella, Gratiot, Clare, and Mecosta County.";
 
-<link rel="stylesheet" href="/styles/global.css" />
+const services = [
+  {
+    "title": "Broken Garage Door Springs",
+    "image": "/photos/springnew.webp",
+    "imageAlt": "Broken Garage door spring repaired by Isabella Garage Door",
+    "text": "Broken springs are one of the most common-and dangerous-garage door problems. These tightly wound coils bear the full weight of your door, and when they snap, your door may become heavy, uneven, or completely immobile. Attempting to fix a spring yourself can lead to serious injury, so it's best to call a professional. At Isabella Garage Door, we safely replace broken torsion and extension springs using high-quality parts to restore smooth, reliable operation.",
+    "href": "/services/broken-springs",
+    "label": "More About Spring Replacement"
+  },
+  {
+    "title": "Garage Door Opener Repair and Installation",
+    "image": "/photos/opener.webp",
+    "imageAlt": "New garage door opener repaired by Isabella Garage Door",
+    "text": "A faulty garage door opener can leave you stuck inside or outside your garage, or dealing with unreliable, noisy operation. Whether your opener is unresponsive, making grinding noises, or has lost its remote connection, we can help. At Isabella Garage Door, we repair and install all types of openers-including chain drive, belt drive, and smart Wi-Fi systems-so you can enjoy smooth, quiet, and secure access to your garage every time.",
+    "href": "/services/opener-repair",
+    "label": "More About Opener Service"
+  },
+  {
+    "title": "Garage Door Repair",
+    "image": "/photos/doorofftrack.webp",
+    "imageAlt": "Broken Garage door spring repaired by Isabella Garage Door",
+    "text": "From off-track doors and damaged panels to malfunctioning sensors and worn-out rollers, garage door issues can disrupt your day and compromise your home's safety. Isabella Garage Door offers expert repair services for all makes and models, diagnosing problems quickly and fixing them with precision. We use quality parts and proven techniques to restore reliable performance-so your door opens and closes smoothly, safely, and quietly.",
+    "href": "/services/door-repair",
+    "label": "More About Door Repair"
+  },
+  {
+    "title": "Routine Preventive Maintenance",
+    "image": "/photos/maintenancetwo.webp",
+    "imageAlt": "Garage door maintenance by Isabella Garage Door",
+    "text": "Regular maintenance is the key to keeping your garage door system running smoothly and avoiding costly breakdowns. Our preventive maintenance service includes a thorough inspection, lubrication of moving parts, tightening of hardware, and testing of safety features. By identifying minor issues early-like fraying cables, worn rollers, or misaligned tracks-we help you extend the life of your door and opener while ensuring safe, reliable operation year-round.",
+    "href": "/services/maintenance",
+    "label": "More About Maintenance"
+  }
+];
 
-<img src="/photos/garage-door-services-graphic.webp" alt="Garage door services offered by Isabella Garage Door" loading="eager" fetchpriority="high" class="header-photo-interior" />
+const provided = [
+  "Broken Spring Replacement",
+  "Opener Repair",
+  "Opener Installation",
+  "Roller Replacement",
+  "Track Alignment",
+  "Cable Off Drum",
+  "Broken Cables",
+  "Crooked Door Correction",
+  "Door Won't Close / Open",
+  "Panel Replacement",
+  "New Door Installation",
+  "Preventative Maintenance",
+  "Safety Inspections",
+  "Weather Stripping &amp; Insulation",
+  "Keypad &amp; Remote Programming",
+  "Photo Eye Sensor Alignment"
+];
 
-<h1 class="page-title">Our Services</h1>
-
-  <section>
-<h3 class="sub-sub-heading">Broken Garage Door Springs</h3>
-
-  <img src="/photos/springnew.webp" alt="Broken Garage door spring repaired by Isabella Garage Door" class="service-image" loading=lazy" decoding="async" />
-
-
-    <p>Broken springs are one of the most common-and dangerous-garage door problems. These tightly wound coils bear the full weight of your door, and when they snap, your door may become heavy, uneven, or completely immobile. Attempting to fix a spring yourself can lead to serious injury, so it's best to call a professional. At Isabella Garage Door, we safely replace broken torsion and extension springs using high-quality parts to restore smooth, reliable operation.
-</p>
-  <a href="/services/broken-springs" class="cta-button" style="margin: 1.5rem auto 0;">
-    <i class="fas fa-info-circle"></i> More About Spring Replacement
-  </a>
-  </section>
-
-  <section>
-<h3 class="sub-sub-heading">Garage Door Opener Repair and Installation</h3>
-
-  <img src="/photos/opener.webp" alt="New garage door opener repaired by Isabella Garage Door" class="service-image" loading=lazy" decoding="async" />
-
-    <p>A faulty garage door opener can leave you stuck inside or outside your garage, or dealing with unreliable, noisy operation. Whether your opener is unresponsive, making grinding noises, or has lost its remote connection, we can help. At Isabella Garage Door, we repair and install all types of openers-including chain drive, belt drive, and smart Wi-Fi systems-so you can enjoy smooth, quiet, and secure access to your garage every time.</p>
-    <a href="/services/opener-repair" class="cta-button" style="margin: 1.5rem auto 0;">
-    <i class="fas fa-info-circle"></i> More About Opener Service
-  </a>
- </section>
-
-<section>
-<h3 class="sub-sub-heading">Garage Door Repair</h3>
-
-  <img src="/photos/doorofftrack.webp" alt="Broken Garage door spring repaired by Isabella Garage Door" class="service-image" loading=lazy" decoding="async" />
-
-    <p>From off-track doors and damaged panels to malfunctioning sensors and worn-out rollers, garage door issues can disrupt your day and compromise your home's safety. Isabella Garage Door offers expert repair services for all makes and models, diagnosing problems quickly and fixing them with precision. We use quality parts and proven techniques to restore reliable performance-so your door opens and closes smoothly, safely, and quietly.</p>
-    <a href="/services/door-repair" class="cta-button" style="margin: 1.5rem auto 0;">
-    <i class="fas fa-info-circle"></i> More About Door Repair
-  </a>
-</section>
-
-
-<!--
+/* Services hidden on the previous version of this page (kept for later):
   <section>
 <h3 class="sub-sub-heading">New Garage Door Installation</h3>
 
@@ -59,32 +72,16 @@ import ServiceFooter from '../../components/ServiceFooter.astro';
     <i class="fas fa-info-circle"></i> More About Door Installation
   </a>
 </section>
--->
 
 
-
-<!--
   <section>
 <h3 class="sub-sub-heading">Emergency Services</h3>
     picture
 
     <p>Stuck garage door? We offer prompt emergency service so you're not left waiting when your security or schedule is at risk.</p>
   </section>
--->
 
-  <section>
-<h3 class="sub-sub-heading">Routine Preventive Maintenance</h3>
-
-  <img src="/photos/maintenancetwo.webp" alt="Garage door maintenance by Isabella Garage Door" class="service-image" loading=lazy" decoding="async" />
-
-    <p>Regular maintenance is the key to keeping your garage door system running smoothly and avoiding costly breakdowns. Our preventive maintenance service includes a thorough inspection, lubrication of moving parts, tightening of hardware, and testing of safety features. By identifying minor issues early-like fraying cables, worn rollers, or misaligned tracks-we help you extend the life of your door and opener while ensuring safe, reliable operation year-round.</p>
-  <a href="/services/maintenance" class="cta-button" style="margin: 1.5rem auto 0;">
-    <i class="fas fa-info-circle"></i> More About Maintenance
-  </a>
-   </section>
-
-
-  <!-- <section>
+ <section>
      Blue CTA Button with Hover 
     <div style="text-align: center; margin-top: 2rem;">
       <a href="/contact" style="background-color: #1A334F; color: #ffffff; padding: 0.75rem 2rem; text-decoration: none; font-family: 'Segoe UI', sans-serif; font-size: 1.1rem; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: all 0.3s ease;"
@@ -93,92 +90,112 @@ import ServiceFooter from '../../components/ServiceFooter.astro';
         Request Service
       </a>
     </div>
-  </section>  -->
+  </section>  */
+---
 
-<section>
-  <div style="max-width: 1200px; margin: 0 auto;">
-    
-    <h2 class="sub-heading">
-      Garage Door Services That We Provide
-    </h2>
+<BaseLayout {title} {description}>
+  <PageHero
+    title="Our Services"
+    image="/photos/garage-door-services-graphic.webp"
+    imageAlt="Garage door services offered by Isabella Garage Door"
+    imageFit="contain"
+    crumbs={[{ name: 'Services', href: '/services/services' }]}
+  />
 
-    <ul style="list-style: disc; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center;">
-      <li style="flex: 1 1 300px;  color: #1a334f; padding: 1rem; border-left: .094rem solid #b27d57;  border-right: .094rem solid #b27d57; border-radius: .75rem; box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2); font-size: 1.1rem; box-sizing: border-box; margin-left: 1rem;">
-        Broken Spring Replacement
-      </li>
-      <li style="flex: 1 1 300px;  color: #1a334f; padding: 1rem; border-left: .094rem solid #b27d57;  border-right: .094rem solid #b27d57; border-radius: .75rem; box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2); font-size: 1.1rem; box-sizing: border-box; margin-left: 1rem;">
-        Opener Repair
-      </li>
-      <li style="flex: 1 1 300px;  color: #1a334f; padding: 1rem; border-left: .094rem solid #b27d57;  border-right: .094rem solid #b27d57; border-radius: .75rem; box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2); font-size: 1.1rem; box-sizing: border-box; margin-left: 1rem;">
-        Opener Installation
-      </li>
-      <li style="flex: 1 1 300px;  color: #1a334f; padding: 1rem; border-left: .094rem solid #b27d57;  border-right: .094rem solid #b27d57; border-radius: .75rem; box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2); font-size: 1.1rem; box-sizing: border-box; margin-left: 1rem;">
-        Roller Replacement
-      </li>
-      <li style="flex: 1 1 300px;  color: #1a334f; padding: 1rem; border-left: .094rem solid #b27d57;  border-right: .094rem solid #b27d57; border-radius: .75rem; box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2); font-size: 1.1rem; box-sizing: border-box; margin-left: 1rem;">
-        Track Alignment
-      </li>
-      <li style="flex: 1 1 300px;  color: #1a334f; padding: 1rem; border-left: .094rem solid #b27d57;  border-right: .094rem solid #b27d57; border-radius: .75rem; box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2); font-size: 1.1rem; box-sizing: border-box; margin-left: 1rem;">
-        Cable Off Drum
-      </li>
-      <li style="flex: 1 1 300px;  color: #1a334f; padding: 1rem; border-left: .094rem solid #b27d57;  border-right: .094rem solid #b27d57; border-radius: .75rem; box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2); font-size: 1.1rem; box-sizing: border-box; margin-left: 1rem;">
-        Broken Cables
-      </li>
-      <li style="flex: 1 1 300px;  color: #1a334f; padding: 1rem; border-left: .094rem solid #b27d57;  border-right: .094rem solid #b27d57; border-radius: .75rem; box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2); font-size: 1.1rem; box-sizing: border-box; margin-left: 1rem;">
-        Crooked Door Correction
-      </li>
-      <li style="flex: 1 1 300px;  color: #1a334f; padding: 1rem; border-left: .094rem solid #b27d57;  border-right: .094rem solid #b27d57; border-radius: .75rem; box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2); font-size: 1.1rem; box-sizing: border-box; margin-left: 1rem;">
-        Door Won't Close / Open
-      </li>
-      <li style="flex: 1 1 300px;  color: #1a334f; padding: 1rem; border-left: .094rem solid #b27d57;  border-right: .094rem solid #b27d57; border-radius: .75rem; box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2); font-size: 1.1rem; box-sizing: border-box; margin-left: 1rem;">
-        Panel Replacement
-      </li>
-      <li style="flex: 1 1 300px;  color: #1a334f; padding: 1rem; border-left: .094rem solid #b27d57;  border-right: .094rem solid #b27d57; border-radius: .75rem; box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2); font-size: 1.1rem; box-sizing: border-box; margin-left: 1rem;">
-        New Door Installation
-      </li>
-      <li style="flex: 1 1 300px;  color: #1a334f; padding: 1rem; border-left: .094rem solid #b27d57;  border-right: .094rem solid #b27d57; border-radius: .75rem; box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2); font-size: 1.1rem; box-sizing: border-box; margin-left: 1rem;">
-        Preventative Maintenance
-      </li>
-      <li style="flex: 1 1 300px;  color: #1a334f; padding: 1rem; border-left: .094rem solid #b27d57;  border-right: .094rem solid #b27d57; border-radius: .75rem; box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2); font-size: 1.1rem; box-sizing: border-box; margin-left: 1rem;">
-        Safety Inspections
-      </li>
-      <li style="flex: 1 1 300px;  color: #1a334f; padding: 1rem; border-left: .094rem solid #b27d57;  border-right: .094rem solid #b27d57; border-radius: .75rem; box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2); font-size: 1.1rem; box-sizing: border-box; margin-left: 1rem;">
-        Weather Stripping &amp; Insulation
-      </li>
-      <li style="flex: 1 1 300px;  color: #1a334f; padding: 1rem; border-left: .094rem solid #b27d57;  border-right: .094rem solid #b27d57; border-radius: .75rem; box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2); font-size: 1.1rem; box-sizing: border-box; margin-left: 1rem;">
-        Keypad &amp; Remote Programming
-      </li>
-      <li style="flex: 1 1 300px;  color: #1a334f; padding: 1rem; border-left: .094rem solid #b27d57;  border-right: .094rem solid #b27d57; border-radius: .75rem; box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2); font-size: 1.1rem; box-sizing: border-box; margin-left: 1rem;">
-        Photo Eye Sensor Alignment
-      </li>
-    </ul>
-
-  </div>
-<p>And More!</p>
-</section>
-
-<section>
-  <h2 class="sub-heading">Isabella Garage Door</h2>
-  <p style="font-size: .9rem; text-align: center;">
-    Complete garage door services throughout Central Michigan—based in Rosebush, serving Isabella, Gratiot, Clare, and Mecosta County.
-  </p>
-  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
-    <em>Raising Performance. Elevating Standards</em>
-  </p>
-  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
-    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #b27d57; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
-  </p>
-</section>
-
-
-  <!-- Orange CTA -->
-  <section class="cta-section">
-    <div class="cta-container">
-      <a href="/contact" class="cta-button">Request Service</a>
+  <section class="section">
+    <div class="container">
+      <div class="service-list">
+        {services.map((s, i) => (
+          <article class:list={['service-row reveal', { 'service-row--reverse': i % 2 === 1 }]}>
+            <img src={s.image} alt={s.imageAlt} loading="lazy" decoding="async" />
+            <div class="service-row__text stack">
+              <h2 set:html={s.title} />
+              <p class="lead" set:html={s.text} />
+              <div><a href={s.href} class="btn btn--outline"><Icon name="info" /> {s.label}</a></div>
+            </div>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 
+  <section class="section section--sand">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Everything We Do</span>
+        <h2>Garage Door Services That We Provide</h2>
+      </div>
+      <ul class="provided">
+        {provided.map((item) => <li><Icon name="check-circle" /> <span set:html={item} /></li>)}
+      </ul>
+      <p class="text-center mt-8">And More!</p>
+    </div>
+  </section>
 
-<ServiceFooter currentPath="/services/services" slot="full-width-section"/>
+  <ContactBlock text="Complete garage door services throughout Central Michigan—based in Rosebush, serving Isabella, Gratiot, Clare, and Mecosta County." />
 
+  <section class="section section--tight">
+    <div class="container cluster cluster--center">
+      <a href="/contact" class="btn btn--navy btn--lg">Request Service</a>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .service-list {
+    display: grid;
+    gap: var(--space-16);
+  }
+
+  .service-row {
+    display: grid;
+    gap: var(--space-8);
+    align-items: center;
+  }
+
+  .service-row img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  @media (min-width: 900px) {
+    .service-row {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+    }
+
+    .service-row--reverse img {
+      order: 2;
+    }
+  }
+
+  .provided {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+    gap: var(--space-3);
+    max-width: 1000px;
+    margin-inline: auto;
+    padding: 0;
+    list-style: none;
+  }
+
+  .provided li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    color: var(--navy);
+    font-weight: 500;
+  }
+
+  .provided :global(.icon) {
+    flex-shrink: 0;
+    color: var(--bronze-600);
+  }
+</style>

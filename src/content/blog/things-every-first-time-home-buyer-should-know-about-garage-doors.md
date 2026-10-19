@@ -60,7 +60,7 @@ We offer affordable maintenance plans specifically designed to give homeowners p
 
 Your garage door is more than just a convenience — it’s an entry point, a security barrier, and an important part of your home’s daily routine.
 
-If you’re a first-time buyer and want to make sure your garage door is in good shape, we’re here to help. Whether you need a quick tune-up, a spring inspection, or just want to learn more, don’t hesitate to [get in touch](mailto:isabellagaragedoor@gmail.com) or [explore our homeowner tools](/homeowner-tools).
+If you’re a first-time buyer and want to make sure your garage door is in good shape, we’re here to help. Whether you need a quick tune-up, a spring inspection, or just want to learn more, don’t hesitate to [get in touch](mailto:isabellagaragedoor@gmail.com) or [explore our homeowner tools](/homeowner-tools/easy-estimate).
 
 ---
 
