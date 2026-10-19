@@ -1,6 +1,11 @@
 ---
-title: "AskAbel™ Assistant | Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import Faq from '../../components/ui/Faq.astro';
+import ContactBlock from '../../components/ContactBlock.astro';
+import Icon from '../../components/ui/Icon.astro';
+import { site } from '../../config/site';
+import type { FaqItem } from '../../lib/schema';
 
 const title = 'AskAbel™ Assistant | Isabella Garage Door';
 const description = 'Use our interactive Garage Door Assistant to quickly diagnose common garage door problems and get trusted repair advice.';
@@ -35,218 +40,122 @@ const askAbelSchema = {
     }
   ]
 };
+
+const faqs: FaqItem[] = [
+  { question: 'Can Abel schedule a service for me?', answer: '<p>Not directly — but he can guide you on when to book and link you to the right form.</p>' },
+  { question: 'Is Abel a real person?', answer: "<p>Nope! He's powered by AI — but trained with our expertise and policies to give helpful, honest answers.</p>" },
+  { question: 'What if Abel gives me the wrong info?', answer: "<p>We do our best to keep him accurate, but if something feels off, please text or call us. We're happy to confirm!</p>" },
+  { question: 'What kind of questions can I ask Abel?', answer: '<p>Anything garage door related — weird noises, opener issues, spring questions, safety concerns, and more.</p>' },
+];
+
+/* Previous "Coming Soon" notice for this page (kept for later):
+   This premium service is currently in development and will be available once our systems are fully in place
+   to deliver the level of service our customers expect. */
 ---
 
-<BaseLayout {title} {description}>
-
-<Fragment slot="head">
+<BaseLayout {title} {description} legacy={false}>
+  <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(askAbelSchema)} />
   </Fragment>
 
+  <PageHero
+    title="AskAbel™ Garage Door Assistant"
+    eyebrow="Free · AI-powered · 24/7"
+    intro="Our Garage Door Assistant, Abel, uses AI to help diagnose common issues, answer frequently asked questions, and guide you toward the right solution — all without pressure or upsells. It’s a fast, friendly way to get the help you need before booking a service.<br /><br />As part of our commitment to <em>Raising Performance. Elevating Standards.</em>, AskAbel™ helps us deliver clarity, convenience, and confidence — even before we inspect a hinge or adjust a spring."
+    image="/photos/garage-door-ai-assistant.avif"
+    imageAlt="AI garage door assistant"
+    crumbs={[{ name: 'Homeowner Tools', href: '/homeowner-tools/easy-estimate' }, { name: 'AskAbel™', href: '#' }]}
+  />
+
+  <section class="section">
+    <div class="container split">
+      <div class="stack-lg stack">
+        <span class="eyebrow">Simple &amp; Friendly</span>
+        <h2>How It Works</h2>
+        <p class="lead">
+          Just type a question or describe what's going on with your garage door. Abel will respond with helpful suggestions based on garage door best practices, your issue, and our service expertise.
+        </p>
+        <p>
+          If you're not sure whether you need a repair or a full replacement — or you're just curious about that strange noise the door started making — Abel can help you make sense of it.
+        </p>
+      </div>
+      <figure class="abel-photo reveal">
+        <img src="/photos/ask-abel-garage-door-ai-assistant.webp" alt="AI garage door assistant" loading="lazy" decoding="async" />
+      </figure>
+    </div>
+  </section>
+
+  <div id="askabel" class="chat-anchor"></div>
+
+  <section class="section section--sand">
+    <div class="container container--narrow">
+      <div class="section-head">
+        <span class="eyebrow">Chat</span>
+        <h2>Try It Now</h2>
+      </div>
+      <div class="chat-frame embed-placeholder">
+        <iframe
+          src={`https://www.chatbase.co/chatbot-iframe/${site.chatbaseId}`}
+          title="AskAbel™ — Isabella Garage Door AI Assistant"
+          width="100%"
+          style="height: 100%; min-height: 500px"
+          frameborder="0"
+        ></iframe>
+      </div>
+      <p class="assistant-disclaimer">
+        This assistant is powered by AI and is designed to provide helpful suggestions based on your input. It may occasionally make mistakes or give incorrect information — always double-check or reach out directly if you're unsure.
+      </p>
+    </div>
+  </section>
+
+  <Faq heading="Frequently Asked Questions" items={faqs} />
+
+  <section class="section section--sand">
+    <div class="container container--narrow text-center stack">
+      <h2>Need Hands-On Help?</h2>
+      <p class="lead">
+        Abel is a great starting point — but if you'd rather talk to a real technician, we're just a message away.
+      </p>
+      <div>
+        <a href="/contact" class="btn btn--navy"><Icon name="info" /> Didn’t Solve It? Request Help</a>
+      </div>
+    </div>
+  </section>
+
+  <ContactBlock text="Smart help. Local expertise. AskAbel™ is here 24/7." />
+</BaseLayout>
+
 <style>
-  .assistant-image {
-    margin: 3rem auto;
-    max-width: 100%;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  .abel-photo img {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
   }
 
-  .assistant-section {
-    margin: 3rem 0 3rem;
+  .chat-anchor {
+    position: relative;
+    top: calc(-1 * var(--header-h) - 1rem);
+    height: 0;
   }
 
-  .embed-placeholder {
-    background: #fdfaf7;
-    border: 0.194rem solid #b27d57;
-    padding: 1rem;
-    border-radius: .75rem;
-    text-align: center;
-    font-size: 1.1rem;
-    color: #6b6b6b;
-    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+  .chat-frame {
+    overflow: hidden;
+    padding: var(--space-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: var(--white);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .chat-frame iframe {
+    border: 0;
+    border-radius: var(--radius);
   }
 
   .assistant-disclaimer {
-    font-size: 0.95rem;
-    color: #666;
+    margin-top: var(--space-6);
+    color: var(--muted);
+    font-size: var(--text-sm);
     text-align: center;
-    margin-top: 2rem;
-    margin-bottom: 3rem;
-  }
-
-
-
-
-
-
-
-
-
-
-  .container {
-    max-width: 800px;
-    padding: 2rem;
-    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
-  }
-
-  .coming-script {
-    font-family: 'Lobster', cursive;
-    font-size: 4rem;
-    text-align: center;
-    color: #b27d57;
-    margin-bottom: 0.5rem;
-    letter-spacing: 2px;
-    text-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
-    transform: rotate(-4deg);
-    display: inline-block;
-  }
-
-  .description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    opacity: 0.9;
   }
 </style>
-
-<!--
- <div class="container">
-    <h1 class="coming-script">Coming Soon</h1>
-
-    <p class="description">
-      This premium service is currently in development and will be available once our systems are fully in place
-      to deliver the level of service our customers expect.
-    </p>
-
-  </div>
--->
-
-
-
-
-
-
-
- <img src="/photos/garage-door-ai-assistant.avif" alt="AI garage door assistant" loading="eager" fetchpriority="high" class="header-photo-interior" />
-
-    <h1 class="page-title">AskAbel™ Garage Door Assistant</h1>
-    <p>
-      Our Garage Door Assistant, Abel, uses AI to help diagnose common issues, answer frequently asked questions, and guide you toward the right solution — all without pressure or upsells. It’s a fast, friendly way to get the help you need before booking a service.<br /><br />
-      As part of our commitment to <em>Raising Performance. Elevating Standards.</em>, AskAbel™ helps us deliver clarity, convenience, and confidence — even before we inspect a hinge or adjust a spring.
-    </p>
-
-
-
-
-  <section class="assistant-section">
-    <h2 class="sub-heading">How It Works</h2>
-    <p>
-      Just type a question or describe what's going on with your garage door. Abel will respond with helpful suggestions based on garage door best practices, your issue, and our service expertise.
-    </p>
-    <p>
-      If you're not sure whether you need a repair or a full replacement — or you're just curious about that strange noise the door started making — Abel can help you make sense of it.
-    </p>
-  </section>
-
-<section>
-<div id="askabel" style="position: relative; top: -80px;"></div>
- <img src="/photos/ask-abel-garage-door-ai-assistant.webp" alt="AI garage door assistant" loading="lazy" class="header-photo-interior" />
-
-</section>
-
-  <section class="assistant-section">
-    <h2 class="sub-heading">Try It Now</h2>
-    <div class="embed-placeholder">
-     
-      <!-- [Embed Chatbot Here] -->
-<iframe
-    src="https://www.chatbase.co/chatbot-iframe/wPbactyhYnPn8LQYfaQWP"
-    width="100%"
-    style="height: 100%; min-height: 500px"
-    frameborder="0"
-></iframe>
-
-    </div>
-    <p class="assistant-disclaimer">
-      This assistant is powered by AI and is designed to provide helpful suggestions based on your input. It may occasionally make mistakes or give incorrect information — always double-check or reach out directly if you're unsure.
-    </p>
-  </section>
-
-
-<section id="faq">
-<div class="faq-head">
-<a href="/resources/faq" style="text-decoration: none; color: inherit; display: block;">
-  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions</h2>
-</a>
-</div>
-
-  <div class="faq-item"><div class="faq-question"><span>Can Abel schedule a service for me?</span><span class="faq-arrow">&#9654;</span></div><div class="faq-answer">
-<p>Not directly — but he can guide you on when to book and link you to the right form.
-</p></div></div>
-
-    <div class="faq-item"><div class="faq-question">
-<span>Is Abel a real person?</span><span class="faq-arrow">&#9654;</span></div>
-<div class="faq-answer">
-<p>Nope! He's powered by AI — but trained with our expertise and policies to give helpful, honest answers.
-</p></div></div>
-
-    <div class="faq-item"><div class="faq-question">
-<span>What if Abel gives me the wrong info?</span><span class="faq-arrow">&#9654;</span></div>
-<div class="faq-answer">
-<p>We do our best to keep him accurate, but if something feels off, please text or call us. We're happy to confirm!
-</p></div></div>
-
-  <div class="faq-item"><div class="faq-question">
-    <span>What kind of questions can I ask Abel?</span>
-    <span class="faq-arrow">&#9654;</span>
-  </div>
-  <div class="faq-answer">
-    <p>Anything garage door related — weird noises, opener issues, spring questions, safety concerns, and more.
-</p></div></div>
-
- </section>
-
-
-<section class="assistant-section">
-  <h2 class="sub-heading">Need Hands-On Help?</h2>
-    <p style="margin-bottom: 1rem;">
-      Abel is a great starting point — but if you'd rather talk to a real technician, we're just a message away.
-    </p>
-<a href="/contact" class="cta-button" style="margin: 3rem auto 2rem;"><i class="fa-regular fa-circle-question"></i> Didn’t Solve It? Request Help</a>
-</section>
-
-
-<section>
-  <h2 class="sub-heading">Isabella Garage Door</h2>
-  <p style="font-size: .9rem; text-align: center;">
-    Smart help. Local expertise. AskAbel™ is here 24/7.
-  </p>
-  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
-    <em>Raising Performance. Elevating Standards</em>
-  </p>
-</section>
-
-
-
-<script is:inline>
-document.querySelectorAll('.faq-item').forEach(item => {
-  const question = item.querySelector('.faq-question');
-  const answer = item.querySelector('.faq-answer');
-
-  question.addEventListener('click', () => {
-    const isOpen = item.classList.contains('open');
-
-    document.querySelectorAll('.faq-item').forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.faq-answer').style.maxHeight = null;
-    });
-
-    if (!isOpen) {
-      item.classList.add('open');
-       answer.style.maxHeight = answer.scrollHeight + 'px';
-    }
-  });
-});
-</script>
-
-</BaseLayout>
