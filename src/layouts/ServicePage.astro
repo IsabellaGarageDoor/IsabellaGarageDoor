@@ -1,0 +1,143 @@
+---
+// Shared layout for the individual service pages (src/pages/services/*).
+// Each page keeps its own unique copy and passes it in here; the page body
+// (the service-specific sections) goes in the default slot.
+//
+// Slots:
+//   default    – service-specific sections between the trust badges and the FAQ
+//   after-faq  – optional content between the FAQ/testimonial and the booking band
+import BaseLayout from './BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import TrustBadges from '../components/TrustBadges.astro';
+import Faq from '../components/ui/Faq.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import BookingCta from '../components/BookingCta.astro';
+import ContactBlock from '../components/ContactBlock.astro';
+import ResearchCard, { type ResearchPost } from '../components/services/ResearchCard.astro';
+import Icon from '../components/ui/Icon.astro';
+import type { FaqItem } from '../lib/schema';
+import { site, telHref } from '../config/site';
+
+export interface ServicePageContent {
+  title: string;
+  description: string;
+  /** Structured data objects emitted in <head> (the FAQ schema comes from `faq`) */
+  schema: object[];
+  /** Breadcrumb name + path of this page */
+  crumb: { name: string; href: string };
+  hero: {
+    title: string;
+    image: string;
+    imageAlt: string;
+    /** Intro paragraphs (HTML) */
+    paragraphs: string[];
+    /** Bold call-out line above the buttons (HTML) */
+    callout?: string;
+    /** Full sms: href for the "Text Us Now" button */
+    smsHref: string;
+  };
+  faq: { heading?: string; items: FaqItem[] };
+  testimonial?: { quote: string; author: string };
+  research?: { heading: string; text: string; post: ResearchPost };
+  /** Closing "/contact" call-to-action button */
+  cta: { label: string; icon?: string };
+  /** Line in the closing sign-off under the business name */
+  signoff: string;
+}
+
+const c = Astro.props as ServicePageContent;
+const [firstParagraph, ...moreParagraphs] = c.hero.paragraphs;
+---
+
+<BaseLayout title={c.title} description={c.description} legacy={false}>
+  <Fragment slot="head">
+    {c.schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+  </Fragment>
+
+  <PageHero
+    title={c.hero.title}
+    intro={firstParagraph}
+    image={c.hero.image}
+    imageAlt={c.hero.imageAlt}
+    crumbs={[{ name: 'Services', href: '/services/services' }, c.crumb]}
+  >
+    {moreParagraphs.map((p) => <p class="service-hero__p" set:html={p} />)}
+    {c.hero.callout && <p class="service-hero__callout" set:html={c.hero.callout} />}
+    <Fragment slot="actions">
+      <a href={telHref} class="btn btn--primary btn--lg"><Icon name="phone" /> Call {site.phone.display}</a>
+      <a href={c.hero.smsHref} class="btn btn--outline-light btn--lg"><Icon name="text" /> Text Us Now</a>
+    </Fragment>
+  </PageHero>
+
+  <section class="section section--tight section--white trust-band">
+    <div class="container">
+      <TrustBadges />
+    </div>
+  </section>
+
+  <slot />
+
+  <Faq heading={c.faq.heading ?? 'Frequently Asked Questions'} items={c.faq.items}>
+    <div class="cluster cluster--center mt-8">
+      <a href="/resources/faq" class="btn btn--outline btn--sm">Browse All FAQs</a>
+    </div>
+  </Faq>
+
+  {c.testimonial && (
+    <section class="section section--sand section--tight">
+      <div class="container">
+        <TestimonialCard quote={c.testimonial.quote} author={c.testimonial.author} href="/about/testimonials" />
+      </div>
+    </section>
+  )}
+
+  <slot name="after-faq" />
+
+  <BookingCta />
+
+  {c.research ? (
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">From the Blog</span>
+          <h2 set:html={c.research.heading} />
+          <p set:html={c.research.text} />
+        </div>
+        <ResearchCard post={c.research.post} />
+        <div class="cluster cluster--center mt-10">
+          <a href="/contact" class="btn btn--navy btn--lg"><Icon name={c.cta.icon ?? 'calendar'} /> {c.cta.label}</a>
+        </div>
+      </div>
+    </section>
+  ) : (
+    <section class="section">
+      <div class="container cluster cluster--center">
+        <a href="/contact" class="btn btn--navy btn--lg"><Icon name={c.cta.icon ?? 'calendar'} /> {c.cta.label}</a>
+      </div>
+    </section>
+  )}
+
+  <ContactBlock text={c.signoff} />
+</BaseLayout>
+
+<style>
+  .trust-band {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .service-hero__p {
+    max-width: 40rem;
+  }
+
+  .service-hero__callout {
+    max-width: 40rem;
+    padding: var(--space-4) var(--space-5);
+    border-left: 3px solid var(--bronze);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    background: rgb(255 255 255 / 0.06);
+  }
+
+  .service-hero__callout :global(strong) {
+    color: var(--white);
+  }
+</style>

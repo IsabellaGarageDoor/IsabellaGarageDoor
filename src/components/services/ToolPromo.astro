@@ -1,0 +1,84 @@
+---
+// Promo band for one of the free homeowner tools (logo, pitch, CTA button).
+import Icon from '../ui/Icon.astro';
+
+interface Props {
+  image?: string;
+  imageAlt?: string;
+  heading: string;
+  /** Pitch paragraph HTML */
+  text: string;
+  href: string;
+  label: string;
+  icon?: string;
+  /** Small label above the heading (pass '' to hide) */
+  eyebrow?: string;
+  tone?: 'default' | 'white' | 'sand';
+}
+
+const { image, imageAlt = '', heading, text, href, label, icon = 'arrow-right', eyebrow = 'Free Homeowner Tool', tone = 'default' } = Astro.props;
+---
+
+<section class:list={['section', { 'section--white': tone === 'white', 'section--sand': tone === 'sand' }]}>
+  <div class="container">
+    <div class:list={['tool-promo reveal', { 'tool-promo--image': image }]}>
+      {image && (
+        <div class="tool-promo__logo">
+          <img src={image} alt={imageAlt} loading="lazy" decoding="async" />
+        </div>
+      )}
+      <div class="tool-promo__text">
+        {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+        <h2 set:html={heading} />
+        <p set:html={text} />
+        <div>
+          <a href={href} class="btn btn--primary btn--lg"><Icon name={icon} /> {label}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .tool-promo {
+    display: grid;
+    gap: var(--space-8);
+    align-items: center;
+    max-width: 1040px;
+    margin-inline: auto;
+    padding: clamp(1.75rem, 1rem + 3vw, 3rem);
+    border: 1px solid var(--bronze-100);
+    border-radius: var(--radius-lg);
+    background:
+      radial-gradient(circle at 100% 0%, rgb(178 125 87 / 0.12), transparent 45%),
+      var(--bronze-50);
+    box-shadow: var(--shadow);
+  }
+
+  .tool-promo__logo img {
+    width: 100%;
+    max-width: 420px;
+    margin-inline: auto;
+    border-radius: var(--radius);
+  }
+
+  .tool-promo__text > * + * {
+    margin-top: var(--space-4);
+  }
+
+  .tool-promo__text p {
+    color: var(--muted);
+    font-size: var(--text-lg);
+  }
+
+  .tool-promo__text div {
+    padding-top: var(--space-2);
+  }
+
+  @media (min-width: 860px) {
+    .tool-promo--image {
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: var(--space-12);
+    }
+  }
+</style>
