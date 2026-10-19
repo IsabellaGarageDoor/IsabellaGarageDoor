@@ -1,0 +1,179 @@
+/* ==========================================================================
+   Form styles for the contact and service-agreement forms.
+   Imported by src/pages/contact.astro and src/components/ServiceAgreementForm.jsx.
+   ========================================================================== */
+
+.form-card {
+  padding: clamp(1.5rem, 1rem + 2.5vw, 2.75rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
+}
+
+.form-card__head {
+  margin-bottom: var(--space-8);
+}
+
+.form-card__head > * + * {
+  margin-top: var(--space-2);
+}
+
+.form-card__title {
+  font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.85rem);
+}
+
+.form-card__sub {
+  color: var(--muted);
+}
+
+.form-grid {
+  display: grid;
+  gap: var(--space-5) var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .form-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form-field--full {
+    grid-column: 1 / -1;
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.form-label {
+  color: var(--navy);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.form-control {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.7rem 0.9rem;
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--ink);
+  font-size: var(--text-base);
+  line-height: 1.4;
+  transition:
+    border-color var(--duration) var(--ease),
+    box-shadow var(--duration) var(--ease);
+}
+
+.form-control::placeholder {
+  color: #8a94a1;
+}
+
+.form-control:hover {
+  border-color: var(--muted);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--bronze-600);
+  box-shadow: 0 0 0 3px rgb(154 103 68 / 0.25);
+}
+
+.form-control:focus-visible {
+  outline: none;
+}
+
+textarea.form-control {
+  min-height: 8rem;
+  resize: vertical;
+}
+
+select.form-control {
+  appearance: none;
+  padding-right: 2.75rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='%231a334f' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  background-size: 1.1rem;
+  cursor: pointer;
+}
+
+.form-control[aria-invalid='true'] {
+  border-color: var(--danger);
+}
+
+.form-error {
+  color: var(--danger);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  min-height: 48px;
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--cream);
+  color: var(--text);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.form-check input {
+  flex-shrink: 0;
+  width: 1.35rem;
+  height: 1.35rem;
+  margin-top: 0.15em;
+  accent-color: var(--bronze-600);
+  cursor: pointer;
+}
+
+.form-actions {
+  margin-top: var(--space-8);
+}
+
+.form-success {
+  margin-top: var(--space-6);
+  padding: var(--space-5) var(--space-6);
+  border: 1px solid rgb(46 125 79 / 0.3);
+  border-radius: var(--radius);
+  background: var(--success-bg);
+  color: var(--success);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.form-success h3 {
+  color: var(--success);
+  font-size: var(--text-lg);
+}
+
+.form-success > * + * {
+  margin-top: var(--space-2);
+}
+
+.form-success p {
+  color: #24613d;
+}
+
+.form-success a {
+  color: var(--navy);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.form-success a:hover {
+  text-decoration: underline;
+}
+
+.form-success__small {
+  font-size: var(--text-sm);
+}

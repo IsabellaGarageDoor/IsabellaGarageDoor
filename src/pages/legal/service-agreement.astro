@@ -1,22 +1,22 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import LegalLayout from '../../layouts/LegalLayout.astro';
 import ServiceAgreementForm from '../../components/ServiceAgreementForm.jsx';
 import ServiceAgreementContent from '../../components/service-agreement-component.md';
 
+// Not passed to the layout: the page <title> has always been the site default.
 const title = "Service Agreement - Isabella Garage Door";
 ---
 
+<LegalLayout>
+  <ServiceAgreementContent />
 
-<BaseLayout>
-
-<section>
-  <div>
-    <ServiceAgreementContent />
-   </div>
+  <section slot="after" class="agreement-form">
+    <ServiceAgreementForm client:visible />
   </section>
+</LegalLayout>
 
-<section>
-  <ServiceAgreementForm client:visible />
-</section>
-
-</BaseLayout>
+<style>
+  .agreement-form {
+    margin-top: var(--space-10);
+  }
+</style>

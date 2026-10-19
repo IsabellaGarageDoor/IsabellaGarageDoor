@@ -1,0 +1,85 @@
+---
+// Readable long-form layout for the legal pages. Markdown pages use it via
+// `layout:` frontmatter (Astro passes `frontmatter`); .astro pages can pass
+// title/description directly. Slot "after" renders below the document card.
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  frontmatter?: { title?: string; description?: string };
+  title?: string;
+  description?: string;
+}
+
+const { frontmatter, title, description } = Astro.props;
+---
+
+<BaseLayout frontmatter={frontmatter} title={title} description={description} legacy={false}>
+  <section class="section legal">
+    <div class="container legal__container">
+      <article class="prose legal__doc">
+        <slot />
+      </article>
+      <slot name="after" />
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal {
+    background:
+      linear-gradient(180deg, var(--sand) 0, var(--sand) 14rem, var(--cream) 14rem);
+  }
+
+  .legal__container {
+    max-width: calc(var(--container-narrow) + 6rem + 2 * var(--gutter));
+  }
+
+  .legal__doc {
+    max-width: none;
+    padding: clamp(1.5rem, 0.75rem + 3.5vw, 3.75rem);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--bronze);
+    border-radius: var(--radius-lg);
+    background: var(--white);
+    box-shadow: var(--shadow-lg);
+    font-size: var(--text-base);
+    overflow-wrap: anywhere;
+  }
+
+  .legal__doc :global(h1) {
+    margin-bottom: var(--space-2);
+    font-size: clamp(1.9rem, 1.4rem + 2vw, 2.75rem);
+  }
+
+  /* Headings in the markdown are wrapped in ** ** — keep them heading-colored */
+  .legal__doc :global(:is(h1, h2, h3, h4) strong) {
+    color: inherit;
+    font-weight: inherit;
+  }
+
+  .legal__doc :global(h2) {
+    font-size: clamp(1.3rem, 1.15rem + 0.7vw, 1.65rem);
+  }
+
+  .legal__doc :global(h3) {
+    font-size: clamp(1.15rem, 1.05rem + 0.45vw, 1.35rem);
+  }
+
+  .legal__doc :global(h3 + *),
+  .legal__doc :global(h2 + *) {
+    margin-top: 0.6em;
+  }
+
+  .legal__doc :global(hr) {
+    margin-block: 2em;
+  }
+
+  /* An <hr> right before a heading already separates sections */
+  .legal__doc :global(hr + :is(h2, h3)) {
+    margin-top: 0;
+  }
+
+  .legal__doc :global(ul) {
+    padding-left: 1.4em;
+  }
+</style>
