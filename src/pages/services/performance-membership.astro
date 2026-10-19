@@ -1,8 +1,7 @@
 ---
-title: "Performance Membership - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import TestimonialCard from '../../components/TestimonialCard.astro'
-import ServiceFooter from '../../components/ServiceFooter.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import ContactBlock from '../../components/ContactBlock.astro';
 
 const title = 'Performance Membership | Isabella Garage Door';
 const description = 'The "Never Worry Again" Plan. Proactive care, priority service, and lifetime coverage for your garage door parts in Mid-Michigan.';
@@ -54,53 +53,9 @@ const membershipSchema = {
     ]
   }
 };
----
 
-<BaseLayout {title} {description}>
-
-<Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(membershipSchema)} />
-  </Fragment>
-
-<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
-
- <div class="container">
-    <h1 class="coming-script">Coming Soon</h1>
-
-  <img src="/photos/protection-garage-door-plans.avif" alt="Performance Membership garage door maintenance" 
-  loading="eager" fetchpriority="high" class="header-photo-interior" />
-
-    <h2 class="sub-heading">Performance Membership</h2>
-
-    <p class="description">
-      We’re building something designed to completely change how homeowners care for their garage doors.
-      A smarter, proactive approach to reliability, safety, and long-term performance.
-    </p>
-
-    <p class="description">
-      This premium service is currently in development and will be available once our systems are fully in place
-      to deliver the level of service our customers expect.
-    </p>
-
-  </div>
-
-<section>
-  <h2 class="sub-heading">Isabella Garage Door</h2>
-  <p style="font-size: .9rem; text-align: center;">
-    Proactive care. Performance Membership - the smarter way to own a garage door in Central Michigan.
-  </p>
-  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
-    <em>Raising Performance. Elevating Standards</em>
-  </p>
-</section>
-
-
-
-
-
-
-
-<!--
+/* The full Performance Membership page below is not live yet ("Coming Soon" is shown instead).
+   Kept exactly as written so it can be restored when the membership launches.
   <img src="/src/photos/protection-garage-door-plans.webp" alt="Performance Membership garage door maintenance" 
   loading="eager" fetchpriority="high" class="header-photo-interior" />
 
@@ -221,143 +176,35 @@ const membershipSchema = {
   </p>
 </section>
 
--->
+*/
+---
 
-<ServiceFooter currentPath="/services/performance-membership" slot="full-width-section"/>
+<BaseLayout {title} {description} legacy={false}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(membershipSchema)} />
+  </Fragment>
 
-<style>
-  .membership-hero {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  .price-tag {
-    font-size: 2.5rem;
-    color: #1a334f;
-    margin: 0.5rem 0;
-    text-align: center;
-  }
-  .tagline {
-    font-style: italic;
-    font-size: 1.2rem;
-    color: #b27d57;
-    margin-bottom: 1.5rem;
-    text-align: center;
-  }
-  .promise-box {
-    background-color: #1a334f;
-    color: white;
-    padding: 3rem 2rem;
-    text-align: center;
-    border: 0.094rem solid #b27d57;
-    border-radius: 0.75rem;
-    margin: 2rem auto;
-    max-width: 900px;
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
-  }
-  .promise-box h2 { color: #ffffff; }
-  
-  .details-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin: 2rem auto;
-    padding-top: 2rem;
-    padding-bottom: 1rem;
-    max-width: 1100px;
-  }
-  .detail-card {
-    background: #ffffff;
-    border: 1px solid #b27d57;
-    padding: 1.5rem;
-    border-radius: 0.75rem;
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
-  }
+  <PageHero
+    title="Coming Soon"
+    image="/photos/protection-garage-door-plans.avif"
+    imageAlt="Performance Membership garage door maintenance"
+    crumbs={[{ name: 'Services', href: '/services/services' }, { name: 'Performance Membership', href: '/services/performance-membership' }]}
+  />
 
-    .detail-card:hover,
-    .detail-card:focus {
-      box-shadow: 0 0 0.9rem rgba(178, 125, 87, 0.85); /* Stronger glow */
-      border-color: #b27d57;
-      outline: none;
-      transform: translateY(-2px); /* Lift on hover */
-    }
+  <section class="section">
+    <div class="container container--narrow text-center stack-lg stack">
+      <span class="eyebrow">Proactive Care</span>
+      <h2>Performance Membership</h2>
+      <p class="lead">
+        We’re building something designed to completely change how homeowners care for their garage doors.
+        A smarter, proactive approach to reliability, safety, and long-term performance.
+      </p>
+      <p class="lead">
+        This premium service is currently in development and will be available once our systems are fully in place
+        to deliver the level of service our customers expect.
+      </p>
+    </div>
+  </section>
 
-  .detail-card h3 {
-    color: #1a334f;
-    font-size: 1.1rem;
-    margin: 0 0 1rem;
-    text-align: center;
-  }
-  .multiple-doors-section {
-    background: #f7faff;
-    padding: 1rem;
-    border-radius: 0.75rem;
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
-  }
-  .multiple-doors-section p {
-    color: #1a334f;
-  }
-  .terms-section {
-    background: #f7faff;
-    padding: 3rem 2rem;
-    border-radius: 0.75rem;
-    margin-top: 3rem;
-  }
-  .terms-content {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    margin-top: 1.5rem;
-  }
-  .terms-column { flex: 1 1 300px; }
-  .terms-column ul { padding-left: 1.2rem; }
-  .terms-column li { font-size: 0.9rem; margin-bottom: 0.5rem; }
-  .transfer-note {
-    text-align: center;
-    margin-top: 2rem;
-    font-style: italic;
-  }
-
-
-
-
-
-
-
-
-
-
-  .container {
-    max-width: 800px;
-    padding: 2rem;
-    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
-  }
-
-  .coming-script {
-    font-family: 'Lobster', cursive;
-    font-size: 4rem;
-    text-align: center;
-    color: #b27d57;
-    margin-bottom: 0.5rem;
-    letter-spacing: 2px;
-    text-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
-    transform: rotate(-4deg);
-    display: inline-block;
-  }
-
-  .membership-title {
-    font-size: 2rem;
-    letter-spacing: 1px;
-    margin-bottom: 2rem;
-  }
-
-  .description {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-  }
-
-
-</style>
-
+  <ContactBlock text="Proactive care. Performance Membership - the smarter way to own a garage door in Central Michigan." />
 </BaseLayout>
