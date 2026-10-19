@@ -1,8 +1,11 @@
 ---
 title: "Warranty - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import TestimonialCard from '../../components/TestimonialCard.astro'
+import PageHero from '../../components/ui/PageHero.astro';
 import SaveContactBanner from '../../components/SaveContactBanner.astro';
+import BookingCta from '../../components/BookingCta.astro';
+import ContactBlock from '../../components/ContactBlock.astro';
+import Icon from '../../components/ui/Icon.astro';
 
 const title = 'Warranty | Isabella Garage Door';
 const description = 'Isabella Garage Door provides a clear, one-year warranty on all workmanship and contractor-supplied parts. Customers also receive the full benefit of any manufacturer warranties. Our warranty ensures professional repairs, safety, and peace of mind for your garage door system.';
@@ -12,8 +15,8 @@ const warrantySchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://isabellagaragedoor.com/warranty",
-      "url": "https://isabellagaragedoor.com/warranty",
+      "@id": "https://isabellagaragedoor.com/resources/warranty",
+      "url": "https://isabellagaragedoor.com/resources/warranty",
       "name": "Warranty Information",
       "description": "Details regarding our 1-year parts and labor warranty for garage door services."
     },
@@ -31,170 +34,219 @@ const warrantySchema = {
 };
 ---
 
-<BaseLayout {title} {description}>
-
-<Fragment slot="head">
+<BaseLayout {title} {description} legacy={false}>
+  <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(warrantySchema)} />
   </Fragment>
 
-  <img src="/photos/warranty.avif" alt="Performance Membership garage door maintenance" 
-  loading="eager" fetchpriority="high" class="header-photo-interior" />
-
-  <!-- HERO -->
-  <section>
-    <h1 class="page-title">Our 1-Year Warranty</h1>
-    <p class="slogan">
-      Clear. Simple. Professional protection for the work we perform and the parts we install.
-    </p>
-  </section>
+  <PageHero
+    title="Our 1-Year Warranty"
+    eyebrow="Warranty"
+    intro="Clear. Simple. Professional protection for the work we perform and the parts we install."
+    image="/photos/warranty.avif"
+    imageAlt="Performance Membership garage door maintenance"
+    crumbs={[{ name: 'Resources', href: '/resources/resources-landing-page' }, { name: 'Warranty', href: '/resources/warranty' }]}
+  />
 
   <!-- SUMMARY -->
-  <section>
-    <h2 class="sub-heading">What Our Warranty Covers</h2>
-    <p>
-      Isabella Garage Door stands behind the quality of our work. We provide a
-      <strong>one (1) year warranty on workmanship</strong> and a
-      <strong>one (1) year warranty on parts we supply and install</strong>.
-    </p>
-    <p>
-      If a manufacturer provides a warranty longer than ours, you receive the full benefit
-      of that manufacturer warranty.
-    </p>
+  <section class="section">
+    <div class="container container--narrow text-center stack-lg stack">
+      <span class="eyebrow">Coverage</span>
+      <h2>What Our Warranty Covers</h2>
+      <p class="lead">
+        Isabella Garage Door stands behind the quality of our work. We provide a <strong>one (1) year warranty on workmanship</strong> and a <strong>one (1) year warranty on parts we supply and install</strong>.
+      </p>
+      <p>
+        If a manufacturer provides a warranty longer than ours, you receive the full benefit
+        of that manufacturer warranty.
+      </p>
+    </div>
   </section>
 
-  <!-- WORKMANSHIP -->
-  <section>
-    <h2 class="sub-heading">Workmanship Warranty — 1 Year</h2>
-    <p>
-      The Isabella Garage Door warrants all workmanship for a period of one (1) year from the
-      date of service completion. This includes defects in labor, installation,
-      and adjustments directly attributable to Isabella Garage Door’s work.
-    </p>
-  </section>
-
-  <!-- PARTS -->
-  <section>
-    <h2 class="sub-heading">Parts Warranty — 1 Year</h2>
-    <p>
-      All parts and components supplied and installed by Isabella Garage Door are warranted
-      for one (1) year from the date of installation.
-    </p>
-    <p>
-      If an installed component includes a manufacturer warranty exceeding one year,
-      the Customer is entitled to the full benefit of that manufacturer warranty.
-      Isabella Garage Door does not shorten, limit, or modify manufacturer warranties and
-      will reasonably assist with documentation if needed for a claim.
-    </p>
-    <p>
-      This warranty applies only to the original service location and is non-transferable.
-    </p>
+  <!-- WORKMANSHIP + PARTS -->
+  <section class="section section--sand">
+    <div class="container grid grid--2 terms">
+      <div class="card">
+        <span class="card__icon"><Icon name="wrench" /></span>
+        <h2>Workmanship Warranty — 1 Year</h2>
+        <p>
+          The Isabella Garage Door warrants all workmanship for a period of one (1) year from the
+          date of service completion. This includes defects in labor, installation,
+          and adjustments directly attributable to Isabella Garage Door’s work.
+        </p>
+      </div>
+      <div class="card">
+        <span class="card__icon"><Icon name="tools" /></span>
+        <h2>Parts Warranty — 1 Year</h2>
+        <p>
+          All parts and components supplied and installed by Isabella Garage Door are warranted
+          for one (1) year from the date of installation.
+        </p>
+        <p>
+          If an installed component includes a manufacturer warranty exceeding one year,
+          the Customer is entitled to the full benefit of that manufacturer warranty.
+          Isabella Garage Door does not shorten, limit, or modify manufacturer warranties and
+          will reasonably assist with documentation if needed for a claim.
+        </p>
+        <p>
+          This warranty applies only to the original service location and is non-transferable.
+        </p>
+      </div>
+    </div>
   </section>
 
   <!-- EXCLUSIONS -->
-  <section class="exclusions">
-    <h2 class="sub-heading">What Is Not Covered</h2>
-    <ul>
-      <li>Misuse, abuse, neglect, or improper operation</li>
-      <li>Accidental or intentional damage</li>
-      <li>Normal wear and tear</li>
-      <li>Weather, environmental conditions, or corrosion</li>
-      <li>Power surges, electrical issues, or acts of nature</li>
-      <li>Pre-existing conditions not addressed in the original estimate</li>
-      <li>Customer-supplied parts or materials</li>
-      <li>Repairs or modifications by anyone other than Isabella Garage Door</li>
-      <li>Structural, framing, track, door, or opener conditions outside the original scope</li>
-    </ul>
-    <p>
-      Any unauthorized modification or adjustment that affects Isabella Garage Door’s work
-      may void this warranty.
-    </p>
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="stack-lg stack">
+        <div class="section-head section-head--left">
+          <span class="eyebrow">Limits</span>
+          <h2>What Is Not Covered</h2>
+        </div>
+        <ul class="bullets">
+          <li>Misuse, abuse, neglect, or improper operation</li>
+          <li>Accidental or intentional damage</li>
+          <li>Normal wear and tear</li>
+          <li>Weather, environmental conditions, or corrosion</li>
+          <li>Power surges, electrical issues, or acts of nature</li>
+          <li>Pre-existing conditions not addressed in the original estimate</li>
+          <li>Customer-supplied parts or materials</li>
+          <li>Repairs or modifications by anyone other than Isabella Garage Door</li>
+          <li>Structural, framing, track, door, or opener conditions outside the original scope</li>
+        </ul>
+        <p>
+          Any unauthorized modification or adjustment that affects Isabella Garage Door’s work
+          may void this warranty.
+        </p>
+      </div>
+    </div>
   </section>
 
   <!-- CLAIMS -->
-  <section>
-    <h2 class="sub-heading">Warranty Claim Requirements</h2>
-    <p>
-      All warranty claims must be reported within the warranty period. The Customer
-      may be required to provide proof of service and allow reasonable opportunity
-      for inspection before corrective action is taken.
-    </p>
-    <p>
-      Remedies under this warranty are limited to correction of defective workmanship
-      or replacement/repair of covered parts, at Isabella Garage Door sole discretion.
-    </p>
-    <p>
-      This warranty does not include compensation for inconvenience, loss of use,
-      property damage, or consequential damages.
-    </p>
+  <section class="section section--sand">
+    <div class="container container--narrow">
+      <div class="stack-lg stack">
+        <div class="section-head section-head--left">
+          <span class="eyebrow">Claims</span>
+          <h2>Warranty Claim Requirements</h2>
+        </div>
+        <p>
+          All warranty claims must be reported within the warranty period. The Customer
+          may be required to provide proof of service and allow reasonable opportunity
+          for inspection before corrective action is taken.
+        </p>
+        <p>
+          Remedies under this warranty are limited to correction of defective workmanship
+          or replacement/repair of covered parts, at Isabella Garage Door sole discretion.
+        </p>
+        <p>
+          This warranty does not include compensation for inconvenience, loss of use,
+          property damage, or consequential damages.
+        </p>
+      </div>
+    </div>
   </section>
 
   <!-- DIAGNOSTICS -->
-  <section class="exclusions">
-    <h2 class="sub-heading">Warranty Service Diagnostics</h2>
-    <p>
-      If a requested warranty visit reveals the issue is unrelated to the original
-      repair, installation, or covered item, a standard service call fee will apply.
-    </p>
-    <ul>
-      <li>Normal wear and tear</li>
-      <li>Lack of maintenance</li>
-      <li>Misuse or accidental damage</li>
-      <li>Manufacturer defects outside the one-year parts warranty</li>
-      <li>Third-party adjustments or work</li>
-      <li>Unrelated component failures</li>
-    </ul>
-    <p>
-      Service fees are charged according to the current standard rate sheet.
-    </p>
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="stack-lg stack">
+        <div class="section-head section-head--left">
+          <span class="eyebrow">Diagnostics</span>
+          <h2>Warranty Service Diagnostics</h2>
+        </div>
+        <p>
+          If a requested warranty visit reveals the issue is unrelated to the original
+          repair, installation, or covered item, a standard service call fee will apply.
+        </p>
+        <ul class="bullets">
+          <li>Normal wear and tear</li>
+          <li>Lack of maintenance</li>
+          <li>Misuse or accidental damage</li>
+          <li>Manufacturer defects outside the one-year parts warranty</li>
+          <li>Third-party adjustments or work</li>
+          <li>Unrelated component failures</li>
+        </ul>
+        <p>
+          Service fees are charged according to the current standard rate sheet.
+        </p>
+      </div>
+    </div>
   </section>
 
   <!-- CLARIFICATION -->
-  <section>
-    <h2 class="sub-heading">Important Clarification</h2>
-    <p>
-      This is a service warranty provided by Isabella Garage Door. It is not an insurance
-      policy or maintenance agreement. Ongoing maintenance is the responsibility of
-      the Customer unless covered under a separate membership or service agreement.
-    </p>
+  <section class="section section--tight section--sand">
+    <div class="container container--narrow">
+      <div class="notice">
+        <Icon name="info" />
+        <div class="stack">
+          <h2>Important Clarification</h2>
+          <p>
+            This is a service warranty provided by Isabella Garage Door. It is not an insurance
+            policy or maintenance agreement. Ongoing maintenance is the responsibility of
+            the Customer unless covered under a separate membership or service agreement.
+          </p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <section>
-<div class="warranty-cta">
-  <h2 class="sub-heading">Standing Behind Our Craftsmanship</h2>
-  <p>Our commitment to quality doesn't end at installation. If you need assistance with a warranty claim, our dedicated team is ready to help.</p>
-  <a href="/contact" class="cta-button">
-    <i class="fa-solid fa-circle-check"></i> File a Warranty Claim
-  </a>
-</div>
+  <section class="section">
+    <div class="container container--narrow text-center stack-lg stack">
+      <span class="eyebrow">We're Here to Help</span>
+      <h2>Standing Behind Our Craftsmanship</h2>
+      <p class="lead">Our commitment to quality doesn't end at installation. If you need assistance with a warranty claim, our dedicated team is ready to help.</p>
+      <div class="cluster cluster--center">
+        <a href="/contact" class="btn btn--navy"><Icon name="check-circle" /> File a Warranty Claim</a>
+      </div>
+    </div>
   </section>
 
-<SaveContactBanner />
+  <div class="container"><SaveContactBanner /></div>
 
-<section>
-  <h2 class="sub-heading">Isabella Garage Door</h2>
-  <p style="font-size: .9rem; text-align: center;">
-    Peace of mind comes standard. Our one-year warranty covers all workmanship and contractor-supplied parts, ensuring your garage door system stays safe and reliable.
-  </p>
-  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
-    <em>Raising Performance. Elevating Standards</em>
-  </p>
-</section>
+  <BookingCta />
+  <ContactBlock text="Peace of mind comes standard. Our one-year warranty covers all workmanship and contractor-supplied parts, ensuring your garage door system stays safe and reliable." />
+</BaseLayout>
 
 <style>
-p {
-  margin-bottom: 1rem;
-}
+  .terms .card {
+    padding: var(--space-8);
+  }
 
-.exclusions ul {
-  padding-left: 1.2rem;
-  margin: 0;
-}
+  .terms .card h2 {
+    font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.6rem);
+  }
 
-.exclusions li {
-  margin-bottom: 0.6rem;
-  list-style-type: disc;
-  font-size: 0.95rem;
-}
+  .bullets {
+    padding-left: 1.2rem;
+  }
+
+  .bullets li {
+    margin-block: var(--space-2);
+    list-style: disc;
+  }
+
+  .bullets li::marker {
+    color: var(--bronze);
+  }
+
+  .notice {
+    display: flex;
+    gap: var(--space-4);
+    padding: var(--space-6) var(--space-8);
+    border: 1px solid var(--bronze-100);
+    border-left: 4px solid var(--bronze);
+    border-radius: var(--radius);
+    background: var(--white);
+  }
+
+  .notice > :global(.icon) {
+    flex-shrink: 0;
+    margin-top: 0.3em;
+    color: var(--bronze-700);
+  }
+
+  .notice h2 {
+    font-size: 1.3rem;
+  }
 </style>
-
-</BaseLayout>

@@ -1,6 +1,13 @@
 ---
 title: "Pricing - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/ui/PageHero.astro';
+import Faq from '../../components/ui/Faq.astro';
+import BookingCta from '../../components/BookingCta.astro';
+import ContactBlock from '../../components/ContactBlock.astro';
+import Icon from '../../components/ui/Icon.astro';
+import type { FaqItem } from '../../lib/schema';
+import { serviceCallFee, repairPriceGroups, performanceMembership } from '../../data/pricing';
 
 const title = 'Pricing | Isabella Garage Door';
 const description = 'Honest, local garage door repair in Central Michigan. Flat service call, clear pricing, and trusted professional service.';
@@ -10,8 +17,8 @@ const pricingSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://isabellagaragedoor.com/pricing",
-      "url": "https://isabellagaragedoor.com/pricing",
+      "@id": "https://isabellagaragedoor.com/resources/pricing",
+      "url": "https://isabellagaragedoor.com/resources/pricing",
       "name": "Garage Door Service Pricing",
       "description": "Transparent pricing for garage door repairs and maintenance in Mid-Michigan."
     },
@@ -22,8 +29,8 @@ const pricingSchema = {
         "name": "Garage Door Diagnostic & Service Visit",
         "description": "A full safety inspection and professional diagnosis."
       },
-      "price": "80.00",
-      "priceCurrency": "USD",
+      "price": serviceCallFee.schemaPrice,
+      "priceCurrency": serviceCallFee.currency,
       "description": "Flat rate service visit applied toward the cost of your repair.",
       "areaServed": {
         "@type": "State",
@@ -35,493 +42,455 @@ const pricingSchema = {
     }
   ]
 };
+
+const warrantyItems = [
+  { icon: 'shield', title: 'Full Coverage Protection', text: '1 year warranty on all parts we supply and install, including labor.' },
+  { icon: 'wrench', title: 'Installation Assurance', text: '1 year warranty on the installation of customer-supplied parts.' },
+  { icon: 'award', title: 'Extended Manufacturer Advantage', text: 'If a manufacturer’s warranty exceeds ours, you receive the longer coverage automatically.' },
+  { icon: 'handshake', title: 'No-Hassle Promise', text: 'If something fails during the warranty period, we return and fix it at no cost to you.' },
+];
+
+const membershipPerks = [
+  'Biannual performance tuning with full inspection and documentation',
+  'Lifetime coverage on all wear components (parts & labor included)',
+  'VIP priority scheduling—front-of-the-line service',
+  'Invisible service via keypad/MyQ access—no need to be home',
+  `${performanceMembership.discount} member discount on openers, electronics, and specialty parts`,
+  'Batteries and bulbs replaced automatically during spring visit',
+];
+
+const faqs: FaqItem[] = [
+  {
+    question: 'What does your service call include?',
+    answer: '<p>Our service call is a <strong>full inspection and safety check</strong>, not just a “trip to your house.” It ensures your door is safe and reliable — and the fee is waived if you approve a repair and we still perform the inspection and safety check.</p>',
+  },
+  {
+    question: 'What if I don’t approve a repair?',
+    answer: '<p>You’ll only pay the service call fee, which covers our time, travel, and the full inspection/report. You still leave with a clear understanding of your door’s condition.</p>',
+  },
+  {
+    question: 'Can I get an exact price without a visit?',
+    answer: '<p>Our EasyEstimate™ tool gives a ballpark range. For precise pricing, an on-site inspection is required because every door is unique.</p>',
+  },
+  {
+    question: 'Do you match competitor coupons?',
+    answer: '<p>Our focus is on <strong>value, quality, and reliability</strong> rather than competing on price. You get premium service, a full inspection, and a professional repair done right the first time.</p>',
+  },
+];
 ---
 
-
-<BaseLayout {title} {description}>
-
-<Fragment slot="head">
+<BaseLayout {title} {description} legacy={false}>
+  <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(pricingSchema)} />
   </Fragment>
 
-<img src="/photos/estimate-image-garage-door-service.avif" alt="Isabella Garage Door Giving Estimate for Garage Door Repair" loading="eager" fetchpriority="high" class="header-photo-interior" />
+  <PageHero
+    title="Our Pricing Structure"
+    eyebrow="Pricing"
+    intro="At Isabella Garage Door, we believe in <strong>straightforward, transparent pricing</strong> with no hidden fees or surprises. Our goal is to make it easy for you to understand what to expect and why — every visit, every repair, every time."
+    image="/photos/estimate-image-garage-door-service.avif"
+    imageAlt="Isabella Garage Door Giving Estimate for Garage Door Repair"
+    crumbs={[{ name: 'Resources', href: '/resources/resources-landing-page' }, { name: 'Pricing', href: '/resources/pricing' }]}
+  >
+    <a href="/resources/warranty" class="warranty-badge">
+      <Icon name="shield" />
+      <span><strong>One Year Warranty on Parts & Labor</strong>.</span>
+    </a>
+  </PageHero>
 
-<section id="pricing-structure">
-  <h1 class="page-title">Our Pricing Structure</h1>
-  <p>At Isabella Garage Door, we believe in <strong>straightforward, transparent pricing</strong> with no hidden fees or surprises. Our goal is to make it easy for you to understand what to expect and why — every visit, every repair, every time.</p>
-</section>
-
-    <!-- Highlight Section -->
-
-    <div class="highlight-section">
-<a href="/resources/warranty">
-        <p>
-    <strong>One Year Warranty on Parts & Labor</strong>.
-  </p>
-</a>
-    </div>
-
-<section>
-  <h2 class="sub-heading">Service Call Fee</h2>
-  <p><strong>$80 Flat Rate Service Visit – Applied Toward Your Repair</strong></p>
-  <p>Your service call isn’t just a “trip charge.” It’s a <strong>full, value-packed diagnostic visit</strong> that includes:</p>
-  <ul>
-    <li>Travel to your home anywhere in Isabella County and surrounding areas</li>
-    <li>Comprehensive inspection</li>
-    <li>Complete safety evaluation of springs, sensors, cables, rollers, and opener</li>
-    <li>Professional diagnosis and written repair estimate</li>
-  </ul>
-  <p><strong>Waived with Repair:</strong> If you approve repairs during our visit, the service call fee is <strong>applied toward the cost of the work</strong>, so you’re only paying for the repair itself.</p>
-  <p>This approach ensures:</p>
-  <ul>
-    <li>You get professional attention even if you’re unsure what’s wrong</li>
-    <li>Full peace of mind about your door’s safety and performance</li>
-    <li>Clear, upfront pricing before you commit</li>
-  </ul>
-</section>
-
-<section>
-  <h2 class="sub-heading">Common Repairs & Price Ranges</h2>
-  <p style="margin-bottom:2rem;">While every garage door is unique, here are typical price ranges and what they cover:</p>
-
-<div class="plans">
-  <h2 class="sub-heading" style="margin: 1rem 0 -.5rem;">Springs & Conversions</h2>
-    <article class="plan">
-
-  <h3 class="sub-sub-heading" style="margin: 2rem 0 1rem;">Single Spring Replacement ($325–$395)</h3>
-  <p>Torsion springs counterbalance your door’s weight. Larger or heavy-duty doors require bigger springs, which affects pricing.</p>
-
-  <h3 class="sub-sub-heading" style="margin: 2rem 0 1rem;">Double Spring Replacement ($395–$525)</h3>
-  <p>Torsion springs counterbalance your door’s weight. Larger or heavy-duty doors require bigger springs, which affects pricing.</p>
-
-  <h3 class="sub-sub-heading" style="margin: 2rem 0 1rem;">Torsion Conversion ($595–$795)</h3>
-  <p>All neccesary parts and labor to convert your existing spring system over to a smoother, more modern torsion system.</p>
-</article>
-
-  <h2 class="sub-heading" style="margin: 1rem 0 -.5rem;">Openers & Repair</h2>
-<article class="plan">
-  <h3 class="sub-sub-heading" style="margin: 2rem 0 1rem;">New Opener Installation ($495–$750)</h3>
-  <p>Includes the new opener, professional installation, and testing to ensure smooth and safe operation. Price depends on door type and optional features.</p>
-
-  <h3 class="sub-sub-heading" style="margin: 2rem 0 1rem;">Opener Repair ($150–$450)</h3>
-  <p>Repairs can include motor issues, logic board replacements, or gear repair. Price varies with opener type, specific issue, and complexity.</p>
-</article>
-
-  <h2 class="sub-heading" style="margin: 1rem 0 -.5rem;">Cables & Rollers</h2>
-
-<article class="plan">
-  <h3 class="sub-sub-heading" style="margin: 2rem 0 1rem;">Full Hardware Refresh ($395-495)</h3>
-  <p>This package includes replacement of Rollers, Hinges, Bearings, Cables, and Drums</p>
-
-  <h3 class="sub-sub-heading" style="margin: 2rem 0 1rem;">Cable Replacement ($160–$200)</h3>
-  <p>Replacing cables restores smooth, balanced door operation. Price varies depending on door size and cable type.</p>
-
-  <h3 class="sub-sub-heading" style="margin: 2rem 0 1rem;">Roller Replacement ($165–$200)</h3>
-  <p>New rollers reduce friction, minimize noise, and prevent uneven door movement. Costs depend on roller type and door size.</p>
-</article>
-</div>
-
-  <p style="margin-top: 3rem;"><em>Note: Final pricing depends on your door’s size, condition, and system complexity. Written estimates are always provided before any work begins.</em></p>
-</section>
-
-<section class="warranty-section">
-<a href="/resources/warranty">
-  <div class="warranty-card">
-    <h2 class="sub-heading warranty-heading">Our 1-Year Service Warranty</h2>
-    <p class="warranty-intro">
-      Every repair we perform is backed by a clear, written warranty designed to give you complete confidence in our work.
-    </p>
-
-    <div class="warranty-grid">
-      <div class="warranty-item">
-        <h3 class="sub-sub-heading">Full Coverage Protection</h3>
-        <p>1 year warranty on all parts we supply and install, including labor.</p>
+  <!-- Service call fee -->
+  <section class="section" id="pricing-structure">
+    <div class="container split fee">
+      <div class="stack">
+        <span class="eyebrow">Service Call</span>
+        <h2>Service Call Fee</h2>
+        <p class="fee__headline"><strong>{serviceCallFee.display} Flat Rate Service Visit – Applied Toward Your Repair</strong></p>
+        <p>Your service call isn’t just a “trip charge.” It’s a <strong>full, value-packed diagnostic visit</strong> that includes:</p>
+        <ul class="check-list">
+          <li><Icon name="check-circle" /> <span>Travel to your home anywhere in Isabella County and surrounding areas</span></li>
+          <li><Icon name="check-circle" /> <span>Comprehensive inspection</span></li>
+          <li><Icon name="check-circle" /> <span>Complete safety evaluation of springs, sensors, cables, rollers, and opener</span></li>
+          <li><Icon name="check-circle" /> <span>Professional diagnosis and written repair estimate</span></li>
+        </ul>
       </div>
-
-      <div class="warranty-item">
-        <h3 class="sub-sub-heading">Installation Assurance</h3>
-        <p>1 year warranty on the installation of customer-supplied parts.</p>
-      </div>
-
-      <div class="warranty-item">
-        <h3 class="sub-sub-heading">Extended Manufacturer Advantage</h3>
-        <p>If a manufacturer’s warranty exceeds ours, you receive the longer coverage automatically.</p>
-      </div>
-
-      <div class="warranty-item">
-        <h3 class="sub-sub-heading">No-Hassle Promise</h3>
-        <p>If something fails during the warranty period, we return and fix it at no cost to you.</p>
-      </div>
-    </div>
-  </div>
-</a>
-</section>
- 
-
-<section>
-<img src="/photos/easyestimate-logo.webp" alt="Recieve a Free Estimate from Isabella Garage Door when you use our Estimate Tool" class="homepg-photo" style="margin-bottom: 2rem;" />  
-<h2 class="sub-heading">EasyEstimate™</h2>
-  <p>Want a <strong>quick ballpark estimate</strong> without scheduling a visit? Our EasyEstimate™ tool gives approximate pricing for common issues in seconds:</p>
-  <ul>
-    <li>Get instant cost ranges</li>
-    <li>Plan your repair budget</li>
-    <li>Understand likely solutions before we arrive</li>
-  </ul>
-<a href="/homeowner-tools/easy-estimate#estimate-form" class="cta-button"><i class="fas fa-clipboard"></i> EasyEstimate™</a>
-  <p><strong>Remember:</strong> This tool provides a starting point. Every door is different, and our on-site inspection ensures precise pricing and safety.</p>
-</section>
-
-
-  <section class="additional-info">
-    <h2 class="sub-heading">Our Pricing Promise</h2>
-    <div class="columns">
-      <div>
-        <h3 class="sub-sub-heading">Complete Transparency</h3>
-   <ul>
-    <li>Written estimates before any work begins</li>
-    <li>Clear explanations of recommended repairs</li>
-    <li>Multiple options presented when possible</li>
-    <li>No-pressure consultation</li>
-  </ul>
-      </div>
-
-      <div>
-        <h3 class="sub-sub-heading">Fair Market Pricing</h3>
-  <ul>
-    <li>Competitive rates for professional-grade service</li>
-    <li>Quality parts and materials included</li>
-    <li>Expertly trained, insured technicians</li>
-    <li>Warranty coverage on all repairs</li>
-  </ul>
+      <div class="card fee__card">
+        <span class="fee__price">{serviceCallFee.display}</span>
+        <p><strong>Waived with Repair:</strong> If you approve repairs during our visit, the service call fee is <strong>applied toward the cost of the work</strong>, so you’re only paying for the repair itself.</p>
+        <p>This approach ensures:</p>
+        <ul class="check-list">
+          <li><Icon name="check" /> <span>You get professional attention even if you’re unsure what’s wrong</span></li>
+          <li><Icon name="check" /> <span>Full peace of mind about your door’s safety and performance</span></li>
+          <li><Icon name="check" /> <span>Clear, upfront pricing before you commit</span></li>
+        </ul>
       </div>
     </div>
   </section>
 
-<article>
-  <h2 class="sub-heading">Performance Membership</h2>
-  <p>The smarter way to own a garage door. <strong>Performance Membership</strong> means you never pay for springs, rollers, cables, hinges, or bearings again—ever.</p>
-  <ul>
-    <li>Biannual performance tuning with full inspection and documentation</li>
-    <li>Lifetime coverage on all wear components (parts & labor included)</li>
-    <li>VIP priority scheduling—front-of-the-line service</li>
-    <li>Invisible service via keypad/MyQ access—no need to be home</li>
-    <li>25% member discount on openers, electronics, and specialty parts</li>
-    <li>Batteries and bulbs replaced automatically during spring visit</li>
-  </ul>
-  <p><strong>$49/month.</strong> The "Never Worry Again" plan for Central Michigan homeowners.</p>
-  <a href="/services/protection-plans" class="cta-button" style="margin-bottom: 2rem"><i class="fas fa-shield-alt"></i> Join Performance Membership</a>
-</article>
+  <!-- Price ranges -->
+  <section class="section section--sand">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Price Ranges</span>
+        <h2>Common Repairs & Price Ranges</h2>
+        <p>While every garage door is unique, here are typical price ranges and what they cover:</p>
+      </div>
 
+      <div class="plans">
+        {repairPriceGroups.map((group) => (
+          <article class="plan reveal">
+            <h3 class="plan__heading">{group.heading}</h3>
+            <ul class="plan__items">
+              {group.items.map((item) => (
+                <li>
+                  <div class="plan__row">
+                    <h4>{item.name}</h4>
+                    <span class="plan__range">({item.range})</span>
+                  </div>
+                  <p>{item.description}</p>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
 
-
-<!-- FAQ -->
-<section id="faq">
-<div class="faq-head">
-<a href="/resources/faq" style="text-decoration: none; color: inherit; display: block;">
-<h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions</h2>
-</a>
-</div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>What does your service call include?</span>
-      <span class="faq-arrow">&#9654;</span>
+      <p class="price-note"><em>Note: Final pricing depends on your door’s size, condition, and system complexity. Written estimates are always provided before any work begins.</em></p>
     </div>
-    <div class="faq-answer">
-      <p>Our service call is a <strong>full inspection and safety check</strong>, not just a “trip to your house.” It ensures your door is safe and reliable — and the fee is waived if you approve a repair and we still perform the inspection and safety check.</p>
+  </section>
+
+  <!-- Warranty -->
+  <section class="section">
+    <div class="container">
+      <a href="/resources/warranty" class="warranty-card">
+        <div class="section-head">
+          <span class="eyebrow">Warranty</span>
+          <h2>Our 1-Year Service Warranty</h2>
+          <p>Every repair we perform is backed by a clear, written warranty designed to give you complete confidence in our work.</p>
+        </div>
+        <div class="grid grid--4">
+          {warrantyItems.map((w) => (
+            <div class="warranty-item">
+              <span class="card__icon"><Icon name={w.icon} /></span>
+              <h3>{w.title}</h3>
+              <p>{w.text}</p>
+            </div>
+          ))}
+        </div>
+      </a>
     </div>
-  </div>
+  </section>
 
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>What if I don’t approve a repair?</span>
-      <span class="faq-arrow">&#9654;</span>
+  <!-- EasyEstimate -->
+  <section class="section section--sand">
+    <div class="container split">
+      <figure class="estimate-logo">
+        <img src="/photos/easyestimate-logo.webp" alt="Recieve a Free Estimate from Isabella Garage Door when you use our Estimate Tool" loading="lazy" decoding="async" />
+      </figure>
+      <div class="stack">
+        <span class="eyebrow">Homeowner Tool</span>
+        <h2>EasyEstimate™</h2>
+        <p>Want a <strong>quick ballpark estimate</strong> without scheduling a visit? Our EasyEstimate™ tool gives approximate pricing for common issues in seconds:</p>
+        <ul class="check-list">
+          <li><Icon name="check-circle" /> <span>Get instant cost ranges</span></li>
+          <li><Icon name="check-circle" /> <span>Plan your repair budget</span></li>
+          <li><Icon name="check-circle" /> <span>Understand likely solutions before we arrive</span></li>
+        </ul>
+        <div><a href="/homeowner-tools/easy-estimate#estimate-form" class="btn btn--navy"><Icon name="calculator" /> EasyEstimate™</a></div>
+        <p class="text-muted"><strong>Remember:</strong> This tool provides a starting point. Every door is different, and our on-site inspection ensures precise pricing and safety.</p>
+      </div>
     </div>
-    <div class="faq-answer">
-      <p>You’ll only pay the service call fee, which covers our time, travel, and the full inspection/report. You still leave with a clear understanding of your door’s condition.</p>
+  </section>
+
+  <!-- Pricing promise -->
+  <section class="section">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Our Promise</span>
+        <h2>Our Pricing Promise</h2>
+      </div>
+      <div class="grid grid--2 promise">
+        <div class="card">
+          <span class="card__icon"><Icon name="search" /></span>
+          <h3>Complete Transparency</h3>
+          <ul class="check-list">
+            <li><Icon name="check" /> <span>Written estimates before any work begins</span></li>
+            <li><Icon name="check" /> <span>Clear explanations of recommended repairs</span></li>
+            <li><Icon name="check" /> <span>Multiple options presented when possible</span></li>
+            <li><Icon name="check" /> <span>No-pressure consultation</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <span class="card__icon"><Icon name="tag" /></span>
+          <h3>Fair Market Pricing</h3>
+          <ul class="check-list">
+            <li><Icon name="check" /> <span>Competitive rates for professional-grade service</span></li>
+            <li><Icon name="check" /> <span>Quality parts and materials included</span></li>
+            <li><Icon name="check" /> <span>Expertly trained, insured technicians</span></li>
+            <li><Icon name="check" /> <span>Warranty coverage on all repairs</span></li>
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Can I get an exact price without a visit?</span>
-      <span class="faq-arrow">&#9654;</span>
+  <!-- Performance Membership -->
+  <section class="section section--navy membership">
+    <div class="container split">
+      <div class="stack">
+        <span class="eyebrow">Membership</span>
+        <h2>Performance Membership</h2>
+        <p>The smarter way to own a garage door. <strong>Performance Membership</strong> means you never pay for springs, rollers, cables, hinges, or bearings again—ever.</p>
+        <p class="membership__price"><strong>{performanceMembership.price}.</strong> The "Never Worry Again" plan for Central Michigan homeowners.</p>
+        <div><a href="/services/performance-membership" class="btn btn--primary"><Icon name="shield" /> Join Performance Membership</a></div>
+      </div>
+      <ul class="check-list membership__perks">
+        {membershipPerks.map((perk) => (
+          <li><Icon name="check-circle" /> <span>{perk}</span></li>
+        ))}
+      </ul>
     </div>
-    <div class="faq-answer">
-      <p>Our EasyEstimate™ tool gives a ballpark range. For precise pricing, an on-site inspection is required because every door is unique.</p>
+  </section>
+
+  <Faq heading="Frequently Asked Questions" items={faqs}>
+    <p class="text-center mt-8">
+      <a href="/resources/faq" class="btn btn--outline btn--sm">Browse All FAQs</a>
+    </p>
+  </Faq>
+
+  <!-- Schedule -->
+  <section class="section section--sand">
+    <div class="container container--narrow text-center stack-lg stack">
+      <span class="eyebrow">Get Started</span>
+      <h2>Schedule Your Service</h2>
+      <p class="lead">Whether you need a repair or just want a professional inspection, we’re ready to help.</p>
+      <div class="cluster cluster--center">
+        <a href="/contact" class="btn btn--navy"><Icon name="calendar" /> Book Your Appointment</a>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Do you match competitor coupons?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Our focus is on <strong>value, quality, and reliability</strong> rather than competing on price. You get premium service, a full inspection, and a professional repair done right the first time.</p>
-    </div>
-  </div>
-
-</section>
-
-<section style="margin-top: 2rem;">
-  <h2 class="sub-heading">Schedule Your Service</h2>
-  <p>Whether you need a repair or just want a professional inspection, we’re ready to help.</p>
-  <a href="/contact" class="cta-button margin-bottom-2rem"><i class="fas fa-calendar"></i> Book Your Appointment</a>
-</section>
-
-<section>
-  <h2 class="sub-heading">Isabella Garage Door</h2>
-  <p style="font-size: .9rem; text-align: center;">
-    Professional service. Transparent pricing. Trusted results.
-  </p>
-  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
-    <em>Raising Performance. Elevating Standards</em>
-  </p>
-</section>
-
-
+  <BookingCta />
+  <ContactBlock text="Professional service. Transparent pricing. Trusted results." />
+</BaseLayout>
 
 <style>
-ul {
-  padding-left: 1.2rem;
-  margin: 0;
-}
+  :global(.page-hero strong) {
+    color: var(--white);
+  }
 
-li {
-  margin: 0.6rem 0 0.6rem;
-  list-style-type: disc;
-  font-size: 1rem;
-}
+  .warranty-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-5);
+    border: 1px solid rgb(178 125 87 / 0.6);
+    border-radius: var(--radius-pill, 999px);
+    background: rgb(255 255 255 / 0.06);
+    color: var(--white) !important;
+    text-decoration: none;
+  }
 
-/* Plans Section */
-.plans {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  padding: 0rem;
-  margin: 0 auto;
-}
+  .warranty-badge:hover {
+    background: rgb(255 255 255 / 0.12);
+  }
 
-@media (max-width: 700px) {
+  .warranty-badge :global(.icon) {
+    color: var(--bronze-300);
+  }
+
+  .fee {
+    align-items: center;
+  }
+
+  .fee__headline {
+    color: var(--navy);
+    font-size: var(--text-lg);
+  }
+
+  .fee__card {
+    padding: clamp(1.5rem, 1rem + 2vw, 2.5rem);
+    border-top: 4px solid var(--bronze);
+    box-shadow: var(--shadow);
+  }
+
+  .fee__card p {
+    color: var(--text);
+  }
+
+  .fee__price {
+    color: var(--navy);
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+
   .plans {
-    grid-template-columns: 1fr;
+    display: grid;
+    gap: var(--space-6);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+    align-items: start;
   }
-}
 
-.plan {
-  background: #ffffff;
-  position: relative;
-  border: 0.094rem solid #b27d57;
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  margin: 0 auto;
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
-  transition: transform 0.2s ease;
-  background-image: url('/src/photos/white-garage-door-service-section.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #ffffff; /* fallback if image fails */
-z-index: 1;
-}
+  .plan {
+    position: relative;
+    overflow: hidden;
+    padding: var(--space-6);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--bronze);
+    border-radius: var(--radius-lg);
+    background: var(--white) url('/photos/white-garage-door-service-section.webp') center / cover no-repeat;
+    box-shadow: var(--shadow);
+  }
 
-.plan::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(255, 255, 255, 0.5); /* Light overlay */
-  z-index: 0;
-  border-radius: inherit;
-}
-.plan * {
-  position: relative;
-  z-index: 2;
-}
+  .plan::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgb(255 255 255 / 0.88);
+  }
 
-.plan:hover {
-  transform: translateY(-4px);
-}
+  .plan > * {
+    position: relative;
+  }
 
-.plan h2 {
-  font-size: 1.3rem;
-  margin-bottom: 1rem;
-  color: #1a334f;
-}
+  .plan__heading {
+    font-size: 1.35rem;
+  }
 
-.plan ul {
-  padding-left: 1.2rem;
-  margin: 0;
-}
+  .plan__items {
+    display: grid;
+    gap: var(--space-5);
+    margin-top: var(--space-5);
+    padding: 0;
+    list-style: none;
+  }
 
-.plan li {
-  margin-bottom: 0.6rem;
-  list-style-type: disc;
-  font-size: 0.95rem;
-}
+  .plan__items li + li {
+    padding-top: var(--space-5);
+    border-top: 1px solid var(--line);
+  }
 
-.plan blockquote {
-position: relative;
-  margin-top: 1rem;
-  padding: 0.8rem 1rem;
-  background-color: #f3f8ff;
-  border-left: 4px solid #1a334f;
-  border-radius: 0.75rem;
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
-  font-style: italic;
-  color: #3d4d63;
-  z-index: 4;
-}
+  .plan__row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-1) var(--space-3);
+  }
 
-.columns {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: center;
-  max-width: 1000px;
-  margin: 0 auto;
-}
+  .plan__row h4 {
+    color: var(--navy);
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+  }
 
-.columns > div {
-  flex: 1 1 250px;
-  background: #ffffff;
-  border: 0.094rem solid #b27d57;
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
-}
+  .plan__range {
+    color: var(--bronze-700);
+    font-weight: 600;
+    white-space: nowrap;
+  }
 
-.columns h3 {
-  margin-top: 0;
-  font-size: 1.1rem;
-  color: #b27d57;
-}
+  .plan__items p {
+    margin-top: var(--space-2);
+    color: var(--muted);
+    font-size: var(--text-sm);
+  }
 
+  .price-note {
+    max-width: 46rem;
+    margin: var(--space-10) auto 0;
+    color: var(--muted);
+    text-align: center;
+  }
 
-.warranty-section {
-  display: flex;
-  justify-content: center;
-}
+  .warranty-card {
+    display: block;
+    padding: clamp(1.75rem, 1rem + 3vw, 3.5rem);
+    border: 1px solid var(--bronze);
+    border-radius: var(--radius-lg);
+    background:
+      radial-gradient(circle at 100% 0%, rgb(178 125 87 / 0.2), transparent 45%),
+      linear-gradient(160deg, var(--navy), var(--navy-800));
+    box-shadow: var(--shadow-lg);
+    color: rgb(255 255 255 / 0.86);
+    text-decoration: none;
+  }
 
-.warranty-card {
-  max-width: 1000px;
-  width: 100%;
-  background: linear-gradient(
-  180deg,
-  #1f3b5b 0%,
-  #1a334f 45%,
-  #162c44 100%
-);
+  .warranty-card:hover {
+    color: rgb(255 255 255 / 0.86);
+  }
 
-  border: 0.094rem solid #b27d57;
-  border-radius: 14px;
-  padding: 1rem;
-  box-shadow: 0 20px 60px rgba(26, 51, 79, 0.08);
-}
+  .warranty-card h2 {
+    color: var(--white);
+  }
 
-.warranty-heading {
-  font-size: 2.4rem;
-  color: #ffffff;
-  text-align: center;
-  letter-spacing: 0.5px;
-}
+  .warranty-card .eyebrow {
+    color: var(--bronze-300);
+  }
 
-.warranty-intro {
-  text-align: center;
-  font-size: 1.1rem;
-  color: #ffffff;
-  margin-bottom: 50px;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
+  .warranty-card .section-head p {
+    color: rgb(255 255 255 / 0.8);
+  }
 
-.warranty-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 30px;
-}
+  .warranty-item {
+    padding: var(--space-6);
+    border-radius: var(--radius);
+    background: var(--white);
+    color: var(--text);
+    transition: transform var(--duration) var(--ease);
+  }
 
-.warranty-item {
-  padding: 28px 24px;
-  border-radius: 10px;
-  background: #ffffff;
-  border: 0.094rem solid #b27d57;
-  transition: all 0.25s ease;
-  position: relative;
-}
+  .warranty-card:hover .warranty-item {
+    transform: translateY(-2px);
+  }
 
-.warranty-item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 4px;
-  width: 100%;
-  background: #b27d57;
-  border-radius: 10px 10px 0 0;
-}
+  .warranty-item > * + * {
+    margin-top: var(--space-3);
+  }
 
-.warranty-item:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(26, 51, 79, 0.12);
-  border-color: #b27d57;
-}
+  .warranty-item h3 {
+    font-size: 1.1rem;
+  }
 
-.warranty-item h3 {
-  color: #1a334f;
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
+  .warranty-item p {
+    color: var(--muted);
+    font-size: var(--text-sm);
+  }
 
-.warranty-item p {
-  font-size: 0.95rem;
-}
+  .estimate-logo img {
+    width: 100%;
+    max-width: 30rem;
+    margin-inline: auto;
+    border-radius: var(--radius-lg);
+  }
 
+  .promise .card {
+    padding: var(--space-8);
+  }
+
+  .membership .split {
+    align-items: center;
+  }
+
+  .membership__price {
+    font-size: var(--text-lg);
+  }
+
+  .membership__price strong {
+    color: var(--bronze-300);
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+  }
+
+  .membership__perks {
+    padding: var(--space-6);
+    border: 1px solid rgb(255 255 255 / 0.15);
+    border-radius: var(--radius-lg);
+    background: rgb(255 255 255 / 0.05);
+  }
+
+  .membership__perks :global(.icon) {
+    color: var(--bronze-300);
+  }
 </style>
-
-<script is:inline>
-document.querySelectorAll('.faq-item').forEach(item => {
-  const question = item.querySelector('.faq-question');
-  const answer = item.querySelector('.faq-answer');
-
-  question.addEventListener('click', () => {
-    const isOpen = item.classList.contains('open');
-
-    document.querySelectorAll('.faq-item').forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.faq-answer').style.maxHeight = null;
-    });
-
-    if (!isOpen) {
-      item.classList.add('open');
-      answer.style.maxHeight = answer.scrollHeight + 'px';
-    }
-  });
-});
-</script>
-
-<script>
-  if (typeof window !== 'undefined') {
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('slide-up-in');
-          observer.unobserve(entry.target); // Animate only once
-        }
-      });
-    }, {
-      threshold: 0.6,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const section = document.querySelector('.highlight-section');
-      if (section) {
-        observer.observe(section);
-      }
-    });
-  }
-</script>
-
-</BaseLayout>
