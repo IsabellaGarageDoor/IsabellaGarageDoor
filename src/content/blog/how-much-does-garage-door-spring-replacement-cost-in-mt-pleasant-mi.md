@@ -37,11 +37,11 @@ If your home has extension springs and you're replacing them anyway, it's worth 
 
 Here's what you can expect to pay for a standard spring replacement from Isabella Garage Door in 2026, including parts and labor:
 
-**Extension Springs:** $275 – $375
+**Extension Springs:** {{price:extensionSpringDouble}}
 
-**Single Torsion Spring:** $325 – $395
+**Single Torsion Spring:** {{price:springSingle}}
 
-**Double Torsion Springs:** $395 – $595
+**Double Torsion Springs:** {{price:springDoubleEstimate}}
 
 **Torsion Conversion (upgrading from extension to torsion):** $595
 

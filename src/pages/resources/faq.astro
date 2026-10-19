@@ -8,6 +8,7 @@ import ContactBlock from '../../components/ContactBlock.astro';
 import Icon from '../../components/ui/Icon.astro';
 import { faqPageSchema, type FaqItem } from '../../lib/schema';
 import { site, telHref, mailtoHref } from '../../config/site';
+import { priceText } from '../../data/pricing';
 
 const title = 'FAQs | Isabella Garage Door';
 const description = 'Find answers to common questions about garage door repair, installation, maintenance, and more from our experienced team.';
@@ -281,7 +282,7 @@ const groups: FaqGroup[] = [
     items: [
       {
         question: 'Is there a service call fee?',
-        answer: '<p>Yes, there is an $80 service call fee which covers the visit and diagnosis. That fee is applied toward the cost of any repair completed the same day.</p>',
+        answer: `<p>Yes, there is a service call fee of ${priceText('serviceCallFee')} which covers the visit and diagnosis. That fee is applied toward the cost of any repair completed the same day.</p>`,
       },
       {
         question: 'Do you provide a written estimate before starting work?',

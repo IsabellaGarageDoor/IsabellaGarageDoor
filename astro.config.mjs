@@ -3,6 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import { satteri } from '@astrojs/markdown-satteri';
 import { articleTitlePlugin } from './src/lib/markdown-article-title.mjs';
+import { priceTokensPlugin } from './src/lib/markdown-price-tokens.mjs';
 
 export default defineConfig({
   site: 'https://isabellagaragedoor.com',
@@ -20,8 +21,9 @@ export default defineConfig({
     processor: satteri({
       // Keep quotes/dashes exactly as written in the posts (no smart punctuation)
       features: { smartPunctuation: false },
-      // Blog posts: move the "# Heading" into the article header (BlogLayout)
-      hastPlugins: [articleTitlePlugin],
+      // Blog posts: move the "# Heading" into the article header (BlogLayout),
+      // and fill in {{price:…}} tokens from src/data/pricing.ts
+      hastPlugins: [articleTitlePlugin, priceTokensPlugin],
     }),
   },
 });

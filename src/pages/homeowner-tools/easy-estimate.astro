@@ -2,6 +2,7 @@
 // EasyEstimate™ page. The tool itself (its questions, calculations and scripts) is unchanged;
 // this file holds the page text and passes it to layouts/ToolPage.astro.
 import ToolPage from '../../layouts/ToolPage.astro';
+import { estimatorPricing } from '../../data/pricing';
 
 const title = "EasyEstimate™ | Isabella Garage Door";
 const description = "Get a fast, accurate estimate for garage door repair, installation, or maintenance in Mt. Pleasant and surrounding areas. No pressure—just honest pricing.";
@@ -182,6 +183,8 @@ const page = {
   observer.observe(document.getElementById('estimate-app-container'));
 </script>
 
+<script is:inline set:html={`window.__EASY_ESTIMATE_PRICING__ = ${JSON.stringify(estimatorPricing).replace(/</g, String.fromCharCode(92) + 'u003c')};`}></script>
+
 <script is:inline>
         const questions = {
             start: {
@@ -264,31 +267,8 @@ const page = {
             }
         };
 
-        const pricing = {
-            'pricing-torsion-1': { price: '$325 - $395', service: 'Torsion Spring Repair (1 spring)' },
-            'pricing-torsion-2': { price: '$395 - $595', service: 'Torsion Spring Repair (2 springs)' },
-            'pricing-extension-1': { price: '$250 - $350', service: 'Extension Spring Repair (1 spring)' },
-            'pricing-extension-2': { price: '$275 - $375', service: 'Extension Spring Repair (2 springs)' },
-            'pricing-remote': { price: '$150 - $250', service: 'Remote/Wall Button Repair' },
-            'pricing-motor': { price: '$150 - $350', service: 'Motor Drive Repair' },
-            'pricing-open-close': { price: '$150 - $450', service: 'Opener Operation Repair' },
-            'pricing-light': { price: '$150 - $200', service: 'Opener Diagnostic & Repair' },
-            'pricing-replacement': { price: '$495 - $750', service: 'Complete Opener Replacement' },
-            'pricing-few-rollers': { price: '$130 - $170', service: 'Roller Replacement (1-2 rollers)' },
-            'pricing-single-door': { price: '$160 - $200', service: 'Roller Replacement (Single Door)' },
-            'pricing-double-door': { price: '$160 - $200', service: 'Roller Replacement (Double Door)' },
-            'pricing-jerky': { price: '$150 - $200', service: 'Roller Repair (Movement Issues)' },
-            'pricing-wear': { price: '$165 - $200', service: 'Roller Replacement (Worn)' },
-            'pricing-off-track': { price: '$150 - $500', service: 'Roller & Track Realignment' },
-            'pricing-frayed': { price: '$160 - $200', service: 'Cable Replacement (Frayed)' },
-            'pricing-rusty': { price: '$160 - $200', service: 'Cable Replacement (Corroded)' },
-            'pricing-off-drum': { price: '$140 - $200', service: 'Cable Reattachment & Repair' },
-            'pricing-uneven': { price: '$120 - $300', service: 'Cable & Balance Adjustment' },
-            'pricing-bent': { price: '$250 - $375', service: 'Track Repair (Bent/Damaged)' },
-            'pricing-rubbing': { price: '$150 - $250', service: 'Track Alignment' },
-            'pricing-completely-off': { price: '$300 - $600', service: 'Track Realignment (Emergency)' },
-            'maintenance-pricing': { price: '$120 - $150', service: 'Maintenance & Inspection' }
-        };
+        // Prices come from src/data/pricing.ts (window.__EASY_ESTIMATE_PRICING__ is set just above)
+        const pricing = window.__EASY_ESTIMATE_PRICING__;
 
         let currentStep = 'start';
         let answers = {};

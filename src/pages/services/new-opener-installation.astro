@@ -1,6 +1,7 @@
 ---
 // Garage Door Opener Installation Mt. Pleasant MI page. This page's own text lives here; the shared layout is layouts/ServicePage.astro.
 import ServicePage, { type ServicePageContent } from '../../layouts/ServicePage.astro';
+import { priceText } from '../../data/pricing';
 import ServiceSection from '../../components/services/ServiceSection.astro';
 import ServiceHighlights from '../../components/services/ServiceHighlights.astro';
 import ToolPromo from '../../components/services/ToolPromo.astro';
@@ -96,7 +97,7 @@ const content: Omit<ServicePageContent, 'schema'> = {
     items: [
       {
         question: "How much does it cost to install a new garage door opener in Mt. Pleasant?",
-        answer: "<p>Garage door opener installation in the Mt. Pleasant area typically starts at $495 and goes up from there depending on the opener type and features. This includes the opener unit, installation labor, programming remotes, safety sensor setup, and removal of your old opener. Belt-drive and smart openers are on the higher end, while basic chain-drive models are more affordable. If your current opener can be repaired instead, the cost may be lower — see <a href=\"/services/opener-repair\">opener repair</a>. Use our <a href=\"/homeowner-tools/easy-estimate\">EasyEstimate™ tool</a> for specific pricing based on your needs.</p>"
+        answer: `<p>Garage door opener installation in the Mt. Pleasant area typically starts at ${priceText('openerInstall', 'low')} and goes up from there depending on the opener type and features. This includes the opener unit, installation labor, programming remotes, safety sensor setup, and removal of your old opener. Belt-drive and smart openers are on the higher end, while basic chain-drive models are more affordable. If your current opener can be repaired instead, the cost may be lower — see <a href=\"/services/opener-repair\">opener repair</a>. Use our <a href=\"/homeowner-tools/easy-estimate\">EasyEstimate™ tool</a> for specific pricing based on your needs.</p>`
       },
       {
         question: "What's the difference between belt-drive and chain-drive openers?",

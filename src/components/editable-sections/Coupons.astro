@@ -1,4 +1,5 @@
 ---
+import Price from '../ui/Price.astro';
 // long words may break, especially on ipad, use shorter synonyms or a different amount of active coupons
 const showFirstCoupon = false;  // Spring Special
 const showSecondCoupon = true; // Thanksgiving Special
@@ -13,7 +14,7 @@ const showSixthCoupon = false;    // Local Hero Discount
 <a href="/contact" class="coupon-bleed" aria-label="Go to contact page">
   <div class="coupon">
     <h2>Spring Special</h2>
-    <p class="offer">Receive a full garage door tune-up for just <span>$79</span></p>
+    <p class="offer">Receive a full garage door tune-up for just <span><Price name="couponTuneUp" /></span></p>
     <p class="details">Simply mention this coupon when booking</p>
     <p class="expiration">Offer expires May 30th.</p>
     <button type="button" class="print-coupon-btn">Print Coupon</button>
@@ -25,7 +26,7 @@ const showSixthCoupon = false;    // Local Hero Discount
 <a href="/contact" class="coupon-bleed" aria-label="Go to contact page">
   <div class="coupon">
     <h2>Thanksgiving Special</h2>
-    <p class="offer">Save <span>$50</span> on a new garage door opener!</p>
+    <p class="offer">Save <span><Price name="couponOpenerSavingsA" /></span> on a new garage door opener!</p>
     <p class="details">Just mention the special when you book with us</p>
     <p class="expiration">Opener install must be booked by November 24th.</p>
     <button type="button" class="print-coupon-btn">Print Coupon</button>
@@ -49,7 +50,7 @@ const showSixthCoupon = false;    // Local Hero Discount
 <a href="/contact" class="coupon-bleed" aria-label="Go to contact page">
   <div class="coupon">
     <h2>September Special</h2>
-    <p class="offer">Save <span>$75</span> on a new garage door opener!</p>
+    <p class="offer">Save <span><Price name="couponOpenerSavingsB" /></span> on a new garage door opener!</p>
     <p class="details">Just mention the special and agree to leave us a review.</p>
     <p class="expiration">Offer expires October 30th.</p>
     <button type="button" class="print-coupon-btn">Print Coupon</button>
@@ -61,7 +62,7 @@ const showSixthCoupon = false;    // Local Hero Discount
 <a href="/contact" class="coupon-bleed" aria-label="Go to contact page">
   <div class="coupon">
     <h2>Torsion Spring Special</h2>
-    <p class="offer">Save <span>$25</span> on Any Torsion Spring Replacement</p>
+    <p class="offer">Save <span><Price name="couponTorsionSavings" /></span> on Any Torsion Spring Replacement</p>
     <p class="details">Professional installation to get your day back on track!</p>
     <p class="expiration">Offer expires August 31st.</p>
     <p>Limit one coupon per household.</p>
@@ -74,7 +75,7 @@ const showSixthCoupon = false;    // Local Hero Discount
 <a href="/contact" class="coupon-bleed" aria-label="Go to contact page">
   <div class="coupon">
     <h2>Local Hero Discount</h2>
-    <p class="offer"><span>$20 OFF</span> Any Repair for Seniors, Veterans, & First Responders</p>
+    <p class="offer"><span><Price name="couponLocalHero" /> OFF</span> Any Repair for Seniors, Veterans, & First Responders</p>
     <p class="details">We appreciate your service to our Central Michigan community</p>
     <p class="expiration">Thank you for all that you do!</p>
     <button type="button" class="print-coupon-btn">Print Coupon</button>
