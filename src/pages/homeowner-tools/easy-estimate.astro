@@ -1,10 +1,10 @@
 ---
-title: "EasyEstimate™ - Isabella Garage Door"
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import TestimonialCard from '../../components/TestimonialCard.astro'
+// EasyEstimate™ page. The tool itself (its questions, calculations and scripts) is unchanged;
+// this file holds the page text and passes it to layouts/ToolPage.astro.
+import ToolPage from '../../layouts/ToolPage.astro';
 
-const title = 'EasyEstimate™ | Isabella Garage Door';
-const description = 'Get a fast, accurate estimate for garage door repair, installation, or maintenance in Mt. Pleasant and surrounding areas. No pressure—just honest pricing.';
+const title = "EasyEstimate™ | Isabella Garage Door";
+const description = "Get a fast, accurate estimate for garage door repair, installation, or maintenance in Mt. Pleasant and surrounding areas. No pressure—just honest pricing.";
 
 const estimateSchema = {
   "@context": "https://schema.org",
@@ -40,156 +40,10 @@ const estimateSchema = {
     }
   ]
 };
----
 
-
-
-<BaseLayout {title} {description}>
-
-<Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(estimateSchema)} />
-  </Fragment>
-
-<link rel="stylesheet" href="/styles/global.css" />
-<link rel="stylesheet" href="/styles/tools.css" />
-
-<img src="/photos/new-estimate-image.avif" alt="New garage door intallation in Central Michigan" loading="eager" fetchpriority="high" class="header-photo-interior" />
-
-<section>
-    <h1 class="page-title">EasyEstimate™</h1>
-      <h2 class="sub-heading">Fast. Transparent. No Pressure.</h2>
-        <p>Need garage door service but unsure what it’ll cost? With EasyEstimate™, you can get a quick, ballpark quote in under a minute — no phone call, no hassle.
-       </p>
-<div style="margin-left: 1rem;">
-      <ul class="bullet-list">
-        <li><i class="fas fa-check icon-bronze"></i><strong> Simple step-by-step tool</strong></li>
-        <li><i class="fas fa-check icon-bronze"></i><strong> Real pricing based on your issue</strong></li>
-        <li><i class="fas fa-check icon-bronze"></i><strong> No commitment required</strong></li>
-      </ul>
-</div>
-</section>
-
-<!-- Highlight Section -->
-    <div class="highlight-section">
-        <p>
-    When your garage door doesn’t open, your whole day stops. We built EasyEstimate™ to make sure your fix starts quickly — without wasting time, guessing prices, or getting sold something you don’t need.
-   </p>
-    </div>
-
-<section>
- <p>Choose your concern and we’ll guide you through a few quick questions to generate an accurate estimate:</p>
-</section>
-
-<!-- Estimate Form -->
-<!-- Estimate Form Anchor -->
-<div id="estimate-form" style="position: relative; top: -80px;"></div>
-
-<!-- Splash + App Container -->
-<div id="estimate-app-container">
-
-  <!-- Splash Screen (initially visible) -->
- 
-<div id="estimate-splash" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 250px; gap: 1rem;">
-  <img src="/photos/blue-isabella-garage-door-logo.avif" alt="Isabella Garage Door Logo" style="max-width: 280px; opacity: 0.8;">
-  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-</div>
-
-  <!-- Your Actual App -->
-  <div id="app" style="display: none;"></div>
-
-</div>
-
-
-
-
-
-  <!-- App Footer Text with Phone -->
-  <section>
-    <div class="footer-text">
-      Need immediate help? Call us at 
-      <a href="tel:+19895720303" style="color: #b27d57; font-weight: bold; text-decoration: none;">
-        989-572-0303
-      </a>
-    </div>
-  </section>
-
-<section style="margin-top: 3rem;">
-      <h2 class="sub-heading">Why use EasyEstimate™?</h2>
-         <p>Getting your garage door fixed shouldn’t be stressful or uncertain. EasyEstimate™ was built for homeowners who want:
-</p>
-<div style="margin-left: 1rem;">
-      <ul class="bullet-list">
-        <li><i class="fas fa-check icon-bronze"></i><strong> Clarity before commitment</strong> – Know what to expect</li>
-        <li><i class="fas fa-check icon-bronze"></i><strong> No-pressure pricing</strong> – No upsells, no surprises</li>
-        <li><i class="fas fa-check icon-bronze"></i><strong> Peace of mind</strong> – Backed by real experience, not guesswork</li>
-      </ul>
-</div>
-</section>
-
-    <!-- Testimonial 
-<section>
-<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
-  <TestimonialCard 
-    quote="I used Easy Estimate on a Saturday night and got a ballpark estimate without needing to sign up for anything. Exactly what I hoped for."
-    author="Matt D."
-  />
-</a>
-</section>
--->
-
-
-<!-- FAQ -->
-<section id="faq">
-<div class="faq-head">
-<a href="/resources/faq" style="text-decoration: none; color: inherit; display: block;">
-<h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions</h2>
-</a>
-</div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Is the estimate I get final?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>No — it’s a starting point based on common scenarios. Once we’re on-site, we’ll confirm the exact price before starting any work.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Can I text you a photo instead?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Absolutely. If you're not sure how to answer a question or just want to show us the issue, <a href="sms:+19895720303?&body=Hi! Here's a photo of my garage door problem." style="color: #b27d57;">
-  Text us
-</a> a picture of your garage door issue.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Is this the same as scheduling a service call?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Nope. EasyEstimate™ is free and doesn’t commit you to anything. If you like the quote, you can then choose to book a service call.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>How soon can you come out?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>It depends on our current schedule, but we do our best to get out quickly. Just give us a call or send a message, and we'll find the soonest spot that works for you.</p>
-    </div>
-  </div>
-
-<!--
-  <div class="faq-item">
+// Content that was commented out on the previous version of this page (kept for later):
+/*
+<div class="faq-item">
     <div class="faq-question">
       <span>How much does it cost to install a new garage door?</span>
       <span class="faq-arrow">&#9654;</span>
@@ -198,78 +52,115 @@ const estimateSchema = {
       <p>The cost varies depending on the size, material, and style of door you choose. Single garage doors typically range from $900-$2,500, while double doors range from $1,200-$4,000. This includes the door, hardware, and professional installation.</p>
     </div>
   </div>
--->
-
-</section>
-
-<section style="margin-top: 3rem;">
- <h2 class="sub-heading">Ready to Book? Still Have Questions?</h2>
-<p style="text-align:center;">Use EasyEstimate™ now, or reach out directly. We’re always happy to help.</p>
-<a href="/contact" class="cta-button margin-bottom-2rem"><i class="fas fa-magnifying-glass"></i> Contact Us</a>
-</section>
-
+*/
+/*
+Testimonial 
 <section>
- <h2 class="sub-heading">Isabella Garage Door</h2>
-<p style="font-size: .9rem; text-align: center;">Serving Mt. Pleasant • Clare • Alma • Isabella County</p>
-<p style="font-size: .9rem; text-align: center; margin: 0.5rem;"><em>Raising Performance. Elevating Standards</em></p>
+<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
+  <TestimonialCard 
+    quote="I used Easy Estimate on a Saturday night and got a ballpark estimate without needing to sign up for anything. Exactly what I hoped for."
+    author="Matt D."></TestimonialCard>
+</a>
 </section>
+*/
 
-
-
-
-<script is:inline>
-document.querySelectorAll('.faq-item').forEach(item => {
-  const question = item.querySelector('.faq-question');
-  const answer = item.querySelector('.faq-answer');
-
-  question.addEventListener('click', () => {
-    const isOpen = item.classList.contains('open');
-
-    // Close all
-    document.querySelectorAll('.faq-item').forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.faq-answer').style.maxHeight = null;
-    });
-    if (!isOpen) {
-      item.classList.add('open');
-      answer.style.maxHeight = answer.scrollHeight + 'px';
+const page = {
+  title: "__TITLE__",
+  description: "__DESC__",
+  toolName: "EasyEstimate™",
+  hero: {
+    h1: "EasyEstimate™",
+    subheading: "Fast. Transparent. No Pressure.",
+    intro: "Need garage door service but unsure what it’ll cost? With EasyEstimate™, you can get a quick, ballpark quote in under a minute — no phone call, no hassle.",
+    bullets: [
+      "<strong>Simple step-by-step tool</strong>",
+      "<strong>Real pricing based on your issue</strong>",
+      "<strong>No commitment required</strong>"
+    ],
+    image: "/photos/new-estimate-image.avif",
+    imageAlt: "New garage door intallation in Central Michigan"
+  },
+  highlight: "When your garage door doesn’t open, your whole day stops. We built EasyEstimate™ to make sure your fix starts quickly — without wasting time, guessing prices, or getting sold something you don’t need.",
+  prompt: "Choose your concern and we’ll guide you through a few quick questions to generate an accurate estimate:",
+  anchorId: "estimate-form",
+  sections: [
+    {
+      heading: "Why use EasyEstimate™?",
+      intro: [
+        "Getting your garage door fixed shouldn’t be stressful or uncertain. EasyEstimate™ was built for homeowners who want:"
+      ],
+      bullets: [
+        "<strong>Clarity before commitment</strong> – Know what to expect",
+        "<strong>No-pressure pricing</strong> – No upsells, no surprises",
+        "<strong>Peace of mind</strong> – Backed by real experience, not guesswork"
+      ]
     }
-  });
-});
-</script>
-<!-- End FAQ -->
+  ],
+  faqs: [
+    {
+      question: "Is the estimate I get final?",
+      answer: "<p>No — it’s a starting point based on common scenarios. Once we’re on-site, we’ll confirm the exact price before starting any work.</p>"
+    },
+    {
+      question: "Can I text you a photo instead?",
+      answer: "<p>Absolutely. If you're not sure how to answer a question or just want to show us the issue, <a href=\"sms:+19895720303?&amp;body=Hi! Here's a photo of my garage door problem.\"> Text us </a> a picture of your garage door issue.</p>"
+    },
+    {
+      question: "Is this the same as scheduling a service call?",
+      answer: "<p>Nope. EasyEstimate™ is free and doesn’t commit you to anything. If you like the quote, you can then choose to book a service call.</p>"
+    },
+    {
+      question: "How soon can you come out?",
+      answer: "<p>It depends on our current schedule, but we do our best to get out quickly. Just give us a call or send a message, and we'll find the soonest spot that works for you.</p>"
+    }
+  ],
+  closing: {
+    heading: "Ready to Book? Still Have Questions?",
+    text: "Use EasyEstimate™ now, or reach out directly. We’re always happy to help.",
+    cta: {
+      href: "/contact",
+      label: "Contact Us"
+    }
+  },
+  signoff: "Serving Mt. Pleasant • Clare • Alma • Isabella County"
+};
+---
 
-<form 
-  id="estimateForm" 
-  name="easy-estimate" 
-  method="POST" 
-  action="https://api.web3forms.com/submit" 
-  style="display: none;"
->
-  <input type="hidden" name="access_key" value="f356bda4-8613-4c1d-92cc-43871d5e272b" />
-  <input type="hidden" name="subject" value="New EasyEstimate™ Submission - Isabella Garage Door" />
-  <input type="hidden" name="redirect" value="https://isabellagaragedoor.com/thank-you-estimate" />
-  <input type="checkbox" name="botcheck" style="display: none;" />
+<ToolPage {...page} title={title} description={description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(estimateSchema)} />
+  </Fragment>
 
-  <input type="hidden" name="name" />
-  <input type="hidden" name="phone" />
-  <input type="hidden" name="email" />
-  <input type="hidden" name="address" />
-  <input type="hidden" name="details" />
-  <input type="hidden" name="Service Type" />
-  <input type="hidden" name="Estimated Cost" />
-
-  <input type="hidden" name="Selection: start" class="dynamic-answer" />
-  <input type="hidden" name="Selection: spring-type" class="dynamic-answer" />
-  <input type="hidden" name="Selection: spring-count-torsion" class="dynamic-answer" />
-  <input type="hidden" name="Selection: spring-count-extension" class="dynamic-answer" />
-  <input type="hidden" name="Selection: opener-problem" class="dynamic-answer" />
-  <input type="hidden" name="Selection: roller-problem" class="dynamic-answer" />
-  <input type="hidden" name="Selection: roller-count" class="dynamic-answer" />
-  <input type="hidden" name="Selection: cable-problem" class="dynamic-answer" />
-  <input type="hidden" name="Selection: track-problem" class="dynamic-answer" />
-</form>
-
+  <form 
+    id="estimateForm" 
+    name="easy-estimate" 
+    method="POST" 
+    action="https://api.web3forms.com/submit" 
+    style="display: none;"
+  >
+    <input type="hidden" name="access_key" value="f356bda4-8613-4c1d-92cc-43871d5e272b" />
+    <input type="hidden" name="subject" value="New EasyEstimate™ Submission - Isabella Garage Door" />
+    <input type="hidden" name="redirect" value="https://isabellagaragedoor.com/thank-you-estimate" />
+    <input type="checkbox" name="botcheck" style="display: none;" />
+  
+    <input type="hidden" name="name" />
+    <input type="hidden" name="phone" />
+    <input type="hidden" name="email" />
+    <input type="hidden" name="address" />
+    <input type="hidden" name="details" />
+    <input type="hidden" name="Service Type" />
+    <input type="hidden" name="Estimated Cost" />
+  
+    <input type="hidden" name="Selection: start" class="dynamic-answer" />
+    <input type="hidden" name="Selection: spring-type" class="dynamic-answer" />
+    <input type="hidden" name="Selection: spring-count-torsion" class="dynamic-answer" />
+    <input type="hidden" name="Selection: spring-count-extension" class="dynamic-answer" />
+    <input type="hidden" name="Selection: opener-problem" class="dynamic-answer" />
+    <input type="hidden" name="Selection: roller-problem" class="dynamic-answer" />
+    <input type="hidden" name="Selection: roller-count" class="dynamic-answer" />
+    <input type="hidden" name="Selection: cable-problem" class="dynamic-answer" />
+    <input type="hidden" name="Selection: track-problem" class="dynamic-answer" />
+  </form>
 
 <script>
   const observer = new IntersectionObserver((entries) => {
@@ -291,32 +182,7 @@ document.querySelectorAll('.faq-item').forEach(item => {
   observer.observe(document.getElementById('estimate-app-container'));
 </script>
 
-
-<script>
-  if (typeof window !== 'undefined') {
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('slide-up-in');
-          observer.unobserve(entry.target); // Animate only once
-        }
-      });
-    }, {
-      threshold: 0.6,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const section = document.querySelector('.highlight-section');
-      if (section) {
-        observer.observe(section);
-      }
-    });
-  }
-</script>
-
-
-    <script is:inline>
+<script is:inline>
         const questions = {
             start: {
                 question: "What type of service do you need?",
@@ -705,7 +571,4 @@ function submitEstimate() {
         // Initialize the app
         renderQuestion();
     </script>
-
-
-</BaseLayout>
-
+</ToolPage>

@@ -1,10 +1,10 @@
 ---
-title: "DoorDiagnosis™ - Isabella Garage Door"
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import TestimonialCard from '../../components/TestimonialCard.astro';
+// DoorDiagnosis™ page. The tool itself (its questions, calculations and scripts) is unchanged;
+// this file holds the page text and passes it to layouts/ToolPage.astro.
+import ToolPage from '../../layouts/ToolPage.astro';
 
-const title = 'DoorDiagnosis™ | Isabella Garage Door';
-const description = 'If you’re having trouble with your garage door and need help narrowing down the issue, give our free Troubleshooting Tool a try!';
+const title = "DoorDiagnosis™ | Isabella Garage Door";
+const description = "If you’re having trouble with your garage door and need help narrowing down the issue, give our free Troubleshooting Tool a try!";
 
 const diagnosisSchema = {
   "@context": "https://schema.org",
@@ -30,186 +30,85 @@ const diagnosisSchema = {
     }
   ]
 };
----
 
-<BaseLayout {title} {description}>   
-
-<Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(diagnosisSchema)} />
-  </Fragment>
-
-<link rel="stylesheet" href="/styles/tools.css" />
-<link rel="stylesheet" href="/styles/tools.css" />
-
-
-  <!-- Header Image -->
-  <section>
-    <img 
-      src="/photos/Troubleshooting-garage-door-problems (1).avif" 
-      alt="Frustrated man trying to fix his garage door" 
-      loading="eager" 
-      fetchpriority="high" 
-      class="header-photo-interior" 
-    />
-  </section>
-
-  <!-- Page Title and Introduction -->
-  <section>
-    <h1 class="page-title">DoorDiagnosis™</h1>
-      <h2 class="sub-heading">Something’s off? Let’s figure it out — fast.</h2>
-    <p>
-      Before you call for help, try DoorDiagnosis™. This free interactive tool helps you pinpoint what’s wrong with your garage door — and whether it’s something you can safely fix yourself.
-    </p>
-<div style="margin-left: 1rem; margin-top: 1rem;">
-      <ul class="bullet-list">
-        <li><i class="fas fa-check icon-bronze"></i><strong> Step-by-step guidance</strong></li>
-        <li><i class="fas fa-check icon-bronze"></i><strong> See the most likely cause</strong></li>
-        <li><i class="fas fa-check icon-bronze"></i><strong> Know when it’s time to call in a pro</strong></li>
-      </ul>
-</div>
-  </section>
-
-<!-- Highlight Section -->
-    <div class="highlight-section">
-        <p>
-    A garage door problem can feel like a full stop in your day. DoorDiagnosis™ helps turn that moment into a clear next step — no guessing, no pressure.
-   </p>
-    </div>
-
-
-<section>
- <p>Choose the symptoms of your garage door problem and we’ll guide you through a few quick questions to generate an accurate diagnosis:</p>
-</section>
-
-
-  <!-- Tool Anchor and App Mount Point -->
-<section>
-  <div id="troubleshooting" style="position: relative; top: -80px;"></div></section>
-
-<!-- Splash + App Container -->
-<div id="estimate-app-container">
-
-  <!-- Splash Screen (initially visible) -->
- 
-<div id="estimate-splash" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 250px; gap: 1rem;">
-  <img src="/photos/blue-isabella-garage-door-logo.avif" alt="Isabella Garage Door Logo" style="max-width: 280px; opacity: 0.8;">
-  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-</div>
-
-  <!-- Your Actual App -->
-  <div id="app" style="display: none;"></div>
-
-</div>
-
-  <!-- App Footer Text with Phone -->
-  <section>
-    <div class="footer-text">
-      Need immediate help? Call us at 
-      <a href="tel:+19895720303" style="color: #b27d57; font-weight: bold; text-decoration: none;">
-        989-572-0303
-      </a>
-    </div>
-  </section>
-
-<section style="margin-top: 3rem;">
-      <h2 class="sub-heading">How DoorDiagnosis™ helps</h2>
-         <p>Not every garage door issue needs a service call — and not every online fix is safe. DoorDiagnosis™ helps you:
-</p>
-<div style="margin-left: 1rem; margin-top: 1rem;">
-      <ul class="bullet-list">
-        <li><i class="fas fa-check icon-bronze"></i><strong> Rule out simple, common issues</strong> – like sensors or batteries</li>
-        <li><i class="fas fa-check icon-bronze"></i><strong> Identify signs of bigger problems</strong> – like broken springs or cables</li>
-        <li><i class="fas fa-check icon-bronze"></i><strong> Avoid dangerous DIY mistakes</strong> – especially with high-tension parts</li>
-      </ul>
-</div>
-</section>
-
-  <!-- Testimonial Support Paragraph 
+// Content that was commented out on the previous version of this page (kept for later):
+/*
+Testimonial Support Paragraph 
 <section>
 <a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
   <TestimonialCard 
     quote="I almost paid for a service call to fix a door that just needed the sensors cleaned. This tool gave me confidence and saved me money."
-    author="Sara L."
-  />
+    author="Sara L."></TestimonialCard>
 </a>
 </section>
--->
+*/
 
+const page = {
+  title: "__TITLE__",
+  description: "__DESC__",
+  toolName: "DoorDiagnosis™",
+  hero: {
+    h1: "DoorDiagnosis™",
+    subheading: "Something’s off? Let’s figure it out — fast.",
+    intro: "Before you call for help, try DoorDiagnosis™. This free interactive tool helps you pinpoint what’s wrong with your garage door — and whether it’s something you can safely fix yourself.",
+    bullets: [
+      "<strong>Step-by-step guidance</strong>",
+      "<strong>See the most likely cause</strong>",
+      "<strong>Know when it’s time to call in a pro</strong>"
+    ],
+    image: "/photos/Troubleshooting-garage-door-problems (1).avif",
+    imageAlt: "Frustrated man trying to fix his garage door"
+  },
+  highlight: "A garage door problem can feel like a full stop in your day. DoorDiagnosis™ helps turn that moment into a clear next step — no guessing, no pressure.",
+  prompt: "Choose the symptoms of your garage door problem and we’ll guide you through a few quick questions to generate an accurate diagnosis:",
+  anchorId: "troubleshooting",
+  sections: [
+    {
+      heading: "How DoorDiagnosis™ helps",
+      intro: [
+        "Not every garage door issue needs a service call — and not every online fix is safe. DoorDiagnosis™ helps you:"
+      ],
+      bullets: [
+        "<strong>Rule out simple, common issues</strong> – like sensors or batteries",
+        "<strong>Identify signs of bigger problems</strong> – like broken springs or cables",
+        "<strong>Avoid dangerous DIY mistakes</strong> – especially with high-tension parts"
+      ]
+    }
+  ],
+  faqs: [
+    {
+      question: "Can I really fix it myself?",
+      answer: "<p>Sometimes, yes — especially if it’s a sensor issue, battery, or remote setting. But anything involving springs, cables, or door alignment should only be handled by a trained tech.</p>"
+    },
+    {
+      question: "Is it dangerous to keep using a faulty door?",
+      answer: "<p>It can be. Broken springs or cables can cause serious injury or property damage. DoorDiagnosis™ will flag any safety risks so you know when to stop using the door.</p>"
+    },
+    {
+      question: "Do I have to call to get help?",
+      answer: "<p>Nope. If you decide you want service, you can <a href=\"sms:+19895720303?&amp;body=Hi! Here's a photo of my garage door problem.\"> Text us </a>, request an appointment <a href=\"/contact\"> online </a>, or use our <a href=\"/homeowner-tools/easy-estimate#estimate-form\"> EasyEstimate™ </a> tool for a quick estimate.</p>"
+    },
+    {
+      question: "I just moved in and don’t know what’s wrong. Can this still help?",
+      answer: "<p>Definitely. Just answer what you see, even if you’re unsure. We built this tool to help homeowners with zero garage door experience.</p>"
+    }
+  ],
+  closing: {
+    heading: "When you're ready, we’re here.",
+    text: "Whether you’re dealing with a minor glitch or a serious breakdown, we’ll give you clear answers, upfront pricing, and honest help — every time.",
+    cta: {
+      href: "/contact",
+      label: "Request Service"
+    }
+  },
+  signoff: "Serving Mt. Pleasant • Clare • Alma • all of Central Michigan"
+};
+---
 
-<!-- FAQ -->
-<section id="faq">
-<div class="faq-head">
-<a href="/resources/faq" style="text-decoration: none; color: inherit; display: block;">
-<h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions</h2>
-</a>
-</div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Can I really fix it myself?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Sometimes, yes — especially if it’s a sensor issue, battery, or remote setting. But anything involving springs, cables, or door alignment should only be handled by a trained tech.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Is it dangerous to keep using a faulty door?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>It can be. Broken springs or cables can cause serious injury or property damage. DoorDiagnosis™ will flag any safety risks so you know when to stop using the door.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Do I have to call to get help?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Nope. If you decide you want service, you can <a href="sms:+19895720303?&body=Hi! Here's a photo of my garage door problem." style="color: #b27d57;">
-  Text us
-</a>, request an appointment <a href="/contact" style="color: #b27d57;">
-  online
-</a>, or use our <a href="/homeowner-tools/easy-estimate#estimate-form" style="color: #b27d57;">
-  EasyEstimate™
-</a> tool for a quick estimate.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>I just moved in and don’t know what’s wrong. Can this still help?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Definitely. Just answer what you see, even if you’re unsure. We built this tool to help homeowners with zero garage door experience.</p>
-    </div>
-  </div>
-
-</section>
-
-<section style="margin-top: 3rem;">
- <h2 class="sub-heading">When you're ready, we’re here.</h2>
-<p style="text-align:center;">Whether you’re dealing with a minor glitch or a serious breakdown, we’ll give you clear answers, upfront pricing, and honest help — every time.</p>
-
-      <a href="/homeowner-tools/easy-estimate#estimate-form" class="testimonials-cta-button" style="margin-top: 3rem;">
-        <i class="fas fa-tools"></i> Get a Repair Estimate
-      </a>
-      <a href="/contact" class="cta-button" style="margin-bottom: 2rem;">
-        <i class="fas fa-calendar-check"></i> Request Service
-      </a>
-</section>
-
-<section>
- <h2 class="sub-heading">Isabella Garage Door</h2>
-<p style="font-size: .9rem; text-align: center;">Serving Mt. Pleasant • Clare • Alma • all of Central Michigan</p>
-<p style="font-size: .9rem; text-align: center; margin: 0.5rem;"><em>Raising Performance. Elevating Standards</em></p>
-</section>
-
+<ToolPage {...page} title={title} description={description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(diagnosisSchema)} />
+  </Fragment>
 
 <script>
   const observer = new IntersectionObserver((entries) => {
@@ -232,51 +131,6 @@ const diagnosisSchema = {
 </script>
 
 <script is:inline>
-document.querySelectorAll('.faq-item').forEach(item => {
-  const question = item.querySelector('.faq-question');
-  const answer = item.querySelector('.faq-answer');
-
-  question.addEventListener('click', () => {
-    const isOpen = item.classList.contains('open');
-
-    // Close all
-    document.querySelectorAll('.faq-item').forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.faq-answer').style.maxHeight = null;
-    });
-    if (!isOpen) {
-      item.classList.add('open');
-      answer.style.maxHeight = answer.scrollHeight + 'px';
-    }
-  });
-});
-</script>
-
-<script>
-  if (typeof window !== 'undefined') {
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('slide-up-in');
-          observer.unobserve(entry.target); // Animate only once
-        }
-      });
-    }, {
-      threshold: 0.6,
-      rootMargin: '0px 0px -50px 0px'
-    });
-
-    window.addEventListener('DOMContentLoaded', () => {
-      const section = document.querySelector('.highlight-section');
-      if (section) {
-        observer.observe(section);
-      }
-    });
-  }
-</script>
-
-  <!-- Your Troubleshooting Tool Script -->
-  <script is:inline>
         const questions = {
             start: {
                 question: "What's the main issue with your garage door?",
@@ -675,5 +529,4 @@ function resetAndScroll() {
         // Initialize the app
         renderQuestion();
     </script>
-
-</BaseLayout>
+</ToolPage>
