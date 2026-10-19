@@ -1,0 +1,479 @@
+/* ==========================================================================
+   Homeowner tools (EasyEstimate™, DoorDiagnosis™, SpringStatus™)
+   Styles for the markup the tools' scripts render into #app, plus the splash.
+   Everything is scoped under #estimate-app-container so it can't leak into the
+   rest of the page (the old tools.css reset the whole page).
+   Severity colors: emergency/warning = red, urgent/caution = amber,
+   moderate = blue, easy/good = green.
+   ========================================================================== */
+
+#estimate-app-container {
+  --tool-red: #b42318;
+  --tool-red-bg: #fdf0ee;
+  --tool-amber: #a8650e;
+  --tool-amber-bg: #fdf4e3;
+  --tool-blue: #2f5580;
+  --tool-blue-bg: #eef3f9;
+  --tool-green: #2e7d4f;
+  --tool-green-bg: #ebf5ee;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* Splash while the tool loads */
+#estimate-app-container #estimate-splash img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+}
+
+#estimate-app-container .lds-ring {
+  position: relative;
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+}
+
+#estimate-app-container .lds-ring div {
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 4px;
+  border: 4px solid var(--bronze);
+  border-color: var(--bronze) transparent transparent transparent;
+  border-radius: 50%;
+  animation: tool-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+}
+
+#estimate-app-container .lds-ring div:nth-child(1) { animation-delay: -0.45s; }
+#estimate-app-container .lds-ring div:nth-child(2) { animation-delay: -0.3s; }
+#estimate-app-container .lds-ring div:nth-child(3) { animation-delay: -0.15s; }
+
+@keyframes tool-ring {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Cards ------------------------------------------------------------------- */
+
+#app .card,
+#app .solution-card,
+#app .solution-card-estimate {
+  max-width: none;
+  margin: 0;
+  padding: clamp(1.25rem, 0.75rem + 2vw, 2.25rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  box-shadow: var(--shadow-lg);
+}
+
+#app .solution-card {
+  border-top: 5px solid var(--navy);
+}
+
+#app .solution-card.emergency,
+#app .solution-card.warning { border-top-color: var(--tool-red); }
+#app .solution-card.urgent,
+#app .solution-card.caution { border-top-color: var(--tool-amber); }
+#app .solution-card.moderate { border-top-color: var(--tool-blue); }
+#app .solution-card.easy,
+#app .solution-card.good { border-top-color: var(--tool-green); }
+
+#app .solution-card-estimate {
+  border-top: 5px solid var(--bronze);
+}
+
+#app .solution-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+#app .solution-icon {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  color: var(--bronze-600);
+}
+
+#app .solution-icon.emergency,
+#app .solution-icon.warning { color: var(--tool-red); }
+#app .solution-icon.urgent,
+#app .solution-icon.caution { color: var(--tool-amber); }
+#app .solution-icon.moderate { color: var(--tool-blue); }
+#app .solution-icon.easy,
+#app .solution-icon.good { color: var(--tool-green); }
+
+#app .solution-title {
+  color: var(--navy);
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 1.1rem + 0.8vw, 1.65rem);
+  font-weight: 600;
+  line-height: var(--leading-snug);
+}
+
+#app .question-title {
+  margin-bottom: var(--space-5);
+  color: var(--navy);
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 1.1rem + 0.6vw, 1.5rem);
+  font-weight: 600;
+  line-height: var(--leading-snug);
+}
+
+#app .badge-img {
+  display: block;
+  width: auto;
+  height: 52px;
+  margin: 0 auto var(--space-5);
+}
+
+/* Answer options ------------------------------------------------------------ */
+
+#app .options-container {
+  display: grid;
+  gap: var(--space-3);
+}
+
+#app .option-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  width: 100%;
+  min-height: 56px;
+  padding: 0.9rem 1.15rem;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--cream);
+  color: var(--ink);
+  font-size: var(--text-base);
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color var(--duration) var(--ease), background-color var(--duration) var(--ease), transform var(--duration) var(--ease);
+}
+
+#app .option-button:hover,
+#app .option-button:focus-visible {
+  border-color: var(--bronze);
+  background: var(--bronze-50);
+  transform: translateX(2px);
+}
+
+#app .option-button.selected {
+  border-color: var(--navy);
+  background: var(--navy-50);
+}
+
+#app .chevron {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--bronze-600);
+}
+
+/* Steps / results ------------------------------------------------------------ */
+
+#app .steps-section {
+  margin-bottom: var(--space-8);
+}
+
+#app .steps-title {
+  margin-bottom: var(--space-3);
+  color: var(--navy);
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+#app .steps-list {
+  display: grid;
+  gap: var(--space-3);
+  padding: 0;
+  list-style: none;
+}
+
+#app .step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+#app .step-number {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  margin-top: 1px;
+  border-radius: 50%;
+  background: var(--bronze-100);
+  color: var(--bronze-800);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+#app .step-text,
+#app .note-text {
+  color: var(--text);
+}
+
+#app .note-text {
+  font-size: var(--text-sm);
+}
+
+#app .callout {
+  margin-bottom: var(--space-6);
+  padding: var(--space-4) var(--space-5);
+  border-left: 4px solid var(--bronze);
+  border-radius: var(--radius-sm);
+  background: var(--bronze-50);
+}
+
+#app .callout.emergency,
+#app .callout.warning { border-color: var(--tool-red); background: var(--tool-red-bg); }
+#app .callout.urgent,
+#app .callout.caution { border-color: var(--tool-amber); background: var(--tool-amber-bg); }
+#app .callout.moderate { border-color: var(--tool-blue); background: var(--tool-blue-bg); }
+#app .callout.easy,
+#app .callout.good { border-color: var(--tool-green); background: var(--tool-green-bg); }
+
+#app .callout-text {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+#app .emergency-text {
+  color: var(--tool-red);
+  font-weight: 600;
+}
+
+#app .result-time {
+  margin: var(--space-4) 0;
+  color: var(--navy);
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.2rem);
+  font-weight: 700;
+  text-align: center;
+}
+
+#app .result-time.warning { color: var(--tool-red); }
+#app .result-time.caution { color: var(--tool-amber); }
+#app .result-time.good { color: var(--tool-green); }
+
+/* Price ----------------------------------------------------------------------- */
+
+#app .price-display {
+  margin: var(--space-4) 0 var(--space-6);
+  padding: var(--space-6);
+  border-radius: var(--radius);
+  background: var(--navy);
+  color: var(--white);
+  text-align: center;
+}
+
+#app .price-label {
+  color: rgb(255 255 255 / 0.75);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+#app .price-range {
+  margin-top: var(--space-2);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: clamp(1.9rem, 1.5rem + 1.6vw, 2.6rem);
+  font-weight: 700;
+}
+
+/* Contact form inside EasyEstimate ---------------------------------------------- */
+
+#app .form-group {
+  margin-bottom: var(--space-4);
+}
+
+#app label {
+  display: block;
+  margin-bottom: var(--space-2);
+  color: var(--navy);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+#app input,
+#app textarea {
+  width: 100%;
+  min-height: 48px;
+  padding: 0.75rem 0.9rem;
+  border: 1.5px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--ink);
+  font-size: var(--text-base);
+}
+
+#app textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+#app input:focus,
+#app textarea:focus {
+  border-color: var(--bronze-600);
+  outline: 3px solid rgb(154 103 68 / 0.25);
+  outline-offset: 0;
+}
+
+#app .form-row {
+  display: grid;
+  gap: 0 var(--space-4);
+}
+
+@media (min-width: 640px) {
+  #app .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* SpringStatus usage slider ------------------------------------------------------- */
+
+#app .slider-container {
+  margin: var(--space-6) 0;
+}
+
+#app .slider-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+  color: var(--navy);
+  font-weight: 600;
+}
+
+#app .slider {
+  width: 100%;
+  min-height: 0;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: var(--sand-200);
+  accent-color: var(--bronze-600);
+  cursor: pointer;
+}
+
+#app .slider-value {
+  color: var(--bronze-700);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Buttons ----------------------------------------------------------------------- */
+
+#app .button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+}
+
+#app .btn {
+  display: inline-flex;
+  flex: 1 1 200px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 50px;
+  padding: 0.75rem 1.25rem;
+  border: 1.5px solid var(--navy);
+  border-radius: var(--radius-sm);
+  background: var(--navy);
+  color: var(--white);
+  font-size: var(--text-base);
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transform: none;
+}
+
+#app .btn:hover {
+  background: var(--navy-700);
+  color: var(--white);
+}
+
+#app .btn-primary {
+  border-color: var(--bronze-600);
+  background: var(--bronze-600);
+}
+
+#app .btn-primary:hover {
+  border-color: var(--bronze-700);
+  background: var(--bronze-700);
+}
+
+#app .btn-secondary {
+  border-color: var(--navy);
+  background: var(--navy);
+}
+
+#app .btn-outline {
+  background: transparent;
+  color: var(--navy);
+}
+
+#app .btn-outline:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+
+#app .btn[disabled] {
+  opacity: 0.65;
+  cursor: progress;
+}
+
+#app .btn-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+#app .center-text {
+  text-align: center;
+}
+
+#app .reset-link {
+  display: inline-flex;
+  margin-top: var(--space-5);
+  border: 0;
+  background: none;
+  color: var(--bronze-700);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#app .reset-link:hover {
+  color: var(--navy);
+}
+
+#app .hidden {
+  display: none;
+}
+
+#app .loading {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgb(255 255 255 / 0.4);
+  border-top-color: var(--white);
+  border-radius: 50%;
+  animation: tool-ring 0.8s linear infinite;
+}
