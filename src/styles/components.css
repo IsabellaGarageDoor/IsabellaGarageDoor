@@ -48,10 +48,15 @@
   flex-shrink: 0;
 }
 
+.btn a {
+  color: var(--white) !important;
+}
+
 .btn--primary {
   --btn-bg: var(--bronze-600);
   --btn-fg: var(--white);
   box-shadow: 0 6px 16px rgb(154 103 68 / 0.25);
+  color: var(--white) !important;
 }
 
 .btn--primary:hover {
