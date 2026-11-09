@@ -1,7 +1,10 @@
 ---
 title: "About Us - Isabella Garage Door"
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import TestimonialCard from '../../components/TestimonialCard.astro'
+import PageHero from '../../components/ui/PageHero.astro';
+import BookingCta from '../../components/BookingCta.astro';
+import ContactBlock from '../../components/ContactBlock.astro';
+import Icon from '../../components/ui/Icon.astro';
 
 const title = 'Our Story | Isabella Garage Door';
 const description = 'Learn how our family-run garage door company in Mt. Pleasant is raising service standards in Central Michigan.';
@@ -28,126 +31,127 @@ const ourStorySchema = {
     }
   ]
 };
+
+const values = [
+  { href: '#craftsmanship', icon: 'tools', title: 'Craftsmanship', text: 'Every repair <!--and installation--> reflects our pride in quality workmanship.' },
+  { href: '#integrity', icon: 'handshake', title: 'Integrity', text: 'Honest recommendations and fair pricing—always.' },
+  { href: '#reliability', icon: 'clock', title: 'Reliability', text: 'We show up on time and follow through with every detail.' },
+  { href: '#community', icon: 'users', title: 'Community', text: 'We live here, work here, and care deeply about our neighbors.' },
+];
 ---
 
-<link rel="stylesheet" href="/styles/global.css" />
-  
 <BaseLayout {title} {description}>
-
-<Fragment slot="head">
+  <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(ourStorySchema)} />
   </Fragment>
 
-  <img src="/photos/isabella-garage-door-about-us-img.webp" alt="A quiet Central Michigan neighborhood with attached garages on residential homes" 
-  loading="eager" fetchpriority="high" class="header-photo-interior" />
-
-  <h1 class="page-title">Service You Can Trust</h1>
-
-  <section>
-    <p>
-      At Isabella Garage Door, we believe exceptional service means more than just getting the job
-      done—it’s about building lasting relationships through quality workmanship, honest communication,
-      and genuine care for our community.
-     </p>
-
-     <p style="margin-top: 1rem;">
+  <PageHero
+    title="Service You Can Trust"
+    eyebrow="Our Story"
+    image="/photos/isabella-garage-door-about-us-img.webp"
+    imageAlt="A quiet Central Michigan neighborhood with attached garages on residential homes"
+    crumbs={[{ name: 'Our Story', href: '/about/our-story' }]}
+    intro="At Isabella Garage Door, we believe exceptional service means more than just getting the job done—it’s about building lasting relationships through quality workmanship, honest communication, and genuine care for our community."
+  >
+    <p class="hero-sub">
       As a locally owned and operated company in Isabella County, we specialize in garage door repair <!--,
       installation,--> and maintenance. <!-- Whether it’s routine maintenance or a custom installation, -->
       Every project reflects our dedication to craftsmanship and service that exceeds expectations.
     </p>
+    <Fragment slot="actions">
+      <a href="/contact" class="btn btn--primary"><Icon name="handshake" /> Get in Touch</a>
+      <a href="#integrity" class="btn btn--outline-light">Our Values</a>
+    </Fragment>
+  </PageHero>
+
+  <!-- Direct, personal service -->
+  <section class="section anchor-target" id="integrity">
+    <div class="container container--narrow text-center stack-lg stack">
+      <span class="eyebrow">How We Work</span>
+      <h2>Direct, Personal Service</h2>
+      <p class="lead">
+        When you choose Isabella Garage Door, you work directly with experienced technicians who take personal
+        ownership of your project. No call centers, no subcontractors, and no high-pressure sales tactics—just
+        straightforward advice, clear communication, and results that exceed your expectations.
+      </p>
+    </div>
   </section>
 
-  <section id="integrity">
-    <h2 class="sub-heading">Direct, Personal Service</h2>
-    <p>
-      When you choose Isabella Garage Door, you work directly with experienced technicians who take personal 
-      ownership of your project. No call centers, no subcontractors, and no high-pressure sales tactics—just 
-      straightforward advice, clear communication, and results that exceed your expectations.
-    </p>
-  </section>
-
-  <section class="value-icons-section">
-    <h2 class="sub-heading">Built on Values That Matter</h2>
-
-    <div class="value-icons-wrapper">
-      <div class="value-icon-grid">
-        <a href="#craftsmanship" class="value-icon-card">
-          <i class="fa-solid fa-screwdriver-wrench"></i>
-          <div class="value-card-body">
-            <h3>Craftsmanship</h3>
-            <p>Every repair <!--and installation--> reflects our pride in quality workmanship.</p>
-          </div>
-        </a>
-
-        <a href="#integrity" class="value-icon-card">
-          <i class="fa-solid fa-handshake-angle"></i>
-          <div class="value-card-body">
-            <h3>Integrity</h3>
-            <p>Honest recommendations and fair pricing—always.</p>
-          </div>
-        </a>
-
-        <a href="#reliability" class="value-icon-card">
-          <i class="fa-solid fa-clock"></i>
-          <div class="value-card-body">
-            <h3>Reliability</h3>
-            <p>We show up on time and follow through with every detail.</p>
-          </div>
-        </a>
-
-        <a href="#community" class="value-icon-card">
-          <i class="fa-solid fa-users"></i>
-          <div class="value-card-body">
-            <h3>Community</h3>
-            <p>We live here, work here, and care deeply about our neighbors.</p>
-          </div>
-        </a>
+  <!-- Values -->
+  <section class="section section--sand">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Our Values</span>
+        <h2>Built on Values That Matter</h2>
+      </div>
+      <div class="grid grid--4 values">
+        {values.map((v) => (
+          <a href={v.href} class="card card--link value-card reveal">
+            <span class="card__icon"><Icon name={v.icon} /></span>
+            <h3>{v.title}</h3>
+            <p set:html={v.text} />
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
-  <section id="craftsmanship">
-    <h2 class="sub-heading">Our Commitment to Excellence</h2>
-    <p>
-      Our guiding principle drives everything we do: <em>Raising Performance. Elevating Standards.</em> 
-      From timely arrivals and meticulous installations to comprehensive follow-up care, we focus 
-      on the details that truly matter. We believe professionalism means more than just technical 
-      expertise—it’s about how we treat your home, how we communicate throughout the process, 
-      and the pride we take in delivering exceptional results.
-    </p>
+  <!-- Commitment + solutions -->
+  <section class="section">
+    <div class="container grid grid--2 story-pair">
+      <div class="stack anchor-target" id="craftsmanship">
+        <span class="eyebrow">Craftsmanship</span>
+        <h2>Our Commitment to Excellence</h2>
+        <p>
+          Our guiding principle drives everything we do: <em>Raising Performance. Elevating Standards.</em> From timely arrivals and meticulous installations to comprehensive follow-up care, we focus
+          on the details that truly matter. We believe professionalism means more than just technical
+          expertise—it’s about how we treat your home, how we communicate throughout the process,
+          and the pride we take in delivering exceptional results.
+        </p>
+      </div>
+      <div class="stack anchor-target" id="reliability">
+        <span class="eyebrow">Reliability</span>
+        <h2>Complete Garage Door Solutions</h2>
+        <p>
+          Whether you're enhancing your home's curb appeal, addressing an unexpected repair, or staying ahead with preventative
+          maintenance, Isabella Garage Door is here to provide outstanding service with a personal touch.
+          We’re honored to serve our neighbors—and strive to be the garage door company you proudly recommend to family and friends.
+        </p>
+      </div>
+    </div>
   </section>
 
-  <section id="reliability">
-    <h2 class="sub-heading">Complete Garage Door Solutions</h2>
-    <p>
-      Whether you're enhancing your home's curb appeal, addressing an unexpected repair, or staying ahead with preventative 
-      maintenance, Isabella Garage Door is here to provide outstanding service with a personal touch. 
-      We’re honored to serve our neighbors—and strive to be the garage door company you proudly recommend to family and friends.
-    </p>
+  <!-- Highlight -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="highlight reveal">
+        <Icon name="home" class="highlight__icon" size="2rem" />
+        <p>
+          Isabella Garage Door is a <strong>family-run business</strong> built on hard work and hometown values.
+          We live here, we raise our kids here, and we’re proud to serve our neighbors across Central Michigan.
+          When we say we care about the details, we mean it—because <strong>this is more than just a job to us</strong>.
+        </p>
+      </div>
+    </div>
   </section>
 
-  <!-- Highlight Section -->
-  <div class="highlight-section">
-    <p>
-      Isabella Garage Door is a <strong>family-run business</strong> built on hard work and hometown values. 
-      We live here, we raise our kids here, and we’re proud to serve our neighbors across Central Michigan. 
-      When we say we care about the details, we mean it—because <strong>this is more than just a job to us</strong>.
-    </p>
-  </div>
-
-  <section id="community">
-    <h2 class="sub-heading">The Isabella Difference</h2>
-    <p>
-      Our deep roots in the community and personal investment in every project set us apart. We understand that your 
-      garage door is more than just an entry point—it’s part of your home’s security, functionality, and curb appeal. 
-      That’s why we approach every service call with the same care and attention we’d want for our own families.
-    </p>
+  <!-- Community -->
+  <section class="section anchor-target" id="community">
+    <div class="container container--narrow text-center stack-lg stack">
+      <span class="eyebrow">Community</span>
+      <h2>The Isabella Difference</h2>
+      <p class="lead">
+        Our deep roots in the community and personal investment in every project set us apart. We understand that your
+        garage door is more than just an entry point—it’s part of your home’s security, functionality, and curb appeal.
+        That’s why we approach every service call with the same care and attention we’d want for our own families.
+      </p>
+    </div>
   </section>
 
-  <!-- Testimonial 
+  <!-- Testimonial
   <section>
 <a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
-    <TestimonialCard 
+    <TestimonialCard
       quote="Our experience with Isabella Garage Door was exceptional. They provided high quality service and made us feel valued as customers. If you're in Mount Pleasant and need garage door services, I wholeheartedly recommend giving them a call. You won't be disappointed!"
       author="Michael S."
     />
@@ -155,288 +159,93 @@ const ourStorySchema = {
   </section>
 -->
 
-  <!-- Mission Statement -->
-  <section>
-    <h2 class="sub-heading" style="margin-top: 3rem;">Our Mission</h2>
-    <p>
-      To elevate the standards of service in the garage door industry by providing quality workmanship and 
-      exceptional customer care—every project, every time.
-    </p>
-  <a href="/contact" class="cta-button" style="margin: 3rem auto 2rem;"><i class="fa-solid fa-handshake"></i> Get in Touch</a>
+  <!-- Mission -->
+  <section class="section section--sand">
+    <div class="container container--narrow text-center stack-lg stack">
+      <span class="eyebrow">Our Purpose</span>
+      <h2>Our Mission</h2>
+      <p class="mission">
+        To elevate the standards of service in the garage door industry by providing quality workmanship and
+        exceptional customer care—every project, every time.
+      </p>
+      <div class="cluster cluster--center">
+        <a href="/contact" class="btn btn--navy"><Icon name="handshake" /> Get in Touch</a>
+      </div>
+    </div>
   </section>
 
-<section>
-  <h2 class="sub-heading">Isabella Garage Door</h2>
-  <p style="font-size: .9rem; text-align: center;">
-    Built from the ground up right here in Central Michigan—rooted in hard work, integrity, and local pride.
-  </p>
-  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
-    <em>Raising Performance. Elevating Standards</em>
-  </p>
-  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
-    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #b27d57; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
-  </p>
-</section>
-
-
-  <style>
-    .about-wrapper {
-      max-width: 1400px;
-      margin: 0 auto;
-      color: #1A334F;
-    }
-
-    .about-wrapper p {
-      margin-bottom: 1.25rem;
-      line-height: 1.6;
-    }
-
-    .highlight-section {
-      position: relative;
-      background-color: #1A334F;
-      color: #ffffff;
-      padding: 2.5rem 2rem;
-      margin: 3rem auto;
-      border-radius: 1rem;
-      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.35);
-      overflow: hidden;
-      font-size: 1.15rem;
-      line-height: 1.75;
-      font-family: 'Lora', serif;
-      font-weight: 400;
-      border: 0.094rem solid #b27d57;
-      backdrop-filter: blur(4px);
-      max-width: 1000px;
-
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-    }
-
-    .highlight-section::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(255,255,255,0.1), transparent 80%);
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .highlight-section p {
-      position: relative;
-      z-index: 1;
-      margin: 0;
-      font-size: 1.2rem;
-      text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-    }
-
-    .highlight-section p strong {
-      color: #f1cba0;
-      font-weight: 600;
-    }
-
-    .highlight-section.slide-up-in {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .value-icons-wrapper {
-      overflow: visible;
-    }
-
-    .value-icons-section {
-      max-width: 1000px;
-      margin-inline: auto;
-      overflow: visible;
-    }
-
-    .value-icon-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin-top: 1rem;
-      padding: 0rem;
-      width: 100%;
-      box-sizing: border-box;
-      overflow: visible;
-    }
-
-    @media (min-width: 900px) {
-      .value-icon-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    /* Animation initial state */
-    .value-icon-card {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      background-color: #ffffff;
-      border: 0.094rem solid #b27d57;
-      border-radius: 0.75rem;
-      padding: 1rem;
-      width: 100%;
-      box-sizing: border-box;
-      max-width: 100%;
-      min-height: 220px;
-      box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
-      overflow-x: hidden;
-      position: relative;
-
-      background-image: url('/photos/white-garage-door-service-section.webp');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-color: #ffffff; /* fallback if image fails */
-      z-index: 1;
-
-      opacity: 0;
-      transform: translateY(20px);
-      animation-fill-mode: forwards;
-    }
-
-    /* Light overlay */
-    .value-icon-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-color: rgba(255, 255, 255, 0.5);
-      z-index: 0;
-      border-radius: inherit;
-    }
-
-    .value-icon-card * {
-      position: relative;
-      z-index: 2;
-    }
-
-    /* Hover effects */
-    .value-icon-card:hover {
-      box-shadow: 0 0 1rem rgba(178, 125, 87, 0.85);
-      border-color: #b27d57;
-      outline: none;
-      transform: translateY(-5px) scale(1.03);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-    }
-
-    /* Icon style */
-    .value-icon-card i {
-      font-size: 2.5rem;
-      color: #b27d57;
-      margin: 0.5rem 0 0.5rem;
-      transition: transform 0.3s ease;
-    }
-
-    /* Pulse animation on icon hover */
-    @keyframes pulse {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.1);
-      }
-    }
-
-    .value-icon-card:hover i {
-      animation: pulse 1.2s infinite;
-    }
-
-    .value-card-body {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .value-icon-card h3 {
-      font-size: 1.25rem;
-      font-family: 'Lora', serif;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-      color: #1A334F;
-      position: relative;
-      display: block;
-      text-align: center;
-    }
-
-    .value-icon-card h3::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -0.3rem;
-      width: 0%;
-      height: 0.15rem;
-      background-color: #b27d57;
-      transition: width 0.3s ease;
-    }
-
-    .value-icon-card:hover h3::after,
-    .value-icon-card:focus h3::after {
-      width: 100%;
-    }
-
-    .value-icon-card p {
-      font-size: 0.95rem;
-      line-height: 1.4;
-      color: #333;
-    }
-
-    section[id] {
-      scroll-margin-top: 70px;
-    }
-  </style>
-
-  <script>
-    if (typeof window !== 'undefined') {
-      // Animate highlight section (existing)
-      const highlightObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('slide-up-in');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.5,
-        rootMargin: '0px 0px -50px 0px'
-      });
-
-      window.addEventListener('DOMContentLoaded', () => {
-        const highlightSection = document.querySelector('.highlight-section');
-        if (highlightSection) {
-          highlightObserver.observe(highlightSection);
-        }
-
-        // Animate value icon cards with staggered delay
-        const iconCards = document.querySelectorAll('.value-icon-card');
-        const iconObserver = new IntersectionObserver((entries, iconObs) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              // Add animation with stagger delay based on index
-              const index = Array.from(iconCards).indexOf(entry.target);
-              entry.target.style.animation = `fadeSlideUp 0.6s ease forwards`;
-              entry.target.style.animationDelay = `${index * 150}ms`;
-              iconObs.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.3 });
-
-        iconCards.forEach(card => iconObserver.observe(card));
-      });
-    }
-  </script>
-
-  <style>
-    @keyframes fadeSlideUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
-
+  <BookingCta />
+  <ContactBlock text="Built from the ground up right here in Central Michigan—rooted in hard work, integrity, and local pride." />
 </BaseLayout>
+
+<style>
+  .hero-sub {
+    max-width: 40rem;
+  }
+
+  .anchor-target {
+    scroll-margin-top: calc(var(--header-h, 70px) + 1rem);
+  }
+
+  .value-card {
+    text-align: center;
+  }
+
+  .value-card .card__icon {
+    margin-inline: auto;
+  }
+
+  .value-card p {
+    color: var(--muted);
+  }
+
+  .story-pair {
+    gap: var(--space-12);
+  }
+
+  @media (min-width: 900px) {
+    .story-pair {
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+    }
+  }
+
+  .highlight {
+    position: relative;
+    max-width: 62rem;
+    margin-inline: auto;
+    padding: clamp(2rem, 1.5rem + 2vw, 3rem);
+    border: 1px solid var(--bronze);
+    border-radius: var(--radius-lg);
+    background:
+      radial-gradient(circle at 0% 0%, rgb(255 255 255 / 0.1), transparent 60%),
+      linear-gradient(150deg, var(--navy), var(--navy-800));
+    box-shadow: var(--shadow-lg);
+    color: rgb(255 255 255 / 0.9);
+    text-align: center;
+  }
+
+  .highlight :global(.highlight__icon) {
+    margin: 0 auto var(--space-4);
+    color: var(--bronze-300);
+  }
+
+  .highlight p {
+    font-family: var(--font-heading);
+    font-size: clamp(1.1rem, 1rem + 0.5vw, 1.3rem);
+    line-height: 1.7;
+  }
+
+  .highlight strong {
+    color: var(--bronze-300);
+    font-weight: 600;
+  }
+
+  .mission {
+    color: var(--navy);
+    font-family: var(--font-heading);
+    font-size: clamp(1.2rem, 1rem + 0.8vw, 1.5rem);
+    font-style: italic;
+    line-height: 1.6;
+  }
+</style>

@@ -1,0 +1,243 @@
+/* ==========================================================================
+   Layout: containers, sections, grids, stacks
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + 2 * var(--gutter));
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.container--wide {
+  max-width: calc(var(--container-wide) + 2 * var(--gutter));
+}
+
+.container--narrow {
+  max-width: calc(var(--container-narrow) + 2 * var(--gutter));
+}
+
+/* Sections ---------------------------------------------------------------- */
+
+.section {
+  padding-block: var(--section-y);
+}
+
+.section--tight {
+  padding-block: calc(var(--section-y) * 0.6);
+}
+
+.section--flush-top {
+  padding-top: 0;
+}
+
+.section--white {
+  background: var(--white);
+}
+
+.section--sand {
+  background: var(--sand);
+}
+
+.section--navy {
+  background: var(--navy);
+  color: rgb(255 255 255 / 0.86);
+}
+
+.section--navy :is(h1, h2, h3, h4) {
+  color: var(--white);
+}
+
+.section--navy a:not(.btn) {
+  color: var(--bronze-300);
+}
+
+.section--navy a:not(.btn):hover {
+  color: var(--white);
+}
+
+.section--navy strong {
+  color: var(--white);
+}
+
+/* Section heading block */
+.section-head {
+  max-width: 46rem;
+  margin: 0 auto var(--space-10);
+  text-align: center;
+}
+
+.section-head--left {
+  margin-inline: 0;
+  text-align: left;
+}
+
+.section-head > * + * {
+  margin-top: var(--space-4);
+}
+
+.section-head p {
+  color: var(--muted);
+  font-size: var(--text-lg);
+}
+
+.section--navy .section-head p {
+  color: rgb(255 255 255 / 0.78);
+}
+
+/* Stacks & clusters ------------------------------------------------------- */
+
+.stack > * + * {
+  margin-top: var(--stack-gap, var(--space-4));
+}
+
+.stack-lg {
+  --stack-gap: var(--space-6);
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--cluster-gap, var(--space-3));
+}
+
+.cluster--center {
+  justify-content: center;
+}
+
+/* Grids ------------------------------------------------------------------- */
+
+.grid {
+  display: grid;
+  gap: var(--grid-gap, var(--space-6));
+}
+
+/* Responsive grids that never exceed their column count (--cols) */
+.grid--2,
+.grid--3,
+.grid--4 {
+  --gap: var(--grid-gap, var(--space-6));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(min(100%, max(var(--min), calc((100% - (var(--cols) - 1) * var(--gap)) / var(--cols)))), 1fr)
+  );
+}
+
+.grid--2 { --cols: 2; --min: 22rem; }
+.grid--3 { --cols: 3; --min: 17rem; }
+.grid--4 { --cols: 4; --min: 14rem; }
+
+@media (min-width: 900px) {
+  .grid--3-fixed { grid-template-columns: repeat(3, 1fr); }
+  .grid--2-fixed { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Two-column split: text + media */
+.split {
+  display: grid;
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .split--reverse > :first-child {
+    order: 2;
+  }
+}
+
+/* Long-form text ---------------------------------------------------------- */
+
+.prose {
+  max-width: 70ch;
+  color: var(--text);
+  font-size: var(--text-lg);
+  line-height: 1.75;
+}
+
+.prose > * + * {
+  margin-top: 1.15em;
+}
+
+.prose :is(h2, h3, h4) {
+  margin-top: 2em;
+}
+
+.prose :is(h2, h3, h4) + * {
+  margin-top: 0.6em;
+}
+
+.prose h2 { font-size: clamp(1.45rem, 1.2rem + 1vw, 1.95rem); }
+.prose h3 { font-size: clamp(1.2rem, 1.1rem + 0.5vw, 1.45rem); }
+
+.prose ul,
+.prose ol {
+  padding-left: 1.4em;
+}
+
+.prose li + li {
+  margin-top: 0.45em;
+}
+
+.prose li::marker {
+  color: var(--bronze);
+}
+
+.prose a {
+  color: var(--bronze-700);
+  text-decoration: underline;
+}
+
+.prose blockquote {
+  padding: var(--space-4) var(--space-6);
+  border-left: 4px solid var(--bronze);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  background: var(--bronze-50);
+  color: var(--ink);
+  font-style: italic;
+}
+
+.prose img {
+  border-radius: var(--radius);
+}
+
+.prose hr {
+  margin-block: 2.5em;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-base);
+}
+
+.prose th,
+.prose td {
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.prose th {
+  color: var(--navy);
+  font-weight: 600;
+}
+
+.prose--center {
+  margin-inline: auto;
+}
+
+/* Utilities --------------------------------------------------------------- */
+
+.text-center { text-align: center; }
+.text-muted { color: var(--muted); }
+.lead { font-size: var(--text-lg); color: var(--muted); }
+.mx-auto { margin-inline: auto; }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+.mt-10 { margin-top: var(--space-10); }

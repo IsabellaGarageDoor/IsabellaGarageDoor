@@ -1,0 +1,92 @@
+---
+// Inline SVG icon (from lucide-static, rendered at build time — no icon font,
+// no client JavaScript). Decorative by default; pass `label` for icons that
+// carry meaning on their own.
+import * as lucide from 'lucide-static';
+
+const aliases: Record<string, keyof typeof lucide> = {
+  phone: 'Phone',
+  text: 'MessageSquareText',
+  message: 'MessageSquare',
+  mail: 'Mail',
+  star: 'Star',
+  pin: 'MapPin',
+  'chevron-down': 'ChevronDown',
+  'chevron-right': 'ChevronRight',
+  menu: 'Menu',
+  close: 'X',
+  search: 'Search',
+  'arrow-right': 'ArrowRight',
+  check: 'Check',
+  'check-circle': 'CircleCheck',
+  calculator: 'Calculator',
+  diagnosis: 'Stethoscope',
+  gauge: 'Gauge',
+  bot: 'Bot',
+  facebook: 'Facebook',
+  clock: 'Clock',
+  printer: 'Printer',
+  calendar: 'CalendarCheck',
+  'calendar-days': 'CalendarDays',
+  wrench: 'Wrench',
+  shield: 'ShieldCheck',
+  door: 'DoorOpen',
+  spring: 'Activity',
+  opener: 'Cog',
+  zap: 'Zap',
+  users: 'Users',
+  compass: 'Compass',
+  tools: 'Hammer',
+  award: 'Award',
+  badge: 'BadgeCheck',
+  handshake: 'HeartHandshake',
+  home: 'House',
+  quote: 'Quote',
+  share: 'Share2',
+  link: 'Link',
+  linkedin: 'Linkedin',
+  twitter: 'Twitter',
+  info: 'Info',
+  alert: 'TriangleAlert',
+  sparkles: 'Sparkles',
+  tractor: 'Tractor',
+  key: 'KeyRound',
+  clipboard: 'ClipboardList',
+  phone2: 'Smartphone',
+  building: 'Building2',
+  tag: 'Tag',
+  gift: 'Gift',
+  download: 'Download',
+  user: 'UserRound',
+  external: 'ExternalLink',
+  idea: 'Lightbulb',
+  medal: 'Medal',
+};
+
+interface Props {
+  name: string;
+  size?: number | string;
+  label?: string;
+  class?: string;
+  strokeWidth?: number;
+}
+
+const { name, size = '1.25em', label, class: className = '', strokeWidth = 2 } = Astro.props;
+const key = aliases[name] ?? (name as keyof typeof lucide);
+const raw = lucide[key] as unknown as string | undefined;
+if (typeof raw !== 'string') throw new Error(`Icon "${name}" not found`);
+
+const dim = typeof size === 'number' ? `${size}px` : size;
+// Replace lucide's fixed size/class attributes with ours
+const svg = raw
+  .replace(/class="[^"]*"/, `class="icon ${className}"`.trim())
+  .replace(/width="24"/, `width="${dim}"`)
+  .replace(/height="24"/, `height="${dim}"`)
+  .replace(/stroke-width="2"/, `stroke-width="${strokeWidth}"`)
+  .replace(
+    '<svg',
+    label ? `<svg role="img" aria-label="${label}"` : '<svg aria-hidden="true" focusable="false"'
+  );
+---
+
+<Fragment set:html={svg} />

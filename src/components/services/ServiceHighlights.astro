@@ -1,0 +1,115 @@
+---
+// Card grid of short titled points ("What makes our repairs different", "Why homeowners
+// choose us", "What's included"…). Rows wrap and centre, so an odd item count
+// never leaves a lone card hanging on the left.
+import Icon from '../ui/Icon.astro';
+
+export interface Highlight {
+  title: string;
+  /** Body HTML (paragraph text or a list) */
+  body: string;
+  icon?: string;
+}
+
+interface Props {
+  heading: string;
+  eyebrow?: string;
+  /** Intro paragraph HTML */
+  intro?: string;
+  items: Highlight[];
+  tone?: 'default' | 'white' | 'sand';
+  /** Show a check icon badge on each card (default true) */
+  icons?: boolean;
+}
+
+const { heading, eyebrow, intro, items, tone = 'sand', icons = true } = Astro.props;
+---
+
+<section class:list={['section', { 'section--white': tone === 'white', 'section--sand': tone === 'sand' }]}>
+  <div class="container">
+    <div class="section-head">
+      {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+      <h2 set:html={heading} />
+      {intro && <p set:html={intro} />}
+    </div>
+    <div class="highlights">
+      {items.map((item) => (
+        <div class="card highlight reveal">
+          {icons && <span class="card__icon"><Icon name={item.icon ?? 'check-circle'} /></span>}
+          <h3 set:html={item.title} />
+          <div class="highlight__body" set:html={item.body} />
+        </div>
+      ))}
+    </div>
+    <slot />
+  </div>
+</section>
+
+<style>
+  .highlights {
+    --gap: var(--space-6);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--gap);
+  }
+
+  .highlight {
+    flex: 1 1 100%;
+  }
+
+  @media (min-width: 640px) {
+    .highlight {
+      flex: 0 1 calc((100% - var(--gap)) / 2);
+    }
+  }
+
+  @media (min-width: 1000px) {
+    .highlight {
+      flex: 0 1 calc((100% - 2 * var(--gap)) / 3);
+    }
+  }
+
+  .highlight h3 {
+    font-size: 1.2rem;
+  }
+
+  .highlight__body {
+    color: var(--muted);
+  }
+
+  .highlight__body :global(ul) {
+    display: grid;
+    gap: var(--space-2);
+    padding-left: 1.1rem;
+  }
+
+  .highlight__body :global(li::marker) {
+    color: var(--bronze);
+  }
+
+  .highlight__body :global(strong) {
+    color: var(--ink);
+  }
+
+  /* Closing note passed in the default slot */
+  .highlights + :global(.highlights-note),
+  :global(.highlights-note) {
+    max-width: 46rem;
+    margin: var(--space-10) auto 0;
+    padding: var(--space-5) var(--space-6);
+    border: 1px solid var(--bronze-100);
+    border-left: 4px solid var(--bronze);
+    border-radius: var(--radius);
+    background: var(--bronze-50);
+  }
+
+  .section--sand :global(.highlights-note) {
+    background: var(--white);
+  }
+
+  :global(.highlights-note a) {
+    color: var(--bronze-700);
+    text-decoration: underline;
+  }
+</style>

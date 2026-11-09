@@ -1,6 +1,6 @@
 ---
 title: "Privacy Policy - Isabella Garage Door"
-layout: "../../layouts/BaseLayout.astro"
+layout: "../../layouts/LegalLayout.astro"
 ---
 
 # **Privacy Policy**

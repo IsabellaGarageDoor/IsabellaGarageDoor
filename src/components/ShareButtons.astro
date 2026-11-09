@@ -1,135 +1,94 @@
 ---
-import * as icons from 'lucide-static';
+// Share links (Facebook, X/Twitter, LinkedIn) and a copy-link button.
+import Icon from './ui/Icon.astro';
+import { site } from '../config/site';
 
+interface Props {
+  /** Public path of the page, e.g. /blog/my-post */
+  url: string;
+}
 const { url } = Astro.props;
-const fullUrl = `https://isabellagaragedoor.com${url}`; // Replace with your actual domain
+const fullUrl = encodeURIComponent(`${site.url}${url}`);
+const links = [
+  { label: 'Share on Facebook', href: `https://www.facebook.com/sharer/sharer.php?u=${fullUrl}`, icon: 'facebook' },
+  { label: 'Share on Twitter', href: `https://twitter.com/intent/tweet?url=${fullUrl}`, icon: 'twitter' },
+  { label: 'Share on LinkedIn', href: `https://www.linkedin.com/shareArticle?mini=true&url=${fullUrl}`, icon: 'linkedin' },
+];
 ---
 
-<style>
-  .share-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 0rem;
-  flex-wrap: wrap;
-}
-
-.share-buttons a,
-.share-buttons button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0.6rem;
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s ease;
-}
-
-.share-buttons svg {
-  width: 1.5rem;
-  height: 1.5rem;
-  stroke-width: 2;
-  stroke: none; /* Remove stroke so fill shows fully */
-  fill: currentColor; /* Use currentColor to control fill via color */
-}
-
-.facebook {
-  color: #1877F2; /* Facebook blue */
-}
-.twitter {
-  color: #1DA1F2; /* Twitter blue */
-}
-.linkedin {
-  color: #0A66C2; /* LinkedIn blue */
-}
-.copy {
-  color: #FF6600; /* Your orange */
-}
-
-
-
-</style>
-
 <div class="share-buttons">
-<a class="facebook" href={`https://www.facebook.com/sharer/sharer.php?u=${fullUrl}`} target="_blank" rel="noopener" aria-label="Share on Facebook">
-  <span style="stroke:#1877F2;" set:html={icons.Facebook} />
-</a>
-
-<a class="twitter" href={`https://twitter.com/intent/tweet?url=${fullUrl}`} target="_blank" rel="noopener" aria-label="Share on Twitter">
-  <span style="stroke:#1DA1F2;" set:html={icons.Twitter} />
-</a>
-
-<a class="linkedin" href={`https://www.linkedin.com/shareArticle?mini=true&url=${fullUrl}`} target="_blank" rel="noopener" aria-label="Share on LinkedIn">
-  <span style="stroke:#0A66C2;" set:html={icons.Linkedin} />
-</a>
-
-<button id="copyLinkBtn" class="copy" aria-label="Copy link">
-  <span style="stroke:#FF6600;" set:html={icons.Link} />
-</button>
-
+  {links.map((l) => (
+    <a href={l.href} target="_blank" rel="noopener noreferrer" aria-label={`${l.label} (opens in a new tab)`}>
+      <Icon name={l.icon} />
+    </a>
+  ))}
+  <button type="button" id="copyLinkBtn" aria-label="Copy link">
+    <Icon name="link" />
+  </button>
+  <span class="share-buttons__status" role="status" aria-live="polite"></span>
 </div>
 
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    const btn = document.getElementById("copyLinkBtn");
-    if (!btn) return;
-
-    btn.addEventListener("click", () => {
-      const url = "https://isabellagaragedoor.com" + window.location.pathname;
-
+<script>
+  const btn = document.getElementById('copyLinkBtn');
+  const status = document.querySelector<HTMLElement>('.share-buttons__status');
+  btn?.addEventListener('click', async () => {
+    const url = 'https://isabellagaragedoor.com' + window.location.pathname;
+    try {
       if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(url)
-          .then(() => showCopiedMessage())
-          .catch(err => fallbackCopy(url));
+        await navigator.clipboard.writeText(url);
       } else {
-        fallbackCopy(url);
-      }
-
-      function fallbackCopy(text) {
-        const textarea = document.createElement("textarea");
-        textarea.value = text;
-        textarea.setAttribute("readonly", "");
-        textarea.style.position = "absolute";
-        textarea.style.left = "-9999px";
+        const textarea = document.createElement('textarea');
+        textarea.value = url;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'absolute';
+        textarea.style.left = '-9999px';
         document.body.appendChild(textarea);
         textarea.select();
-
-        try {
-          document.execCommand("copy");
-          showCopiedMessage();
-        } catch (err) {
-          console.error("Fallback copy failed", err);
-        }
-
-        document.body.removeChild(textarea);
+        document.execCommand('copy');
+        textarea.remove();
       }
-
-      function showCopiedMessage() {
-        // Toast-like feedback instead of alert
-        const toast = document.createElement("div");
-        toast.textContent = "Link copied!";
-        toast.style.position = "fixed";
-        toast.style.bottom = "2rem";
-        toast.style.left = "50%";
-        toast.style.transform = "translateX(-50%)";
-        toast.style.backgroundColor = "#1A334F";
-        toast.style.color = "#fff";
-        toast.style.padding = "0.75rem 1.25rem";
-        toast.style.borderRadius = "6px";
-        toast.style.fontSize = "0.9rem";
-        toast.style.boxShadow = "0 2px 6px rgba(0,0,0,0.2)";
-        toast.style.zIndex = "9999";
-        document.body.appendChild(toast);
-
-        setTimeout(() => {
-          toast.style.transition = "opacity 0.5s ease";
-          toast.style.opacity = "0";
-          setTimeout(() => toast.remove(), 500);
-        }, 2000);
+      if (status) {
+        status.textContent = 'Link copied!';
+        setTimeout(() => (status.textContent = ''), 2500);
       }
-    });
+    } catch (err) {
+      console.error('Copy link failed', err);
+    }
   });
 </script>
 
+<style>
+  .share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .share-buttons a,
+  .share-buttons button {
+    display: inline-grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    background: var(--white);
+    color: var(--navy);
+    transition: background-color var(--duration) var(--ease), color var(--duration) var(--ease), border-color var(--duration) var(--ease);
+  }
+
+  .share-buttons a:hover,
+  .share-buttons button:hover {
+    border-color: var(--navy);
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .share-buttons__status {
+    margin-left: var(--space-2);
+    color: var(--success);
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+</style>

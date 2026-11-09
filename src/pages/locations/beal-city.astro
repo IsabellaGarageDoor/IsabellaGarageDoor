@@ -1,35 +1,16 @@
 ---
-title: "Garage Door Repair in Beal City, MI - Isabella Garage Door"
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import TrustBadges from '../../components/TrustBadges.astro';
-import AvailabilityBanner from '../../components/AvailabilityBanner.astro';
-import AnnouncementBanner from '../../components/editable-sections/AnnouncementBanner.astro';
-import HolidaysBirthdaysBanner from '../../components/HolidaysBirthdaysBanner.astro';
-import SplideSlider from '../../components/SplideSlider.jsx'
-import TestimonialCardWhite from '../../components/TestimonialCardWhite.astro';
-import BlogCards from '../../components/BlogCards.astro';
-import Coupons from '../../components/editable-sections/Coupons.astro';
-import HomeownerToolboxResponsive from '../../components/HomeownerToolboxResponsive.astro';
-import AskAbelCard from '../../components/AskAbelCard.astro';
-import BookingCta from '../../components/BookingCta.astro';
-import ServiceAreaMap from '../../components/ServiceAreaMap.astro';
-import ServiceFooter from '../../components/ServiceFooter.astro';
-import LocationsFooter from '../../components/LocationsFooter.astro';
-
-import { Image } from 'astro:assets';
-import heroBg from '../../assets/images/herobg301.webp';
-import heroBgMobile from '../../assets/images/herobg-mobile301.webp';
-
-const title = 'Garage Door Repair Beal City MI | Isabella Garage Door';
-const description = 'Professional garage door repair and installation in Beal City, Michigan. Broken springs, opener repair, pole barns, and new doors. Local service for Beal City and Isabella County. Call 989-572-0303.';
+// Beal City location page. The page's own content lives here;
+// the shared layout and sections are in layouts/LocationPage.astro.
+import LocationPage, { type LocationContent } from '../../layouts/LocationPage.astro';
+import { findReview, reviewsSchema } from '../../data/reviews';
 
 const bealCitySchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Isabella Garage Door - Beal City",
   "image": "https://isabellagaragedoor.com/photos/beal-city-michigan-garage-door-repair.webp",
-  "@id": "https://isabellagaragedoor.com/service-areas/beal-city",
-  "url": "https://isabellagaragedoor.com/service-areas/beal-city",
+  "@id": "https://isabellagaragedoor.com/locations/beal-city",
+  "url": "https://isabellagaragedoor.com/locations/beal-city",
   "telephone": "+1-989-572-0303",
   "priceRange": "$$",
   "address": {
@@ -101,704 +82,160 @@ const bealCitySchema = {
   }
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Do you repair garage doors in Beal City, Michigan?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Beal City is right in our backyard—we're based in Rosebush, just a few minutes away. We service homes, farms, pole barns, and rural properties throughout Beal City, Denver Township, and the surrounding Isabella County area. Same-day service is often available."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How quickly can you get to Beal City for garage door repairs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Very fast—Beal City is just minutes from our Rosebush location. For broken springs, stuck doors, or anything urgent, we prioritize same-day scheduling. Call 989-572-0303 and we'll give you a tight arrival window. Beal City and Denver Township are some of our closest service areas."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you work on pole barns and agricultural doors in the Beal City area?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely—and it's a big part of what we do out here. Beal City is surrounded by working farms and agricultural properties, and we service pole barns, machine sheds, shop buildings, and large overhead doors throughout Denver Township and the Beal City area. We carry parts for heavy-duty applications and know how to work on larger agricultural openings."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What garage door services do you offer in Beal City?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair, new door installation, and annual preventive maintenance. Residential garages and agricultural buildings throughout the Beal City area."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are you familiar with the Beal City area?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Very much so. We're based in Rosebush—Beal City is practically next door. We know the roads, the farms, and the community. When you call us, you're not explaining your location to someone looking it up on a map. We already know where you are."
-      }
-    }
-  ]
-};
-
-const reviewSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Review",
-      "@id": "https://isabellagaragedoor.com/#review-1",
-      "itemReviewed": {
-        "@id": "https://isabellagaragedoor.com/#business"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Elizabeth S."
-      },
-      "reviewBody": "Got our garage door working again! They got us on the schedule quick and made everything easy. I can't thank them enough. Highly recommend!!",
-      "datePublished": "2026-05-14"
-    },
-    {
-      "@type": "Review",
-      "@id": "https://isabellagaragedoor.com/#review-2",
-      "itemReviewed": {
-        "@id": "https://isabellagaragedoor.com/#business"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Autumn S."
-      },
-      "reviewBody": "I highly recommend Isabella Garage Door for any repairs you need. They were fast, efficient and reasonably priced. He had our spring fixed and door working again in no time. Will definitely use again.",
-      "datePublished": "2026-05-19"
-    }
-  ]
-};
----
-
-<BaseLayout {title} {description}>
-
-<Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(bealCitySchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
-  </Fragment>
-
-<link rel="stylesheet" href="/styles/global.css" />
-
-<section class="hero">
-<picture>
-  <source media="(max-width: 767px)" srcset={heroBgMobile.src} />
-  
-  <source media="(min-width: 768px)" srcset={heroBg.src} />
-
-  <img 
-    src={heroBg.src} 
-    alt="Garage door repair background" 
-    loading="eager" 
-    fetchpriority="high"
-    class="hero-bg-image"
-  />
-</picture>
-  
-  <div class="hero-overlay"></div>
-
-<div class="hero-content reveal-on-scroll">
-  <h1>Expert Garage Door Repair in Beal City</h1>
-  <p class="hero-description">
-    Right down the road in Rosebush — fast service for homes, farms, and pole barns.
-  </p>
-  <div class="reveal-on-scroll">
-    <ul>
-      <li>✓ Minutes from Beal City — Not a Call Center</li>
-      <li>✓ Upfront Pricing — No Surprises</li>
-      <li>✓ Work Backed by a 1-Year Warranty</li>
-    </ul>
-  </div>    
-
-    <div class="hero-buttons reveal-on-scroll">
-
-      <a href="sms:9895720303?&body=Hi%2C%20I%20need%20some%20help%20with%20my%20garage%20door." class="hero-estimate-button">
-        <i class="fas fa-comment-dots"></i> Text Us
-      </a>
-      <a href="tel:9895720303" class="hero-home-contact-button">
-        <i class="fa-solid fa-phone fa-fw"></i> Call (989) 572-0303
-      </a>
-    </div>
-
-<p>
-Not sure what it'll cost?
-</p>
-<a href="/homeowner-tools/easy-estimate#estimate-form" class="hero-estimate-cta">Get an Instant Estimate →</a>
-  </div>
-
-  <TrustBadges />
-
-<a href="/booking" class="book-now-btn">Book Now</a>
-
-</section>
-
-<AvailabilityBanner />
-
-<AnnouncementBanner />
-
-<HolidaysBirthdaysBanner />
-
-<section style="margin-bottom: 1rem;">
-<h2 class="sub-heading" style="margin-top: 2rem;">A Small Community Deserves a Company That Gets It</h2>
-  <p class="p-home">
-    Beal City doesn't need much introduction to anyone who's from around here. It's a tight-knit community built around 
-    faith, farming, and family—the kind of place where the same last names show up on mailboxes, at Aggies football games, 
-    and on the deed to the farm next door all at once. When your garage door breaks in Beal City—whether it's on your house 
-    or your pole barn—Isabella Garage Door is the closest professional help you'll find. We're right down the road in 
-    Rosebush, and we know this corner of Isabella County well.
-  </p>
-</section>
-
-<section class="core-services-section">
-  <h2 class="sub-heading">Complete Garage Door Services in Beal City, Michigan</h2>
-  <p class="core-services-intro">
-    From residential garages on the county roads to pole barns on working farms—here's what Beal City homeowners and farmers count on us for:
-  </p>
-
-  <div class="core-services-grid">
-
-    <a href="/services/broken-springs" class="core-services-card spring reveal-on-scroll">
-      <h3>Broken Spring Replacement</h3>
-      <p>A snapped spring stops your door cold—and it almost always happens at the worst time. Planting season, harvest, or a January morning when you need to get to work. We carry high-cycle replacement springs for residential and heavy-duty agricultural applications, replace both springs at once, and balance the door before we leave. Beal City and Denver Township are close enough that we can often get there same-day.</p>
-    </a>
-
-    <a href="/services/door-repair" class="core-services-card repair">
-      <h3>General Door Repair</h3>
-      <p>Off-track panels, snapped cables, worn rollers, bent tracks, damaged sections—whatever went wrong, we'll find it and fix it properly. The Beal City area has a mix of older farmstead garages and newer residential builds, and we're experienced with both. We diagnose the real problem and repair it, not just the symptom.</p>
-    </a>
-
-    <a href="/services/opener-repair" class="core-services-card opener">
-      <h3>Opener Repair & Installation</h3>
-      <p>Grinding, humming, reversing for no reason, or just completely dead—opener problems come in a lot of forms and we track them down fast. We service all major brands and can upgrade you to a smart opener with Wi-Fi control when it's time. Remote access is a practical convenience for farm properties where you're moving between buildings all day.</p>
-    </a>
-<!--
-    <a href="/services/new-door-installation" class="core-services-card installation">
-      <h3>New Door Installation</h3>
-      <p>When a door is past saving, we install quality replacements built to last in Michigan's climate. Residential styles in steel, wood, or composite—traditional raised panel, carriage house, or modern. Heavy-duty options for agricultural and shop buildings. We handle everything from measurement to hauling away your old door to final balancing and adjustment.</p>
-    </a>
--->
-    <a href="/services/maintenance" class="core-services-card maintenance">
-      <h3>Preventive Maintenance</h3>
-      <p>Central Michigan winters are hard on springs, cables, and rollers—and Beal City properties tend to see heavy, year-round garage use. An annual tune-up keeps everything lubricated, tensioned, and adjusted before problems develop. For farmers especially, the last thing you need is a shop door that fails when you're in the middle of something that can't wait.</p>
-    </a>
-<!--
-    <div class="core-services-card core-services-card agricultural">
-      <h3>Pole Barns & Farm Doors</h3>
-      <p>Beal City is farm country through and through—and agricultural doors are some of our most common work in this area. Pole barns, machine sheds, equipment storage, grain buildings with large overhead doors—we carry heavy-duty parts and know how to work on big openings. Multigenerational farms sometimes have older hardware that takes real experience to properly service. We've been there before.</p>
-    </div>
--->
-  </div>
-</section>
-
-<section class="no-card">
-<div class="why-choose-us-section">
-    <div class="why-choose-us-container">
-        <h2 class="sub-heading">Why Beal City Homeowners & Farmers Choose Us</h2>   
-      
-        <div class="accordion-group reveal-on-scroll">
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Right Next Door
-                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                 <div class="accordion-content">
-                    <div class="accordion-text">
-                        Rosebush is just minutes from Beal City. No long waits, no trip charges built into the quote for a technician commuting from Mt. Pleasant or Midland. We're close and we respond like it.
-                   </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Farm-Country Ready
-                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                 <div class="accordion-content">
-                    <div class="accordion-text">
-                        Pole barns, machine sheds, older farmstead hardware, large overhead doors—we work on agricultural properties in this area all the time. We come with the right parts and the right experience for what Beal City farms actually need.
-                   </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    We Know the Community
-                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                     <div class="accordion-text">
-                        Beal City is a place where how you carry yourself matters. We're not strangers coming in from out of town. We're Isabella County neighbors, and we operate with the kind of accountability that comes from working in a community where everyone knows everyone.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Honest Pricing, Always
-                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                     <div class="accordion-text">
-                        We quote before we start and we mean every word of it. No inflated prices, no line items that appear after the fact, no pressure to replace things that don't need replacing. Straight talk from start to finish.
-                   </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Work Built to Last
-                     <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                     <div class="accordion-text">
-                        We use professional-grade parts and do the job right the first time. In a community that takes pride in maintaining their properties, the last thing anyone needs is a repair that fails six months later.
-                   </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<a href="/about/why-choose-isabella-garage-door" class="cta-button margin-bottom-2rem"><i class="fas fa-magnifying-glass"></i> Learn More About Us</a>
-</section>
-
-
-  <section>
-    <h2 class="sub-heading">Real Feedback.<br>Real Trust.</h2>
-      <p class="testimonial-intro-paragraph">Here's what local homeowners are saying about Isabella Garage Door:
-         </p> 
-<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
-
-<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;" class="reveal-on-scroll">
-      <SplideSlider client:only="react" />
-</a>
-
-<a href="/about/testimonials" class="cta-button"><i class="fa-solid fa-star fa-fw"></i> Read Customer Reviews</a>
-</section>
-
-
-  <BookingCta />
-
-  <HomeownerToolboxResponsive />
-
-<img src="/photos/beal-city-michigan.avif" alt="Professional garage door repair service in Beal City, Michigan" loading="eager" fetchpriority="high" class="about-image" />
-
-<section style="margin-top: 2rem;">
-  <h2 class="sub-heading">We Know Beal City & Denver Township</h2>
-  <p class="p-home">
-    Beal City is small, but the properties and farms surrounding it spread across a wide stretch of Isabella County. Here's how we think about the area:
-  </p>
-
-  <div class="p-home" style="margin-top: 1.5rem;">
-    <p><strong>⛪ Beal City Community Core</strong><br>
-    The church, the school, and the homes surrounding them form the heart of Beal City. Properties here range from well-kept older homes that have been in families for generations to newer builds put up by families staying rooted in the community. We've worked on garages throughout this area and always treat them with the care they deserve.</p>
-
-    <p style="margin-top: 1rem;"><strong>🚜 Denver Township Farms & Rural Properties</strong><br>
-    Denver Township is agricultural land—working farms, large properties, pole barns, and equipment sheds spread across the county roads surrounding Beal City. This is some of our most familiar territory. We know these roads and we know what farm properties need. We don't charge extra for gravel roads or long driveways, and we come prepared for large openings and heavy-duty hardware.</p>
-
-    <p style="margin-top: 1rem;"><strong>🌾 Lincoln Township & Surrounding Area</strong><br>
-    The townships adjacent to Denver cover additional rural ground in this part of Isabella County. Country homes, farms, and rural properties throughout Lincoln Township are well within our range. Same response time, same pricing, same standard of work.</p>
-
-    <p style="margin-top: 1rem;"><strong>🏫 Beal City School District Territory</strong><br>
-    The Aggies' school district covers a broader swath than the town itself—rural families spread across the surrounding townships who call Beal City their community even if their address says otherwise. If you're Beal City area, we're your garage door company.</p>
-
-    <p style="margin-top: 1rem;"><strong>📍 Between Rosebush & Mt. Pleasant</strong><br>
-    Beal City sits in the corridor between Rosebush and Mt. Pleasant, and we service this entire stretch. Properties that fall in between—rural addresses that don't feel like they belong to either city—are solidly in our territory. We cover the gap.</p>
-  </div>
-
-  <p class="p-home" style="margin-top: 1.5rem;">
-    <strong>In Beal City or Denver Township?</strong> Call us at <a href="tel:9895720303" style="color: #b27d57; text-decoration: underline;">989-572-0303</a>. We're just down the road and we'll be there.
-  </p>
-</section>
-
-<section class="faq-area">
-<section id="faq">
-<div class="faq-head">
-  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions - Beal City, MI</h2>
-</div>
-
-<div class="reveal-on-scroll">
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Do you repair garage doors in Beal City, Michigan?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Yes. Beal City is right in our backyard—we're based in Rosebush, just a few minutes away. We service homes, farms, pole barns, and rural properties throughout Beal City, Denver Township, and the surrounding Isabella County area. Same-day service is often available.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>How quickly can you get to Beal City for garage door repairs?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Very fast—Beal City is just minutes from our Rosebush location. For broken springs, stuck doors, or anything urgent, we prioritize same-day scheduling. Call us at <a href="tel:9895720303" style="color: #b27d57;">989-572-0303</a> and we'll give you a tight arrival window. Beal City and Denver Township are some of our closest service areas.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Do you work on pole barns and agricultural doors in the Beal City area?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Absolutely—and it's a big part of what we do out here. Beal City is surrounded by working farms and we service pole barns, machine sheds, shop buildings, and large overhead doors throughout Denver Township and the Beal City area. We carry parts for heavy-duty applications and know how to work on larger agricultural openings without making a day of it.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>What garage door services do you offer in Beal City?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair<!-- , new door installation -->, and annual preventive maintenance. Residential garages, pole barns, and agricultural buildings throughout the Beal City area.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Are you familiar with the Beal City area?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Very much so. We're based in Rosebush—Beal City is practically next door. We know the roads, the farms, and the community out here. When you call us, you're not explaining your location to someone looking it up on a map for the first time. We already know where you are and what to expect when we get there.</p>
-    </div>
-  </div>
-
-</section>
-</section>
-
-<AskAbelCard chatUrl="/ask-abel" />
-
-<section>
-  <h2 class="sub-heading">Beal City Garage Door Repair, Done Right</h2>
-  <p class="p-home">
-    Beal City has always been a community that does things the right way—multigenerational farms kept up with pride, 
-    homes maintained to a standard, neighbors who show up for each other when it matters. That's a high bar, and it's 
-    the one we try to meet. We show up prepared, treat the property with respect, and do the job right the first time.
-  </p>
-  <p class="p-home" style="margin-top: 1rem;">
-    We're based right here in Rosebush, just minutes away. When you call, you get a local technician who knows 
-    these roads, knows this community, and fixes it right the first time.
-  </p>
-</section>
-
-<BlogCards />
-
-<ServiceAreaMap /> 
-<a href="/contact" class="cta-button" style="margin-top: 2rem;"><i class="fa-solid fa-location-dot fa-fw"></i> Need Local Help?</a>
-
-<section class="core-services-section reveal-on-scroll">
-<Coupons /> 
-</section>
-
-<section>
-  <h2 class="sub-heading">Isabella Garage Door</h2>
-  <p style="font-size: .9rem; text-align: center;">
-    Serving Beal City, Denver Township, and all of Isabella County—residential garages, pole barns, and farm doors done right.
-  </p>
-  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
-    <em>Raising Performance. Elevating Standards</em>
-  </p>
-  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
-    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #b27d57; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
-  </p>
-</section>
-
-<ServiceFooter currentPath="null" slot="full-width-section"/>
-<LocationsFooter currentPath="/locations/beal-city" slot="full-width-section" />
-
-
-<style>
-.homeowner-toolbox-section {
-  text-align: center;
-}
-
-.homeowner-toolbox-wrapper {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.homeowner-toolbox-grid {
-  display: grid;
-  gap: 1.5rem;
-  margin-top: 2rem;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 550px) {
-  .homeowner-toolbox-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1050px) {
-  .homeowner-toolbox-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.homeowner-toolbox-card {
-  justify-content: flex-start;
-  background: #fff;
-  border: 0.094rem solid #b27d57;
-  border-radius: 0.75rem;
-  padding: 1rem 1rem 1rem;
-  text-decoration: none;
-  color: inherit;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
-  position: relative;
-  background-image: url('/photos/white-garage-door-service-section.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #ffffff;
-z-index: 1;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.homeowner-toolbox-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.homeowner-toolbox-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(255, 255, 255, 0.5);
-  z-index: 0;
-  border-radius: inherit;
-}
-
-.homeowner-toolbox-card * {
-  position: relative;
-  z-index: 2;
-}
-
-.homeowner-toolbox-card:hover,
-.homeowner-toolbox-card:focus {
-  transform: translateY(-5px);
-  box-shadow: 0 0 0.75rem rgba(178, 125, 87, 0.5);
-  outline: none;
-}
-
-.homeowner-toolbox-img {
-    height: 70px;
-  width: auto;
-  object-fit: contain;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1rem;
-}
-
-.homeowner-toolbox-body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.homeowner-toolbox-body h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #1a334f;
-  font-family: 'Lora', serif;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-  line-height: 2.1rem;
-}
-
-.homeowner-toolbox-body p {
-  font-size: 1.1rem;
-  line-height: 1.4;
-  color: #1a334f;
-  text-align: left;
-  padding: 0 1rem;
-  flex: 1;
-}
-
-
-</style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(".homeowner-toolbox-card, .core-services-card, .reveal-on-scroll");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
+const content: Omit<LocationContent, 'schema'> = {
+  name: "Beal City",
+  title: "Garage Door Repair Beal City MI | Isabella Garage Door",
+  description: "Professional garage door repair and installation in Beal City, Michigan. Broken springs, opener repair, pole barns, and new doors. Local service for Beal City and Isabella County. Call 989-572-0303.",
+  hero: {
+    title: "Expert Garage Door Repair in Beal City",
+    description: "Right down the road in Rosebush — fast service for homes, farms, and pole barns.",
+    bullets: [
+      "Minutes from Beal City — Not a Call Center",
+      "Upfront Pricing — No Surprises",
+      "Work Backed by a 1-Year Warranty"
+    ]
+  },
+  intro: {
+    heading: "A Small Community Deserves a Company That Gets It",
+    paragraphs: [
+      "Beal City doesn't need much introduction to anyone who's from around here. It's a tight-knit community built around faith, farming, and family—the kind of place where the same last names show up on mailboxes, at Aggies football games, and on the deed to the farm next door all at once. When your garage door breaks in Beal City—whether it's on your house or your pole barn—Isabella Garage Door is the closest professional help you'll find. We're right down the road in Rosebush, and we know this corner of Isabella County well."
+    ]
+  },
+  services: {
+    heading: "Complete Garage Door Services in Beal City, Michigan",
+    intro: "From residential garages on the county roads to pole barns on working farms—here's what Beal City homeowners and farmers count on us for:",
+    cards: [
+      {
+        title: "Broken Spring Replacement",
+        text: "A snapped spring stops your door cold—and it almost always happens at the worst time. Planting season, harvest, or a January morning when you need to get to work. We carry high-cycle replacement springs for residential and heavy-duty agricultural applications, replace both springs at once, and balance the door before we leave. Beal City and Denver Township are close enough that we can often get there same-day.",
+        icon: "spring",
+        href: "/services/broken-springs"
       },
       {
-        threshold: 0.2,
+        title: "General Door Repair",
+        text: "Off-track panels, snapped cables, worn rollers, bent tracks, damaged sections—whatever went wrong, we'll find it and fix it properly. The Beal City area has a mix of older farmstead garages and newer residential builds, and we're experienced with both. We diagnose the real problem and repair it, not just the symptom.",
+        icon: "wrench",
+        href: "/services/door-repair"
+      },
+      {
+        title: "Opener Repair &amp; Installation",
+        text: "Grinding, humming, reversing for no reason, or just completely dead—opener problems come in a lot of forms and we track them down fast. We service all major brands and can upgrade you to a smart opener with Wi-Fi control when it's time. Remote access is a practical convenience for farm properties where you're moving between buildings all day.",
+        icon: "opener",
+        href: "/services/opener-repair"
+      },
+      {
+        title: "New Door Installation",
+        text: "When a door is past saving, we install quality replacements built to last in Michigan's climate. Residential styles in steel, wood, or composite—traditional raised panel, carriage house, or modern. Heavy-duty options for agricultural and shop buildings. We handle everything from measurement to hauling away your old door to final balancing and adjustment.",
+        icon: "door",
+        href: "/services/new-door-installation",
+        hidden: true
+      },
+      {
+        title: "Preventive Maintenance",
+        text: "Central Michigan winters are hard on springs, cables, and rollers—and Beal City properties tend to see heavy, year-round garage use. An annual tune-up keeps everything lubricated, tensioned, and adjusted before problems develop. For farmers especially, the last thing you need is a shop door that fails when you're in the middle of something that can't wait.",
+        icon: "shield",
+        href: "/services/maintenance"
+      },
+      {
+        title: "Pole Barns &amp; Farm Doors",
+        text: "Beal City is farm country through and through—and agricultural doors are some of our most common work in this area. Pole barns, machine sheds, equipment storage, grain buildings with large overhead doors—we carry heavy-duty parts and know how to work on big openings. Multigenerational farms sometimes have older hardware that takes real experience to properly service. We've been there before.",
+        icon: "tractor",
+        hidden: true
       }
-    );
+    ]
+  },
+  why: {
+    heading: "Why Beal City Homeowners &amp; Farmers Choose Us",
+    items: [
+      {
+        title: "Right Next Door",
+        body: "Rosebush is just minutes from Beal City. No long waits, no trip charges built into the quote for a technician commuting from Mt. Pleasant or Midland. We're close and we respond like it."
+      },
+      {
+        title: "Farm-Country Ready",
+        body: "Pole barns, machine sheds, older farmstead hardware, large overhead doors—we work on agricultural properties in this area all the time. We come with the right parts and the right experience for what Beal City farms actually need."
+      },
+      {
+        title: "We Know the Community",
+        body: "Beal City is a place where how you carry yourself matters. We're not strangers coming in from out of town. We're Isabella County neighbors, and we operate with the kind of accountability that comes from working in a community where everyone knows everyone."
+      },
+      {
+        title: "Honest Pricing, Always",
+        body: "We quote before we start and we mean every word of it. No inflated prices, no line items that appear after the fact, no pressure to replace things that don't need replacing. Straight talk from start to finish."
+      },
+      {
+        title: "Work Built to Last",
+        body: "We use professional-grade parts and do the job right the first time. In a community that takes pride in maintaining their properties, the last thing anyone needs is a repair that fails six months later."
+      }
+    ]
+  },
+  areaImage: {
+    src: "/photos/beal-city-michigan.avif",
+    alt: "Professional garage door repair service in Beal City, Michigan"
+  },
+  area: {
+    heading: "We Know Beal City &amp; Denver Township",
+    intro: "Beal City is small, but the properties and farms surrounding it spread across a wide stretch of Isabella County. Here's how we think about the area:",
+    items: [
+      {
+        title: "⛪ Beal City Community Core",
+        text: "The church, the school, and the homes surrounding them form the heart of Beal City. Properties here range from well-kept older homes that have been in families for generations to newer builds put up by families staying rooted in the community. We've worked on garages throughout this area and always treat them with the care they deserve."
+      },
+      {
+        title: "🚜 Denver Township Farms &amp; Rural Properties",
+        text: "Denver Township is agricultural land—working farms, large properties, pole barns, and equipment sheds spread across the county roads surrounding Beal City. This is some of our most familiar territory. We know these roads and we know what farm properties need. We don't charge extra for gravel roads or long driveways, and we come prepared for large openings and heavy-duty hardware."
+      },
+      {
+        title: "🌾 Lincoln Township &amp; Surrounding Area",
+        text: "The townships adjacent to Denver cover additional rural ground in this part of Isabella County. Country homes, farms, and rural properties throughout Lincoln Township are well within our range. Same response time, same pricing, same standard of work."
+      },
+      {
+        title: "🏫 Beal City School District Territory",
+        text: "The Aggies' school district covers a broader swath than the town itself—rural families spread across the surrounding townships who call Beal City their community even if their address says otherwise. If you're Beal City area, we're your garage door company."
+      },
+      {
+        title: "📍 Between Rosebush &amp; Mt. Pleasant",
+        text: "Beal City sits in the corridor between Rosebush and Mt. Pleasant, and we service this entire stretch. Properties that fall in between—rural addresses that don't feel like they belong to either city—are solidly in our territory. We cover the gap."
+      }
+    ],
+    closing: "<strong>In Beal City or Denver Township?</strong> Call us at <a href=\"tel:+19895720303\">989-572-0303</a>. We're just down the road and we'll be there."
+  },
+  faq: {
+    heading: "Frequently Asked Questions - Beal City, MI",
+    items: [
+      {
+        question: "Do you repair garage doors in Beal City, Michigan?",
+        answer: "<p>Yes. Beal City is right in our backyard—we're based in Rosebush, just a few minutes away. We service homes, farms, pole barns, and rural properties throughout Beal City, Denver Township, and the surrounding Isabella County area. Same-day service is often available.</p>"
+      },
+      {
+        question: "How quickly can you get to Beal City for garage door repairs?",
+        answer: "<p>Very fast—Beal City is just minutes from our Rosebush location. For broken springs, stuck doors, or anything urgent, we prioritize same-day scheduling. Call us at <a href=\"tel:+19895720303\">989-572-0303</a> and we'll give you a tight arrival window. Beal City and Denver Township are some of our closest service areas.</p>"
+      },
+      {
+        question: "Do you work on pole barns and agricultural doors in the Beal City area?",
+        answer: "<p>Absolutely—and it's a big part of what we do out here. Beal City is surrounded by working farms and we service pole barns, machine sheds, shop buildings, and large overhead doors throughout Denver Township and the Beal City area. We carry parts for heavy-duty applications and know how to work on larger agricultural openings without making a day of it.</p>"
+      },
+      {
+        question: "What garage door services do you offer in Beal City?",
+        answer: "<p>Everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation, sensor repair<!-- , new door installation -->, and annual preventive maintenance. Residential garages, pole barns, and agricultural buildings throughout the Beal City area.</p>"
+      },
+      {
+        question: "Are you familiar with the Beal City area?",
+        answer: "<p>Very much so. We're based in Rosebush—Beal City is practically next door. We know the roads, the farms, and the community out here. When you call us, you're not explaining your location to someone looking it up on a map for the first time. We already know where you are and what to expect when we get there.</p>"
+      }
+    ]
+  },
+  closing: {
+    heading: "Beal City Garage Door Repair, Done Right",
+    paragraphs: [
+      "Beal City has always been a community that does things the right way—multigenerational farms kept up with pride, homes maintained to a standard, neighbors who show up for each other when it matters. That's a high bar, and it's the one we try to meet. We show up prepared, treat the property with respect, and do the job right the first time.",
+      "We're based right here in Rosebush, just minutes away. When you call, you get a local technician who knows these roads, knows this community, and fixes it right the first time."
+    ]
+  },
+  signoff: "Serving Beal City, Denver Township, and all of Isabella County—residential garages, pole barns, and farm doors done right."
+};
 
-    cards.forEach((card) => {
-      observer.observe(card);
-    });
-  });
-</script>
+const schema = [bealCitySchema, reviewsSchema([findReview('Elizabeth S.'), findReview('Autumn S.')])];
+---
 
-<script is:inline>
-document.querySelectorAll('.faq-item').forEach(item => {
-  const question = item.querySelector('.faq-question');
-  const answer = item.querySelector('.faq-answer');
-
-  question.addEventListener('click', () => {
-    const isOpen = item.classList.contains('open');
-
-    document.querySelectorAll('.faq-item').forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.faq-answer').style.maxHeight = null;
-    });
-
-    if (!isOpen) {
-      item.classList.add('open');
-       answer.style.maxHeight = answer.scrollHeight + 'px';
-    }
-  });
-});
-</script>
-
-<script is:inline>
-  const icons = document.querySelectorAll('.core-services-icon-circle');
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-icons.forEach(icon => observer.observe(icon));
-</script>
-
-<script>
-function toggleAccordion(button) {
-    const item = button.parentElement;
-    const clickedContent = button.nextElementSibling;
-    const clickedArrow = button.querySelector('.accordion-arrow');
-
-    document.querySelectorAll('.accordion-content').forEach(content => {
-        const parentItem = content.parentElement;
-        const arrow = parentItem.querySelector('.accordion-arrow');
-
-        if (content !== clickedContent && content.style.maxHeight !== '0px' && content.style.maxHeight !== '') {
-            content.style.maxHeight = '0px';
-            if (arrow) arrow.style.transform = 'rotate(0deg)';
-            parentItem.classList.remove('active');
-        }
-    });
-
-    if (clickedContent.style.maxHeight === '0px' || clickedContent.style.maxHeight === '') {
-        clickedContent.style.maxHeight = clickedContent.scrollHeight + 'px';
-        clickedArrow.style.transform = 'rotate(180deg)';
-        item.classList.add('active');
-    } else {
-        clickedContent.style.maxHeight = '0px';
-        clickedArrow.style.transform = 'rotate(0deg)';
-        item.classList.remove('active');
-    }
-}
-
-function initializeAccordions() {
-    document.querySelectorAll('.accordion-content').forEach(content => {
-        content.style.maxHeight = '0px';
-        content.parentElement.classList.remove('active');
-        const arrow = content.previousElementSibling.querySelector('.accordion-arrow');
-        if (arrow) arrow.style.transform = 'rotate(0deg)';
-    });
-}
-
-window.toggleAccordion = toggleAccordion;
-document.addEventListener('DOMContentLoaded', initializeAccordions);
-document.addEventListener('astro:after-swap', initializeAccordions);
-</script>
-
-  <script>
-    if (typeof window !== 'undefined') {
-      const highlightObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('slide-up-in');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.5,
-        rootMargin: '0px 0px -50px 0px'
-      });
-
-      window.addEventListener('DOMContentLoaded', () => {
-        const highlightSection = document.querySelector('.highlight-section');
-        if (highlightSection) {
-          highlightObserver.observe(highlightSection);
-        }
-
-        const iconCards = document.querySelectorAll('.value-icon-card');
-        const iconObserver = new IntersectionObserver((entries, iconObs) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const index = Array.from(iconCards).indexOf(entry.target);
-              entry.target.style.animation = `fadeSlideUp 0.6s ease forwards`;
-              entry.target.style.animationDelay = `${index * 150}ms`;
-              iconObs.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.3 });
-
-        iconCards.forEach(card => iconObserver.observe(card));
-      });
-    }
-  </script>
-
-</BaseLayout>
+<LocationPage {...content} schema={schema} />

@@ -1,0 +1,16 @@
+---
+// Shows a price from src/data/pricing.ts as plain text, so it can sit inside a
+// sentence:  The service call fee is <Price name="serviceCallFee" />.
+//
+// Change the number in src/data/pricing.ts and every <Price> follows.
+// `style` controls how a range is written (see PriceStyle in pricing.ts):
+//   range (default) $325–$395   spaced $325 - $395   prose $325 – $395   low $325
+import { priceText, type PriceKey, type PriceStyle } from '../../data/pricing';
+
+interface Props {
+  name: PriceKey;
+  style?: PriceStyle;
+}
+const { name, style } = Astro.props;
+---
+{priceText(name, style)}

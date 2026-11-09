@@ -22,65 +22,63 @@
 <section id="banner-christmas"         class="holiday-banner reveal-on-scroll" style="display:none"></section>
 <section id="banner-new-years"         class="holiday-banner reveal-on-scroll" style="display:none"></section>
 
-<style>
+<style is:global>
+  /* Banner content is injected by the script below, so these styles are global */
   .holiday-banner {
-    background-color: white;
-    border: 4px solid #d3e2f2;
-    padding: .5rem;
-    margin: 1rem auto 2rem;
-    max-width: 1000px;
-    border-radius: 12px;
-    box-shadow: 0 6px 16px rgba(0, 30, 60, 0.4);
-    outline: 2px solid #f72a25;
-    outline-offset: 0px;
+    max-width: calc(1000px + 2 * var(--gutter));
+    margin: var(--space-8) auto;
+    padding-inline: var(--gutter);
   }
 
   .holiday-content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: var(--space-5);
+    padding: var(--space-6) !important;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
     text-align: left;
-    gap: 1rem;
-    padding: 1rem;
-    border-radius: 8px;
   }
 
   .holiday-text {
-    font-size: 1.15rem;
-    color: #ffffff;
     margin: 0;
+    color: var(--white);
+    font-size: var(--text-lg);
+    line-height: 1.55;
+  }
+
+  .holiday-text strong {
+    color: var(--white);
   }
 
   .holiday-btn {
-    position: relative;
-    overflow: hidden;
-    background-color: #1a334f;
-    color: white;
-    border: 0.094rem solid #b27d57;
-    text-decoration: none;
-    padding: 0.75rem 2.5rem;
+    flex-shrink: 0;
     width: 100%;
-    border-radius: 8px;
-    font-family: 'Lora', serif;
+    padding: 0.8rem 1.6rem;
+    border: 1.5px solid rgb(255 255 255 / 0.8);
+    border-radius: var(--radius-sm);
+    background: rgb(255 255 255 / 0.12);
+    color: var(--white);
     font-weight: 600;
     text-align: center;
-    font-size: 1.05rem;
-    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    transition: background-color var(--duration) var(--ease), color var(--duration) var(--ease);
   }
 
   .holiday-btn:hover {
-    background-color: #1a334f;
-    color: white;
-    box-shadow: none;
-    transform: translateY(2px);
+    background: var(--white);
+    color: var(--navy);
   }
 
   @media (min-width: 600px) {
     .holiday-content {
       flex-direction: row;
       justify-content: space-between;
-      text-align: left;
+    }
+
+    .holiday-btn {
+      width: auto;
     }
   }
 </style>

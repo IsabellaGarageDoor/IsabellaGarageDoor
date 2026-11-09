@@ -1,18 +1,40 @@
 ---
+// Page <title> intentionally falls back to the site default (as before).
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ArticleSearch from '../components/ArticleSearch.astro';
 ---
 
 <BaseLayout>
 
-<link rel="stylesheet" href="/styles/global.css" />
+  <section class="search-hero">
+    <div class="container container--narrow text-center">
+      <h1 class="search-hero__title">Search Garage Door Articles</h1>
+    </div>
+  </section>
 
-<h2 class="sub-heading">Search Garage Door Articles</h2>
-<ArticleSearch />
-
-  <!-- Spacer to push footer down -->
-  <div style="min-height: calc(100vh - 400px);"></div>
-
-
+  <section class="section section--flush-top search-body">
+    <div class="container">
+      <ArticleSearch />
+    </div>
+  </section>
 
 </BaseLayout>
+
+<style>
+  .search-hero {
+    padding-block: clamp(2.5rem, 1.5rem + 4vw, 4.5rem) var(--space-8);
+  }
+
+  .search-hero .eyebrow {
+    margin-bottom: var(--space-4);
+  }
+
+  .search-hero__title {
+    font-size: var(--h2);
+  }
+
+  /* Keep the footer low on the page while results are empty */
+  .search-body {
+    min-height: calc(100vh - 400px);
+  }
+</style>

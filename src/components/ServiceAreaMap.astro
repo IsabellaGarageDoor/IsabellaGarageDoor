@@ -1,72 +1,84 @@
 ---
-const {
-  title = "Our Service Area",
-  height = "400px"
-} = Astro.props;
+// Google Map of the service area plus links to every location page.
+import { locations } from '../data/locations';
+
+interface Props {
+  title?: string;
+  height?: string;
+}
+const { title = 'Our Service Area', height = '420px' } = Astro.props;
+const towns = locations.filter((l) => l.kind === 'town');
 ---
 
-<section class="service-area-map">
+<section class="section section--white service-area" id="service-area">
+  <div class="container service-area__grid">
+    <div class="service-area__text">
+      <span class="eyebrow">Where We Work</span>
+      <h2>{title}</h2>
+      <p class="lead">
+        Looking for garage door services near you? Isabella Garage Door proudly serves homeowners in:
+      </p>
+      <ul class="service-area__list">
+        {towns.map((t) => <li><a href={t.href} class="chip">{t.name === 'Mt. Pleasant' ? 'Mount Pleasant' : t.name}</a></li>)}
+      </ul>
+      <p>
+        …and surrounding <a href="/locations/central-michigan">Central Michigan</a> communities.
+      </p>
+    </div>
 
- <div class="service-area-section">
-<div id="service-area" style="position: relative; top: -80px;"></div>
-
-   <h2 class="sub-heading">Our Service Area</h2>
-
-  <div class="map-wrapper">
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d369828.344646622!2d-85.19637064728467!3d43.60062923509618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8aadaa53b2adce97%3A0x3913aebf0ae0b1fe!2sIsabella%20Garage%20Door!5e0!3m2!1sen!2sus!4v1778481566879!5m2!1sen!2sus" 
-      style={`width: 100%; height: ${height}; border: 0.094rem solid #b27d57; border-radius: 0.75rem`}
-      allowfullscreen="" 
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade"
-    ></iframe>
+    <figure class="service-area__map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d369828.344646622!2d-85.19637064728467!3d43.60062923509618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8aadaa53b2adce97%3A0x3913aebf0ae0b1fe!2sIsabella%20Garage%20Door!5e0!3m2!1sen!2sus!4v1778481566879!5m2!1sen!2sus"
+        style={`height: ${height}`}
+        title="Map of the Isabella Garage Door service area in Central Michigan"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+      <figcaption class="service-area__note">
+        The map above is intended as a general service reference. If you're located nearby but outside the highlighted area,
+        please contact us to discuss availability.
+      </figcaption>
+    </figure>
   </div>
-
-   <div class="area-description">
-  <div class="centered-content">
-    <p style="font-size: 0.9rem; color: #1a334f;">
-      The map above is intended as a general service reference. If you're located nearby but outside the highlighted area, 
-      please contact us to discuss availability.
-    </p>
-    <p class="p-home area-description-intro">
-      Looking for garage door
-services near you? Isabella Garage Door proudly serves homeowners in:</p>
-<p class="area-description-list">
-      <a href="/locations/mt-pleasant">Mount Pleasant</a> • 
-      <a href="/locations/lake-isabella">Lake Isabella</a> • 
-      <a href="/locations/clare">Clare</a> • 
-      <a href="/locations/alma">Alma</a> • 
-      <a href="/locations/farwell">Farwell</a> • 
-      <a href="/locations/coleman">Coleman</a> • 
-      <a href="/locations/shepherd">Shepherd</a> • 
-      <a href="/locations/remus">Remus</a> • 
-      <a href="/locations/rosebush">Rosebush</a> • 
-      <a href="/locations/beal-city">Beal City</a> • 
-      <a href="/locations/st-louis">St. Louis</a>
-      and surrounding 
-      <a href="/locations/central-michigan">Central Michigan</a> 
-      communities.
-    </p>
-
-       </div> </div> </div>
-
 </section>
 
-<!-- FALL BACK IMAGE 
-<img src="/photos/Isabella-Garage-Door-map-of-central-Michigan-service-area.webp" alt="Isabella Garage Door Service Area Map covering Central Michigan to include Mt. Pleasant, Clare, Alma, Coleman and more" class="homepg-service-photo" />
- -->
-
 <style>
-  .service-area-map {
-    width: 100%;
-    max-width: 1000px;
-    margin: 3rem auto 2rem;
+  .service-area__grid {
+    display: grid;
+    gap: var(--space-10);
+    align-items: center;
   }
 
-  .map-wrapper {
+  .service-area__text > * + * {
+    margin-top: var(--space-5);
+  }
+
+  .service-area__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    padding: 0;
+    list-style: none;
+  }
+
+  .service-area__note {
+    margin-top: var(--space-4);
+    color: var(--muted);
+    font-size: var(--text-sm);
+  }
+
+  .service-area__map iframe {
     width: 100%;
-    border-radius: 0.75rem;
-    overflow: hidden;
-   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
+    border: 0;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+  }
+
+  @media (min-width: 960px) {
+    .service-area__grid {
+      grid-template-columns: 1fr 1.2fr;
+      gap: var(--space-16);
+    }
   }
 </style>

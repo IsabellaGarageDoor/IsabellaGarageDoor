@@ -1,0 +1,63 @@
+---
+// Grid of service cards. Cards with an href link to the service page.
+import Icon from './ui/Icon.astro';
+
+export interface ServiceCard {
+  title: string;
+  /** Body HTML */
+  text: string;
+  href?: string;
+  icon?: string;
+  image?: string;
+  cta?: string;
+}
+
+interface Props {
+  cards: ServiceCard[];
+  /** "photo" shows each card's image on top; "icon" shows an icon badge */
+  variant?: 'icon' | 'photo';
+}
+const { cards, variant = 'icon' } = Astro.props;
+---
+
+<div class:list={['service-cards grid', cards.length === 4 || cards.length === 2 ? 'grid--2' : 'grid--3']}>
+  {cards.map((c) => {
+    const Tag = c.href ? 'a' : 'div';
+    return (
+      <Tag href={c.href} class:list={['card service-card reveal', { 'card--link': c.href }, `service-card--${variant}`]}>
+        {variant === 'photo' && c.image && (
+          <img src={c.image} alt="" loading="lazy" decoding="async" class="service-card__img" />
+        )}
+        {variant === 'icon' && <span class="card__icon"><Icon name={c.icon ?? 'wrench'} /></span>}
+        <h3 set:html={c.title} />
+        <p set:html={c.text} />
+        {c.href && (
+          <span class="link-arrow card__more">{c.cta ?? 'Learn more'} <Icon name="arrow-right" size="1em" /></span>
+        )}
+      </Tag>
+    );
+  })}
+</div>
+
+<style>
+  .service-card h3 {
+    margin-top: var(--space-5);
+  }
+
+  .service-card--photo {
+    padding-top: 0;
+    overflow: hidden;
+  }
+
+  .service-card__img {
+    width: calc(100% + 2 * var(--space-6));
+    max-width: none;
+    margin-inline: calc(-1 * var(--space-6));
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  .service-card--photo h3 {
+    margin-top: var(--space-5);
+  }
+</style>

@@ -1,34 +1,16 @@
 ---
-title: "Garage Door Repair in Midland County, MI - Isabella Garage Door"
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import TrustBadges from '../../components/TrustBadges.astro';
-import AvailabilityBanner from '../../components/AvailabilityBanner.astro';
-import AnnouncementBanner from '../../components/editable-sections/AnnouncementBanner.astro';
-import HolidaysBirthdaysBanner from '../../components/HolidaysBirthdaysBanner.astro';
-import SplideSlider from '../../components/SplideSlider.jsx'
-import BlogCards from '../../components/BlogCards.astro';
-import Coupons from '../../components/editable-sections/Coupons.astro';
-import HomeownerToolboxResponsive from '../../components/HomeownerToolboxResponsive.astro';
-import AskAbelCard from '../../components/AskAbelCard.astro';
-import BookingCta from '../../components/BookingCta.astro';
-import ServiceAreaMap from '../../components/ServiceAreaMap.astro';
-import ServiceFooter from '../../components/ServiceFooter.astro';
-import LocationsFooter from '../../components/LocationsFooter.astro';
-
-import { Image } from 'astro:assets';
-import heroBg from '../../assets/images/herobg301.webp';
-import heroBgMobile from '../../assets/images/herobg-mobile301.webp';
-
-const title = 'Garage Door Repair Midland County MI | Isabella Garage Door';
-const description = 'Professional garage door repair and installation throughout Midland County, Michigan. Broken springs, opener repair, pole barns, and new doors. Serving Coleman, Sanford, Beaverton, and surrounding communities. Call 989-572-0303.';
+// Midland County location page. The page's own content lives here;
+// the shared layout and sections are in layouts/LocationPage.astro.
+import LocationPage, { type LocationContent } from '../../layouts/LocationPage.astro';
+import { findReview, reviewsSchema } from '../../data/reviews';
 
 const countySchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://isabellagaragedoor.com/service-areas/midland-county",
-      "url": "https://isabellagaragedoor.com/service-areas/midland-county",
+      "@id": "https://isabellagaragedoor.com/locations/midland-county",
+      "url": "https://isabellagaragedoor.com/locations/midland-county",
       "name": "Garage Door Repair in Midland County, MI | Isabella Garage Door",
       "description": "Professional garage door repair, broken spring replacement, opener installation, and new door installation throughout Midland County, Michigan."
     },
@@ -98,701 +80,164 @@ const countySchema = {
   ]
 };
 
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Do you service Midland County for garage door repair?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. We service communities throughout Midland County including Coleman, Sanford, Midland, and surrounding townships. We're based in Rosebush in neighboring Isabella County, and the M-18 and US-10 corridors put most of Midland County well within our regular service range. Same-day service is often available for communities like Coleman."
+const content: Omit<LocationContent, 'schema'> = {
+  name: "Midland County",
+  title: "Garage Door Repair Midland County MI | Isabella Garage Door",
+  description: "Professional garage door repair and installation throughout Midland County, Michigan. Broken springs, opener repair, pole barns, and new doors. Serving Coleman, Sanford, Beaverton, and surrounding communities. Call 989-572-0303.",
+  hero: {
+    title: "Garage Door Repair Across Midland County — Your Isabella County Neighbor",
+    description: "Serving Coleman, Sanford, Midland, and rural Midland County from our Rosebush base — fast, honest, and local.",
+    bullets: [
+      "No Upcharges — Midland County Covered",
+      "Upfront Pricing — No Surprises",
+      "Work Backed by a 1-Year Warranty"
+    ]
+  },
+  intro: {
+    heading: "Close to Home, No Matter Which Side of the County Line",
+    paragraphs: [
+      "Midland County is our next-door neighbor. Isabella Garage Door is based in Rosebush—just across the county line—and the M-18 and US-10 corridors put Coleman, Sanford, Midland, and the rural townships of Midland County well within our regular service range. Midland County has a lot of character: a strong Dow Chemical heritage in the city of Midland, a working agricultural tradition in the southern townships, river communities along the Tittabawassee and Chippewa, and tight-knit small towns that operate on a handshake. We respect all of that—and we bring the same honest, professional service across the county line that our own neighbors expect from us."
+    ]
+  },
+  services: {
+    heading: "Complete Garage Door Services Across Midland County",
+    intro: "From the farms of southern Midland County to river communities along the Tittabawassee — here's what Midland County homeowners and property owners count on us for:",
+    cards: [
+      {
+        title: "Broken Spring Replacement",
+        text: "Springs fail without warning and leave your door completely immobile — no workaround changes that until the spring is replaced. We carry high-cycle replacement springs for residential and heavy-duty agricultural applications, replace both at once, and balance the door before we leave. Coleman and communities along M-18 often get same-day service. The rest of Midland County typically same-day or next-day.",
+        icon: "spring",
+        href: "/services/broken-springs"
+      },
+      {
+        title: "General Door Repair",
+        text: "Off-track panels, snapped cables, worn rollers, bent tracks, damaged sections — we find the real problem and fix it. Midland County's housing stock ranges from well-maintained older homes in established neighborhoods to newer subdivisions to rural farmsteads. We've worked on hardware across all of it and come prepared for whatever we find.",
+        icon: "wrench",
+        href: "/services/door-repair"
+      },
+      {
+        title: "Opener Repair &amp; Installation",
+        text: "Grinding, reversing, failing to respond, or just completely dead — opener failures show up in a lot of ways and we diagnose them accurately. We service all major brands including LiftMaster, Chamberlain, Genie, and Craftsman, and install new smart openers with Wi-Fi control when it's time to upgrade. Especially practical for rural Midland County properties where remote access is a real convenience.",
+        icon: "opener",
+        href: "/services/opener-repair"
+      },
+      {
+        title: "New Door Installation",
+        text: "When a door is past saving, we install quality replacements built for Michigan's climate. Residential styles in steel, wood, or composite — traditional, carriage house, or modern. Heavy-duty options for agricultural and shop buildings. We handle measurement, removal of the old door, full installation, and final adjustment throughout Midland County.",
+        icon: "door",
+        href: "/services/new-door-installation",
+        hidden: true
+      },
+      {
+        title: "Preventive Maintenance",
+        text: "Midland County winters are serious — springs contract in the cold, lubricant dries out, and rollers wear faster with the freeze-thaw cycles that run all season. An annual tune-up keeps everything running reliably before the weather turns hard. For farming operations especially, preventive maintenance on a shop or barn door is far cheaper than an emergency repair at the worst possible time.",
+        icon: "shield",
+        href: "/services/maintenance"
+      },
+      {
+        title: "Pole Barns &amp; Agricultural Doors",
+        text: "Southern Midland County has strong agricultural roots — working farms, centennial operations, pole barns, machine sheds, and grain buildings with large overhead doors are common throughout Mills Township, Geneva Township, and the rural areas around Coleman and Oil City. We carry heavy-duty parts, work on large openings regularly, and understand what farm operations need from a garage door company.",
+        icon: "tractor",
+        hidden: true
       }
-    },
-    {
-      "@type": "Question",
-      "name": "How quickly can you get to Midland County for garage door repairs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Response times depend on location within the county. Coleman is about 20-25 minutes from our Rosebush base and often gets same-day service. Sanford and Beaverton are farther west along M-20 and US-10 and typically receive same-day or next-day service. Emergency situations get priority. Call 989-572-0303 for an honest arrival window."
+    ]
+  },
+  why: {
+    heading: "Why Midland County Homeowners Call Us",
+    items: [
+      {
+        title: "Right Across the County Line",
+        body: "Rosebush is just over the Isabella-Midland county line. For communities like Coleman and the townships along M-18, we're closer than many companies operating out of Midland city. Fast response, no padded trip charges, and a technician who knows this part of Michigan."
+      },
+      {
+        title: "Farm-Ready for Midland County",
+        body: "Southern Midland County is agricultural land and we work on it regularly. Pole barns, machine sheds, heavy-duty springs, large overhead openings — we come prepared for what farm properties in this area actually need."
+      },
+      {
+        title: "No Rural Upcharges",
+        body: "Gravel roads, long driveways, properties off the main roads — we don't charge extra for any of it. Midland County's rural addresses get the same pricing as everyone else we serve. We built this business to serve this kind of territory."
+      },
+      {
+        title: "Honest Pricing, Every Time",
+        body: "We quote before we start and stick to it. We tell you what's wrong, what it'll cost, and what your options are — no pressure, no inflated estimates, no parts recommended that don't need replacing. Midland County gets the same straight talk as everyone else."
+      },
+      {
+        title: "Work That Holds Up",
+        body: "Professional-grade parts, proper installation, and a 1-year warranty on our work. We do the job right the first time so you're not calling someone back out in six months for the same problem."
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you work on pole barns and agricultural doors in Midland County?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Absolutely. Midland County has a strong agricultural community—particularly in the southern townships near Coleman and along M-18—and farm doors, pole barns, and machine sheds are a regular part of our work in the area. We carry heavy-duty parts and know how to service large agricultural openings."
+    ]
+  },
+  areaImage: {
+    src: "/photos/tridge-midland-michigan.avif",
+    alt: "Professional garage door repair throughout Midland County, Michigan"
+  },
+  area: {
+    heading: "Serving Communities Across Midland County",
+    intro: "Midland County stretches from the city of Midland in the north down through agricultural townships to the Isabella County line. Here's how we cover the county:",
+    items: [
+      {
+        title: "🏘️ <a href=\"/locations/coleman\">Coleman</a>",
+        text: "Our primary Midland County community — right on M-18, about 20 minutes from our Rosebush base. Coleman is Comets country: a working-class farming community with centennial farms throughout the surrounding townships. We have a dedicated Coleman service page and treat it as a regular stop on our route. Same-day service is often available."
+      },
+      {
+        title: "🌊 Sanford",
+        text: "The Sanford Lake community and surrounding area along the Tittabawassee River corridor. Sanford has a strong sense of community — river properties, year-round homes, and rural addresses throughout Hope Township. We cover Sanford and the surrounding area as part of our Midland County service."
+      },
+      {
+        title: "🌾 Beaverton",
+        text: "Beaverton sits just north of Midland County in Gladwin County, and it shares the rural character of that border territory — farms, country homes, and properties that don't fit neatly into many companies service areas. We cover Midland County and portions of Gladwin County including Beaverton and the townships surrounding it."
+      },
+      {
+        title: "🚜 Mills Township &amp; Geneva Township",
+        text: "The townships directly surrounding Coleman are some of our most familiar Midland County territory. Centennial farms, pole barns, rural homesteads, and properties spread across the county roads of Mills and Geneva Township. We service this area regularly and don't charge extra for the rural addresses."
+      },
+      {
+        title: "🏭 Midland City Area",
+        text: "The city of Midland and its surrounding neighborhoods are at the far end of our Midland County coverage — further from our Rosebush base than Coleman or Sanford. We do service Midland and surrounding areas; response times are a bit longer but same-day is still often possible. Call us and we'll give you an honest window."
+      },
+      {
+        title: "🌲 Rural &amp; Unincorporated Midland County",
+        text: "The townships and rural areas that don't carry a city address — Hope, Lincoln, Lee, Jasper, and the other townships spread across the county. These are properties that sometimes fall through the cracks of other companies' service areas. They don't fall through ours. If you're in Midland County, we come to you."
       }
-    },
-    {
-      "@type": "Question",
-      "name": "Do you cover rural properties throughout Midland County?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Rural Midland County—farms, country homes, and properties spread across Mills Township, Geneva Township, Hope Township, and the other rural townships—is well within our service area. We don't charge extra for rural addresses and we're comfortable on gravel roads and long driveways. If you're in Midland County, call us."
+    ],
+    closing: "<strong>Not sure if we cover your part of Midland County?</strong> Call us at <a href=\"tel:+19895720303\">989-572-0303</a>. Give us your general location and we'll tell you exactly what to expect."
+  },
+  faq: {
+    heading: "Frequently Asked Questions - Midland County, MI",
+    items: [
+      {
+        question: "Do you service Midland County for garage door repair?",
+        answer: "<p>Yes. We service communities throughout Midland County including Coleman, Sanford, Midland, and surrounding townships. We're based in Rosebush in neighboring Isabella County, and the M-18 and US-10 corridors put most of western Midland County well within our regular service range. Same-day service is often available for communities like Coleman.</p>"
+      },
+      {
+        question: "How quickly can you get to Midland County for garage door repairs?",
+        answer: "<p>Response times depend on your location in the county. Coleman is about 20-25 minutes from Rosebush and often gets same-day service. Sanford and Midland are farther west and typically receive same-day or next-day service. Emergency situations get priority. Call us at <a href=\"tel:+19895720303\">989-572-0303</a> and we'll give you an honest arrival window based on where you are.</p>"
+      },
+      {
+        question: "Do you work on pole barns and agricultural doors in Midland County?",
+        answer: "<p>Absolutely. Midland County has a strong agricultural community — particularly in the southern townships near Coleman and along M-18 — and farm doors, pole barns, and machine sheds are a regular part of our work in the area. We carry heavy-duty parts and know how to service large agricultural openings without making a project of it.</p>"
+      },
+      {
+        question: "Do you cover rural properties throughout Midland County?",
+        answer: "<p>Yes. Rural Midland County — farms, country homes, and properties spread across Mills Township, Geneva Township, Hope Township, and the other rural townships — is well within our service area. We don't charge extra for rural addresses and we're comfortable on gravel roads and long driveways. If you're in Midland County, call us.</p>"
+      },
+      {
+        question: "What garage door services do you offer in Midland County?",
+        answer: "<p>Everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation for all major brands, sensor repair<!-- , new door installation -->, and annual preventive maintenance. Residential and agricultural garage doors throughout Midland County.</p>"
       }
-    },
-    {
-      "@type": "Question",
-      "name": "What garage door services do you offer in Midland County?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation for all major brands, sensor repair, new door installation, and annual preventive maintenance. Residential and agricultural garage doors throughout Midland County."
-      }
-    }
-  ]
+    ]
+  },
+  closing: {
+    heading: "Midland County Garage Door Service, Done Right",
+    paragraphs: [
+      "Midland County sits right next door to Isabella County — and we treat it like the neighboring community it is. Close response times, no inflated pricing for crossing a county line, and the same quality of work we bring to every job across our service area.",
+      "Whether you need emergency spring replacement, a routine tune-up, or help figuring out what's wrong with your opener — call us, text us, or use EasyEstimate™ to get a ballpark online. We'll respond quickly and get your door working right."
+    ]
+  },
+  signoff: "Serving Midland County and all of Central Michigan — based in Rosebush, right across the county line."
 };
 
-const reviewSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Review",
-      "@id": "https://isabellagaragedoor.com/#review-1",
-      "itemReviewed": {
-        "@id": "https://isabellagaragedoor.com/#business"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Elizabeth S."
-      },
-      "reviewBody": "Got our garage door working again! They got us on the schedule quick and made everything easy. I can't thank them enough. Highly recommend!!",
-      "datePublished": "2026-05-14"
-    },
-    {
-      "@type": "Review",
-      "@id": "https://isabellagaragedoor.com/#review-2",
-      "itemReviewed": {
-        "@id": "https://isabellagaragedoor.com/#business"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Autumn S."
-      },
-      "reviewBody": "I highly recommend Isabella Garage Door for any repairs you need. They were fast, efficient and reasonably priced. He had our spring fixed and door working again in no time. Will definitely use again.",
-      "datePublished": "2026-05-19"
-    }
-  ]
-};
+const schema = [countySchema, reviewsSchema([findReview('Elizabeth S.'), findReview('Autumn S.')])];
 ---
 
-<BaseLayout {title} {description}>
-
-<Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(countySchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(reviewSchema)} />
-  </Fragment>
-
-<link rel="stylesheet" href="/styles/global.css" />
-
-<section class="hero">
-<picture>
-  <source media="(max-width: 767px)" srcset={heroBgMobile.src} />
-  <source media="(min-width: 768px)" srcset={heroBg.src} />
-  <img
-    src={heroBg.src}
-    alt="Garage door repair background"
-    loading="eager"
-    fetchpriority="high"
-    class="hero-bg-image"
-  />
-</picture>
-
-  <div class="hero-overlay"></div>
-
-<div class="hero-content reveal-on-scroll">
-  <h1>Garage Door Repair Across Midland County — Your Isabella County Neighbor</h1>
-  <p class="hero-description">
-    Serving Coleman, Sanford, Midland, and rural Midland County from our Rosebush base — fast, honest, and local.
-  </p>
-  <div class="reveal-on-scroll">
-    <ul>
-      <li>✓ No Upcharges — Midland County Covered</li>
-      <li>✓ Upfront Pricing — No Surprises</li>
-      <li>✓ Work Backed by a 1-Year Warranty</li>
-    </ul>
-  </div>
-
-    <div class="hero-buttons reveal-on-scroll">
-      <a href="sms:9895720303?&body=Hi%2C%20I%20need%20some%20help%20with%20my%20garage%20door." class="hero-estimate-button">
-        <i class="fas fa-comment-dots"></i> Text Us
-      </a>
-      <a href="tel:9895720303" class="hero-home-contact-button">
-        <i class="fa-solid fa-phone fa-fw"></i> Call (989) 572-0303
-      </a>
-    </div>
-
-<p>Not sure what it'll cost?</p>
-<a href="/homeowner-tools/easy-estimate#estimate-form" class="hero-estimate-cta">Get an Instant Estimate →</a>
-  </div>
-
-  <TrustBadges />
-
-<a href="/booking" class="book-now-btn">Book Now</a>
-
-</section>
-
-<AvailabilityBanner />
-
-<AnnouncementBanner />
-
-<HolidaysBirthdaysBanner />
-
-<section style="margin-bottom: 1rem;">
-<h2 class="sub-heading" style="margin-top: 2rem;">Close to Home, No Matter Which Side of the County Line</h2>
-  <p class="p-home">
-    Midland County is our next-door neighbor. Isabella Garage Door is based in Rosebush—just across the county line—and 
-    the M-18 and US-10 corridors put Coleman, Sanford, Midland, and the rural townships of Midland 
-    County well within our regular service range. Midland County has a lot of character: a strong Dow Chemical heritage 
-    in the city of Midland, a working agricultural tradition in the southern townships, river communities along the 
-    Tittabawassee and Chippewa, and tight-knit small towns that operate on a handshake. We respect all of that—and we 
-    bring the same honest, professional service across the county line that our own neighbors expect from us.
-  </p>
-</section>
-
-<section class="core-services-section">
-  <h2 class="sub-heading">Complete Garage Door Services Across Midland County</h2>
-  <p class="core-services-intro">
-    From the farms of southern Midland County to river communities along the Tittabawassee — here's what Midland County homeowners and property owners count on us for:
-  </p>
-
-  <div class="core-services-grid">
-
-    <a href="/services/broken-springs" class="core-services-card spring reveal-on-scroll">
-      <h3>Broken Spring Replacement</h3>
-      <p>Springs fail without warning and leave your door completely immobile — no workaround changes that until the spring is replaced. We carry high-cycle replacement springs for residential and heavy-duty agricultural applications, replace both at once, and balance the door before we leave. Coleman and communities along M-18 often get same-day service. The rest of Midland County typically same-day or next-day.</p>
-    </a>
-
-    <a href="/services/door-repair" class="core-services-card repair">
-      <h3>General Door Repair</h3>
-      <p>Off-track panels, snapped cables, worn rollers, bent tracks, damaged sections — we find the real problem and fix it. Midland County's housing stock ranges from well-maintained older homes in established neighborhoods to newer subdivisions to rural farmsteads. We've worked on hardware across all of it and come prepared for whatever we find.</p>
-    </a>
-
-    <a href="/services/opener-repair" class="core-services-card opener">
-      <h3>Opener Repair & Installation</h3>
-      <p>Grinding, reversing, failing to respond, or just completely dead — opener failures show up in a lot of ways and we diagnose them accurately. We service all major brands including LiftMaster, Chamberlain, Genie, and Craftsman, and install new smart openers with Wi-Fi control when it's time to upgrade. Especially practical for rural Midland County properties where remote access is a real convenience.</p>
-    </a>
-<!--
-    <a href="/services/new-door-installation" class="core-services-card installation">
-      <h3>New Door Installation</h3>
-      <p>When a door is past saving, we install quality replacements built for Michigan's climate. Residential styles in steel, wood, or composite — traditional, carriage house, or modern. Heavy-duty options for agricultural and shop buildings. We handle measurement, removal of the old door, full installation, and final adjustment throughout Midland County.</p>
-    </a>
--->
-    <a href="/services/maintenance" class="core-services-card maintenance">
-      <h3>Preventive Maintenance</h3>
-      <p>Midland County winters are serious — springs contract in the cold, lubricant dries out, and rollers wear faster with the freeze-thaw cycles that run all season. An annual tune-up keeps everything running reliably before the weather turns hard. For farming operations especially, preventive maintenance on a shop or barn door is far cheaper than an emergency repair at the worst possible time.</p>
-    </a>
-<!--
-    <div class="core-services-card core-services-card agricultural">
-      <h3>Pole Barns & Agricultural Doors</h3>
-      <p>Southern Midland County has strong agricultural roots — working farms, centennial operations, pole barns, machine sheds, and grain buildings with large overhead doors are common throughout Mills Township, Geneva Township, and the rural areas around Coleman and Oil City. We carry heavy-duty parts, work on large openings regularly, and understand what farm operations need from a garage door company.</p>
-    </div>
--->
-  </div>
-</section>
-
-<section class="no-card">
-<div class="why-choose-us-section">
-    <div class="why-choose-us-container">
-        <h2 class="sub-heading">Why Midland County Homeowners Call Us</h2>
-
-        <div class="accordion-group reveal-on-scroll">
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Right Across the County Line
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        Rosebush is just over the Isabella-Midland county line. For communities like Coleman and the townships along M-18, we're closer than many companies operating out of Midland city. Fast response, no padded trip charges, and a technician who knows this part of Michigan.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Farm-Ready for Midland County
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        Southern Midland County is agricultural land and we work on it regularly. Pole barns, machine sheds, heavy-duty springs, large overhead openings — we come prepared for what farm properties in this area actually need.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    No Rural Upcharges
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        Gravel roads, long driveways, properties off the main roads — we don't charge extra for any of it. Midland County's rural addresses get the same pricing as everyone else we serve. We built this business to serve this kind of territory.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Honest Pricing, Every Time
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        We quote before we start and stick to it. We tell you what's wrong, what it'll cost, and what your options are — no pressure, no inflated estimates, no parts recommended that don't need replacing. Midland County gets the same straight talk as everyone else.
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <button class="accordion-button" onclick="toggleAccordion(this)">
-                    Work That Holds Up
-                    <svg class="accordion-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                    </svg>
-                </button>
-                <div class="accordion-content">
-                    <div class="accordion-text">
-                        Professional-grade parts, proper installation, and a 1-year warranty on our work. We do the job right the first time so you're not calling someone back out in six months for the same problem.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<a href="/about/why-choose-isabella-garage-door" class="cta-button margin-bottom-2rem"><i class="fas fa-magnifying-glass"></i> Learn More About Us</a>
-</section>
-
-
-  <section>
-    <h2 class="sub-heading">Real Feedback.<br>Real Trust.</h2>
-      <p class="testimonial-intro-paragraph">Here's what local homeowners are saying about Isabella Garage Door:</p>
-<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;">
-
-<a href="/about/testimonials" style="text-decoration: none; color: inherit; display: block;" class="reveal-on-scroll">
-      <SplideSlider client:only="react" />
-</a>
-
-<a href="/about/testimonials" class="cta-button"><i class="fa-solid fa-star fa-fw"></i> Read Customer Reviews</a>
-</section>
-
-
-  <BookingCta />
-
-  <HomeownerToolboxResponsive />
-
-<img src="/photos/tridge-midland-michigan.avif" alt="Professional garage door repair throughout Midland County, Michigan" loading="eager" fetchpriority="high" class="about-image" />
-
-<section style="margin-top: 2rem;">
-  <h2 class="sub-heading">Serving Communities Across Midland County</h2>
-  <p class="p-home">
-    Midland County stretches from the city of Midland in the north down through agricultural townships to the Isabella County line. Here's how we cover the county:
-  </p>
-
-  <div class="p-home" style="margin-top: 1.5rem;">
-
-    <p><strong>🏘️ <a href="/locations/coleman" style="color: #b27d57;">Coleman</a></strong><br>
-    Our primary Midland County community — right on M-18, about 20 minutes from our Rosebush base. Coleman is Comets country: a working-class farming community with centennial farms throughout the surrounding townships. We have a dedicated Coleman service page and treat it as a regular stop on our route. Same-day service is often available.</p>
-
-    <p style="margin-top: 1rem;"><strong>🌊 Sanford</strong><br>
-    The Sanford Lake community and surrounding area along the Tittabawassee River corridor. Sanford has a strong sense of community — river properties, year-round homes, and rural addresses throughout Hope Township. We cover Sanford and the surrounding area as part of our Midland County service.</p>
-
-    <p style="margin-top: 1rem;"><strong>🌾 Beaverton</strong><br>
-    Beaverton sits just north of Midland County in Gladwin County, and it shares the rural character of that border territory — farms, country homes, and properties that don't fit neatly into many companies service areas. We cover Midland County and portions of Gladwin County including Beaverton and the townships surrounding it.</p>
-
-    <p style="margin-top: 1rem;"><strong>🚜 Mills Township & Geneva Township</strong><br>
-    The townships directly surrounding Coleman are some of our most familiar Midland County territory. Centennial farms, pole barns, rural homesteads, and properties spread across the county roads of Mills and Geneva Township. We service this area regularly and don't charge extra for the rural addresses.</p>
-
-    <p style="margin-top: 1rem;"><strong>🏭 Midland City Area</strong><br>
-    The city of Midland and its surrounding neighborhoods are at the far end of our Midland County coverage — further from our Rosebush base than Coleman or Sanford. We do service Midland and surrounding areas; response times are a bit longer but same-day is still often possible. Call us and we'll give you an honest window.</p>
-
-    <p style="margin-top: 1rem;"><strong>🌲 Rural & Unincorporated Midland County</strong><br>
-    The townships and rural areas that don't carry a city address — Hope, Lincoln, Lee, Jasper, and the other townships spread across the county. These are properties that sometimes fall through the cracks of other companies' service areas. They don't fall through ours. If you're in Midland County, we come to you.</p>
-
-  </div>
-
-  <p class="p-home" style="margin-top: 1.5rem;">
-    <strong>Not sure if we cover your part of Midland County?</strong> Call us at <a href="tel:9895720303" style="color: #b27d57; text-decoration: underline;">989-572-0303</a>. Give us your general location and we'll tell you exactly what to expect.
-  </p>
-</section>
-
-<section class="faq-area">
-<section id="faq">
-<div class="faq-head">
-  <h2 class="sub-heading" style="margin-bottom: -.5rem;">Frequently Asked Questions - Midland County, MI</h2>
-</div>
-
-<div class="reveal-on-scroll">
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Do you service Midland County for garage door repair?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Yes. We service communities throughout Midland County including Coleman, Sanford, Midland, and surrounding townships. We're based in Rosebush in neighboring Isabella County, and the M-18 and US-10 corridors put most of western Midland County well within our regular service range. Same-day service is often available for communities like Coleman.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>How quickly can you get to Midland County for garage door repairs?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Response times depend on your location in the county. Coleman is about 20-25 minutes from Rosebush and often gets same-day service. Sanford and Midland are farther west and typically receive same-day or next-day service. Emergency situations get priority. Call us at <a href="tel:9895720303" style="color: #b27d57;">989-572-0303</a> and we'll give you an honest arrival window based on where you are.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Do you work on pole barns and agricultural doors in Midland County?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Absolutely. Midland County has a strong agricultural community — particularly in the southern townships near Coleman and along M-18 — and farm doors, pole barns, and machine sheds are a regular part of our work in the area. We carry heavy-duty parts and know how to service large agricultural openings without making a project of it.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>Do you cover rural properties throughout Midland County?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Yes. Rural Midland County — farms, country homes, and properties spread across Mills Township, Geneva Township, Hope Township, and the other rural townships — is well within our service area. We don't charge extra for rural addresses and we're comfortable on gravel roads and long driveways. If you're in Midland County, call us.</p>
-    </div>
-  </div>
-
-  <div class="faq-item">
-    <div class="faq-question">
-      <span>What garage door services do you offer in Midland County?</span>
-      <span class="faq-arrow">&#9654;</span>
-    </div>
-    <div class="faq-answer">
-      <p>Everything: broken spring replacement, cable repair, off-track door repair, roller and hinge replacement, track alignment, opener repair and installation for all major brands, sensor repair<!-- , new door installation -->, and annual preventive maintenance. Residential and agricultural garage doors throughout Midland County.</p>
-    </div>
-  </div>
-
-</section>
-</section>
-
-<AskAbelCard chatUrl="/ask-abel" />
-
-<section>
-  <h2 class="sub-heading">Midland County Garage Door Service, Done Right</h2>
-  <p class="p-home">
-    Midland County sits right next door to Isabella County — and we treat it like the neighboring community 
-    it is. Close response times, no inflated pricing for crossing a county line, and the same quality of 
-    work we bring to every job across our service area.
-  </p>
-  <p class="p-home" style="margin-top: 1rem;">
-    Whether you need emergency spring replacement, a routine tune-up, or help figuring out what's wrong 
-    with your opener — call us, text us, or use EasyEstimate™ to get a ballpark online. We'll respond 
-    quickly and get your door working right.
-  </p>
-</section>
-
-<BlogCards />
-
-<ServiceAreaMap />
-<a href="/contact" class="cta-button" style="margin-top: 2rem;"><i class="fa-solid fa-location-dot fa-fw"></i> Need Local Help?</a>
-
-<section class="core-services-section reveal-on-scroll">
-<Coupons />
-</section>
-
-<section>
-  <h2 class="sub-heading">Isabella Garage Door</h2>
-  <p style="font-size: .9rem; text-align: center;">
-    Serving Midland County and all of Central Michigan — based in Rosebush, right across the county line.
-  </p>
-  <p style="font-size: .9rem; text-align: center; margin: 0.5rem;">
-    <em>Raising Performance. Elevating Standards</em>
-  </p>
-  <p style="font-size: 1rem; text-align: center; margin: 1.5rem auto 0;">
-    <strong>Call or text:</strong> <a href="tel:9895720303" style="color: #b27d57; font-size: 1.2rem; font-weight: bold;">989-572-0303</a>
-  </p>
-</section>
-
-<ServiceFooter currentPath="null" slot="full-width-section"/>
-<LocationsFooter currentPath="/locations/midland-county" slot="full-width-section" />
-
-
-<style>
-.homeowner-toolbox-section {
-  text-align: center;
-}
-
-.homeowner-toolbox-wrapper {
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.homeowner-toolbox-grid {
-  display: grid;
-  gap: 1.5rem;
-  margin-top: 2rem;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 550px) {
-  .homeowner-toolbox-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1050px) {
-  .homeowner-toolbox-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
-.homeowner-toolbox-card {
-  justify-content: flex-start;
-  background: #fff;
-  border: 0.094rem solid #b27d57;
-  border-radius: 0.75rem;
-  padding: 1rem 1rem 1rem;
-  text-decoration: none;
-  color: inherit;
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.4);
-  position: relative;
-  background-image: url('/photos/white-garage-door-service-section.webp');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-color: #ffffff;
-  z-index: 1;
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.homeowner-toolbox-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.homeowner-toolbox-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(255, 255, 255, 0.5);
-  z-index: 0;
-  border-radius: inherit;
-}
-
-.homeowner-toolbox-card * {
-  position: relative;
-  z-index: 2;
-}
-
-.homeowner-toolbox-card:hover,
-.homeowner-toolbox-card:focus {
-  transform: translateY(-5px);
-  box-shadow: 0 0 0.75rem rgba(178, 125, 87, 0.5);
-  outline: none;
-}
-
-.homeowner-toolbox-img {
-  height: 70px;
-  width: auto;
-  object-fit: contain;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1rem;
-}
-
-.homeowner-toolbox-body {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.homeowner-toolbox-body h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #1a334f;
-  font-family: 'Lora', serif;
-  text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-  line-height: 2.1rem;
-}
-
-.homeowner-toolbox-body p {
-  font-size: 1.1rem;
-  line-height: 1.4;
-  color: #1a334f;
-  text-align: left;
-  padding: 0 1rem;
-  flex: 1;
-}
-</style>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(".homeowner-toolbox-card, .core-services-card, .reveal-on-scroll");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-
-    cards.forEach((card) => {
-      observer.observe(card);
-    });
-  });
-</script>
-
-<script is:inline>
-document.querySelectorAll('.faq-item').forEach(item => {
-  const question = item.querySelector('.faq-question');
-  const answer = item.querySelector('.faq-answer');
-
-  question.addEventListener('click', () => {
-    const isOpen = item.classList.contains('open');
-
-    document.querySelectorAll('.faq-item').forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.faq-answer').style.maxHeight = null;
-    });
-
-    if (!isOpen) {
-      item.classList.add('open');
-      answer.style.maxHeight = answer.scrollHeight + 'px';
-    }
-  });
-});
-</script>
-
-<script is:inline>
-  const icons = document.querySelectorAll('.core-services-icon-circle');
-
-  const observer = new IntersectionObserver(
-    entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.5 }
-  );
-  icons.forEach(icon => observer.observe(icon));
-</script>
-
-<script>
-function toggleAccordion(button) {
-    const item = button.parentElement;
-    const clickedContent = button.nextElementSibling;
-    const clickedArrow = button.querySelector('.accordion-arrow');
-
-    document.querySelectorAll('.accordion-content').forEach(content => {
-        const parentItem = content.parentElement;
-        const arrow = parentItem.querySelector('.accordion-arrow');
-
-        if (content !== clickedContent && content.style.maxHeight !== '0px' && content.style.maxHeight !== '') {
-            content.style.maxHeight = '0px';
-            if (arrow) arrow.style.transform = 'rotate(0deg)';
-            parentItem.classList.remove('active');
-        }
-    });
-
-    if (clickedContent.style.maxHeight === '0px' || clickedContent.style.maxHeight === '') {
-        clickedContent.style.maxHeight = clickedContent.scrollHeight + 'px';
-        clickedArrow.style.transform = 'rotate(180deg)';
-        item.classList.add('active');
-    } else {
-        clickedContent.style.maxHeight = '0px';
-        clickedArrow.style.transform = 'rotate(0deg)';
-        item.classList.remove('active');
-    }
-}
-
-function initializeAccordions() {
-    document.querySelectorAll('.accordion-content').forEach(content => {
-        content.style.maxHeight = '0px';
-        content.parentElement.classList.remove('active');
-        const arrow = content.previousElementSibling.querySelector('.accordion-arrow');
-        if (arrow) arrow.style.transform = 'rotate(0deg)';
-    });
-}
-
-window.toggleAccordion = toggleAccordion;
-document.addEventListener('DOMContentLoaded', initializeAccordions);
-document.addEventListener('astro:after-swap', initializeAccordions);
-</script>
-
-  <script>
-    if (typeof window !== 'undefined') {
-      const highlightObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('slide-up-in');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, {
-        threshold: 0.5,
-        rootMargin: '0px 0px -50px 0px'
-      });
-
-      window.addEventListener('DOMContentLoaded', () => {
-        const highlightSection = document.querySelector('.highlight-section');
-        if (highlightSection) {
-          highlightObserver.observe(highlightSection);
-        }
-
-        const iconCards = document.querySelectorAll('.value-icon-card');
-        const iconObserver = new IntersectionObserver((entries, iconObs) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const index = Array.from(iconCards).indexOf(entry.target);
-              entry.target.style.animation = `fadeSlideUp 0.6s ease forwards`;
-              entry.target.style.animationDelay = `${index * 150}ms`;
-              iconObs.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.3 });
-
-        iconCards.forEach(card => iconObserver.observe(card));
-      });
-    }
-  </script>
-
-</BaseLayout>
+<LocationPage {...content} schema={schema} />

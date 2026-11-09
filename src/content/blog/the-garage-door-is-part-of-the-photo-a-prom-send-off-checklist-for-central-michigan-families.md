@@ -66,4 +66,4 @@ A quick tune-up or safety inspection doesn't take long and costs less than you'd
 
 ---
 
-*Isabella Garage Door serves homeowners across Central Michigan — Mt. Pleasant, Clare, Alma, Shepherd, Lake Isabella, Coleman, and the surrounding communities. If you've got questions about your door or just want someone to take a look, we're easy to reach. Call or text us at (989) 572-0303.*
+*Isabella Garage Door serves homeowners across Central Michigan — Mt. Pleasant, Clare, Alma, Shepherd, Lake Isabella, Coleman, and the surrounding communities. If you've got questions about your door or just want someone to take a look, we're easy to reach. Call or text us at 989-572-0303.*

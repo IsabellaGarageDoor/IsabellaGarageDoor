@@ -1,5 +1,8 @@
 ---
+// QR / NFC landing page (printed on cards and stickers) — the URL must not change.
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/ui/Icon.astro';
+import { site } from '../../config/site';
 const title = "Save My Contact - Isabella Garage Door";
 const description = "Save Isabella Garage Door to your contacts for warranty support, and leave a Google review if you loved your service.";
 ---
@@ -10,272 +13,31 @@ const description = "Save Isabella Garage Door to your contacts for warranty sup
     <meta name="robots" content="noindex" />
   </Fragment>
 
-  <style>
-    .save-page {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+  <section class="save-page">
+    <div class="save-card">
 
-    .card {
-      background: #fcf9f6;
-      border-radius: 16px;
-      width: 100%;
-      max-width: 420px;
-      overflow: hidden;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-      border: 0.094rem solid #b27d57;
-      margin: 0 auto 1.5rem;
-    }
-
-    .card-header {
-      background: #1a334f;
-      padding: 1.75rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      border-bottom: 0.094rem solid #b27d57;
-    }
-
-    .avatar {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: #b27d57;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .avatar svg {
-      width: 26px;
-      height: 26px;
-      fill: white;
-    }
-
-    .header-text h1 {
-      font-family: 'Lora', serif;
-      font-size: 1.2rem;
-      color: #ffffff;
-      font-weight: 600;
-      line-height: 1.25;
-      text-align: left;
-      margin-bottom: 0;
-      text-shadow: none;
-    }
-
-    .header-text p {
-      font-size: 0.78rem;
-      color: #c8956e;
-      margin-top: 3px;
-      letter-spacing: 0.05em;
-      font-weight: 500;
-    }
-
-    .card-body {
-      padding: 1.75rem;
-    }
-
-    .greeting {
-      font-size: 0.95rem;
-      color: rgba(26, 51, 79, 0.6);
-      line-height: 1.6;
-      margin-bottom: 1.75rem;
-      border-left: 3px solid #b27d57;
-      padding-left: 0.9rem;
-    }
-
-    .contact-strip {
-      border-top: 0.094rem solid #b27d57;
-      border-bottom: 0.094rem solid #b27d57;
-      margin-bottom: 1.75rem;
-    }
-
-    .save-contact-row {
-      display: flex;
-      align-items: center;
-      gap: 0.65rem;
-      font-size: 0.875rem;
-      color: rgba(26, 51, 79, 0.6);
-      padding: 0.65rem 0.25rem;
-      border-bottom: 0.094rem solid rgba(178,125,87,0.15);
-    }
-
-    .save-contact-row:last-child {
-      border-bottom: none;
-    }
-
-    .save-contact-row svg {
-      width: 15px;
-      height: 15px;
-      fill: #b27d57;
-      flex-shrink: 0;
-    }
-
-    .save-contact-row span {
-      color: #1a334f;
-      font-weight: 500;
-    }
-
-    .strip-link {
-      text-decoration: none;
-      color: #1a334f;
-      font-weight: 500;
-      font-size: 0.875rem;
-      transition: color 0.15s ease;
-    }
-
-    .strip-link:hover {
-      color: #b27d57;
-    }
-
-    .save-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      width: 100%;
-      padding: 0.85rem 1rem;
-      border-radius: 12px;
-      font-family: 'Jost', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      border: 0.094rem solid #b27d57;
-      transition: transform 0.15s ease, opacity 0.15s ease;
-      margin-bottom: 0.75rem;
-      letter-spacing: 0.02em;
-    }
-
-    .save-btn:active { transform: scale(0.97); }
-
-    .save-btn-primary {
-      background: #1a334f;
-      color: white;
-    }
-
-    .save-btn-primary:hover { opacity: 0.88; }
-
-    .save-btn-bronze {
-      background: #b27d57;
-      color: white;
-    }
-
-    .save-btn-bronze:hover { opacity: 0.88; }
-
-    .save-btn svg {
-      width: 17px;
-      height: 17px;
-      flex-shrink: 0;
-      fill: white;
-    }
-
-    .save-divider {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin: 0.5rem 0 1rem;
-    }
-
-    .save-divider::before,
-    .save-divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: rgba(178,125,87,0.2);
-    }
-
-    .save-divider span {
-      font-size: 0.72rem;
-      color: rgba(26, 51, 79, 0.6);
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
-
-    .warranty-link {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      font-size: 0.85rem;
-      color: rgba(26, 51, 79, 0.6);
-      text-decoration: none;
-      padding: 0.6rem;
-      border-radius: 8px;
-      transition: color 0.15s ease, background 0.15s ease;
-      font-family: 'Jost', sans-serif;
-    }
-
-    .warranty-link:hover {
-      color: #1a334f;
-      background: rgba(178,125,87,0.08);
-    }
-
-    .warranty-link svg {
-      width: 14px;
-      height: 14px;
-      fill: #b27d57;
-    }
-
-    .save-toast {
-      position: fixed;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%) translateY(80px);
-      background: #1a334f;
-      color: white;
-      padding: 0.7rem 1.2rem;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      opacity: 0;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      pointer-events: none;
-      white-space: nowrap;
-      z-index: 999;
-      border: 0.094rem solid #b27d57;
-      font-family: 'Jost', sans-serif;
-    }
-
-    .save-toast.show {
-      opacity: 1;
-      transform: translateX(-50%) translateY(0);
-    }
-  </style>
-
-  <div class="save-page">
-
-    <div class="card">
-
-      <div class="card-header">
-        <div class="avatar">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
-          </svg>
-        </div>
-        <div class="header-text">
+      <header class="save-card__header">
+        <img class="save-card__logo" src={site.logo.white} alt="" width="160" height="64" />
+        <div class="save-card__title">
           <h1>Isabella Garage Door</h1>
           <p>Garage Door Repair &amp; Service</p>
         </div>
-      </div>
+      </header>
 
-      <div class="card-body">
-<div class="greeting">
-        <p>
-          Thank you for choosing Isabella Garage Door. Save our contact below — you'll have everything you need if a warranty question ever comes up.
-        </p>
+      <div class="save-card__body">
+        <div class="save-card__greeting">
+          <p>
+            Thank you for choosing Isabella Garage Door. Save our contact below — you'll have everything you need if a warranty question ever comes up.
+          </p>
 
-        <p style="margin-top: 1rem;">
-          Help other homeowners discover Isabella Garage Door with a quick Google review.
-        </p>
-</div>
+          <p>
+            Help other homeowners discover Isabella Garage Door with a quick Google review.
+          </p>
+        </div>
     <!--    <div class="contact-strip">
           <div class="save-contact-row">
             <svg viewBox="0 0 24 24"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
-            <a href="tel:+19895720303" class="strip-link"><span>(989) 572-0303</span></a>
+            <a href="tel:+19895720303" class="strip-link"><span>989-572-0303</span></a>
           </div>
           <div class="save-contact-row">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
@@ -287,37 +49,193 @@ const description = "Save Isabella Garage Door to your contacts for warranty sup
           </div>
         </div>
 -->
-        <a href="/isabella-garage-door.vcf" class="save-btn save-btn-primary">
-          <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+        <a href="/isabella-garage-door.vcf" class="save-btn save-btn--primary">
+          <Icon name="user" size="1.35em" />
           Save to My Contacts
         </a>
 
         <div class="save-divider"><span>Had a great experience?</span></div>
 
         <a
-          class="save-btn save-btn-bronze"
+          class="save-btn save-btn--review"
           href="https://g.page/r/Cf6x4Aq_rhM5EBM/review"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          <Icon name="star" size="1.35em" />
           Leave a Google Review
         </a>
 
-        <div class="save-divider"><span></span></div>
+        <div class="save-divider save-divider--plain"><span></span></div>
 
         <a class="warranty-link" href="/resources/warranty">
-          <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-1 14l-3-3 1.41-1.41L11 12.17l4.59-4.58L17 9l-6 6z"/></svg>
+          <Icon name="shield" size="1.15em" />
           View Warranty Information
         </a>
 
       </div>
     </div>
-
-
-
-  </div>
-
-
+  </section>
 
 </BaseLayout>
+
+<style>
+  .save-page {
+    padding: clamp(1.25rem, 0.5rem + 4vw, 4rem) var(--gutter) clamp(2rem, 1rem + 4vw, 5rem);
+    background:
+      radial-gradient(circle at 50% 0%, rgb(178 125 87 / 0.16), transparent 55%),
+      var(--sand);
+  }
+
+  .save-card {
+    width: 100%;
+    max-width: 440px;
+    margin-inline: auto;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: var(--white);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .save-card__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-4);
+    padding: var(--space-8) var(--space-6) var(--space-6);
+    border-bottom: 4px solid var(--bronze);
+    background:
+      radial-gradient(circle at 100% 0%, rgb(178 125 87 / 0.22), transparent 50%),
+      linear-gradient(160deg, var(--navy) 0%, var(--navy-800) 100%);
+    text-align: center;
+  }
+
+  .save-card__logo {
+    width: auto;
+    height: 56px;
+  }
+
+  .save-card__title h1 {
+    color: var(--white);
+    font-size: 1.6rem;
+  }
+
+  .save-card__title p {
+    margin-top: var(--space-1);
+    color: var(--bronze-300);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    letter-spacing: 0.06em;
+  }
+
+  .save-card__body {
+    padding: var(--space-6);
+  }
+
+  .save-card__greeting {
+    margin-bottom: var(--space-6);
+    padding-left: var(--space-4);
+    border-left: 3px solid var(--bronze);
+    color: var(--text);
+  }
+
+  .save-card__greeting p + p {
+    margin-top: var(--space-3);
+  }
+
+  .save-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    width: 100%;
+    min-height: 60px;
+    padding: 0.9rem 1.25rem;
+    border-radius: var(--radius);
+    color: var(--white);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    transition:
+      background-color var(--duration) var(--ease),
+      transform var(--duration) var(--ease);
+  }
+
+  .save-btn:hover {
+    color: var(--white);
+  }
+
+  .save-btn:active {
+    transform: scale(0.98);
+  }
+
+  .save-btn--primary {
+    background: var(--navy);
+    box-shadow: 0 8px 20px rgb(26 51 79 / 0.25);
+  }
+
+  .save-btn--primary:hover {
+    background: var(--navy-700);
+  }
+
+  .save-btn--review {
+    background: var(--bronze-600);
+    box-shadow: 0 8px 20px rgb(154 103 68 / 0.25);
+  }
+
+  .save-btn--review:hover {
+    background: var(--bronze-700);
+  }
+
+  .save-divider {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin: var(--space-6) 0 var(--space-4);
+  }
+
+  .save-divider::before,
+  .save-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .save-divider span {
+    color: var(--muted);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .save-divider--plain {
+    gap: 0;
+  }
+
+  .warranty-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    min-height: 48px;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-sm);
+    color: var(--navy);
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .warranty-link :global(.icon) {
+    color: var(--bronze-600);
+  }
+
+  .warranty-link:hover {
+    background: var(--bronze-50);
+    color: var(--navy);
+  }
+</style>

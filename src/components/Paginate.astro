@@ -1,0 +1,20 @@
+---
+// Wraps a list of items and paginates them in the browser (?page=N), so the
+// existing paginated URLs keep working on a static site. Each direct child is one item.
+interface Props {
+  perPage: number;
+  /** id of the element to scroll to when changing pages */
+  anchor?: string;
+  class?: string;
+}
+const { perPage, anchor = '', class: className } = Astro.props;
+---
+
+<div data-paginate data-per-page={perPage} data-anchor={anchor} class={className}>
+  <slot />
+</div>
+<nav class="pagination-wrapper" data-paginate-nav aria-label="Pagination" hidden></nav>
+
+<script>
+  import '../scripts/paginate';
+</script>

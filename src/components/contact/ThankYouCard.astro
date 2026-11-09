@@ -1,0 +1,81 @@
+---
+// Centered confirmation card used by the form redirect pages (/thank-you, /thank-you-estimate).
+// Slot: the message paragraphs. Slot "actions": buttons.
+import Icon from '../ui/Icon.astro';
+
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<section class="thank-you">
+  <div class="container">
+    <div class="thank-you__card">
+      <span class="thank-you__icon"><Icon name="check-circle" size="2rem" /></span>
+      <h1>{title}</h1>
+      <div class="thank-you__body">
+        <slot />
+      </div>
+      <div class="cluster cluster--center thank-you__actions">
+        <slot name="actions" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .thank-you {
+    display: grid;
+    align-items: center;
+    min-height: 70vh;
+    padding-block: var(--section-y);
+    background:
+      radial-gradient(circle at 85% 0%, rgb(178 125 87 / 0.14), transparent 45%),
+      var(--sand);
+  }
+
+  .thank-you__card {
+    max-width: 40rem;
+    margin-inline: auto;
+    padding: clamp(2rem, 1.25rem + 3vw, 3.5rem);
+    border: 1px solid var(--line);
+    border-top: 4px solid var(--bronze);
+    border-radius: var(--radius-lg);
+    background: var(--white);
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+  }
+
+  .thank-you__icon {
+    display: inline-grid;
+    place-items: center;
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: var(--space-5);
+    border-radius: 50%;
+    background: var(--success-bg);
+    color: var(--success);
+  }
+
+  .thank-you__body {
+    margin-top: var(--space-5);
+  }
+
+  .thank-you__body > :global(* + *) {
+    margin-top: var(--space-4);
+  }
+
+  .thank-you__body :global(.message) {
+    color: var(--ink);
+    font-size: var(--text-lg);
+  }
+
+  .thank-you__body :global(.subtext) {
+    color: var(--muted);
+  }
+
+  .thank-you__actions {
+    margin-top: var(--space-8);
+  }
+</style>

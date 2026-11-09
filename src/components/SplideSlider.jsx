@@ -1,149 +1,71 @@
 import { useEffect } from 'react';
 import Splide from '@splidejs/splide';
 import '@splidejs/splide/css';
+import './SplideSlider.css';
+import { reviews } from '../data/reviews';
+
+const Star = () => (
+  <svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <polygon fill="currentColor" points="10,1.5 12.6,7.4 18.9,7.4 13.9,11.4 15.7,17.5 10,13.8 4.3,17.5 6.1,11.4 1.1,7.4 7.4,7.4" />
+  </svg>
+);
 
 export default function SplideSlider() {
-  const reviews = [
-    // ... (Your existing combined review data goes here) ...
-   
-
-    {
-      quote: `Got our garage door working again! They got us on the schedule quick and made everything easy. I can't thank them enough. Highly recommend!!`,
-      author: 'Elizabeth S.'
-    },
-    {
-      quote: `I highly recommend Isabella Garage Door for any repairs you need. They were fast, efficient and reasonably priced. He had our spring fixed and door working again in no time. Will definitely use again.`,
-      author: 'Autumn S.'
-    },
-    {
-      quote: `Very reputable and great prices compared to other places 10/10 would recommend!`,
-      author: 'Colton B.'
-    },
-    {
-      quote: `Very efficient! Arrived and fixed my garage door in a timely manor. Will use this service if I have any future issues!`,
-      author: 'Suzanna B.'
-    },
-    {
-      quote: `I am very happy with how fast, friendly and how smooth everything went using Isabella Garage Door. We dealt with a broken door a long time and had it fixed in no time with this company. I would recommend this guy All Day. Thank you for your help. 🙂`,
-      author: 'Elizabeth M.'
-    },
-    {
-      quote: `So glad we contacted Isabella Garage Door. They were prompt, polite, hard working. Highly recommend`,
-      author: 'Tracey S.'
-    },
-    {
-      quote: `This guy was very knowledgeable and pleasant to work with. I'd call him back.`,
-      author: 'Ken Y.'
-    },
-    {
-      quote: `Extremely prompt. Great price and service.`,
-      author: 'Cole S.'
-    },
-    {
-      quote: `Good communication. Was able to fix my issues without needing an entire door replacement!`,
-      author: 'Kyle B.'
-    },
-    {
-      quote: `Peter did a great job but what really impressed me was how honest he was!! He had a basic Service charge that I was aware of. He had some extra necessary work that he completed and deducted the service charge without me asking. A very impressive young man that will go far in whatever he takes on in his future!!!`,
-      author: 'Thomas H.'
-    },
-    {
-      quote: `Excellent Pete did a great job. Very professional. Highly recommend.`,
-      author: 'Randy L.'
-    },
-    
-  ];
-
   useEffect(() => {
-    // Initialize Splide carousel
     const splide = new Splide('#splide', {
       type: 'loop',
-      perPage: 1,
+      perPage: 3,
       autoplay: true,
       interval: 8500,
+      pauseOnHover: true,
       arrows: false,
       pagination: true,
-      gap: '2rem',
-      padding: { left: '1rem', right: '1rem' },
+      gap: '1.5rem',
+      padding: { left: '0.25rem', right: '0.25rem' },
       breakpoints: {
-        768: { perPage: 1, gap: '1.5rem' },
-        1024: { perPage: 1 },
-      }
+        1024: { perPage: 2 },
+        768: { perPage: 1, gap: '1rem' },
+      },
+      i18n: { carousel: 'Customer reviews', slideLabel: 'Review %s of %s' },
     });
 
-    // Function to reset and play animations for a given slide element
+    // Replay the star/name animation on the slide that becomes active
     const resetAndPlayAnimation = (slideElement) => {
       if (!slideElement) return;
-
       const stars = slideElement.querySelector('.testimonial-stars');
       const name = slideElement.querySelector('.testimonial-name');
-
-      // 1. Remove the animation class immediately
       if (stars) stars.classList.remove('animate-in');
       if (name) name.classList.remove('animate-in');
-
-      // 2. Use a short setTimeout to re-add the class.
-      // This allows the browser a tiny moment to register the class removal
-      // and reset the animation state before the class is re-added, forcing a replay.
       setTimeout(() => {
         if (stars) stars.classList.add('animate-in');
         if (name) name.classList.add('animate-in');
-      }, 50); // A small delay like 50ms is usually very effective. You can try 0ms as well.
+      }, 50);
     };
 
-    // Listen for Splide's 'mounted' event (when the carousel is first initialized)
     splide.on('mounted', () => {
-      // Get the initial active slide and play its animations
-      const initialActiveSlide = splide.Components.Slides.get(splide.index).slide;
-      resetAndPlayAnimation(initialActiveSlide);
+      resetAndPlayAnimation(splide.Components.Slides.get(splide.index).slide);
     });
-
-    // Listen for Splide's 'moved' event (when the carousel finishes a slide transition)
     splide.on('moved', () => {
-      // Get the newly active slide and play its animations
-      const currentActiveSlide = splide.Components.Slides.get(splide.index).slide;
-      resetAndPlayAnimation(currentActiveSlide);
+      resetAndPlayAnimation(splide.Components.Slides.get(splide.index).slide);
     });
 
-    // Mount the Splide instance
     splide.mount();
-
-    // Cleanup: Destroy Splide instance when component unmounts
-    return () => {
-      splide.destroy();
-    };
-  }, []); // Empty dependency array ensures this effect runs only once on mount
+    return () => splide.destroy();
+  }, []);
 
   return (
-    <div id="splide" className="splide">
+    <div id="splide" className="splide review-slider" aria-label="Customer reviews">
       <div className="splide__track">
         <ul className="splide__list">
           {reviews.map((review, index) => (
             <li className="splide__slide" key={index}>
-              {/* This is the HTML structure of your TestimonialCardWhite, adapted for JSX */}
-              <div className="testimonial-card-white">
-                <div className="testimonial-gradient-overlay"></div>
-                <div className="testimonial-stars">
-                  <svg viewBox="0 0 20 20" fill="#b27d57" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-                    <polygon points="10,1.5 12.6,7.4 18.9,7.4 13.9,11.4 15.7,17.5 10,13.8 4.3,17.5 6.1,11.4 1.1,7.4 7.4,7.4"/>
-                  </svg>
-                  <svg viewBox="0 0 20 20" fill="#b27d57" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-                    <polygon points="10,1.5 12.6,7.4 18.9,7.4 13.9,11.4 15.7,17.5 10,13.8 4.3,17.5 6.1,11.4 1.1,7.4 7.4,7.4"/>
-                  </svg>
-                  <svg viewBox="0 0 20 20" fill="#b27d57" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-                    <polygon points="10,1.5 12.6,7.4 18.9,7.4 13.9,11.4 15.7,17.5 10,13.8 4.3,17.5 6.1,11.4 1.1,7.4 7.4,7.4"/>
-                  </svg>
-                  <svg viewBox="0 0 20 20" fill="#b27d57" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-                    <polygon points="10,1.5 12.6,7.4 18.9,7.4 13.9,11.4 15.7,17.5 10,13.8 4.3,17.5 6.1,11.4 1.1,7.4 7.4,7.4"/>
-                  </svg>
-                  <svg viewBox="0 0 20 20" fill="#b27d57" width="24" height="24" xmlns="http://www.w3.org/2000/svg">
-                    <polygon points="10,1.5 12.6,7.4 18.9,7.4 13.9,11.4 15.7,17.5 10,13.8 4.3,17.5 6.1,11.4 1.1,7.4 7.4,7.4"/>
-                  </svg>
+              <figure className="review-slide">
+                <div className="testimonial-stars" aria-label={`${review.rating} out of 5 stars`}>
+                  {Array.from({ length: review.rating }, (_, i) => <Star key={i} />)}
                 </div>
-                <p className="testimonial-text" dangerouslySetInnerHTML={{ __html: review.quote }}></p>
-                <div className="testimonial-name">— {review.author}</div>
-                <div className="testimonial-tail"></div>
-              </div>
+                <blockquote className="testimonial-text" dangerouslySetInnerHTML={{ __html: review.quote }}></blockquote>
+                <figcaption className="testimonial-name">— {review.author}</figcaption>
+              </figure>
             </li>
           ))}
         </ul>

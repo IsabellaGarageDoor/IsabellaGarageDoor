@@ -118,7 +118,7 @@ Here in Alma, Michigan, we see these failures constantly—especially in winter 
 
 **For Alma and Gratiot County residents:**
 
-[Isabella Garage Door](/service-areas/alma) serves all of Alma, St. Louis, Ithaca, and surrounding Gratiot County with garage door repair.
+[Isabella Garage Door](/locations/alma) serves all of Alma, St. Louis, Ithaca, and surrounding Gratiot County with garage door repair.
 
 📞 **Call or text: 989-572-0303**
 
@@ -226,14 +226,14 @@ We can provide documentation for insurance claims if needed.
 
 📞 **Call or text: 989-572-0303**
 
-[Schedule repair service](/service-areas/alma)
+[Schedule repair service](/locations/alma)
 
 We serve all of Alma, St. Louis, Ithaca, and Gratiot County with:
 - [Broken spring replacement](/services/broken-springs)
 - [Cable repair](/services/door-repair)
 - [Opener repair](/services/opener-repair)  
 - [Door off track](/services/door-repair)
-- [Emergency service](/service-areas/alma)
+- [Emergency service](/locations/alma)
 
 *Raising Performance. Elevating Standards.*
 

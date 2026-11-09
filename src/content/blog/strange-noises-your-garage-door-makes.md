@@ -41,7 +41,7 @@ Your garage door is one of the hardest-working parts of your home. When it start
 
 **Schedule your service today** and let’s get your garage door back to smooth, silent operation.
 
-Contact Us Today At: (989) 572-0303  
+Contact Us Today At: 989-572-0303  
 ---
 
 *About Isabella Garage Door: Serving Central Michigan, we pride ourselves on providing honest assessments, quality workmanship, and exceptional customer service.*

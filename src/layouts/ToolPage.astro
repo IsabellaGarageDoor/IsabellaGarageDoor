@@ -1,0 +1,163 @@
+---
+// Shell for the three interactive homeowner tools (EasyEstimate™, DoorDiagnosis™,
+// SpringStatus™). The tools' own scripts are passed in through the default slot and
+// are unchanged: they render into #app and rely on these element ids.
+import '../styles/tools.css';
+import BaseLayout from './BaseLayout.astro';
+import PageHero from '../components/ui/PageHero.astro';
+import Faq from '../components/ui/Faq.astro';
+import ContactBlock from '../components/ContactBlock.astro';
+import Icon from '../components/ui/Icon.astro';
+import { telHref, site } from '../config/site';
+import type { FaqItem } from '../lib/schema';
+
+export interface ToolSection {
+  heading: string;
+  /** Intro paragraph(s) HTML */
+  intro?: string[];
+  bullets?: string[];
+  /** Extra paragraphs HTML shown after the bullets */
+  after?: string[];
+}
+
+interface Props {
+  title: string;
+  description: string;
+  toolName: string;
+  hero: {
+    h1: string;
+    subheading: string;
+    intro: string;
+    bullets: string[];
+    image: string;
+    imageAlt: string;
+  };
+  highlight: string;
+  prompt: string;
+  /** id the rest of the site links to (#estimate-form, #troubleshooting, #springstatus) */
+  anchorId: string;
+  sections: ToolSection[];
+  faqs: FaqItem[];
+  closing?: { heading: string; text: string; cta: { href: string; label: string } };
+  signoff: string;
+}
+
+const p = Astro.props;
+---
+
+<BaseLayout title={p.title} description={p.description}>
+  <slot name="head" slot="head" />
+
+  <PageHero
+    title={p.hero.h1}
+    eyebrow={p.hero.subheading}
+    intro={p.hero.intro}
+    image={p.hero.image}
+    imageAlt={p.hero.imageAlt}
+    crumbs={[{ name: 'Homeowner Tools', href: '/homeowner-tools/easy-estimate' }, { name: p.toolName, href: '#' }]}
+  >
+    <ul class="check-list tool-bullets">
+      {p.hero.bullets.map((b) => <li><Icon name="check" /> <span set:html={b} /></li>)}
+    </ul>
+  </PageHero>
+
+  <section class="section section--tight tool-intro">
+    <div class="container container--narrow stack">
+      <p class="tool-highlight highlight-section" set:html={p.highlight} />
+      <p class="lead" set:html={p.prompt} />
+    </div>
+  </section>
+
+  <!-- Tool anchor -->
+  <div id={p.anchorId} class="tool-anchor"></div>
+
+  <section class="section section--sand tool-stage">
+    <div class="container">
+      <!-- Splash + App Container -->
+      <div id="estimate-app-container">
+        <div id="estimate-splash" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 250px; gap: 1rem;">
+          <img src="/photos/blue-isabella-garage-door-logo.avif" alt="Isabella Garage Door Logo" style="max-width: 280px; opacity: 0.8;" />
+          <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div>
+        <div id="app" style="display: none;"></div>
+      </div>
+      <p class="tool-help footer-text">
+        Need immediate help? Call us at <a href={telHref}>{site.phone.display}</a>
+      </p>
+    </div>
+  </section>
+
+  {p.sections.map((s, i) => (
+    <section class:list={['section', { 'section--white': i % 2 === 0 }]}>
+      <div class="container container--narrow stack">
+        <h2>{s.heading}</h2>
+        {s.intro?.map((t) => <p class="lead" set:html={t} />)}
+        {s.bullets && (
+          <ul class="check-list">
+            {s.bullets.map((b) => <li><Icon name="check" /> <span set:html={b} /></li>)}
+          </ul>
+        )}
+        {s.after?.map((t) => <p set:html={t} />)}
+      </div>
+    </section>
+  ))}
+
+  <Faq heading="Frequently Asked Questions" items={p.faqs} />
+
+  {p.closing && (
+    <section class="section section--sand">
+      <div class="container container--narrow text-center stack">
+        <h2>{p.closing.heading}</h2>
+        <p class="lead" set:html={p.closing.text} />
+        <div><a href={p.closing.cta.href} class="btn btn--navy"><Icon name="search" /> {p.closing.cta.label}</a></div>
+      </div>
+    </section>
+  )}
+
+  <ContactBlock text={p.signoff} />
+
+  <!-- Tool scripts / hidden forms (unchanged) -->
+  <slot />
+</BaseLayout>
+
+<style>
+  .tool-bullets {
+    margin-top: var(--space-4);
+    color: rgb(255 255 255 / 0.9);
+  }
+
+  .tool-bullets :global(.icon) {
+    color: var(--bronze-300);
+  }
+
+  .tool-highlight {
+    padding: var(--space-5) var(--space-6);
+    border-left: 4px solid var(--bronze);
+    border-radius: var(--radius-sm);
+    background: var(--bronze-50);
+    color: var(--ink);
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-style: italic;
+  }
+
+  .tool-intro .stack {
+    --stack-gap: var(--space-6);
+  }
+
+  .tool-anchor {
+    position: relative;
+    top: calc(-1 * var(--header-h) - 1rem);
+    height: 0;
+  }
+
+  .tool-help {
+    margin-top: var(--space-6);
+    color: var(--muted);
+    text-align: center;
+  }
+
+  .tool-help a {
+    font-weight: 600;
+  }
+</style>

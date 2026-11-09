@@ -1,0 +1,51 @@
+---
+// Closing sign-off: business name, a page-specific line, the tagline, and call/text.
+import Icon from './ui/Icon.astro';
+import { site, telHref, smsHref, smsMessages } from '../config/site';
+
+interface Props {
+  /** Page-specific line under the business name */
+  text?: string;
+}
+const { text } = Astro.props;
+---
+
+<section class="section section--tight contact-block">
+  <div class="container container--narrow text-center stack">
+    <h2 class="contact-block__name">{site.name}</h2>
+    {text && <p class="contact-block__text" set:html={text} />}
+    <p class="contact-block__tagline"><em>{site.tagline}</em></p>
+    <p class="contact-block__call">
+      <strong>Call or text:</strong> <a href={telHref}>{site.phone.display}</a>
+    </p>
+    <div class="cluster cluster--center">
+      <a href={telHref} class="btn btn--navy"><Icon name="phone" /> Call</a>
+      <a href={smsHref(smsMessages.general)} class="btn btn--outline"><Icon name="text" /> Text</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-block {
+    border-top: 1px solid var(--line);
+  }
+
+  .contact-block__name {
+    font-size: clamp(1.5rem, 1.2rem + 1vw, 2rem);
+  }
+
+  .contact-block__text {
+    color: var(--muted);
+  }
+
+  .contact-block__tagline {
+    color: var(--bronze-700);
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+  }
+
+  .contact-block__call a {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+</style>
