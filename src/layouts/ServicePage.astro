@@ -62,18 +62,13 @@ const [firstParagraph, ...moreParagraphs] = c.hero.paragraphs;
     crumbs={[{ name: 'Services', href: '/services/services' }, c.crumb]}
   >
     {moreParagraphs.map((p) => <p class="service-hero__p" set:html={p} />)}
+      <TrustBadges />
     {c.hero.callout && <p class="service-hero__callout" set:html={c.hero.callout} />}
     <Fragment slot="actions">
-      <a href={telHref} class="btn btn--primary btn--lg"><Icon name="phone" /> Call {site.phone.display}</a>
-      <a href={c.hero.smsHref} class="btn btn--outline-light btn--lg"><Icon name="text" /> Text Us Now</a>
+      <a href={c.hero.smsHref} class="btn btn--primary btn--lg"><Icon name="text" /> Text Us Now</a>
+      <a href={telHref} class="btn btn--outline-light btn--lg"><Icon name="phone" /> Call {site.phone.display}</a>
     </Fragment>
   </PageHero>
-
-  <section class="section section--tight section--white trust-band">
-    <div class="container">
-      <TrustBadges />
-    </div>
-  </section>
 
   <slot />
 

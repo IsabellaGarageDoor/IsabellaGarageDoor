@@ -15,20 +15,23 @@ interface Props {
 const { tone = 'light' } = Astro.props;
 
 const badges = [
-  { img: shieldImg, alt: 'Fully Insured', label: ['Fully', 'Insured'] },
-  { img: toolsImg, alt: 'Expert Technicians', label: ['Expert', 'Technicians'] },
-  { img: gearsImg, alt: 'Premium Parts', label: ['Premium', 'Parts'] },
-  { img: michiganImg, alt: 'Local-Family Owned', label: ['Local-Family', 'Owned'] },
-  { img: bannerImg, alt: 'Warranty Guarantee', label: ['Warranty', 'Guarantee'] },
-  { img: starsImg, alt: '5 Star Rated', label: ['5 Star', 'Rated'] },
+  { img: shieldImg, alt: 'Fully Insured', label: ['Fully', 'Insured'], short: 'Insured' },
+  { img: toolsImg, alt: 'Expert Technicians', label: ['Expert', 'Technicians'], short: 'Experts' },
+  { img: gearsImg, alt: 'Premium Parts', label: ['Premium', 'Parts'], short: 'Quality' },
+  { img: michiganImg, alt: 'Local-Family Owned', label: ['Local-Family', 'Owned'], short: 'Local' },
+  { img: bannerImg, alt: 'Warranty Guarantee', label: ['Warranty', 'Guarantee'], short: 'Warranty' },
+  { img: starsImg, alt: '5 Star Rated', label: ['5 Star', 'Rated'], short: '5-Star' },
 ];
 ---
 
 <ul class:list={['trust-badges', `trust-badges--${tone}`]}>
   {badges.map((b) => (
     <li class="trust-badge">
-      <Image src={b.img} alt="" width={140} height={140} />
-      <p>{b.label[0]}<br />{b.label[1]}</p>
+      <Image src={b.img} alt={b.alt} width={140} height={140} />
+      <p>
+        <span class="badge-short">{b.short}</span>
+        <span class="badge-full">{b.label[0]}<br />{b.label[1]}</span>
+      </p>
     </li>
   ))}
 </ul>
@@ -36,41 +39,74 @@ const badges = [
 <style>
   .trust-badges {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-5) var(--space-3);
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--space-1);
     max-width: 1000px;
-    margin: 0 auto;
+    margin: var(--space-3) auto 0;
     padding: 0;
     list-style: none;
     text-align: center;
   }
 
+  .trust-badge {
+    min-width: 0; /* Prevents text overflow breaking the grid */
+  }
+
   .trust-badge img {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto var(--space-2);
+    width: 24px;
+    height: 24px;
+    margin: 0 auto 2px;
+    object-fit: contain;
     filter: drop-shadow(0 4px 8px rgb(17 35 56 / 0.18));
   }
 
   .trust-badge p {
-    color: var(--navy);
-    font-size: var(--text-sm);
-    font-weight: 500;
-    line-height: 1.3;
+    color: var(--white);
+    font-size: 9px;
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0;
   }
 
   .trust-badges--dark .trust-badge p {
     color: rgb(255 255 255 / 0.92);
   }
 
+  /* Mobile text visibility */
+  .badge-short {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .badge-full {
+    display: none;
+  }
+
   @media (min-width: 720px) {
     .trust-badges {
-      grid-template-columns: repeat(6, 1fr);
+      gap: var(--space-5) var(--space-3);
     }
 
     .trust-badge img {
-      width: 72px;
-      height: 72px;
+      width: 48px;
+      height: 48px;
+      margin-bottom: var(--space-2);
+    }
+
+    .trust-badge p {
+      font-size: var(--text-sm);
+      line-height: 1.3;
+    }
+
+    /* Switch to full text on desktop */
+    .badge-short {
+      display: none;
+    }
+
+    .badge-full {
+      display: block;
     }
   }
 </style>

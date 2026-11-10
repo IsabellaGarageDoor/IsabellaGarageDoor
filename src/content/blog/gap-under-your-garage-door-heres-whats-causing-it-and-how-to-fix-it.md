@@ -1,7 +1,7 @@
 ---
 title: "Gap Under Your Garage Door? Here's What's Causing It and How to Fix It"
 description: "A gap under the garage door is one of the most common problems homeowners run into, and the cause isn't always the one you'd guess. Sometimes it's a worn-out seal. Sometimes it's the concrete. Sometimes the door itself isn't sitting level."
-pubDate: "2026-10-05"
+pubDate: "2026-10-19"
 slug: "gap-under-your-garage-door-heres-whats-causing-it-and-how-to-fix-it"
 author: "Isabella Garage Door"
 thumbnail: "/photos/thumbnails/gap-under-your-garage-door-heres-whats-causing-it-and-how-to-fix-it.webp"

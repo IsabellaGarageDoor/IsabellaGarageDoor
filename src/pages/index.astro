@@ -5,7 +5,6 @@ import SeasonalHeroImage from '../components/SeasonalHeroImage.astro';
 import AvailabilityBanner from '../components/AvailabilityBanner.astro';
 import AnnouncementBanner from '../components/editable-sections/AnnouncementBanner.astro';
 import HolidaysBirthdaysBanner from '../components/HolidaysBirthdaysBanner.astro';
-import TrustBadges from '../components/TrustBadges.astro';
 import ServiceCards, { type ServiceCard } from '../components/ServiceCards.astro';
 import Accordion from '../components/ui/Accordion.astro';
 import ReviewsSection from '../components/ReviewsSection.astro';
@@ -135,12 +134,6 @@ const faqs: FaqItem[] = [
   </HomeHero>
 
   <AvailabilityBanner />
-
-  <section class="section section--tight section--white trust-band">
-    <div class="container">
-      <TrustBadges />
-    </div>
-  </section>
 
   <AnnouncementBanner />
   <HolidaysBirthdaysBanner />

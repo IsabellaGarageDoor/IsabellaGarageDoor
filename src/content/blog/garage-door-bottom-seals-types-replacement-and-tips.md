@@ -1,7 +1,7 @@
 ---
 title: "Garage Door Bottom Seals: Types, Replacement, and Tips"
 description: "Here's what to know about the different types, how hard the job really is, and a few tips that make it go smoothly."
-pubDate: "2026-10-19"
+pubDate: "2026-10-26"
 slug: "garage-door-bottom-seals-types-replacement-and-tips"
 author: "Isabella Garage Door"
 thumbnail: "/photos/thumbnails/garage-door-bottom-seals-types-replacement-and-tips.webp"

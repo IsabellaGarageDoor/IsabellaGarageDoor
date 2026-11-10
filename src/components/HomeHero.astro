@@ -4,6 +4,7 @@
 // a <picture> on location pages).
 import Icon from './ui/Icon.astro';
 import { site, telHref, smsHref, smsMessages } from '../config/site';
+import TrustBadges from '../components/TrustBadges.astro';
 
 interface Props {
   title: string;
@@ -32,11 +33,11 @@ const { title, description, bullets, eyebrow = 'Locally owned · Rosebush, Michi
         ))}
       </ul>
       <div class="cluster home-hero__actions">
-        <a href={telHref} class="btn btn--primary btn--lg">
-          <Icon name="phone" /> Call {site.phone.display}
-        </a>
-        <a href={smsHref(smsMessages.general)} class="btn btn--outline-light btn--lg">
+        <a href={smsHref(smsMessages.general)} class="btn btn--primary btn--lg">
           <Icon name="text" /> Text Us
+        </a>
+        <a href={telHref} class="btn btn--outline-light btn--lg">
+          <Icon name="phone" /> Call {site.phone.display}
         </a>
       </div>
       <div class="home-hero__links">
@@ -46,6 +47,7 @@ const { title, description, bullets, eyebrow = 'Locally owned · Rosebush, Michi
           <a href="/homeowner-tools/easy-estimate#estimate-form" class="link-arrow">Get an Instant Estimate <Icon name="arrow-right" size="1em" /></a>
         </span>
       </div>
+      <TrustBadges />
     </div>
   </div>
 </section>
@@ -69,9 +71,11 @@ const { title, description, bullets, eyebrow = 'Locally owned · Rosebush, Michi
     z-index: -1;
   }
 
+.home-hero__media :global(picture),
   .home-hero__media :global(img) {
     width: 100%;
     height: 100%;
+    display: block;
     object-fit: cover;
     object-position: center 40%;
   }
