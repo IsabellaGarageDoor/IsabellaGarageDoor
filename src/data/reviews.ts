@@ -77,6 +77,12 @@ export const reviews: Review[] = [
     date: '2026-10-10',
     rating: 5,
   },
+  {
+    author: 'Bailey B.',
+    quote: 'I highly recommend Isabella Garage Door! They were absolutely amazing to work with from start to finish. Communication was easy, they were punctual, and they got everything taken care of quickly and efficiently. The whole process was completely hassle-free, and their pricing was very reasonable. It’s so nice to find a company that’s reliable, professional, and easy to work with. I couldn’t be happier with the service and would definitely use them again. Thank you for such a great experience!',
+    date: '2026-11-11',
+    rating: 5,
+  },
 ];
 
 /** Newest first */

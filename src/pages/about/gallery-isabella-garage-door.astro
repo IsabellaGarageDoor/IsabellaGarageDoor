@@ -22,7 +22,42 @@ const posts: GalleryPost[] = [
 
 
 
-
+  {
+    image: "/photos/old-genie-screw-drive-nov-2026.webp",
+    alt: "Old Genie Screw Drive Garage Door Opener",
+    caption: "Carriage teeth broke off on this old Genie screw drive, replaced the carriage and kept it working!",
+    date: "2026-11-17"
+  },
+  {
+    image: "/photos/both-cables-off-nov-2026.webp",
+    alt: "Garage Door with both cables off",
+    caption: "Cables came off both drums. Got them back on and the door working again",
+    date: "2026-11-11"
+  },
+  {
+    image: "/photos/hinge-replacement-nov-2026.webp",
+    alt: "Garage door hinge replacement",
+    caption: "There were several bent hinges on this door. We replaced them with higher quaility ones.",
+    date: "2026-11-11"
+  },
+  {
+    image: "/photos/bent-garage-door-track-oct-2026.webp",
+    alt: "Bent garage door track",
+    caption: "This track got backed into and bent.",
+    date: "2026-10-26"
+  },
+  {
+    image: "/photos/unique-low-headroom-top-bracket-sept-2026.webp",
+    alt: "Unique garage door top panel bracket",
+    caption: "This garage door had a unique low headroom top panel bracket. pretty cool to see.",
+    date: "2026-09-27"
+  },
+  {
+    image: "/photos/thumbnails/lose-garage-door-hinge-bolts.webp",
+    alt: "Loose hinge bolts on a wooden door",
+    caption: "Many loose hinge bolts on this wooden door. Pretty common with wood doors.",
+    date: "2026-09-27"
+  },
   {
     image: "/photos/cable-off-weidman-michigan.webp",
     alt: "Garage Door cable off in Weidman Michigan",
@@ -75,7 +110,7 @@ const posts: GalleryPost[] = [
 const sorted = [...posts].sort((a, b) => b.date.localeCompare(a.date));
 
 // Pagination happens in the browser (?page=N) — see components/Paginate.astro
-const perPage = 9;
+const perPage = 12;
 ---
 
 <BaseLayout {title} {description}>

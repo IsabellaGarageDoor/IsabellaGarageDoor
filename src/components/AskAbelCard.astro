@@ -1,8 +1,8 @@
 ---
-// AskAbel™ inline chat card — embeds the Chatbase assistant.
+// AskAbel™ inline chat card — native chat UI backed by the Gemini API
+// (via the /.netlify/functions/ask-abel proxy, so the API key never reaches the browser).
 // Usage: <AskAbelCard /> (optionally with heading/subheading)
 import Icon from './ui/Icon.astro';
-import { site } from '../config/site';
 
 export interface Props {
   /** @deprecated kept so existing usages compile; the card always embeds the chat */
@@ -15,6 +15,14 @@ const {
   heading = 'Still have questions?',
   subheading = 'Ask Abel — our AI assistant — and get an answer in seconds.',
 } = Astro.props;
+
+const greeting =
+  "Hi, I'm AskAbel, Isabella Garage Door's AI assistant. Ask me about garage door problems, springs, openers, or maintenance.";
+const suggestions = [
+  'My door is making a loud noise',
+  'Door won’t close all the way',
+  'What does a Performance Membership include?',
+];
 ---
 
 <section class="section abel" aria-label="Ask Abel AI assistant">
@@ -28,7 +36,7 @@ const {
       </a>
     </div>
 
-    <div class="abel-card">
+    <div class="abel-card" data-abel>
       <header class="abel-card__header">
         <div class="abel-card__title">
           <span class="abel-card__avatar"><Icon name="bot" /></span>
@@ -43,12 +51,32 @@ const {
         </span>
       </header>
 
-      <iframe
-        src={`https://www.chatbase.co/chatbot-iframe/${site.chatbaseId}`}
-        title="Ask Abel — Isabella Garage Door AI Assistant"
-        loading="lazy"
-        allowtransparency="true"
-      ></iframe>
+      <div class="abel-chat">
+        <div class="abel-chat__log" role="log" aria-live="polite" aria-label="Conversation with AskAbel">
+          <div class="abel-msg abel-msg--bot">{greeting}</div>
+        </div>
+
+        <div class="abel-chat__chips">
+          {suggestions.map((s) => <button type="button" class="abel-chip">{s}</button>)}
+        </div>
+
+        <form class="abel-chat__form" autocomplete="off">
+          <label class="visually-hidden" for="abel-input">Your question</label>
+          <input
+            id="abel-input"
+            class="abel-chat__input"
+            type="text"
+            name="message"
+            maxlength="600"
+            placeholder="Type your garage door question…"
+            required
+          />
+          <button type="submit" class="abel-chat__send">Send</button>
+        </form>
+        <p class="abel-chat__note">
+          AI answers may be imperfect. For urgent issues or springs and cables, call 989-572-0303.
+        </p>
+      </div>
     </div>
   </div>
 </section>
@@ -132,11 +160,134 @@ const {
     box-shadow: 0 0 0 3px rgb(74 222 128 / 0.25);
   }
 
-  .abel-card iframe {
-    width: 100%;
+  /* ---- Chat ---- */
+  .abel-chat {
+    display: flex;
+    flex-direction: column;
     height: 420px;
-    border: 0;
     background: var(--white);
+  }
+
+  .abel-chat__log {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: var(--space-4) var(--space-5);
+    overflow-y: auto;
+  }
+
+  /* Messages are created by JS, so they need :global to match Astro's scoped CSS */
+  .abel-chat__log :global(.abel-msg) {
+    max-width: 85%;
+    padding: 0.6rem 0.9rem;
+    border-radius: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.45;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .abel-chat__log :global(.abel-msg--bot) {
+    align-self: flex-start;
+    border-bottom-left-radius: 0.25rem;
+    background: rgb(26 51 79 / 0.07);
+    color: var(--navy);
+  }
+
+  .abel-chat__log :global(.abel-msg--user) {
+    align-self: flex-end;
+    border-bottom-right-radius: 0.25rem;
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .abel-chat__log :global(.abel-msg--error) {
+    background: #fdecea;
+    color: #8a1f17;
+  }
+
+  .abel-chat__log :global(.abel-msg--typing) {
+    opacity: 0.6;
+    font-style: italic;
+  }
+
+  .abel-chat__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 0 var(--space-5) var(--space-3);
+  }
+
+  .abel-chip {
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    background: var(--white);
+    color: var(--navy);
+    font: inherit;
+    font-size: var(--text-xs);
+    cursor: pointer;
+  }
+
+  .abel-chip:hover,
+  .abel-chip:focus-visible {
+    border-color: #b27d57;
+    color: #b27d57;
+  }
+
+  .abel-chat__form {
+    display: flex;
+    gap: 0.5rem;
+    padding: var(--space-3) var(--space-5) 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .abel-chat__input {
+    flex: 1;
+    min-width: 0;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-pill);
+    font: inherit;
+    font-size: 1rem; /* 16px prevents iOS zoom-on-focus */
+    color: var(--navy);
+  }
+
+  .abel-chat__input:focus-visible {
+    outline: 2px solid #b27d57;
+    outline-offset: 1px;
+  }
+
+  .abel-chat__send {
+    padding: 0.65rem 1.1rem;
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: #b27d57;
+    color: var(--white);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .abel-chat__send:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .abel-chat__note {
+    padding: 0.4rem var(--space-5) var(--space-3);
+    color: var(--muted);
+    font-size: var(--text-xs);
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
   }
 
   @media (min-width: 900px) {
@@ -146,3 +297,81 @@ const {
     }
   }
 </style>
+
+<script>
+  const ENDPOINT = '/.netlify/functions/ask-abel';
+  const FALLBACK =
+    "Sorry, I couldn't reach the assistant just now. Please call 989-572-0303 and we'll help right away.";
+
+  function initCard(card: HTMLElement) {
+    const log = card.querySelector<HTMLElement>('.abel-chat__log')!;
+    const form = card.querySelector<HTMLFormElement>('.abel-chat__form')!;
+    const input = card.querySelector<HTMLInputElement>('.abel-chat__input')!;
+    const send = card.querySelector<HTMLButtonElement>('.abel-chat__send')!;
+    const chips = card.querySelector<HTMLElement>('.abel-chat__chips')!;
+
+    // Conversation history sent to the server (the greeting is display-only).
+    const history: { role: 'user' | 'model'; text: string }[] = [];
+    let busy = false;
+
+    function addMessage(text: string, kind: 'bot' | 'user' | 'error' | 'typing') {
+      const el = document.createElement('div');
+      el.className = 'abel-msg abel-msg--' + (kind === 'user' ? 'user' : 'bot');
+      if (kind === 'error') el.classList.add('abel-msg--error');
+      if (kind === 'typing') el.classList.add('abel-msg--typing');
+      el.textContent = text; // textContent (not innerHTML) so model output can never inject HTML
+      log.appendChild(el);
+      log.scrollTop = log.scrollHeight;
+      return el;
+    }
+
+    async function ask(text: string) {
+      if (busy || !text.trim()) return;
+      busy = true;
+      send.disabled = true;
+      chips.hidden = true;
+
+      addMessage(text, 'user');
+      history.push({ role: 'user', text });
+      input.value = '';
+      const typing = addMessage('AskAbel is typing…', 'typing');
+
+      try {
+        const res = await fetch(ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages: history }),
+        });
+        const data = await res.json().catch(() => ({}));
+        typing.remove();
+
+        if (res.ok && data.reply) {
+          history.push({ role: 'model', text: data.reply });
+          addMessage(data.reply, 'bot');
+        } else {
+          history.pop(); // drop the unanswered user turn so history stays valid
+          addMessage(res.status === 429 ? data.error || FALLBACK : FALLBACK, 'error');
+        }
+      } catch {
+        typing.remove();
+        history.pop();
+        addMessage(FALLBACK, 'error');
+      } finally {
+        busy = false;
+        send.disabled = false;
+        input.focus();
+      }
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      ask(input.value);
+    });
+
+    chips.querySelectorAll<HTMLButtonElement>('.abel-chip').forEach((chip) => {
+      chip.addEventListener('click', () => ask(chip.textContent || ''));
+    });
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-abel]').forEach(initCard);
+</script>
