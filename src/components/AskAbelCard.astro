@@ -1,7 +1,7 @@
 ---
 // AskAbel™ inline chat card — native chat UI backed by the Gemini API
 // (via the /.netlify/functions/ask-abel proxy, so the API key never reaches the browser).
-// Usage: <AskAbelCard /> (optionally with heading/subheading)
+// Usage: <AskAbelCard /> or <AskAbelCard standalone />
 import Icon from './ui/Icon.astro';
 
 export interface Props {
@@ -9,77 +9,124 @@ export interface Props {
   chatUrl?: string;
   heading?: string;
   subheading?: string;
+  standalone?: boolean;
 }
 
 const {
   heading = 'Still have questions?',
   subheading = 'Ask Abel — our AI assistant — and get an answer in seconds.',
+  standalone = false,
 } = Astro.props;
 
 const greeting =
-  "Hi, I'm AskAbel, Isabella Garage Door's AI assistant. Ask me about garage door problems, springs, openers, or maintenance.";
+  "Hi, I'm Abel, Isabella Garage Door's AI assistant. Ask me about garage door problems, openers, or any questions you may have.";
 const suggestions = [
   'My door is making a loud noise',
   'Door won’t close all the way',
-  'What does a Performance Membership include?',
+  'My car is stuck!',
 ];
 ---
 
-<section class="section abel" aria-label="Ask Abel AI assistant">
-  <div class="container abel__grid">
-    <div class="abel__intro">
-      <span class="eyebrow">AskAbel™ AI Assistant</span>
-      <h2>{heading}</h2>
-      <p>{subheading}</p>
-      <a href="/homeowner-tools/ask-abel-ai-assistant" class="link-arrow">
-        More about AskAbel™ <Icon name="arrow-right" size="1em" />
-      </a>
-    </div>
-
-    <div class="abel-card" data-abel>
-      <header class="abel-card__header">
-        <div class="abel-card__title">
-          <span class="abel-card__avatar"><Icon name="bot" /></span>
-          <div>
-            <strong>AskAbel™</strong>
-            <span>AI Garage Door Assistant · Answers instantly</span>
-          </div>
+{standalone ? (
+  <div class="abel-card abel-card--standalone" data-abel>
+    <header class="abel-card__header">
+      <div class="abel-card__title">
+        <span class="abel-card__avatar"><Icon name="bot" /></span>
+        <div>
+          <strong>AskAbel™</strong>
+          <span>AI Garage Door Assistant · Answers instantly</span>
         </div>
-        <span class="abel-card__status">
-          <span class="abel-card__dot" aria-hidden="true"></span>
-          Online
-        </span>
-      </header>
-
-      <div class="abel-chat">
-        <div class="abel-chat__log" role="log" aria-live="polite" aria-label="Conversation with AskAbel">
-          <div class="abel-msg abel-msg--bot">{greeting}</div>
-        </div>
-
-        <div class="abel-chat__chips">
-          {suggestions.map((s) => <button type="button" class="abel-chip">{s}</button>)}
-        </div>
-
-        <form class="abel-chat__form" autocomplete="off">
-          <label class="visually-hidden" for="abel-input">Your question</label>
-          <input
-            id="abel-input"
-            class="abel-chat__input"
-            type="text"
-            name="message"
-            maxlength="600"
-            placeholder="Type your garage door question…"
-            required
-          />
-          <button type="submit" class="abel-chat__send">Send</button>
-        </form>
-        <p class="abel-chat__note">
-          AI answers may be imperfect. For urgent issues or springs and cables, call 989-572-0303.
-        </p>
       </div>
+      <span class="abel-card__status">
+        <span class="abel-card__dot" aria-hidden="true"></span>
+        Online
+      </span>
+    </header>
+
+    <div class="abel-chat">
+      <div class="abel-chat__log" role="log" aria-live="polite" aria-label="Conversation with AskAbel">
+        <div class="abel-msg abel-msg--bot">{greeting}</div>
+      </div>
+
+      <div class="abel-chat__chips">
+        {suggestions.map((s) => <button type="button" class="abel-chip">{s}</button>)}
+      </div>
+
+      <form class="abel-chat__form" autocomplete="off">
+        <label class="visually-hidden" for="abel-input-standalone">Your question</label>
+        <input
+          id="abel-input-standalone"
+          class="abel-chat__input"
+          type="text"
+          name="message"
+          maxlength="600"
+          placeholder="Type your garage door question…"
+          required
+        />
+        <button type="submit" class="abel-chat__send">Send</button>
+      </form>
+      <p class="abel-chat__note">
+        Answers may be imperfect. For the most accurate information, text or call 989-572-0303.
+      </p>
     </div>
   </div>
-</section>
+) : (
+  <section class="section abel" aria-label="Ask Abel AI assistant">
+    <div class="container abel__grid">
+      <div class="abel__intro">
+        <span class="eyebrow">AskAbel™ AI Assistant</span>
+        <h2>{heading}</h2>
+        <p>{subheading}</p>
+        <a href="/homeowner-tools/ask-abel-ai-assistant" class="link-arrow">
+          More about AskAbel™ <Icon name="arrow-right" size="1em" />
+        </a>
+      </div>
+
+      <div class="abel-card" data-abel>
+        <header class="abel-card__header">
+          <div class="abel-card__title">
+            <span class="abel-card__avatar"><Icon name="bot" /></span>
+            <div>
+              <strong>AskAbel™</strong>
+              <span>AI Garage Door Assistant · Answers instantly</span>
+            </div>
+          </div>
+          <span class="abel-card__status">
+            <span class="abel-card__dot" aria-hidden="true"></span>
+            Online
+          </span>
+        </header>
+
+        <div class="abel-chat">
+          <div class="abel-chat__log" role="log" aria-live="polite" aria-label="Conversation with AskAbel">
+            <div class="abel-msg abel-msg--bot">{greeting}</div>
+          </div>
+
+          <div class="abel-chat__chips">
+            {suggestions.map((s) => <button type="button" class="abel-chip">{s}</button>)}
+          </div>
+
+          <form class="abel-chat__form" autocomplete="off">
+            <label class="visually-hidden" for="abel-input">Your question</label>
+            <input
+              id="abel-input"
+              class="abel-chat__input"
+              type="text"
+              name="message"
+              maxlength="600"
+              placeholder="Type your garage door question…"
+              required
+            />
+            <button type="submit" class="abel-chat__send">Send</button>
+          </form>
+          <p class="abel-chat__note">
+            Answers may be imperfect. For the most accurate information, text or call 989-572-0303.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
 
 <style>
   .abel__grid {
@@ -103,6 +150,7 @@ const suggestions = [
     border-radius: var(--radius-lg);
     background: var(--white);
     box-shadow: var(--shadow-lg);
+    text-align: left;
   }
 
   .abel-card__header {
@@ -166,6 +214,10 @@ const suggestions = [
     flex-direction: column;
     height: 420px;
     background: var(--white);
+  }
+
+  .abel-card--standalone .abel-chat {
+    height: 480px;
   }
 
   .abel-chat__log {
@@ -301,7 +353,7 @@ const suggestions = [
 <script>
   const ENDPOINT = '/.netlify/functions/ask-abel';
   const FALLBACK =
-    "Sorry, I couldn't reach the assistant just now. Please call 989-572-0303 and we'll help right away.";
+    "Sorry, I couldn't reach the assistant just now. Please text or call 989-572-0303 and we'll help right away.";
 
   function initCard(card: HTMLElement) {
     const log = card.querySelector<HTMLElement>('.abel-chat__log')!;
